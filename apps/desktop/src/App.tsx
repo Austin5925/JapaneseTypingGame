@@ -2,23 +2,34 @@ import { useEffect, useState, type JSX } from 'react';
 
 import { DevPage } from './pages/DevPage';
 import { EvaluatorDevPage } from './pages/EvaluatorDevPage';
+import { GamePage } from './pages/GamePage';
 import { HomePlaceholder } from './pages/HomePlaceholder';
 import { InputDevPage } from './pages/InputDevPage';
+import { ResultPage } from './pages/ResultPage';
 
-// Hash-based routing keeps the scaffold dependency-free; we'll swap to a real router in Sprint 3
-// when game pages with sessionId params arrive.
-type Route = 'home' | 'dev' | 'dev-input' | 'dev-eval';
+// Hash-based routing keeps the scaffold dependency-free. Sprint 5 will introduce a proper
+// router; for now we discriminate on `kind` so result/:sessionId can carry a parameter.
+type Route =
+  | { kind: 'home' }
+  | { kind: 'dev' }
+  | { kind: 'dev-input' }
+  | { kind: 'dev-eval' }
+  | { kind: 'game-mole' }
+  | { kind: 'result'; sessionId: string };
 
 function getRoute(): Route {
   const hash = globalThis.location.hash;
-  if (hash === '#/dev') return 'dev';
-  if (hash === '#/dev/input') return 'dev-input';
-  if (hash === '#/dev/eval') return 'dev-eval';
-  return 'home';
+  if (hash === '#/dev') return { kind: 'dev' };
+  if (hash === '#/dev/input') return { kind: 'dev-input' };
+  if (hash === '#/dev/eval') return { kind: 'dev-eval' };
+  if (hash === '#/game/mole') return { kind: 'game-mole' };
+  const resultMatch = hash.match(/^#\/result\/(.+)$/u);
+  if (resultMatch) return { kind: 'result', sessionId: resultMatch[1]! };
+  return { kind: 'home' };
 }
 
 export function App(): JSX.Element {
-  const [route, setRoute] = useState<Route>(getRoute());
+  const [route, setRoute] = useState<Route>(getRoute);
 
   useEffect(() => {
     const onHashChange = (): void => setRoute(getRoute());
@@ -42,11 +53,14 @@ export function App(): JSX.Element {
         <a href="#/dev">dev (db)</a>
         <a href="#/dev/input">dev (input)</a>
         <a href="#/dev/eval">dev (eval)</a>
+        <a href="#/game/mole">game (mole)</a>
       </nav>
-      {route === 'home' && <HomePlaceholder />}
-      {route === 'dev' && <DevPage />}
-      {route === 'dev-input' && <InputDevPage />}
-      {route === 'dev-eval' && <EvaluatorDevPage />}
+      {route.kind === 'home' && <HomePlaceholder />}
+      {route.kind === 'dev' && <DevPage />}
+      {route.kind === 'dev-input' && <InputDevPage />}
+      {route.kind === 'dev-eval' && <EvaluatorDevPage />}
+      {route.kind === 'game-mole' && <GamePage />}
+      {route.kind === 'result' && <ResultPage sessionId={route.sessionId} />}
     </main>
   );
 }
