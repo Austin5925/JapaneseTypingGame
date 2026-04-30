@@ -8,6 +8,71 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-04-30
+
+Sprint 2 — the evaluation/scoring/mastery/scheduler layer plus the SQLite-backed session and
+attempt persistence. The `/dev/eval` route exercises the entire pipeline live: pick an item,
+type an answer, see the EvaluationResult, the persisted attempt row, and the updated progress
+record.
+
+### Added (`@kana-typing/core`)
+
+- `evaluation/scoring.ts` — `scoreAttempt(input)` returns
+  `{raw, accuracy, speed, penalty, quality}`. Speed clamped 0..1.2 against a 300ms reaction
+  floor; severe Japanese errors (long_vowel/sokuon/dakuten/particle/meaning/ime) cap quality
+  regardless of raw speed; using a hint caps quality at 3.
+- `evaluation/crossGameEffects.ts` — `buildCrossGameEffects(evaluation)` maps each ErrorTag to
+  forwarded `{targetGameType, skillDimension, priorityBoost, reason}` routing entries with
+  dedupe.
+- `evaluation/answerEvaluator.ts` — `evaluate(task, attempt)` dispatch table over AnswerMode.
+  Per-mode evaluators for romaji_to_kana, kana_input, kanji_to_reading, meaning_to_surface,
+  ime_surface, audio_to_surface, plus a not-implemented stub for sentence_chunk_order so
+  generic Sprint 3 dispatch flows don't crash before V1's river-jump evaluator ships.
+- `mastery/scheduler.ts` — `scheduleNext / shouldRepeatImmediately / getDuePriority`. Severe
+  errors → +10 minutes (immediate repeat); non-severe miss → +1 day; correct intervals scale
+  with state (new/seen=1d / learning=2d / fragile=3d / stable=7d / fluent=21d / cooldown=30d).
+- `mastery/masteryService.ts` — `updateProgress(old, evaluation, options)` with state-aware
+  delta (bigger steps in early states, smaller once stable; severe errors hurt 2x). Streak
+  resets on miss; lapse only increments when a previously non-zero streak breaks. nextDueAt
+  routed through scheduler.
+- `util/math.ts` — `clamp / addDays / addMinutes / ewma` shared helpers.
+
+### Added (`apps/desktop`)
+
+- `src-tauri/src/commands.rs` — Sprint 2 commands `create_session / finish_session /
+  insert_attempt_event / get_progress / upsert_progress / record_attempt_result /
+  list_recent_attempts`. Frontend supplies row IDs (crypto.randomUUID) so Rust doesn't pull
+  in a uuid crate. `record_attempt_result` writes the attempt event + progress upsert in a
+  single SQLite transaction, used by `GameSessionService.flush()`.
+- `src/features/session/GameSessionService.ts` — owns one game session: `create()` opens it,
+  `submitAttempt(task, attempt)` runs `evaluate()` + `updateProgress()` and persists both,
+  `finish()` flushes the buffer + closes. In-flight submits are tracked in a Set so
+  `finish()` awaits them before closing — no race on unmount. `bufferAttempts=true` defers
+  the SQLite write until `flush()` (used by Sprint 3 game scenes that don't want DB chatter
+  at 60 fps).
+- `src/pages/EvaluatorDevPage.tsx` (`#/dev/eval`) — operator probe: pick item + answer mode,
+  type via ImeInputBox, see live EvaluationResult / progress / recent-attempts panels.
+
+### Changed
+
+- `EvaluationStrictness` already included `handakuten` and `youon` axes from the v0.2.0
+  fixes; `isAcceptableUnderPolicy` now uses an explicit switch with default-reject so each
+  tag's policy is unambiguous.
+
+### Tests
+
+49 new unit tests across 4 files: `evaluation/scoring.test.ts` (8),
+`evaluation/answerEvaluator.test.ts` (16), `mastery/scheduler.test.ts` (16),
+`mastery/masteryService.test.ts` (9). 165 total in core (was 116).
+
+### Notes
+
+- Codex review of Sprint 2 caught four must-fix items (atomic flush, session unmount race,
+  sentence_chunk_order hard-crash, romaji_to_kana failure diagnostic) — all addressed before
+  tagging.
+- `pnpm tauri dev` and walking `#/dev/eval` end-to-end is still a user-driven verification
+  step; the scaffold makes that possible.
+
 ## [0.2.0] - 2026-04-30
 
 The Japanese language layer. `@kana-typing/core/japanese` is the single point every game and
