@@ -1,5 +1,5 @@
 use chrono::Utc;
-use rusqlite::params;
+use rusqlite::{params, OptionalExtension};
 use serde::{Deserialize, Serialize};
 use tauri::State;
 
@@ -323,5 +323,337 @@ pub fn seed_test_pack(db: State<'_, AppDb>) -> AppResult<SeedTestPackResult> {
     Ok(SeedTestPackResult {
         pack_id: pack.id,
         items_upserted,
+    })
+}
+
+// ────────────────────────────────────────────────────────────────────────
+// Session / attempt / progress (Sprint 2)
+// ────────────────────────────────────────────────────────────────────────
+//
+// Frontend generates IDs (crypto.randomUUID). The Rust side just persists what it's given,
+// so we don't pull in a uuid crate yet.
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CreateSessionInput {
+    pub id: String,
+    pub user_id: String,
+    pub game_type: String,
+    #[serde(default)]
+    pub plan_id: Option<String>,
+    #[serde(default)]
+    pub target_duration_ms: Option<i64>,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SessionRecord {
+    pub id: String,
+    pub user_id: String,
+    pub game_type: String,
+    pub plan_id: Option<String>,
+    pub started_at: String,
+    pub ended_at: Option<String>,
+    pub status: String,
+    pub target_duration_ms: Option<i64>,
+}
+
+#[tauri::command]
+pub fn create_session(db: State<'_, AppDb>, input: CreateSessionInput) -> AppResult<SessionRecord> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let started_at = Utc::now().to_rfc3339();
+    conn.execute(
+        "INSERT INTO game_sessions (id, user_id, game_type, plan_id, started_at, status, target_duration_ms)\n         VALUES (?1, ?2, ?3, ?4, ?5, 'active', ?6)",
+        params![
+            input.id,
+            input.user_id,
+            input.game_type,
+            input.plan_id,
+            started_at,
+            input.target_duration_ms,
+        ],
+    )?;
+    Ok(SessionRecord {
+        id: input.id,
+        user_id: input.user_id,
+        game_type: input.game_type,
+        plan_id: input.plan_id,
+        started_at,
+        ended_at: None,
+        status: "active".to_string(),
+        target_duration_ms: input.target_duration_ms,
+    })
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct FinishSessionInput {
+    pub session_id: String,
+    pub status: String, // finished / aborted / timeout
+    #[serde(default)]
+    pub final_score: Option<f64>,
+    /// Free-form summary serialised by the caller; we don't introspect the shape here.
+    #[serde(default)]
+    pub summary_json: Option<String>,
+}
+
+#[tauri::command]
+pub fn finish_session(db: State<'_, AppDb>, input: FinishSessionInput) -> AppResult<()> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let ended_at = Utc::now().to_rfc3339();
+    conn.execute(
+        "UPDATE game_sessions SET ended_at = ?1, status = ?2, final_score = ?3, summary_json = ?4 WHERE id = ?5",
+        params![
+            ended_at,
+            input.status,
+            input.final_score,
+            input.summary_json,
+            input.session_id,
+        ],
+    )?;
+    Ok(())
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct AttemptEventInput {
+    pub id: String,
+    pub session_id: String,
+    pub user_id: String,
+    pub task_id: String,
+    pub item_id: String,
+    pub game_type: String,
+    pub skill_dimension: String,
+    pub answer_mode: String,
+    #[serde(default)]
+    pub raw_input: Option<String>,
+    #[serde(default)]
+    pub committed_input: Option<String>,
+    #[serde(default)]
+    pub selected_option_id: Option<String>,
+    #[serde(default)]
+    pub chunk_order: Option<Vec<String>>,
+    pub is_correct: bool,
+    pub score: f64,
+    pub reaction_time_ms: i64,
+    pub used_hint: bool,
+    pub error_tags: Vec<String>,
+    #[serde(default)]
+    pub explanation: Option<String>,
+}
+
+#[tauri::command]
+pub fn insert_attempt_event(db: State<'_, AppDb>, input: AttemptEventInput) -> AppResult<()> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let now = Utc::now().to_rfc3339();
+    let chunk_order_json = input
+        .chunk_order
+        .as_ref()
+        .map(serde_json::to_string)
+        .transpose()?;
+    conn.execute(
+        "INSERT INTO attempt_events (\n             id, session_id, user_id, task_id, item_id, game_type, skill_dimension,\n             answer_mode, raw_input, committed_input, selected_option_id, chunk_order_json,\n             is_correct, score, reaction_time_ms, used_hint, error_tags_json, explanation, created_at\n         ) VALUES (\n             ?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19\n         )",
+        params![
+            input.id,
+            input.session_id,
+            input.user_id,
+            input.task_id,
+            input.item_id,
+            input.game_type,
+            input.skill_dimension,
+            input.answer_mode,
+            input.raw_input,
+            input.committed_input,
+            input.selected_option_id,
+            chunk_order_json,
+            input.is_correct as i64,
+            input.score,
+            input.reaction_time_ms,
+            input.used_hint as i64,
+            serde_json::to_string(&input.error_tags)?,
+            input.explanation,
+            now,
+        ],
+    )?;
+    Ok(())
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ProgressRecord {
+    pub user_id: String,
+    pub item_id: String,
+    pub skill_dimension: String,
+    pub state: String,
+    pub mastery_score: f64,
+    pub stability: f64,
+    pub difficulty: f64,
+    pub exposure_count: i64,
+    pub correct_count: i64,
+    pub wrong_count: i64,
+    pub streak: i64,
+    pub lapse_count: i64,
+    pub average_reaction_time_ms: Option<f64>,
+    pub last_attempt_at: Option<String>,
+    pub next_due_at: Option<String>,
+    pub last_error_tags: Vec<String>,
+    pub updated_at: String,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct GetProgressInput {
+    pub user_id: String,
+    pub item_id: String,
+    pub skill_dimension: String,
+}
+
+#[tauri::command]
+pub fn get_progress(
+    db: State<'_, AppDb>,
+    input: GetProgressInput,
+) -> AppResult<Option<ProgressRecord>> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let row = conn
+        .query_row(
+            "SELECT user_id, item_id, skill_dimension, state, mastery_score, stability, difficulty,\n                    exposure_count, correct_count, wrong_count, streak, lapse_count,\n                    average_reaction_time_ms, last_attempt_at, next_due_at, last_error_tags_json, updated_at\n             FROM item_skill_progress\n             WHERE user_id = ?1 AND item_id = ?2 AND skill_dimension = ?3",
+            params![input.user_id, input.item_id, input.skill_dimension],
+            progress_row_to_record,
+        )
+        .optional()?;
+    Ok(row)
+}
+
+#[tauri::command]
+pub fn upsert_progress(db: State<'_, AppDb>, input: ProgressRecord) -> AppResult<()> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let last_error_tags_json = serde_json::to_string(&input.last_error_tags)?;
+    conn.execute(
+        "INSERT INTO item_skill_progress (\n             user_id, item_id, skill_dimension, state, mastery_score, stability, difficulty,\n             exposure_count, correct_count, wrong_count, streak, lapse_count,\n             average_reaction_time_ms, last_attempt_at, next_due_at, last_error_tags_json, updated_at\n         ) VALUES (\n             ?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17\n         )\n         ON CONFLICT(user_id, item_id, skill_dimension) DO UPDATE SET\n             state = excluded.state,\n             mastery_score = excluded.mastery_score,\n             stability = excluded.stability,\n             difficulty = excluded.difficulty,\n             exposure_count = excluded.exposure_count,\n             correct_count = excluded.correct_count,\n             wrong_count = excluded.wrong_count,\n             streak = excluded.streak,\n             lapse_count = excluded.lapse_count,\n             average_reaction_time_ms = excluded.average_reaction_time_ms,\n             last_attempt_at = excluded.last_attempt_at,\n             next_due_at = excluded.next_due_at,\n             last_error_tags_json = excluded.last_error_tags_json,\n             updated_at = excluded.updated_at",
+        params![
+            input.user_id,
+            input.item_id,
+            input.skill_dimension,
+            input.state,
+            input.mastery_score,
+            input.stability,
+            input.difficulty,
+            input.exposure_count,
+            input.correct_count,
+            input.wrong_count,
+            input.streak,
+            input.lapse_count,
+            input.average_reaction_time_ms,
+            input.last_attempt_at,
+            input.next_due_at,
+            last_error_tags_json,
+            input.updated_at,
+        ],
+    )?;
+    Ok(())
+}
+
+fn progress_row_to_record(row: &rusqlite::Row<'_>) -> rusqlite::Result<ProgressRecord> {
+    let last_error_tags_json: String = row.get(15)?;
+    let last_error_tags: Vec<String> =
+        serde_json::from_str(&last_error_tags_json).unwrap_or_default();
+    Ok(ProgressRecord {
+        user_id: row.get(0)?,
+        item_id: row.get(1)?,
+        skill_dimension: row.get(2)?,
+        state: row.get(3)?,
+        mastery_score: row.get(4)?,
+        stability: row.get(5)?,
+        difficulty: row.get(6)?,
+        exposure_count: row.get(7)?,
+        correct_count: row.get(8)?,
+        wrong_count: row.get(9)?,
+        streak: row.get(10)?,
+        lapse_count: row.get(11)?,
+        average_reaction_time_ms: row.get(12)?,
+        last_attempt_at: row.get(13)?,
+        next_due_at: row.get(14)?,
+        last_error_tags,
+        updated_at: row.get(16)?,
+    })
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct AttemptListInput {
+    pub user_id: String,
+    pub item_id: Option<String>,
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct AttemptEventRow {
+    pub id: String,
+    pub session_id: String,
+    pub item_id: String,
+    pub answer_mode: String,
+    pub is_correct: bool,
+    pub score: f64,
+    pub reaction_time_ms: i64,
+    pub error_tags: Vec<String>,
+    pub created_at: String,
+}
+
+#[tauri::command]
+pub fn list_recent_attempts(
+    db: State<'_, AppDb>,
+    input: AttemptListInput,
+) -> AppResult<Vec<AttemptEventRow>> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let limit = input.limit.unwrap_or(50).clamp(1, 1000);
+    let rows: Vec<AttemptEventRow> = if let Some(item_id) = input.item_id.as_ref() {
+        let mut stmt = conn.prepare(
+            "SELECT id, session_id, item_id, answer_mode, is_correct, score, reaction_time_ms, error_tags_json, created_at\n             FROM attempt_events WHERE user_id = ?1 AND item_id = ?2 ORDER BY created_at DESC LIMIT ?3",
+        )?;
+        let mapped = stmt.query_map(params![input.user_id, item_id, limit], attempt_row_from)?;
+        mapped.collect::<Result<_, _>>()?
+    } else {
+        let mut stmt = conn.prepare(
+            "SELECT id, session_id, item_id, answer_mode, is_correct, score, reaction_time_ms, error_tags_json, created_at\n             FROM attempt_events WHERE user_id = ?1 ORDER BY created_at DESC LIMIT ?2",
+        )?;
+        let mapped = stmt.query_map(params![input.user_id, limit], attempt_row_from)?;
+        mapped.collect::<Result<_, _>>()?
+    };
+    Ok(rows)
+}
+
+fn attempt_row_from(row: &rusqlite::Row<'_>) -> rusqlite::Result<AttemptEventRow> {
+    let error_tags_json: String = row.get(7)?;
+    let error_tags: Vec<String> = serde_json::from_str(&error_tags_json).unwrap_or_default();
+    let is_correct_int: i64 = row.get(4)?;
+    Ok(AttemptEventRow {
+        id: row.get(0)?,
+        session_id: row.get(1)?,
+        item_id: row.get(2)?,
+        answer_mode: row.get(3)?,
+        is_correct: is_correct_int != 0,
+        score: row.get(5)?,
+        reaction_time_ms: row.get(6)?,
+        error_tags,
+        created_at: row.get(8)?,
     })
 }

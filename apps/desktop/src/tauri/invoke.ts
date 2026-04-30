@@ -1,8 +1,7 @@
+import type { GameType, SkillDimension } from '@kana-typing/core';
 import { invoke } from '@tauri-apps/api/core';
 
-// Dev-only DTOs: deliberately a narrow projection of LearningItem so the Rust scaffold can stay
-// small in Sprint 0. Sprint 2 swaps these for the full Repository layer that returns
-// @kana-typing/core domain models.
+// Sprint 0 DTOs (unchanged) ------------------------------------------------
 
 export interface DevItemRow {
   id: string;
@@ -33,4 +32,121 @@ export interface DbInfo {
 
 export function getDbInfo(): Promise<DbInfo> {
   return invoke<DbInfo>('get_db_info');
+}
+
+// Sprint 2 DTOs ------------------------------------------------------------
+
+export interface CreateSessionInput {
+  id: string;
+  userId: string;
+  gameType: GameType;
+  planId?: string;
+  targetDurationMs?: number;
+}
+
+export interface SessionRecord {
+  id: string;
+  userId: string;
+  gameType: string;
+  planId: string | null;
+  startedAt: string;
+  endedAt: string | null;
+  status: string;
+  targetDurationMs: number | null;
+}
+
+export function createSession(input: CreateSessionInput): Promise<SessionRecord> {
+  return invoke<SessionRecord>('create_session', { input });
+}
+
+export interface FinishSessionInput {
+  sessionId: string;
+  status: 'finished' | 'aborted' | 'timeout';
+  finalScore?: number;
+  summaryJson?: string;
+}
+
+export function finishSession(input: FinishSessionInput): Promise<void> {
+  return invoke('finish_session', { input });
+}
+
+export interface AttemptEventInsert {
+  id: string;
+  sessionId: string;
+  userId: string;
+  taskId: string;
+  itemId: string;
+  gameType: GameType;
+  skillDimension: SkillDimension;
+  answerMode: string;
+  rawInput?: string;
+  committedInput?: string;
+  selectedOptionId?: string;
+  chunkOrder?: string[];
+  isCorrect: boolean;
+  score: number;
+  reactionTimeMs: number;
+  usedHint: boolean;
+  errorTags: string[];
+  explanation?: string;
+}
+
+export function insertAttemptEvent(input: AttemptEventInsert): Promise<void> {
+  return invoke('insert_attempt_event', { input });
+}
+
+export interface ProgressDto {
+  userId: string;
+  itemId: string;
+  skillDimension: SkillDimension;
+  state: string;
+  masteryScore: number;
+  stability: number;
+  difficulty: number;
+  exposureCount: number;
+  correctCount: number;
+  wrongCount: number;
+  streak: number;
+  lapseCount: number;
+  averageReactionTimeMs: number | null;
+  lastAttemptAt: string | null;
+  nextDueAt: string | null;
+  lastErrorTags: string[];
+  updatedAt: string;
+}
+
+export interface GetProgressInput {
+  userId: string;
+  itemId: string;
+  skillDimension: SkillDimension;
+}
+
+export function getProgress(input: GetProgressInput): Promise<ProgressDto | null> {
+  return invoke<ProgressDto | null>('get_progress', { input });
+}
+
+export function upsertProgress(input: ProgressDto): Promise<void> {
+  return invoke('upsert_progress', { input });
+}
+
+export interface AttemptListInput {
+  userId: string;
+  itemId?: string;
+  limit?: number;
+}
+
+export interface AttemptEventRow {
+  id: string;
+  sessionId: string;
+  itemId: string;
+  answerMode: string;
+  isCorrect: boolean;
+  score: number;
+  reactionTimeMs: number;
+  errorTags: string[];
+  createdAt: string;
+}
+
+export function listRecentAttempts(input: AttemptListInput): Promise<AttemptEventRow[]> {
+  return invoke<AttemptEventRow[]>('list_recent_attempts', { input });
 }

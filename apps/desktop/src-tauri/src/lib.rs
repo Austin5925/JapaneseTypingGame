@@ -23,6 +23,12 @@ pub fn run() {
             commands::seed_test_pack,
             commands::list_items,
             commands::get_db_info,
+            commands::create_session,
+            commands::finish_session,
+            commands::insert_attempt_event,
+            commands::get_progress,
+            commands::upsert_progress,
+            commands::list_recent_attempts,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
