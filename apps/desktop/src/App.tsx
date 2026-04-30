@@ -3,14 +3,22 @@ import { useEffect, useState, type JSX } from 'react';
 import { DevPage } from './pages/DevPage';
 import { EvaluatorDevPage } from './pages/EvaluatorDevPage';
 import { GamePage } from './pages/GamePage';
-import { HomePlaceholder } from './pages/HomePlaceholder';
+import { HomePage } from './pages/HomePage';
 import { InputDevPage } from './pages/InputDevPage';
+import { LibraryPage } from './pages/LibraryPage';
+import { MistakesPage } from './pages/MistakesPage';
 import { ResultPage } from './pages/ResultPage';
+import { SettingsPage } from './pages/SettingsPage';
+import { TodayTrainingPage } from './pages/TodayTrainingPage';
 
-// Hash-based routing keeps the scaffold dependency-free. Sprint 5 will introduce a proper
-// router; for now we discriminate on `kind` so result/:sessionId can carry a parameter.
+// Hash-based routing — Sprint 5 keeps it dependency-free; v0.7+ may swap in a real router
+// once the workflow stabilises.
 type Route =
   | { kind: 'home' }
+  | { kind: 'today' }
+  | { kind: 'mistakes' }
+  | { kind: 'library' }
+  | { kind: 'settings' }
   | { kind: 'dev' }
   | { kind: 'dev-input' }
   | { kind: 'dev-eval' }
@@ -20,6 +28,10 @@ type Route =
 
 function getRoute(): Route {
   const hash = globalThis.location.hash;
+  if (hash === '#/today') return { kind: 'today' };
+  if (hash === '#/mistakes') return { kind: 'mistakes' };
+  if (hash === '#/library') return { kind: 'library' };
+  if (hash === '#/settings') return { kind: 'settings' };
   if (hash === '#/dev') return { kind: 'dev' };
   if (hash === '#/dev/input') return { kind: 'dev-input' };
   if (hash === '#/dev/eval') return { kind: 'dev-eval' };
@@ -52,13 +64,26 @@ export function App(): JSX.Element {
       >
         <strong>假名打字通</strong>
         <a href="#/">home</a>
-        <a href="#/dev">dev (db)</a>
-        <a href="#/dev/input">dev (input)</a>
-        <a href="#/dev/eval">dev (eval)</a>
-        <a href="#/game/mole">game (mole)</a>
-        <a href="#/game/speed-chase">game (speed-chase)</a>
+        <a href="#/today">今日训练</a>
+        <a href="#/mistakes">错题本</a>
+        <a href="#/library">图鉴</a>
+        <a href="#/settings">设置</a>
+        <span style={{ flex: 1 }} />
+        <a href="#/dev" style={{ color: 'var(--muted)' }}>
+          dev
+        </a>
+        <a href="#/dev/input" style={{ color: 'var(--muted)' }}>
+          dev/input
+        </a>
+        <a href="#/dev/eval" style={{ color: 'var(--muted)' }}>
+          dev/eval
+        </a>
       </nav>
-      {route.kind === 'home' && <HomePlaceholder />}
+      {route.kind === 'home' && <HomePage />}
+      {route.kind === 'today' && <TodayTrainingPage />}
+      {route.kind === 'mistakes' && <MistakesPage />}
+      {route.kind === 'library' && <LibraryPage />}
+      {route.kind === 'settings' && <SettingsPage />}
       {route.kind === 'dev' && <DevPage />}
       {route.kind === 'dev-input' && <InputDevPage />}
       {route.kind === 'dev-eval' && <EvaluatorDevPage />}

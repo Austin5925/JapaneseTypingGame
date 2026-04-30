@@ -29,7 +29,10 @@ export function MistakesPage(): JSX.Element {
       try {
         const [agg, attempts] = await Promise.all([
           aggregateRecentErrorTags({ userId: 'default-user', days: 30, limit: 30 }),
-          listRecentAttempts({ userId: 'default-user', limit: 200 }),
+          // Pull a wider window so per-tag detail lines up with the 30-day aggregate. A
+          // proper SQL filter (date range or tag-FTS join) lands in v0.7 once the
+          // attempt-event table grows past a few thousand rows.
+          listRecentAttempts({ userId: 'default-user', limit: 1000 }),
         ]);
         setTagAgg(agg);
         setRecentWrong(attempts.filter((a) => !a.isCorrect));
