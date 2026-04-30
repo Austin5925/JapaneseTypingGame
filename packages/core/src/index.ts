@@ -3,3 +3,4 @@
 
 export * from './types/enums';
 export * from './types/domain';
+export * from './japanese';

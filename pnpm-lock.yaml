@@ -130,6 +130,10 @@ importers:
         version: 2.1.9(@types/node@22.19.17)(jsdom@25.0.1)
 
   packages/core:
+    dependencies:
+      wanakana:
+        specifier: ^5.3.1
+        version: 5.3.1
     devDependencies:
       typescript:
         specifier: ^5.6.3
