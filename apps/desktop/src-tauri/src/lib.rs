@@ -28,6 +28,7 @@ pub fn run() {
             commands::insert_attempt_event,
             commands::get_progress,
             commands::upsert_progress,
+            commands::record_attempt_result,
             commands::list_recent_attempts,
         ])
         .run(tauri::generate_context!())

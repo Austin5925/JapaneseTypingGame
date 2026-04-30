@@ -77,9 +77,12 @@ export function EvaluatorDevPage(): JSX.Element {
       }
     })();
     return () => {
-      // Best-effort: finish session on unmount. Failures are silent — the session row simply
-      // stays in 'active' state until the next time the page mounts.
-      void session.finish('aborted').catch(() => {});
+      // Best-effort: finish session on unmount. We log unexpected failures rather than
+      // swallowing them silently — a finish() failure means an attempt + progress write may
+      // not have flushed, which is data we'd want to know about.
+      void session.finish('aborted').catch((err: unknown) => {
+        console.warn('GameSessionService.finish failed on unmount:', err);
+      });
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

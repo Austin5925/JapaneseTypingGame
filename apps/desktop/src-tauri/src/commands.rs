@@ -615,6 +615,85 @@ pub struct AttemptEventRow {
     pub created_at: String,
 }
 
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RecordAttemptResultInput {
+    pub attempt: AttemptEventInput,
+    pub progress: ProgressRecord,
+}
+
+/// Single-transaction write of an attempt event + the corresponding progress upsert.
+/// GameSessionService uses this so a partial failure doesn't leave attempt_events with no
+/// matching progress row (or vice versa); the immutable event log can still be replayed to
+/// rebuild progress, but we'd rather not create the inconsistency in the first place.
+#[tauri::command]
+pub fn record_attempt_result(
+    db: State<'_, AppDb>,
+    input: RecordAttemptResultInput,
+) -> AppResult<()> {
+    let mut conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let tx = conn.transaction()?;
+    let now = Utc::now().to_rfc3339();
+    let chunk_order_json = input
+        .attempt
+        .chunk_order
+        .as_ref()
+        .map(serde_json::to_string)
+        .transpose()?;
+    tx.execute(
+        "INSERT INTO attempt_events (\n             id, session_id, user_id, task_id, item_id, game_type, skill_dimension,\n             answer_mode, raw_input, committed_input, selected_option_id, chunk_order_json,\n             is_correct, score, reaction_time_ms, used_hint, error_tags_json, explanation, created_at\n         ) VALUES (\n             ?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19\n         )",
+        params![
+            input.attempt.id,
+            input.attempt.session_id,
+            input.attempt.user_id,
+            input.attempt.task_id,
+            input.attempt.item_id,
+            input.attempt.game_type,
+            input.attempt.skill_dimension,
+            input.attempt.answer_mode,
+            input.attempt.raw_input,
+            input.attempt.committed_input,
+            input.attempt.selected_option_id,
+            chunk_order_json,
+            input.attempt.is_correct as i64,
+            input.attempt.score,
+            input.attempt.reaction_time_ms,
+            input.attempt.used_hint as i64,
+            serde_json::to_string(&input.attempt.error_tags)?,
+            input.attempt.explanation,
+            now,
+        ],
+    )?;
+    let last_error_tags_json = serde_json::to_string(&input.progress.last_error_tags)?;
+    tx.execute(
+        "INSERT INTO item_skill_progress (\n             user_id, item_id, skill_dimension, state, mastery_score, stability, difficulty,\n             exposure_count, correct_count, wrong_count, streak, lapse_count,\n             average_reaction_time_ms, last_attempt_at, next_due_at, last_error_tags_json, updated_at\n         ) VALUES (\n             ?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17\n         )\n         ON CONFLICT(user_id, item_id, skill_dimension) DO UPDATE SET\n             state = excluded.state,\n             mastery_score = excluded.mastery_score,\n             stability = excluded.stability,\n             difficulty = excluded.difficulty,\n             exposure_count = excluded.exposure_count,\n             correct_count = excluded.correct_count,\n             wrong_count = excluded.wrong_count,\n             streak = excluded.streak,\n             lapse_count = excluded.lapse_count,\n             average_reaction_time_ms = excluded.average_reaction_time_ms,\n             last_attempt_at = excluded.last_attempt_at,\n             next_due_at = excluded.next_due_at,\n             last_error_tags_json = excluded.last_error_tags_json,\n             updated_at = excluded.updated_at",
+        params![
+            input.progress.user_id,
+            input.progress.item_id,
+            input.progress.skill_dimension,
+            input.progress.state,
+            input.progress.mastery_score,
+            input.progress.stability,
+            input.progress.difficulty,
+            input.progress.exposure_count,
+            input.progress.correct_count,
+            input.progress.wrong_count,
+            input.progress.streak,
+            input.progress.lapse_count,
+            input.progress.average_reaction_time_ms,
+            input.progress.last_attempt_at,
+            input.progress.next_due_at,
+            last_error_tags_json,
+            input.progress.updated_at,
+        ],
+    )?;
+    tx.commit()?;
+    Ok(())
+}
+
 #[tauri::command]
 pub fn list_recent_attempts(
     db: State<'_, AppDb>,

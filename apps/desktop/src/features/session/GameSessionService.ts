@@ -11,8 +11,7 @@ import {
   createSession as rpcCreateSession,
   finishSession as rpcFinishSession,
   getProgress as rpcGetProgress,
-  insertAttemptEvent as rpcInsertAttemptEvent,
-  upsertProgress as rpcUpsertProgress,
+  recordAttemptResult as rpcRecordAttemptResult,
   type ProgressDto,
   type SessionRecord,
 } from '../../tauri/invoke';
@@ -45,6 +44,9 @@ export class GameSessionService {
   private session: SessionRecord | null = null;
   private buffer: PendingAttempt[] = [];
   private finished = false;
+  private finishing = false;
+  /** In-flight submitAttempt promises. finish() awaits these so cleanup can't race. */
+  private readonly inflight = new Set<Promise<unknown>>();
   private readonly userId: string;
   private readonly buffered: boolean;
 
@@ -80,8 +82,18 @@ export class GameSessionService {
    */
   async submitAttempt(task: TrainingTask, attempt: UserAttempt): Promise<EvaluationResult> {
     if (!this.session) throw new Error('session not yet created');
-    if (this.finished) throw new Error('session already finished');
+    if (this.finishing || this.finished) throw new Error('session already finishing/finished');
 
+    const work = this.runSubmit(task, attempt);
+    this.inflight.add(work);
+    try {
+      return await work;
+    } finally {
+      this.inflight.delete(work);
+    }
+  }
+
+  private async runSubmit(task: TrainingTask, attempt: UserAttempt): Promise<EvaluationResult> {
     const evaluation = evaluate(task, attempt);
     const old = await this.fetchProgress(task.itemId, task.skillDimension);
     const newProgress = updateProgress(toDomainProgress(old), evaluation, { userId: this.userId });
@@ -93,43 +105,74 @@ export class GameSessionService {
     return evaluation;
   }
 
-  /** Persist any buffered attempts to SQLite. */
+  /**
+   * Persist any buffered attempts to SQLite. Each (attempt, progress) pair is written in a
+   * single Rust-side transaction (see record_attempt_result) so a partial failure can't leave
+   * the event log out of sync with progress. On error, the failed entry is restored to the
+   * head of the buffer for the caller to retry.
+   */
   async flush(): Promise<void> {
     if (this.buffer.length === 0) return;
     const pending = this.buffer.splice(0, this.buffer.length);
-    for (const p of pending) {
-      await rpcInsertAttemptEvent({
-        id: p.attempt.id,
-        sessionId: p.attempt.sessionId,
-        userId: this.userId,
-        taskId: p.attempt.taskId,
-        itemId: p.attempt.itemId,
-        gameType: p.attempt.gameType,
-        skillDimension: p.task.skillDimension,
-        answerMode: p.task.answerMode,
-        ...(p.attempt.rawInput !== undefined && { rawInput: p.attempt.rawInput }),
-        ...(p.attempt.committedInput !== undefined && { committedInput: p.attempt.committedInput }),
-        ...(p.attempt.selectedOptionId !== undefined && {
-          selectedOptionId: p.attempt.selectedOptionId,
-        }),
-        ...(p.attempt.chunkOrder !== undefined && { chunkOrder: p.attempt.chunkOrder }),
-        isCorrect: p.evaluation.isCorrect,
-        score: p.evaluation.score,
-        reactionTimeMs: p.evaluation.reactionTimeMs,
-        usedHint: p.attempt.usedHint,
-        errorTags: p.evaluation.errorTags,
-        ...(p.evaluation.explanation !== undefined && { explanation: p.evaluation.explanation }),
-      });
-      await rpcUpsertProgress(toProgressDto(p.newProgress));
+    for (let i = 0; i < pending.length; i++) {
+      const p = pending[i]!;
+      try {
+        await rpcRecordAttemptResult({
+          attempt: {
+            id: p.attempt.id,
+            sessionId: p.attempt.sessionId,
+            userId: this.userId,
+            taskId: p.attempt.taskId,
+            itemId: p.attempt.itemId,
+            gameType: p.attempt.gameType,
+            skillDimension: p.task.skillDimension,
+            answerMode: p.task.answerMode,
+            ...(p.attempt.rawInput !== undefined && { rawInput: p.attempt.rawInput }),
+            ...(p.attempt.committedInput !== undefined && {
+              committedInput: p.attempt.committedInput,
+            }),
+            ...(p.attempt.selectedOptionId !== undefined && {
+              selectedOptionId: p.attempt.selectedOptionId,
+            }),
+            ...(p.attempt.chunkOrder !== undefined && { chunkOrder: p.attempt.chunkOrder }),
+            isCorrect: p.evaluation.isCorrect,
+            score: p.evaluation.score,
+            reactionTimeMs: p.evaluation.reactionTimeMs,
+            usedHint: p.attempt.usedHint,
+            errorTags: p.evaluation.errorTags,
+            ...(p.evaluation.explanation !== undefined && {
+              explanation: p.evaluation.explanation,
+            }),
+          },
+          progress: toProgressDto(p.newProgress),
+        });
+      } catch (err) {
+        // Restore the unprocessed remainder so the caller can retry; preserve order.
+        const remaining = pending.slice(i);
+        this.buffer.unshift(...remaining);
+        throw err;
+      }
     }
   }
 
   async finish(status: 'finished' | 'aborted' | 'timeout' = 'finished'): Promise<void> {
     if (!this.session) throw new Error('session not yet created');
     if (this.finished) return;
-    await this.flush();
-    await rpcFinishSession({ sessionId: this.session.id, status });
-    this.finished = true;
+    this.finishing = true;
+    try {
+      // Drain any submitAttempt calls that already passed the entry guard before this
+      // finish() locked the door. allSettled because we still want to record the session
+      // close even if one of the in-flight writes fails — the immutable attempt log is the
+      // safety net.
+      if (this.inflight.size > 0) {
+        await Promise.allSettled([...this.inflight]);
+      }
+      await this.flush();
+      await rpcFinishSession({ sessionId: this.session.id, status });
+      this.finished = true;
+    } finally {
+      this.finishing = false;
+    }
   }
 
   private async fetchProgress(

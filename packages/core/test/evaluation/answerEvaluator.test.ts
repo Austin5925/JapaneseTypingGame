@@ -138,10 +138,16 @@ describe('evaluate — ime_surface', () => {
   });
 });
 
-describe('evaluate — sentence_chunk_order is intentionally unimplemented', () => {
-  it('throws so callers know they need V1', () => {
-    const t = task({ answerMode: 'sentence_chunk_order' });
-    expect(() => evaluate(t, attempt({ committedInput: 'x' }))).toThrow(/sentence_chunk_order/);
+describe('evaluate — sentence_chunk_order returns a not-implemented stub', () => {
+  it('does not throw — generic dispatch flows must keep working in Sprint 3', () => {
+    const t = task({
+      answerMode: 'sentence_chunk_order',
+      expected: { chunkOrder: ['a', 'b', 'c'] },
+    });
+    const r = evaluate(t, attempt({ chunkOrder: ['a', 'c', 'b'] }));
+    expect(r.isCorrect).toBe(false);
+    expect(r.errorTags).toContain('unknown');
+    expect(r.explanation).toMatch(/not yet implemented/i);
   });
 });
 

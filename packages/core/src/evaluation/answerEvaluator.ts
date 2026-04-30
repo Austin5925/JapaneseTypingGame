@@ -33,11 +33,6 @@ export function evaluate(
   options: EvaluateOptions = {},
 ): EvaluationResult {
   const evaluator = EVALUATORS[task.answerMode];
-  if (!evaluator) {
-    throw new Error(
-      `evaluator for answerMode "${task.answerMode}" is not registered (Sprint 2 scope)`,
-    );
-  }
   const partial = evaluator(task, attempt);
   return finaliseResult(task, attempt, partial, options);
 }
@@ -64,8 +59,8 @@ export const evaluateRomajiToKana: ModeEvaluator = (task, attempt) => {
     return mismatchResult(expectedKana, raw, ['unknown']);
   }
   // The user has typed romaji; we accept the candidate that's closest to the expected kana
-  // under the strictness policy. Pick the first exact match; fall back to the first candidate
-  // for error classification.
+  // under the strictness policy.
+  let best: { candidate: string; tags: ErrorTag[] } | null = null;
   for (const c of candidates) {
     const cmp = compareKana(expectedKana, c, task.strictness);
     if (cmp.isAcceptable) {
@@ -76,14 +71,21 @@ export const evaluateRomajiToKana: ModeEvaluator = (task, attempt) => {
         actualDisplay: c,
       };
     }
+    // For diagnosis we prefer a candidate whose error tags say *something* over a candidate
+    // that bottomed out at `unknown`. `mixed` mode returns hiragana before katakana, and
+    // the katakana candidate often carries shape-confusion / long-vowel tags that the
+    // hiragana version loses to script normalisation.
+    const informative = cmp.errorTags.filter((t) => t !== 'unknown').length;
+    const incumbentInformative = best ? best.tags.filter((t) => t !== 'unknown').length : -1;
+    if (best === null || informative > incumbentInformative) {
+      best = { candidate: c, tags: cmp.errorTags };
+    }
   }
-  // None acceptable — use the first candidate as the "actual" for diagnosis.
-  const cmp = compareKana(expectedKana, candidates[0]!, task.strictness);
   return {
     isCorrect: false,
-    errorTags: cmp.errorTags.length > 0 ? cmp.errorTags : ['unknown'],
+    errorTags: best!.tags.length > 0 ? best!.tags : ['unknown'],
     expectedDisplay: expectedKana,
-    actualDisplay: candidates[0]!,
+    actualDisplay: best!.candidate,
   };
 };
 
@@ -166,16 +168,34 @@ export const evaluateAudioToSurface: ModeEvaluator = (task, attempt) => {
   return evaluateKanaInput(task, attempt);
 };
 
-const EVALUATORS: Partial<Record<TrainingTask['answerMode'], ModeEvaluator>> = {
+/**
+ * Stub evaluator for sentence_chunk_order. The real one ships with the river-jump game in
+ * V1 and validates `acceptedOrders[]`. We return a not-implemented EvaluationResult instead
+ * of throwing so the generic `BaseTrainingScene` flow (Sprint 3+) doesn't hard-crash if a
+ * chunk-order task accidentally reaches it before V1 lands. Callers that rely on judgment
+ * should look at the explanation string and route the user to a stub message.
+ */
+export const evaluateSentenceChunkOrder: ModeEvaluator = (task, attempt) => {
+  const expectedDisplay = (task.expected.chunkOrder ?? []).join(' / ');
+  const actualDisplay = (attempt.chunkOrder ?? []).join(' / ');
+  return {
+    isCorrect: false,
+    errorTags: ['unknown'],
+    expectedDisplay,
+    actualDisplay,
+    explanation:
+      'sentence_chunk_order evaluator is not yet implemented (V1 scope); attempt logged but not graded',
+  };
+};
+
+const EVALUATORS: Record<TrainingTask['answerMode'], ModeEvaluator> = {
   romaji_to_kana: evaluateRomajiToKana,
   kana_input: evaluateKanaInput,
   kanji_to_reading: evaluateKanjiToReading,
   meaning_to_surface: evaluateMeaningToSurface,
   ime_surface: evaluateImeSurface,
   audio_to_surface: evaluateAudioToSurface,
-  // sentence_chunk_order ships in V1 with the river-jump game; the evaluator is intentionally
-  // missing here so a Sprint-2 caller that tries it gets a loud error rather than a silent
-  // false-positive.
+  sentence_chunk_order: evaluateSentenceChunkOrder,
 };
 
 // ─────────────────────────────────────────────────────────────────────

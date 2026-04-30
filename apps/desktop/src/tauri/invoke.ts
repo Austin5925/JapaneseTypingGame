@@ -150,3 +150,17 @@ export interface AttemptEventRow {
 export function listRecentAttempts(input: AttemptListInput): Promise<AttemptEventRow[]> {
   return invoke<AttemptEventRow[]>('list_recent_attempts', { input });
 }
+
+export interface RecordAttemptResultInput {
+  attempt: AttemptEventInsert;
+  progress: ProgressDto;
+}
+
+/**
+ * Atomic counterpart to insertAttemptEvent + upsertProgress: both writes happen inside a
+ * single SQLite transaction so a partial failure can't leave attempt_events out of sync with
+ * item_skill_progress. GameSessionService uses this on flush.
+ */
+export function recordAttemptResult(input: RecordAttemptResultInput): Promise<void> {
+  return invoke('record_attempt_result', { input });
+}
