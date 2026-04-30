@@ -151,6 +151,19 @@ export function listRecentAttempts(input: AttemptListInput): Promise<AttemptEven
   return invoke<AttemptEventRow[]>('list_recent_attempts', { input });
 }
 
+export interface AttemptsBySessionInput {
+  sessionId: string;
+}
+
+/**
+ * Server-side filtered attempt log for one session. Use this on ResultPage instead of
+ * filtering listRecentAttempts client-side, which silently drops rows past its limit once
+ * the user has accumulated history.
+ */
+export function listAttemptsBySession(input: AttemptsBySessionInput): Promise<AttemptEventRow[]> {
+  return invoke<AttemptEventRow[]>('list_attempts_by_session', { input });
+}
+
 export interface RecordAttemptResultInput {
   attempt: AttemptEventInsert;
   progress: ProgressDto;

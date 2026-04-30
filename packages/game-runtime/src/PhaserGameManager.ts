@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 
 import type { GameBridge } from './bridge/GameBridge';
 import { MoleScene, MOLE_SCENE_KEY } from './scenes/MoleScene';
+import { SpeedChaseScene, SPEED_CHASE_SCENE_KEY } from './scenes/SpeedChaseScene';
 
 export interface PhaserGameManagerOptions {
   parent: HTMLElement;
@@ -46,7 +47,7 @@ export class PhaserGameManager {
       width: this.options.width,
       height: this.options.height,
       backgroundColor: '#0e0f12',
-      scene: [MoleScene],
+      scene: [MoleScene, SpeedChaseScene],
       scale: {
         mode: Phaser.Scale.NONE,
       },
@@ -59,10 +60,15 @@ export class PhaserGameManager {
     this.startScene(MOLE_SCENE_KEY, opts);
   }
 
+  startSpeedChaseScene(opts: StartSessionOptions): void {
+    this.startScene(SPEED_CHASE_SCENE_KEY, opts);
+  }
+
   /**
-   * Generic scene-start hook used once Sprint 4 registers SpeedChaseScene alongside Mole. The
-   * scene `key` must already be registered with the underlying Phaser.Game (see the
-   * `scene: [...]` array in the `start()` config).
+   * Generic scene-start hook. The scene `key` must already be registered with the underlying
+   * Phaser.Game (see the `scene: [...]` array in the `start()` config). Phaser silently
+   * no-ops if the key is not registered, which is a footgun — the registration array above
+   * is the source of truth.
    */
   startScene(key: string, opts: StartSessionOptions): void {
     if (!this.game) throw new Error('PhaserGameManager.start() must be called before scene start');

@@ -30,6 +30,7 @@ pub fn run() {
             commands::upsert_progress,
             commands::record_attempt_result,
             commands::list_recent_attempts,
+            commands::list_attempts_by_session,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

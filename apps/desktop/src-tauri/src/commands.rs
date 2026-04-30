@@ -720,6 +720,29 @@ pub fn list_recent_attempts(
     Ok(rows)
 }
 
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct AttemptsBySessionInput {
+    pub session_id: String,
+}
+
+#[tauri::command]
+pub fn list_attempts_by_session(
+    db: State<'_, AppDb>,
+    input: AttemptsBySessionInput,
+) -> AppResult<Vec<AttemptEventRow>> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let mut stmt = conn.prepare(
+        "SELECT id, session_id, item_id, answer_mode, is_correct, score, reaction_time_ms, error_tags_json, created_at\n         FROM attempt_events WHERE session_id = ?1 ORDER BY created_at ASC",
+    )?;
+    let rows = stmt.query_map(params![input.session_id], attempt_row_from)?;
+    let out: Vec<AttemptEventRow> = rows.collect::<Result<_, _>>()?;
+    Ok(out)
+}
+
 fn attempt_row_from(row: &rusqlite::Row<'_>) -> rusqlite::Result<AttemptEventRow> {
     let error_tags_json: String = row.get(7)?;
     let error_tags: Vec<String> = serde_json::from_str(&error_tags_json).unwrap_or_default();
