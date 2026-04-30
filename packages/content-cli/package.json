@@ -1,0 +1,28 @@
+{
+  "name": "@kana-typing/content-cli",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Validate and import content packs into a local SQLite (dev mode).",
+  "type": "module",
+  "bin": {
+    "kana-content": "./dist/index.js"
+  },
+  "main": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsc -p tsconfig.build.json",
+    "cli": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@kana-typing/content-schema": "workspace:*",
+    "@kana-typing/core": "workspace:*",
+    "better-sqlite3": "^11.5.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  }
+}

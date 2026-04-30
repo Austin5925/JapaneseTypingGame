@@ -1,0 +1,247 @@
+{
+  "id": "official-n5-basic-mini",
+  "name": "官方 N5 基础迷你包",
+  "version": "0.1.0",
+  "author": "Kana Typing Team",
+  "locale": "zh-CN",
+  "description": "10 个高频 N5 词，用于 Sprint 0 端到端冒烟测试。",
+  "items": [
+    {
+      "id": "word-gakkou",
+      "type": "word",
+      "surface": "学校",
+      "kana": "がっこう",
+      "romaji": ["gakkou"],
+      "meaningsZh": ["学校"],
+      "pos": "noun",
+      "jlpt": "N5",
+      "tags": ["daily", "kanji_word", "sokuon", "long_vowel"],
+      "skillTags": ["kanji_reading", "meaning_recall"],
+      "examples": [
+        {
+          "id": "ex-gakkou-1",
+          "ja": "毎日学校に行きます。",
+          "kana": "まいにちがっこうにいきます。",
+          "zh": "我每天去学校。",
+          "targetSurface": "学校",
+          "targetKana": "がっこう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": []
+    },
+    {
+      "id": "word-sensei",
+      "type": "word",
+      "surface": "先生",
+      "kana": "せんせい",
+      "romaji": ["sensei"],
+      "meaningsZh": ["老师"],
+      "pos": "noun",
+      "jlpt": "N5",
+      "tags": ["daily", "kanji_word"],
+      "skillTags": ["kanji_reading", "meaning_recall"],
+      "examples": [
+        {
+          "id": "ex-sensei-1",
+          "ja": "山田先生は優しいです。",
+          "kana": "やまだせんせいはやさしいです。",
+          "zh": "山田老师很温柔。",
+          "targetSurface": "先生",
+          "targetKana": "せんせい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": []
+    },
+    {
+      "id": "word-densha",
+      "type": "word",
+      "surface": "電車",
+      "kana": "でんしゃ",
+      "romaji": ["densha", "densya"],
+      "meaningsZh": ["电车"],
+      "pos": "noun",
+      "jlpt": "N5",
+      "tags": ["daily", "kanji_word", "youon"],
+      "skillTags": ["kanji_reading", "meaning_recall"],
+      "examples": [
+        {
+          "id": "ex-densha-1",
+          "ja": "電車で会社に行きます。",
+          "kana": "でんしゃでかいしゃにいきます。",
+          "zh": "我坐电车去公司。",
+          "targetSurface": "電車",
+          "targetKana": "でんしゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": []
+    },
+    {
+      "id": "word-tomodachi",
+      "type": "word",
+      "surface": "友達",
+      "kana": "ともだち",
+      "romaji": ["tomodachi", "tomodati"],
+      "meaningsZh": ["朋友"],
+      "pos": "noun",
+      "jlpt": "N5",
+      "tags": ["daily", "kanji_word"],
+      "skillTags": ["kanji_reading", "meaning_recall"],
+      "examples": [
+        {
+          "id": "ex-tomodachi-1",
+          "ja": "友達と映画を見ました。",
+          "kana": "ともだちとえいがをみました。",
+          "zh": "我和朋友看了电影。",
+          "targetSurface": "友達",
+          "targetKana": "ともだち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": []
+    },
+    {
+      "id": "word-mainichi",
+      "type": "word",
+      "surface": "毎日",
+      "kana": "まいにち",
+      "romaji": ["mainichi", "mainiti"],
+      "meaningsZh": ["每天"],
+      "pos": "noun",
+      "jlpt": "N5",
+      "tags": ["daily", "kanji_word", "time"],
+      "skillTags": ["kanji_reading", "meaning_recall"],
+      "examples": [
+        {
+          "id": "ex-mainichi-1",
+          "ja": "毎日コーヒーを飲みます。",
+          "kana": "まいにちこーひーをのみます。",
+          "zh": "每天喝咖啡。",
+          "targetSurface": "毎日",
+          "targetKana": "まいにち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": []
+    },
+    {
+      "id": "word-biiru",
+      "type": "word",
+      "surface": "ビール",
+      "kana": "ビール",
+      "romaji": ["biiru"],
+      "meaningsZh": ["啤酒"],
+      "pos": "noun",
+      "jlpt": "N5",
+      "tags": ["daily", "katakana", "long_vowel"],
+      "skillTags": ["katakana_recognition", "listening_discrimination"],
+      "examples": [
+        {
+          "id": "ex-biiru-1",
+          "ja": "ビールを一杯ください。",
+          "kana": "びーるをいっぱいください。",
+          "zh": "请给我一杯啤酒。",
+          "targetSurface": "ビール"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-biru"]
+    },
+    {
+      "id": "word-biru",
+      "type": "word",
+      "surface": "ビル",
+      "kana": "ビル",
+      "romaji": ["biru"],
+      "meaningsZh": ["大楼"],
+      "pos": "noun",
+      "jlpt": "N5",
+      "tags": ["daily", "katakana"],
+      "skillTags": ["katakana_recognition", "listening_discrimination"],
+      "examples": [
+        {
+          "id": "ex-biru-1",
+          "ja": "このビルは新しいです。",
+          "kana": "このびるはあたらしいです。",
+          "zh": "这栋大楼很新。",
+          "targetSurface": "ビル"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-biiru"]
+    },
+    {
+      "id": "word-kitte",
+      "type": "word",
+      "surface": "切手",
+      "kana": "きって",
+      "romaji": ["kitte"],
+      "meaningsZh": ["邮票"],
+      "pos": "noun",
+      "jlpt": "N5",
+      "tags": ["daily", "kanji_word", "sokuon"],
+      "skillTags": ["kanji_reading", "listening_discrimination"],
+      "examples": [
+        {
+          "id": "ex-kitte-1",
+          "ja": "切手を買いました。",
+          "kana": "きってをかいました。",
+          "zh": "我买了邮票。",
+          "targetSurface": "切手",
+          "targetKana": "きって"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": []
+    },
+    {
+      "id": "word-kohi",
+      "type": "word",
+      "surface": "コーヒー",
+      "kana": "コーヒー",
+      "romaji": ["ko-hi-"],
+      "meaningsZh": ["咖啡"],
+      "pos": "noun",
+      "jlpt": "N5",
+      "tags": ["daily", "katakana", "long_vowel", "loanword"],
+      "skillTags": ["katakana_recognition", "listening_discrimination"],
+      "examples": [
+        {
+          "id": "ex-kohi-1",
+          "ja": "コーヒーを飲みます。",
+          "kana": "こーひーをのみます。",
+          "zh": "喝咖啡。",
+          "targetSurface": "コーヒー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": []
+    },
+    {
+      "id": "word-yakusoku",
+      "type": "word",
+      "surface": "約束",
+      "kana": "やくそく",
+      "romaji": ["yakusoku"],
+      "meaningsZh": ["约定"],
+      "pos": "noun",
+      "jlpt": "N4",
+      "tags": ["daily", "kanji_word"],
+      "skillTags": ["kanji_reading", "meaning_recall", "ime_conversion"],
+      "examples": [
+        {
+          "id": "ex-yakusoku-1",
+          "ja": "明日、友達と約束があります。",
+          "kana": "あした、ともだちとやくそくがあります。",
+          "zh": "明天我和朋友有约。",
+          "targetSurface": "約束",
+          "targetKana": "やくそく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": []
+    }
+  ]
+}
