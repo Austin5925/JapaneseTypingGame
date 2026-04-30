@@ -1,0 +1,49 @@
+{
+  "name": "kana-typing",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Kana Typing — a Japanese input reflex trainer (Tauri + React + Phaser).",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.10.0",
+    "pnpm": ">=10.0.0"
+  },
+  "packageManager": "pnpm@10.32.0",
+  "scripts": {
+    "dev": "pnpm --filter @kana-typing/desktop dev",
+    "build": "pnpm -r --if-present build",
+    "test": "pnpm -r --if-present test",
+    "test:run": "pnpm -r --if-present test:run",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "tauri:dev": "pnpm --filter @kana-typing/desktop tauri:dev",
+    "tauri:build": "pnpm --filter @kana-typing/desktop tauri:build",
+    "content:validate": "pnpm --filter @kana-typing/content-cli run cli validate-pack",
+    "content:import": "pnpm --filter @kana-typing/content-cli run cli import-pack"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "@types/node": "^22.9.0",
+    "eslint": "^9.14.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.12.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.13.0",
+    "vitest": "^2.1.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "esbuild",
+      "unrs-resolver"
+    ]
+  }
+}

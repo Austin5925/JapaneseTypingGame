@@ -61,8 +61,8 @@ out/
 # Cargo build cache
 **/target/
 # Tauri runtime bundles + 自动生成产物
-src-tauri/gen/
-src-tauri/WixTools/
+**/src-tauri/gen/
+**/src-tauri/WixTools/
 # Tauri 调试工件
 *.app
 *.dmg
