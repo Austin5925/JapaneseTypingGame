@@ -722,6 +722,113 @@ pub fn list_recent_attempts(
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct ListProgressInput {
+    pub user_id: String,
+    #[serde(default)]
+    pub skill_dimension: Option<String>,
+    #[serde(default)]
+    pub limit: Option<i64>,
+}
+
+#[tauri::command]
+pub fn list_progress(
+    db: State<'_, AppDb>,
+    input: ListProgressInput,
+) -> AppResult<Vec<ProgressRecord>> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let limit = input.limit.unwrap_or(500).clamp(1, 5000);
+    let mut rows: Vec<ProgressRecord> = Vec::new();
+    if let Some(skill) = input.skill_dimension.as_ref() {
+        let mut stmt = conn.prepare(
+            "SELECT user_id, item_id, skill_dimension, state, mastery_score, stability, difficulty,\n                    exposure_count, correct_count, wrong_count, streak, lapse_count,\n                    average_reaction_time_ms, last_attempt_at, next_due_at, last_error_tags_json, updated_at\n             FROM item_skill_progress WHERE user_id = ?1 AND skill_dimension = ?2\n             ORDER BY mastery_score ASC LIMIT ?3",
+        )?;
+        let mapped = stmt.query_map(params![input.user_id, skill, limit], progress_row_to_record)?;
+        for r in mapped {
+            rows.push(r?);
+        }
+    } else {
+        let mut stmt = conn.prepare(
+            "SELECT user_id, item_id, skill_dimension, state, mastery_score, stability, difficulty,\n                    exposure_count, correct_count, wrong_count, streak, lapse_count,\n                    average_reaction_time_ms, last_attempt_at, next_due_at, last_error_tags_json, updated_at\n             FROM item_skill_progress WHERE user_id = ?1\n             ORDER BY mastery_score ASC LIMIT ?2",
+        )?;
+        let mapped = stmt.query_map(params![input.user_id, limit], progress_row_to_record)?;
+        for r in mapped {
+            rows.push(r?);
+        }
+    }
+    Ok(rows)
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct AggregateErrorTagsInput {
+    pub user_id: String,
+    /// Look-back window in days. 0 = all-time.
+    #[serde(default = "default_days")]
+    pub days: i64,
+    #[serde(default)]
+    pub limit: Option<i64>,
+}
+
+fn default_days() -> i64 {
+    7
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ErrorTagAggregate {
+    pub tag: String,
+    pub count: i64,
+}
+
+/// Aggregate error tags from `attempt_events.error_tags_json` over the last N days.
+/// Sprint 5 surfaces this on the home page (top error tags) and the mistakes page.
+#[tauri::command]
+pub fn aggregate_recent_error_tags(
+    db: State<'_, AppDb>,
+    input: AggregateErrorTagsInput,
+) -> AppResult<Vec<ErrorTagAggregate>> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let cutoff = if input.days > 0 {
+        Utc::now()
+            .checked_sub_signed(chrono::Duration::days(input.days))
+            .map(|d| d.to_rfc3339())
+            .unwrap_or_default()
+    } else {
+        "0000-01-01T00:00:00Z".to_string()
+    };
+    let mut stmt = conn.prepare(
+        "SELECT error_tags_json FROM attempt_events WHERE user_id = ?1 AND created_at >= ?2",
+    )?;
+    let rows = stmt.query_map(params![input.user_id, cutoff], |row| {
+        let s: String = row.get(0)?;
+        Ok(s)
+    })?;
+    let mut counts = std::collections::HashMap::<String, i64>::new();
+    for r in rows {
+        let s = r?;
+        let tags: Vec<String> = serde_json::from_str(&s).unwrap_or_default();
+        for tag in tags {
+            *counts.entry(tag).or_insert(0) += 1;
+        }
+    }
+    let mut out: Vec<ErrorTagAggregate> = counts
+        .into_iter()
+        .map(|(tag, count)| ErrorTagAggregate { tag, count })
+        .collect();
+    out.sort_by_key(|e| std::cmp::Reverse(e.count));
+    let limit = input.limit.unwrap_or(50).clamp(1, 500) as usize;
+    out.truncate(limit);
+    Ok(out)
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct AttemptsBySessionInput {
     pub session_id: String,
 }

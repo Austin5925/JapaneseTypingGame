@@ -177,3 +177,30 @@ export interface RecordAttemptResultInput {
 export function recordAttemptResult(input: RecordAttemptResultInput): Promise<void> {
   return invoke('record_attempt_result', { input });
 }
+
+export interface ListProgressInput {
+  userId: string;
+  skillDimension?: SkillDimension;
+  limit?: number;
+}
+
+export function listProgress(input: ListProgressInput): Promise<ProgressDto[]> {
+  return invoke<ProgressDto[]>('list_progress', { input });
+}
+
+export interface AggregateErrorTagsInput {
+  userId: string;
+  days?: number;
+  limit?: number;
+}
+
+export interface ErrorTagAggregateRow {
+  tag: string;
+  count: number;
+}
+
+export function aggregateRecentErrorTags(
+  input: AggregateErrorTagsInput,
+): Promise<ErrorTagAggregateRow[]> {
+  return invoke<ErrorTagAggregateRow[]>('aggregate_recent_error_tags', { input });
+}
