@@ -1,0 +1,29 @@
+[package]
+name = "kana-typing-desktop"
+version = "0.1.0"
+description = "Kana Typing — Japanese input reflex trainer (desktop)."
+authors = ["Kana Typing Team"]
+edition = "2021"
+rust-version = "1.77"
+
+# Use the lib + thin main split so we can plug in mobile entry points later without touching
+# the Tauri bootstrap.
+[lib]
+name = "kana_typing_desktop_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.32", features = ["bundled"] }
+thiserror = "1"
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+
+[features]
+# this feature is used for production builds where `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
