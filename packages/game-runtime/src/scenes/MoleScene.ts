@@ -163,7 +163,7 @@ export class MoleScene extends BaseTrainingScene<TrainingTask> {
   // ─── input ─────────────────────────────────────────────────────────
 
   private onKeyDown(event: KeyboardEvent): void {
-    if (!this.currentTask) return;
+    if (!this.currentTask || this.locked) return;
     if (event.key === 'Enter') {
       void this.commitInput();
       return;
@@ -179,11 +179,21 @@ export class MoleScene extends BaseTrainingScene<TrainingTask> {
     }
   }
 
+  // Locks input + the timeout callback during the post-submit feedback window. Without this,
+  // a stray Enter or the timer firing on a stale `currentTask` could double-submit.
+  private locked = false;
+
   private async commitInput(): Promise<void> {
-    if (!this.currentTask) return;
+    if (!this.currentTask || this.locked) return;
     const task = this.currentTask;
     const value = this.inputBuffer;
     if (!value) return;
+    this.locked = true;
+    // Cancel the timeout immediately so it can't fire on the same task we're about to submit.
+    if (this.taskTimer) {
+      this.taskTimer.remove(false);
+      this.taskTimer = null;
+    }
     const reactionTimeMs = Math.max(300, this.now() - this.taskStartedAt);
     const attempt: UserAttempt = {
       id: generateId('att'),
@@ -201,17 +211,22 @@ export class MoleScene extends BaseTrainingScene<TrainingTask> {
     };
     this.inputBuffer = '';
     this.refreshInputBufferText();
-    await this.submitAttemptAndAdvance(attempt);
-    // Pause briefly so the user can read feedback, then advance.
-    await new Promise<void>((resolve) => {
-      this.time.delayedCall(800, resolve);
-    });
-    await this.loadNextTask();
+    try {
+      await this.submitAttemptAndAdvance(attempt);
+      await new Promise<void>((resolve) => {
+        this.time.delayedCall(800, resolve);
+      });
+      await this.loadNextTask();
+    } finally {
+      this.locked = false;
+    }
   }
 
   private async onTimeout(): Promise<void> {
-    if (!this.currentTask) return;
+    if (!this.currentTask || this.locked) return;
     const task = this.currentTask;
+    this.locked = true;
+    this.taskTimer = null;
     const attempt: UserAttempt = {
       id: generateId('att'),
       sessionId: this.sessionId,
@@ -226,11 +241,15 @@ export class MoleScene extends BaseTrainingScene<TrainingTask> {
       usedHint: false,
       inputMethod: task.answerMode === 'romaji_to_kana' ? 'romaji' : 'keyboard_select',
     };
-    await this.submitAttemptAndAdvance(attempt);
-    await new Promise<void>((resolve) => {
-      this.time.delayedCall(1200, resolve);
-    });
-    await this.loadNextTask();
+    try {
+      await this.submitAttemptAndAdvance(attempt);
+      await new Promise<void>((resolve) => {
+        this.time.delayedCall(1200, resolve);
+      });
+      await this.loadNextTask();
+    } finally {
+      this.locked = false;
+    }
   }
 }
 

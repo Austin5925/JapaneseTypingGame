@@ -56,8 +56,17 @@ export class PhaserGameManager {
   }
 
   startMoleScene(opts: StartSessionOptions): void {
+    this.startScene(MOLE_SCENE_KEY, opts);
+  }
+
+  /**
+   * Generic scene-start hook used once Sprint 4 registers SpeedChaseScene alongside Mole. The
+   * scene `key` must already be registered with the underlying Phaser.Game (see the
+   * `scene: [...]` array in the `start()` config).
+   */
+  startScene(key: string, opts: StartSessionOptions): void {
     if (!this.game) throw new Error('PhaserGameManager.start() must be called before scene start');
-    this.game.scene.start(MOLE_SCENE_KEY, opts);
+    this.game.scene.start(key, opts);
   }
 
   destroy(): void {
