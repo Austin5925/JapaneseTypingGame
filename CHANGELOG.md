@@ -8,6 +8,55 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-04-30
+
+Sprint 3 — the Phaser game runtime + MoleScene MVP. Visit `#/dev` to seed the N5 mini pack,
+then `#/game/mole` to play 60 seconds of whack-a-mole, then land on `#/result/<sessionId>`
+for a session summary. attempt_events + item_skill_progress are populated by the same
+transactional record_attempt_result Tauri command shipped in v0.3.0.
+
+### Added (`@kana-typing/game-runtime` — new package)
+
+- `bridge/GameBridge` — discriminated GameRuntimeEvent union + GameBridgeImpl with set-of-
+  listeners-per-type, snapshot-during-emit so a mid-emit unsubscribe doesn't break siblings,
+  per-handler try/catch so a throwing listener doesn't break the pump.
+- `scenes/BaseTrainingScene` — abstract Phaser.Scene with the task pump (loadNextTask →
+  spawnTask → submitAttempt → loadNextTask). Subclasses implement createBackground /
+  createHudLayer / spawnTask / showFeedback. busy/finished flags prevent double submit/finish.
+- `scenes/MoleScene` — whack-a-mole. Single mole at a time, 64px kana on a rounded-rectangle
+  pillar, romaji-only keyboard buffer (a-zA-Z plus apostrophe + hyphen, Backspace, Enter),
+  Phaser-driven 6s task timeout. A `locked` flag wraps commit/timeout end-to-end so the
+  800ms post-submit feedback window can't double-submit.
+- `PhaserGameManager` — singleton lifecycle. `startMoleScene(opts)` plus a generic
+  `startScene(key, opts)` for Sprint 4's SpeedChaseScene.
+- 4 unit tests on GameBridgeImpl (jsdom).
+
+### Added (`@kana-typing/core`)
+
+- `planning/kanaTaskSelector` — `selectKanaTasks(input)` builds a fixed-length task queue
+  bucketed by scheduler urgency (overdue → fragile/learning → seen/new → stable/fluent),
+  shuffled with an injectable RNG. SelectedTaskQueue exposes next() / remaining() /
+  pushFront() so MoleScene can route a severe-error attempt back to the head of the queue
+  for in-session retry. 7 unit tests.
+
+### Added (`apps/desktop`)
+
+- `features/game/GameCanvasHost` — mounts a single PhaserGameManager + GameBridgeImpl per
+  session. Adapter is held in a ref so prop changes don't tear Phaser down.
+- `features/game/GameHud` — React-side overlay with remaining-time + accuracy.
+- `pages/GamePage` (`#/game/mole`) — 60-second mole training. Bufferless persistence
+  (record_attempt_result transactional Tauri command), severe-error pushFront retry,
+  60-second React timer auto-finishes + redirects to result.
+- `pages/ResultPage` (`#/result/:sessionId`) — accuracy / avg reaction / top error tags /
+  5 slowest attempts. Reads list_recent_attempts and filters client-side; per-session API
+  arrives in Sprint 4.
+
+### Notes
+
+- Codex review caught two must-fix items (MoleScene 800ms race, emit listener-exception
+  isolation) — both addressed before tagging.
+- Real-keyboard / IME / focus verification on macOS is the user-driven step.
+
 ## [0.3.0] - 2026-04-30
 
 Sprint 2 — the evaluation/scoring/mastery/scheduler layer plus the SQLite-backed session and
