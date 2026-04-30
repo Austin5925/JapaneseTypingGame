@@ -1,6 +1,6 @@
 import { useEffect, useState, type JSX } from 'react';
 
-import { listRecentAttempts, type AttemptEventRow } from '../tauri/invoke';
+import { listAttemptsBySession, type AttemptEventRow } from '../tauri/invoke';
 
 export interface ResultPageProps {
   sessionId: string;
@@ -31,10 +31,8 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
   useEffect(() => {
     void (async (): Promise<void> => {
       try {
-        // We pull a wide window and filter client-side; the API does not yet take sessionId.
-        const rows = await listRecentAttempts({ userId: 'default-user', limit: 500 });
-        const filtered = rows.filter((r) => r.sessionId === props.sessionId);
-        setAttempts(filtered);
+        const rows = await listAttemptsBySession({ sessionId: props.sessionId });
+        setAttempts(rows);
       } catch (err) {
         setError((err as Error).message);
       }

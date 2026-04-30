@@ -116,13 +116,16 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
       const remaining = Math.max(0, this.timeLimitMs - elapsed);
       this.timerText.setText(`${(remaining / 1000).toFixed(1)}s`);
     }
-    // Pursuer creep based on elapsed session time.
+    // Pursuer creep based on elapsed session time. Cap delta at 50ms so a backgrounded tab
+    // or power-save throttle can't produce a single-frame catch-up that looks like a game-
+    // breaking lurch (Phaser's delta is in ms; 60fps ≈ 16.7ms; 50ms ≈ 3 frames).
     if (this.pursuerSprite) {
       const accuracy = this.accuracyAttempts > 0 ? this.accuracyCorrect / this.accuracyAttempts : 1;
       const diff = getSpeedChaseDifficulty(this.now() - this.sessionStartedAt, accuracy);
+      const cappedDelta = Math.min(delta, 50);
       this.pursuerX = Math.min(
         this.playerX - 24,
-        this.pursuerX + (diff.pursuerSpeedPx * delta) / 16,
+        this.pursuerX + (diff.pursuerSpeedPx * cappedDelta) / 16,
       );
       this.pursuerSprite.setX(this.pursuerX);
     }
