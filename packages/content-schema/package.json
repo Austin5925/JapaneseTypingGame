@@ -1,0 +1,27 @@
+{
+  "name": "@kana-typing/content-schema",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Zod schemas and validators for content packs (learning items, examples, audio refs).",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "@kana-typing/core": "workspace:*",
+    "wanakana": "^5.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  }
+}
