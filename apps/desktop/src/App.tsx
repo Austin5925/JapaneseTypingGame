@@ -1,17 +1,19 @@
 import { useEffect, useState, type JSX } from 'react';
 
 import { DevPage } from './pages/DevPage';
+import { EvaluatorDevPage } from './pages/EvaluatorDevPage';
 import { HomePlaceholder } from './pages/HomePlaceholder';
 import { InputDevPage } from './pages/InputDevPage';
 
 // Hash-based routing keeps the scaffold dependency-free; we'll swap to a real router in Sprint 3
 // when game pages with sessionId params arrive.
-type Route = 'home' | 'dev' | 'dev-input';
+type Route = 'home' | 'dev' | 'dev-input' | 'dev-eval';
 
 function getRoute(): Route {
   const hash = globalThis.location.hash;
   if (hash === '#/dev') return 'dev';
   if (hash === '#/dev/input') return 'dev-input';
+  if (hash === '#/dev/eval') return 'dev-eval';
   return 'home';
 }
 
@@ -39,10 +41,12 @@ export function App(): JSX.Element {
         <a href="#/">home</a>
         <a href="#/dev">dev (db)</a>
         <a href="#/dev/input">dev (input)</a>
+        <a href="#/dev/eval">dev (eval)</a>
       </nav>
       {route === 'home' && <HomePlaceholder />}
       {route === 'dev' && <DevPage />}
       {route === 'dev-input' && <InputDevPage />}
+      {route === 'dev-eval' && <EvaluatorDevPage />}
     </main>
   );
 }
