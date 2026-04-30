@@ -65,6 +65,8 @@ export interface EvaluationStrictness {
   longVowel: 'strict' | 'warn' | 'ignore';
   sokuon: 'strict' | 'warn' | 'ignore';
   dakuten: 'strict' | 'warn' | 'ignore';
+  handakuten: 'strict' | 'warn' | 'ignore';
+  youon: 'strict' | 'warn' | 'ignore';
   kanjiSurface: 'strict' | 'accepted_variants';
   particleReading: 'surface' | 'pronunciation' | 'both';
 }

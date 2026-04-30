@@ -11,6 +11,8 @@ const STRICT: EvaluationStrictness = {
   longVowel: 'strict',
   sokuon: 'strict',
   dakuten: 'strict',
+  handakuten: 'strict',
+  youon: 'strict',
   kanjiSurface: 'strict',
   particleReading: 'surface',
 };
@@ -18,6 +20,11 @@ const STRICT: EvaluationStrictness = {
 const READING_MODE: EvaluationStrictness = {
   ...STRICT,
   particleReading: 'pronunciation',
+};
+
+const BOTH_MODE: EvaluationStrictness = {
+  ...STRICT,
+  particleReading: 'both',
 };
 
 const LENIENT_LONG: EvaluationStrictness = {
@@ -82,6 +89,46 @@ describe('compareKana — particle reading policy', () => {
 
   it('reading mode accepts お for を particle', () => {
     const r = compareKana('ほんを', 'ほんお', READING_MODE);
+    expect(r.isAcceptable).toBe(true);
+  });
+
+  it('both mode accepts the surface form unchanged', () => {
+    const r = compareKana('わたしは', 'わたしは', BOTH_MODE);
+    expect(r.isAcceptable).toBe(true);
+    expect(r.isExact).toBe(true);
+  });
+
+  it('both mode does NOT silently accept わ for は (no morpho analysis to know if は is particle)', () => {
+    // Documented limitation: 'both' is currently equivalent to 'surface'. Without a tokenizer
+    // we can't tell `はじめまして` (non-particle) from `わたしは` (particle). Tasks that need
+    // pronunciation tolerance should use 'pronunciation' mode or declare `acceptedKana`.
+    const r1 = compareKana('わたしは', 'わたしわ', BOTH_MODE);
+    expect(r1.isAcceptable).toBe(false);
+    const r2 = compareKana('はじめまして', 'わじめまして', BOTH_MODE);
+    expect(r2.isAcceptable).toBe(false);
+  });
+});
+
+describe('compareKana — handakuten + youon policy', () => {
+  it('strict handakuten rejects ぱ vs は', () => {
+    const r = compareKana('ぱ', 'は', STRICT);
+    expect(r.isAcceptable).toBe(false);
+    expect(r.errorTags).toContain('handakuten_error');
+  });
+
+  it('warn handakuten accepts ぱ vs は (independent of dakuten)', () => {
+    const r = compareKana('ぱ', 'は', { ...STRICT, handakuten: 'warn', dakuten: 'strict' });
+    expect(r.isAcceptable).toBe(true);
+  });
+
+  it('strict youon rejects しゃ vs しや', () => {
+    const r = compareKana('しゃ', 'しや', STRICT);
+    expect(r.isAcceptable).toBe(false);
+    expect(r.errorTags).toContain('youon_error');
+  });
+
+  it('warn youon accepts しゃ vs しや', () => {
+    const r = compareKana('しゃ', 'しや', { ...STRICT, youon: 'warn' });
     expect(r.isAcceptable).toBe(true);
   });
 });

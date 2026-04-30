@@ -13,6 +13,8 @@ const STRICT: EvaluationStrictness = {
   longVowel: 'strict',
   sokuon: 'strict',
   dakuten: 'strict',
+  handakuten: 'strict',
+  youon: 'strict',
   kanjiSurface: 'strict',
   particleReading: 'surface',
 };

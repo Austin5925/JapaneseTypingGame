@@ -116,4 +116,20 @@ describe('buildAcceptedKanaSet', () => {
     const set = buildAcceptedKanaSet({});
     expect(set.size).toBe(0);
   });
+
+  it('preserves ー in katakana words (does NOT silently expand to double vowels)', () => {
+    // Regression: an earlier draft used `wanakana.toHiragana` which silently expanded
+    // ビール → びいる, while `compareKana` (via `normalizeKana`) produces びーる. The two
+    // diverged so katakana long-vowel words in `acceptedKana` would never match.
+    const set = buildAcceptedKanaSet({ kana: 'ビール' });
+    expect(set.has('びーる')).toBe(true);
+    expect(set.has('びいる')).toBe(false);
+  });
+
+  it('handles a mix of katakana long-vowel + plain hiragana entries', () => {
+    const set = buildAcceptedKanaSet({ kana: 'ビール', acceptedKana: ['びーる', 'やくそく'] });
+    expect(set.size).toBe(2); // ビール and びーる collapse to the same hiragana form
+    expect(set.has('びーる')).toBe(true);
+    expect(set.has('やくそく')).toBe(true);
+  });
 });

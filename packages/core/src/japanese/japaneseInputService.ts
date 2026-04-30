@@ -93,17 +93,15 @@ export function compareKana(
     // pronunciation form so equality is symmetric.
     normalizedExpected = rewriteParticlesAsPronunciation(normalizedExpected);
     normalizedActual = rewriteParticlesAsPronunciation(normalizedActual);
-  } else if (policy.particleReading === 'both') {
-    // Either form acceptable. Apply pronunciation rewrite only when needed for equality.
-    if (normalizedExpected !== normalizedActual) {
-      const ep = rewriteParticlesAsPronunciation(normalizedExpected);
-      const ap = rewriteParticlesAsPronunciation(normalizedActual);
-      if (ep === ap) {
-        normalizedExpected = ep;
-        normalizedActual = ap;
-      }
-    }
   }
+  // 'both' is documented as "either form acceptable", but distinguishing a *particle* は from
+  // a non-particle は (はじめまして, 葉) requires morphological analysis we don't have at this
+  // layer. Implementing it via blanket rewriting would silently equate わじめまして to
+  // はじめまして (a real typo, not a particle-reading variant). For Sprint 1 we therefore make
+  // 'both' equivalent to 'surface'; tasks that need to accept both surface and pronunciation
+  // particle forms should declare both in `acceptedKana`. The enum value is preserved so
+  // content packs can stay version-stable; semantics may sharpen once Sprint 4+ has a real
+  // tokenizer.
 
   const isExact = normalizedExpected === normalizedActual;
   if (isExact) {
@@ -149,17 +147,27 @@ export function compareKana(
 function isAcceptableUnderPolicy(tags: readonly ErrorTag[], policy: EvaluationStrictness): boolean {
   if (tags.length === 0) return true;
   for (const tag of tags) {
-    if (tag === 'long_vowel_error' && policy.longVowel === 'strict') return false;
-    if (tag === 'sokuon_error' && policy.sokuon === 'strict') return false;
-    if (tag === 'dakuten_error' && policy.dakuten === 'strict') return false;
-    if (tag === 'handakuten_error' && policy.dakuten === 'strict') return false;
-    if (
-      tag !== 'long_vowel_error' &&
-      tag !== 'sokuon_error' &&
-      tag !== 'dakuten_error' &&
-      tag !== 'handakuten_error'
-    ) {
-      return false;
+    switch (tag) {
+      case 'long_vowel_error':
+        if (policy.longVowel === 'strict') return false;
+        break;
+      case 'sokuon_error':
+        if (policy.sokuon === 'strict') return false;
+        break;
+      case 'dakuten_error':
+        if (policy.dakuten === 'strict') return false;
+        break;
+      case 'handakuten_error':
+        if (policy.handakuten === 'strict') return false;
+        break;
+      case 'youon_error':
+        if (policy.youon === 'strict') return false;
+        break;
+      // Shape confusion and n_error are informational/scheduler tags; they always reject. The
+      // remaining tags (particle_error, kanji_reading_error, meaning_confusion, etc.) come
+      // from higher-level evaluators and we don't tolerate any of them at the kana layer.
+      default:
+        return false;
     }
   }
   return true;

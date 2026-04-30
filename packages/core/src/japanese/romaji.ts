@@ -2,6 +2,8 @@ import * as wanakana from 'wanakana';
 
 import type { ExpectedAnswer } from '../types/domain';
 
+import { normalizeKana } from './normalizeKana';
+
 export type KanaMode = 'hiragana' | 'katakana' | 'mixed';
 
 /**
@@ -40,7 +42,10 @@ export function toRomajiCandidates(kana: string): string[] {
 /**
  * Build the set of acceptable kana forms for an answer: the canonical `expected.kana` plus any
  * pack-declared `acceptedKana` (for items with multiple legitimate readings). The returned set
- * is hiragana-normalised to make membership-check insensitive to script.
+ * is normalised through the same `normalizeKana(katakana→hiragana, no long-vowel expansion)`
+ * pipeline that `compareKana` uses, so a katakana word with ー (e.g. `ビール`) ends up as
+ * `びーる` here and matches the result of `compareKana`'s normalisation rather than the
+ * silently-expanded `びいる` that `wanakana.toHiragana` would produce.
  */
 export function buildAcceptedKanaSet(
   expected: Pick<ExpectedAnswer, 'kana' | 'acceptedKana'>,
@@ -48,7 +53,7 @@ export function buildAcceptedKanaSet(
   const set = new Set<string>();
   const add = (k: string | undefined): void => {
     if (!k) return;
-    set.add(wanakana.toHiragana(k));
+    set.add(normalizeKana(k, { katakanaToHiragana: true, expandLongVowel: false }));
   };
   add(expected.kana);
   for (const k of expected.acceptedKana ?? []) add(k);

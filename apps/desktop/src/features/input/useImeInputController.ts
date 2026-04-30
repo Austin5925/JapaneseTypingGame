@@ -79,21 +79,20 @@ export function useImeInputController(
   // latest composition state without re-creating the callback every render — both Phaser and
   // some keyboard libraries dislike rapidly-changing handlers.
   const composingRef = useRef(false);
+  // Mirror of state.rawValue. Lives outside React state so `commit()` can read the latest
+  // value without invoking onCommit from inside a setState updater (which would double-fire
+  // under React Strict Mode).
+  const valueRef = useRef(initialValue);
 
   useEffect(() => {
     onChange?.(state);
   }, [state, onChange]);
 
-  const updateValue = useCallback((value: string) => {
+  const onChangeInput = useCallback((e: FormEvent<HTMLInputElement>) => {
+    const value = e.currentTarget.value;
+    valueRef.current = value;
     setState((s) => ({ ...s, rawValue: value }));
   }, []);
-
-  const onChangeInput = useCallback(
-    (e: FormEvent<HTMLInputElement>) => {
-      updateValue(e.currentTarget.value);
-    },
-    [updateValue],
-  );
 
   const onCompositionStart = useCallback((e: CompositionEvent<HTMLInputElement>) => {
     composingRef.current = true;
@@ -107,6 +106,7 @@ export function useImeInputController(
   const onCompositionEnd = useCallback((e: CompositionEvent<HTMLInputElement>) => {
     composingRef.current = false;
     const value = e.currentTarget.value;
+    valueRef.current = value;
     setState((s) => ({
       ...s,
       isComposing: false,
@@ -117,10 +117,10 @@ export function useImeInputController(
   }, []);
 
   const commit = useCallback(() => {
-    setState((s) => {
-      onCommit(s.rawValue);
-      return { ...s, rawValue: '', composingValue: '', isComposing: false };
-    });
+    const value = valueRef.current;
+    valueRef.current = '';
+    setState({ rawValue: '', composingValue: '', isComposing: false });
+    onCommit(value);
   }, [onCommit]);
 
   const onKeyDown = useCallback(
@@ -148,8 +148,9 @@ export function useImeInputController(
   );
 
   const reset = useCallback(() => {
-    setState({ rawValue: '', composingValue: '', isComposing: false });
+    valueRef.current = '';
     composingRef.current = false;
+    setState({ rawValue: '', composingValue: '', isComposing: false });
   }, []);
 
   const focus = useCallback(() => {
