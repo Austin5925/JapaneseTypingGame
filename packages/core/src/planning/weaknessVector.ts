@@ -78,14 +78,18 @@ export function buildWeaknessVector(
 }
 
 function computeSkillWeakness(progressList: SkillProgress[], skill: SkillDimension): number {
-  // `kana_recognition` is a recognition-level skill in the enum but the typing-level
-  // sibling `kana_typing` shares the same WeaknessVector field. We fold them together so
-  // a user with a lot of kana_typing exposure isn't shown a uniform 0.7 default just
-  // because nobody seeded `kana_recognition` data.
-  const accept: ReadonlySet<SkillDimension> =
-    skill === 'kana_recognition'
-      ? new Set<SkillDimension>(['kana_recognition', 'kana_typing'])
-      : new Set<SkillDimension>([skill]);
+  // MoleScene currently emits `skillDimension: 'kana_typing'` for every kana attempt
+  // regardless of whether the underlying item is hiragana or katakana (that data lives in
+  // item.tags, not in the progress dimension). To keep the planner from showing uniform 0.7
+  // defaults for `kana_recognition` AND `katakana_recognition` to a user who only plays
+  // mole, we fold `kana_typing` into both dimensions. When mole later splits its dimension
+  // by item-script, this fold can shrink to just kana_recognition.
+  let accept: ReadonlySet<SkillDimension>;
+  if (skill === 'kana_recognition' || skill === 'katakana_recognition') {
+    accept = new Set<SkillDimension>([skill, 'kana_typing']);
+  } else {
+    accept = new Set<SkillDimension>([skill]);
+  }
   const filtered = progressList.filter((p) => accept.has(p.skillDimension));
   if (filtered.length === 0) return 0.7;
   const avg = filtered.reduce((sum, p) => sum + p.masteryScore, 0) / filtered.length;
