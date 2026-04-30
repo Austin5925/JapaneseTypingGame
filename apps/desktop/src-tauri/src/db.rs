@@ -46,22 +46,18 @@ pub fn init(app_data_dir: &Path) -> AppResult<AppDb> {
         [],
     )?;
 
-    let applied: std::collections::HashSet<String> = {
-        let mut stmt = conn.prepare("SELECT name FROM schema_migrations")?;
-        let rows = stmt.query_map([], |row| row.get::<_, String>(0))?;
-        rows.collect::<Result<_, _>>()?
-    };
-
+    // Race tolerance on first launch: two app instances opening the same DB simultaneously
+    // would each see schema_migrations empty, both run the (idempotent) DDL, and one would lose
+    // a UNIQUE-constraint race when inserting the marker row. `INSERT OR IGNORE` lets the
+    // loser's marker write be a no-op while still ensuring the migration is recorded exactly
+    // once. We then re-read the table to populate `applied_list` from ground truth rather than
+    // from the local intent.
     let mut applied_list: Vec<String> = Vec::new();
     for (name, sql) in MIGRATIONS {
-        if applied.contains(*name) {
-            applied_list.push((*name).to_string());
-            continue;
-        }
         let tx = conn.unchecked_transaction()?;
         tx.execute_batch(sql)?;
         tx.execute(
-            "INSERT INTO schema_migrations (name, applied_at) VALUES (?1, ?2)",
+            "INSERT OR IGNORE INTO schema_migrations (name, applied_at) VALUES (?1, ?2)",
             params![*name, Utc::now().to_rfc3339()],
         )?;
         tx.commit()?;

@@ -1,7 +1,7 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
-  "description": "Default capability for the main window — wires up `core:default` and the app's custom commands.",
+  "description": "Default capability for the main window. Grants `core:default` (Tauri's built-in core APIs) plus `core:window:default`. Note: app-defined commands registered via `tauri::generate_handler!` (get_db_info, list_items, seed_test_pack) are not constrained by capability ACL in Tauri v2 unless an explicit per-command permission file is added; they are reachable from any window with frontend IPC enabled. Sprint 5 will tighten CSP and add a per-command permission manifest before v1.0.",
   "windows": ["main"],
   "permissions": [
     "core:default",
