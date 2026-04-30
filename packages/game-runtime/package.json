@@ -1,0 +1,26 @@
+{
+  "name": "@kana-typing/game-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Phaser scenes + GameBridge that consumes TrainingTasks and emits attempts.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "@kana-typing/core": "workspace:*",
+    "phaser": "^3.86.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  }
+}
