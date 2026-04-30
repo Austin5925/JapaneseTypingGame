@@ -5,8 +5,15 @@ import {
 } from '@kana-typing/game-runtime';
 import { useEffect, useRef, type JSX } from 'react';
 
+// Scene keys are string literals defined inside game-runtime; we mirror them here as a union
+// type so callers stay typed without importing the runtime constants (which the lint
+// type-only-imports rule then complains about).
+export type GameSceneKey = 'MoleScene' | 'SpeedChaseScene';
+
 export interface GameCanvasHostProps {
   sessionId: string;
+  /** Which Phaser scene to start. */
+  sceneKey: GameSceneKey;
   adapter: GameBridgeAdapter;
   /** Phaser game width / height. Defaults to 800x480. */
   width?: number;
@@ -56,7 +63,7 @@ export function GameCanvasHost(props: GameCanvasHostProps): JSX.Element {
       ...(props.height !== undefined && { height: props.height }),
     });
     manager.start();
-    manager.startMoleScene({ bridge, sessionId: props.sessionId });
+    manager.startScene(props.sceneKey, { bridge, sessionId: props.sessionId });
     managerRef.current = manager;
 
     return () => {
@@ -65,10 +72,10 @@ export function GameCanvasHost(props: GameCanvasHostProps): JSX.Element {
       managerRef.current = null;
       bridgeRef.current = null;
     };
-    // We only want this to run on initial mount + sessionId change. The adapter prop is
-    // observed via the ref above so swapping it doesn't re-mount the game.
+    // We only want this to run on initial mount + (sessionId, sceneKey) change. The adapter
+    // prop is observed via the ref above so swapping it doesn't re-mount the game.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.sessionId]);
+  }, [props.sessionId, props.sceneKey]);
 
   return (
     <div

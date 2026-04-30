@@ -15,6 +15,7 @@ type Route =
   | { kind: 'dev-input' }
   | { kind: 'dev-eval' }
   | { kind: 'game-mole' }
+  | { kind: 'game-speed-chase' }
   | { kind: 'result'; sessionId: string };
 
 function getRoute(): Route {
@@ -23,6 +24,7 @@ function getRoute(): Route {
   if (hash === '#/dev/input') return { kind: 'dev-input' };
   if (hash === '#/dev/eval') return { kind: 'dev-eval' };
   if (hash === '#/game/mole') return { kind: 'game-mole' };
+  if (hash === '#/game/speed-chase') return { kind: 'game-speed-chase' };
   const resultMatch = hash.match(/^#\/result\/(.+)$/u);
   if (resultMatch) return { kind: 'result', sessionId: resultMatch[1]! };
   return { kind: 'home' };
@@ -54,12 +56,14 @@ export function App(): JSX.Element {
         <a href="#/dev/input">dev (input)</a>
         <a href="#/dev/eval">dev (eval)</a>
         <a href="#/game/mole">game (mole)</a>
+        <a href="#/game/speed-chase">game (speed-chase)</a>
       </nav>
       {route.kind === 'home' && <HomePlaceholder />}
       {route.kind === 'dev' && <DevPage />}
       {route.kind === 'dev-input' && <InputDevPage />}
       {route.kind === 'dev-eval' && <EvaluatorDevPage />}
-      {route.kind === 'game-mole' && <GamePage />}
+      {route.kind === 'game-mole' && <GamePage mode="mole" />}
+      {route.kind === 'game-speed-chase' && <GamePage mode="speed-chase" />}
       {route.kind === 'result' && <ResultPage sessionId={route.sessionId} />}
     </main>
   );
