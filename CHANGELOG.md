@@ -8,6 +8,59 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-05-01 — MVP candidate
+
+Sprint 5 — full user path. The scaffold now backs a complete loop:
+home → today → game → result → mistakes → library → settings.
+
+### Added (`@kana-typing/core/planning`)
+
+- `weaknessVector.ts` — `buildWeaknessVector(progressList, recentErrors)` rolls per-skill
+  mastery + recent error counts into a WeaknessVector. Skills with no observed items
+  default to 0.7 so the planner schedules them rather than skipping; `kana_typing` folds
+  into both `kana_recognition` and `katakana_recognition` so a user who only plays mole
+  doesn't have permanent 0.7 defaults on those fields. weakestItems sorts by
+  `1 - masteryScore/100` desc.
+- `dailyPlanService.ts` — `selectGameBlocks(vector, targetDurationMs)` picks the day's
+  training blocks: katakana > 0.6 → mole; kanji_reading > 0.5 → speed_chase; long-vowel /
+  sokuon / dakuten in topErrorTags → extra mole drill (apple_rescue stand-in until that
+  scene ships); empty-state fallback always returns mole + speed-chase.
+  fitBlocksToDuration trims to the budget.
+- 13 new unit tests across the two files.
+
+### Added (`apps/desktop`)
+
+- Tauri commands `list_progress` (sorted by mastery_score asc) and
+  `aggregate_recent_error_tags` (scans attempt_events.error_tags_json over a window).
+  Frontend wrappers in invoke.ts.
+- `pages/HomePage` (replaces HomePlaceholder) — three weakest skills + top recent error
+  tags + CTA to /today. Empty-state routes to /dev for seeding.
+- `pages/TodayTrainingPage` — `selectGameBlocks` against the live weakness vector;
+  ordered list of game blocks with reason / duration / hash link.
+- `pages/MistakesPage` — recent wrong attempts grouped by error tag (30-day window;
+  client-side join with up to 1000 most-recent attempts).
+- `pages/LibraryPage` — items × (kanji_reading, kana_typing, meaning_recall) mastery
+  matrix.
+- `pages/SettingsPage` — minimal: DB path + applied migrations + item count + dev link.
+- `App.tsx` adds /today, /mistakes, /library, /settings routes; nav reorganised so the
+  user-facing routes lead and dev routes are tucked to the right.
+
+### Notes
+
+- Codex backend remained unresponsive; feature-dev:code-reviewer ran the audit. Three
+  must-fix items addressed before tagging:
+  - App.tsx had silently dropped the new-route registration in earlier passes; the
+    Sprint 5 pages were dead until this commit.
+  - `kana_typing` fold was incomplete (only into kana_recognition, not katakana_recognition).
+  - MistakesPage 200-attempt cap was too low for a 30-day aggregate window; raised to
+    1000 with a v0.7 TODO to add a SQL date-range filter.
+- Tauri-boundary type validation (Zod parse on invoke results) is documented as v0.7
+  work — today no path writes invalid strings, but user-imported content packs will
+  expose this gap.
+- Real new-user diagnostic flow + content-pack management page + IME preferences land
+  in v0.7+. v0.6.0 is the MVP candidate per plan.md §7 — it does NOT auto-promote to
+  v1.0.0; the user explicitly drives that decision.
+
 ## [0.5.0] - 2026-04-30
 
 Sprint 4 — second Phaser scene + parametrised game page. Visit `#/game/speed-chase` to play
