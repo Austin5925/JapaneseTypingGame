@@ -8,6 +8,51 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-04-30
+
+Sprint 4 — second Phaser scene + parametrised game page. Visit `#/game/speed-chase` to play
+3 minutes of kanji-reading sprint. Cross-game error routing already takes effect through the
+Sprint 2 progress / scheduler / selector pipeline (an item that drops to `fragile` after
+SpeedChase misses gets surfaced first in the next Mole session via the bucket-1 priority in
+`selectKanaTasks`).
+
+### Added (`@kana-typing/game-runtime`)
+
+- `scenes/SpeedChaseScene` — kanji prompt + player + pursuer indicator on a track lane.
+  Correct answers nudge the player forward; wrong answers / timeouts close the gap.
+  Per-task timer driven by the difficulty curve; `locked` flag wraps commit/timeout so the
+  post-submit feedback window can't double-submit (same fix as MoleScene). `update()`
+  caps Phaser's delta at 50ms so a throttled WebView can't lurch the pursuer 30x in one
+  frame.
+- `scenes/speedChaseDifficulty` — pure `getSpeedChaseDifficulty(elapsedMs, accuracy)`
+  function isolated from Phaser so unit tests can run under jsdom. 6 tests pin the timer
+  ramp + accuracy multiplier + pursuer speed growth.
+- `PhaserGameManager.startSpeedChaseScene` + the generic `startScene(key, opts)`. The
+  scene-registration array is now the source of truth — Phaser silently no-ops if the key
+  isn't registered, so adding a scene without registering it would be invisible at runtime.
+
+### Added (`apps/desktop`)
+
+- `features/game/GameCanvasHost.sceneKey` prop typed as `'MoleScene' | 'SpeedChaseScene'`.
+  The effect now depends on `[sessionId, sceneKey]` so scene swaps tear down + re-mount.
+- `pages/GamePage.mode` prop with `'mole' | 'speed-chase'`. MODE_CONFIG holds the per-mode
+  duration / scene key / answer mode / skill dimension / task count / time limit.
+- `App.tsx` route `#/game/speed-chase`.
+- Tauri command `list_attempts_by_session(sessionId)` and matching invoke wrapper.
+  ResultPage now uses it directly instead of filtering listRecentAttempts client-side
+  (that client-side filter would silently drop attempts past its 500-row limit once
+  Sprint 5 starts accumulating MistakesPage history).
+
+### Notes
+
+- Codex backend hung again at the broker layer; feature-dev:code-reviewer ran the audit
+  instead. Findings: (a) SpeedChaseScene was registered as a startScene method but missing
+  from PhaserGameManager's `scene: [...]` array — silent no-op until fixed; (b) ResultPage
+  client-side filter would break with accumulated history; (c) pursuer integration needed
+  delta clamping. All three addressed before tagging.
+- Real OS-IME via ImeInputBox alongside the canvas, multi-reading kanji enforcement at
+  pack-validation time, and Boss-style game-over remain Sprint 5+ items.
+
 ## [0.4.0] - 2026-04-30
 
 Sprint 3 — the Phaser game runtime + MoleScene MVP. Visit `#/dev` to seed the N5 mini pack,
