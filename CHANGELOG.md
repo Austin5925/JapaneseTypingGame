@@ -8,6 +8,65 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-04-30
+
+The Japanese language layer. `@kana-typing/core/japanese` is the single point every game and
+evaluator goes through; pure functions, no React or DB dependency.
+
+### Added
+
+- `@kana-typing/core/japanese/charTables` — closed dakuten / handakuten / youon / sokuon /
+  long-vowel lookup tables, plus per-character vowel data so the classifier can detect
+  `ばあ` → `ば` long-vowel collapses without owning a regex zoo.
+- `@kana-typing/core/japanese/normalizeKana` — `normalizeRawInput`, `normalizeKana(opts)`,
+  `expandLongVowelMark`. The katakana → hiragana step is implemented inline (codepoint
+  offset 0x60) rather than via `wanakana.toHiragana` so ー survives the conversion;
+  `expandLongVowel` is the explicit opt-in to expand it.
+- `@kana-typing/core/japanese/romaji` — `toKanaCandidates`, `toRomajiCandidates`,
+  `buildAcceptedKanaSet` over wanakana. Accepts shi/si, chi/ti, tsu/tu, fu/hu, ji/zi,
+  sha/sya, double-letter sokuon, ん via nn / n+vowel / n'.
+- `@kana-typing/core/japanese/errorClassifier` — vowel-aware `removeLongVowel` (handles
+  `ー`, doubled-vowel pairs, AND canonical orthographic long vowels お+う / え+い),
+  `removeSokuon`, `stripDakuten`, `stripHandakuten`, `normalizeYouon`, `classifyKanaError`,
+  `hasSevereError`. Detects long_vowel / sokuon / dakuten / handakuten / youon / n_error /
+  katakana_shape / hiragana_shape errors.
+- `@kana-typing/core/japanese/particles` — は/へ/を ↔ わ/え/お rewrite used by reading-mode
+  strictness; documented as deliberately position-blind so callers stay symmetric.
+- `@kana-typing/core/japanese/ime` — `isLikelyImeComposing` predicate combining
+  `isComposing`, `keyCode === 229`, and `key === 'Process'` so Chrome / Safari / Firefox /
+  Tauri WebView all classify correctly.
+- `@kana-typing/core/japanese/japaneseInputService` — `createJapaneseInputService()` façade.
+  `compareKana(expected, actual, EvaluationStrictness)` honours per-axis policies (longVowel /
+  sokuon / dakuten = strict|warn|ignore, particleReading = surface|pronunciation|both).
+  `compareSurface` handles `acceptedSurfaces` for items with multiple legitimate surface
+  forms (会う / 逢う).
+- `apps/desktop/src/features/input/useImeInputController` — React hook wired to
+  `compositionstart` / `compositionupdate` / `compositionend` plus the shared
+  `isLikelyImeComposing`. Enter is suppressed mid-composition; modes: `romaji` (no IME
+  guard) vs `ime_surface` (full IME).
+- `apps/desktop/src/features/input/ImeInputBox` — styled controlled input wrapping the hook,
+  with an optional compose indicator for tester verification.
+- `apps/desktop/src/pages/InputDevPage` (`#/dev/input`) — operator-facing live evaluation
+  probe: type into an IME-aware field, see `normalizeKana`, `toKanaCandidates`,
+  `classifyKanaError`, and `compareKana` under both `strict` and `reading` policies update
+  live. Includes a fixed probe table for ビール/ビル, きって/きて, がくせい/かくせい,
+  ヤクソク script equivalence, and わたしは/わたしわ particle reading.
+
+### Tests
+
+108 unit tests across 7 files (normalizeKana, romaji, errorClassifier, minimalPairs,
+particles, ime, japaneseInputService). Real Japanese data — minimal pairs include シ/ツ,
+ソ/ン, ク/ケ, ワ/ウ, ヌ/ス. Severity tests cover きって/きて, ビル/ビール, おばさん/おばあさん,
+かき/がき.
+
+### Notes
+
+- `removeLongVowel` is intentionally lossy: お+う collapses to お, so a theoretical
+  `こうこう` vs `ここ` minimal pair would falsely match. These pairs aren't realistic
+  typing-error pairs in practice.
+- The IME hook's macOS / Windows real-keyboard pass remains a manual verification step;
+  Sprint 4 is the hard deadline for cross-platform IME smoke testing.
+
 ## [0.1.0] - 2026-04-30
 
 Engineering scaffold. Not yet a usable product — the desktop app boots, has a `/dev` page that
