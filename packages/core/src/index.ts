@@ -4,3 +4,6 @@
 export * from './types/enums';
 export * from './types/domain';
 export * from './japanese';
+export * from './evaluation';
+export * from './mastery';
+export * from './util/math';

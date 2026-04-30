@@ -132,7 +132,10 @@ export function compareKana(
     }
   }
 
-  const errorTags = classifyKanaError(normalizedExpected, normalizedActual);
+  // Pass the *raw* inputs so classifyKanaError can detect katakana_shape_confusion (which
+  // requires the original katakana script — once we've normalised to hiragana, シ/ツ pairs
+  // are gone). classifyKanaError re-normalises internally for vowel/sokuon checks.
+  const errorTags = classifyKanaError(expectedRaw, actualRaw);
   const isAcceptable = isAcceptableUnderPolicy(errorTags, policy);
 
   return {
