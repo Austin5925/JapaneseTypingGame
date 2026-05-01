@@ -68,11 +68,7 @@ export function SettingsPage(): JSX.Element {
             );
             if (linkable) {
               return (
-                <a
-                  key={s.id}
-                  href={s.href}
-                  style={{ textDecoration: 'none', color: 'inherit' }}
-                >
+                <a key={s.id} href={s.href} style={{ textDecoration: 'none', color: 'inherit' }}>
                   {inner}
                 </a>
               );

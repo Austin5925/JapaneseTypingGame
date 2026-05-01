@@ -23,10 +23,12 @@
     "tauri:dev": "pnpm --filter @kana-typing/desktop tauri:dev",
     "tauri:build": "pnpm --filter @kana-typing/desktop tauri:build",
     "content:validate": "pnpm --filter @kana-typing/content-cli run cli validate-pack",
-    "content:import": "pnpm --filter @kana-typing/content-cli run cli import-pack"
+    "content:import": "pnpm --filter @kana-typing/content-cli run cli import-pack",
+    "test:e2e": "playwright test --config tests/e2e/playwright.config.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
+    "@playwright/test": "^1.59.1",
     "@types/node": "^22.9.0",
     "eslint": "^9.14.0",
     "eslint-import-resolver-typescript": "^3.6.3",

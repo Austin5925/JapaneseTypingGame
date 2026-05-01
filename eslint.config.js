@@ -25,6 +25,10 @@ export default tseslint.config(
       '**/.vite/**',
       'pnpm-lock.yaml',
       'local-data/**',
+      // Playwright E2E specs live outside the workspace tsconfigs and have
+      // their own lint baseline via @playwright/test types — treat them as
+      // ESLint-opaque rather than wiring up a fifth tsconfig.
+      'tests/e2e/**',
     ],
   },
   js.configs.recommended,
