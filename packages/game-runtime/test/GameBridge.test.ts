@@ -75,4 +75,61 @@ describe('GameBridgeImpl', () => {
     await bridge.finishSession('completed');
     expect(a.finishSession).toHaveBeenCalledWith('completed');
   });
+
+  describe('external input channel', () => {
+    it('delivers commit and cancel events to subscribers', () => {
+      const bridge = new GameBridgeImpl(adapter());
+      const handler = vi.fn();
+      bridge.onExternalInput(handler);
+
+      bridge.emitExternalInput({ type: 'external.commit', value: 'やくそく' });
+      bridge.emitExternalInput({ type: 'external.cancel' });
+
+      expect(handler).toHaveBeenCalledTimes(2);
+      expect(handler).toHaveBeenNthCalledWith(1, { type: 'external.commit', value: 'やくそく' });
+      expect(handler).toHaveBeenNthCalledWith(2, { type: 'external.cancel' });
+    });
+
+    it('honours unsubscribe', () => {
+      const bridge = new GameBridgeImpl(adapter());
+      const handler = vi.fn();
+      const off = bridge.onExternalInput(handler);
+      off();
+      bridge.emitExternalInput({ type: 'external.commit', value: 'a' });
+      expect(handler).not.toHaveBeenCalled();
+    });
+
+    it('isolates a throwing external handler so siblings still run', () => {
+      const bridge = new GameBridgeImpl(adapter());
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const sibling = vi.fn();
+      bridge.onExternalInput(() => {
+        throw new Error('external listener boom');
+      });
+      bridge.onExternalInput(sibling);
+
+      bridge.emitExternalInput({ type: 'external.commit', value: 'a' });
+
+      expect(sibling).toHaveBeenCalledTimes(1);
+      expect(warn).toHaveBeenCalledTimes(1);
+      warn.mockRestore();
+    });
+
+    it('keeps regular and external channels independent', () => {
+      const bridge = new GameBridgeImpl(adapter());
+      const sceneReady = vi.fn();
+      const external = vi.fn();
+      bridge.on('scene.ready', sceneReady);
+      bridge.onExternalInput(external);
+
+      bridge.emit({ type: 'scene.ready', sceneId: 's' });
+      expect(sceneReady).toHaveBeenCalledTimes(1);
+      expect(external).not.toHaveBeenCalled();
+
+      bridge.emitExternalInput({ type: 'external.commit', value: 'a' });
+      expect(external).toHaveBeenCalledTimes(1);
+      // sceneReady still at 1 — channels don't cross.
+      expect(sceneReady).toHaveBeenCalledTimes(1);
+    });
+  });
 });

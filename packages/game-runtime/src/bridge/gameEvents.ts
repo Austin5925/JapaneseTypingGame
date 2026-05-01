@@ -20,3 +20,16 @@ export type GameEventHandler<T extends GameRuntimeEvent['type']> = (
 ) => void;
 
 export type Unsubscribe = () => void;
+
+/**
+ * App→Scene reverse channel. The default GameBridge surface (GameRuntimeEvent) is one-way
+ * Scene→App; this complementary union lets the React layer push externally-sourced input
+ * (e.g. the IME-finalised string from `<ImeInputBox>`) back into a Scene without the Scene
+ * needing to know who produced it. Keeping it as a separate union — instead of folding into
+ * GameRuntimeEvent — preserves the Scene→App semantic of the original channel.
+ */
+export type ExternalInputEvent =
+  | { type: 'external.commit'; value: string }
+  | { type: 'external.cancel' };
+
+export type ExternalInputHandler = (event: ExternalInputEvent) => void;

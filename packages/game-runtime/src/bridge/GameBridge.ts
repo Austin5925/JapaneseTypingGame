@@ -1,6 +1,8 @@
 import type { EvaluationResult, TrainingTask, UserAttempt } from '@kana-typing/core';
 
 import type {
+  ExternalInputEvent,
+  ExternalInputHandler,
   GameEventHandler,
   GameRuntimeEvent,
   SessionFinishReason,
@@ -25,6 +27,14 @@ export interface GameBridge {
   submitAttempt(attempt: UserAttempt): Promise<EvaluationResult>;
   /** Close the session. The application flushes buffered attempts and writes the final row. */
   finishSession(reason: SessionFinishReason): Promise<void>;
+  /**
+   * App→Scene reverse channel. The React layer calls `emitExternalInput` to push an
+   * externally-sourced input value (e.g. an IME-finalised string from `<ImeInputBox>`) into
+   * the active Scene; the Scene subscribes via `onExternalInput`. Lets us run an OS-level IME
+   * outside the Phaser canvas without the Scene knowing where the bytes came from.
+   */
+  emitExternalInput(event: ExternalInputEvent): void;
+  onExternalInput(handler: ExternalInputHandler): Unsubscribe;
 }
 
 /**
@@ -56,6 +66,7 @@ export class GameBridgeImpl implements GameBridge {
     GameRuntimeEvent['type'],
     Set<Listener<GameRuntimeEvent['type']>>
   >();
+  private readonly externalListeners = new Set<ExternalInputHandler>();
 
   constructor(private readonly adapter: GameBridgeAdapter) {}
 
@@ -97,5 +108,25 @@ export class GameBridgeImpl implements GameBridge {
 
   finishSession(reason: SessionFinishReason): Promise<void> {
     return this.adapter.finishSession(reason);
+  }
+
+  emitExternalInput(event: ExternalInputEvent): void {
+    // Snapshot so a listener that unsubscribes mid-iteration doesn't break us — same pattern
+    // as the regular event channel above.
+    const snapshot = [...this.externalListeners];
+    for (const handler of snapshot) {
+      try {
+        handler(event);
+      } catch (err) {
+        console.warn('GameBridge external listener failed', err);
+      }
+    }
+  }
+
+  onExternalInput(handler: ExternalInputHandler): Unsubscribe {
+    this.externalListeners.add(handler);
+    return () => {
+      this.externalListeners.delete(handler);
+    };
   }
 }

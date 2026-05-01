@@ -2,15 +2,30 @@ import type { EvaluationResult, TrainingTask, UserAttempt } from '@kana-typing/c
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports -- Phaser.Scene used as a runtime base + a namespace.
 import Phaser from 'phaser';
 
+import type { ExternalInputEvent } from '../bridge/gameEvents';
+
 import type { BaseSceneInit } from './BaseTrainingScene';
 import { BaseTrainingScene } from './BaseTrainingScene';
 import { getSpeedChaseDifficulty } from './speedChaseDifficulty';
 
 export const SPEED_CHASE_SCENE_KEY = 'SpeedChaseScene';
 
+/**
+ * Where SpeedChaseScene reads user input from.
+ *
+ * - `phaser_keys` — the original path: Phaser's keyboard plugin captures window-level keystrokes
+ *   and we accumulate ASCII into `inputBuffer`. Romaji-only.
+ * - `external` — the React layer owns input (typically `<ImeInputBox>` running an OS IME) and
+ *   pushes finalised values via `bridge.emitExternalInput`. Lets us train with a real Japanese
+ *   IME because Phaser's canvas no longer steals focus.
+ */
+export type SpeedChaseInputSource = 'phaser_keys' | 'external';
+
 export interface SpeedChaseSceneInit extends BaseSceneInit {
   width?: number;
   height?: number;
+  /** Defaults to `phaser_keys` for backward compatibility with existing romaji routes. */
+  inputSource?: SpeedChaseInputSource;
 }
 
 /**
@@ -18,13 +33,12 @@ export interface SpeedChaseSceneInit extends BaseSceneInit {
  * task displays a kanji prompt; the user types its kana reading + Enter. Correct answers
  * push the player forward (visually), wrong answers let the pursuer close in.
  *
- * Sprint 4 MVP: no actual game-over trigger — the scene runs for the full session duration
- * and the round summary lives on ResultPage. Sprint 5+ will add Boss-style win/lose
- * conditions and audio cues.
+ * The scene runs for the full session duration and the round summary lives on ResultPage.
+ * Boss-style win/lose conditions + audio cues land in v0.8+.
  *
- * Note: the input pipeline is romaji-only for the same reason as MoleScene — Phaser captures
- * window-level keystrokes, and an OS IME would steal focus from the canvas. The IME-mode
- * variant uses ImeInputBox alongside the canvas (planned for Sprint 4 polish, not blocking).
+ * Input has two modes (see {@link SpeedChaseInputSource}): the original `phaser_keys` ASCII
+ * pump for romaji-only training, and an `external` mode where the React layer's
+ * `<ImeInputBox>` handles a real OS IME and pushes finalised values through the bridge.
  */
 export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
   private widthPx = 800;
@@ -46,6 +60,8 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
   private accuracyAttempts = 0;
   private accuracyCorrect = 0;
   private locked = false;
+  private inputSource: SpeedChaseInputSource = 'phaser_keys';
+  private offExternalInput: (() => void) | null = null;
 
   constructor() {
     super(SPEED_CHASE_SCENE_KEY);
@@ -55,7 +71,11 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
     super.init(params);
     if (params.width) this.widthPx = params.width;
     if (params.height) this.heightPx = params.height;
+    if (params.inputSource) this.inputSource = params.inputSource;
     this.sessionStartedAt = this.now();
+    // Reset between Phaser scene restarts (the instance is reused, class fields don't re-init).
+    this.offExternalInput = null;
+    this.locked = false;
   }
 
   protected createBackground(): void {
@@ -103,9 +123,19 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
     pursuerBody.fillCircle(0, 0, 16);
     this.pursuerSprite.add(pursuerBody);
 
-    if (this.input.keyboard) {
-      this.input.keyboard.on('keydown', (event: KeyboardEvent) => {
-        this.onKeyDown(event);
+    if (this.inputSource === 'phaser_keys') {
+      if (this.input.keyboard) {
+        this.input.keyboard.on('keydown', (event: KeyboardEvent) => {
+          this.onKeyDown(event);
+        });
+      }
+    } else {
+      this.offExternalInput = this.bridge.onExternalInput((event) => {
+        this.handleExternalInput(event);
+      });
+      this.events.once('shutdown', () => {
+        this.offExternalInput?.();
+        this.offExternalInput = null;
       });
     }
   }
@@ -231,6 +261,21 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
     }
   }
 
+  private handleExternalInput(event: ExternalInputEvent): void {
+    if (!this.currentTask || this.locked) return;
+    if (event.type === 'external.cancel') {
+      this.inputBuffer = '';
+      this.refreshInputBufferText();
+      return;
+    }
+    // 'external.commit' — accept the IME-finalised value as-is. Empty values are noops so a
+    // stray Enter on an empty IME box doesn't burn a task.
+    if (event.value.length === 0) return;
+    this.inputBuffer = event.value;
+    this.refreshInputBufferText();
+    void this.commitInput();
+  }
+
   private async commitInput(): Promise<void> {
     if (!this.currentTask || this.locked) return;
     const task = this.currentTask;
@@ -254,7 +299,7 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
       submittedAt: new Date(this.now()).toISOString(),
       reactionTimeMs,
       usedHint: false,
-      inputMethod: 'romaji',
+      inputMethod: this.inputSource === 'external' ? 'ime' : 'romaji',
     };
     this.inputBuffer = '';
     this.refreshInputBufferText();
@@ -286,7 +331,7 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
       submittedAt: new Date(this.now()).toISOString(),
       reactionTimeMs: this.timeLimitMs,
       usedHint: false,
-      inputMethod: 'romaji',
+      inputMethod: this.inputSource === 'external' ? 'ime' : 'romaji',
     };
     try {
       await this.submitAttemptAndAdvance(attempt);

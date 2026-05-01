@@ -69,10 +69,17 @@ export class PhaserGameManager {
    * Phaser.Game (see the `scene: [...]` array in the `start()` config). Phaser silently
    * no-ops if the key is not registered, which is a footgun — the registration array above
    * is the source of truth.
+   *
+   * `extraInit` lets callers pass scene-specific init parameters (e.g. `{ inputSource: 'external' }`
+   * for SpeedChaseScene's IME mode). Keys are merged with the standard bridge/sessionId payload.
    */
-  startScene(key: string, opts: StartSessionOptions): void {
+  startScene(
+    key: string,
+    opts: StartSessionOptions,
+    extraInit: Record<string, unknown> = {},
+  ): void {
     if (!this.game) throw new Error('PhaserGameManager.start() must be called before scene start');
-    this.game.scene.start(key, opts);
+    this.game.scene.start(key, { ...opts, ...extraInit });
   }
 
   destroy(): void {
