@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useState, type JSX } from 'react';
+import { useEffect, useMemo, useState, type CSSProperties, type JSX, type ReactNode } from 'react';
 
+import { PixIcon } from '../features/style/PixIcon';
 import { listItems, listProgress, type DevItemRow, type ProgressDto } from '../tauri/invoke';
 
 interface LibraryRow {
@@ -7,10 +8,23 @@ interface LibraryRow {
   progressByDimension: Map<string, ProgressDto>;
 }
 
+const DIMENSION_COLUMNS: Array<{ key: string; label: string }> = [
+  { key: 'kanji_reading', label: '汉字读音' },
+  { key: 'kana_typing', label: '假名打字' },
+  { key: 'meaning_recall', label: '词义' },
+];
+
 /**
- * Sprint 5 library / 词条图鉴 (`#/library`). Lists the items in the user's pack with their
- * mastery state in each skill dimension. Sprint 5+ will add filtering by JLPT / tag / pack;
- * for now it's a flat table.
+ * Sprint 5 library / 词条图鉴 (`#/library`), retro-skinned in C8.
+ *
+ * Single .r-group containing a retro toolbar (filter button row + search
+ * input placeholder + total count) and an .r-list zebra table. Each row
+ * renders surface / kana / jlpt + a .kt-mastery--{state} chip per skill
+ * dimension (kanji_reading / kana_typing / meaning_recall).
+ *
+ * Filtering by JLPT / pack and search are stubbed — controls render but
+ * don't yet narrow the list. They light up in v0.7+ once content packs
+ * land (P0-4).
  */
 export function LibraryPage(): JSX.Element {
   const [items, setItems] = useState<DevItemRow[] | null>(null);
@@ -46,74 +60,156 @@ export function LibraryPage(): JSX.Element {
     return items.map((it) => ({ item: it, progressByDimension: byItem.get(it.id) ?? new Map() }));
   }, [items, progress]);
 
-  if (error) {
-    return (
-      <section style={{ padding: '2rem', maxWidth: '720px', margin: '0 auto' }}>
-        <h1>词条图鉴</h1>
-        <p style={{ color: 'var(--err)' }}>{error}</p>
-      </section>
-    );
-  }
-  if (!items || !progress) {
-    return (
-      <section style={{ padding: '2rem', maxWidth: '720px', margin: '0 auto' }}>
-        <p>Loading…</p>
-      </section>
-    );
-  }
+  if (error) return <ErrorPanel message={error} />;
+  if (!items || !progress) return <LoadingPanel />;
 
   return (
-    <section style={{ padding: '1.5rem', maxWidth: '1100px', margin: '0 auto' }}>
-      <h1>词条图鉴</h1>
-      <p style={{ color: 'var(--muted)' }}>
-        共 {items.length} 个词条；右侧三栏展示主要技能维度的当前掌握度。
-      </p>
-      <table style={{ marginTop: '1rem' }}>
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>surface</th>
-            <th>kana</th>
-            <th>jlpt</th>
-            <th>kanji_reading</th>
-            <th>kana_typing</th>
-            <th>meaning_recall</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((r) => (
-            <tr key={r.item.id}>
-              <td>
-                <code>{r.item.id}</code>
-              </td>
-              <td>{r.item.surface}</td>
-              <td>{r.item.kana}</td>
-              <td>{r.item.jlpt ?? '—'}</td>
-              <td>
-                <MasteryCell p={r.progressByDimension.get('kanji_reading')} />
-              </td>
-              <td>
-                <MasteryCell p={r.progressByDimension.get('kana_typing')} />
-              </td>
-              <td>
-                <MasteryCell p={r.progressByDimension.get('meaning_recall')} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <p style={{ marginTop: '1.5rem' }}>
-        <a href="#/">← 回 home</a>
-      </p>
-    </section>
+    <div style={pageGrid}>
+      <Group title={`▌ 题库 · ${items.length} 词`}>
+        <div style={{ display: 'flex', gap: 6, marginBottom: 10, alignItems: 'center' }}>
+          <button className="r-btn primary">全部</button>
+          <button className="r-btn" disabled>
+            JLPT
+          </button>
+          <button className="r-btn" disabled>
+            自定义
+          </button>
+          <input
+            className="r-input"
+            placeholder="搜索 (v0.7+)"
+            disabled
+            style={{ marginLeft: 'auto', width: 220 }}
+          />
+          <button className="r-btn" disabled>
+            <PixIcon name="save" /> 导入
+          </button>
+        </div>
+        <div
+          className="r-sink"
+          style={{ background: 'var(--kt2-sunken)', flex: 1, overflow: 'auto' }}
+        >
+          <table className="r-list">
+            <thead>
+              <tr>
+                <th style={{ width: 40 }}>#</th>
+                <th style={{ width: 100 }}>词面</th>
+                <th style={{ width: 140 }}>假名</th>
+                <th style={{ width: 60 }}>JLPT</th>
+                {DIMENSION_COLUMNS.map((d) => (
+                  <th key={d.key} style={{ width: 110 }}>
+                    {d.label}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r, i) => (
+                <tr key={r.item.id} className="zebra">
+                  <td style={{ color: 'var(--kt2-fg-dim)' }}>
+                    {(i + 1).toString().padStart(3, '0')}
+                  </td>
+                  <td className="r-cjk" style={{ fontSize: 16, color: 'var(--kt2-fg-bright)' }}>
+                    {r.item.surface}
+                  </td>
+                  <td className="r-cjk" style={{ color: 'var(--kt2-accent)' }}>
+                    {r.item.kana}
+                  </td>
+                  <td>
+                    {r.item.jlpt ? (
+                      <span className="r-tag" style={{ color: 'var(--kt2-accent-2)' }}>
+                        {r.item.jlpt.toUpperCase()}
+                      </span>
+                    ) : (
+                      <span style={{ color: 'var(--kt2-fg-dim)' }}>—</span>
+                    )}
+                  </td>
+                  {DIMENSION_COLUMNS.map((d) => (
+                    <td key={d.key}>
+                      <MasteryCell p={r.progressByDimension.get(d.key)} />
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div
+          style={{
+            marginTop: 6,
+            display: 'flex',
+            gap: 8,
+            alignItems: 'center',
+            fontSize: 12,
+            color: 'var(--kt2-fg-dim)',
+          }}
+        >
+          <span>
+            共 {items.length} 词,显示前 {rows.length} 条
+          </span>
+          <span style={{ marginLeft: 'auto' }} />
+          <a href="#/" className="r-btn" style={{ textDecoration: 'none' }}>
+            <PixIcon name="home" /> 回首页
+          </a>
+        </div>
+      </Group>
+    </div>
   );
 }
 
 function MasteryCell({ p }: { p: ProgressDto | undefined }): JSX.Element {
-  if (!p) return <span style={{ color: 'var(--muted)' }}>—</span>;
+  if (!p) {
+    return (
+      <span className="kt-mastery kt-mastery--new" title="尚未尝试">
+        new
+      </span>
+    );
+  }
+  const stateClass = `kt-mastery kt-mastery--${p.state}`;
   return (
-    <code title={`state=${p.state}, exposures=${p.exposureCount}`}>
-      {p.masteryScore.toFixed(0)} ({p.state})
-    </code>
+    <span
+      className={stateClass}
+      title={`state=${p.state}, mastery=${p.masteryScore.toFixed(0)}, exposures=${p.exposureCount}`}
+    >
+      {p.state} · {p.masteryScore.toFixed(0)}
+    </span>
+  );
+}
+
+const pageGrid: CSSProperties = {
+  display: 'grid',
+  gridTemplateColumns: '1fr',
+  padding: 10,
+  height: '100%',
+};
+
+function Group({ title, children }: { title: string; children: ReactNode }): JSX.Element {
+  return (
+    <div className="r-group" style={{ display: 'flex', flexDirection: 'column' }}>
+      <div className="title">{title}</div>
+      {children}
+    </div>
+  );
+}
+
+function LoadingPanel(): JSX.Element {
+  return (
+    <div style={pageGrid}>
+      <Group title="▌ 题库">
+        <div style={{ color: 'var(--kt2-fg-dim)' }}>加载词条...</div>
+      </Group>
+    </div>
+  );
+}
+
+function ErrorPanel({ message }: { message: string }): JSX.Element {
+  return (
+    <div style={pageGrid}>
+      <Group title="▌ ERR · 题库读取失败">
+        <div className="kt-banner kt-banner--err">
+          <span className="kt-banner__glyph">!</span>
+          <div style={{ fontSize: 13 }}>{message}</div>
+        </div>
+      </Group>
+    </div>
   );
 }

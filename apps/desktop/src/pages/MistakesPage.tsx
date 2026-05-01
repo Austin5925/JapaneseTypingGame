@@ -1,6 +1,8 @@
-import { useEffect, useMemo, useState, type JSX } from 'react';
+import { useEffect, useMemo, useState, type CSSProperties, type JSX, type ReactNode } from 'react';
 
 import { ErrorTagChip } from '../features/style/ErrorTagChip';
+import { ERROR_TAG_LABEL_ZH } from '../features/style/errorTagPalette';
+import { PixIcon } from '../features/style/PixIcon';
 import {
   aggregateRecentErrorTags,
   listRecentAttempts,
@@ -8,31 +10,34 @@ import {
   type ErrorTagAggregateRow,
 } from '../tauri/invoke';
 
-interface GroupedMistakes {
-  tag: string;
-  attempts: AttemptEventRow[];
-  count: number;
-}
-
 /**
- * Sprint 5 mistakes book (`#/mistakes`). Lists recent wrong attempts grouped by error tag.
- * No per-tag drill flow yet (that's Sprint 5+ — wire `pushFront` from a tag-filtered task
- * queue when a future "review this tag" CTA is added). For now the page surfaces enough
- * information for the user to see what they keep getting wrong.
+ * Sprint 5 mistakes book (`#/mistakes`), retro-skinned in C8.
+ *
+ * Two-column layout (180px / 1fr) inside .r-main:
+ *
+ *   Left  ▌ 筛选 — radio-style tag filter (.r-chk). "全部" by default; click
+ *           a tag to narrow the list. Counts come from
+ *           aggregateRecentErrorTags. The "练所选" CTA stays disabled until
+ *           the per-tag drill flow lands in v0.7+.
+ *
+ *   Right ▌ 错题列表 · N 项 — flat .r-list table (zebra). Columns:
+ *           # / item / answerMode / error chips / reaction-ms / 时间.
+ *           Rows render the latest 1000 wrong attempts intersected with
+ *           the active tag filter.
  */
 export function MistakesPage(): JSX.Element {
   const [tagAgg, setTagAgg] = useState<ErrorTagAggregateRow[] | null>(null);
   const [recentWrong, setRecentWrong] = useState<AttemptEventRow[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [selectedTag, setSelectedTag] = useState<string>('__all__');
 
   useEffect(() => {
     void (async (): Promise<void> => {
       try {
         const [agg, attempts] = await Promise.all([
           aggregateRecentErrorTags({ userId: 'default-user', days: 30, limit: 30 }),
-          // Pull a wider window so per-tag detail lines up with the 30-day aggregate. A
-          // proper SQL filter (date range or tag-FTS join) lands in v0.7 once the
-          // attempt-event table grows past a few thousand rows.
+          // Pull a wider window so the tag filter has enough rows to intersect with the
+          // 30-day aggregate. SQL date-range filtering lands in P1-2.
           listRecentAttempts({ userId: 'default-user', limit: 1000 }),
         ]);
         setTagAgg(agg);
@@ -43,101 +48,240 @@ export function MistakesPage(): JSX.Element {
     })();
   }, []);
 
-  const grouped: GroupedMistakes[] = useMemo(() => {
-    if (!tagAgg || !recentWrong) return [];
-    return tagAgg.map((row) => ({
-      tag: row.tag,
-      count: row.count,
-      attempts: recentWrong.filter((a) => a.errorTags.includes(row.tag)).slice(0, 8),
-    }));
-  }, [tagAgg, recentWrong]);
+  const totalWrong = recentWrong?.length ?? 0;
+  const filtered = useMemo(() => {
+    if (!recentWrong) return [];
+    if (selectedTag === '__all__') return recentWrong;
+    return recentWrong.filter((a) => a.errorTags.includes(selectedTag));
+  }, [recentWrong, selectedTag]);
 
-  if (error) {
-    return (
-      <section style={{ padding: '2rem', maxWidth: '720px', margin: '0 auto' }}>
-        <h1>错题本</h1>
-        <p style={{ color: 'var(--err)' }}>{error}</p>
-      </section>
-    );
-  }
-  if (!tagAgg || !recentWrong) {
-    return (
-      <section style={{ padding: '2rem', maxWidth: '720px', margin: '0 auto' }}>
-        <p>Loading…</p>
-      </section>
-    );
-  }
+  if (error) return <ErrorPanel message={error} />;
+  if (!tagAgg || !recentWrong) return <LoadingPanel />;
 
   return (
-    <section style={{ padding: '1.5rem', maxWidth: '960px', margin: '0 auto' }}>
-      <h1>错题本</h1>
-      <p style={{ color: 'var(--muted)' }}>
-        近 30 天的错误按错误类型分组。专项训练 CTA 在 v0.7+ 接入。
-      </p>
+    <div style={pageGrid}>
+      <Group title="▌ 筛选">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 14 }}>
+          <FilterRow
+            label="全部"
+            count={totalWrong}
+            checked={selectedTag === '__all__'}
+            onClick={() => setSelectedTag('__all__')}
+          />
+          {tagAgg.map((row) => (
+            <FilterRow
+              key={row.tag}
+              label={resolveTagLabel(row.tag)}
+              count={row.count}
+              checked={selectedTag === row.tag}
+              onClick={() => setSelectedTag(row.tag)}
+            />
+          ))}
+        </div>
+        <div style={{ marginTop: 14 }} className="r-label">
+          排序
+        </div>
+        <select className="r-input" style={{ width: '100%', marginTop: 4 }} disabled>
+          <option>最近触发</option>
+          <option>错误次数 ↓ (v0.7+)</option>
+          <option>掌握度 (v0.7+)</option>
+        </select>
+        <div style={{ marginTop: 10 }}>
+          <button className="r-btn primary" style={{ width: '100%' }} disabled>
+            <PixIcon name="play" /> 练所选 [v0.7]
+          </button>
+        </div>
+      </Group>
 
-      {grouped.length === 0 ? (
-        <p style={{ color: 'var(--muted)', marginTop: '1.5rem' }}>
-          没有可显示的错误。先打几局再回来看。
-        </p>
-      ) : (
-        grouped.map((g) => (
-          <section key={g.tag} style={{ marginTop: '1.5rem' }}>
-            <h2>
-              <code>{g.tag}</code> · {g.count} 次
-            </h2>
-            {g.attempts.length === 0 ? (
-              <p style={{ color: 'var(--muted)' }}>
-                聚合显示该标签出现 {g.count} 次，但近 200 条记录中未找到对应明细（旧记录已被裁掉）。
-              </p>
-            ) : (
-              <table>
-                <thead>
-                  <tr>
-                    <th>item</th>
-                    <th>mode</th>
-                    <th>reaction</th>
-                    <th>tags</th>
-                    <th>time</th>
+      <Group title={`▌ 错题列表 · ${filtered.length} 项 / 30 天`}>
+        {filtered.length === 0 ? (
+          <div style={{ color: 'var(--kt2-fg-dim)', fontSize: 13, lineHeight: 1.5, padding: 8 }}>
+            » 当前筛选条件下没有错题
+            <br />» 切换 "全部" 或换个 tag 查看
+          </div>
+        ) : (
+          <div
+            className="r-sink"
+            style={{ background: 'var(--kt2-sunken)', flex: 1, overflow: 'auto' }}
+          >
+            <table className="r-list">
+              <thead>
+                <tr>
+                  <th style={{ width: 40 }}>#</th>
+                  <th style={{ width: 180 }}>词条</th>
+                  <th style={{ width: 100 }}>模式</th>
+                  <th>错误类型</th>
+                  <th style={{ width: 90, textAlign: 'right' }}>反应</th>
+                  <th style={{ width: 150, textAlign: 'right' }}>时间</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.slice(0, 200).map((r, i) => (
+                  <tr key={r.id} className="zebra">
+                    <td style={{ color: 'var(--kt2-fg-dim)' }}>
+                      {(i + 1).toString().padStart(3, '0')}
+                    </td>
+                    <td className="r-cjk" style={{ color: 'var(--kt2-fg-bright)' }}>
+                      {r.itemId}
+                    </td>
+                    <td className="kt-mono" style={{ fontSize: 11, color: 'var(--kt2-fg-dim)' }}>
+                      {r.answerMode}
+                    </td>
+                    <td>
+                      {r.errorTags.length === 0 ? (
+                        <span style={{ color: 'var(--kt2-fg-dim)' }}>—</span>
+                      ) : (
+                        <span style={{ display: 'inline-flex', gap: 4, flexWrap: 'wrap' }}>
+                          {r.errorTags.map((t) => (
+                            <ErrorTagChip key={t} tag={t} />
+                          ))}
+                        </span>
+                      )}
+                    </td>
+                    <td
+                      style={{
+                        textAlign: 'right',
+                        fontFamily: 'var(--pix-display)',
+                        fontSize: 9,
+                        color:
+                          r.reactionTimeMs > 5000
+                            ? 'var(--kt2-danger)'
+                            : r.reactionTimeMs > 3000
+                              ? 'var(--kt2-accent-2)'
+                              : 'var(--kt2-accent)',
+                      }}
+                    >
+                      {r.reactionTimeMs}ms
+                    </td>
+                    <td
+                      style={{
+                        textAlign: 'right',
+                        fontSize: 11,
+                        color: 'var(--kt2-fg-dim)',
+                        fontFamily: 'var(--font-mono)',
+                      }}
+                    >
+                      {formatDate(r.createdAt)}
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {g.attempts.map((r) => (
-                    <tr key={r.id}>
-                      <td>
-                        <code>{r.itemId}</code>
-                      </td>
-                      <td>
-                        <code>{r.answerMode}</code>
-                      </td>
-                      <td>
-                        <code>{r.reactionTimeMs} ms</code>
-                      </td>
-                      <td>
-                        {r.errorTags.length === 0 ? (
-                          <span style={{ color: 'var(--fg-tertiary)' }}>—</span>
-                        ) : (
-                          <span style={{ display: 'inline-flex', gap: 4, flexWrap: 'wrap' }}>
-                            {r.errorTags.map((t) => (
-                              <ErrorTagChip key={t} tag={t} />
-                            ))}
-                          </span>
-                        )}
-                      </td>
-                      <td>
-                        <code>{new Date(r.createdAt).toLocaleString()}</code>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
-          </section>
-        ))
-      )}
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        <div
+          style={{
+            marginTop: 6,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+            fontSize: 12,
+            color: 'var(--kt2-fg-dim)',
+          }}
+        >
+          {filtered.length > 200 && <span>表格已截到前 200 条;完整查询在 v0.7+</span>}
+          <span style={{ marginLeft: 'auto' }} />
+          <a href="#/" className="r-btn" style={{ textDecoration: 'none' }}>
+            <PixIcon name="home" /> 回首页
+          </a>
+        </div>
+      </Group>
+    </div>
+  );
+}
 
-      <p style={{ marginTop: '1.5rem' }}>
-        <a href="#/">← 回 home</a>
-      </p>
-    </section>
+function FilterRow({
+  label,
+  count,
+  checked,
+  onClick,
+}: {
+  label: string;
+  count: number;
+  checked: boolean;
+  onClick: () => void;
+}): JSX.Element {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      style={{
+        all: 'unset',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 6,
+        cursor: 'pointer',
+        padding: 2,
+        color: checked ? 'var(--kt2-fg-bright)' : 'var(--kt2-fg)',
+      }}
+    >
+      <span className={`r-chk ${checked ? 'on' : ''}`} />
+      <span style={{ flex: 1 }}>{label}</span>
+      <span style={{ color: 'var(--kt2-fg-dim)', fontSize: 12 }}>({count})</span>
+    </button>
+  );
+}
+
+function resolveTagLabel(tag: string): string {
+  return Object.prototype.hasOwnProperty.call(ERROR_TAG_LABEL_ZH, tag)
+    ? ERROR_TAG_LABEL_ZH[tag as keyof typeof ERROR_TAG_LABEL_ZH]
+    : tag;
+}
+
+function formatDate(iso: string): string {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  const hh = String(d.getHours()).padStart(2, '0');
+  const mm = String(d.getMinutes()).padStart(2, '0');
+  return `${m}/${day} ${hh}:${mm}`;
+}
+
+const pageGrid: CSSProperties = {
+  display: 'grid',
+  gridTemplateColumns: '180px 1fr',
+  gap: 10,
+  padding: 10,
+  height: '100%',
+};
+
+function Group({ title, children }: { title: string; children: ReactNode }): JSX.Element {
+  return (
+    <div className="r-group" style={{ display: 'flex', flexDirection: 'column' }}>
+      <div className="title">{title}</div>
+      {children}
+    </div>
+  );
+}
+
+function LoadingPanel(): JSX.Element {
+  return (
+    <div style={pageGrid}>
+      <Group title="▌ 筛选">
+        <div style={{ color: 'var(--kt2-fg-dim)' }}>加载中...</div>
+      </Group>
+      <Group title="▌ 错题列表">
+        <div className="kt-skel" style={{ width: '100%', height: 14, marginBottom: 8 }} />
+        <div className="kt-skel" style={{ width: '70%', height: 14, marginBottom: 8 }} />
+        <div className="kt-skel" style={{ width: '80%', height: 14 }} />
+      </Group>
+    </div>
+  );
+}
+
+function ErrorPanel({ message }: { message: string }): JSX.Element {
+  return (
+    <div style={pageGrid}>
+      <Group title="▌ 筛选">
+        <div style={{ color: 'var(--kt2-fg-dim)' }}>—</div>
+      </Group>
+      <Group title="▌ ERR · 错题读取失败">
+        <div className="kt-banner kt-banner--err">
+          <span className="kt-banner__glyph">!</span>
+          <div style={{ fontSize: 13 }}>{message}</div>
+        </div>
+      </Group>
+    </div>
   );
 }
