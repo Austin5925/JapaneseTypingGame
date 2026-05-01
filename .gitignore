@@ -136,3 +136,8 @@ logs/
 tmp/
 .tmp/
 .cache/
+
+# Playwright artefacts
+tests/e2e/screenshots/
+tests/e2e/test-results/
+playwright-report/
