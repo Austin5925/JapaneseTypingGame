@@ -15,8 +15,15 @@ import '@fontsource/inter/700.css';
 import '@fontsource/jetbrains-mono/400.css';
 import '@fontsource/jetbrains-mono/500.css';
 import '@fontsource/jetbrains-mono/600.css';
+// Retro pixel fonts — VT323 (input/body), Press Start 2P (display), DotGothic16
+// (CJK pixel). Paired with retro.css below; loaded from fontsource so the
+// Tauri app boots offline without hitting Google Fonts.
+import '@fontsource/vt323/400.css';
+import '@fontsource/press-start-2p/400.css';
+import '@fontsource/dotgothic16/400.css';
 
 import './styles.css';
+import './styles/retro.css';
 
 const container = document.getElementById('root');
 if (!container) {
