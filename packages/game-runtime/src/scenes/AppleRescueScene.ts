@@ -215,8 +215,11 @@ export class AppleRescueScene extends BaseTrainingScene<TrainingTask> {
     this.taskStartedAt = this.now();
 
     this.currentKana = task.prompt.text ?? '';
+    const canPlayAudio = this.tts.isAvailable() && this.currentKana.length > 0;
     if (this.promptText) {
-      this.promptText.setText(`听:${this.currentKana || '(无音)'}`);
+      this.promptText.setText(
+        canPlayAudio ? '听音，选择匹配的词' : `无音频:${this.currentKana || '(无)'}`,
+      );
     }
     if (this.feedbackText) {
       this.feedbackText.setText('听音 → 用 ←/→ 接对应的苹果');
@@ -240,7 +243,7 @@ export class AppleRescueScene extends BaseTrainingScene<TrainingTask> {
 
     // Auto-play the audio cue once on spawn. We don't await it — speech is "fire and forget"
     // so a slow voice load doesn't stall the descent animation.
-    if (this.tts.isAvailable() && this.currentKana) {
+    if (canPlayAudio) {
       void this.tts.playKana(this.currentKana).catch((err: unknown) => {
         // Surface to console; not a session-fatal error (the user can still read the prompt).
         console.warn('[AppleRescue] tts play failed', err);
