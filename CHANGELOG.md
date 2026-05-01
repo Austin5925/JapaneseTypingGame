@@ -27,6 +27,10 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
   skipped, or bailed) without bouncing back to the diagnostic. The previous
   `diagnosticSkipped`-only flag would loop the user back to diagnostic on
   every empty-progress home visit.
+- CI `pnpm/action-setup@v4` no longer pins a `version: 10` input — the
+  `packageManager` field in `package.json` already declares
+  `pnpm@10.32.0`, and the action errors out if both sources are present
+  with different values. Single source of truth restored.
 
 ### Changed
 
