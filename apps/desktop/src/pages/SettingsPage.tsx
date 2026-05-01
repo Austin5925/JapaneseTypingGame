@@ -31,6 +31,7 @@ export function SettingsPage(): JSX.Element {
 
   const sections = [
     { id: 'data', label: '数据信息', enabled: true },
+    { id: 'packs', label: '内容包', enabled: true, href: '#/settings/packs' },
     { id: 'train', label: '训练参数', enabled: false },
     { id: 'theme', label: '外观皮肤', enabled: false },
     { id: 'about', label: '关于 / 版本', enabled: false },
@@ -40,27 +41,44 @@ export function SettingsPage(): JSX.Element {
     <div style={pageGrid}>
       <Group title="▌ 分类">
         <div style={{ display: 'flex', flexDirection: 'column', fontSize: 14 }}>
-          {sections.map((s, i) => (
-            <div
-              key={s.id}
-              className={s.enabled ? 'nav active' : 'nav'}
-              style={{
-                padding: '5px 8px',
-                display: 'flex',
-                gap: 6,
-                alignItems: 'center',
-                background: s.enabled
-                  ? 'linear-gradient(180deg, #1f4a42 0%, #14342f 100%)'
-                  : 'transparent',
-                color: s.enabled ? '#e9fff0' : 'var(--kt2-fg)',
-                border: s.enabled ? '1px solid #2e6e62' : '1px solid transparent',
-                opacity: s.enabled ? 1 : 0.55,
-                cursor: s.enabled ? 'default' : 'not-allowed',
-              }}
-            >
-              {String(i + 1).padStart(2, '0')}. {s.label}
-            </div>
-          ))}
+          {sections.map((s, i) => {
+            const linkable = s.enabled && 'href' in s && s.href;
+            const inner = (
+              <div
+                className={s.enabled ? 'nav active' : 'nav'}
+                style={{
+                  padding: '5px 8px',
+                  display: 'flex',
+                  gap: 6,
+                  alignItems: 'center',
+                  background:
+                    s.id === 'data'
+                      ? 'linear-gradient(180deg, #1f4a42 0%, #14342f 100%)'
+                      : 'transparent',
+                  color:
+                    s.id === 'data' ? '#e9fff0' : s.enabled ? 'var(--kt2-fg)' : 'var(--kt2-fg-dim)',
+                  border: s.id === 'data' ? '1px solid #2e6e62' : '1px solid transparent',
+                  opacity: s.enabled ? 1 : 0.55,
+                  cursor: linkable ? 'pointer' : s.enabled ? 'default' : 'not-allowed',
+                }}
+              >
+                {String(i + 1).padStart(2, '0')}. {s.label}
+                {linkable && <span style={{ marginLeft: 'auto' }}>→</span>}
+              </div>
+            );
+            if (linkable) {
+              return (
+                <a
+                  key={s.id}
+                  href={s.href}
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                >
+                  {inner}
+                </a>
+              );
+            }
+            return <div key={s.id}>{inner}</div>;
+          })}
         </div>
         <div className="r-label" style={{ marginTop: 14 }}>
           其他模块在 v0.7+ 上线

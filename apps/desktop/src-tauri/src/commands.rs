@@ -880,3 +880,86 @@ fn attempt_row_from(row: &rusqlite::Row<'_>) -> rusqlite::Result<AttemptEventRow
         created_at: row.get(8)?,
     })
 }
+
+// ────────────────────────────────────────────────────────────────────────
+// list_content_packs / set_pack_enabled
+// (P0-4 ContentPacksPage backing)
+// ────────────────────────────────────────────────────────────────────────
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ContentPackRow {
+    pub id: String,
+    pub name: String,
+    pub version: String,
+    pub author: Option<String>,
+    pub locale: String,
+    pub quality: String,
+    pub description: Option<String>,
+    pub imported_at: String,
+    pub enabled: bool,
+    pub item_count: i64,
+}
+
+#[tauri::command]
+pub fn list_content_packs(db: State<'_, AppDb>) -> AppResult<Vec<ContentPackRow>> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    // LEFT JOIN aggregate so packs without items still surface (e.g. an
+    // import that hit a constraint partway through). The item_count comes
+    // from the live items table, not a denormalised counter, so it tracks
+    // post-import deletions correctly.
+    let mut stmt = conn.prepare(
+        "SELECT p.id, p.name, p.version, p.author, p.locale, p.quality, p.description, \
+                p.imported_at, p.enabled, COUNT(i.id) AS item_count \
+         FROM content_packs p \
+         LEFT JOIN learning_items i ON i.source_pack_id = p.id \
+         GROUP BY p.id \
+         ORDER BY p.imported_at DESC",
+    )?;
+    let rows = stmt.query_map([], |row| {
+        let enabled_int: i64 = row.get(8)?;
+        Ok(ContentPackRow {
+            id: row.get(0)?,
+            name: row.get(1)?,
+            version: row.get(2)?,
+            author: row.get(3)?,
+            locale: row.get(4)?,
+            quality: row.get(5)?,
+            description: row.get(6)?,
+            imported_at: row.get(7)?,
+            enabled: enabled_int != 0,
+            item_count: row.get(9)?,
+        })
+    })?;
+    let out: Vec<ContentPackRow> = rows.collect::<Result<_, _>>()?;
+    Ok(out)
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SetPackEnabledInput {
+    pub pack_id: String,
+    pub enabled: bool,
+}
+
+#[tauri::command]
+pub fn set_pack_enabled(db: State<'_, AppDb>, input: SetPackEnabledInput) -> AppResult<()> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let updated: usize = conn.execute(
+        "UPDATE content_packs SET enabled = ?1 WHERE id = ?2",
+        params![if input.enabled { 1 } else { 0 }, input.pack_id],
+    )?;
+    if updated == 0 {
+        return Err(AppError::Internal(format!(
+            "no content_pack with id {}",
+            input.pack_id
+        )));
+    }
+    Ok(())
+}

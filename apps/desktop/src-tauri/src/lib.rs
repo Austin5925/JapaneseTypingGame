@@ -43,6 +43,8 @@ pub fn run() {
             commands::list_attempts_by_session,
             commands::list_progress,
             commands::aggregate_recent_error_tags,
+            commands::list_content_packs,
+            commands::set_pack_enabled,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

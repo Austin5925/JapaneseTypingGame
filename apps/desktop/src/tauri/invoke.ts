@@ -37,6 +37,29 @@ export function getDbInfo(): Promise<DbInfo> {
   return invoke<DbInfo>('get_db_info');
 }
 
+// P0-4 ContentPacksPage --------------------------------------------------
+
+export interface ContentPackRow {
+  id: string;
+  name: string;
+  version: string;
+  author: string | null;
+  locale: string;
+  quality: string;
+  description: string | null;
+  importedAt: string;
+  enabled: boolean;
+  itemCount: number;
+}
+
+export function listContentPacks(): Promise<ContentPackRow[]> {
+  return invoke<ContentPackRow[]>('list_content_packs');
+}
+
+export function setPackEnabled(input: { packId: string; enabled: boolean }): Promise<void> {
+  return invoke<void>('set_pack_enabled', { input });
+}
+
 // Sprint 2 DTOs ------------------------------------------------------------
 
 export interface CreateSessionInput {

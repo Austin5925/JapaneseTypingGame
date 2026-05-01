@@ -12,6 +12,7 @@ export type RetroActiveKey =
   | 'mistakes'
   | 'library'
   | 'settings'
+  | 'settings-packs'
   | 'diagnostic'
   | 'game-mole'
   | 'game-speed-chase'

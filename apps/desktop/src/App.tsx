@@ -2,6 +2,7 @@ import { ALL_SKILL_DIMENSIONS, type SkillDimension } from '@kana-typing/core';
 import { useEffect, useState, type JSX } from 'react';
 
 import { RetroShell, type RetroActiveKey } from './features/shell/RetroShell';
+import { ContentPacksPage } from './pages/ContentPacksPage';
 import { DevPage } from './pages/DevPage';
 import { DiagnosticPage } from './pages/DiagnosticPage';
 import { EvaluatorDevPage } from './pages/EvaluatorDevPage';
@@ -22,6 +23,7 @@ type Route =
   | { kind: 'mistakes' }
   | { kind: 'library' }
   | { kind: 'settings' }
+  | { kind: 'settings-packs' }
   | { kind: 'diagnostic' }
   | { kind: 'dev' }
   | { kind: 'dev-input' }
@@ -35,6 +37,7 @@ function getRoute(): Route {
   if (hash === '#/today') return { kind: 'today' };
   if (hash === '#/mistakes') return { kind: 'mistakes' };
   if (hash === '#/library') return { kind: 'library' };
+  if (hash === '#/settings/packs') return { kind: 'settings-packs' };
   if (hash === '#/settings') return { kind: 'settings' };
   if (hash === '#/diagnostic') return { kind: 'diagnostic' };
   if (hash === '#/dev') return { kind: 'dev' };
@@ -110,6 +113,8 @@ function renderRouteContent(route: Route): JSX.Element {
       return <LibraryPage />;
     case 'settings':
       return <SettingsPage />;
+    case 'settings-packs':
+      return <ContentPacksPage />;
     case 'diagnostic':
       return <DiagnosticPage />;
     case 'dev':
@@ -153,6 +158,8 @@ function titleForRoute(route: Route): string {
       return 'C:\\KANA\\LIBRARY';
     case 'settings':
       return 'C:\\KANA\\SETUP.EXE';
+    case 'settings-packs':
+      return 'C:\\KANA\\SETUP\\PACKS';
     case 'diagnostic':
       return 'C:\\KANA\\DIAG.EXE';
     case 'dev':
