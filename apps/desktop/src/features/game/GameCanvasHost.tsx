@@ -127,12 +127,17 @@ export function GameCanvasHost(props: GameCanvasHostProps): JSX.Element {
     <div
       ref={containerRef}
       style={{
+        // Explicit min-size as well as size — without min-* a flex parent
+        // (notably .r-crt) can shrink the container below its declared
+        // dimensions, which Phaser then mirrors to the <canvas> CSS box and
+        // the prompt text + sprite renders look squashed/clipped.
         width: props.width ?? 800,
         height: props.height ?? 480,
-        margin: '0 auto',
+        minWidth: props.width ?? 800,
+        minHeight: props.height ?? 480,
         background: '#0e0f12',
-        border: '1px solid var(--border)',
-        borderRadius: 8,
+        flexShrink: 0,
+        flexGrow: 0,
       }}
     />
   );

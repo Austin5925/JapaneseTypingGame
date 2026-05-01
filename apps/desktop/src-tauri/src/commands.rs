@@ -54,6 +54,7 @@ pub struct DevItemRow {
     pub tags: Vec<String>,
     pub skill_tags: Vec<String>,
     pub accepted_kana: Vec<String>,
+    pub meanings_zh: Vec<String>,
 }
 
 #[tauri::command]
@@ -64,10 +65,11 @@ pub fn list_items(db: State<'_, AppDb>, limit: Option<i64>) -> AppResult<Vec<Dev
         .map_err(|e| AppError::Internal(e.to_string()))?;
     let limit = limit.unwrap_or(50).clamp(1, 1000);
     let mut stmt = conn.prepare(
-        "SELECT i.id, i.surface, i.kana, i.romaji_json, i.jlpt, i.tags_json, i.skill_tags_json, i.accepted_kana_json
-         FROM learning_items i
-         JOIN content_packs p ON p.id = i.source_pack_id
-         WHERE p.enabled = 1
+        "SELECT i.id, i.surface, i.kana, i.romaji_json, i.jlpt, i.tags_json, i.skill_tags_json, \
+                i.accepted_kana_json, i.meanings_zh_json \
+         FROM learning_items i \
+         JOIN content_packs p ON p.id = i.source_pack_id \
+         WHERE p.enabled = 1 \
          ORDER BY i.id LIMIT ?1",
     )?;
     let rows = stmt.query_map(params![limit], |row| {
@@ -75,6 +77,7 @@ pub fn list_items(db: State<'_, AppDb>, limit: Option<i64>) -> AppResult<Vec<Dev
         let tags_json: String = row.get(5)?;
         let skill_tags_json: String = row.get(6)?;
         let accepted_kana_json: Option<String> = row.get(7)?;
+        let meanings_zh_json: String = row.get(8)?;
         let romaji: Vec<String> = serde_json::from_str(&romaji_json).unwrap_or_default();
         Ok(DevItemRow {
             id: row.get(0)?,
@@ -88,6 +91,7 @@ pub fn list_items(db: State<'_, AppDb>, limit: Option<i64>) -> AppResult<Vec<Dev
                 .as_deref()
                 .and_then(|s| serde_json::from_str(s).ok())
                 .unwrap_or_default(),
+            meanings_zh: serde_json::from_str(&meanings_zh_json).unwrap_or_default(),
         })
     })?;
     let mut out = Vec::with_capacity(limit as usize);

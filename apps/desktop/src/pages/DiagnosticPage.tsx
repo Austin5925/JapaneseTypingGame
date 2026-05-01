@@ -219,11 +219,10 @@ export function DiagnosticPage(): JSX.Element {
   };
 
   const skip = (): void => {
-    // Persist whatever results the user did answer (could be 0), set a
-    // localStorage flag so HomePage won't keep redirecting them, and bounce
-    // to today's training. The flag stays set until the user makes real
-    // progress (a real attempt populates the progress table, so the home
-    // gate's primary check — `progressDtos.length === 0` — fails naturally).
+    // Persist whatever results the user did answer (could be 0). The home
+    // page's first-touch gate already set `diagnosticOffered=1` before
+    // bouncing here, so a skip just lands on today's training without
+    // looping back. Users can re-enter via the sidebar nav.
     void (async (): Promise<void> => {
       setSavingDone(true);
       try {
@@ -232,7 +231,6 @@ export function DiagnosticPage(): JSX.Element {
         setError(`保存进度失败:${(err as Error).message}`);
         return;
       }
-      globalThis.localStorage?.setItem('diagnosticSkipped', '1');
       globalThis.location.hash = '#/today';
     })();
   };

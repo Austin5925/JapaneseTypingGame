@@ -8,6 +8,30 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.7.2] - 2026-05-01 — Bug fixes (LibraryPage 词义 / canvas 变形 / 诊断循环)
+
+### Fixed
+
+- LibraryPage now shows a 意思 column rendering `meaningsZh` for every item.
+  The Tauri `list_items` projection grew a `meaningsZh` field (the column was
+  always in the DB; only the projection omitted it), and `DevItemRow` on the
+  TS side picked it up.
+- Mole / SpeedChase prompt + sprite no longer rendered scaled-up and clipped
+  on macOS. The `.r-crt` wrapper now flex-centres its child and forces
+  `flex-shrink: 0` on descendants; the GameCanvasHost container declares
+  `minWidth` / `minHeight` and `flex-shrink: 0` so a flex column ancestor
+  can't compress its declared size and confuse Phaser's <canvas> CSS box.
+- The diagnostic onboarding redirect on HomePage is now first-touch only.
+  HomePage sets a `diagnosticOffered` localStorage marker before navigating
+  to `/diagnostic`, so the user can return to home (whether they finished,
+  skipped, or bailed) without bouncing back to the diagnostic. The previous
+  `diagnosticSkipped`-only flag would loop the user back to diagnostic on
+  every empty-progress home visit.
+
+### Changed
+
+- Synchronized package, Tauri, Cargo, shell version metadata to `0.7.2`.
+
 ## [0.7.1] - 2026-05-01 — Review hardening
 
 ### Fixed

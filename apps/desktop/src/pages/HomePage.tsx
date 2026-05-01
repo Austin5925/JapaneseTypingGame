@@ -55,14 +55,17 @@ export function HomePage(): JSX.Element {
           listProgress({ userId: 'default-user', limit: PROGRESS_SCAN_LIMIT }),
           aggregateRecentErrorTags({ userId: 'default-user', days: 7, limit: 10 }),
         ]);
-        // First-run onboarding: a user with content but no progress is sent
-        // to the diagnostic flow so the WeaknessVector / DailyPlan have data
-        // to chew on. The "diagnosticSkipped" localStorage flag lets the user
-        // opt out and keep coming back to a populated home.
+        // First-touch onboarding: a user with content but no progress is
+        // offered the diagnostic flow exactly ONCE. The redirect sets a
+        // localStorage marker before navigating, so a return trip to home
+        // (whether the user finished, skipped, or just bailed) lands here
+        // normally instead of bouncing back to /diagnostic. Users can always
+        // re-enter the diagnostic from the sidebar nav.
         if (
           progressDtos.length === 0 &&
-          globalThis.localStorage?.getItem('diagnosticSkipped') !== '1'
+          globalThis.localStorage?.getItem('diagnosticOffered') !== '1'
         ) {
+          globalThis.localStorage?.setItem('diagnosticOffered', '1');
           globalThis.location.hash = '#/diagnostic';
           return;
         }

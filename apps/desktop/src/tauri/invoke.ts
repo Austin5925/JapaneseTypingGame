@@ -12,6 +12,7 @@ export interface DevItemRow {
   tags: string[];
   skillTags: SkillDimension[];
   acceptedKana: string[];
+  meaningsZh: string[];
 }
 
 export interface SeedTestPackResult {

@@ -93,7 +93,8 @@ export function LibraryPage(): JSX.Element {
               <tr>
                 <th style={{ width: 40 }}>#</th>
                 <th style={{ width: 100 }}>词面</th>
-                <th style={{ width: 140 }}>假名</th>
+                <th style={{ width: 130 }}>假名</th>
+                <th>意思</th>
                 <th style={{ width: 60 }}>JLPT</th>
                 {DIMENSION_COLUMNS.map((d) => (
                   <th key={d.key} style={{ width: 110 }}>
@@ -113,6 +114,13 @@ export function LibraryPage(): JSX.Element {
                   </td>
                   <td className="r-cjk" style={{ color: 'var(--kt2-accent)' }}>
                     {r.item.kana}
+                  </td>
+                  <td style={{ color: 'var(--kt2-fg)' }}>
+                    {r.item.meaningsZh.length > 0 ? (
+                      r.item.meaningsZh.join('、')
+                    ) : (
+                      <span style={{ color: 'var(--kt2-fg-dim)' }}>—</span>
+                    )}
                   </td>
                   <td>
                     {r.item.jlpt ? (

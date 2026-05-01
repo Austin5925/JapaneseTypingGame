@@ -489,7 +489,10 @@
   color: #e9fff0;
 }
 
-/* CRT vignette wrap for game canvas */
+/* CRT vignette wrap for game canvas. Explicit flex-center so the inner
+   GameCanvasHost div + Phaser <canvas> stay at their intrinsic size and
+   don't get stretched by an ancestor flex column — that was the source
+   of the Mole prompt being scaled-up + clipped on macOS. */
 .r-crt {
   position: relative;
   background: #050807;
@@ -499,6 +502,17 @@
     inset 0 0 80px rgba(126, 231, 135, 0.06),
     inset 0 0 0 2px #000,
     inset 0 0 0 4px #1c2624;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.r-crt > * {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.r-crt canvas {
+  display: block;
 }
 .r-crt::after {
   content: '';
