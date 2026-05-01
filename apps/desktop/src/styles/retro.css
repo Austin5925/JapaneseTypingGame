@@ -259,10 +259,15 @@
   letter-spacing: 0.04em;
 }
 
-/* main content area */
+/* main content area
+   `overflow: auto` (not hidden) is intentional: the game CRT wrapper sits at a
+   fixed 808px and the wall-clock canvas at 800×480; on viewport widths where
+   the sidebar (200px) + page padding leaves <808px in the main column the
+   canvas would otherwise be silently clipped on both sides. Auto lets the user
+   horizontally scroll the canvas instead of losing content. */
 .r-main {
   background: var(--kt2-panel);
-  overflow: hidden;
+  overflow: auto;
   position: relative;
 }
 

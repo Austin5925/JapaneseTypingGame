@@ -318,8 +318,13 @@ export function GamePage(props: GamePageProps): JSX.Element {
           style={{
             alignSelf: 'center',
             width: 808,
+            minWidth: 808,
             height: 488,
             padding: 0,
+            // Ensure the CRT bezel never truncates its child Phaser canvas — the
+            // outer .r-main now scrolls (see retro.css) so on a narrow viewport
+            // the user gets a horizontal scroll instead of losing the prompt.
+            flexShrink: 0,
           }}
         >
           <GameCanvasHost
