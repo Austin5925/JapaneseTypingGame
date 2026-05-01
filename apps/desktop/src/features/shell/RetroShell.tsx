@@ -1,5 +1,7 @@
 import { useEffect, useState, type JSX, type ReactNode } from 'react';
 
+import { PixIcon, type PixIconName } from '../style/PixIcon';
+
 /**
  * Stable union of "where are we" identifiers the shell uses to highlight the
  * sidebar. App.tsx maps the hash route to one of these.
@@ -21,7 +23,7 @@ interface NavItem {
   key: RetroActiveKey;
   label: string;
   href: string;
-  icon: string;
+  icon: PixIconName;
   badge?: string;
 }
 
@@ -53,51 +55,6 @@ const NAV_GROUPS: NavGroup[] = [
   },
 ];
 
-/**
- * Pixel-icon stub. Real PixIcon (SVG) lands in C5 (errorTagPalette + PixIcon).
- * Until then, a single mono-spaced glyph keeps the layout stable and avoids
- * shipping emoji art into a Win9x-retro shell.
- */
-function PixIconStub({ name }: { name: string }): JSX.Element {
-  const glyph = ICON_GLYPH[name] ?? '·';
-  return (
-    <span
-      aria-hidden="true"
-      style={{
-        display: 'inline-block',
-        width: 16,
-        height: 16,
-        textAlign: 'center',
-        fontFamily: 'var(--font-mono)',
-        fontSize: 13,
-        lineHeight: '16px',
-        color: 'currentColor',
-      }}
-    >
-      {glyph}
-    </span>
-  );
-}
-
-const ICON_GLYPH: Record<string, string> = {
-  home: '▣',
-  today: '◫',
-  mole: '●',
-  bolt: '⚡',
-  target: '◎',
-  mistakes: '✗',
-  library: '▤',
-  chart: '▦',
-  medal: '★',
-  settings: '⚙',
-  user: '◉',
-  help: '?',
-  play: '►',
-  pause: '‖',
-  save: '▥',
-  close: '✕',
-};
-
 export interface RetroShellProps {
   active: RetroActiveKey | null;
   /** Title shown in the toolbar's tb-label slot, e.g. `C:\\KANA\\HOME`. */
@@ -118,7 +75,7 @@ export interface RetroShellProps {
  *   statusbar (22px) → ready / version / dev links / lang / clock
  *
  * Visual fidelity targets devdocs/design-handoff/retro-shell.jsx::RetroShell.
- * The PixIcon glyphs are stubbed (see PixIconStub) until C5 ships the real
+ * The PixIcon glyphs are stubbed (see PixIcon) until C5 ships the real
  * SVG component.
  */
 export function RetroShell(props: RetroShellProps): JSX.Element {
@@ -156,24 +113,24 @@ export function RetroShell(props: RetroShellProps): JSX.Element {
 
       <div className="r-toolbar">
         <span className="tb-btn r-raise">
-          <PixIconStub name="play" />
+          <PixIcon name="play" />
         </span>
         <span className="tb-btn r-raise">
-          <PixIconStub name="pause" />
-        </span>
-        <span className="tb-sep" />
-        <span className="tb-btn r-raise">
-          <PixIconStub name="save" />
-        </span>
-        <span className="tb-btn r-raise">
-          <PixIconStub name="chart" />
+          <PixIcon name="pause" />
         </span>
         <span className="tb-sep" />
         <span className="tb-btn r-raise">
-          <PixIconStub name="mistakes" />
+          <PixIcon name="save" />
         </span>
         <span className="tb-btn r-raise">
-          <PixIconStub name="library" />
+          <PixIcon name="chart" />
+        </span>
+        <span className="tb-sep" />
+        <span className="tb-btn r-raise">
+          <PixIcon name="mistakes" />
+        </span>
+        <span className="tb-btn r-raise">
+          <PixIcon name="library" />
         </span>
         <span className="tb-sep" />
         <span className="tb-label">{title ?? '工作台'}</span>
@@ -203,7 +160,7 @@ export function RetroShell(props: RetroShellProps): JSX.Element {
                 className={`nav ${active === item.key ? 'active' : ''}`}
                 style={{ textDecoration: 'none' }}
               >
-                <PixIconStub name={item.icon} />
+                <PixIcon name={item.icon} />
                 <span>{item.label}</span>
                 {item.badge !== undefined && <span className="badge">{item.badge}</span>}
               </a>

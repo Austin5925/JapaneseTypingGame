@@ -1,5 +1,6 @@
 import { useEffect, useState, type JSX } from 'react';
 
+import { ErrorTagChip } from '../features/style/ErrorTagChip';
 import { listAttemptsBySession, type AttemptEventRow } from '../tauri/invoke';
 
 export interface ResultPageProps {
@@ -135,7 +136,15 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
                     <code>{r.reactionTimeMs} ms</code>
                   </td>
                   <td>
-                    <code>{r.errorTags.join(', ') || '—'}</code>
+                    {r.errorTags.length === 0 ? (
+                      <span style={{ color: 'var(--fg-tertiary)' }}>—</span>
+                    ) : (
+                      <span style={{ display: 'inline-flex', gap: 4, flexWrap: 'wrap' }}>
+                        {r.errorTags.map((t) => (
+                          <ErrorTagChip key={t} tag={t} />
+                        ))}
+                      </span>
+                    )}
                   </td>
                 </tr>
               ))}
