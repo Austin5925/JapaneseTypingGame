@@ -1,6 +1,13 @@
 import * as wanakana from 'wanakana';
 
-import { ContentPackSchema, type ContentPackInput, type LearningItemInput } from './schemas';
+import {
+  ContentPackSchema,
+  SentencePackSchema,
+  type ContentPackInput,
+  type LearningItemInput,
+  type SentenceItemInput,
+  type SentencePackInput,
+} from './schemas';
 
 // One issue per problem found, with `path` so a CLI can point at the offending location.
 // We keep going past the first failure so a user gets the full picture in one run.
@@ -200,4 +207,84 @@ function validateItem(
 
 export function formatIssues(issues: ValidationIssue[]): string {
   return issues.map((i) => `[${i.severity}] ${i.path}: ${i.message} (${i.code})`).join('\n');
+}
+
+/**
+ * Sentence-pack validation. Mirrors the word-pack flow but only checks the kana / romaji
+ * round-trip on each chunk (and, where the sentence concatenates `surface` from `chunks`,
+ * sanity-checks that the surface contains every chunk text). content-cli does not yet import
+ * sentence packs; this lets the schema lock in the format before persistence ships.
+ */
+export function validateSentencePack(raw: unknown): ValidationResult<SentencePackInput> {
+  const parsed = SentencePackSchema.safeParse(raw);
+  if (!parsed.success) {
+    const errors: ValidationIssue[] = parsed.error.issues.map((issue) => ({
+      path: issue.path.join('.') || '<root>',
+      message: issue.message,
+      severity: 'error',
+      code: 'schema',
+    }));
+    return { ok: false, errors, warnings: [] };
+  }
+
+  const pack = parsed.data;
+  const errors: ValidationIssue[] = [];
+  const warnings: ValidationIssue[] = [];
+
+  const idCounts = new Map<string, number>();
+  for (const s of pack.sentences) {
+    idCounts.set(s.id, (idCounts.get(s.id) ?? 0) + 1);
+  }
+  for (const [id, count] of idCounts) {
+    if (count > 1) {
+      errors.push({
+        path: `sentences[id=${id}]`,
+        message: `duplicate sentence id (appears ${String(count)} times)`,
+        severity: 'error',
+        code: 'duplicate_id',
+      });
+    }
+  }
+
+  pack.sentences.forEach((sentence, index) => {
+    validateSentenceItem(sentence, index, errors, warnings);
+  });
+
+  if (errors.length > 0) {
+    return { ok: false, errors, warnings };
+  }
+  return { ok: true, value: pack, warnings };
+}
+
+function validateSentenceItem(
+  item: SentenceItemInput,
+  index: number,
+  errors: ValidationIssue[],
+  _warnings: ValidationIssue[],
+): void {
+  const base = `sentences[${String(index)}](${item.id})`;
+
+  for (let i = 0; i < item.chunks.length; i++) {
+    const chunk = item.chunks[i]!;
+    const chunkBase = `${base}.chunks[${String(i)}](${chunk.id})`;
+    if (!isAllKana(chunk.kana)) {
+      errors.push({
+        path: `${chunkBase}.kana`,
+        message: `chunk kana "${chunk.kana}" contains non-kana characters`,
+        severity: 'error',
+        code: 'kana_invalid_chars',
+      });
+    }
+    for (let j = 0; j < chunk.romaji.length; j++) {
+      const romaji = chunk.romaji[j]!;
+      if (!romajiRoundTripsToKana(romaji, chunk.kana)) {
+        errors.push({
+          path: `${chunkBase}.romaji[${String(j)}]`,
+          message: `chunk romaji "${romaji}" does not round-trip to kana "${chunk.kana}"`,
+          severity: 'error',
+          code: 'romaji_does_not_round_trip',
+        });
+      }
+    }
+  }
 }

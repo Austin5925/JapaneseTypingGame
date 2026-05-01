@@ -1,6 +1,11 @@
 import { compareKana, compareSurface } from '../japanese/japaneseInputService';
 import { toKanaCandidates } from '../japanese/romaji';
-import type { EvaluationResult, TrainingTask, UserAttempt } from '../types/domain';
+import type {
+  EvaluationResult,
+  SentenceChunkAttemptEntry,
+  TrainingTask,
+  UserAttempt,
+} from '../types/domain';
 import type { ErrorTag } from '../types/enums';
 
 import { buildCrossGameEffects } from './crossGameEffects';
@@ -169,24 +174,159 @@ export const evaluateAudioToSurface: ModeEvaluator = (task, attempt) => {
 };
 
 /**
- * Stub evaluator for sentence_chunk_order. The real one ships with the river-jump game in
- * V1 and validates `acceptedOrders[]`. We return a not-implemented EvaluationResult instead
- * of throwing so the generic `BaseTrainingScene` flow (Sprint 3+) doesn't hard-crash if a
- * chunk-order task accidentally reaches it before V1 lands. Callers that rely on judgment
- * should look at the explanation string and route the user to a stub message.
+ * Sentence-order evaluator (river-jump scene, v0.8.0).
+ *
+ * Inputs:
+ *   - `task.expected.chunkOrder`  — canonical chunk-id order
+ *   - `task.expected.acceptedChunkOrders` — additional accepted permutations
+ *   - `task.expected.chunks`      — per-chunk reading metadata (kana / romaji / acceptedSurfaces)
+ *   - `attempt.chunkOrder`        — user-selected order
+ *   - `attempt.rawInput`          — JSON-encoded SentenceChunkAttemptEntry[] (per-chunk inputs)
+ *
+ * Two parallel checks:
+ *   1. Order: chunkOrder must equal chunkOrder OR appear in acceptedChunkOrders.
+ *      Mismatch → `word_order_error`.
+ *   2. Per-chunk reading: parse rawInput, replay compareKana for each chunk.
+ *      Any failure → that chunk's error tags merge into the result.
+ *
+ * `isCorrect` requires BOTH order and every chunk reading correct. Severe per-chunk tags
+ * (long_vowel / sokuon / dakuten / particle) bubble up so `shouldRepeatImmediately` and
+ * scheduler bonuses fire correctly.
  */
 export const evaluateSentenceChunkOrder: ModeEvaluator = (task, attempt) => {
-  const expectedDisplay = (task.expected.chunkOrder ?? []).join(' / ');
-  const actualDisplay = (attempt.chunkOrder ?? []).join(' / ');
+  const expectedOrder = task.expected.chunkOrder ?? [];
+  const acceptedOrders: string[][] = [
+    ...(expectedOrder.length > 0 ? [expectedOrder] : []),
+    ...(task.expected.acceptedChunkOrders ?? []),
+  ];
+  const actualOrder = attempt.chunkOrder ?? [];
+  const expectedDisplay = expectedOrder.join(' / ');
+  const actualDisplay = actualOrder.join(' / ');
+
+  const orderCorrect =
+    actualOrder.length === expectedOrder.length &&
+    acceptedOrders.some((candidate) => arraysEqual(candidate, actualOrder));
+
+  const errorTags: ErrorTag[] = [];
+  if (!orderCorrect && expectedOrder.length > 0) {
+    errorTags.push('word_order_error');
+  }
+
+  // Per-chunk reading replay. We tolerate missing rawInput (scene may have logged only the
+  // chunk order on a partial run) — in that case order-only judgement applies.
+  const chunkEntries = parseChunkEntries(attempt.rawInput);
+  const chunkMeta = task.expected.chunks ?? [];
+  const chunkMetaById = new Map(chunkMeta.map((c) => [c.id, c]));
+  let allReadingsCorrect = chunkEntries.length === 0 ? orderCorrect : true;
+  for (const entry of chunkEntries) {
+    const meta = chunkMetaById.get(entry.chunkId);
+    if (!meta) {
+      // Unknown chunk id — surface as unknown rather than silently skipping.
+      errorTags.push('unknown');
+      allReadingsCorrect = false;
+      continue;
+    }
+    const cmp = compareReadingForChunk(meta.kana, meta.romaji, entry.input, task.strictness);
+    if (!cmp.isAcceptable) {
+      allReadingsCorrect = false;
+      for (const tag of cmp.errorTags) {
+        if (!errorTags.includes(tag)) errorTags.push(tag);
+      }
+    }
+  }
+  // If no chunk metadata or no entries were supplied at all, fall back to order-only judgement.
+  if (chunkMeta.length === 0 || chunkEntries.length === 0) {
+    allReadingsCorrect = orderCorrect;
+  }
+
+  const isCorrect = orderCorrect && allReadingsCorrect;
+  if (!isCorrect && errorTags.length === 0) {
+    errorTags.push('unknown');
+  }
+
   return {
-    isCorrect: false,
-    errorTags: ['unknown'],
+    isCorrect,
+    errorTags,
     expectedDisplay,
     actualDisplay,
-    explanation:
-      'sentence_chunk_order evaluator is not yet implemented (V1 scope); attempt logged but not graded',
   };
 };
+
+function arraysEqual(a: readonly string[], b: readonly string[]): boolean {
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) return false;
+  }
+  return true;
+}
+
+function parseChunkEntries(raw: string | undefined): SentenceChunkAttemptEntry[] {
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw) as unknown;
+    if (!Array.isArray(parsed)) return [];
+    const entries: SentenceChunkAttemptEntry[] = [];
+    for (const item of parsed) {
+      if (
+        item &&
+        typeof item === 'object' &&
+        'chunkId' in item &&
+        'input' in item &&
+        typeof (item as { chunkId: unknown }).chunkId === 'string' &&
+        typeof (item as { input: unknown }).input === 'string'
+      ) {
+        entries.push({
+          chunkId: (item as { chunkId: string }).chunkId,
+          input: (item as { input: string }).input,
+        });
+      }
+    }
+    return entries;
+  } catch {
+    return [];
+  }
+}
+
+function compareReadingForChunk(
+  expectedKana: string,
+  acceptedRomaji: readonly string[],
+  rawInput: string,
+  strictness: TrainingTask['strictness'],
+): { isAcceptable: boolean; errorTags: ErrorTag[] } {
+  const trimmed = rawInput.trim();
+  if (trimmed.length === 0) {
+    return { isAcceptable: false, errorTags: ['unknown'] };
+  }
+  // Try as-kana first (user typed kana directly via IME or paste).
+  const directCmp = compareKana(expectedKana, trimmed, strictness);
+  if (directCmp.isAcceptable) {
+    return { isAcceptable: true, errorTags: directCmp.errorTags };
+  }
+  // Fall back to romaji-to-kana candidates. We prefer the candidate that matches; if none do,
+  // surface the most informative error tags (mirrors evaluateRomajiToKana's logic).
+  const candidates = toKanaCandidates(trimmed, 'mixed');
+  let best: { tags: ErrorTag[] } | null = null;
+  for (const candidate of candidates) {
+    const cmp = compareKana(expectedKana, candidate, strictness);
+    if (cmp.isAcceptable) {
+      return { isAcceptable: true, errorTags: cmp.errorTags };
+    }
+    const informative = cmp.errorTags.filter((t) => t !== 'unknown').length;
+    const incumbent = best ? best.tags.filter((t) => t !== 'unknown').length : -1;
+    if (best === null || informative > incumbent) {
+      best = { tags: cmp.errorTags };
+    }
+  }
+  // Recognise an exact-romaji match against the declared `acceptedRomaji` list as a final
+  // fallback; this keeps the scene's hint-display ("type 'ikimasu'") consistent with what
+  // round-tripped at validation time.
+  if (acceptedRomaji.includes(trimmed.toLowerCase())) {
+    return { isAcceptable: true, errorTags: [] };
+  }
+  // No candidate matched — return the best-tagged failure or the direct-cmp tags as fallback.
+  const tags = best?.tags.length ? best.tags : directCmp.errorTags;
+  return { isAcceptable: false, errorTags: tags.length > 0 ? tags : ['unknown'] };
+}
 
 const EVALUATORS: Record<TrainingTask['answerMode'], ModeEvaluator> = {
   romaji_to_kana: evaluateRomajiToKana,

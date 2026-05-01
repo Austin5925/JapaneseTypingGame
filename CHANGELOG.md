@@ -8,6 +8,66 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-05-01 — 激流勇进 + sentence-order pipeline
+
+### Added
+
+- **RiverJump training scene (`#/game/river-jump`)** — the first new game type
+  since v0.5 (Mole / SpeedChase). One sentence per task, chunks rendered as
+  shuffled lily-pads on a river, frog hops onto the right pad as the user
+  types each chunk's reading. Wrong-order picks splash and end the sentence;
+  unrecognised readings keep the buffer so the user can fix typos. Visual
+  cues for splash/sink/canonical-step come from Phaser tweens — no audio yet.
+- **`SentenceItemSchema` + `SentencePackSchema`** in `@kana-typing/content-schema`,
+  with chunk-id permutation refinements (no duplicates, no extras), a
+  `validateSentencePack` flow that enforces per-chunk kana validity + romaji
+  round-trip, and a `pos` enum covering noun/verb/particle/adjective/etc.
+- **`SentenceChunkOrder` evaluator** (`@kana-typing/core`) — replaces the
+  v0.x stub. Validates `chunkOrder` against the canonical order plus
+  `acceptedChunkOrders[]`, replays per-chunk reading comparisons via the
+  attempt's `rawInput` JSON (`SentenceChunkAttemptEntry[]`), and surfaces
+  severe per-chunk error tags (long_vowel/sokuon/dakuten) so
+  `shouldRepeatImmediately` and the scheduler stay coherent across modes.
+- **`selectSentenceOrderTasks`** selector (`@kana-typing/core/planning`) —
+  bucket strategy mirrors `selectKanaTasks` (overdue → fragile/learning →
+  seen/new → stable) but operates on `SentenceItem[]`. v0.8.0 typically calls
+  it without progress data; the empty-progress path lands every sentence in
+  the new-exposure bucket and shuffles uniformly.
+- **`content/official/sentences-foundations.json`** — 30 N5/N4 sentences
+  spanning basic SOV order, particle drills (を/に/で/へ/と/から/まで/が/は),
+  past-polite, plain negative, and te-iru progressive. Marked `quality:
+  draft` (description field) — needs a native-speaker pass before promotion.
+- **`SentenceItem` + `ChunkExpectation` + `SentenceChunkAttemptEntry`** domain
+  types in `@kana-typing/core`. The chunk-attempt entry uses
+  `attempt.rawInput` as a JSON wire format so v0.8.0 doesn't need an
+  attempt_events DTO change for an ephemeral feature.
+- **`river` PixIcon** (16×16 phosphor frog-on-pad + waves) and a "激流勇进"
+  entry in the RetroShell training nav at `#/game/river-jump`.
+
+### Changed
+
+- Synchronized package, Tauri, Cargo, shell version metadata to `0.8.0`.
+- `apps/desktop` now lists `@kana-typing/content-schema` as a workspace dep
+  so the `RiverJumpPage` boot path can re-run the validator at module load
+  (defence-in-depth — bad pack → loud throw, not silent bad tasks).
+
+### Notes / known gaps
+
+- **Sentence training is ephemeral in v0.8.0**: RiverJump tasks do not
+  persist `attempt_events` or `item_skill_progress` because both tables hold
+  a `FOREIGN KEY (item_id) REFERENCES learning_items` that sentence ids do
+  not satisfy. The whole loop runs in memory; ResultPage is bypassed (the
+  page returns to home after finish). v0.8.x will add migration 005
+  (`sentence_items` table) and reroute to a sentence-aware result view.
+- The 30-sentence pack is a draft. Multi-answer `acceptedOrders` are
+  intentionally empty for v0.8.0 — only the canonical order is accepted —
+  so the gate stays narrow while the format soaks. Future drops will
+  populate alternates for sentences with legitimate SOV/OSV freedom.
+- IME-mode for RiverJump is wired (`inputSource: 'external'`) but the
+  desktop shell currently boots it in romaji-only mode. IME pass scheduled
+  for v0.8.x once the sentence chunk recognition is verified on macOS +
+  Windows webview.
+
 ## [0.7.2] - 2026-05-01 — Bug fixes (LibraryPage 词义 / canvas 变形 / 诊断循环)
 
 ### Fixed

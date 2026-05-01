@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
 
-import { isAllKana, romajiRoundTripsToKana, validatePack, type ContentPackInput } from '../src';
+import {
+  isAllKana,
+  romajiRoundTripsToKana,
+  validatePack,
+  validateSentencePack,
+  type ContentPackInput,
+  type SentencePackInput,
+} from '../src';
 import { minimalSamplePack } from '../src/samplePacks';
 
 function clonePack(pack: ContentPackInput): ContentPackInput {
@@ -141,6 +148,82 @@ describe('validatePack', () => {
     expect(result.ok).toBe(false);
     if (!result.ok) {
       expect(result.errors[0]!.code).toBe('schema');
+    }
+  });
+});
+
+const sentencePackFixture: SentencePackInput = {
+  id: 'sent-foundations',
+  name: '基础句型',
+  version: '0.1.0',
+  locale: 'zh-CN',
+  sentences: [
+    {
+      id: 'sent-school',
+      type: 'sentence',
+      surface: '私は学校へ行きます',
+      chunks: [
+        {
+          id: 'c1',
+          text: '私は',
+          kana: 'わたしは',
+          romaji: ['watashiha'],
+          pos: 'pronoun',
+        },
+        {
+          id: 'c2',
+          text: '学校へ',
+          kana: 'がっこうへ',
+          romaji: ['gakkouhe'],
+          pos: 'noun',
+        },
+        { id: 'c3', text: '行きます', kana: 'いきます', romaji: ['ikimasu'], pos: 'verb' },
+      ],
+      zhPrompt: '我去学校。',
+      acceptedOrders: [],
+      skillTags: ['sentence_order'],
+      tags: ['n5'],
+    },
+  ],
+};
+
+function cloneSentencePack(p: SentencePackInput): SentencePackInput {
+  return JSON.parse(JSON.stringify(p)) as SentencePackInput;
+}
+
+describe('validateSentencePack', () => {
+  it('accepts a minimal valid sentence pack', () => {
+    const result = validateSentencePack(sentencePackFixture);
+    expect(result.ok).toBe(true);
+  });
+
+  it('rejects a chunk whose romaji does not round-trip to kana', () => {
+    const pack = cloneSentencePack(sentencePackFixture);
+    pack.sentences[0]!.chunks[2]!.romaji = ['ikimas']; // missing trailing u
+    const result = validateSentencePack(pack);
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.errors.some((e) => e.code === 'romaji_does_not_round_trip')).toBe(true);
+    }
+  });
+
+  it('rejects a chunk kana with non-kana characters', () => {
+    const pack = cloneSentencePack(sentencePackFixture);
+    pack.sentences[0]!.chunks[1]!.kana = '学校へ'; // kanji slipped in
+    const result = validateSentencePack(pack);
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.errors.some((e) => e.code === 'kana_invalid_chars')).toBe(true);
+    }
+  });
+
+  it('rejects duplicate sentence ids', () => {
+    const pack = cloneSentencePack(sentencePackFixture);
+    pack.sentences.push(cloneSentencePack(sentencePackFixture).sentences[0]!);
+    const result = validateSentencePack(pack);
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.errors.some((e) => e.code === 'duplicate_id')).toBe(true);
     }
   });
 });

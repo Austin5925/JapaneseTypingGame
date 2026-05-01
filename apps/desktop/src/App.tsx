@@ -12,6 +12,7 @@ import { InputDevPage } from './pages/InputDevPage';
 import { LibraryPage } from './pages/LibraryPage';
 import { MistakesPage } from './pages/MistakesPage';
 import { ResultPage } from './pages/ResultPage';
+import { RiverJumpPage } from './pages/RiverJumpPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { TodayTrainingPage } from './pages/TodayTrainingPage';
 
@@ -30,6 +31,7 @@ type Route =
   | { kind: 'dev-eval' }
   | { kind: 'game-mole'; overrides?: GameRouteOverrides }
   | { kind: 'game-speed-chase'; overrides?: GameRouteOverrides }
+  | { kind: 'game-river-jump' }
   | { kind: 'result'; sessionId: string };
 
 function getRoute(): Route {
@@ -49,6 +51,7 @@ function getRoute(): Route {
   if (hash === '#/game/speed-chase' || hash.startsWith('#/game/speed-chase?')) {
     return { kind: 'game-speed-chase', ...withOverrides(hash) };
   }
+  if (hash === '#/game/river-jump') return { kind: 'game-river-jump' };
   const resultMatch = hash.match(/^#\/result\/(.+)$/u);
   if (resultMatch) return { kind: 'result', sessionId: resultMatch[1]! };
   return { kind: 'home' };
@@ -139,6 +142,8 @@ function renderRouteContent(route: Route): JSX.Element {
           overrides={route.overrides}
         />
       );
+    case 'game-river-jump':
+      return <RiverJumpPage />;
     case 'result':
       return <ResultPage sessionId={route.sessionId} />;
   }
@@ -172,6 +177,8 @@ function titleForRoute(route: Route): string {
       return 'C:\\KANA\\MOLE.EXE';
     case 'game-speed-chase':
       return 'C:\\KANA\\CHASE.EXE';
+    case 'game-river-jump':
+      return 'C:\\KANA\\RIVER.EXE';
     case 'result':
       return 'C:\\KANA\\RESULT.LOG';
   }

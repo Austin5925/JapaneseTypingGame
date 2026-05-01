@@ -65,6 +65,9 @@ importers:
       '@fontsource/vt323':
         specifier: ^5.2.7
         version: 5.2.7
+      '@kana-typing/content-schema':
+        specifier: workspace:*
+        version: link:../../packages/content-schema
       '@kana-typing/core':
         specifier: workspace:*
         version: link:../../packages/core

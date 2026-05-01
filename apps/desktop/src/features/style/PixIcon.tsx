@@ -23,6 +23,7 @@ export type PixIconName =
   | 'user'
   | 'mole'
   | 'bolt'
+  | 'river'
   | 'help'
   | 'target'
   | 'close';
@@ -334,6 +335,30 @@ export const PIX_GRIDS: Record<PixIconName, IconDef> = {
       '1111000000000000',
       '1100000000000000',
       '1000000000000000',
+      '0000000000000000',
+    ],
+  },
+  river: {
+    // Frog on a lily pad, with a wave line below — a 16×16 pixel echo of the
+    // "激流勇进" sidebar entry. Phosphor green so it groups visually with the
+    // other training-mode icons (mole/target).
+    color: PHOSPHOR,
+    grid: [
+      '0000000000000000',
+      '0000001111000000',
+      '0000011001100000',
+      '0000110110110000',
+      '0000110000110000',
+      '0000011111100000',
+      '0001111111111000',
+      '0011111111111100',
+      '0001111111111000',
+      '0000111111110000',
+      '0000000000000000',
+      '0011000110001100',
+      '1111001111001110',
+      '0111111110011111',
+      '0011111000111110',
       '0000000000000000',
     ],
   },

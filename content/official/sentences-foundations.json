@@ -1,0 +1,781 @@
+{
+  "id": "sentences-foundations",
+  "name": "基础句型 30 句",
+  "version": "0.1.0",
+  "locale": "zh-CN",
+  "description": "v0.8.0 RiverJump seed pack — 30 N5/N4-level sentences spanning basic word order, particles (を/に/で/へ/と/から/まで), polite present/past/negative forms, and progressive aspect. Quality: draft (needs native review before promotion to verified).",
+  "sentences": [
+    {
+      "id": "sent-watashi-school",
+      "type": "sentence",
+      "surface": "私は学校へ行きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c2",
+          "text": "学校へ",
+          "kana": "がっこうへ",
+          "romaji": ["gakkouhe"],
+          "pos": "noun"
+        },
+        { "id": "c3", "text": "行きます", "kana": "いきます", "romaji": ["ikimasu"], "pos": "verb" }
+      ],
+      "zhPrompt": "我去学校。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-he"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-watashi-tea",
+      "type": "sentence",
+      "surface": "私はお茶を飲みます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        { "id": "c2", "text": "お茶を", "kana": "おちゃを", "romaji": ["ochawo"], "pos": "noun" },
+        {
+          "id": "c3",
+          "text": "飲みます",
+          "kana": "のみます",
+          "romaji": ["nomimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我喝茶。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-wo"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-tanaka-doctor",
+      "type": "sentence",
+      "surface": "田中さんは医者です",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "田中さんは",
+          "kana": "たなかさんは",
+          "romaji": ["tanakasanha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "医者です",
+          "kana": "いしゃです",
+          "romaji": ["ishadesu"],
+          "pos": "phrase"
+        }
+      ],
+      "zhPrompt": "田中先生是医生。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "copula"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-tomodachi-park",
+      "type": "sentence",
+      "surface": "友達と公園に行きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "友達と",
+          "kana": "ともだちと",
+          "romaji": ["tomodachito"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "公園に",
+          "kana": "こうえんに",
+          "romaji": ["kouenni"],
+          "pos": "noun"
+        },
+        { "id": "c3", "text": "行きます", "kana": "いきます", "romaji": ["ikimasu"], "pos": "verb" }
+      ],
+      "zhPrompt": "和朋友去公园。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-to", "particle-ni"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-asagohan",
+      "type": "sentence",
+      "surface": "朝ご飯を食べます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "朝ご飯を",
+          "kana": "あさごはんを",
+          "romaji": ["asagohanwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "食べます",
+          "kana": "たべます",
+          "romaji": ["tabemasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "吃早饭。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-wo"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-kyou-rain",
+      "type": "sentence",
+      "surface": "今日は雨が降ります",
+      "chunks": [
+        { "id": "c1", "text": "今日は", "kana": "きょうは", "romaji": ["kyouha"], "pos": "noun" },
+        { "id": "c2", "text": "雨が", "kana": "あめが", "romaji": ["amega"], "pos": "noun" },
+        {
+          "id": "c3",
+          "text": "降ります",
+          "kana": "ふります",
+          "romaji": ["furimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "今天下雨。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-ga", "particle-ha"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-haha-book",
+      "type": "sentence",
+      "surface": "母は本を読みます",
+      "chunks": [
+        { "id": "c1", "text": "母は", "kana": "ははは", "romaji": ["hahaha"], "pos": "noun" },
+        { "id": "c2", "text": "本を", "kana": "ほんを", "romaji": ["honwo"], "pos": "noun" },
+        {
+          "id": "c3",
+          "text": "読みます",
+          "kana": "よみます",
+          "romaji": ["yomimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "妈妈读书。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-wo"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-chichi-sake",
+      "type": "sentence",
+      "surface": "父はお酒を飲みます",
+      "chunks": [
+        { "id": "c1", "text": "父は", "kana": "ちちは", "romaji": ["chichiha"], "pos": "noun" },
+        { "id": "c2", "text": "お酒を", "kana": "おさけを", "romaji": ["osakewo"], "pos": "noun" },
+        {
+          "id": "c3",
+          "text": "飲みます",
+          "kana": "のみます",
+          "romaji": ["nomimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "父亲喝酒。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-wo"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-imouto-not-read",
+      "type": "sentence",
+      "surface": "妹は本を読まない",
+      "chunks": [
+        { "id": "c1", "text": "妹は", "kana": "いもうとは", "romaji": ["imoutoha"], "pos": "noun" },
+        { "id": "c2", "text": "本を", "kana": "ほんを", "romaji": ["honwo"], "pos": "noun" },
+        { "id": "c3", "text": "読まない", "kana": "よまない", "romaji": ["yomanai"], "pos": "verb" }
+      ],
+      "zhPrompt": "妹妹不读书。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "negative-plain"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-ani-company-past",
+      "type": "sentence",
+      "surface": "兄は会社に行きました",
+      "chunks": [
+        { "id": "c1", "text": "兄は", "kana": "あには", "romaji": ["aniha"], "pos": "noun" },
+        {
+          "id": "c2",
+          "text": "会社に",
+          "kana": "かいしゃに",
+          "romaji": ["kaishani"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "行きました",
+          "kana": "いきました",
+          "romaji": ["ikimashita"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "哥哥去了公司。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "past-polite", "particle-ni"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-gakusei-homework",
+      "type": "sentence",
+      "surface": "学生は宿題をします",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "学生は",
+          "kana": "がくせいは",
+          "romaji": ["gakuseiha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "宿題を",
+          "kana": "しゅくだいを",
+          "romaji": ["shukudaiwo"],
+          "pos": "noun"
+        },
+        { "id": "c3", "text": "します", "kana": "します", "romaji": ["shimasu"], "pos": "verb" }
+      ],
+      "zhPrompt": "学生做作业。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-watashi-japanese",
+      "type": "sentence",
+      "surface": "私は日本語を勉強します",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c2",
+          "text": "日本語を",
+          "kana": "にほんごを",
+          "romaji": ["nihongowo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "勉強します",
+          "kana": "べんきょうします",
+          "romaji": ["benkyoushimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我学日语。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-tomodachi-movie",
+      "type": "sentence",
+      "surface": "友達と映画を見ます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "友達と",
+          "kana": "ともだちと",
+          "romaji": ["tomodachito"],
+          "pos": "noun"
+        },
+        { "id": "c2", "text": "映画を", "kana": "えいがを", "romaji": ["eigawo"], "pos": "noun" },
+        { "id": "c3", "text": "見ます", "kana": "みます", "romaji": ["mimasu"], "pos": "verb" }
+      ],
+      "zhPrompt": "和朋友看电影。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-to"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-eki-house-walk",
+      "type": "sentence",
+      "surface": "駅から家まで歩きます",
+      "chunks": [
+        { "id": "c1", "text": "駅から", "kana": "えきから", "romaji": ["ekikara"], "pos": "noun" },
+        { "id": "c2", "text": "家まで", "kana": "いえまで", "romaji": ["iemade"], "pos": "noun" },
+        {
+          "id": "c3",
+          "text": "歩きます",
+          "kana": "あるきます",
+          "romaji": ["arukimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "从车站走到家。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["foundation", "particle-kara", "particle-made"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-otouto-dog",
+      "type": "sentence",
+      "surface": "弟は犬と遊びます",
+      "chunks": [
+        { "id": "c1", "text": "弟は", "kana": "おとうとは", "romaji": ["otoutoha"], "pos": "noun" },
+        { "id": "c2", "text": "犬と", "kana": "いぬと", "romaji": ["inuto"], "pos": "noun" },
+        {
+          "id": "c3",
+          "text": "遊びます",
+          "kana": "あそびます",
+          "romaji": ["asobimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "弟弟和狗玩。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-to"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-sensei-school",
+      "type": "sentence",
+      "surface": "先生は学校で教えます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "先生は",
+          "kana": "せんせいは",
+          "romaji": ["senseiha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "学校で",
+          "kana": "がっこうで",
+          "romaji": ["gakkoude"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "教えます",
+          "kana": "おしえます",
+          "romaji": ["oshiemasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "老师在学校教书。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-de"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-fude-letter",
+      "type": "sentence",
+      "surface": "私は筆で手紙を書きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        { "id": "c2", "text": "筆で", "kana": "ふでで", "romaji": ["fudede"], "pos": "noun" },
+        { "id": "c3", "text": "手紙を", "kana": "てがみを", "romaji": ["tegamiwo"], "pos": "noun" },
+        {
+          "id": "c4",
+          "text": "書きます",
+          "kana": "かきます",
+          "romaji": ["kakimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我用毛笔写信。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["foundation", "particle-de", "particle-wo"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-kodomo-park",
+      "type": "sentence",
+      "surface": "子供は公園で遊びます",
+      "chunks": [
+        { "id": "c1", "text": "子供は", "kana": "こどもは", "romaji": ["kodomoha"], "pos": "noun" },
+        {
+          "id": "c2",
+          "text": "公園で",
+          "kana": "こうえんで",
+          "romaji": ["kouende"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "遊びます",
+          "kana": "あそびます",
+          "romaji": ["asobimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "孩子在公园玩。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-de"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-tokyo-born",
+      "type": "sentence",
+      "surface": "私は東京で生まれました",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c2",
+          "text": "東京で",
+          "kana": "とうきょうで",
+          "romaji": ["toukyoude"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "生まれました",
+          "kana": "うまれました",
+          "romaji": ["umaremashita"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我在东京出生。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["foundation", "past-polite", "particle-de"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-haha-shopping",
+      "type": "sentence",
+      "surface": "母は買い物に行きます",
+      "chunks": [
+        { "id": "c1", "text": "母は", "kana": "ははは", "romaji": ["hahaha"], "pos": "noun" },
+        {
+          "id": "c2",
+          "text": "買い物に",
+          "kana": "かいものに",
+          "romaji": ["kaimononi"],
+          "pos": "noun"
+        },
+        { "id": "c3", "text": "行きます", "kana": "いきます", "romaji": ["ikimasu"], "pos": "verb" }
+      ],
+      "zhPrompt": "妈妈去买东西。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["foundation", "particle-ni-purpose"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-watashi-school-japanese",
+      "type": "sentence",
+      "surface": "私は学校で日本語を習います",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c2",
+          "text": "学校で",
+          "kana": "がっこうで",
+          "romaji": ["gakkoude"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "日本語を",
+          "kana": "にほんごを",
+          "romaji": ["nihongowo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "習います",
+          "kana": "ならいます",
+          "romaji": ["naraimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我在学校学日语。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["foundation", "particle-de", "particle-wo"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-ani-tokyo-living",
+      "type": "sentence",
+      "surface": "兄は東京に住んでいます",
+      "chunks": [
+        { "id": "c1", "text": "兄は", "kana": "あには", "romaji": ["aniha"], "pos": "noun" },
+        {
+          "id": "c2",
+          "text": "東京に",
+          "kana": "とうきょうに",
+          "romaji": ["toukyouni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "住んでいます",
+          "kana": "すんでいます",
+          "romaji": ["sundeimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "哥哥住在东京。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["foundation", "te-iru"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-watashi-weekend-movie",
+      "type": "sentence",
+      "surface": "私は週末に映画を見ました",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c2",
+          "text": "週末に",
+          "kana": "しゅうまつに",
+          "romaji": ["shuumatsuni"],
+          "pos": "noun"
+        },
+        { "id": "c3", "text": "映画を", "kana": "えいがを", "romaji": ["eigawo"], "pos": "noun" },
+        {
+          "id": "c4",
+          "text": "見ました",
+          "kana": "みました",
+          "romaji": ["mimashita"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我周末看了电影。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["foundation", "past-polite", "particle-ni-time"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-chichi-newspaper",
+      "type": "sentence",
+      "surface": "父は新聞を読んでいます",
+      "chunks": [
+        { "id": "c1", "text": "父は", "kana": "ちちは", "romaji": ["chichiha"], "pos": "noun" },
+        {
+          "id": "c2",
+          "text": "新聞を",
+          "kana": "しんぶんを",
+          "romaji": ["shinbunwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "読んでいます",
+          "kana": "よんでいます",
+          "romaji": ["yondeimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "父亲在读报纸。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["foundation", "te-iru"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-otouto-morning",
+      "type": "sentence",
+      "surface": "弟は朝早く起きます",
+      "chunks": [
+        { "id": "c1", "text": "弟は", "kana": "おとうとは", "romaji": ["otoutoha"], "pos": "noun" },
+        {
+          "id": "c2",
+          "text": "朝早く",
+          "kana": "あさはやく",
+          "romaji": ["asahayaku"],
+          "pos": "adverb"
+        },
+        { "id": "c3", "text": "起きます", "kana": "おきます", "romaji": ["okimasu"], "pos": "verb" }
+      ],
+      "zhPrompt": "弟弟早上很早起。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["foundation", "adverb"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-watashi-water",
+      "type": "sentence",
+      "surface": "私は毎朝水を飲みます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        { "id": "c2", "text": "毎朝", "kana": "まいあさ", "romaji": ["maiasa"], "pos": "adverb" },
+        { "id": "c3", "text": "水を", "kana": "みずを", "romaji": ["mizuwo"], "pos": "noun" },
+        {
+          "id": "c4",
+          "text": "飲みます",
+          "kana": "のみます",
+          "romaji": ["nomimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我每天早上喝水。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-tomodachi-letter",
+      "type": "sentence",
+      "surface": "友達は手紙を送ります",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "友達は",
+          "kana": "ともだちは",
+          "romaji": ["tomodachiha"],
+          "pos": "noun"
+        },
+        { "id": "c2", "text": "手紙を", "kana": "てがみを", "romaji": ["tegamiwo"], "pos": "noun" },
+        {
+          "id": "c3",
+          "text": "送ります",
+          "kana": "おくります",
+          "romaji": ["okurimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "朋友寄信。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-haha-cooking",
+      "type": "sentence",
+      "surface": "母は家でご飯を作ります",
+      "chunks": [
+        { "id": "c1", "text": "母は", "kana": "ははは", "romaji": ["hahaha"], "pos": "noun" },
+        { "id": "c2", "text": "家で", "kana": "いえで", "romaji": ["iede"], "pos": "noun" },
+        { "id": "c3", "text": "ご飯を", "kana": "ごはんを", "romaji": ["gohanwo"], "pos": "noun" },
+        {
+          "id": "c4",
+          "text": "作ります",
+          "kana": "つくります",
+          "romaji": ["tsukurimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "妈妈在家做饭。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-de"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-watashi-bookstore",
+      "type": "sentence",
+      "surface": "私は本屋で本を買います",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        { "id": "c2", "text": "本屋で", "kana": "ほんやで", "romaji": ["hon'yade"], "pos": "noun" },
+        { "id": "c3", "text": "本を", "kana": "ほんを", "romaji": ["honwo"], "pos": "noun" },
+        { "id": "c4", "text": "買います", "kana": "かいます", "romaji": ["kaimasu"], "pos": "verb" }
+      ],
+      "zhPrompt": "我在书店买书。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-de", "particle-wo"],
+      "skillTags": ["sentence_order"]
+    },
+    {
+      "id": "sent-haru-flower",
+      "type": "sentence",
+      "surface": "春に花が咲きます",
+      "chunks": [
+        { "id": "c1", "text": "春に", "kana": "はるに", "romaji": ["haruni"], "pos": "noun" },
+        { "id": "c2", "text": "花が", "kana": "はなが", "romaji": ["hanaga"], "pos": "noun" },
+        {
+          "id": "c3",
+          "text": "咲きます",
+          "kana": "さきます",
+          "romaji": ["sakimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "春天花开。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-ni-time", "particle-ga"],
+      "skillTags": ["sentence_order"]
+    }
+  ]
+}

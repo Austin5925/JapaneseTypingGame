@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 
 import type { GameBridge } from './bridge/GameBridge';
 import { MoleScene, MOLE_SCENE_KEY } from './scenes/MoleScene';
+import { RiverJumpScene, RIVER_JUMP_SCENE_KEY } from './scenes/RiverJumpScene';
 import { SpeedChaseScene, SPEED_CHASE_SCENE_KEY } from './scenes/SpeedChaseScene';
 
 export interface PhaserGameManagerOptions {
@@ -47,7 +48,7 @@ export class PhaserGameManager {
       width: this.options.width,
       height: this.options.height,
       backgroundColor: '#0e0f12',
-      scene: [MoleScene, SpeedChaseScene],
+      scene: [MoleScene, SpeedChaseScene, RiverJumpScene],
       scale: {
         mode: Phaser.Scale.NONE,
       },
@@ -62,6 +63,10 @@ export class PhaserGameManager {
 
   startSpeedChaseScene(opts: StartSessionOptions): void {
     this.startScene(SPEED_CHASE_SCENE_KEY, opts);
+  }
+
+  startRiverJumpScene(opts: StartSessionOptions): void {
+    this.startScene(RIVER_JUMP_SCENE_KEY, opts);
   }
 
   /**

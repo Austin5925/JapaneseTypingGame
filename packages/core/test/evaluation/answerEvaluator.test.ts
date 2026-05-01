@@ -138,16 +138,112 @@ describe('evaluate — ime_surface', () => {
   });
 });
 
-describe('evaluate — sentence_chunk_order returns a not-implemented stub', () => {
-  it('does not throw — generic dispatch flows must keep working in Sprint 3', () => {
-    const t = task({
+describe('evaluate — sentence_chunk_order', () => {
+  // 私は学校へ行きます — three chunks; canonical order [c1, c2, c3].
+  const sentenceTask = (overrides: Partial<TrainingTask['expected']> = {}): TrainingTask =>
+    task({
       answerMode: 'sentence_chunk_order',
-      expected: { chunkOrder: ['a', 'b', 'c'] },
+      skillDimension: 'sentence_order',
+      gameType: 'river_jump',
+      expected: {
+        chunkOrder: ['c1', 'c2', 'c3'],
+        chunks: [
+          {
+            id: 'c1',
+            text: '私は',
+            kana: 'わたしは',
+            romaji: ['watashiha'],
+          },
+          {
+            id: 'c2',
+            text: '学校へ',
+            kana: 'がっこうへ',
+            romaji: ['gakkouhe'],
+          },
+          { id: 'c3', text: '行きます', kana: 'いきます', romaji: ['ikimasu'] },
+        ],
+        ...overrides,
+      },
     });
-    const r = evaluate(t, attempt({ chunkOrder: ['a', 'c', 'b'] }));
+
+  function chunkInputs(entries: Array<[string, string]>): string {
+    return JSON.stringify(entries.map(([chunkId, input]) => ({ chunkId, input })));
+  }
+
+  it('correct order + correct readings → isCorrect, no errorTags', () => {
+    const r = evaluate(
+      sentenceTask(),
+      attempt({
+        chunkOrder: ['c1', 'c2', 'c3'],
+        rawInput: chunkInputs([
+          ['c1', 'watashiha'],
+          ['c2', 'がっこうへ'],
+          ['c3', 'ikimasu'],
+        ]),
+      }),
+    );
+    expect(r.isCorrect).toBe(true);
+    expect(r.errorTags).toEqual([]);
+  });
+
+  it('wrong chunk order → word_order_error, isCorrect false', () => {
+    const r = evaluate(
+      sentenceTask(),
+      attempt({
+        chunkOrder: ['c1', 'c3', 'c2'],
+        rawInput: chunkInputs([
+          ['c1', 'watashiha'],
+          ['c3', 'ikimasu'],
+          ['c2', 'gakkouhe'],
+        ]),
+      }),
+    );
     expect(r.isCorrect).toBe(false);
-    expect(r.errorTags).toContain('unknown');
-    expect(r.explanation).toMatch(/not yet implemented/i);
+    expect(r.errorTags).toContain('word_order_error');
+  });
+
+  it('alternate order in acceptedChunkOrders → isCorrect', () => {
+    const r = evaluate(
+      sentenceTask({ acceptedChunkOrders: [['c2', 'c1', 'c3']] }),
+      attempt({
+        chunkOrder: ['c2', 'c1', 'c3'],
+        rawInput: chunkInputs([
+          ['c2', 'gakkouhe'],
+          ['c1', 'watashiha'],
+          ['c3', 'ikimasu'],
+        ]),
+      }),
+    );
+    expect(r.isCorrect).toBe(true);
+    expect(r.errorTags).toEqual([]);
+  });
+
+  it('correct order but wrong reading on a chunk → not isCorrect', () => {
+    const r = evaluate(
+      sentenceTask(),
+      attempt({
+        chunkOrder: ['c1', 'c2', 'c3'],
+        rawInput: chunkInputs([
+          ['c1', 'watashiha'],
+          ['c2', 'gakouhe'], // missing sokuon → sokuon_error
+          ['c3', 'ikimasu'],
+        ]),
+      }),
+    );
+    expect(r.isCorrect).toBe(false);
+    // Some chunk should have flagged a reading error; we don't pin the exact tag (depends on
+    // wanakana's normalisation) but we expect at least one error tag and no word_order_error.
+    expect(r.errorTags).not.toContain('word_order_error');
+    expect(r.errorTags.length).toBeGreaterThan(0);
+  });
+
+  it('order-only judgement when chunks metadata absent', () => {
+    const r = evaluate(
+      task({ answerMode: 'sentence_chunk_order', expected: { chunkOrder: ['a', 'b'] } }),
+      attempt({ chunkOrder: ['b', 'a'] }),
+    );
+    expect(r.isCorrect).toBe(false);
+    expect(r.errorTags).toContain('word_order_error');
   });
 });
 

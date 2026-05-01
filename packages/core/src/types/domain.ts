@@ -81,15 +81,47 @@ export interface TrainingPrompt {
   highlightRange?: [number, number];
 }
 
+export interface ChunkExpectation {
+  id: string;
+  /** Surface text shown on the lily-pad (kanji / kana / mixed). */
+  text: string;
+  /** Canonical kana reading the user must type when this chunk is selected. */
+  kana: string;
+  /** Romaji forms accepted for the kana reading. */
+  romaji: string[];
+  /** Optional alt-surface variants (e.g. kanji vs hiragana) accepted for the chunk. */
+  acceptedSurfaces?: string[];
+}
+
 export interface ExpectedAnswer {
   surface?: string;
   kana?: string;
   romaji?: string[];
   meaningZh?: string;
   optionId?: string;
+  /** Canonical chunk order (the answer the user is "supposed to" produce). */
   chunkOrder?: string[];
+  /** Per-chunk reading metadata for sentence-order tasks. */
+  chunks?: ChunkExpectation[];
+  /**
+   * Additional accepted chunk orderings beyond `chunkOrder`. Empty / undefined means only the
+   * canonical order is accepted. Each entry must be a permutation of the chunk-id set.
+   */
+  acceptedChunkOrders?: string[][];
   acceptedSurfaces?: string[];
   acceptedKana?: string[];
+}
+
+/**
+ * Wire format for `UserAttempt.rawInput` on sentence-order attempts. The Scene serialises one
+ * of these per chunk (in user-selection order) so the evaluator can replay per-chunk reading
+ * comparisons without sharing scene state. Stays in `rawInput` (a free-form TEXT column) so we
+ * don't need to touch the attempt_events DTO for v0.8.
+ */
+export interface SentenceChunkAttemptEntry {
+  chunkId: string;
+  /** What the user typed for this chunk (raw, before kana normalisation). */
+  input: string;
 }
 
 export interface TrainingOption {
