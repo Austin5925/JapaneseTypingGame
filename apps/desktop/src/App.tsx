@@ -1,6 +1,7 @@
 import { ALL_SKILL_DIMENSIONS, type SkillDimension } from '@kana-typing/core';
 import { useEffect, useState, type JSX } from 'react';
 
+import { RetroShell, type RetroActiveKey } from './features/shell/RetroShell';
 import { DevPage } from './pages/DevPage';
 import { EvaluatorDevPage } from './pages/EvaluatorDevPage';
 import { GamePage, type GameInputMode, type GameRouteOverrides } from './pages/GamePage';
@@ -88,56 +89,82 @@ export function App(): JSX.Element {
   }, []);
 
   return (
-    <main>
-      <nav
-        style={{
-          padding: '0.75rem 1.5rem',
-          borderBottom: '1px solid var(--border)',
-          display: 'flex',
-          gap: '1.25rem',
-          alignItems: 'center',
-        }}
-      >
-        <strong>假名打字通</strong>
-        <a href="#/">home</a>
-        <a href="#/today">今日训练</a>
-        <a href="#/mistakes">错题本</a>
-        <a href="#/library">图鉴</a>
-        <a href="#/settings">设置</a>
-        <span style={{ flex: 1 }} />
-        <a href="#/dev" style={{ color: 'var(--muted)' }}>
-          dev
-        </a>
-        <a href="#/dev/input" style={{ color: 'var(--muted)' }}>
-          dev/input
-        </a>
-        <a href="#/dev/eval" style={{ color: 'var(--muted)' }}>
-          dev/eval
-        </a>
-      </nav>
-      {route.kind === 'home' && <HomePage />}
-      {route.kind === 'today' && <TodayTrainingPage />}
-      {route.kind === 'mistakes' && <MistakesPage />}
-      {route.kind === 'library' && <LibraryPage />}
-      {route.kind === 'settings' && <SettingsPage />}
-      {route.kind === 'dev' && <DevPage />}
-      {route.kind === 'dev-input' && <InputDevPage />}
-      {route.kind === 'dev-eval' && <EvaluatorDevPage />}
-      {route.kind === 'game-mole' && (
+    <RetroShell active={route.kind} title={titleForRoute(route)}>
+      {renderRouteContent(route)}
+    </RetroShell>
+  );
+}
+
+function renderRouteContent(route: Route): JSX.Element {
+  switch (route.kind) {
+    case 'home':
+      return <HomePage />;
+    case 'today':
+      return <TodayTrainingPage />;
+    case 'mistakes':
+      return <MistakesPage />;
+    case 'library':
+      return <LibraryPage />;
+    case 'settings':
+      return <SettingsPage />;
+    case 'dev':
+      return <DevPage />;
+    case 'dev-input':
+      return <InputDevPage />;
+    case 'dev-eval':
+      return <EvaluatorDevPage />;
+    case 'game-mole':
+      return (
         <GamePage
           key={`mole-${JSON.stringify(route.overrides ?? {})}`}
           mode="mole"
           overrides={route.overrides}
         />
-      )}
-      {route.kind === 'game-speed-chase' && (
+      );
+    case 'game-speed-chase':
+      return (
         <GamePage
           key={`speed-chase-${JSON.stringify(route.overrides ?? {})}`}
           mode="speed-chase"
           overrides={route.overrides}
         />
-      )}
-      {route.kind === 'result' && <ResultPage sessionId={route.sessionId} />}
-    </main>
-  );
+      );
+    case 'result':
+      return <ResultPage sessionId={route.sessionId} />;
+  }
 }
+
+function titleForRoute(route: Route): string {
+  // The retro shell shows this in the toolbar's tb-label slot — formatted like
+  // a DOS path so it reads as 工作台 breadcrumb rather than a page title.
+  switch (route.kind) {
+    case 'home':
+      return 'C:\\KANA\\HOME';
+    case 'today':
+      return 'C:\\KANA\\TODAY';
+    case 'mistakes':
+      return 'C:\\KANA\\MISTAKES.DAT';
+    case 'library':
+      return 'C:\\KANA\\LIBRARY';
+    case 'settings':
+      return 'C:\\KANA\\SETUP.EXE';
+    case 'dev':
+      return 'C:\\KANA\\DEV';
+    case 'dev-input':
+      return 'C:\\KANA\\DEV\\INPUT';
+    case 'dev-eval':
+      return 'C:\\KANA\\DEV\\EVAL';
+    case 'game-mole':
+      return 'C:\\KANA\\MOLE.EXE';
+    case 'game-speed-chase':
+      return 'C:\\KANA\\CHASE.EXE';
+    case 'result':
+      return 'C:\\KANA\\RESULT.LOG';
+  }
+}
+
+// Type assertion: every Route['kind'] value must be assignable to RetroActiveKey
+// so the shell can highlight it. If a new route is added without updating
+// RetroActiveKey, this line breaks the build — exactly what we want.
+const _routeKindIsActiveKey: RetroActiveKey = '' as Route['kind'];
+void _routeKindIsActiveKey;
