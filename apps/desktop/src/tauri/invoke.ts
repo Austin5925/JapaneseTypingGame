@@ -8,7 +8,10 @@ export interface DevItemRow {
   surface: string;
   kana: string;
   romaji: string[];
-  jlpt?: string;
+  jlpt: string | null;
+  tags: string[];
+  skillTags: SkillDimension[];
+  acceptedKana: string[];
 }
 
 export interface SeedTestPackResult {

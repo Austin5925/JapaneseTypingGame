@@ -89,7 +89,7 @@ export function TodayTrainingPage(): JSX.Element {
         ) : (
           <ol>
             {blocks.map((b, idx) => {
-              const href = GAME_TYPE_TO_HASH[b.gameType];
+              const href = hrefForBlock(b);
               const label = GAME_TYPE_LABEL[b.gameType] ?? b.gameType;
               const minutes = (b.durationMs / 60_000).toFixed(1);
               return (
@@ -116,6 +116,16 @@ export function TodayTrainingPage(): JSX.Element {
       </p>
     </section>
   );
+}
+
+function hrefForBlock(block: GameBlock): string | undefined {
+  const base = GAME_TYPE_TO_HASH[block.gameType];
+  if (!base) return undefined;
+  const params = new URLSearchParams({
+    durationMs: String(block.durationMs),
+    skillDimension: block.skillDimension,
+  });
+  return `${base}?${params.toString()}`;
 }
 
 function toProgress(dto: ProgressDto): SkillProgress {

@@ -45,6 +45,9 @@ pub struct DevItemRow {
     pub kana: String,
     pub romaji: Vec<String>,
     pub jlpt: Option<String>,
+    pub tags: Vec<String>,
+    pub skill_tags: Vec<String>,
+    pub accepted_kana: Vec<String>,
 }
 
 #[tauri::command]
@@ -55,10 +58,14 @@ pub fn list_items(db: State<'_, AppDb>, limit: Option<i64>) -> AppResult<Vec<Dev
         .map_err(|e| AppError::Internal(e.to_string()))?;
     let limit = limit.unwrap_or(50).clamp(1, 1000);
     let mut stmt = conn.prepare(
-        "SELECT id, surface, kana, romaji_json, jlpt FROM learning_items ORDER BY id LIMIT ?1",
+        "SELECT id, surface, kana, romaji_json, jlpt, tags_json, skill_tags_json, accepted_kana_json
+         FROM learning_items ORDER BY id LIMIT ?1",
     )?;
     let rows = stmt.query_map(params![limit], |row| {
         let romaji_json: String = row.get(3)?;
+        let tags_json: String = row.get(5)?;
+        let skill_tags_json: String = row.get(6)?;
+        let accepted_kana_json: Option<String> = row.get(7)?;
         let romaji: Vec<String> = serde_json::from_str(&romaji_json).unwrap_or_default();
         Ok(DevItemRow {
             id: row.get(0)?,
@@ -66,6 +73,12 @@ pub fn list_items(db: State<'_, AppDb>, limit: Option<i64>) -> AppResult<Vec<Dev
             kana: row.get(2)?,
             romaji,
             jlpt: row.get(4)?,
+            tags: serde_json::from_str(&tags_json).unwrap_or_default(),
+            skill_tags: serde_json::from_str(&skill_tags_json).unwrap_or_default(),
+            accepted_kana: accepted_kana_json
+                .as_deref()
+                .and_then(|s| serde_json::from_str(s).ok())
+                .unwrap_or_default(),
         })
     })?;
     let mut out = Vec::with_capacity(limit as usize);
@@ -745,7 +758,8 @@ pub fn list_progress(
         let mut stmt = conn.prepare(
             "SELECT user_id, item_id, skill_dimension, state, mastery_score, stability, difficulty,\n                    exposure_count, correct_count, wrong_count, streak, lapse_count,\n                    average_reaction_time_ms, last_attempt_at, next_due_at, last_error_tags_json, updated_at\n             FROM item_skill_progress WHERE user_id = ?1 AND skill_dimension = ?2\n             ORDER BY mastery_score ASC LIMIT ?3",
         )?;
-        let mapped = stmt.query_map(params![input.user_id, skill, limit], progress_row_to_record)?;
+        let mapped =
+            stmt.query_map(params![input.user_id, skill, limit], progress_row_to_record)?;
         for r in mapped {
             rows.push(r?);
         }

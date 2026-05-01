@@ -138,6 +138,9 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
     const accuracy = this.accuracyAttempts > 0 ? this.accuracyCorrect / this.accuracyAttempts : 1;
     const diff = getSpeedChaseDifficulty(this.now() - this.sessionStartedAt, accuracy);
     this.timeLimitMs = task.timeLimitMs ?? diff.timeLimitMs;
+    // Keep the adapter's task reference in sync so scoring uses the same dynamic window the
+    // scene presented to the user.
+    task.timeLimitMs = this.timeLimitMs;
     this.taskStartedAt = this.now();
     this.inputBuffer = '';
     this.refreshInputBufferText();

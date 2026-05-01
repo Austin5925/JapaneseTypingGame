@@ -8,6 +8,45 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.6.1] - 2026-05-01 — Review fixes
+
+### Fixed (`apps/desktop`)
+
+- Today-training game links now carry `durationMs` and `skillDimension` into the game route, so
+  planner blocks such as 90s `katakana_recognition` drills no longer degrade into the default
+  60s `kana_typing` Mole configuration.
+- Game sessions now load persisted progress before task selection and preserve item
+  `tags` / `skillTags` / `acceptedKana` from SQLite. `selectKanaTasks` can therefore prioritise
+  overdue / fragile / learning rows and filter queues by the requested skill dimension.
+- The Tauri `list_items` projection now returns the metadata needed by the scheduler-facing
+  frontend instead of reducing content rows to only id / surface / kana / romaji.
+
+### Fixed (`@kana-typing/core`, `@kana-typing/game-runtime`)
+
+- `selectKanaTasks` filters candidates by skill dimension, including katakana-only Mole drills
+  and kanji-reading SpeedChase queues, with regression tests for both paths.
+- SpeedChase no longer receives a fixed 7000ms task limit from the page layer; the scene's
+  dynamic difficulty timer now drives each task and is mirrored back onto the task for scoring.
+- `GameBridgeImpl.emit` isolates throwing listeners with per-handler try/catch so one HUD /
+  analytics listener cannot break sibling listeners or the Phaser pump.
+
+### Changed
+
+- Synchronized public package, Tauri, and Cargo version metadata to `0.6.1`.
+- Extended `.gitignore` for local Codex / OpenAI agent memory files (`AGENTS.md`, `CODEX.md`,
+  `.codex/`, lowercase variants) plus internal handoff docs.
+
+### Verification
+
+- `pnpm typecheck`
+- `pnpm lint`
+- `pnpm format:check`
+- `PATH=/Users/ausdin/.volta/bin:$PATH pnpm test`
+- `PATH=/Users/ausdin/.volta/bin:$PATH pnpm build`
+- `cargo fmt --all -- --check`
+- `cargo clippy --all-targets -- -D warnings`
+- `cargo test`
+
 ## [0.6.0] - 2026-05-01 — MVP candidate
 
 Sprint 5 — full user path. The scaffold now backs a complete loop:

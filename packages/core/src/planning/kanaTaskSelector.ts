@@ -25,7 +25,7 @@ export interface SelectKanaTasksInput {
    * Per-task time limit in ms. Mole's MVP uses 6000ms; harder kana (拗音 / 片假名 minimal
    * pairs) get a slightly longer slot if you raise this.
    */
-  timeLimitMs: number;
+  timeLimitMs?: number;
   strictness: EvaluationStrictness;
   /**
    * Optional bias towards items whose `tags` contain a specific value (e.g. 'katakana' or
@@ -62,7 +62,10 @@ export function selectKanaTasks(input: SelectKanaTasksInput): SelectedTaskQueue 
   const random = input.random ?? Math.random;
   const now = Date.now();
   const buckets: LearningItem[][] = [[], [], [], []];
-  for (const item of input.items) {
+  const eligibleItems = input.items.filter((item) =>
+    isEligibleForSkill(item, input.skillDimension),
+  );
+  for (const item of eligibleItems) {
     const key = progressKey(item.id, input.skillDimension);
     const p = input.progress?.get(key);
     const bucket = bucketFor(p, now);
@@ -116,7 +119,7 @@ function fisherYates<T>(arr: T[], random: () => number): void {
 }
 
 function buildTask(item: LearningItem, input: SelectKanaTasksInput): TrainingTask {
-  return {
+  const task: TrainingTask = {
     id: makeTaskId(),
     sessionId: input.sessionId,
     itemId: item.id,
@@ -132,11 +135,34 @@ function buildTask(item: LearningItem, input: SelectKanaTasksInput): TrainingTas
       surface: item.surface,
     },
     difficulty: 0.4,
-    timeLimitMs: input.timeLimitMs,
     allowHints: false,
     strictness: input.strictness,
     createdAt: new Date().toISOString(),
   };
+  if (input.timeLimitMs !== undefined) {
+    task.timeLimitMs = input.timeLimitMs;
+  }
+  return task;
+}
+
+function isEligibleForSkill(item: LearningItem, skill: SkillDimension): boolean {
+  if (item.skillTags.includes(skill)) return true;
+  switch (skill) {
+    case 'kana_typing':
+      return item.kana.length > 0;
+    case 'kana_recognition':
+      return item.kana.length > 0 && !item.tags.includes('katakana');
+    case 'katakana_recognition':
+      return item.tags.includes('katakana');
+    case 'kanji_reading':
+    case 'meaning_recall':
+    case 'ime_conversion':
+    case 'listening_discrimination':
+    case 'particle_usage':
+    case 'sentence_order':
+    case 'active_output':
+      return false;
+  }
 }
 
 function makeQueue(initial: TrainingTask[]): SelectedTaskQueue {

@@ -1,8 +1,9 @@
+import { ALL_SKILL_DIMENSIONS, type SkillDimension } from '@kana-typing/core';
 import { useEffect, useState, type JSX } from 'react';
 
 import { DevPage } from './pages/DevPage';
 import { EvaluatorDevPage } from './pages/EvaluatorDevPage';
-import { GamePage } from './pages/GamePage';
+import { GamePage, type GameRouteOverrides } from './pages/GamePage';
 import { HomePage } from './pages/HomePage';
 import { InputDevPage } from './pages/InputDevPage';
 import { LibraryPage } from './pages/LibraryPage';
@@ -22,8 +23,8 @@ type Route =
   | { kind: 'dev' }
   | { kind: 'dev-input' }
   | { kind: 'dev-eval' }
-  | { kind: 'game-mole' }
-  | { kind: 'game-speed-chase' }
+  | { kind: 'game-mole'; overrides?: GameRouteOverrides }
+  | { kind: 'game-speed-chase'; overrides?: GameRouteOverrides }
   | { kind: 'result'; sessionId: string };
 
 function getRoute(): Route {
@@ -35,11 +36,35 @@ function getRoute(): Route {
   if (hash === '#/dev') return { kind: 'dev' };
   if (hash === '#/dev/input') return { kind: 'dev-input' };
   if (hash === '#/dev/eval') return { kind: 'dev-eval' };
-  if (hash === '#/game/mole') return { kind: 'game-mole' };
-  if (hash === '#/game/speed-chase') return { kind: 'game-speed-chase' };
+  if (hash === '#/game/mole' || hash.startsWith('#/game/mole?')) {
+    return { kind: 'game-mole', ...withOverrides(hash) };
+  }
+  if (hash === '#/game/speed-chase' || hash.startsWith('#/game/speed-chase?')) {
+    return { kind: 'game-speed-chase', ...withOverrides(hash) };
+  }
   const resultMatch = hash.match(/^#\/result\/(.+)$/u);
   if (resultMatch) return { kind: 'result', sessionId: resultMatch[1]! };
   return { kind: 'home' };
+}
+
+function withOverrides(hash: string): { overrides?: GameRouteOverrides } {
+  const query = hash.split('?')[1];
+  if (!query) return {};
+  const params = new URLSearchParams(query);
+  const overrides: GameRouteOverrides = {};
+  const durationMs = Number(params.get('durationMs'));
+  if (Number.isFinite(durationMs) && durationMs > 0) {
+    overrides.durationMs = Math.round(durationMs);
+  }
+  const skillDimension = params.get('skillDimension');
+  if (isSkillDimension(skillDimension)) {
+    overrides.skillDimension = skillDimension;
+  }
+  return Object.keys(overrides).length > 0 ? { overrides } : {};
+}
+
+function isSkillDimension(value: string | null): value is SkillDimension {
+  return value !== null && ALL_SKILL_DIMENSIONS.includes(value as SkillDimension);
 }
 
 export function App(): JSX.Element {
@@ -87,8 +112,20 @@ export function App(): JSX.Element {
       {route.kind === 'dev' && <DevPage />}
       {route.kind === 'dev-input' && <InputDevPage />}
       {route.kind === 'dev-eval' && <EvaluatorDevPage />}
-      {route.kind === 'game-mole' && <GamePage mode="mole" />}
-      {route.kind === 'game-speed-chase' && <GamePage mode="speed-chase" />}
+      {route.kind === 'game-mole' && (
+        <GamePage
+          key={`mole-${JSON.stringify(route.overrides ?? {})}`}
+          mode="mole"
+          overrides={route.overrides}
+        />
+      )}
+      {route.kind === 'game-speed-chase' && (
+        <GamePage
+          key={`speed-chase-${JSON.stringify(route.overrides ?? {})}`}
+          mode="speed-chase"
+          overrides={route.overrides}
+        />
+      )}
       {route.kind === 'result' && <ResultPage sessionId={route.sessionId} />}
     </main>
   );

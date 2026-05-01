@@ -66,7 +66,11 @@ export class GameBridgeImpl implements GameBridge {
     const snapshot = [...set];
     for (const l of snapshot) {
       // Cast: the listener was registered against this type; emit() narrows by `event.type`.
-      (l.handler as (e: GameRuntimeEvent) => void)(event);
+      try {
+        (l.handler as (e: GameRuntimeEvent) => void)(event);
+      } catch (err) {
+        console.warn('GameBridge listener failed', err);
+      }
     }
   }
 

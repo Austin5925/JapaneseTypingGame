@@ -47,6 +47,22 @@ describe('GameBridgeImpl', () => {
     expect(a).toHaveBeenCalledTimes(1);
   });
 
+  it('isolates a throwing listener so sibling listeners still run', () => {
+    const bridge = new GameBridgeImpl(adapter());
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const sibling = vi.fn();
+    bridge.on('scene.ready', () => {
+      throw new Error('listener boom');
+    });
+    bridge.on('scene.ready', sibling);
+
+    bridge.emit({ type: 'scene.ready', sceneId: 's' });
+
+    expect(sibling).toHaveBeenCalledTimes(1);
+    expect(warn).toHaveBeenCalledTimes(1);
+    warn.mockRestore();
+  });
+
   it('forwards requestNextTask / submitAttempt / finishSession to the adapter', async () => {
     const a = adapter();
     const bridge = new GameBridgeImpl(a);

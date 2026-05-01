@@ -15,8 +15,8 @@ import { useEffect, useMemo, useRef, useState, type JSX } from 'react';
 
 import { GameCanvasHost, type GameSceneKey } from '../features/game/GameCanvasHost';
 import { GameHud } from '../features/game/GameHud';
-import { GameSessionService } from '../features/session/GameSessionService';
-import { listItems, type DevItemRow } from '../tauri/invoke';
+import { GameSessionService, toDomainProgress } from '../features/session/GameSessionService';
+import { listItems, listProgress, type DevItemRow, type ProgressDto } from '../tauri/invoke';
 
 const STRICT_POLICY: EvaluationStrictness = {
   longVowel: 'strict',
@@ -44,7 +44,7 @@ interface ModeConfig {
   skillDimension: SkillDimension;
   title: string;
   taskCount: number;
-  timeLimitMs: number;
+  timeLimitMs?: number;
 }
 
 const MODE_CONFIG: Record<GamePageMode, ModeConfig> = {
@@ -66,12 +66,17 @@ const MODE_CONFIG: Record<GamePageMode, ModeConfig> = {
     skillDimension: 'kanji_reading',
     title: '生死时速 — 3 分钟读音冲刺',
     taskCount: 90,
-    timeLimitMs: 7000,
   },
 };
 
+export interface GameRouteOverrides {
+  durationMs?: number;
+  skillDimension?: SkillDimension;
+}
+
 export interface GamePageProps {
   mode: GamePageMode;
+  overrides?: GameRouteOverrides | undefined;
 }
 
 /**
@@ -81,7 +86,14 @@ export interface GamePageProps {
  * scene key, duration, and skill dimension differ.
  */
 export function GamePage(props: GamePageProps): JSX.Element {
-  const config = MODE_CONFIG[props.mode];
+  const baseConfig = MODE_CONFIG[props.mode];
+  const durationMs = props.overrides?.durationMs ?? baseConfig.durationMs;
+  const config: ModeConfig = {
+    ...baseConfig,
+    durationMs,
+    skillDimension: props.overrides?.skillDimension ?? baseConfig.skillDimension,
+    taskCount: Math.max(1, Math.round((durationMs / baseConfig.durationMs) * baseConfig.taskCount)),
+  };
   const SESSION_DURATION_MS = config.durationMs;
   const [items, setItems] = useState<DevItemRow[] | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
@@ -103,29 +115,39 @@ export function GamePage(props: GamePageProps): JSX.Element {
   useEffect(() => {
     void (async (): Promise<void> => {
       try {
-        const rows = await listItems({ limit: 100 });
+        const [rows, progressDtos] = await Promise.all([
+          listItems({ limit: 1000 }),
+          listProgress({ userId: 'default-user', limit: 5000 }),
+        ]);
         if (rows.length === 0) {
           setError('No items in DB. Visit #/dev to seed the test pack first.');
           return;
         }
         setItems(rows);
+        const progressMap = buildProgressMap(progressDtos);
         const created = await session.create({
           gameType: config.gameType,
           targetDurationMs: SESSION_DURATION_MS,
         });
         setSessionId(created.id);
         const learningItems: LearningItem[] = rows.map(rowToItem);
+        const preferTags = preferTagsForSkill(config.skillDimension);
         const queue = selectKanaTasks({
           items: learningItems,
-          progress: new Map<string, SkillProgress>(),
+          progress: progressMap,
           count: config.taskCount,
           sessionId: created.id,
           gameType: config.gameType,
           answerMode: config.answerMode,
           skillDimension: config.skillDimension,
-          timeLimitMs: config.timeLimitMs,
           strictness: STRICT_POLICY,
+          ...(config.timeLimitMs !== undefined && { timeLimitMs: config.timeLimitMs }),
+          ...(preferTags.length > 0 && { preferTags }),
         });
+        if (queue.remaining() === 0) {
+          setError(`No eligible items for skillDimension=${config.skillDimension}.`);
+          return;
+        }
         queueRef.current = queue;
         startedAtRef.current = Date.now();
       } catch (err) {
@@ -259,8 +281,8 @@ function rowToItem(row: DevItemRow): LearningItem {
     kana: row.kana,
     romaji: row.romaji,
     meaningsZh: [],
-    tags: [],
-    skillTags: ['kana_typing'],
+    tags: row.tags,
+    skillTags: row.skillTags.length > 0 ? row.skillTags : ['kana_typing'],
     examples: [],
     audioRefs: [],
     confusableItemIds: [],
@@ -269,8 +291,42 @@ function rowToItem(row: DevItemRow): LearningItem {
     createdAt: '',
     updatedAt: '',
   };
-  if (row.jlpt !== undefined && row.jlpt !== '') {
+  if (row.jlpt) {
     item.jlpt = row.jlpt as NonNullable<LearningItem['jlpt']>;
   }
+  if (row.acceptedKana.length > 0) {
+    item.acceptedKana = row.acceptedKana;
+  }
   return item;
+}
+
+function buildProgressMap(dtos: ProgressDto[]): Map<string, SkillProgress> {
+  const map = new Map<string, SkillProgress>();
+  for (const dto of dtos) {
+    const progress = toDomainProgress(dto);
+    if (!progress) continue;
+    map.set(progressKey(progress.itemId, progress.skillDimension), progress);
+  }
+  return map;
+}
+
+function progressKey(itemId: string, skill: SkillDimension): string {
+  return `${itemId}::${skill}`;
+}
+
+function preferTagsForSkill(skill: SkillDimension): string[] {
+  switch (skill) {
+    case 'katakana_recognition':
+      return ['katakana'];
+    case 'kana_typing':
+    case 'kana_recognition':
+    case 'kanji_reading':
+    case 'meaning_recall':
+    case 'ime_conversion':
+    case 'listening_discrimination':
+    case 'particle_usage':
+    case 'sentence_order':
+    case 'active_output':
+      return [];
+  }
 }

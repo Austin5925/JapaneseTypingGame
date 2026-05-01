@@ -12,9 +12,19 @@
 # 内部开发文档：产品判断、技术架构、计划、复盘、调研。整目录排除。
 devdocs/
 
+# 内部ui开发文档
+handoff/
+
 # Claude / AI agent 的项目上下文。包含产品判断、工程纪律、踩坑记录，
 # 不希望以原文形式公开。和 CEOAssistant 同模式。
 CLAUDE.md
+
+# Codex / OpenAI agent 本地项目记忆。包含私有执行摘要、工程判断、会话上下文。
+AGENTS.md
+agents.md
+CODEX.md
+codex.md
+.codex/
 
 # Claude Code 本地工程数据（slash command、本地 hooks、临时记忆）
 .claude/

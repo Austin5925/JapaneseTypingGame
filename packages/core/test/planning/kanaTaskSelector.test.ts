@@ -190,4 +190,57 @@ describe('selectKanaTasks — bucket priorities', () => {
     while (q.remaining() > 0) ids.push(q.next()!.itemId);
     expect(ids).toContain('overdue');
   });
+
+  it('filters SpeedChase queues to kanji-reading items', () => {
+    const q = selectKanaTasks({
+      items: [
+        item({ id: 'kanji', skillTags: ['kanji_reading'] }),
+        item({ id: 'katakana', tags: ['katakana'], skillTags: ['katakana_recognition'] }),
+      ],
+      count: 4,
+      sessionId: 'sess',
+      gameType: 'speed_chase',
+      answerMode: 'romaji_to_kana',
+      skillDimension: 'kanji_reading',
+      strictness: STRICT,
+      random: RNG,
+    });
+    while (q.remaining() > 0) {
+      expect(q.next()!.itemId).toBe('kanji');
+    }
+  });
+
+  it('filters katakana-recognition queues to katakana-tagged items', () => {
+    const q = selectKanaTasks({
+      items: [
+        item({ id: 'hiragana', tags: [], skillTags: ['kanji_reading'] }),
+        item({ id: 'katakana', tags: ['katakana'], skillTags: ['katakana_recognition'] }),
+      ],
+      count: 3,
+      sessionId: 'sess',
+      gameType: 'mole_story',
+      answerMode: 'romaji_to_kana',
+      skillDimension: 'katakana_recognition',
+      timeLimitMs: 6000,
+      strictness: STRICT,
+      random: RNG,
+    });
+    while (q.remaining() > 0) {
+      expect(q.next()!.itemId).toBe('katakana');
+    }
+  });
+
+  it('can omit a fixed time limit so scenes can set dynamic timers', () => {
+    const q = selectKanaTasks({
+      items: [item({ id: 'kanji', skillTags: ['kanji_reading'] })],
+      count: 1,
+      sessionId: 'sess',
+      gameType: 'speed_chase',
+      answerMode: 'romaji_to_kana',
+      skillDimension: 'kanji_reading',
+      strictness: STRICT,
+      random: RNG,
+    });
+    expect(q.next()!.timeLimitMs).toBeUndefined();
+  });
 });

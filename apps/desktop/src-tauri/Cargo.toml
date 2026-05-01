@@ -1,6 +1,6 @@
 [package]
 name = "kana-typing-desktop"
-version = "0.1.0"
+version = "0.6.1"
 description = "Kana Typing — Japanese input reflex trainer (desktop)."
 authors = ["Kana Typing Team"]
 edition = "2021"
