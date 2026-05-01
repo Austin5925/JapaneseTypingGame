@@ -250,48 +250,96 @@ export function GamePage(props: GamePageProps): JSX.Element {
 
   if (error) {
     return (
-      <section style={{ padding: '2rem', maxWidth: '720px', margin: '0 auto' }}>
-        <h1>Game error</h1>
-        <p style={{ color: 'var(--err)' }}>{error}</p>
-        <p>
-          <a href="#/">go home</a>
-        </p>
-      </section>
+      <div style={{ padding: 10, height: '100%' }}>
+        <div className="r-group">
+          <div className="title">▌ ERR · Game</div>
+          <div className="kt-banner kt-banner--err" style={{ marginBottom: 12 }}>
+            <span className="kt-banner__glyph">!</span>
+            <div style={{ fontSize: 13 }}>{error}</div>
+          </div>
+          <a href="#/" className="r-btn" style={{ textDecoration: 'none' }}>
+            回首页
+          </a>
+        </div>
+      </div>
     );
   }
   if (!items || !sessionId) {
     return (
-      <section style={{ padding: '2rem', maxWidth: '720px', margin: '0 auto' }}>
-        <p>Loading…</p>
-      </section>
+      <div style={{ padding: 10, height: '100%' }}>
+        <div className="r-group">
+          <div className="title">▌ {config.title}</div>
+          <div style={{ color: 'var(--kt2-fg-dim)' }}>Booting session...</div>
+        </div>
+      </div>
     );
   }
 
   return (
-    <section style={{ padding: '1rem' }}>
-      <h1 style={{ textAlign: 'center' }}>{config.title}</h1>
-      <GameHud
-        remainingMs={stats.remainingMs}
-        attemptsCount={stats.attempts}
-        correctCount={stats.correct}
-      />
-      <GameCanvasHost
-        sessionId={sessionId}
-        sceneKey={config.sceneKey}
-        adapter={adapter}
-        width={800}
-        height={480}
-        externalInputRef={externalInputRef}
-        sceneInit={inputMode === 'ime_surface' ? { inputSource: 'external' } : {}}
-      />
-      {inputMode === 'ime_surface' ? (
-        <ImeModeInputArea externalInputRef={externalInputRef} />
-      ) : (
-        <p style={{ textAlign: 'center', color: 'var(--muted)', marginTop: '0.75rem' }}>
-          type romaji + Enter. Backspace edits. Esc-to-quit lands in a later sprint.
-        </p>
-      )}
-    </section>
+    <div
+      style={{
+        padding: 10,
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <div
+        className="r-group"
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 8,
+          padding: '14px 12px 12px',
+          minHeight: 0,
+        }}
+      >
+        <div className="title">▌ {config.title}</div>
+
+        <GameHud
+          remainingMs={stats.remainingMs}
+          attemptsCount={stats.attempts}
+          correctCount={stats.correct}
+        />
+
+        <div
+          className="r-crt"
+          style={{
+            alignSelf: 'center',
+            width: 808,
+            height: 488,
+            padding: 0,
+          }}
+        >
+          <GameCanvasHost
+            sessionId={sessionId}
+            sceneKey={config.sceneKey}
+            adapter={adapter}
+            width={800}
+            height={480}
+            externalInputRef={externalInputRef}
+            sceneInit={inputMode === 'ime_surface' ? { inputSource: 'external' } : {}}
+          />
+        </div>
+
+        {inputMode === 'ime_surface' ? (
+          <ImeModeInputArea externalInputRef={externalInputRef} />
+        ) : (
+          <div
+            style={{
+              textAlign: 'center',
+              fontFamily: 'var(--pix-font)',
+              fontSize: 13,
+              color: 'var(--kt2-fg-dim)',
+              letterSpacing: '0.04em',
+            }}
+          >
+            ↵ ENTER 提交 · ⌫ BACKSPACE 编辑 · Esc 退出 [v0.7+]
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -336,19 +384,35 @@ function ImeModeInputArea(props: {
   };
 
   return (
-    <div style={{ maxWidth: 720, margin: '0.75rem auto 0' }}>
+    <div
+      style={{
+        margin: '4px auto 0',
+        width: 808,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 4,
+      }}
+    >
       <ImeInputBox
         mode="ime_surface"
         autoSubmitOnEnter
         onCommit={handleCommit}
         onChange={handleChange}
-        placeholder="ここに日本語で入力 + Enter"
+        placeholder=">>> ここに日本語で入力 + Enter"
         showComposeIndicator
         id="game-ime-input"
       />
-      <p style={{ textAlign: 'center', color: 'var(--muted)', marginTop: '0.5rem', fontSize: 13 }}>
-        IME mode — pick the candidate, then Enter to commit. Phaser canvas does not steal focus.
-      </p>
+      <div
+        style={{
+          textAlign: 'center',
+          fontFamily: 'var(--pix-font)',
+          fontSize: 13,
+          color: 'var(--kt2-fg-dim)',
+          letterSpacing: '0.04em',
+        }}
+      >
+        IME · 选定候选后 ↵ 提交 · CRT 框上方 Phaser canvas 不抢焦点
+      </div>
     </div>
   );
 }
