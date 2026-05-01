@@ -53,6 +53,17 @@ export function HomePage(): JSX.Element {
           listProgress({ userId: 'default-user', limit: 200 }),
           aggregateRecentErrorTags({ userId: 'default-user', days: 7, limit: 10 }),
         ]);
+        // First-run onboarding: a user with content but no progress is sent
+        // to the diagnostic flow so the WeaknessVector / DailyPlan have data
+        // to chew on. The "diagnosticSkipped" localStorage flag lets the user
+        // opt out and keep coming back to a populated home.
+        if (
+          progressDtos.length === 0 &&
+          globalThis.localStorage?.getItem('diagnosticSkipped') !== '1'
+        ) {
+          globalThis.location.hash = '#/diagnostic';
+          return;
+        }
         const progressList = progressDtos.map(toProgress);
         const errors: ErrorTagAggregate[] = tagRows.map((r) => ({
           tag: r.tag as ErrorTagAggregate['tag'],

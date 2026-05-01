@@ -12,6 +12,7 @@ export type RetroActiveKey =
   | 'mistakes'
   | 'library'
   | 'settings'
+  | 'diagnostic'
   | 'game-mole'
   | 'game-speed-chase'
   | 'result'
@@ -40,6 +41,7 @@ const NAV_GROUPS: NavGroup[] = [
       { key: 'today', label: '今日训练', href: '#/today', icon: 'today' },
       { key: 'game-mole', label: '鼹鼠的故事', href: '#/game/mole', icon: 'mole' },
       { key: 'game-speed-chase', label: '生死时速', href: '#/game/speed-chase', icon: 'bolt' },
+      { key: 'diagnostic', label: '水平测评', href: '#/diagnostic', icon: 'target' },
     ],
   },
   {

@@ -3,6 +3,7 @@ import { useEffect, useState, type JSX } from 'react';
 
 import { RetroShell, type RetroActiveKey } from './features/shell/RetroShell';
 import { DevPage } from './pages/DevPage';
+import { DiagnosticPage } from './pages/DiagnosticPage';
 import { EvaluatorDevPage } from './pages/EvaluatorDevPage';
 import { GamePage, type GameInputMode, type GameRouteOverrides } from './pages/GamePage';
 import { HomePage } from './pages/HomePage';
@@ -21,6 +22,7 @@ type Route =
   | { kind: 'mistakes' }
   | { kind: 'library' }
   | { kind: 'settings' }
+  | { kind: 'diagnostic' }
   | { kind: 'dev' }
   | { kind: 'dev-input' }
   | { kind: 'dev-eval' }
@@ -34,6 +36,7 @@ function getRoute(): Route {
   if (hash === '#/mistakes') return { kind: 'mistakes' };
   if (hash === '#/library') return { kind: 'library' };
   if (hash === '#/settings') return { kind: 'settings' };
+  if (hash === '#/diagnostic') return { kind: 'diagnostic' };
   if (hash === '#/dev') return { kind: 'dev' };
   if (hash === '#/dev/input') return { kind: 'dev-input' };
   if (hash === '#/dev/eval') return { kind: 'dev-eval' };
@@ -107,6 +110,8 @@ function renderRouteContent(route: Route): JSX.Element {
       return <LibraryPage />;
     case 'settings':
       return <SettingsPage />;
+    case 'diagnostic':
+      return <DiagnosticPage />;
     case 'dev':
       return <DevPage />;
     case 'dev-input':
@@ -148,6 +153,8 @@ function titleForRoute(route: Route): string {
       return 'C:\\KANA\\LIBRARY';
     case 'settings':
       return 'C:\\KANA\\SETUP.EXE';
+    case 'diagnostic':
+      return 'C:\\KANA\\DIAG.EXE';
     case 'dev':
       return 'C:\\KANA\\DEV';
     case 'dev-input':
