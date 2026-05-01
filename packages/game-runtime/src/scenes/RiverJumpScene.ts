@@ -12,6 +12,12 @@ import type { ExternalInputEvent, Unsubscribe } from '../bridge/gameEvents';
 
 import type { BaseSceneInit } from './BaseTrainingScene';
 import { BaseTrainingScene } from './BaseTrainingScene';
+import {
+  buildAcceptedChunkOrders,
+  isAcceptedChunkPrefix,
+  isCompleteAcceptedOrder,
+  pickNextAcceptedChunkId,
+} from './riverJumpOrder';
 
 export const RIVER_JUMP_SCENE_KEY = 'RiverJumpScene';
 
@@ -48,12 +54,12 @@ interface ChunkUi {
  *
  *   - On Enter, compareKana the input against every still-on-water chunk's kana.
  *   - 1 match → recognise the chunk; the frog jumps onto that lily pad (consumed).
- *     - If the chosen chunk is the canonical-next chunk → green flash + advance.
+ *     - If the chosen chunk keeps a canonical/accepted order viable → green flash + advance.
  *     - If wrong order → splash animation + the entire sentence fails (we still emit one
  *       attempt with the so-far chunkOrder so the evaluator can flag word_order_error).
  *   - 0 matches → red flash + retain input on the line so the user can fix the typo.
- *   - >1 matches (rare; e.g. duplicate "ほんを" between two chunks) → take the canonical-next
- *     chunk if it is among them, else the first match in canonical order.
+ *   - >1 matches (rare; e.g. duplicate "ほんを" between two chunks) → take the next chunk from
+ *     a still-viable accepted order, with canonical order preferred when several remain.
  *
  * Per-chunk inputs are buffered in `chunkInputs` and submitted via `attempt.rawInput` (JSON of
  * `SentenceChunkAttemptEntry[]`) so the core evaluator can replay reading comparisons.
@@ -80,6 +86,7 @@ export class RiverJumpScene extends BaseTrainingScene<TrainingTask> {
   private committedChunkIds: string[] = [];
   private chunkInputs: SentenceChunkAttemptEntry[] = [];
   private canonicalOrder: string[] = [];
+  private acceptedOrders: string[][] = [];
 
   constructor() {
     super(RIVER_JUMP_SCENE_KEY);
@@ -182,6 +189,10 @@ export class RiverJumpScene extends BaseTrainingScene<TrainingTask> {
     this.refreshInputBufferText();
     const chunks = task.expected.chunks ?? [];
     this.canonicalOrder = task.expected.chunkOrder ?? chunks.map((c) => c.id);
+    this.acceptedOrders = buildAcceptedChunkOrders(
+      this.canonicalOrder,
+      task.expected.acceptedChunkOrders,
+    );
     this.timeLimitMs = task.timeLimitMs ?? 25_000;
     this.taskStartedAt = this.now();
 
@@ -386,56 +397,48 @@ export class RiverJumpScene extends BaseTrainingScene<TrainingTask> {
       // Keep buffer so user can edit; do NOT advance.
       return;
     }
-    // If multiple chunks match (duplicate readings), prefer the canonical-next one if it is
-    // among them; otherwise the first match in canonical order.
-    let chosen = matches[0]!;
-    if (matches.length > 1) {
-      const nextCanonical = this.nextCanonicalChunkId();
-      if (nextCanonical) {
-        const preferred = matches.find((m) => m.id === nextCanonical);
-        if (preferred) chosen = preferred;
-        else {
-          const ordered = [...matches].sort(
-            (a, b) => this.canonicalOrder.indexOf(a.id) - this.canonicalOrder.indexOf(b.id),
-          );
-          chosen = ordered[0]!;
-        }
-      }
-    }
+    const chosen = this.chooseMatchingChunk(matches);
 
     // Record the reading regardless of order — evaluator replays it.
     this.chunkInputs.push({ chunkId: chosen.id, input: value });
     this.committedChunkIds.push(chosen.id);
 
-    const expectedNext = this.nextCanonicalChunkIdAt(this.committedChunkIds.length - 1);
-    const isCanonicalStep = expectedNext === chosen.id;
+    const isAcceptedStep = isAcceptedChunkPrefix(this.acceptedOrders, this.committedChunkIds);
 
-    this.consumeChunkUi(chosen, isCanonicalStep);
+    this.consumeChunkUi(chosen, isAcceptedStep);
     this.inputBuffer = '';
     this.refreshInputBufferText();
 
-    if (!isCanonicalStep) {
+    if (!isAcceptedStep) {
       // Wrong order → splash, fail the entire sentence here. We still submit so the evaluator
       // can record word_order_error and the attempt log keeps the canonical chunkOrder mismatch.
       await this.submitFinal();
       return;
     }
 
-    if (this.committedChunkIds.length === this.canonicalOrder.length) {
-      // Every chunk consumed in canonical order → success.
+    if (isCompleteAcceptedOrder(this.acceptedOrders, this.committedChunkIds)) {
+      // Every chunk consumed in canonical or accepted alternate order → success.
       await this.submitFinal();
     }
   }
 
-  private nextCanonicalChunkId(): string | undefined {
-    return this.canonicalOrder[this.committedChunkIds.length];
+  private chooseMatchingChunk(matches: ChunkUi[]): ChunkUi {
+    const preferredId = pickNextAcceptedChunkId(
+      this.acceptedOrders,
+      this.committedChunkIds,
+      matches.map((m) => m.id),
+    );
+    if (preferredId) {
+      const preferred = matches.find((m) => m.id === preferredId);
+      if (preferred) return preferred;
+    }
+    const ordered = [...matches].sort(
+      (a, b) => this.canonicalOrder.indexOf(a.id) - this.canonicalOrder.indexOf(b.id),
+    );
+    return ordered[0]!;
   }
 
-  private nextCanonicalChunkIdAt(index: number): string | undefined {
-    return this.canonicalOrder[index];
-  }
-
-  private consumeChunkUi(ui: ChunkUi, isCanonicalStep: boolean): void {
+  private consumeChunkUi(ui: ChunkUi, isAcceptedStep: boolean): void {
     ui.consumed = true;
     ui.bobTween?.stop();
     if (this.frog) {
@@ -448,7 +451,7 @@ export class RiverJumpScene extends BaseTrainingScene<TrainingTask> {
         ease: 'Cubic.easeOut',
       });
     }
-    if (isCanonicalStep) {
+    if (isAcceptedStep) {
       // Brief green pulse.
       this.tweens.add({
         targets: ui.container,

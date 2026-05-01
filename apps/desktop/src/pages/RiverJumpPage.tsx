@@ -3,6 +3,7 @@ import {
   type EvaluationStrictness,
   type SelectedSentenceTaskQueue,
   type SentenceItem,
+  type SkillDimension,
   type TrainingTask,
   type UserAttempt,
 } from '@kana-typing/core';
@@ -22,12 +23,33 @@ const STRICT_POLICY: EvaluationStrictness = {
   handakuten: 'strict',
   youon: 'strict',
   kanjiSurface: 'strict',
-  particleReading: 'surface',
+  particleReading: 'pronunciation',
 };
 
-const SESSION_DURATION_MS = 180_000;
+const DEFAULT_SESSION_DURATION_MS = 180_000;
 const TASK_TIME_LIMIT_MS = 25_000;
-const TASK_COUNT = 12;
+const DEFAULT_TASK_COUNT = 12;
+const DEFAULT_SKILL_DIMENSION: SkillDimension = 'sentence_order';
+const PARTICLE_TAGS = [
+  'particle-ha',
+  'particle-he',
+  'particle-wo',
+  'particle-ga',
+  'particle-ni',
+  'particle-de',
+  'particle-to',
+  'particle-kara',
+  'particle-made',
+];
+
+export interface RiverJumpPageProps {
+  overrides?:
+    | {
+        durationMs?: number;
+        skillDimension?: SkillDimension;
+      }
+    | undefined;
+}
 
 interface SessionStats {
   attempts: number;
@@ -45,7 +67,13 @@ interface SessionStats {
  * `GameSessionService`, which means `attempt_events` + `item_skill_progress` capture
  * sentence-order outcomes and the cross-game scheduler can route them.
  */
-export function RiverJumpPage(): JSX.Element {
+export function RiverJumpPage(props: RiverJumpPageProps = {}): JSX.Element {
+  const sessionDurationMs = props.overrides?.durationMs ?? DEFAULT_SESSION_DURATION_MS;
+  const taskCount = Math.max(
+    1,
+    Math.round((sessionDurationMs / DEFAULT_SESSION_DURATION_MS) * DEFAULT_TASK_COUNT),
+  );
+  const skillDimension = riverSkillFromOverride(props.overrides?.skillDimension);
   const session = useMemo(() => new GameSessionService({ bufferAttempts: false }), []);
   const sessionRef = useRef<GameSessionService | null>(null);
   sessionRef.current = session;
@@ -55,7 +83,7 @@ export function RiverJumpPage(): JSX.Element {
   const [stats, setStats] = useState<SessionStats>({
     attempts: 0,
     correct: 0,
-    remainingMs: SESSION_DURATION_MS,
+    remainingMs: sessionDurationMs,
   });
 
   const queueRef = useRef<SelectedSentenceTaskQueue | null>(null);
@@ -81,19 +109,20 @@ export function RiverJumpPage(): JSX.Element {
         }
         const created = await session.create({
           gameType: 'river_jump',
-          targetDurationMs: SESSION_DURATION_MS,
+          targetDurationMs: sessionDurationMs,
         });
         setSessionId(created.id);
         const progressMap = buildProgressMap(progressDtos);
         const queue = selectSentenceOrderTasks({
           sentences,
           progress: progressMap,
-          count: TASK_COUNT,
+          count: taskCount,
           sessionId: created.id,
           gameType: 'river_jump',
-          skillDimension: 'sentence_order',
+          skillDimension,
           strictness: STRICT_POLICY,
           timeLimitMs: TASK_TIME_LIMIT_MS,
+          ...(skillDimension === 'particle_usage' && { preferTags: PARTICLE_TAGS }),
         });
         if (queue.remaining() === 0) {
           setBootError('Sentences seeded but no eligible tasks could be built.');
@@ -110,12 +139,12 @@ export function RiverJumpPage(): JSX.Element {
         console.warn('RiverJump cleanup: finish failed', err);
       });
     };
-  }, [session]);
+  }, [session, sessionDurationMs, skillDimension, taskCount]);
 
   useEffect(() => {
     if (!sessionId) return;
     const handle = globalThis.setInterval(() => {
-      const remaining = Math.max(0, SESSION_DURATION_MS - (Date.now() - startedAtRef.current));
+      const remaining = Math.max(0, sessionDurationMs - (Date.now() - startedAtRef.current));
       setStats((s) => ({ ...s, remainingMs: remaining }));
       if (remaining <= 0) {
         globalThis.clearInterval(handle);
@@ -130,12 +159,12 @@ export function RiverJumpPage(): JSX.Element {
       }
     }, 250);
     return () => globalThis.clearInterval(handle);
-  }, [sessionId]);
+  }, [sessionId, sessionDurationMs]);
 
   const adapter = useMemo<GameBridgeAdapter>(
     () => ({
       requestNextTask: () => {
-        if (Date.now() - startedAtRef.current >= SESSION_DURATION_MS) {
+        if (Date.now() - startedAtRef.current >= sessionDurationMs) {
           currentTaskRef.current = null;
           return Promise.resolve(null);
         }
@@ -170,7 +199,7 @@ export function RiverJumpPage(): JSX.Element {
         navigateToResult(sessionId);
       },
     }),
-    [sessionId],
+    [sessionId, sessionDurationMs],
   );
 
   if (bootError) {
@@ -194,7 +223,7 @@ export function RiverJumpPage(): JSX.Element {
     return (
       <div style={{ padding: 10, height: '100%' }}>
         <div className="r-group">
-          <div className="title">▌ 激流勇进 — 句子语序训练</div>
+          <div className="title">▌ 激流勇进 — {labelForRiverSkill(skillDimension)}</div>
           <div style={{ color: 'var(--kt2-fg-dim)' }}>Booting session...</div>
         </div>
       </div>
@@ -221,7 +250,9 @@ export function RiverJumpPage(): JSX.Element {
           minHeight: 0,
         }}
       >
-        <div className="title">▌ 激流勇进 — {TASK_COUNT} 句</div>
+        <div className="title">
+          ▌ 激流勇进 — {taskCount} 句 · {labelForRiverSkill(skillDimension)}
+        </div>
 
         <GameHud
           remainingMs={stats.remainingMs}
@@ -272,4 +303,13 @@ function navigateToResult(sessionId: string | null): void {
   if (globalThis.location.hash !== target) {
     globalThis.location.hash = target;
   }
+}
+
+function riverSkillFromOverride(skill: SkillDimension | undefined): SkillDimension {
+  if (skill === 'particle_usage') return 'particle_usage';
+  return DEFAULT_SKILL_DIMENSION;
+}
+
+function labelForRiverSkill(skill: SkillDimension): string {
+  return skill === 'particle_usage' ? '助词读音 / 用法训练' : '句子语序训练';
 }
