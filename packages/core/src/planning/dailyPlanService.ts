@@ -14,11 +14,9 @@ export interface SelectGameBlocksInput {
  * Strategy (devdocs §10.2 with concrete thresholds):
  *   - katakana weakness > 0.6  → 90s mole (katakana专项)
  *   - kanji-reading > 0.5      → 180s speed-chase
- *   - long-vowel/sokuon/dakuten in topErrorTags → 120s apple_rescue (listening) — skipped in
- *     v0.6 since the apple-rescue scene isn't shipped, surfaced as a mole-katakana drill
- *     instead;
- *   - particle/sentence-order weakness > 0.5 → 120s river_jump — skipped, river-jump ships
- *     in v1.x.
+ *   - long-vowel/sokuon/dakuten in topErrorTags → 120s apple_rescue (listening)
+ *   - particle/sentence-order weakness > 0.5 → 120s river_jump
+ *   - meaning/same-sound confusion or meaningRecall weakness → 120s space_battle
  *
  * The function clamps the total to `targetDurationMs` by dropping the lowest-priority block
  * if necessary. Sprint 5 is intentionally simple; Sprint 5+ will swap this for a richer
@@ -56,19 +54,49 @@ export function selectGameBlocks(input: SelectGameBlocksInput): GameBlock[] {
     });
   }
 
-  // Long-vowel / sokuon / dakuten errors normally route to apple_rescue; while that game
-  // isn't shipped, fold them into another mole drill so the user still sees the affected
-  // items.
   if (
-    hasTopError(vector, ['long_vowel_error', 'sokuon_error', 'dakuten_error']) &&
-    !blocks.some((b) => b.gameType === 'mole_story')
+    hasTopError(vector, [
+      'long_vowel_error',
+      'sokuon_error',
+      'dakuten_error',
+      'near_sound_confusion',
+    ])
   ) {
     blocks.push({
-      gameType: 'mole_story',
-      skillDimension: 'kana_typing',
-      durationMs: 90_000,
+      gameType: 'apple_rescue',
+      skillDimension: 'listening_discrimination',
+      durationMs: 120_000,
       priority: 3,
-      reason: '近期长音 / 促音 / 浊音错误偏多',
+      reason: '近期长音 / 促音 / 浊音听辨错误偏多',
+    });
+  }
+
+  if (
+    vector.particleUsage > 0.5 ||
+    vector.sentenceOrder > 0.5 ||
+    hasTopError(vector, ['particle_error', 'word_order_error'])
+  ) {
+    const particleFocused =
+      vector.particleUsage > vector.sentenceOrder || hasTopError(vector, ['particle_error']);
+    blocks.push({
+      gameType: 'river_jump',
+      skillDimension: particleFocused ? 'particle_usage' : 'sentence_order',
+      durationMs: 120_000,
+      priority: 4,
+      reason: particleFocused ? '助词读音 / 用法需要回流' : '句子 chunk 顺序需要巩固',
+    });
+  }
+
+  if (
+    vector.meaningRecall > 0.6 ||
+    hasTopError(vector, ['same_sound_confusion', 'meaning_confusion'])
+  ) {
+    blocks.push({
+      gameType: 'space_battle',
+      skillDimension: 'meaning_recall',
+      durationMs: 120_000,
+      priority: 5,
+      reason: '同音 / 近形 / 意义混淆需要辨析',
     });
   }
 

@@ -19,6 +19,9 @@ const PROGRESS_SCAN_LIMIT = 5000;
 const GAME_TYPE_TO_HASH: Partial<Record<GameType, string>> = {
   mole_story: '#/game/mole',
   speed_chase: '#/game/speed-chase',
+  apple_rescue: '#/game/apple-rescue',
+  river_jump: '#/game/river-jump',
+  space_battle: '#/game/space-battle',
 };
 
 const GAME_TYPE_LABEL: Record<GameType, string> = {
@@ -42,9 +45,9 @@ const GAME_TYPE_SUB: Record<GameType, string> = {
 const GAME_TYPE_ICON: Record<GameType, PixIconName> = {
   mole_story: 'mole',
   speed_chase: 'bolt',
-  apple_rescue: 'target',
-  river_jump: 'bolt',
-  space_battle: 'bolt',
+  apple_rescue: 'apple',
+  river_jump: 'river',
+  space_battle: 'rocket',
   real_input: 'play',
 };
 

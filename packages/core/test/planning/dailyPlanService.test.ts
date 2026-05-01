@@ -54,7 +54,7 @@ describe('selectGameBlocks', () => {
     expect(total).toBeLessThanOrEqual(90_000 + 90_000); // first block always allowed even if oversize
   });
 
-  it('long-vowel errors in topErrorTags route to a mole drill (apple_rescue stand-in)', () => {
+  it('long-vowel errors in topErrorTags route to apple_rescue', () => {
     const blocks = selectGameBlocks({
       vector: vector({
         kanaRecognition: 0.3,
@@ -64,7 +64,37 @@ describe('selectGameBlocks', () => {
       }),
       targetDurationMs: 480_000,
     });
-    expect(blocks.some((b) => b.gameType === 'mole_story')).toBe(true);
+    expect(blocks.some((b) => b.gameType === 'apple_rescue')).toBe(true);
+  });
+
+  it('sentence-order weakness routes to river_jump', () => {
+    const blocks = selectGameBlocks({
+      vector: vector({ sentenceOrder: 0.8 }),
+      targetDurationMs: 480_000,
+    });
+    expect(blocks).toContainEqual(
+      expect.objectContaining({ gameType: 'river_jump', skillDimension: 'sentence_order' }),
+    );
+  });
+
+  it('particle errors route to river_jump particle_usage', () => {
+    const blocks = selectGameBlocks({
+      vector: vector({ topErrorTags: [{ tag: 'particle_error', weight: 4 }] }),
+      targetDurationMs: 480_000,
+    });
+    expect(blocks).toContainEqual(
+      expect.objectContaining({ gameType: 'river_jump', skillDimension: 'particle_usage' }),
+    );
+  });
+
+  it('meaning confusion routes to space_battle', () => {
+    const blocks = selectGameBlocks({
+      vector: vector({ topErrorTags: [{ tag: 'meaning_confusion', weight: 5 }] }),
+      targetDurationMs: 480_000,
+    });
+    expect(blocks).toContainEqual(
+      expect.objectContaining({ gameType: 'space_battle', skillDimension: 'meaning_recall' }),
+    );
   });
 
   it('sorts blocks by priority', () => {

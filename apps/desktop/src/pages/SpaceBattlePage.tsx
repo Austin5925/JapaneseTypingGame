@@ -25,10 +25,14 @@ const STRICT_POLICY: EvaluationStrictness = {
   particleReading: 'surface',
 };
 
-const SESSION_DURATION_MS = 180_000;
+const DEFAULT_SESSION_DURATION_MS = 180_000;
 const TASK_TIME_LIMIT_MS = 8000;
-const TASK_COUNT = 16;
+const DEFAULT_TASK_COUNT = 16;
 const DISTRACTOR_COUNT = 3;
+
+export interface SpaceBattlePageProps {
+  overrides?: { durationMs?: number } | undefined;
+}
 
 interface SessionStats {
   attempts: number;
@@ -44,7 +48,12 @@ interface SessionStats {
  * loader that v0.8.1 used; the same path now lights up `attempt_events` + `item_skill_progress`
  * so the scheduler / mistakes book / cross-game effects all see SpaceBattle outcomes.
  */
-export function SpaceBattlePage(): JSX.Element {
+export function SpaceBattlePage(props: SpaceBattlePageProps = {}): JSX.Element {
+  const sessionDurationMs = props.overrides?.durationMs ?? DEFAULT_SESSION_DURATION_MS;
+  const taskCount = Math.max(
+    1,
+    Math.round((sessionDurationMs / DEFAULT_SESSION_DURATION_MS) * DEFAULT_TASK_COUNT),
+  );
   const session = useMemo(() => new GameSessionService({ bufferAttempts: false }), []);
   const sessionRef = useRef<GameSessionService | null>(null);
   sessionRef.current = session;
@@ -54,7 +63,7 @@ export function SpaceBattlePage(): JSX.Element {
   const [stats, setStats] = useState<SessionStats>({
     attempts: 0,
     correct: 0,
-    remainingMs: SESSION_DURATION_MS,
+    remainingMs: sessionDurationMs,
   });
 
   const queueRef = useRef<SelectedChoiceTaskQueue | null>(null);
@@ -77,7 +86,7 @@ export function SpaceBattlePage(): JSX.Element {
         }
         const created = await session.create({
           gameType: 'space_battle',
-          targetDurationMs: SESSION_DURATION_MS,
+          targetDurationMs: sessionDurationMs,
         });
         setSessionId(created.id);
         const items: LearningItem[] = confusables.map(rowToLearningItem);
@@ -85,7 +94,7 @@ export function SpaceBattlePage(): JSX.Element {
         const queue = selectChoiceTasks({
           items,
           progress: progressMap,
-          count: TASK_COUNT,
+          count: taskCount,
           sessionId: created.id,
           gameType: 'space_battle',
           skillDimension: 'meaning_recall',
@@ -109,13 +118,13 @@ export function SpaceBattlePage(): JSX.Element {
         console.warn('SpaceBattle cleanup: finish failed', err);
       });
     };
-  }, [session]);
+  }, [session, sessionDurationMs, taskCount]);
 
   // Wall-clock countdown — same shape as GamePage / RiverJump.
   useEffect(() => {
     if (!sessionId) return;
     const handle = globalThis.setInterval(() => {
-      const remaining = Math.max(0, SESSION_DURATION_MS - (Date.now() - startedAtRef.current));
+      const remaining = Math.max(0, sessionDurationMs - (Date.now() - startedAtRef.current));
       setStats((s) => ({ ...s, remainingMs: remaining }));
       if (remaining <= 0) {
         globalThis.clearInterval(handle);
@@ -130,12 +139,12 @@ export function SpaceBattlePage(): JSX.Element {
       }
     }, 250);
     return () => globalThis.clearInterval(handle);
-  }, [sessionId]);
+  }, [sessionId, sessionDurationMs]);
 
   const adapter = useMemo<GameBridgeAdapter>(
     () => ({
       requestNextTask: () => {
-        if (Date.now() - startedAtRef.current >= SESSION_DURATION_MS) {
+        if (Date.now() - startedAtRef.current >= sessionDurationMs) {
           currentTaskRef.current = null;
           return Promise.resolve(null);
         }
@@ -170,7 +179,7 @@ export function SpaceBattlePage(): JSX.Element {
         navigateToResult(sessionId);
       },
     }),
-    [sessionId],
+    [sessionId, sessionDurationMs],
   );
 
   if (bootError) {
@@ -221,7 +230,7 @@ export function SpaceBattlePage(): JSX.Element {
           minHeight: 0,
         }}
       >
-        <div className="title">▌ 太空大战 — {TASK_COUNT} 题</div>
+        <div className="title">▌ 太空大战 — {taskCount} 题</div>
 
         <GameHud
           remainingMs={stats.remainingMs}

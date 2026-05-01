@@ -25,12 +25,16 @@ const STRICT_POLICY: EvaluationStrictness = {
   particleReading: 'surface',
 };
 
-const SESSION_DURATION_MS = 180_000;
+const DEFAULT_SESSION_DURATION_MS = 180_000;
 const TASK_TIME_LIMIT_MS = 8000;
-const TASK_COUNT = 12;
+const DEFAULT_TASK_COUNT = 12;
 // Each minimal-pair item declares 1 confusable peer. distractorCount=1 keeps the listening
 // task a binary minimal-pair choice — strongest training signal for long/sokuon/dakuten.
 const DISTRACTOR_COUNT = 1;
+
+export interface AppleRescuePageProps {
+  overrides?: { durationMs?: number } | undefined;
+}
 
 interface SessionStats {
   attempts: number;
@@ -46,7 +50,12 @@ interface SessionStats {
  * The audio cue (kana via SpeechSynthesis) still lives inside AppleRescueScene; nothing on
  * the React side changes for v0.8.3 except the boot path.
  */
-export function AppleRescuePage(): JSX.Element {
+export function AppleRescuePage(props: AppleRescuePageProps = {}): JSX.Element {
+  const sessionDurationMs = props.overrides?.durationMs ?? DEFAULT_SESSION_DURATION_MS;
+  const taskCount = Math.max(
+    1,
+    Math.round((sessionDurationMs / DEFAULT_SESSION_DURATION_MS) * DEFAULT_TASK_COUNT),
+  );
   const session = useMemo(() => new GameSessionService({ bufferAttempts: false }), []);
   const sessionRef = useRef<GameSessionService | null>(null);
   sessionRef.current = session;
@@ -56,7 +65,7 @@ export function AppleRescuePage(): JSX.Element {
   const [stats, setStats] = useState<SessionStats>({
     attempts: 0,
     correct: 0,
-    remainingMs: SESSION_DURATION_MS,
+    remainingMs: sessionDurationMs,
   });
 
   const queueRef = useRef<SelectedChoiceTaskQueue | null>(null);
@@ -81,7 +90,7 @@ export function AppleRescuePage(): JSX.Element {
         }
         const created = await session.create({
           gameType: 'apple_rescue',
-          targetDurationMs: SESSION_DURATION_MS,
+          targetDurationMs: sessionDurationMs,
         });
         setSessionId(created.id);
         const items: LearningItem[] = audioDiscrim.map(rowToLearningItem);
@@ -89,7 +98,7 @@ export function AppleRescuePage(): JSX.Element {
         const queue = selectChoiceTasks({
           items,
           progress: progressMap,
-          count: TASK_COUNT,
+          count: taskCount,
           sessionId: created.id,
           gameType: 'apple_rescue',
           skillDimension: 'listening_discrimination',
@@ -114,12 +123,12 @@ export function AppleRescuePage(): JSX.Element {
         console.warn('AppleRescue cleanup: finish failed', err);
       });
     };
-  }, [session]);
+  }, [session, sessionDurationMs, taskCount]);
 
   useEffect(() => {
     if (!sessionId) return;
     const handle = globalThis.setInterval(() => {
-      const remaining = Math.max(0, SESSION_DURATION_MS - (Date.now() - startedAtRef.current));
+      const remaining = Math.max(0, sessionDurationMs - (Date.now() - startedAtRef.current));
       setStats((s) => ({ ...s, remainingMs: remaining }));
       if (remaining <= 0) {
         globalThis.clearInterval(handle);
@@ -134,12 +143,12 @@ export function AppleRescuePage(): JSX.Element {
       }
     }, 250);
     return () => globalThis.clearInterval(handle);
-  }, [sessionId]);
+  }, [sessionId, sessionDurationMs]);
 
   const adapter = useMemo<GameBridgeAdapter>(
     () => ({
       requestNextTask: () => {
-        if (Date.now() - startedAtRef.current >= SESSION_DURATION_MS) {
+        if (Date.now() - startedAtRef.current >= sessionDurationMs) {
           currentTaskRef.current = null;
           return Promise.resolve(null);
         }
@@ -174,7 +183,7 @@ export function AppleRescuePage(): JSX.Element {
         navigateToResult(sessionId);
       },
     }),
-    [sessionId],
+    [sessionId, sessionDurationMs],
   );
 
   if (bootError) {
@@ -225,7 +234,7 @@ export function AppleRescuePage(): JSX.Element {
           minHeight: 0,
         }}
       >
-        <div className="title">▌ 拯救苹果 — {TASK_COUNT} 题</div>
+        <div className="title">▌ 拯救苹果 — {taskCount} 题</div>
 
         <GameHud
           remainingMs={stats.remainingMs}
