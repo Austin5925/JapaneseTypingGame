@@ -2,6 +2,7 @@ import { ALL_SKILL_DIMENSIONS, type SkillDimension } from '@kana-typing/core';
 import { useEffect, useState, type JSX } from 'react';
 
 import { RetroShell, type RetroActiveKey } from './features/shell/RetroShell';
+import { AppleRescuePage } from './pages/AppleRescuePage';
 import { ContentPacksPage } from './pages/ContentPacksPage';
 import { DevPage } from './pages/DevPage';
 import { DiagnosticPage } from './pages/DiagnosticPage';
@@ -34,6 +35,7 @@ type Route =
   | { kind: 'game-speed-chase'; overrides?: GameRouteOverrides }
   | { kind: 'game-river-jump' }
   | { kind: 'game-space-battle' }
+  | { kind: 'game-apple-rescue' }
   | { kind: 'result'; sessionId: string };
 
 function getRoute(): Route {
@@ -55,6 +57,7 @@ function getRoute(): Route {
   }
   if (hash === '#/game/river-jump') return { kind: 'game-river-jump' };
   if (hash === '#/game/space-battle') return { kind: 'game-space-battle' };
+  if (hash === '#/game/apple-rescue') return { kind: 'game-apple-rescue' };
   const resultMatch = hash.match(/^#\/result\/(.+)$/u);
   if (resultMatch) return { kind: 'result', sessionId: resultMatch[1]! };
   return { kind: 'home' };
@@ -149,6 +152,8 @@ function renderRouteContent(route: Route): JSX.Element {
       return <RiverJumpPage />;
     case 'game-space-battle':
       return <SpaceBattlePage />;
+    case 'game-apple-rescue':
+      return <AppleRescuePage />;
     case 'result':
       return <ResultPage sessionId={route.sessionId} />;
   }
@@ -186,6 +191,8 @@ function titleForRoute(route: Route): string {
       return 'C:\\KANA\\RIVER.EXE';
     case 'game-space-battle':
       return 'C:\\KANA\\SPACE.EXE';
+    case 'game-apple-rescue':
+      return 'C:\\KANA\\APPLE.EXE';
     case 'result':
       return 'C:\\KANA\\RESULT.LOG';
   }

@@ -8,7 +8,12 @@ import { useEffect, useRef, type JSX, type RefObject } from 'react';
 // Scene keys are string literals defined inside game-runtime; we mirror them here as a union
 // type so callers stay typed without importing the runtime constants (which the lint
 // type-only-imports rule then complains about).
-export type GameSceneKey = 'MoleScene' | 'SpeedChaseScene' | 'RiverJumpScene' | 'SpaceBattleScene';
+export type GameSceneKey =
+  | 'MoleScene'
+  | 'SpeedChaseScene'
+  | 'RiverJumpScene'
+  | 'SpaceBattleScene'
+  | 'AppleRescueScene';
 
 /**
  * Handle the host wires into a parent-supplied ref so the React layer can push externally

@@ -1,6 +1,6 @@
 {
   "name": "@kana-typing/core",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "private": true,
   "description": "Domain core: japanese input, evaluation, mastery, scheduler — UI/runtime free.",
   "type": "module",

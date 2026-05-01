@@ -237,6 +237,55 @@ describe('selectChoiceTasks — basic shape', () => {
     expect(t.prompt.text).toBe('はし');
   });
 
+  it('audio prompt mode emits kind="audio" + kana on prompt.text', () => {
+    const q = selectChoiceTasks({
+      items: trio,
+      count: 1,
+      sessionId: 'sess',
+      gameType: 'apple_rescue',
+      skillDimension: 'listening_discrimination',
+      strictness: STRICT,
+      distractorCount: 2,
+      promptKind: 'audio',
+      random: RNG,
+    });
+    const t = q.next()!;
+    expect(t.prompt.kind).toBe('audio');
+    expect(t.prompt.text).toBe('はし');
+    // No audioRef on these test items.
+    expect(t.prompt.audioRef).toBeUndefined();
+  });
+
+  it('audio prompt forwards audioRef when an item declares one', () => {
+    const withAudio: LearningItem = {
+      ...item({ id: 'audio-item', surface: '橋', kana: 'はし' }),
+      audioRefs: [{ id: 'audio-hashi-bridge', kind: 'word', path: 'a/b.mp3', speed: 'normal' }],
+      confusableItemIds: ['word-chopsticks'],
+      tags: ['confusable'],
+    };
+    const q = selectChoiceTasks({
+      items: [withAudio, trio[1]!, trio[2]!],
+      count: 5,
+      sessionId: 'sess',
+      gameType: 'apple_rescue',
+      skillDimension: 'listening_discrimination',
+      strictness: STRICT,
+      distractorCount: 2,
+      promptKind: 'audio',
+      random: RNG,
+    });
+    // Find a task whose correct item is the audio-bearing one.
+    let foundAudio: string | undefined;
+    while (q.remaining() > 0) {
+      const t = q.next()!;
+      if (t.itemId === 'audio-item') {
+        foundAudio = t.prompt.audioRef;
+        break;
+      }
+    }
+    expect(foundAudio).toBe('audio-hashi-bridge');
+  });
+
   it('pushFront returns a previously popped task to the head', () => {
     const q = selectChoiceTasks({
       items: trio,

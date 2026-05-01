@@ -8,6 +8,69 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.8.2] - 2026-05-02 — 拯救苹果 + 听辨 minimal-pair + TTS 管线
+
+### Added
+
+- **AppleRescue training scene (`#/game/apple-rescue`)** — the third new
+  game in the v0.8.x series and the first audio-driven mode. Each task
+  spawns 3-4 falling apples (one per option, fixed lanes); the user moves
+  a basket left/right with arrow keys to catch the one whose surface
+  matches the spoken kana. `R` replays the audio at normal speed, `S`
+  replays at slow speed (rate 0.7). Catch correct → green tween + advance.
+  Catch wrong → red shatter + screen shake + advance with the option's
+  `errorTagIfChosen`. All apples escape → `['timeout']` attempt.
+- **`createBrowserJapaneseTts` + `createNoopJapaneseTts`** in
+  `@kana-typing/game-runtime/audio/japaneseTts`. Wraps the Web Speech API
+  `SpeechSynthesis`: prefers any voice whose `lang` starts with `ja`, sets
+  `utterance.lang = 'ja-JP'`, normal/slow rate (1.0 / 0.7), bounded await
+  on the `voiceschanged` event so a slow-loading voice list doesn't
+  deadlock the scene. Test stub uses a fake `speechSynthesis` global so
+  the path is exercised under jsdom.
+- **`'audio'` ChoicePromptKind** in `selectChoiceTasks`. Emits
+  `prompt.kind = 'audio'`, carries the kana on `prompt.text` for TTS, and
+  forwards `prompt.audioRef` if the LearningItem ships a real audio
+  asset. SpaceBattle stays on `meaning_zh`; AppleRescue defaults to
+  `audio`.
+- **`content/official/audio-discrim-foundations.json`** — 24 minimal-pair
+  words (12 pairs) covering long vowel (ビル/ビール、おばさん/おばあさん、
+  ゆき/ゆうき、ここ/こうこう), sokuon (きて/きって、かこ/かっこ、
+  ねこ/ねっこ、いた/いった), and dakuten (かき/がき、たいがく/だいがく、
+  ふた/ぶた、てんき/でんき). Each pair is互相 confusable, and every item
+  carries a single domain-meaningful errorTag (long_vowel/sokuon/dakuten)
+  so wrong picks classify themselves automatically.
+- **`apple` PixIcon** (16×16 red apple + phosphor leaf) and a "拯救苹果"
+  entry in the RetroShell training nav at `#/game/apple-rescue`.
+
+### Changed
+
+- Synchronized package, Tauri, Cargo, shell version metadata to `0.8.2`.
+- AppleRescue's `distractorCount` is fixed at 1 (binary minimal-pair
+  choice) — the strongest training signal for long/sokuon/dakuten
+  discrimination. SpaceBattle remains 3 (4 ships).
+
+### Notes / known gaps
+
+- **AppleRescue session is ephemeral** — same trade-off as RiverJump and
+  SpaceBattle. The audio-discrim pack is build-time bundled and attempts
+  go through `evaluate()` in memory, no SQLite. v0.8.x will fold the
+  three `*-foundations` packs into the dev seed simultaneously and switch
+  all three modes to listItems-driven boot.
+- **TTS quality varies by platform**. macOS WebKit has high-quality
+  ja-JP voices (Kyoko, Otoya); Windows WebView2 ships Haruka/Sayaka.
+  Linux WebKit GTK ships none by default, falling back to engine
+  best-effort with `lang='ja-JP'` set on the utterance. Real recorded
+  audio assets remain a v1.x consideration.
+- **TTS replay throttle missing**. Rapidly hitting R several times will
+  cancel and restart the utterance, but the engine sometimes mutes the
+  next utterance for ~200ms after a cancel on macOS. Consider a 250ms
+  debounce in v0.8.3 polish.
+- AppleRescue's basket catch detection samples Phaser tween positions
+  in `update()`. With 60fps that's tight enough but not perfect — a
+  fast-moving basket can clip past an apple by a frame. Enlarging the
+  catch tolerance (`CATCH_TOLERANCE_Y`) is the simplest knob if user
+  testing flags this.
+
 ## [0.8.1] - 2026-05-02 — 太空大战 + 同音/近形/中文误导词辨析
 
 ### Added

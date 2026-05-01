@@ -6,4 +6,6 @@ export * from './scenes/SpeedChaseScene';
 export * from './scenes/speedChaseDifficulty';
 export * from './scenes/RiverJumpScene';
 export * from './scenes/SpaceBattleScene';
+export * from './scenes/AppleRescueScene';
+export * from './audio/japaneseTts';
 export * from './PhaserGameManager';

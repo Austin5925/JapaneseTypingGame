@@ -1,6 +1,6 @@
 {
   "name": "@kana-typing/game-runtime",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "private": true,
   "description": "Phaser scenes + GameBridge that consumes TrainingTasks and emits attempts.",
   "type": "module",

@@ -8,12 +8,17 @@ import type {
 import type { ErrorTag, GameType, SkillDimension } from '../types/enums';
 
 /**
- * Prompt strategy for ChoiceTrainingTasks. v0.8.1 only ships `meaning_zh` (the user reads the
- * Chinese meaning and picks the matching Japanese surface). `reading` (kana → surface) and
- * `example_sentence` (gap-fill in JA sentence) are stubs that fall back to meaning_zh until
- * scene support lands.
+ * Prompt strategy for ChoiceTrainingTasks.
+ *
+ * - `meaning_zh` — user reads the Chinese meaning and picks the matching Japanese surface.
+ *   v0.8.1 SpaceBattle default.
+ * - `reading` — prompt is the kana reading; the user picks the surface that matches it.
+ * - `example_sentence` — prompt is an example sentence with a gap.
+ * - `audio` — prompt is an audio cue (TTS / recording) of the kana; the user picks the
+ *   correct surface from option ships/apples. v0.8.2 AppleRescue default. The scene plays
+ *   `prompt.text` (kana) through SpeechSynthesis or `prompt.audioRef` if a real asset exists.
  */
-export type ChoicePromptKind = 'meaning_zh' | 'reading' | 'example_sentence';
+export type ChoicePromptKind = 'meaning_zh' | 'reading' | 'example_sentence' | 'audio';
 
 export interface SelectChoiceTasksInput {
   /** Eligible items in the user's enabled content packs. */
@@ -223,6 +228,14 @@ function buildPrompt(item: LearningItem, kind: ChoicePromptKind): TrainingTask['
         };
       }
       return { kind: 'meaning', meaningZh: item.meaningsZh[0] ?? '' };
+    }
+    case 'audio': {
+      // Carry the kana on prompt.text so a TTS player can pronounce it; if the pack ships a
+      // real audio asset, scene code may prefer prompt.audioRef when present.
+      const audioRefId = item.audioRefs[0]?.id;
+      const out: TrainingTask['prompt'] = { kind: 'audio', text: item.kana };
+      if (audioRefId) out.audioRef = audioRefId;
+      return out;
     }
     case 'meaning_zh':
     default:
