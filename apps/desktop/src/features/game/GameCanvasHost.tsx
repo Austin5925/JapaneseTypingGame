@@ -3,12 +3,22 @@ import {
   PhaserGameManager,
   type GameBridgeAdapter,
 } from '@kana-typing/game-runtime';
-import { useEffect, useRef, type JSX } from 'react';
+import { useEffect, useRef, type JSX, type RefObject } from 'react';
 
 // Scene keys are string literals defined inside game-runtime; we mirror them here as a union
 // type so callers stay typed without importing the runtime constants (which the lint
 // type-only-imports rule then complains about).
 export type GameSceneKey = 'MoleScene' | 'SpeedChaseScene';
+
+/**
+ * Handle the host wires into a parent-supplied ref so the React layer can push externally
+ * sourced input (e.g. an IME-finalised string from `<ImeInputBox>`) into the scene without
+ * the parent having to know about GameBridge or the Phaser instance.
+ */
+export interface GameCanvasExternalInputControl {
+  commit(value: string): void;
+  cancel(): void;
+}
 
 export interface GameCanvasHostProps {
   sessionId: string;
@@ -20,6 +30,18 @@ export interface GameCanvasHostProps {
   height?: number;
   /** Fired when the scene reports session.finished. */
   onSessionFinished?: () => void;
+  /**
+   * Extra scene init parameters merged into the standard `{ bridge, sessionId }` payload.
+   * Use this to pass scene-specific knobs like `{ inputSource: 'external' }` for
+   * SpeedChaseScene's IME mode.
+   */
+  sceneInit?: Record<string, unknown>;
+  /**
+   * If supplied, the host populates `current` with `{ commit, cancel }` once the scene starts
+   * and clears it on unmount. The parent calls `current?.commit(value)` from its IME input
+   * handler to drive the active scene.
+   */
+  externalInputRef?: RefObject<GameCanvasExternalInputControl | null>;
 }
 
 /**
@@ -63,17 +85,41 @@ export function GameCanvasHost(props: GameCanvasHostProps): JSX.Element {
       ...(props.height !== undefined && { height: props.height }),
     });
     manager.start();
-    manager.startScene(props.sceneKey, { bridge, sessionId: props.sessionId });
+    manager.startScene(
+      props.sceneKey,
+      { bridge, sessionId: props.sessionId },
+      props.sceneInit ?? {},
+    );
     managerRef.current = manager;
+
+    // Expose external-input controls now that the bridge exists. We keep the ref param stable
+    // across renders (parent passes a useRef'd object), so it's safe to write directly.
+    const externalRef = props.externalInputRef;
+    if (externalRef) {
+      externalRef.current = {
+        commit: (value: string): void => {
+          bridge.emitExternalInput({ type: 'external.commit', value });
+        },
+        cancel: (): void => {
+          bridge.emitExternalInput({ type: 'external.cancel' });
+        },
+      };
+    }
 
     return () => {
       offFinish();
       manager.destroy();
       managerRef.current = null;
       bridgeRef.current = null;
+      if (externalRef) {
+        externalRef.current = null;
+      }
     };
     // We only want this to run on initial mount + (sessionId, sceneKey) change. The adapter
-    // prop is observed via the ref above so swapping it doesn't re-mount the game.
+    // prop is observed via the ref above so swapping it doesn't re-mount the game. sceneInit
+    // changes are intentionally not tracked — re-mounting on every init tweak would tear the
+    // session down; if the caller needs different sceneInit values they should change the
+    // sessionId/sceneKey or remount via a `key=` prop.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.sessionId, props.sceneKey]);
 

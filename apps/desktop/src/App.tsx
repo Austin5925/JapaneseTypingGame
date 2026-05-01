@@ -3,7 +3,7 @@ import { useEffect, useState, type JSX } from 'react';
 
 import { DevPage } from './pages/DevPage';
 import { EvaluatorDevPage } from './pages/EvaluatorDevPage';
-import { GamePage, type GameRouteOverrides } from './pages/GamePage';
+import { GamePage, type GameInputMode, type GameRouteOverrides } from './pages/GamePage';
 import { HomePage } from './pages/HomePage';
 import { InputDevPage } from './pages/InputDevPage';
 import { LibraryPage } from './pages/LibraryPage';
@@ -60,11 +60,22 @@ function withOverrides(hash: string): { overrides?: GameRouteOverrides } {
   if (isSkillDimension(skillDimension)) {
     overrides.skillDimension = skillDimension;
   }
+  const inputMode = parseInputMode(params.get('inputMode'));
+  if (inputMode) {
+    overrides.inputMode = inputMode;
+  }
   return Object.keys(overrides).length > 0 ? { overrides } : {};
 }
 
 function isSkillDimension(value: string | null): value is SkillDimension {
   return value !== null && ALL_SKILL_DIMENSIONS.includes(value as SkillDimension);
+}
+
+function parseInputMode(value: string | null): GameInputMode | undefined {
+  // Accept the canonical `ime_surface` and the shorter `ime` alias for hand-typed URLs.
+  if (value === 'ime' || value === 'ime_surface') return 'ime_surface';
+  if (value === 'romaji') return 'romaji';
+  return undefined;
 }
 
 export function App(): JSX.Element {

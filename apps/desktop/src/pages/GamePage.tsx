@@ -11,10 +11,16 @@ import {
   type UserAttempt,
 } from '@kana-typing/core';
 import { MOLE_SCENE_KEY, SPEED_CHASE_SCENE_KEY } from '@kana-typing/game-runtime';
-import { useEffect, useMemo, useRef, useState, type JSX } from 'react';
+import { useEffect, useMemo, useRef, useState, type JSX, type RefObject } from 'react';
 
-import { GameCanvasHost, type GameSceneKey } from '../features/game/GameCanvasHost';
+import {
+  GameCanvasHost,
+  type GameCanvasExternalInputControl,
+  type GameSceneKey,
+} from '../features/game/GameCanvasHost';
 import { GameHud } from '../features/game/GameHud';
+import { ImeInputBox } from '../features/input/ImeInputBox';
+import type { ImeInputState } from '../features/input/useImeInputController';
 import { GameSessionService, toDomainProgress } from '../features/session/GameSessionService';
 import { listItems, listProgress, type DevItemRow, type ProgressDto } from '../tauri/invoke';
 
@@ -69,9 +75,15 @@ const MODE_CONFIG: Record<GamePageMode, ModeConfig> = {
   },
 };
 
+/** Where the user actually types. `romaji` keeps the existing Phaser keyboard pump (ASCII →
+ * wanakana → kana). `ime_surface` mounts an `<ImeInputBox>` outside the canvas so a real OS
+ * IME can run; the IME-finalised value is pushed into the scene through GameBridge. */
+export type GameInputMode = 'romaji' | 'ime_surface';
+
 export interface GameRouteOverrides {
   durationMs?: number;
   skillDimension?: SkillDimension;
+  inputMode?: GameInputMode;
 }
 
 export interface GamePageProps {
@@ -95,6 +107,13 @@ export function GamePage(props: GamePageProps): JSX.Element {
     taskCount: Math.max(1, Math.round((durationMs / baseConfig.durationMs) * baseConfig.taskCount)),
   };
   const SESSION_DURATION_MS = config.durationMs;
+  // Only speed-chase honours `inputMode=ime_surface` for now (mole stays romaji until P0-x in a
+  // future sprint). For other modes we silently fall back to romaji.
+  const inputMode: GameInputMode =
+    props.mode === 'speed-chase' && props.overrides?.inputMode === 'ime_surface'
+      ? 'ime_surface'
+      : 'romaji';
+  const externalInputRef = useRef<GameCanvasExternalInputControl | null>(null);
   const [items, setItems] = useState<DevItemRow[] | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [stats, setStats] = useState<SessionStats>({
@@ -262,11 +281,75 @@ export function GamePage(props: GamePageProps): JSX.Element {
         adapter={adapter}
         width={800}
         height={480}
+        externalInputRef={externalInputRef}
+        sceneInit={inputMode === 'ime_surface' ? { inputSource: 'external' } : {}}
       />
-      <p style={{ textAlign: 'center', color: 'var(--muted)', marginTop: '0.75rem' }}>
-        type romaji + Enter. Backspace edits. Esc-to-quit lands in Sprint 5.
-      </p>
+      {inputMode === 'ime_surface' ? (
+        <ImeModeInputArea externalInputRef={externalInputRef} />
+      ) : (
+        <p style={{ textAlign: 'center', color: 'var(--muted)', marginTop: '0.75rem' }}>
+          type romaji + Enter. Backspace edits. Esc-to-quit lands in a later sprint.
+        </p>
+      )}
     </section>
+  );
+}
+
+/**
+ * IME-mode footer: an `<ImeInputBox>` mounted just below the Phaser canvas so the OS IME runs
+ * outside the game and the finalised string is forwarded into the scene through the canvas
+ * host's external-input ref.
+ *
+ * We log the IME state stream at debug level (platform + isComposing/keyCode/key) — handoff
+ * §3 P0-3 calls this out explicitly because composition events are notoriously inconsistent
+ * across WebViews and we'll need the trace once we hit a real-world quirk.
+ */
+function ImeModeInputArea(props: {
+  externalInputRef: RefObject<GameCanvasExternalInputControl | null>;
+}): JSX.Element {
+  // Track whether we were composing on the last state push. We only log on transitions to
+  // avoid spamming once per keystroke; full per-frame trace lives in useImeInputController.
+  const wasComposingRef = useRef(false);
+
+  useEffect(() => {
+    // One-shot: log the host platform so debug captures across sessions can be correlated to
+    // macOS vs Windows WebView quirks. `navigator.platform` is technically deprecated but
+    // remains the simplest signal that doesn't require parsing userAgent.
+    const platform = `${globalThis.navigator?.platform ?? 'unknown'} (${globalThis.navigator?.userAgent ?? ''})`;
+    console.info('[GamePage IME] platform:', platform);
+  }, []);
+
+  const handleChange = (state: ImeInputState): void => {
+    if (state.isComposing !== wasComposingRef.current) {
+      wasComposingRef.current = state.isComposing;
+      console.info('[GamePage IME] composition transition', {
+        isComposing: state.isComposing,
+        composing: state.composingValue,
+        raw: state.rawValue,
+      });
+    }
+  };
+
+  const handleCommit = (value: string): void => {
+    console.info('[GamePage IME] commit', { value });
+    props.externalInputRef.current?.commit(value);
+  };
+
+  return (
+    <div style={{ maxWidth: 720, margin: '0.75rem auto 0' }}>
+      <ImeInputBox
+        mode="ime_surface"
+        autoSubmitOnEnter
+        onCommit={handleCommit}
+        onChange={handleChange}
+        placeholder="ここに日本語で入力 + Enter"
+        showComposeIndicator
+        id="game-ime-input"
+      />
+      <p style={{ textAlign: 'center', color: 'var(--muted)', marginTop: '0.5rem', fontSize: 13 }}>
+        IME mode — pick the candidate, then Enter to commit. Phaser canvas does not steal focus.
+      </p>
+    </div>
   );
 }
 

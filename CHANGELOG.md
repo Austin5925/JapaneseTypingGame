@@ -8,6 +8,18 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+### Added (`@kana-typing/game-runtime`, `apps/desktop`)
+
+- IME mode for SpeedChase: a new bidirectional `external` channel on `GameBridge`
+  (`emitExternalInput` / `onExternalInput`) lets the React layer push IME-finalised values
+  into a Phaser scene without the canvas needing to steal focus. SpeedChaseScene grew an
+  `inputSource: 'phaser_keys' | 'external'` init flag; the existing romaji pump is the
+  default. `<GameCanvasHost>` exposes an `externalInputRef` so the page can call
+  `current.commit(value)` straight into the active scene. `<GamePage>` mounts an
+  `<ImeInputBox>` below the canvas when `inputMode='ime_surface'` and tags submitted
+  attempts with `inputMethod: 'ime'`. URL routes accept `?inputMode=ime` (alias of
+  `ime_surface`).
+
 ## [0.6.1] - 2026-05-01 — Review fixes
 
 ### Fixed (`apps/desktop`)
