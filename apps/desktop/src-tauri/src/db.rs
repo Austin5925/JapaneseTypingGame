@@ -26,6 +26,10 @@ const MIGRATIONS: &[(&str, &str)] = &[
         "004_plans.sql",
         include_str!("../../../../migrations/004_plans.sql"),
     ),
+    (
+        "005_extras.sql",
+        include_str!("../../../../migrations/005_extras.sql"),
+    ),
 ];
 
 pub struct AppDb {
@@ -46,14 +50,24 @@ pub fn init(app_data_dir: &Path) -> AppResult<AppDb> {
         [],
     )?;
 
-    // Race tolerance on first launch: two app instances opening the same DB simultaneously
-    // would each see schema_migrations empty, both run the (idempotent) DDL, and one would lose
-    // a UNIQUE-constraint race when inserting the marker row. `INSERT OR IGNORE` lets the
-    // loser's marker write be a no-op while still ensuring the migration is recorded exactly
-    // once. We then re-read the table to populate `applied_list` from ground truth rather than
-    // from the local intent.
+    // Migration runner: walk the static MIGRATIONS list, skip any whose name is already
+    // recorded in schema_migrations, run the rest in a transaction. Skipping is required
+    // because SQLite ALTER TABLE ADD COLUMN is not idempotent (it errors on duplicate column);
+    // 001-004 use CREATE TABLE IF NOT EXISTS and would survive a replay, but 005+ may add
+    // columns or rename them and cannot. Race tolerance survives because the existence check
+    // + transaction together ensure a duplicate write fails the second instance's INSERT
+    // rather than the schema change itself.
     let mut applied_list: Vec<String> = Vec::new();
     for (name, sql) in MIGRATIONS {
+        let already: i64 = conn.query_row(
+            "SELECT COUNT(*) FROM schema_migrations WHERE name = ?1",
+            params![*name],
+            |row| row.get(0),
+        )?;
+        if already > 0 {
+            applied_list.push((*name).to_string());
+            continue;
+        }
         let tx = conn.unchecked_transaction()?;
         tx.execute_batch(sql)?;
         tx.execute(

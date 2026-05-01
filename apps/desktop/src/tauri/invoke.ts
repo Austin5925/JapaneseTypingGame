@@ -1,23 +1,35 @@
-import type { GameType, SkillDimension } from '@kana-typing/core';
+import type { ErrorTag, GameType, LearningItemType, SkillDimension } from '@kana-typing/core';
 import { invoke } from '@tauri-apps/api/core';
 
-// Sprint 0 DTOs (unchanged) ------------------------------------------------
+// Sprint 0 DTOs --------------------------------------------------------------
+//
+// `DevItemRow` mirrors the Rust struct of the same name in commands.rs. v0.8.3 grew the
+// projection (type / errorTags / confusableItemIds / extrasJson) so SpaceBattle / AppleRescue /
+// RiverJump can drive their selectors directly from listItems instead of build-time-bundled
+// JSON. Word-typed rows leave `extrasJson` null; sentence rows carry a JSON-serialised
+// `{chunks, acceptedOrders, zhPrompt}` blob there.
 
 export interface DevItemRow {
   id: string;
+  type: LearningItemType;
   surface: string;
   kana: string;
   romaji: string[];
   jlpt: string | null;
   tags: string[];
   skillTags: SkillDimension[];
+  errorTags: ErrorTag[];
   acceptedKana: string[];
   meaningsZh: string[];
+  confusableItemIds: string[];
+  sourcePackId: string;
+  extrasJson: string | null;
 }
 
 export interface SeedTestPackResult {
   packId: string;
   itemsUpserted: number;
+  packsUpserted?: number;
 }
 
 export function seedTestPack(): Promise<SeedTestPackResult> {

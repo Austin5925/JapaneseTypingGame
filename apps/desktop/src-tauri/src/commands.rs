@@ -47,14 +47,22 @@ pub fn get_db_info(db: State<'_, AppDb>) -> AppResult<DbInfo> {
 #[serde(rename_all = "camelCase")]
 pub struct DevItemRow {
     pub id: String,
+    #[serde(rename = "type")]
+    pub item_type: String,
     pub surface: String,
     pub kana: String,
     pub romaji: Vec<String>,
     pub jlpt: Option<String>,
     pub tags: Vec<String>,
     pub skill_tags: Vec<String>,
+    pub error_tags: Vec<String>,
     pub accepted_kana: Vec<String>,
     pub meanings_zh: Vec<String>,
+    pub confusable_item_ids: Vec<String>,
+    pub source_pack_id: String,
+    /// Raw JSON for type-specific extras (sentence chunks/acceptedOrders/zhPrompt for v0.8.3
+    /// SentenceItems). Word-typed rows leave this as `None`.
+    pub extras_json: Option<String>,
 }
 
 #[tauri::command]
@@ -65,38 +73,78 @@ pub fn list_items(db: State<'_, AppDb>, limit: Option<i64>) -> AppResult<Vec<Dev
         .map_err(|e| AppError::Internal(e.to_string()))?;
     let limit = limit.unwrap_or(50).clamp(1, 1000);
     let mut stmt = conn.prepare(
-        "SELECT i.id, i.surface, i.kana, i.romaji_json, i.jlpt, i.tags_json, i.skill_tags_json, \
-                i.accepted_kana_json, i.meanings_zh_json \
+        "SELECT i.id, i.type, i.surface, i.kana, i.romaji_json, i.jlpt, i.tags_json, \
+                i.skill_tags_json, i.error_tags_json, i.accepted_kana_json, \
+                i.meanings_zh_json, i.source_pack_id, i.extras_json \
          FROM learning_items i \
          JOIN content_packs p ON p.id = i.source_pack_id \
          WHERE p.enabled = 1 \
          ORDER BY i.id LIMIT ?1",
     )?;
     let rows = stmt.query_map(params![limit], |row| {
-        let romaji_json: String = row.get(3)?;
-        let tags_json: String = row.get(5)?;
-        let skill_tags_json: String = row.get(6)?;
-        let accepted_kana_json: Option<String> = row.get(7)?;
-        let meanings_zh_json: String = row.get(8)?;
+        let id: String = row.get(0)?;
+        let romaji_json: String = row.get(4)?;
+        let tags_json: String = row.get(6)?;
+        let skill_tags_json: String = row.get(7)?;
+        let error_tags_json: Option<String> = row.get(8)?;
+        let accepted_kana_json: Option<String> = row.get(9)?;
+        let meanings_zh_json: String = row.get(10)?;
         let romaji: Vec<String> = serde_json::from_str(&romaji_json).unwrap_or_default();
         Ok(DevItemRow {
-            id: row.get(0)?,
-            surface: row.get(1)?,
-            kana: row.get(2)?,
+            id: id.clone(),
+            item_type: row.get(1)?,
+            surface: row.get(2)?,
+            kana: row.get(3)?,
             romaji,
-            jlpt: row.get(4)?,
+            jlpt: row.get(5)?,
             tags: serde_json::from_str(&tags_json).unwrap_or_default(),
             skill_tags: serde_json::from_str(&skill_tags_json).unwrap_or_default(),
+            error_tags: error_tags_json
+                .as_deref()
+                .and_then(|s| serde_json::from_str(s).ok())
+                .unwrap_or_default(),
             accepted_kana: accepted_kana_json
                 .as_deref()
                 .and_then(|s| serde_json::from_str(s).ok())
                 .unwrap_or_default(),
             meanings_zh: serde_json::from_str(&meanings_zh_json).unwrap_or_default(),
+            // confusables joined separately to keep the row shape stable when zero peers.
+            confusable_item_ids: Vec::new(),
+            source_pack_id: row.get(11)?,
+            extras_json: row.get(12)?,
         })
     })?;
     let mut out = Vec::with_capacity(limit as usize);
     for r in rows {
         out.push(r?);
+    }
+
+    // Backfill confusable_item_ids per item — we run a single query and partition into the
+    // rows. This avoids N+1 queries while still letting the projection above be a single
+    // SELECT.
+    if !out.is_empty() {
+        let mut conf_stmt = conn.prepare(
+            "SELECT c.item_id, c.confusable_item_id FROM item_confusables c \
+             JOIN learning_items i ON i.id = c.item_id \
+             JOIN content_packs p ON p.id = i.source_pack_id \
+             WHERE p.enabled = 1",
+        )?;
+        let mapped = conf_stmt.query_map([], |row| {
+            let item_id: String = row.get(0)?;
+            let confusable: String = row.get(1)?;
+            Ok((item_id, confusable))
+        })?;
+        let mut by_item: std::collections::HashMap<String, Vec<String>> =
+            std::collections::HashMap::new();
+        for r in mapped {
+            let (item_id, confusable) = r?;
+            by_item.entry(item_id).or_default().push(confusable);
+        }
+        for row in out.iter_mut() {
+            if let Some(list) = by_item.remove(&row.id) {
+                row.confusable_item_ids = list;
+            }
+        }
     }
     Ok(out)
 }
@@ -107,8 +155,15 @@ pub fn list_items(db: State<'_, AppDb>, limit: Option<i64>) -> AppResult<Vec<Dev
 //
 // Embedded at compile time so a packaged build doesn't need the repo on disk. When we move
 // content to a real installer/resource pipeline (Sprint 4+), this will switch to reading from
-// `tauri::path::resource_dir`.
-const SEED_PACK_JSON: &str = include_str!("../../../../content/official/n5-basic-mini.json");
+// `tauri::path::resource_dir`. v0.8.3 bundles four foundations packs so SpaceBattle / AppleRescue
+// / RiverJump can boot SQLite-driven without manual content:import.
+const SEED_PACK_N5: &str = include_str!("../../../../content/official/n5-basic-mini.json");
+const SEED_PACK_CONFUSABLES: &str =
+    include_str!("../../../../content/official/confusables-foundations.json");
+const SEED_PACK_AUDIO_DISCRIM: &str =
+    include_str!("../../../../content/official/audio-discrim-foundations.json");
+const SEED_PACK_SENTENCES: &str =
+    include_str!("../../../../content/official/sentences-foundations.json");
 
 #[derive(Debug, Deserialize)]
 struct PackInput {
@@ -160,6 +215,54 @@ struct ItemInput {
     audio_refs: Vec<AudioRefInput>,
     #[serde(default, rename = "confusableItemIds")]
     confusable_item_ids: Vec<String>,
+    /// Pre-serialised JSON blob for type-specific extras. Word packs always leave this
+    /// `None`; sentence translation populates it with `{chunks, acceptedOrders, zhPrompt}`.
+    #[serde(default, skip_deserializing)]
+    extras_json: Option<String>,
+}
+
+#[derive(Debug, Deserialize)]
+struct SentencePackInput {
+    id: String,
+    name: String,
+    version: String,
+    #[serde(default)]
+    author: Option<String>,
+    #[serde(default = "default_locale")]
+    locale: String,
+    #[serde(default)]
+    description: Option<String>,
+    sentences: Vec<SentenceItemInput>,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+struct SentenceItemInput {
+    id: String,
+    #[serde(rename = "type")]
+    item_type: String,
+    surface: String,
+    chunks: Vec<SentenceChunkInput>,
+    #[serde(rename = "zhPrompt")]
+    zh_prompt: String,
+    #[serde(default, rename = "acceptedOrders")]
+    accepted_orders: Vec<Vec<String>>,
+    #[serde(default)]
+    jlpt: Option<String>,
+    #[serde(default)]
+    tags: Vec<String>,
+    #[serde(default, rename = "skillTags")]
+    skill_tags: Vec<String>,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+struct SentenceChunkInput {
+    id: String,
+    text: String,
+    kana: String,
+    romaji: Vec<String>,
+    pos: String,
+    #[serde(default, rename = "acceptedSurfaces")]
+    accepted_surfaces: Option<Vec<String>>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -195,14 +298,24 @@ struct AudioRefInput {
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SeedTestPackResult {
+    /// First pack id seeded (the original n5-basic-mini for backward compatibility with the
+    /// dev page UI that still shows a single pack).
     pub pack_id: String,
     pub items_upserted: u32,
+    pub packs_upserted: u32,
 }
 
 #[tauri::command]
 pub fn seed_test_pack(db: State<'_, AppDb>) -> AppResult<SeedTestPackResult> {
-    let pack: PackInput = serde_json::from_str(SEED_PACK_JSON)
-        .map_err(|e| AppError::InvalidPack(format!("seed pack JSON malformed: {}", e)))?;
+    let n5_pack: PackInput = serde_json::from_str(SEED_PACK_N5)
+        .map_err(|e| AppError::InvalidPack(format!("n5 pack malformed: {}", e)))?;
+    let confusables_pack: PackInput = serde_json::from_str(SEED_PACK_CONFUSABLES)
+        .map_err(|e| AppError::InvalidPack(format!("confusables pack malformed: {}", e)))?;
+    let audio_pack: PackInput = serde_json::from_str(SEED_PACK_AUDIO_DISCRIM)
+        .map_err(|e| AppError::InvalidPack(format!("audio-discrim pack malformed: {}", e)))?;
+    let sentence_pack_raw: SentencePackInput = serde_json::from_str(SEED_PACK_SENTENCES)
+        .map_err(|e| AppError::InvalidPack(format!("sentences pack malformed: {}", e)))?;
+    let sentence_pack = sentence_pack_to_word_pack(sentence_pack_raw)?;
 
     let mut conn = db
         .conn
@@ -211,6 +324,75 @@ pub fn seed_test_pack(db: State<'_, AppDb>) -> AppResult<SeedTestPackResult> {
     let now = Utc::now().to_rfc3339();
     let tx = conn.transaction()?;
 
+    let mut total_items: u32 = 0;
+    let primary_pack_id = n5_pack.id.clone();
+    for pack in [&n5_pack, &confusables_pack, &audio_pack, &sentence_pack] {
+        total_items += upsert_pack(&tx, pack, &now)?;
+    }
+
+    tx.commit()?;
+
+    Ok(SeedTestPackResult {
+        pack_id: primary_pack_id,
+        items_upserted: total_items,
+        packs_upserted: 4,
+    })
+}
+
+/// Map a SentencePack into the regular PackInput shape so a single upsert path handles every
+/// foundations pack. Each sentence becomes a learning_items row with type='sentence', the
+/// chunks merged into kana/romaji, and chunks/acceptedOrders/zhPrompt serialised into
+/// extras_json. The extras blob is what RiverJump reverses on the TS side to recover the
+/// original SentenceItem shape.
+fn sentence_pack_to_word_pack(p: SentencePackInput) -> AppResult<PackInput> {
+    let mut items: Vec<ItemInput> = Vec::with_capacity(p.sentences.len());
+    for s in p.sentences {
+        let merged_kana: String = s.chunks.iter().map(|c| c.kana.as_str()).collect();
+        let merged_romaji: String = s
+            .chunks
+            .iter()
+            .map(|c| c.romaji.first().map(String::as_str).unwrap_or(""))
+            .collect::<Vec<_>>()
+            .join("");
+        let extras = serde_json::json!({
+            "chunks": &s.chunks,
+            "acceptedOrders": &s.accepted_orders,
+            "zhPrompt": &s.zh_prompt,
+        });
+        let extras_json = serde_json::to_string(&extras)?;
+        items.push(ItemInput {
+            id: s.id,
+            item_type: s.item_type,
+            surface: s.surface,
+            kana: merged_kana,
+            romaji: vec![merged_romaji],
+            meanings_zh: vec![s.zh_prompt.clone()],
+            meanings_en: None,
+            pos: None,
+            jlpt: s.jlpt,
+            tags: s.tags,
+            skill_tags: s.skill_tags,
+            error_tags: None,
+            accepted_surfaces: None,
+            accepted_kana: None,
+            examples: Vec::new(),
+            audio_refs: Vec::new(),
+            confusable_item_ids: Vec::new(),
+            extras_json: Some(extras_json),
+        });
+    }
+    Ok(PackInput {
+        id: p.id,
+        name: p.name,
+        version: p.version,
+        author: p.author,
+        locale: p.locale,
+        description: p.description,
+        items,
+    })
+}
+
+fn upsert_pack(tx: &rusqlite::Transaction<'_>, pack: &PackInput, now: &str) -> AppResult<u32> {
     tx.execute(
         "INSERT INTO content_packs (id, name, version, author, locale, quality, description, imported_at, enabled)
          VALUES (?1, ?2, ?3, ?4, ?5, 'official', ?6, ?7, 1)
@@ -239,9 +421,9 @@ pub fn seed_test_pack(db: State<'_, AppDb>) -> AppResult<SeedTestPackResult> {
                 id, type, surface, kana, romaji_json, meanings_zh_json, meanings_en_json,
                 pos, jlpt, tags_json, skill_tags_json, error_tags_json,
                 accepted_surfaces_json, accepted_kana_json,
-                source_pack_id, quality, created_at, updated_at
+                source_pack_id, quality, created_at, updated_at, extras_json
              ) VALUES (
-                ?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, 'official', ?16, ?17
+                ?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, 'official', ?16, ?17, ?18
              )
              ON CONFLICT(id) DO UPDATE SET
                 type = excluded.type,
@@ -259,7 +441,8 @@ pub fn seed_test_pack(db: State<'_, AppDb>) -> AppResult<SeedTestPackResult> {
                 accepted_kana_json = excluded.accepted_kana_json,
                 source_pack_id = excluded.source_pack_id,
                 quality = excluded.quality,
-                updated_at = excluded.updated_at",
+                updated_at = excluded.updated_at,
+                extras_json = excluded.extras_json",
             params![
                 item.id,
                 item.item_type,
@@ -278,6 +461,7 @@ pub fn seed_test_pack(db: State<'_, AppDb>) -> AppResult<SeedTestPackResult> {
                 pack.id,
                 now,
                 now,
+                item.extras_json,
             ],
         )?;
         items_upserted += 1;
@@ -344,12 +528,7 @@ pub fn seed_test_pack(db: State<'_, AppDb>) -> AppResult<SeedTestPackResult> {
         }
     }
 
-    tx.commit()?;
-
-    Ok(SeedTestPackResult {
-        pack_id: pack.id,
-        items_upserted,
-    })
+    Ok(items_upserted)
 }
 
 // ────────────────────────────────────────────────────────────────────────

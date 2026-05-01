@@ -8,6 +8,77 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.8.3] - 2026-05-02 — 持久化重构(RiverJump / SpaceBattle / AppleRescue 全部接入 SQLite)
+
+### Added
+
+- **Migration 005 (`migrations/005_extras.sql`)** — adds a nullable
+  `extras_json TEXT` column to `learning_items`. Sentence-typed rows now
+  carry their chunk structure / `acceptedOrders` / `zhPrompt` here as a
+  serialised blob, so RiverJump's content can ride on the existing
+  learning_items table without needing a sibling `sentence_items` schema.
+- **Migration runner upgrade** in `apps/desktop/src-tauri/src/db.rs`. The
+  loop now skips migrations whose name is already in `schema_migrations`
+  rather than re-executing them every boot. Required because
+  `ALTER TABLE ADD COLUMN` is not idempotent in SQLite, and 005 cannot be
+  written CREATE-IF-NOT-EXISTS-style. Existing CREATE-IF-NOT-EXISTS
+  migrations (001-004) are unaffected.
+- **`extras_json` projection** in the `list_items` Tauri command + the
+  `DevItemRow` struct. The TS DTO grew the matching `extrasJson: string |
+  null` field plus `type`, `errorTags`, `confusableItemIds`, and
+  `sourcePackId` so the client can drive selectors directly off SQLite
+  without an extra round-trip. Confusables are joined in a single
+  follow-up query rather than N+1 lookups.
+- **Multi-pack `seed_test_pack`** — the Tauri command now seeds all four
+  foundations packs in a single transaction (n5-basic-mini,
+  confusables-foundations, audio-discrim-foundations, sentences-foundations).
+  Sentence packs go through a translation pass that flattens each
+  SentenceItem into a `learning_items` row (type='sentence', surface=full
+  sentence, kana=concatenated chunks, romaji=concatenated romaji,
+  extras_json={chunks, acceptedOrders, zhPrompt}). Result shape grew to
+  include `packsUpserted: 4`.
+- **Shared row→domain conversions** in
+  `apps/desktop/src/features/db/rowConversions.ts`: `rowToLearningItem`,
+  `rowToSentenceItem` (reverses the seed translation, tolerant of malformed
+  extras_json), `buildProgressMap`, `progressKey`. Used by all three
+  v0.8.x game pages now.
+
+### Changed
+
+- **`RiverJumpPage`, `SpaceBattlePage`, `AppleRescuePage` are no longer
+  ephemeral.** All three now boot via `listItems` + `listProgress`, route
+  through `GameSessionService`, and persist `attempt_events` +
+  `item_skill_progress`. The cross-game scheduler / mistakes book / future
+  progress UIs all see these outcomes from this release on. Footer hint
+  updated from "attempt 暂未持久化" to "attempt 写入 SQLite".
+- Synchronized package, Tauri, Cargo, shell version metadata to `0.8.3`.
+
+### Removed
+
+- The build-time-bundled in-memory data loaders that v0.8.0–0.8.2 used as
+  the ephemeral stop-gap:
+  `apps/desktop/src/features/sentences/sentencesData.ts`,
+  `apps/desktop/src/features/confusables/confusablesData.ts`,
+  `apps/desktop/src/features/audio-discrim/audioDiscrimData.ts`. SQLite
+  is the only source of truth now; visiting `#/dev` and clicking "Seed
+  test pack" loads every foundations pack into the dev DB in one go.
+
+### Notes / known gaps
+
+- **Existing DB migration**: a v0.8.2-or-earlier dev database has 001–004
+  applied but not 005. On first launch under v0.8.3 the runner runs 005
+  exactly once (ALTER TABLE ADD COLUMN succeeds because the column does
+  not yet exist), records it in `schema_migrations`, and subsequent
+  launches skip. If a developer hand-edited the dev DB to add the column
+  manually, 005 will fail on first launch — drop the column or wipe
+  `local-data/kana_typing.sqlite` and re-seed.
+- The `*-foundations.json` files still live under `content/official/`
+  (they are the source of truth for `seed_test_pack` via `include_str!`),
+  but they're no longer parsed at runtime by the desktop app.
+- `content-cli` does not yet handle SentencePack imports — only
+  LearningItem packs. Custom sentence-pack import lands in v0.8.x once the
+  CLI grows a sentence translation step parallel to the Rust seed.
+
 ## [0.8.2] - 2026-05-02 — 拯救苹果 + 听辨 minimal-pair + TTS 管线
 
 ### Added

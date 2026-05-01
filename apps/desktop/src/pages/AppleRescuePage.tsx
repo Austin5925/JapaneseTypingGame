@@ -1,8 +1,7 @@
 import {
-  evaluate,
   selectChoiceTasks,
-  type EvaluationResult,
   type EvaluationStrictness,
+  type LearningItem,
   type SelectedChoiceTaskQueue,
   type TrainingTask,
   type UserAttempt,
@@ -10,16 +9,11 @@ import {
 import type { GameBridgeAdapter } from '@kana-typing/game-runtime';
 import { useEffect, useMemo, useRef, useState, type JSX } from 'react';
 
-import {
-  getAudioDiscrimPackInfo,
-  loadAudioDiscrimItems,
-} from '../features/audio-discrim/audioDiscrimData';
+import { buildProgressMap, rowToLearningItem } from '../features/db/rowConversions';
 import { GameCanvasHost } from '../features/game/GameCanvasHost';
 import { GameHud } from '../features/game/GameHud';
-
-// AppleRescue session is ephemeral (same trade-off as RiverJump v0.8.0 / SpaceBattle v0.8.1):
-// the audio-discrim pack is bundled at build time, attempts run through evaluate() in memory,
-// no SQLite. v0.8.x will fold this pack into the dev seed.
+import { GameSessionService } from '../features/session/GameSessionService';
+import { listItems, listProgress } from '../tauri/invoke';
 
 const STRICT_POLICY: EvaluationStrictness = {
   longVowel: 'strict',
@@ -31,76 +25,120 @@ const STRICT_POLICY: EvaluationStrictness = {
   particleReading: 'surface',
 };
 
-const SESSION_DURATION_MS = 180_000; // 3 minutes
+const SESSION_DURATION_MS = 180_000;
 const TASK_TIME_LIMIT_MS = 8000;
 const TASK_COUNT = 12;
-// Each minimal-pair item only declares 1 confusable peer, so the selector falls back to the
-// global pool for the second distractor. We keep distractorCount=1 to make the listening
-// task a binary choice between the true minimal pair — that's the strongest training signal.
+// Each minimal-pair item declares 1 confusable peer. distractorCount=1 keeps the listening
+// task a binary minimal-pair choice — strongest training signal for long/sokuon/dakuten.
 const DISTRACTOR_COUNT = 1;
 
 interface SessionStats {
   attempts: number;
   correct: number;
   remainingMs: number;
-  recent: EvaluationResult[];
 }
 
+/**
+ * v0.8.3 AppleRescue page — SQLite-driven boot.
+ *
+ * Loads audio-discrim-tagged minimal pairs from listItems, runs selectChoiceTasks with
+ * promptKind='audio' weighted by listProgress, persists attempts through GameSessionService.
+ * The audio cue (kana via SpeechSynthesis) still lives inside AppleRescueScene; nothing on
+ * the React side changes for v0.8.3 except the boot path.
+ */
 export function AppleRescuePage(): JSX.Element {
-  const sessionId = useMemo(() => generateEphemeralId(), []);
-  const startedAtRef = useRef<number>(Date.now());
-  const queueRef = useRef<SelectedChoiceTaskQueue | null>(null);
-  const currentTaskRef = useRef<TrainingTask | null>(null);
+  const session = useMemo(() => new GameSessionService({ bufferAttempts: false }), []);
+  const sessionRef = useRef<GameSessionService | null>(null);
+  sessionRef.current = session;
+
+  const [sessionId, setSessionId] = useState<string | null>(null);
   const [bootError, setBootError] = useState<string | null>(null);
   const [stats, setStats] = useState<SessionStats>({
     attempts: 0,
     correct: 0,
     remainingMs: SESSION_DURATION_MS,
-    recent: [],
   });
 
-  useEffect(() => {
-    try {
-      const items = loadAudioDiscrimItems();
-      const queue = selectChoiceTasks({
-        items,
-        count: TASK_COUNT,
-        sessionId,
-        gameType: 'apple_rescue',
-        skillDimension: 'listening_discrimination',
-        strictness: STRICT_POLICY,
-        distractorCount: DISTRACTOR_COUNT,
-        timeLimitMs: TASK_TIME_LIMIT_MS,
-        promptKind: 'audio',
-        preferTags: ['audio-discrim'],
-      });
-      if (queue.remaining() === 0) {
-        setBootError('No audio-discrim items available — pack failed to load.');
-        return;
-      }
-      queueRef.current = queue;
-      startedAtRef.current = Date.now();
-    } catch (err) {
-      setBootError((err as Error).message);
-    }
-  }, [sessionId]);
+  const queueRef = useRef<SelectedChoiceTaskQueue | null>(null);
+  const currentTaskRef = useRef<TrainingTask | null>(null);
+  const startedAtRef = useRef<number>(Date.now());
 
   useEffect(() => {
-    if (bootError) return;
+    void (async (): Promise<void> => {
+      try {
+        const [rows, progressDtos] = await Promise.all([
+          listItems({ limit: 1000 }),
+          listProgress({ userId: 'default-user', limit: 5000 }),
+        ]);
+        const audioDiscrim = rows.filter(
+          (r) => r.type === 'word' && r.tags.includes('audio-discrim'),
+        );
+        if (audioDiscrim.length < DISTRACTOR_COUNT + 1) {
+          setBootError(
+            'No audio-discrim items in DB. Visit #/dev to seed the foundations packs first.',
+          );
+          return;
+        }
+        const created = await session.create({
+          gameType: 'apple_rescue',
+          targetDurationMs: SESSION_DURATION_MS,
+        });
+        setSessionId(created.id);
+        const items: LearningItem[] = audioDiscrim.map(rowToLearningItem);
+        const progressMap = buildProgressMap(progressDtos);
+        const queue = selectChoiceTasks({
+          items,
+          progress: progressMap,
+          count: TASK_COUNT,
+          sessionId: created.id,
+          gameType: 'apple_rescue',
+          skillDimension: 'listening_discrimination',
+          strictness: STRICT_POLICY,
+          distractorCount: DISTRACTOR_COUNT,
+          timeLimitMs: TASK_TIME_LIMIT_MS,
+          promptKind: 'audio',
+          preferTags: ['audio-discrim'],
+        });
+        if (queue.remaining() === 0) {
+          setBootError('Audio-discrim pack present but no eligible items.');
+          return;
+        }
+        queueRef.current = queue;
+        startedAtRef.current = Date.now();
+      } catch (err) {
+        setBootError((err as Error).message);
+      }
+    })();
+    return () => {
+      void session.finish('aborted').catch((err: unknown) => {
+        console.warn('AppleRescue cleanup: finish failed', err);
+      });
+    };
+  }, [session]);
+
+  useEffect(() => {
+    if (!sessionId) return;
     const handle = globalThis.setInterval(() => {
       const remaining = Math.max(0, SESSION_DURATION_MS - (Date.now() - startedAtRef.current));
       setStats((s) => ({ ...s, remainingMs: remaining }));
       if (remaining <= 0) {
         globalThis.clearInterval(handle);
-        navigateHome();
+        void (async (): Promise<void> => {
+          try {
+            await sessionRef.current?.finish('finished');
+          } catch (err) {
+            console.warn('AppleRescue timer: finish failed', err);
+          }
+          navigateToResult(sessionId);
+        })();
       }
     }, 250);
     return () => globalThis.clearInterval(handle);
-  }, [bootError]);
+  }, [sessionId]);
 
   const adapter = useMemo<GameBridgeAdapter>(
     () => ({
-      requestNextTask(): Promise<TrainingTask | null> {
+      requestNextTask: () => {
         if (Date.now() - startedAtRef.current >= SESSION_DURATION_MS) {
           currentTaskRef.current = null;
           return Promise.resolve(null);
@@ -109,33 +147,34 @@ export function AppleRescuePage(): JSX.Element {
         currentTaskRef.current = next;
         return Promise.resolve(next);
       },
-      submitAttempt(attempt: UserAttempt): Promise<EvaluationResult> {
+      submitAttempt: async (attempt: UserAttempt) => {
         const task = currentTaskRef.current;
         if (!task || task.id !== attempt.taskId) {
-          return Promise.reject(
-            new Error(
-              `task identity mismatch — adapter has ${task?.id ?? 'null'}, attempt is for ${attempt.taskId}`,
-            ),
+          throw new Error(
+            `task identity mismatch — adapter has ${task?.id ?? 'null'}, attempt is for ${attempt.taskId}`,
           );
         }
-        const result = evaluate(task, attempt);
+        const result = await sessionRef.current!.submitAttempt(task, attempt);
         setStats((s) => ({
+          ...s,
           attempts: s.attempts + 1,
           correct: s.correct + (result.isCorrect ? 1 : 0),
-          remainingMs: s.remainingMs,
-          recent: [result, ...s.recent].slice(0, 6),
         }));
         if (result.shouldRepeatImmediately) {
           queueRef.current?.pushFront(task);
         }
-        return Promise.resolve(result);
+        return result;
       },
-      finishSession(): Promise<void> {
-        navigateHome();
-        return Promise.resolve();
+      finishSession: async (): Promise<void> => {
+        try {
+          await sessionRef.current?.finish('finished');
+        } catch (err) {
+          console.warn('AppleRescue adapter: finish failed', err);
+        }
+        navigateToResult(sessionId);
       },
     }),
-    [],
+    [sessionId],
   );
 
   if (bootError) {
@@ -155,7 +194,7 @@ export function AppleRescuePage(): JSX.Element {
     );
   }
 
-  if (!queueRef.current) {
+  if (!sessionId || !queueRef.current) {
     return (
       <div style={{ padding: 10, height: '100%' }}>
         <div className="r-group">
@@ -165,8 +204,6 @@ export function AppleRescuePage(): JSX.Element {
       </div>
     );
   }
-
-  const packInfo = getAudioDiscrimPackInfo();
 
   return (
     <div
@@ -188,9 +225,7 @@ export function AppleRescuePage(): JSX.Element {
           minHeight: 0,
         }}
       >
-        <div className="title">
-          ▌ 拯救苹果 — {packInfo.name} v{packInfo.version} · {TASK_COUNT} 题
-        </div>
+        <div className="title">▌ 拯救苹果 — {TASK_COUNT} 题</div>
 
         <GameHud
           remainingMs={stats.remainingMs}
@@ -215,7 +250,7 @@ export function AppleRescuePage(): JSX.Element {
             adapter={adapter}
             width={800}
             height={480}
-            onSessionFinished={navigateHome}
+            onSessionFinished={() => navigateToResult(sessionId)}
           />
         </div>
 
@@ -228,22 +263,17 @@ export function AppleRescuePage(): JSX.Element {
             letterSpacing: '0.04em',
           }}
         >
-          ←/→ 移动篮子 · R 重听 · S 慢速 · 接对苹果 = 通过 · TTS 走 SpeechSynthesis [v0.8.2]
+          ←/→ 移动篮子 · R 重听 · S 慢速 · attempt 写入 SQLite [v0.8.3]
         </div>
       </div>
     </div>
   );
 }
 
-function navigateHome(): void {
-  if (globalThis.location.hash !== '#/') {
-    globalThis.location.hash = '#/';
+function navigateToResult(sessionId: string | null): void {
+  if (!sessionId) return;
+  const target = `#/result/${sessionId}`;
+  if (globalThis.location.hash !== target) {
+    globalThis.location.hash = target;
   }
-}
-
-function generateEphemeralId(): string {
-  const uuid =
-    globalThis.crypto?.randomUUID?.() ??
-    `${Date.now().toString()}-${Math.random().toString(16).slice(2)}`;
-  return `ephemeral-apple-rescue-${uuid}`;
 }

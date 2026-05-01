@@ -1694,7 +1694,7 @@ dependencies = [
 
 [[package]]
 name = "kana-typing-desktop"
-version = "0.8.2"
+version = "0.8.3"
 dependencies = [
  "chrono",
  "rusqlite",

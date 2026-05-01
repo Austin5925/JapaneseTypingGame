@@ -1,8 +1,7 @@
 import {
-  evaluate,
   selectChoiceTasks,
-  type EvaluationResult,
   type EvaluationStrictness,
+  type LearningItem,
   type SelectedChoiceTaskQueue,
   type TrainingTask,
   type UserAttempt,
@@ -10,17 +9,11 @@ import {
 import type { GameBridgeAdapter } from '@kana-typing/game-runtime';
 import { useEffect, useMemo, useRef, useState, type JSX } from 'react';
 
-import {
-  getConfusablesPackInfo,
-  loadConfusableItems,
-} from '../features/confusables/confusablesData';
+import { buildProgressMap, rowToLearningItem } from '../features/db/rowConversions';
 import { GameCanvasHost } from '../features/game/GameCanvasHost';
 import { GameHud } from '../features/game/GameHud';
-
-// SpaceBattle session is ephemeral (same trade-off as RiverJump v0.8.0): the confusables
-// pack is bundled at build time and the boot path goes straight from JSON to selector to
-// scene without touching SQLite. v0.8.x will fold confusables into the dev seed and switch
-// to listItems-driven boot so attempts persist.
+import { GameSessionService } from '../features/session/GameSessionService';
+import { listItems, listProgress } from '../tauri/invoke';
 
 const STRICT_POLICY: EvaluationStrictness = {
   longVowel: 'strict',
@@ -32,72 +25,116 @@ const STRICT_POLICY: EvaluationStrictness = {
   particleReading: 'surface',
 };
 
-const SESSION_DURATION_MS = 180_000; // 3 minutes
+const SESSION_DURATION_MS = 180_000;
 const TASK_TIME_LIMIT_MS = 8000;
 const TASK_COUNT = 16;
-const DISTRACTOR_COUNT = 3; // 1 correct + 3 wrong = 4 ships per task
+const DISTRACTOR_COUNT = 3;
 
 interface SessionStats {
   attempts: number;
   correct: number;
   remainingMs: number;
-  recent: EvaluationResult[];
 }
 
+/**
+ * v0.8.3 SpaceBattle page — SQLite-driven boot.
+ *
+ * Pulls every confusable-tagged item from `listItems`, runs `selectChoiceTasks` weighted by
+ * `listProgress`, persists attempts through `GameSessionService`. Bypasses the in-memory pack
+ * loader that v0.8.1 used; the same path now lights up `attempt_events` + `item_skill_progress`
+ * so the scheduler / mistakes book / cross-game effects all see SpaceBattle outcomes.
+ */
 export function SpaceBattlePage(): JSX.Element {
-  const sessionId = useMemo(() => generateEphemeralId(), []);
-  const startedAtRef = useRef<number>(Date.now());
-  const queueRef = useRef<SelectedChoiceTaskQueue | null>(null);
-  const currentTaskRef = useRef<TrainingTask | null>(null);
+  const session = useMemo(() => new GameSessionService({ bufferAttempts: false }), []);
+  const sessionRef = useRef<GameSessionService | null>(null);
+  sessionRef.current = session;
+
+  const [sessionId, setSessionId] = useState<string | null>(null);
   const [bootError, setBootError] = useState<string | null>(null);
   const [stats, setStats] = useState<SessionStats>({
     attempts: 0,
     correct: 0,
     remainingMs: SESSION_DURATION_MS,
-    recent: [],
   });
 
-  useEffect(() => {
-    try {
-      const items = loadConfusableItems();
-      const queue = selectChoiceTasks({
-        items,
-        count: TASK_COUNT,
-        sessionId,
-        gameType: 'space_battle',
-        skillDimension: 'meaning_recall',
-        strictness: STRICT_POLICY,
-        distractorCount: DISTRACTOR_COUNT,
-        timeLimitMs: TASK_TIME_LIMIT_MS,
-        preferTags: ['confusable'],
-      });
-      if (queue.remaining() === 0) {
-        setBootError('No confusable items available — pack failed to load.');
-        return;
-      }
-      queueRef.current = queue;
-      startedAtRef.current = Date.now();
-    } catch (err) {
-      setBootError((err as Error).message);
-    }
-  }, [sessionId]);
+  const queueRef = useRef<SelectedChoiceTaskQueue | null>(null);
+  const currentTaskRef = useRef<TrainingTask | null>(null);
+  const startedAtRef = useRef<number>(Date.now());
 
   useEffect(() => {
-    if (bootError) return;
+    void (async (): Promise<void> => {
+      try {
+        const [rows, progressDtos] = await Promise.all([
+          listItems({ limit: 1000 }),
+          listProgress({ userId: 'default-user', limit: 5000 }),
+        ]);
+        const confusables = rows.filter((r) => r.type === 'word' && r.tags.includes('confusable'));
+        if (confusables.length < DISTRACTOR_COUNT + 1) {
+          setBootError(
+            'No confusable items in DB. Visit #/dev to seed the foundations packs first.',
+          );
+          return;
+        }
+        const created = await session.create({
+          gameType: 'space_battle',
+          targetDurationMs: SESSION_DURATION_MS,
+        });
+        setSessionId(created.id);
+        const items: LearningItem[] = confusables.map(rowToLearningItem);
+        const progressMap = buildProgressMap(progressDtos);
+        const queue = selectChoiceTasks({
+          items,
+          progress: progressMap,
+          count: TASK_COUNT,
+          sessionId: created.id,
+          gameType: 'space_battle',
+          skillDimension: 'meaning_recall',
+          strictness: STRICT_POLICY,
+          distractorCount: DISTRACTOR_COUNT,
+          timeLimitMs: TASK_TIME_LIMIT_MS,
+          preferTags: ['confusable'],
+        });
+        if (queue.remaining() === 0) {
+          setBootError('Confusables pack present but no eligible items found for option_select.');
+          return;
+        }
+        queueRef.current = queue;
+        startedAtRef.current = Date.now();
+      } catch (err) {
+        setBootError((err as Error).message);
+      }
+    })();
+    return () => {
+      void session.finish('aborted').catch((err: unknown) => {
+        console.warn('SpaceBattle cleanup: finish failed', err);
+      });
+    };
+  }, [session]);
+
+  // Wall-clock countdown — same shape as GamePage / RiverJump.
+  useEffect(() => {
+    if (!sessionId) return;
     const handle = globalThis.setInterval(() => {
       const remaining = Math.max(0, SESSION_DURATION_MS - (Date.now() - startedAtRef.current));
       setStats((s) => ({ ...s, remainingMs: remaining }));
       if (remaining <= 0) {
         globalThis.clearInterval(handle);
-        navigateHome();
+        void (async (): Promise<void> => {
+          try {
+            await sessionRef.current?.finish('finished');
+          } catch (err) {
+            console.warn('SpaceBattle timer: finish failed', err);
+          }
+          navigateToResult(sessionId);
+        })();
       }
     }, 250);
     return () => globalThis.clearInterval(handle);
-  }, [bootError]);
+  }, [sessionId]);
 
   const adapter = useMemo<GameBridgeAdapter>(
     () => ({
-      requestNextTask(): Promise<TrainingTask | null> {
+      requestNextTask: () => {
         if (Date.now() - startedAtRef.current >= SESSION_DURATION_MS) {
           currentTaskRef.current = null;
           return Promise.resolve(null);
@@ -106,33 +143,34 @@ export function SpaceBattlePage(): JSX.Element {
         currentTaskRef.current = next;
         return Promise.resolve(next);
       },
-      submitAttempt(attempt: UserAttempt): Promise<EvaluationResult> {
+      submitAttempt: async (attempt: UserAttempt) => {
         const task = currentTaskRef.current;
         if (!task || task.id !== attempt.taskId) {
-          return Promise.reject(
-            new Error(
-              `task identity mismatch — adapter has ${task?.id ?? 'null'}, attempt is for ${attempt.taskId}`,
-            ),
+          throw new Error(
+            `task identity mismatch — adapter has ${task?.id ?? 'null'}, attempt is for ${attempt.taskId}`,
           );
         }
-        const result = evaluate(task, attempt);
+        const result = await sessionRef.current!.submitAttempt(task, attempt);
         setStats((s) => ({
+          ...s,
           attempts: s.attempts + 1,
           correct: s.correct + (result.isCorrect ? 1 : 0),
-          remainingMs: s.remainingMs,
-          recent: [result, ...s.recent].slice(0, 6),
         }));
         if (result.shouldRepeatImmediately) {
           queueRef.current?.pushFront(task);
         }
-        return Promise.resolve(result);
+        return result;
       },
-      finishSession(): Promise<void> {
-        navigateHome();
-        return Promise.resolve();
+      finishSession: async (): Promise<void> => {
+        try {
+          await sessionRef.current?.finish('finished');
+        } catch (err) {
+          console.warn('SpaceBattle adapter: finish failed', err);
+        }
+        navigateToResult(sessionId);
       },
     }),
-    [],
+    [sessionId],
   );
 
   if (bootError) {
@@ -152,7 +190,7 @@ export function SpaceBattlePage(): JSX.Element {
     );
   }
 
-  if (!queueRef.current) {
+  if (!sessionId || !queueRef.current) {
     return (
       <div style={{ padding: 10, height: '100%' }}>
         <div className="r-group">
@@ -162,8 +200,6 @@ export function SpaceBattlePage(): JSX.Element {
       </div>
     );
   }
-
-  const packInfo = getConfusablesPackInfo();
 
   return (
     <div
@@ -185,9 +221,7 @@ export function SpaceBattlePage(): JSX.Element {
           minHeight: 0,
         }}
       >
-        <div className="title">
-          ▌ 太空大战 — {packInfo.name} v{packInfo.version} · {TASK_COUNT} 题
-        </div>
+        <div className="title">▌ 太空大战 — {TASK_COUNT} 题</div>
 
         <GameHud
           remainingMs={stats.remainingMs}
@@ -212,7 +246,7 @@ export function SpaceBattlePage(): JSX.Element {
             adapter={adapter}
             width={800}
             height={480}
-            onSessionFinished={navigateHome}
+            onSessionFinished={() => navigateToResult(sessionId)}
           />
         </div>
 
@@ -225,22 +259,17 @@ export function SpaceBattlePage(): JSX.Element {
             letterSpacing: '0.04em',
           }}
         >
-          数字键 1-4 锁定目标 · 击中正确者 = 通过 · 本模式 attempt 暂未持久化 [v0.8.1]
+          数字键 1-4 锁定目标 · 击中正确者 = 通过 · attempt 写入 SQLite [v0.8.3]
         </div>
       </div>
     </div>
   );
 }
 
-function navigateHome(): void {
-  if (globalThis.location.hash !== '#/') {
-    globalThis.location.hash = '#/';
+function navigateToResult(sessionId: string | null): void {
+  if (!sessionId) return;
+  const target = `#/result/${sessionId}`;
+  if (globalThis.location.hash !== target) {
+    globalThis.location.hash = target;
   }
-}
-
-function generateEphemeralId(): string {
-  const uuid =
-    globalThis.crypto?.randomUUID?.() ??
-    `${Date.now().toString()}-${Math.random().toString(16).slice(2)}`;
-  return `ephemeral-space-battle-${uuid}`;
 }
