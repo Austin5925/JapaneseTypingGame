@@ -44,6 +44,7 @@ const SKILL_BY_MODE: Record<AnswerMode, SkillDimension> = {
   ime_surface: 'ime_conversion',
   audio_to_surface: 'listening_discrimination',
   sentence_chunk_order: 'sentence_order',
+  option_select: 'meaning_recall',
 };
 
 export function EvaluatorDevPage(): JSX.Element {

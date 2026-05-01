@@ -174,6 +174,59 @@ export const evaluateAudioToSurface: ModeEvaluator = (task, attempt) => {
 };
 
 /**
+ * Option-select evaluator (space-battle scene, v0.8.1).
+ *
+ * The user picked one of `task.options[]`; the attempt carries the chosen option id in
+ * `attempt.selectedOptionId`. Correctness is exact-id match against `task.expected.optionId`.
+ * On a wrong pick we surface the chosen option's `errorTagIfChosen` so the scheduler / cross-
+ * game effects know whether it was a same-sound / near-shape / meaning confusion (the option
+ * authoring is what classifies the mistake, not the evaluator).
+ *
+ * Edge cases:
+ *   - selectedOptionId absent (timeout / abort) → ['timeout']
+ *   - selectedOptionId not present in task.options[] → ['misclick'] (data integrity)
+ */
+export const evaluateOptionSelect: ModeEvaluator = (task, attempt) => {
+  const expectedId = task.expected.optionId ?? '';
+  const expectedOption = task.options?.find((o) => o.id === expectedId);
+  const expectedDisplay = expectedOption?.label ?? expectedId;
+
+  const selectedId = attempt.selectedOptionId;
+  if (!selectedId) {
+    return {
+      isCorrect: false,
+      errorTags: ['timeout'],
+      expectedDisplay,
+      actualDisplay: '∅',
+    };
+  }
+  const selectedOption = task.options?.find((o) => o.id === selectedId);
+  if (!selectedOption) {
+    return {
+      isCorrect: false,
+      errorTags: ['misclick'],
+      expectedDisplay,
+      actualDisplay: selectedId,
+    };
+  }
+  if (selectedId === expectedId) {
+    return {
+      isCorrect: true,
+      errorTags: [],
+      expectedDisplay,
+      actualDisplay: selectedOption.label,
+    };
+  }
+  const tag: ErrorTag = selectedOption.errorTagIfChosen ?? 'meaning_confusion';
+  return {
+    isCorrect: false,
+    errorTags: [tag],
+    expectedDisplay,
+    actualDisplay: selectedOption.label,
+  };
+};
+
+/**
  * Sentence-order evaluator (river-jump scene, v0.8.0).
  *
  * Inputs:
@@ -336,6 +389,7 @@ const EVALUATORS: Record<TrainingTask['answerMode'], ModeEvaluator> = {
   ime_surface: evaluateImeSurface,
   audio_to_surface: evaluateAudioToSurface,
   sentence_chunk_order: evaluateSentenceChunkOrder,
+  option_select: evaluateOptionSelect,
 };
 
 // ─────────────────────────────────────────────────────────────────────

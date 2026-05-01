@@ -14,6 +14,7 @@ import { MistakesPage } from './pages/MistakesPage';
 import { ResultPage } from './pages/ResultPage';
 import { RiverJumpPage } from './pages/RiverJumpPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { SpaceBattlePage } from './pages/SpaceBattlePage';
 import { TodayTrainingPage } from './pages/TodayTrainingPage';
 
 // Hash-based routing — Sprint 5 keeps it dependency-free; v0.7+ may swap in a real router
@@ -32,6 +33,7 @@ type Route =
   | { kind: 'game-mole'; overrides?: GameRouteOverrides }
   | { kind: 'game-speed-chase'; overrides?: GameRouteOverrides }
   | { kind: 'game-river-jump' }
+  | { kind: 'game-space-battle' }
   | { kind: 'result'; sessionId: string };
 
 function getRoute(): Route {
@@ -52,6 +54,7 @@ function getRoute(): Route {
     return { kind: 'game-speed-chase', ...withOverrides(hash) };
   }
   if (hash === '#/game/river-jump') return { kind: 'game-river-jump' };
+  if (hash === '#/game/space-battle') return { kind: 'game-space-battle' };
   const resultMatch = hash.match(/^#\/result\/(.+)$/u);
   if (resultMatch) return { kind: 'result', sessionId: resultMatch[1]! };
   return { kind: 'home' };
@@ -144,6 +147,8 @@ function renderRouteContent(route: Route): JSX.Element {
       );
     case 'game-river-jump':
       return <RiverJumpPage />;
+    case 'game-space-battle':
+      return <SpaceBattlePage />;
     case 'result':
       return <ResultPage sessionId={route.sessionId} />;
   }
@@ -179,6 +184,8 @@ function titleForRoute(route: Route): string {
       return 'C:\\KANA\\CHASE.EXE';
     case 'game-river-jump':
       return 'C:\\KANA\\RIVER.EXE';
+    case 'game-space-battle':
+      return 'C:\\KANA\\SPACE.EXE';
     case 'result':
       return 'C:\\KANA\\RESULT.LOG';
   }

@@ -102,6 +102,7 @@ export type AnswerMode =
   | 'meaning_to_surface'
   | 'audio_to_surface'
   | 'sentence_chunk_order'
+  | 'option_select'
   | 'ime_surface';
 
 export type MasteryState =

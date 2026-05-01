@@ -247,6 +247,75 @@ describe('evaluate — sentence_chunk_order', () => {
   });
 });
 
+describe('evaluate — option_select', () => {
+  // 橋 / 箸 / 端 — three same-sound options.
+  const choiceTask = (overrides: Partial<TrainingTask> = {}): TrainingTask =>
+    task({
+      answerMode: 'option_select',
+      skillDimension: 'meaning_recall',
+      gameType: 'space_battle',
+      expected: { optionId: 'opt-bridge' },
+      options: [
+        { id: 'opt-bridge', label: '橋', kana: 'はし', isCorrect: true },
+        {
+          id: 'opt-chopsticks',
+          label: '箸',
+          kana: 'はし',
+          isCorrect: false,
+          errorTagIfChosen: 'same_sound_confusion',
+        },
+        {
+          id: 'opt-edge',
+          label: '端',
+          kana: 'はし',
+          isCorrect: false,
+          errorTagIfChosen: 'same_sound_confusion',
+        },
+      ],
+      ...overrides,
+    });
+
+  it('correct pick → isCorrect, no errorTags', () => {
+    const r = evaluate(choiceTask(), attempt({ selectedOptionId: 'opt-bridge' }));
+    expect(r.isCorrect).toBe(true);
+    expect(r.errorTags).toEqual([]);
+    expect(r.expectedDisplay).toBe('橋');
+    expect(r.actualDisplay).toBe('橋');
+  });
+
+  it('wrong pick → option.errorTagIfChosen surfaces', () => {
+    const r = evaluate(choiceTask(), attempt({ selectedOptionId: 'opt-chopsticks' }));
+    expect(r.isCorrect).toBe(false);
+    expect(r.errorTags).toEqual(['same_sound_confusion']);
+    expect(r.actualDisplay).toBe('箸');
+  });
+
+  it('wrong pick without errorTagIfChosen falls back to meaning_confusion', () => {
+    const t = choiceTask();
+    t.options = t.options!.map((o) =>
+      o.id === 'opt-chopsticks'
+        ? ({ id: o.id, label: o.label, kana: o.kana, isCorrect: false } as typeof o)
+        : o,
+    );
+    const r = evaluate(t, attempt({ selectedOptionId: 'opt-chopsticks' }));
+    expect(r.isCorrect).toBe(false);
+    expect(r.errorTags).toEqual(['meaning_confusion']);
+  });
+
+  it('absent selectedOptionId (timeout) → timeout tag', () => {
+    const r = evaluate(choiceTask(), attempt({}));
+    expect(r.isCorrect).toBe(false);
+    expect(r.errorTags).toEqual(['timeout']);
+    expect(r.actualDisplay).toBe('∅');
+  });
+
+  it('selectedOptionId not in task.options → misclick', () => {
+    const r = evaluate(choiceTask(), attempt({ selectedOptionId: 'opt-rogue' }));
+    expect(r.isCorrect).toBe(false);
+    expect(r.errorTags).toEqual(['misclick']);
+  });
+});
+
 describe('evaluate — crossGameEffects routing', () => {
   it('long_vowel_error routes to apple_rescue (listening) and mole_story (typing)', () => {
     const r = evaluate(task({ expected: { kana: 'ビール' } }), attempt({ committedInput: 'ビル' }));

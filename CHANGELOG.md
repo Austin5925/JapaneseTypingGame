@@ -8,6 +8,65 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.8.1] - 2026-05-02 — 太空大战 + 同音/近形/中文误导词辨析
+
+### Added
+
+- **SpaceBattle training scene (`#/game/space-battle`)** — the second new
+  game type in the v0.8.x series. Each task is one ChoiceTrainingTask: 3-4
+  enemy frigates spawn at the top of the screen, each labelled with a
+  distractor word, and the user fires with number keys (1-4). Correct hit
+  → green explosion + advance. Wrong hit → red flash + screen shake +
+  the option's `errorTagIfChosen` surfaces. Timeout (8s) → ships
+  "escape" and submit a `['timeout']` attempt.
+- **`option_select` AnswerMode + `evaluateOptionSelect`** evaluator in
+  `@kana-typing/core`. Compares `attempt.selectedOptionId` vs
+  `task.expected.optionId` directly; on a wrong pick, surfaces the chosen
+  option's `errorTagIfChosen` (defaults to `meaning_confusion`) so the
+  scheduler / cross-game effects classify the mistake. Edge cases:
+  absent selection → `['timeout']`; option id not in task.options →
+  `['misclick']`.
+- **`selectChoiceTasks`** selector (`@kana-typing/core/planning`).
+  Distractor strategy: pull from the correct item's `confusableItemIds`
+  first (this is what makes the task an actual *辨析*, not a random
+  multi-choice), top up from the global pool with mild topical bias when
+  the explicit list is short. Items lacking enough viable distractors are
+  skipped at the eligibility step rather than producing degenerate tasks.
+- **`content/official/confusables-foundations.json`** — 40 confusable
+  words across four buckets: same-sound (はし/かみ/あめ/はな/くも),
+  near-shape kanji (入/人/八、王/玉、土/士、大/犬/太), near-meaning
+  verbs (見る/観る、聞く/効く、会う/合う、早い/速い), and zh-misleading
+  vocabulary (手紙/大丈夫/勉強/床/切手/怪我/邪魔/娘/新聞/留守). Each item
+  declares `confusableItemIds` referencing its bucket peers so SpaceBattle
+  pulls authentic distractors. Marked `quality: draft` (description
+  field) — needs a native-speaker pass before promotion.
+- **`rocket` PixIcon** (16×16 cyan rocket + flame trail) and a "太空大战"
+  entry in the RetroShell training nav at `#/game/space-battle`.
+
+### Changed
+
+- Synchronized package, Tauri, Cargo, shell version metadata to `0.8.1`.
+- `EvaluatorDevPage` now maps `option_select` → `meaning_recall` so the
+  exhaustiveness check on `Record<AnswerMode, SkillDimension>` stays
+  green when ChoiceTask shows up in a debug session.
+
+### Notes / known gaps
+
+- **SpaceBattle training is ephemeral in v0.8.1** — same trade-off as
+  RiverJump v0.8.0. The confusables pack is bundled at build time and the
+  boot path goes JSON → selector → scene without touching SQLite, so
+  `attempt_events` and `item_skill_progress` are not written. v0.8.x will
+  fold the pack into the dev seed (`seed_test_pack`) and switch
+  SpaceBattle to listItems-driven boot like Mole/SpeedChase, at which
+  point attempts persist normally.
+- Distractor count is fixed at 3 (4 ships per task). Audio cues, combo
+  visuals, mini-boss long-prompt encounters, and animated explosion
+  sprites all sit on the v0.8.3 polish pass per handoff §6.
+- The 40-word pack is a draft. Some near-shape kanji entries
+  (大/犬/太, 太=ふと alone is uncommon as a standalone word) trade
+  vocabulary purity for visual training value; treat this set as a
+  format-soak rather than a polished curriculum.
+
 ## [0.8.0] - 2026-05-01 — 激流勇进 + sentence-order pipeline
 
 ### Added

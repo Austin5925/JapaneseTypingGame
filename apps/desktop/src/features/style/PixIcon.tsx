@@ -24,6 +24,7 @@ export type PixIconName =
   | 'mole'
   | 'bolt'
   | 'river'
+  | 'rocket'
   | 'help'
   | 'target'
   | 'close';
@@ -336,6 +337,29 @@ export const PIX_GRIDS: Record<PixIconName, IconDef> = {
       '1100000000000000',
       '1000000000000000',
       '0000000000000000',
+    ],
+  },
+  rocket: {
+    // Upward-pointing rocket with a flame trail — sidebar glyph for 太空大战.
+    // Cyan body with a yellow flame so it reads against the phosphor sidebar.
+    color: CYAN,
+    grid: [
+      '0000000110000000',
+      '0000001111000000',
+      '0000011111100000',
+      '0000110110110000',
+      '0001100110011000',
+      '0001100110011000',
+      '0001100110011000',
+      '0001110110111000',
+      '0001110110111000',
+      '0001100000011000',
+      '0011000000001100',
+      '0010000110000100',
+      '0001100110011000',
+      '0000111111110000',
+      '0000011111100000',
+      '0000001111000000',
     ],
   },
   river: {

@@ -1,6 +1,6 @@
 {
   "name": "@kana-typing/content-cli",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": true,
   "description": "Validate and import content packs into a local SQLite (dev mode).",
   "type": "module",
