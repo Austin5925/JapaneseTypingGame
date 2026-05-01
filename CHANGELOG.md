@@ -8,6 +8,43 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.8.4] - 2026-05-02 — v0.8.x audit fixes + daily-route closure
+
+### Fixed
+
+- **RiverJump accepted alternate orders are playable now.** The scene no
+  longer hard-fails on the first non-canonical chunk when that chunk starts a
+  declared `acceptedChunkOrders` path. Order viability is handled by a pure
+  `riverJumpOrder` helper with tests, and canonical order remains preferred
+  when duplicate readings make several chunks match.
+- **Sentence chunk attempts must include every expected chunk input.**
+  `evaluateSentenceChunkOrder` now rejects missing, duplicate, or unknown
+  chunk entries instead of passing a damaged attempt on `chunkOrder` alone.
+- **RiverJump particle readings use natural pronunciation.** The page now
+  runs with `particleReading: 'pronunciation'`, so chunks like `私は`, `学校へ`,
+  and `お茶を` accept `watashiwa`, `gakkoue`, and `ochao` while still keeping
+  strict long-vowel / sokuon / dakuten checks.
+- **AppleRescue no longer leaks the spoken kana in the prompt when audio is
+  available.** The scene shows a neutral listening prompt during TTS playback
+  and only falls back to visible kana when no audio engine is available.
+- **Kana drills no longer ingest sentence rows after v0.8.3 SQLite seeding.**
+  `GamePage` uses the shared row-to-domain converter and `selectKanaTasks`
+  excludes `sentence` / `grammar_pattern` rows from kana-recognition drills.
+
+### Changed
+
+- **Today Training routes all shipped v0.8 games.** Long-vowel / sokuon /
+  dakuten / near-sound errors now generate `apple_rescue`, particle /
+  word-order weakness generates `river_jump`, and meaning / same-sound
+  confusion generates `space_battle` instead of falling back to Mole.
+- **Today links preserve block parameters for the new game pages.** Hash
+  routes with `durationMs` / `skillDimension` queries now parse for
+  RiverJump, SpaceBattle, and AppleRescue. RiverJump uses the supplied skill
+  dimension (`sentence_order` or `particle_usage`); all three pages scale task
+  count from the supplied duration.
+- Synchronized package, Tauri, Cargo, README, shell, and lockfile version
+  metadata to `0.8.4`.
+
 ## [0.8.3] - 2026-05-02 — 持久化重构(RiverJump / SpaceBattle / AppleRescue 全部接入 SQLite)
 
 ### Added

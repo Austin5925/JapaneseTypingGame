@@ -2,7 +2,7 @@
 
 A Japanese input reflex trainer built as a Tauri desktop app (React + Phaser + SQLite).
 
-> Status: pre-alpha (`v0.7.1`). Desktop MVP candidate is in active hardening.
+> Status: pre-alpha (`v0.8.4`). Desktop MVP candidate is in active hardening.
 
 ## Development
 
