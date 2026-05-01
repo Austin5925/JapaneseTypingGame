@@ -8,17 +8,105 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
-### Added (`@kana-typing/game-runtime`, `apps/desktop`)
+## [0.7.0] - 2026-05-01 — MVP candidate (retro shell · diagnostic · packs · 500 words · CI)
 
-- IME mode for SpeedChase: a new bidirectional `external` channel on `GameBridge`
-  (`emitExternalInput` / `onExternalInput`) lets the React layer push IME-finalised values
-  into a Phaser scene without the canvas needing to steal focus. SpeedChaseScene grew an
-  `inputSource: 'phaser_keys' | 'external'` init flag; the existing romaji pump is the
-  default. `<GameCanvasHost>` exposes an `externalInputRef` so the page can call
-  `current.commit(value)` straight into the active scene. `<GamePage>` mounts an
-  `<ImeInputBox>` below the canvas when `inputMode='ime_surface'` and tags submitted
-  attempts with `inputMethod: 'ime'`. URL routes accept `?inputMode=ime` (alias of
+### Added — visual identity & shell (P0-1, 9 commits)
+
+- Full design-token system imported from `devdocs/design-handoff/tokens.css`:
+  dark / light theme variables (dark default), 6-stop spacing, 4-stop radii,
+  motion easing, 9 error-tag colours. Legacy aliases (`--bg/--fg/--muted/--border/
+  --ok/--err`) kept as a compatibility layer for ImeInputBox / GameCanvasHost /
+  dev pages.
+- Inter / JetBrains Mono / VT323 / Press Start 2P / DotGothic16 bundled via
+  `@fontsource/*` (offline-friendly; CJK falls back through Hiragino → Yu Gothic
+  → Noto Sans CJK).
+- `apps/desktop/src/styles/retro.css` — 金山-style admin shell vocabulary
+  (`.r-app / .r-titlebar / .r-menubar / .r-toolbar / .r-sidebar / .r-statusbar /
+  .r-group / .r-list / .r-btn / .r-input / .r-progress / .r-crt`), Win9x bevel
+  + dithered + scanline + CRT vignette helpers.
+- `RetroShell` — five-row admin shell: titlebar (KANA-TYPE.EXE branding +
+  decorative window controls), menubar (5 cosmetic dropdowns), toolbar (PixIcon
+  action buttons), sidebar (3-group nav: 训练 / 学习 / 系统 with active highlight
+  derived from the route table), statusbar (version / dev links / locale / live
+  clock).
+- `errorTagPalette.ts` + `ErrorTagChip.tsx` + `PixIcon.tsx` — palette maps
+  every ErrorTag to a CSS variable, the chip renders ErrorTag with colour +
+  Chinese label, and PixIcon translates 17 16×16 pixel icons (home / today /
+  mistakes / library / settings / play / pause / save / chart / medal / trend /
+  user / mole / bolt / help / target / close) into inline SVG with overridable
+  fill colour.
+- All seven content pages re-skinned: HomePage / TodayTrainingPage /
+  MistakesPage / LibraryPage / SettingsPage / ResultPage / GamePage. GamePage
+  gains a `.r-crt` bezel + scanline wrapper around the Phaser canvas.
+
+### Added — content & onboarding
+
+- `content/official/daily-life-foundations-500.json` — 503-word hybrid content
+  pack across six stages (基础 100 / 家与日常 98 / 饮食 95 / 交通 88 / 购物 97 /
+  生活补充 25). Every item carries jlpt + skillTags + an example sentence; all
+  items tagged `draft` pending native-speaker review. Wanakana round-trip
+  validated end-to-end.
+- `#/diagnostic` — five-step onboarding mini quiz (基础假名 / 片假名 /
+  汉字读音 / 长音促音 / 日常 IME) that seeds initial SkillProgress rows so
+  `buildWeaknessVector` + `selectGameBlocks` have data on day one. HomePage
+  redirects new users to `/diagnostic` on first run; skipping sets a
+  `diagnosticSkipped` localStorage flag so the gate doesn't loop.
+- `#/settings/packs` — ContentPacksPage lists every imported content pack
+  (LEFT JOIN learning_items so item_count tracks live row counts) with its
+  quality / version / enabled state, exposes a per-pack enable toggle, and
+  points at `pnpm content:import` for new imports. In-app file-picker import
+  (Tauri dialog plugin + Zod boundary) deferred to v0.7.x.
+
+### Added — IME mode (P0-3)
+
+- Bidirectional `external` channel on `GameBridge` (`emitExternalInput` /
+  `onExternalInput`) lets the React layer push IME-finalised values into a
+  Phaser scene without the canvas stealing focus. SpeedChaseScene grew an
+  `inputSource: 'phaser_keys' | 'external'` init flag; the existing romaji pump
+  remains the default. `<GameCanvasHost>` exposes an `externalInputRef` so the
+  page can call `current.commit(value)` straight into the active scene.
+  `<GamePage>` mounts an `<ImeInputBox>` below the canvas when
+  `inputMode='ime_surface'` and tags submitted attempts with
+  `inputMethod: 'ime'`. URL routes accept `?inputMode=ime` (alias of
   `ime_surface`).
+
+### Added — CI & E2E (P0-5)
+
+- GitHub Actions workflow (`.github/workflows/ci.yml`) — frontend matrix on
+  ubuntu-latest + macos-latest (typecheck / lint / format:check / test /
+  build), Rust job on ubuntu-latest with apt-installed GTK + WebKit headers
+  (cargo fmt / clippy --all-targets -D warnings / test --lib).
+- Playwright web-preview smoke (`tests/e2e/`) — admin shell mounts, every
+  primary sidebar nav entry visible, every primary route mounts without
+  uncaught JS errors. Web preview only; real Tauri-mode E2E deferred to a
+  later sprint.
+
+### Fixed
+
+- Game finish path resilient to dual-trigger races: `GameSessionService.finish`
+  short-circuits on both `finished` AND `finishing` (concurrent calls were a
+  source of the SpeedChase-stuck bug). GamePage's wall-clock timer and the
+  bridge `finishSession` adapter wrap finish() in try/catch and run
+  `navigateToResult()` unconditionally afterwards. GamePage now subscribes to
+  `onSessionFinished` so the scene's natural completion (queue exhausted)
+  also triggers result navigation.
+- Canvas clipping: `.r-main` switched from `overflow: hidden` to
+  `overflow: auto`; `.r-crt` declares `minWidth: 808` + `flexShrink: 0`. On
+  narrow viewports the user gets a horizontal scroll instead of a silently
+  truncated 800-wide canvas.
+- Dev SQLite path: debug builds prefer `{repo}/local-data/kana_typing.sqlite`
+  (walk up from `CARGO_MANIFEST_DIR` looking for `pnpm-workspace.yaml`) so
+  `pnpm content:import` (which writes there by default) and `pnpm tauri:dev`
+  share a database without `--db <ugly-os-path>`. Release builds unchanged.
+
+### Notes
+
+- v0.7.0 is the MVP candidate. v1.0.0 happens only when the user explicitly
+  signals "推 1.0" (CLAUDE.md 工程纪律).
+- The 500-word pack is AI-drafted (`draft` tag); a native-speaker review pass
+  is required before promoting individual entries to `quality: official`.
+- Tauri dialog-plugin import + ContentPacksPage file picker deferred to
+  v0.7.x. Real Tauri-mode E2E deferred similarly.
 
 ## [0.6.1] - 2026-05-01 — Review fixes
 
