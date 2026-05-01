@@ -192,13 +192,17 @@ export function GamePage(props: GamePageProps): JSX.Element {
       setStats((s) => ({ ...s, remainingMs: remaining }));
       if (remaining <= 0) {
         globalThis.clearInterval(handle);
+        // The scene may have already finished (queue exhausted) before the wall-clock
+        // timer hit 0; finish() is idempotent, so we just fire-and-log. Crucially, the
+        // hash navigation runs unconditionally — a finish() rejection (RPC failure /
+        // already-finished) must not strand the user on the game screen.
         void (async (): Promise<void> => {
           try {
             await sessionRef.current?.finish('finished');
-            globalThis.location.hash = `#/result/${sessionId}`;
           } catch (err) {
-            setError((err as Error).message);
+            console.warn('GamePage timer: finish failed (non-fatal)', err);
           }
+          navigateToResult(sessionId);
         })();
       }
     }, 250);
@@ -241,8 +245,14 @@ export function GamePage(props: GamePageProps): JSX.Element {
         return result;
       },
       async finishSession(): Promise<void> {
-        await sessionRef.current!.finish('finished');
-        globalThis.location.hash = `#/result/${sessionId ?? ''}`;
+        // try/finally so a finish() reject doesn't strand the scene/user — the
+        // result page navigation must happen even if the close-session RPC throws.
+        try {
+          await sessionRef.current?.finish('finished');
+        } catch (err) {
+          console.warn('GamePage adapter: finish failed (non-fatal)', err);
+        }
+        navigateToResult(sessionId);
       },
     }),
     [sessionId, SESSION_DURATION_MS],
@@ -320,6 +330,7 @@ export function GamePage(props: GamePageProps): JSX.Element {
             height={480}
             externalInputRef={externalInputRef}
             sceneInit={inputMode === 'ime_surface' ? { inputSource: 'external' } : {}}
+            onSessionFinished={() => navigateToResult(sessionId)}
           />
         </div>
 
@@ -341,6 +352,20 @@ export function GamePage(props: GamePageProps): JSX.Element {
       </div>
     </div>
   );
+}
+
+/**
+ * Single navigation helper — three paths converge on it (wall-clock timer hits 0,
+ * the scene's auto-finish-when-queue-empty bubble, and the bridge `finishSession`
+ * adapter). Compares the current hash so a benign repeat call is a no-op rather
+ * than a redundant hashchange event.
+ */
+function navigateToResult(sessionId: string | null): void {
+  if (!sessionId) return;
+  const target = `#/result/${sessionId}`;
+  if (globalThis.location.hash !== target) {
+    globalThis.location.hash = target;
+  }
 }
 
 /**

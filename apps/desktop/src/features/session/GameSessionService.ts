@@ -157,7 +157,11 @@ export class GameSessionService {
 
   async finish(status: 'finished' | 'aborted' | 'timeout' = 'finished'): Promise<void> {
     if (!this.session) throw new Error('session not yet created');
-    if (this.finished) return;
+    // Idempotent: finish() can be called both by the React layer's session timer
+    // and by the Phaser scene's auto-finish-when-queue-empty path. The first
+    // caller wins; later calls (including concurrent ones still mid-await) are
+    // no-ops so callers can fire-and-forget without try/catch boilerplate.
+    if (this.finished || this.finishing) return;
     this.finishing = true;
     try {
       // Drain any submitAttempt calls that already passed the entry guard before this
