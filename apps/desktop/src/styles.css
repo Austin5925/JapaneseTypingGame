@@ -1,35 +1,218 @@
-:root {
-  font-family: 'Hiragino Sans', 'Yu Gothic', 'Noto Sans CJK JP', system-ui, sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-  color-scheme: light dark;
+/* ============================================================
+   apps/desktop/src/styles.css — 假名打字通 design tokens + base.
+   Sourced from devdocs/design-handoff/tokens.css. Single source of truth
+   for color / type / spacing / motion. Per-page and component styles land
+   in later commits (C2 base classes, C3 retro shell, C4+ page migrations).
+   ============================================================ */
 
-  --bg: #0e0f12;
-  --fg: #e6e8ec;
-  --muted: #94a0b3;
-  --accent: #6cb9ff;
-  --border: #232733;
-  --ok: #4ade80;
-  --err: #f87171;
+:root {
+  /* type families — fallbacks ensure offline correctness */
+  --font-ui: 'Inter', 'Helvetica Neue', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-cjk:
+    'Hiragino Sans', 'Yu Gothic', 'Noto Sans CJK JP', 'Hiragino Kaku Gothic ProN', system-ui,
+    sans-serif;
+
+  /* type scale (px) */
+  --fs-h1: 28px;
+  --fs-h2: 22px;
+  --fs-h3: 17px;
+  --fs-body: 14px;
+  --fs-small: 12px;
+  --fs-mono: 13px;
+  --fs-kana-prompt: 88px; /* the giant in-game prompt */
+  --fs-kana-prompt-sm: 56px; /* compact contexts */
+
+  /* line heights */
+  --lh-tight: 1.2;
+  --lh-body: 1.5;
+  --lh-loose: 1.65;
+
+  /* spacing scale — exactly 6 stops */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 20px;
+  --sp-5: 32px;
+  --sp-6: 48px;
+
+  /* radii — exactly 4 stops */
+  --r-chip: 2px;
+  --r-control: 4px;
+  --r-card: 6px;
+  --r-modal: 10px;
+
+  /* hairlines */
+  --bw-hair: 1px;
+  --bw-std: 1px;
+  --bw-strong: 2px;
+  --bw-focus: 2px;
+
+  /* motion */
+  --t-hover: 150ms;
+  --t-focus: 100ms;
+  --t-route: 250ms;
+  --t-flash: 800ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
 }
 
+/* ===== DARK THEME (default) =============================== */
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* surfaces */
+  --bg-page: #0b0d10;
+  --bg-surface: #14171c;
+  --bg-sunken: #090a0d;
+  --bg-overlay: rgba(6, 7, 9, 0.72);
+
+  /* text */
+  --fg-primary: #e6e8ec;
+  --fg-secondary: #aab3c0;
+  --fg-tertiary: #6e7787;
+  --fg-disabled: #4a505c;
+  --fg-on-accent: #06180b;
+
+  /* accents */
+  --accent: #7ee787; /* phosphor green — primary action */
+  --accent-hover: #95efa0;
+  --accent-press: #5fc870;
+  --accent-soft: rgba(126, 231, 135, 0.12);
+  --accent-2: #ffb454; /* amber — secondary, alert-y */
+  --accent-2-soft: rgba(255, 180, 84, 0.12);
+
+  /* semantic — paired -fg / -bg */
+  --ok-fg: #6ee7a0;
+  --ok-bg: rgba(110, 231, 160, 0.12);
+  --warn-fg: #ffc56b;
+  --warn-bg: rgba(255, 197, 107, 0.12);
+  --err-fg: #ff7a7a;
+  --err-bg: rgba(255, 122, 122, 0.12);
+  --info-fg: #7cc4ff;
+  --info-bg: rgba(124, 196, 255, 0.1);
+
+  /* borders */
+  --border-hair: #1c2129;
+  --border-std: #262c37;
+  --border-strong: #3a4250;
+  --border-focus: #7ee787;
+
+  /* elevation (3 levels) */
+  --shadow-1: 0 1px 0 rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 4px 14px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.02) inset;
+  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+
+  /* error-tag palette — 9 tags, distinct hue, consumed by errorTagPalette.ts in C5 */
+  --tag-long_vowel: #ff8fae; /* rose */
+  --tag-sokuon: #ffb454; /* amber */
+  --tag-dakuten: #b58cff; /* violet */
+  --tag-handakuten: #f06aff; /* magenta */
+  --tag-youon: #6ad7ff; /* cyan */
+  --tag-particle: #7ee787; /* phosphor */
+  --tag-ime_conversion: #ffd866; /* yellow */
+  --tag-shape_confusion: #ff7a7a; /* red */
+  --tag-unknown: #8a93a3; /* slate */
+
+  /* CRT phosphor glow (used sparingly via tweaks) */
+  --crt-glow: 0 0 0 transparent;
+  --crt-scanline: rgba(255, 255, 255, 0.018);
+}
+
+/* ===== LIGHT THEME (v0.8 nice-to-have, designed) ========== */
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg-page: #f6f5ef;
+  --bg-surface: #ffffff;
+  --bg-sunken: #ecebe3;
+  --bg-overlay: rgba(20, 22, 26, 0.42);
+
+  --fg-primary: #11141a;
+  --fg-secondary: #4a5260;
+  --fg-tertiary: #7c8595;
+  --fg-disabled: #b6bcc7;
+  --fg-on-accent: #06180b;
+
+  --accent: #2ea14a;
+  --accent-hover: #34b855;
+  --accent-press: #1f7d39;
+  --accent-soft: rgba(46, 161, 74, 0.1);
+  --accent-2: #c2700b;
+  --accent-2-soft: rgba(194, 112, 11, 0.1);
+
+  --ok-fg: #2ea14a;
+  --ok-bg: rgba(46, 161, 74, 0.1);
+  --warn-fg: #b56a00;
+  --warn-bg: rgba(181, 106, 0, 0.1);
+  --err-fg: #c43030;
+  --err-bg: rgba(196, 48, 48, 0.1);
+  --info-fg: #1f6cc6;
+  --info-bg: rgba(31, 108, 198, 0.1);
+
+  --border-hair: #e3e1d6;
+  --border-std: #cfcdc1;
+  --border-strong: #9ea3ad;
+  --border-focus: #2ea14a;
+
+  --shadow-1: 0 1px 0 rgba(20, 22, 26, 0.04);
+  --shadow-2: 0 4px 14px rgba(20, 22, 26, 0.1);
+  --shadow-modal: 0 20px 60px rgba(20, 22, 26, 0.2);
+
+  --tag-long_vowel: #c43d6a;
+  --tag-sokuon: #c2700b;
+  --tag-dakuten: #6e3dd1;
+  --tag-handakuten: #b22ec0;
+  --tag-youon: #1f8aa8;
+  --tag-particle: #2ea14a;
+  --tag-ime_conversion: #a47800;
+  --tag-shape_confusion: #c43030;
+  --tag-unknown: #5c6473;
+}
+
+/* ===== Legacy token aliases ================================
+   Existing pages reference --bg / --fg / --muted / --border / --ok / --err
+   inline. Resolve them to the new tokens so C1 lands cleanly without
+   rewriting every page; aliases are removed in C8 (devdocs/
+   v0_7_p0_1_retro_plan.md §3 C8) once every page has migrated to the
+   canonical names.
+
+   --accent keeps the same identifier; the new value (phosphor green)
+   takes effect immediately, which is the intended visual signal that the
+   token swap landed.
+   ============================================================ */
+:root {
+  --bg: var(--bg-page);
+  --fg: var(--fg-primary);
+  --muted: var(--fg-tertiary);
+  --border: var(--border-hair);
+  --ok: var(--ok-fg);
+  --err: var(--err-fg);
+}
+
+/* ===== Base styles (preserved) ============================ */
 * {
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--fg);
+  padding: 0;
+  font-family: var(--font-cjk);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  background: var(--bg-page);
+  color: var(--fg-primary);
 }
 
 button {
   font: inherit;
-  background: var(--border);
-  color: var(--fg);
-  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--fg-primary);
+  border: 1px solid var(--border-std);
   padding: 0.4rem 0.9rem;
-  border-radius: 6px;
+  border-radius: var(--r-control);
   cursor: pointer;
 }
 
@@ -58,15 +241,15 @@ table {
 
 th,
 td {
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-hair);
   padding: 0.5rem 0.75rem;
   text-align: left;
   vertical-align: top;
 }
 
 code {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-family: var(--font-mono);
   background: rgba(255, 255, 255, 0.05);
   padding: 0.05rem 0.25rem;
-  border-radius: 3px;
+  border-radius: var(--r-chip);
 }
