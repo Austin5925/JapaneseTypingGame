@@ -265,31 +265,36 @@ export const evaluateSentenceChunkOrder: ModeEvaluator = (task, attempt) => {
     errorTags.push('word_order_error');
   }
 
-  // Per-chunk reading replay. We tolerate missing rawInput (scene may have logged only the
-  // chunk order on a partial run) — in that case order-only judgement applies.
+  // Per-chunk reading replay. If metadata exists, every expected chunk must have one matching
+  // input entry; otherwise a damaged/partial attempt could pass on order alone.
   const chunkEntries = parseChunkEntries(attempt.rawInput);
   const chunkMeta = task.expected.chunks ?? [];
   const chunkMetaById = new Map(chunkMeta.map((c) => [c.id, c]));
-  let allReadingsCorrect = chunkEntries.length === 0 ? orderCorrect : true;
-  for (const entry of chunkEntries) {
-    const meta = chunkMetaById.get(entry.chunkId);
-    if (!meta) {
-      // Unknown chunk id — surface as unknown rather than silently skipping.
-      errorTags.push('unknown');
-      allReadingsCorrect = false;
-      continue;
-    }
-    const cmp = compareReadingForChunk(meta.kana, meta.romaji, entry.input, task.strictness);
-    if (!cmp.isAcceptable) {
-      allReadingsCorrect = false;
-      for (const tag of cmp.errorTags) {
-        if (!errorTags.includes(tag)) errorTags.push(tag);
+  let allReadingsCorrect = chunkMeta.length === 0 ? orderCorrect : true;
+  if (chunkMeta.length > 0) {
+    const seenChunkIds = new Set<string>();
+    for (const entry of chunkEntries) {
+      const meta = chunkMetaById.get(entry.chunkId);
+      if (!meta || seenChunkIds.has(entry.chunkId)) {
+        // Unknown/duplicate chunk id — surface as unknown rather than silently skipping.
+        if (!errorTags.includes('unknown')) errorTags.push('unknown');
+        allReadingsCorrect = false;
+        continue;
+      }
+      seenChunkIds.add(entry.chunkId);
+      const cmp = compareReadingForChunk(meta.kana, meta.romaji, entry.input, task.strictness);
+      if (!cmp.isAcceptable) {
+        allReadingsCorrect = false;
+        for (const tag of cmp.errorTags) {
+          if (!errorTags.includes(tag)) errorTags.push(tag);
+        }
       }
     }
-  }
-  // If no chunk metadata or no entries were supplied at all, fall back to order-only judgement.
-  if (chunkMeta.length === 0 || chunkEntries.length === 0) {
-    allReadingsCorrect = orderCorrect;
+    for (const expectedId of chunkMetaById.keys()) {
+      if (seenChunkIds.has(expectedId)) continue;
+      if (!errorTags.includes('unknown')) errorTags.push('unknown');
+      allReadingsCorrect = false;
+    }
   }
 
   const isCorrect = orderCorrect && allReadingsCorrect;

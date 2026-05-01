@@ -317,6 +317,32 @@ describe('selectKanaTasks — bucket priorities', () => {
     }
   });
 
+  it('does not let sentence rows leak into kana drills after SQLite sentence seeding', () => {
+    const q = selectKanaTasks({
+      items: [
+        item({
+          id: 'sentence-row',
+          type: 'sentence',
+          surface: '私は学校へ行きます',
+          kana: 'わたしはがっこうへいきます',
+          skillTags: ['sentence_order'],
+        }),
+        item({ id: 'word-row', type: 'word', surface: '学校', kana: 'がっこう' }),
+      ],
+      count: 3,
+      sessionId: 'sess',
+      gameType: 'mole_story',
+      answerMode: 'romaji_to_kana',
+      skillDimension: 'kana_typing',
+      timeLimitMs: 6000,
+      strictness: STRICT,
+      random: RNG,
+    });
+    while (q.remaining() > 0) {
+      expect(q.next()!.itemId).toBe('word-row');
+    }
+  });
+
   it('can omit a fixed time limit so scenes can set dynamic timers', () => {
     const q = selectKanaTasks({
       items: [item({ id: 'kanji', skillTags: ['kanji_reading'] })],

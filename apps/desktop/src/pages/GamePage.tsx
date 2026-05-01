@@ -3,16 +3,15 @@ import {
   type AnswerMode,
   type EvaluationStrictness,
   type GameType,
-  type LearningItem,
   type SelectedTaskQueue,
   type SkillDimension,
-  type SkillProgress,
   type TrainingTask,
   type UserAttempt,
 } from '@kana-typing/core';
 import { MOLE_SCENE_KEY, SPEED_CHASE_SCENE_KEY } from '@kana-typing/game-runtime';
 import { useEffect, useMemo, useRef, useState, type JSX, type RefObject } from 'react';
 
+import { buildProgressMap, rowToLearningItem } from '../features/db/rowConversions';
 import {
   GameCanvasHost,
   type GameCanvasExternalInputControl,
@@ -21,8 +20,8 @@ import {
 import { GameHud } from '../features/game/GameHud';
 import { ImeInputBox } from '../features/input/ImeInputBox';
 import type { ImeInputState } from '../features/input/useImeInputController';
-import { GameSessionService, toDomainProgress } from '../features/session/GameSessionService';
-import { listItems, listProgress, type DevItemRow, type ProgressDto } from '../tauri/invoke';
+import { GameSessionService } from '../features/session/GameSessionService';
+import { listItems, listProgress, type DevItemRow } from '../tauri/invoke';
 
 const STRICT_POLICY: EvaluationStrictness = {
   longVowel: 'strict',
@@ -149,7 +148,7 @@ export function GamePage(props: GamePageProps): JSX.Element {
           targetDurationMs: SESSION_DURATION_MS,
         });
         setSessionId(created.id);
-        const learningItems: LearningItem[] = rows.map(rowToItem);
+        const learningItems = rows.map(rowToLearningItem);
         const preferTags = preferTagsForSkill(config.skillDimension);
         const queue = selectKanaTasks({
           items: learningItems,
@@ -445,50 +444,6 @@ function ImeModeInputArea(props: {
       </div>
     </div>
   );
-}
-
-// Convert the dev DTO returned by `list_items` into a (partial) LearningItem suitable for the
-// task selector. The selector only needs id / surface / kana / tags / skillTags, so we fill
-// the rest with sane defaults.
-function rowToItem(row: DevItemRow): LearningItem {
-  const item: LearningItem = {
-    id: row.id,
-    type: 'word',
-    surface: row.surface,
-    kana: row.kana,
-    romaji: row.romaji,
-    meaningsZh: [],
-    tags: row.tags,
-    skillTags: row.skillTags.length > 0 ? row.skillTags : ['kana_typing'],
-    examples: [],
-    audioRefs: [],
-    confusableItemIds: [],
-    sourcePackId: 'unknown',
-    quality: 'official',
-    createdAt: '',
-    updatedAt: '',
-  };
-  if (row.jlpt) {
-    item.jlpt = row.jlpt as NonNullable<LearningItem['jlpt']>;
-  }
-  if (row.acceptedKana.length > 0) {
-    item.acceptedKana = row.acceptedKana;
-  }
-  return item;
-}
-
-function buildProgressMap(dtos: ProgressDto[]): Map<string, SkillProgress> {
-  const map = new Map<string, SkillProgress>();
-  for (const dto of dtos) {
-    const progress = toDomainProgress(dto);
-    if (!progress) continue;
-    map.set(progressKey(progress.itemId, progress.skillDimension), progress);
-  }
-  return map;
-}
-
-function progressKey(itemId: string, skill: SkillDimension): string {
-  return `${itemId}::${skill}`;
 }
 
 function preferTagsForSkill(skill: SkillDimension): string[] {

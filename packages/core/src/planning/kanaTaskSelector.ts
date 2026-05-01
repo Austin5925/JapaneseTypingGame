@@ -142,14 +142,15 @@ function buildTask(item: LearningItem, input: SelectKanaTasksInput): TrainingTas
 }
 
 function isEligibleForSkill(item: LearningItem, skill: SkillDimension): boolean {
+  if (isKanaDrillSkill(skill) && !isKanaDrillItem(item)) return false;
   if (item.skillTags.includes(skill)) return true;
   switch (skill) {
     case 'kana_typing':
-      return item.kana.length > 0;
+      return isKanaDrillItem(item) && item.kana.length > 0;
     case 'kana_recognition':
-      return item.kana.length > 0 && !item.tags.includes('katakana');
+      return isKanaDrillItem(item) && item.kana.length > 0 && !item.tags.includes('katakana');
     case 'katakana_recognition':
-      return item.tags.includes('katakana');
+      return isKanaDrillItem(item) && item.tags.includes('katakana');
     case 'kanji_reading':
     case 'meaning_recall':
     case 'ime_conversion':
@@ -159,6 +160,16 @@ function isEligibleForSkill(item: LearningItem, skill: SkillDimension): boolean 
     case 'active_output':
       return false;
   }
+}
+
+function isKanaDrillItem(item: LearningItem): boolean {
+  return item.type !== 'sentence' && item.type !== 'grammar_pattern';
+}
+
+function isKanaDrillSkill(skill: SkillDimension): boolean {
+  return (
+    skill === 'kana_typing' || skill === 'kana_recognition' || skill === 'katakana_recognition'
+  );
 }
 
 function makeQueue(initial: TrainingTask[]): SelectedTaskQueue {

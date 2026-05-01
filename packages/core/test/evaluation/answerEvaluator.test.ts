@@ -218,6 +218,65 @@ describe('evaluate — sentence_chunk_order', () => {
     expect(r.errorTags).toEqual([]);
   });
 
+  it('rejects correct order when a chunk input is missing', () => {
+    const r = evaluate(
+      sentenceTask(),
+      attempt({
+        chunkOrder: ['c1', 'c2', 'c3'],
+        rawInput: chunkInputs([
+          ['c1', 'watashiha'],
+          ['c2', 'gakkouhe'],
+        ]),
+      }),
+    );
+    expect(r.isCorrect).toBe(false);
+    expect(r.errorTags).toContain('unknown');
+  });
+
+  it('rejects correct order when rawInput is absent despite chunk metadata', () => {
+    const r = evaluate(
+      sentenceTask(),
+      attempt({
+        chunkOrder: ['c1', 'c2', 'c3'],
+      }),
+    );
+    expect(r.isCorrect).toBe(false);
+    expect(r.errorTags).toContain('unknown');
+  });
+
+  it('accepts natural particle pronunciation in reading mode', () => {
+    const pronunciationStrict = {
+      ...STRICT,
+      particleReading: 'pronunciation' as const,
+    };
+    const r = evaluate(
+      sentenceTask(),
+      attempt({
+        chunkOrder: ['c1', 'c2', 'c3'],
+        rawInput: chunkInputs([
+          ['c1', 'watashiwa'],
+          ['c2', 'gakkoue'],
+          ['c3', 'ikimasu'],
+        ]),
+      }),
+    );
+    const t = sentenceTask();
+    t.strictness = pronunciationStrict;
+    const pronunciationResult = evaluate(
+      t,
+      attempt({
+        chunkOrder: ['c1', 'c2', 'c3'],
+        rawInput: chunkInputs([
+          ['c1', 'watashiwa'],
+          ['c2', 'gakkoue'],
+          ['c3', 'ikimasu'],
+        ]),
+      }),
+    );
+    expect(r.isCorrect).toBe(false);
+    expect(pronunciationResult.isCorrect).toBe(true);
+  });
+
   it('correct order but wrong reading on a chunk → not isCorrect', () => {
     const r = evaluate(
       sentenceTask(),
