@@ -14,6 +14,7 @@ import { PixIcon, type PixIconName } from '../features/style/PixIcon';
 import { aggregateRecentErrorTags, listProgress, type ProgressDto } from '../tauri/invoke';
 
 const DEFAULT_TARGET_DURATION_MS = 8 * 60 * 1000; // 8 minutes — devdocs §3.1 daily flow
+const PROGRESS_SCAN_LIMIT = 5000;
 
 const GAME_TYPE_TO_HASH: Partial<Record<GameType, string>> = {
   mole_story: '#/game/mole',
@@ -70,7 +71,7 @@ export function TodayTrainingPage(): JSX.Element {
     void (async (): Promise<void> => {
       try {
         const [progressDtos, tagRows] = await Promise.all([
-          listProgress({ userId: 'default-user', limit: 200 }),
+          listProgress({ userId: 'default-user', limit: PROGRESS_SCAN_LIMIT }),
           aggregateRecentErrorTags({ userId: 'default-user', days: 7, limit: 10 }),
         ]);
         const progressList = progressDtos.map(toProgress);

@@ -17,6 +17,8 @@ import {
   type ProgressDto,
 } from '../tauri/invoke';
 
+const PROGRESS_SCAN_LIMIT = 5000;
+
 interface HomeData {
   vector: WeaknessVector;
   itemCount: number;
@@ -50,7 +52,7 @@ export function HomePage(): JSX.Element {
           return;
         }
         const [progressDtos, tagRows] = await Promise.all([
-          listProgress({ userId: 'default-user', limit: 200 }),
+          listProgress({ userId: 'default-user', limit: PROGRESS_SCAN_LIMIT }),
           aggregateRecentErrorTags({ userId: 'default-user', days: 7, limit: 10 }),
         ]);
         // First-run onboarding: a user with content but no progress is sent

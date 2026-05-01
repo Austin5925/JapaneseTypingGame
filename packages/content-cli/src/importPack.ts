@@ -50,7 +50,7 @@ export function importPackFile(opts: ImportPackOptions): ImportPackOutcome {
     };
   }
   const pack = validated.value;
-  const quality = opts.quality ?? 'official';
+  const quality = opts.quality ?? inferDefaultQuality(pack);
 
   const db = openDb(dbPath);
   try {
@@ -60,6 +60,18 @@ export function importPackFile(opts: ImportPackOptions): ImportPackOutcome {
   } finally {
     db.close();
   }
+}
+
+function inferDefaultQuality(pack: ContentPackInput): NonNullable<ImportPackOptions['quality']> {
+  const packText = `${pack.version} ${pack.description ?? ''}`.toLowerCase();
+  const draftTaggedItems = pack.items.filter((item) => item.tags.includes('draft')).length;
+  if (
+    packText.includes('draft') ||
+    (draftTaggedItems > 0 && draftTaggedItems / pack.items.length >= 0.5)
+  ) {
+    return 'needs_review';
+  }
+  return 'user_imported';
 }
 
 interface UpsertCounts {

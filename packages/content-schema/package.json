@@ -1,6 +1,6 @@
 {
   "name": "@kana-typing/content-schema",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "private": true,
   "description": "Zod schemas and validators for content packs (learning items, examples, audio refs).",
   "type": "module",

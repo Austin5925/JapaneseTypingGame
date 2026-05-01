@@ -24,8 +24,14 @@ pub fn get_db_info(db: State<'_, AppDb>) -> AppResult<DbInfo> {
         .conn
         .lock()
         .map_err(|e| AppError::Internal(e.to_string()))?;
-    let item_count: i64 =
-        conn.query_row("SELECT COUNT(*) FROM learning_items", [], |row| row.get(0))?;
+    let item_count: i64 = conn.query_row(
+        "SELECT COUNT(*)
+         FROM learning_items i
+         JOIN content_packs p ON p.id = i.source_pack_id
+         WHERE p.enabled = 1",
+        [],
+        |row| row.get(0),
+    )?;
     Ok(DbInfo {
         path: db.path.display().to_string(),
         applied_migrations: db.applied_migrations.clone(),
@@ -58,8 +64,11 @@ pub fn list_items(db: State<'_, AppDb>, limit: Option<i64>) -> AppResult<Vec<Dev
         .map_err(|e| AppError::Internal(e.to_string()))?;
     let limit = limit.unwrap_or(50).clamp(1, 1000);
     let mut stmt = conn.prepare(
-        "SELECT id, surface, kana, romaji_json, jlpt, tags_json, skill_tags_json, accepted_kana_json
-         FROM learning_items ORDER BY id LIMIT ?1",
+        "SELECT i.id, i.surface, i.kana, i.romaji_json, i.jlpt, i.tags_json, i.skill_tags_json, i.accepted_kana_json
+         FROM learning_items i
+         JOIN content_packs p ON p.id = i.source_pack_id
+         WHERE p.enabled = 1
+         ORDER BY i.id LIMIT ?1",
     )?;
     let rows = stmt.query_map(params![limit], |row| {
         let romaji_json: String = row.get(3)?;

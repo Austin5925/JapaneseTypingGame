@@ -100,6 +100,55 @@ describe('importPackFile', () => {
       expect(confusables).toHaveLength(1);
       expect(confusables[0]!.item_id).toBe('word-kawa');
       expect(confusables[0]!.confusable_item_id).toBe('word-yama');
+
+      const pack = db
+        .prepare<[string], { quality: string }>('SELECT quality FROM content_packs WHERE id = ?')
+        .get('test-pack');
+      expect(pack!.quality).toBe('user_imported');
+    } finally {
+      db.close();
+    }
+  });
+
+  it('defaults draft packs to needs_review quality', () => {
+    const draftPack = {
+      ...VALID_PACK,
+      id: 'draft-pack',
+      version: '0.1.0-draft',
+      items: VALID_PACK.items.map((item) => ({ ...item, tags: ['draft'] })),
+    };
+    const path = join(tmp, 'draft.json');
+    writeFileSync(path, JSON.stringify(draftPack));
+    const dbPath = join(tmp, 'test.sqlite');
+
+    const result = importPackFile({ packPath: path, dbPath });
+    expect(result.ok).toBe(true);
+
+    const db = new Database(dbPath);
+    try {
+      const pack = db
+        .prepare<[string], { quality: string }>('SELECT quality FROM content_packs WHERE id = ?')
+        .get('draft-pack');
+      expect(pack!.quality).toBe('needs_review');
+    } finally {
+      db.close();
+    }
+  });
+
+  it('honours an explicit import quality override', () => {
+    const path = join(tmp, 'pack.json');
+    writeFileSync(path, JSON.stringify(VALID_PACK));
+    const dbPath = join(tmp, 'test.sqlite');
+
+    const result = importPackFile({ packPath: path, dbPath, quality: 'official' });
+    expect(result.ok).toBe(true);
+
+    const db = new Database(dbPath);
+    try {
+      const pack = db
+        .prepare<[string], { quality: string }>('SELECT quality FROM content_packs WHERE id = ?')
+        .get('test-pack');
+      expect(pack!.quality).toBe('official');
     } finally {
       db.close();
     }

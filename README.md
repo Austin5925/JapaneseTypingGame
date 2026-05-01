@@ -2,7 +2,7 @@
 
 A Japanese input reflex trainer built as a Tauri desktop app (React + Phaser + SQLite).
 
-> Status: pre-alpha (`v0.1.0` engineering scaffold). Not yet usable.
+> Status: pre-alpha (`v0.7.1`). Desktop MVP candidate is in active hardening.
 
 ## Development
 
@@ -31,6 +31,9 @@ pnpm tauri:build        # build desktop app for the current platform
 pnpm content:validate <path/to/pack.json>
 pnpm content:import   <path/to/pack.json>
 ```
+
+`content:import` defaults regular packs to `user_imported` quality and draft-tagged packs to
+`needs_review`. Pass `--quality official` only for reviewed first-party packs.
 
 ## License
 

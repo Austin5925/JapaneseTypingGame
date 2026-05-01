@@ -72,31 +72,27 @@ export function selectKanaTasks(input: SelectKanaTasksInput): SelectedTaskQueue 
     buckets[bucket]!.push(item);
   }
 
-  const candidates: LearningItem[] = [];
+  const rankedCandidates: LearningItem[] = [];
   for (const b of buckets) {
+    const bucketCandidates: LearningItem[] = [];
     for (const item of b) {
-      candidates.push(item);
+      bucketCandidates.push(item);
       if (input.preferTags && input.preferTags.some((t) => item.tags.includes(t))) {
         // Duplicate to bias selection. Cheap and deterministic given the rng.
-        candidates.push(item);
+        bucketCandidates.push(item);
       }
     }
+    fisherYates(bucketCandidates, random);
+    rankedCandidates.push(...bucketCandidates);
   }
 
-  if (candidates.length === 0) {
+  if (rankedCandidates.length === 0) {
     return makeQueue([]);
   }
 
-  // Shuffle within the original bucket order is too restrictive — instead, draw without
-  // replacement weighted by current bucket index (lower = earlier picks). For Sprint 3 we
-  // approximate with a Fisher-Yates *partial* shuffle of just the head bucket plus a random
-  // shuffle of the rest. This keeps overdue items in the front while still exposing variety.
-  const shuffled = [...candidates];
-  fisherYates(shuffled, random);
-
   const tasks: TrainingTask[] = [];
   for (let i = 0; tasks.length < input.count; i++) {
-    const item = shuffled[i % shuffled.length]!;
+    const item = rankedCandidates[i % rankedCandidates.length]!;
     tasks.push(buildTask(item, input));
   }
 

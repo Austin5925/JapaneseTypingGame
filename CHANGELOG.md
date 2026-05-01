@@ -8,6 +8,30 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.7.1] - 2026-05-01 — Review hardening
+
+### Fixed
+
+- Restored scheduler bucket priority in `selectKanaTasks`: overdue rows now stay ahead of
+  fragile / new / stable rows while preserving per-bucket shuffle and `preferTags` weighting.
+- Content-pack enable toggles now affect the actual item source. `get_db_info` and
+  `list_items` only count/read rows from enabled packs, so disabled packs are isolated from
+  GamePage, DiagnosticPage, and LibraryPage candidates.
+- Diagnostic onboarding now writes a real session plus `attempt_events` through
+  `recordAttemptResult` instead of directly upserting progress. Initial progress remains
+  available immediately while the immutable event log stays replayable.
+- Home and Today Training now scan up to 5000 progress rows when building WeaknessVector,
+  avoiding route decisions based on only the lowest-mastery 200 rows.
+- Tauri renderer CSP is no longer disabled; the app now restricts script/style/object/frame
+  sources while retaining Tauri IPC and Vite dev websocket connectivity.
+- GitHub Actions now runs the Playwright web-preview smoke after build on the frontend matrix.
+- Content CLI now defaults regular imports to `user_imported` and draft packs to
+  `needs_review`; reviewed first-party packs can still opt into `--quality official`.
+
+### Changed
+
+- Synchronized package, Tauri, Cargo, shell, README, and lockfile version metadata to `0.7.1`.
+
 ## [0.7.0] - 2026-05-01 — MVP candidate (retro shell · diagnostic · packs · 500 words · CI)
 
 ### Added — visual identity & shell (P0-1, 9 commits)

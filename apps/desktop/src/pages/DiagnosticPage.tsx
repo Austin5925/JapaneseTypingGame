@@ -3,6 +3,7 @@ import {
   updateProgress,
   type EvaluationResult,
   type EvaluationStrictness,
+  type GameType,
   type SkillDimension,
   type SkillProgress,
   type TrainingTask,
@@ -22,7 +23,15 @@ import { ImeInputBox } from '../features/input/ImeInputBox';
 import { toProgressDto } from '../features/session/GameSessionService';
 import { ErrorTagChip } from '../features/style/ErrorTagChip';
 import { PixIcon } from '../features/style/PixIcon';
-import { listItems, upsertProgress, type DevItemRow } from '../tauri/invoke';
+import {
+  createSession,
+  finishSession,
+  listItems,
+  recordAttemptResult,
+  type DevItemRow,
+} from '../tauri/invoke';
+
+const DIAGNOSTIC_GAME_TYPE: GameType = 'real_input';
 
 const STRICT: EvaluationStrictness = {
   longVowel: 'strict',
@@ -113,10 +122,10 @@ interface StepResult {
  * skill-dimension axis (假名 / 片假名 / 漢字 / 长音促音 / IME), shows the
  * surface, and lets the user type the reading via ImeInputBox.
  *
- * Outcome: regardless of correctness we write a `seen` (or `fragile` on
- * miss) progress row per step. Diagnostic does NOT create a real
- * GameSession row — the data we care about is the per-skill bootstrap, not
- * a session log.
+ * Outcome: regardless of correctness we write each diagnostic answer as a
+ * real attempt event plus the matching progress upsert. That keeps
+ * `attempt_events` replayable as the source log while still bootstrapping
+ * the WeaknessVector on day one.
  *
  * After 5 steps the user lands on `#/today` and the Home page weakness
  * vector lights up.
@@ -360,7 +369,7 @@ function makeTask(item: DevItemRow, step: DiagnosticStep, _reactionMs: number): 
     id: `diag-${step.label}-${item.id}`,
     sessionId: 'diag-session',
     itemId: item.id,
-    gameType: 'mole_story',
+    gameType: DIAGNOSTIC_GAME_TYPE,
     answerMode: 'romaji_to_kana',
     skillDimension: step.skillDimension,
     prompt: { kind: 'text', text: item.surface },
@@ -415,13 +424,67 @@ async function persistAndNavigate(
 
 async function persistResults(results: StepResult[]): Promise<void> {
   // For each step result, seed a SkillProgress row so the WeaknessVector has
-  // data immediately. We start from a null prior (first exposure), apply the
-  // mastery delta from the diagnostic attempt, then upsert.
+  // data immediately. We persist it through recordAttemptResult so the
+  // immutable attempt log and the aggregate progress row stay in sync.
   const userId = 'default-user';
-  for (const r of results) {
-    const newProgress: SkillProgress = updateProgress(null, r.evaluation, { userId });
-    await upsertProgress(toProgressDto(newProgress));
+  if (results.length === 0) return;
+  const sessionId = generateDiagnosticId('diag_sess');
+  await createSession({
+    id: sessionId,
+    userId,
+    gameType: DIAGNOSTIC_GAME_TYPE,
+    targetDurationMs: results.reduce((sum, r) => sum + r.evaluation.reactionTimeMs, 0),
+  });
+  try {
+    for (let index = 0; index < results.length; index++) {
+      const r = results[index]!;
+      const newProgress: SkillProgress = updateProgress(null, r.evaluation, { userId });
+      await recordAttemptResult({
+        attempt: {
+          id: generateDiagnosticId('diag_att'),
+          sessionId,
+          userId,
+          taskId: `diag_task_${String(index + 1)}_${r.item.id}`,
+          itemId: r.item.id,
+          gameType: DIAGNOSTIC_GAME_TYPE,
+          skillDimension: r.step.skillDimension,
+          answerMode: 'romaji_to_kana',
+          rawInput: r.attemptValue,
+          committedInput: r.attemptValue,
+          isCorrect: r.evaluation.isCorrect,
+          score: r.evaluation.score,
+          reactionTimeMs: r.evaluation.reactionTimeMs,
+          usedHint: false,
+          errorTags: r.evaluation.errorTags,
+          ...(r.evaluation.explanation !== undefined && {
+            explanation: r.evaluation.explanation,
+          }),
+        },
+        progress: toProgressDto(newProgress),
+      });
+    }
+    await finishSession({
+      sessionId,
+      status: 'finished',
+      summaryJson: JSON.stringify({
+        kind: 'diagnostic',
+        steps: results.length,
+        correct: results.filter((r) => r.evaluation.isCorrect).length,
+      }),
+    });
+  } catch (err) {
+    await finishSession({ sessionId, status: 'aborted' }).catch((finishErr: unknown) => {
+      console.warn('DiagnosticPage: abort session failed', finishErr);
+    });
+    throw err;
   }
+}
+
+function generateDiagnosticId(prefix: string): string {
+  const uuid =
+    globalThis.crypto?.randomUUID?.() ??
+    `${Date.now().toString()}-${Math.random().toString(16).slice(2)}`;
+  return `${prefix}_${uuid}`;
 }
 
 const pageGrid: CSSProperties = {

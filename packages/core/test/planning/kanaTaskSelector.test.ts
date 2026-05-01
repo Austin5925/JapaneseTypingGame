@@ -191,6 +191,93 @@ describe('selectKanaTasks — bucket priorities', () => {
     expect(ids).toContain('overdue');
   });
 
+  it('emits higher-priority buckets before lower-priority buckets', () => {
+    const items = [
+      item({ id: 'overdue' }),
+      item({ id: 'fragile' }),
+      item({ id: 'fresh' }),
+      item({ id: 'stable' }),
+    ];
+    const now = Date.now();
+    const progress = new Map<string, SkillProgress>([
+      [
+        'overdue::kana_typing',
+        {
+          userId: 'u',
+          itemId: 'overdue',
+          skillDimension: 'kana_typing',
+          state: 'stable',
+          masteryScore: 80,
+          stability: 1,
+          difficulty: 0.5,
+          exposureCount: 5,
+          correctCount: 5,
+          wrongCount: 0,
+          streak: 5,
+          lapseCount: 0,
+          nextDueAt: new Date(now - 60_000).toISOString(),
+          lastErrorTags: [],
+          updatedAt: new Date(now).toISOString(),
+        },
+      ],
+      [
+        'fragile::kana_typing',
+        {
+          userId: 'u',
+          itemId: 'fragile',
+          skillDimension: 'kana_typing',
+          state: 'fragile',
+          masteryScore: 30,
+          stability: 0.2,
+          difficulty: 0.7,
+          exposureCount: 4,
+          correctCount: 1,
+          wrongCount: 3,
+          streak: 0,
+          lapseCount: 3,
+          nextDueAt: new Date(now + 60_000).toISOString(),
+          lastErrorTags: ['long_vowel_error'],
+          updatedAt: new Date(now).toISOString(),
+        },
+      ],
+      [
+        'stable::kana_typing',
+        {
+          userId: 'u',
+          itemId: 'stable',
+          skillDimension: 'kana_typing',
+          state: 'stable',
+          masteryScore: 90,
+          stability: 2,
+          difficulty: 0.2,
+          exposureCount: 10,
+          correctCount: 10,
+          wrongCount: 0,
+          streak: 10,
+          lapseCount: 0,
+          nextDueAt: new Date(now + 86_400_000).toISOString(),
+          lastErrorTags: [],
+          updatedAt: new Date(now).toISOString(),
+        },
+      ],
+    ]);
+    const q = selectKanaTasks({
+      items,
+      progress,
+      count: 4,
+      sessionId: 'sess',
+      gameType: 'mole_story',
+      answerMode: 'romaji_to_kana',
+      skillDimension: 'kana_typing',
+      timeLimitMs: 6000,
+      strictness: STRICT,
+      random: RNG,
+    });
+    const ids: string[] = [];
+    while (q.remaining() > 0) ids.push(q.next()!.itemId);
+    expect(ids).toEqual(['overdue', 'fragile', 'fresh', 'stable']);
+  });
+
   it('filters SpeedChase queues to kanji-reading items', () => {
     const q = selectKanaTasks({
       items: [
