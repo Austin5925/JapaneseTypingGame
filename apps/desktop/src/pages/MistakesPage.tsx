@@ -1,3 +1,4 @@
+import { buildCrossGameEffects, type ErrorTag, type GameType } from '@kana-typing/core';
 import { useEffect, useMemo, useState, type CSSProperties, type JSX, type ReactNode } from 'react';
 
 import { ErrorTagChip } from '../features/style/ErrorTagChip';
@@ -9,6 +10,63 @@ import {
   type AttemptEventRow,
   type ErrorTagAggregateRow,
 } from '../tauri/invoke';
+
+interface RecoChip {
+  href: string;
+  label: string;
+  reason: ErrorTag;
+}
+
+const RECO_LABEL: Record<GameType, { href: string; short: string }> = {
+  apple_rescue: { href: '#/game/apple-rescue', short: '听辨' },
+  space_battle: { href: '#/game/space-battle', short: '辨义' },
+  river_jump: { href: '#/game/river-jump', short: '语序' },
+  speed_chase: { href: '#/game/speed-chase', short: '读音' },
+  mole_story: { href: '#/game/mole', short: '假名' },
+  real_input: { href: '#/', short: '实战' },
+};
+
+/**
+ * Map an attempt's error tags to up to two recommendation chips. Reuses the same routing
+ * table as the SchedulerService / ResultPage insights so a wrong attempt's "去 X 复习 →"
+ * link is consistent across the app.
+ */
+function recommendationsFor(errorTags: string[]): RecoChip[] {
+  const seen = new Set<string>();
+  const out: RecoChip[] = [];
+  const synthetic = {
+    attemptId: '',
+    taskId: '',
+    itemId: '',
+    skillDimension: 'meaning_recall',
+    isCorrect: false,
+    score: 0,
+    accuracyScore: 0,
+    speedScore: 0,
+    confidenceScore: 0,
+    errorTags: errorTags as ErrorTag[],
+    expectedDisplay: '',
+    actualDisplay: '',
+    reactionTimeMs: 0,
+    shouldRepeatImmediately: false,
+    crossGameEffects: [],
+  } as Parameters<typeof buildCrossGameEffects>[0];
+  const effects = buildCrossGameEffects(synthetic);
+  for (const e of effects) {
+    if (out.length >= 2) break;
+    const key = `${e.targetGameType}::${e.reason}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    const meta = RECO_LABEL[e.targetGameType];
+    if (!meta) continue;
+    out.push({
+      href: meta.href,
+      label: `去${meta.short} →`,
+      reason: e.reason,
+    });
+  }
+  return out;
+}
 
 /**
  * Sprint 5 mistakes book (`#/mistakes`), retro-skinned in C8.
@@ -111,6 +169,7 @@ export function MistakesPage(): JSX.Element {
                   <th style={{ width: 180 }}>词条</th>
                   <th style={{ width: 100 }}>模式</th>
                   <th>错误类型</th>
+                  <th style={{ width: 160 }}>推荐</th>
                   <th style={{ width: 90, textAlign: 'right' }}>反应</th>
                   <th style={{ width: 150, textAlign: 'right' }}>时间</th>
                 </tr>
@@ -137,6 +196,9 @@ export function MistakesPage(): JSX.Element {
                           ))}
                         </span>
                       )}
+                    </td>
+                    <td>
+                      <RecommendationCell errorTags={r.errorTags} />
                     </td>
                     <td
                       style={{
@@ -187,6 +249,33 @@ export function MistakesPage(): JSX.Element {
         </div>
       </Group>
     </div>
+  );
+}
+
+function RecommendationCell({ errorTags }: { errorTags: string[] }): JSX.Element {
+  const recos = recommendationsFor(errorTags);
+  if (recos.length === 0) {
+    return <span style={{ color: 'var(--kt2-fg-dim)', fontSize: 11 }}>—</span>;
+  }
+  return (
+    <span style={{ display: 'inline-flex', gap: 4, flexWrap: 'wrap' }}>
+      {recos.map((r) => (
+        <a
+          key={`${r.label}::${r.reason}`}
+          href={r.href}
+          className="r-btn"
+          style={{
+            textDecoration: 'none',
+            fontSize: 11,
+            padding: '0 6px',
+            lineHeight: 1.6,
+          }}
+          title={`基于 ${ERROR_TAG_LABEL_ZH[r.reason] ?? r.reason}`}
+        >
+          {r.label}
+        </a>
+      ))}
+    </span>
   );
 }
 

@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 
+import type { Sfx } from './audio/sfx';
 import type { GameBridge } from './bridge/GameBridge';
+import type { ComboBus } from './feedback/comboBus';
 import { AppleRescueScene, APPLE_RESCUE_SCENE_KEY } from './scenes/AppleRescueScene';
 import { MoleScene, MOLE_SCENE_KEY } from './scenes/MoleScene';
 import { RiverJumpScene, RIVER_JUMP_SCENE_KEY } from './scenes/RiverJumpScene';
@@ -21,6 +23,10 @@ export interface PhaserGameManagerOptions {
 export interface StartSessionOptions {
   bridge: GameBridge;
   sessionId: string;
+  /** Optional Sfx engine; BaseTrainingScene defaults to no-op when omitted. */
+  sfx?: Sfx;
+  /** Optional ComboBus; BaseTrainingScene mints a fresh one when omitted. */
+  combo?: ComboBus;
 }
 
 /**

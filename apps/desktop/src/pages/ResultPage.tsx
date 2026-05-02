@@ -1,9 +1,20 @@
 import { useEffect, useState, type CSSProperties, type JSX, type ReactNode } from 'react';
 
+import { maybeUpdateComboRecord, readComboRecord } from '../features/result/comboRecord';
+import {
+  computeSessionInsights,
+  type CrossGameRecommendation,
+  type SessionInsights,
+} from '../features/result/sessionInsights';
 import { ErrorTagChip } from '../features/style/ErrorTagChip';
 import { ERROR_TAG_LABEL_ZH } from '../features/style/errorTagPalette';
 import { PixIcon } from '../features/style/PixIcon';
-import { listAttemptsBySession, type AttemptEventRow } from '../tauri/invoke';
+import {
+  listAttemptsBySession,
+  listProgress,
+  type AttemptEventRow,
+  type ProgressDto,
+} from '../tauri/invoke';
 
 export interface ResultPageProps {
   sessionId: string;
@@ -15,6 +26,10 @@ interface Aggregates {
   accuracy: number;
   avgReactionMs: number;
   totalDurationMs: number;
+  /** Longest consecutive-correct streak in this session. */
+  peakCombo: number;
+  /** Rough KPM estimate: 1 character per attempt over the wall-clock total. */
+  kpm: number;
   topErrors: Array<{ tag: string; count: number }>;
   slowest: AttemptEventRow[];
   wrongOnly: AttemptEventRow[];
@@ -34,13 +49,32 @@ interface Aggregates {
  */
 export function ResultPage(props: ResultPageProps): JSX.Element {
   const [attempts, setAttempts] = useState<AttemptEventRow[] | null>(null);
+  const [progress, setProgress] = useState<ProgressDto[]>([]);
+  const [insights, setInsights] = useState<SessionInsights | null>(null);
+  const [comboBadge, setComboBadge] = useState<{ brokeCombo: boolean; brokeKpm: boolean } | null>(
+    null,
+  );
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     void (async (): Promise<void> => {
       try {
-        const rows = await listAttemptsBySession({ sessionId: props.sessionId });
+        // We pull attempts + every progress row in parallel. progress is the user's full set
+        // (capped at 5000 to match the boot pages); computeSessionInsights filters down to
+        // the items touched in this session.
+        const [rows, progressDtos] = await Promise.all([
+          listAttemptsBySession({ sessionId: props.sessionId }),
+          listProgress({ userId: 'default-user', limit: 5000 }),
+        ]);
         setAttempts(rows);
+        setProgress(progressDtos);
+        const computed = computeSessionInsights({ attempts: rows, currentProgress: progressDtos });
+        setInsights(computed);
+        // Also reconcile the all-time peak combo / KPM with this session's numbers; a one-shot
+        // localStorage write per result page is cheap and lets the badge render synchronously.
+        const ag = aggregate(rows);
+        const outcome = maybeUpdateComboRecord({ peakCombo: ag.peakCombo, peakKpm: ag.kpm });
+        setComboBadge({ brokeCombo: outcome.brokeCombo, brokeKpm: outcome.brokeKpm });
       } catch (err) {
         setError((err as Error).message);
       }
@@ -51,6 +85,8 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
   if (!attempts) return <LoadingPanel />;
 
   const ag = aggregate(attempts);
+  const allTimeRecord = readComboRecord();
+  void progress; // ProgressDto kept in state for future stat panels; current view consumes via insights.
   const accuracyColor =
     ag.accuracy >= 90
       ? 'var(--kt2-accent)'
@@ -106,8 +142,32 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
               label="平均反应"
               color="var(--kt2-accent-2)"
             />
+            <StatCell
+              n={ag.peakCombo}
+              unit="连击"
+              label="最高连击"
+              color="var(--kt2-accent)"
+              {...(comboBadge?.brokeCombo && { badge: '破纪录' })}
+              {...(allTimeRecord.peakCombo > 0 &&
+                !comboBadge?.brokeCombo && {
+                  subtitle: `历史 ${String(allTimeRecord.peakCombo)}`,
+                })}
+            />
+            <StatCell
+              n={ag.kpm.toFixed(1)}
+              unit="KPM"
+              label="速率"
+              color="var(--kt2-accent-2)"
+              {...(comboBadge?.brokeKpm && { badge: '破纪录' })}
+              {...(allTimeRecord.peakKpm > 0 &&
+                !comboBadge?.brokeKpm && {
+                  subtitle: `历史 ${allTimeRecord.peakKpm.toFixed(1)}`,
+                })}
+            />
           </div>
         </Group>
+
+        {insights ? <InsightsPanel insights={insights} /> : null}
 
         <Group title="▌ 错误分布">
           {ag.topErrors.length === 0 ? (
@@ -238,11 +298,15 @@ function StatCell({
   unit,
   label,
   color,
+  badge,
+  subtitle,
 }: {
   n: number | string;
   unit: string;
   label: string;
   color: string;
+  badge?: string;
+  subtitle?: string;
 }): JSX.Element {
   return (
     <div
@@ -251,6 +315,7 @@ function StatCell({
         padding: '8px 6px',
         textAlign: 'center',
         background: 'var(--kt2-sunken)',
+        position: 'relative',
       }}
     >
       <div className="r-label" style={{ fontSize: 7 }}>
@@ -272,6 +337,132 @@ function StatCell({
           {unit}
         </div>
       )}
+      {subtitle && (
+        <div className="r-label" style={{ fontSize: 7, marginTop: 2, opacity: 0.65 }}>
+          {subtitle}
+        </div>
+      )}
+      {badge && (
+        <span
+          style={{
+            position: 'absolute',
+            top: 2,
+            right: 4,
+            fontFamily: 'var(--pix-display)',
+            fontSize: 7,
+            color: 'var(--kt2-accent)',
+            textShadow: '0 0 4px var(--kt2-accent)',
+            border: '1px solid var(--kt2-accent)',
+            padding: '0 3px',
+          }}
+        >
+          {badge}
+        </span>
+      )}
+    </div>
+  );
+}
+
+function InsightsPanel({ insights }: { insights: SessionInsights }): JSX.Element | null {
+  const hasMistakes = insights.newMistakeItemIds.length > 0;
+  const hasMastered = insights.newlyMasteredItemIds.length > 0;
+  const hasRecos = insights.crossGameRecommendations.length > 0;
+  if (!hasMistakes && !hasMastered && !hasRecos) return null;
+  return (
+    <Group title="▌ 本次提升">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: 13 }}>
+        {hasMistakes && (
+          <InsightRow label="新进错题" count={insights.newMistakeItemIds.length}>
+            <ItemChips items={insights.newMistakeItemIds.slice(0, 6)} color="var(--kt2-danger)" />
+          </InsightRow>
+        )}
+        {hasMastered && (
+          <InsightRow label="新掌握" count={insights.newlyMasteredItemIds.length}>
+            <ItemChips
+              items={insights.newlyMasteredItemIds.slice(0, 6)}
+              color="var(--kt2-accent)"
+            />
+          </InsightRow>
+        )}
+        {hasRecos && (
+          <InsightRow label="推荐继续练" count={insights.crossGameRecommendations.length}>
+            <RecommendationChips recos={insights.crossGameRecommendations.slice(0, 4)} />
+          </InsightRow>
+        )}
+      </div>
+    </Group>
+  );
+}
+
+function InsightRow({
+  label,
+  count,
+  children,
+}: {
+  label: string;
+  count: number;
+  children: ReactNode;
+}): JSX.Element {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <span className="r-label" style={{ fontSize: 7 }}>
+          {label}
+        </span>
+        <span
+          style={{
+            fontFamily: 'var(--pix-display)',
+            fontSize: 11,
+            color: 'var(--kt2-fg-bright)',
+          }}
+        >
+          ×{String(count)}
+        </span>
+      </div>
+      {children}
+    </div>
+  );
+}
+
+function ItemChips({ items, color }: { items: string[]; color: string }): JSX.Element {
+  return (
+    <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+      {items.map((id) => (
+        <span
+          key={id}
+          className="r-cjk"
+          style={{
+            border: `1px solid ${color}`,
+            padding: '1px 6px',
+            fontSize: 11,
+            color,
+          }}
+        >
+          {id}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function RecommendationChips({ recos }: { recos: CrossGameRecommendation[] }): JSX.Element {
+  return (
+    <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+      {recos.map((r) => (
+        <a
+          key={`${r.targetGameType}::${r.reason}`}
+          href={r.href}
+          className="r-btn"
+          style={{
+            textDecoration: 'none',
+            fontSize: 12,
+            padding: '2px 8px',
+          }}
+          title={`基于 ${ERROR_TAG_LABEL_ZH[r.reason] ?? r.reason} ×${String(r.weight)}`}
+        >
+          {r.label} →
+        </a>
+      ))}
     </div>
   );
 }
@@ -283,6 +474,24 @@ function aggregate(attempts: AttemptEventRow[]): Aggregates {
   const avgReactionMs =
     total === 0 ? 0 : attempts.reduce((sum, a) => sum + a.reactionTimeMs, 0) / total;
   const totalDurationMs = attempts.reduce((sum, a) => sum + a.reactionTimeMs, 0);
+  // Peak combo: longest run of consecutive `isCorrect` attempts in chronological order.
+  // attempts arrive oldest-first from list_attempts_by_session.
+  let runningStreak = 0;
+  let peakCombo = 0;
+  for (const a of attempts) {
+    if (a.isCorrect) {
+      runningStreak += 1;
+      if (runningStreak > peakCombo) peakCombo = runningStreak;
+    } else {
+      runningStreak = 0;
+    }
+  }
+  // Rough KPM: 1 keystroke ≈ 1 attempt. We avoid trying to count actual chars (every game
+  // type has different input shape). Total wall-clock is the sum of reactionTimeMs which is
+  // a tight lower bound; if a session ran 3min real but reactions sum to 90s, KPM gets
+  // overstated — acceptable for a "did I beat my record" badge.
+  const minutes = totalDurationMs / 60_000;
+  const kpm = minutes > 0 ? total / minutes : 0;
   const tagCounts = new Map<string, number>();
   for (const a of attempts) {
     for (const t of a.errorTags) tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1);
@@ -298,6 +507,8 @@ function aggregate(attempts: AttemptEventRow[]): Aggregates {
     accuracy,
     avgReactionMs,
     totalDurationMs,
+    peakCombo,
+    kpm,
     topErrors,
     slowest,
     wrongOnly,

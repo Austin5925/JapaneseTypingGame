@@ -1,7 +1,11 @@
 import {
+  createBrowserSfx,
+  createComboBus,
   GameBridgeImpl,
   PhaserGameManager,
+  type ComboBus,
   type GameBridgeAdapter,
+  type Sfx,
 } from '@kana-typing/game-runtime';
 import { useEffect, useRef, type JSX, type RefObject } from 'react';
 
@@ -47,6 +51,11 @@ export interface GameCanvasHostProps {
    * handler to drive the active scene.
    */
   externalInputRef?: RefObject<GameCanvasExternalInputControl | null>;
+  /**
+   * If supplied, the parent sees the combo bus the scene uses (read state for stats / hook
+   * record events for HUD bubbles). Defaults to a fresh bus per mount.
+   */
+  comboRef?: RefObject<ComboBus | null>;
 }
 
 /**
@@ -90,9 +99,15 @@ export function GameCanvasHost(props: GameCanvasHostProps): JSX.Element {
       ...(props.height !== undefined && { height: props.height }),
     });
     manager.start();
+    // Production sfx + combo: sfx is silent until the user gesture (browser policy);
+    // combo is fresh per-mount so a session restart resets the streak. Both flow into the
+    // scene via `init` params alongside the bridge.
+    const sfx: Sfx = createBrowserSfx();
+    const combo: ComboBus = createComboBus();
+    if (props.comboRef) props.comboRef.current = combo;
     manager.startScene(
       props.sceneKey,
-      { bridge, sessionId: props.sessionId },
+      { bridge, sessionId: props.sessionId, sfx, combo },
       props.sceneInit ?? {},
     );
     managerRef.current = manager;
@@ -118,6 +133,9 @@ export function GameCanvasHost(props: GameCanvasHostProps): JSX.Element {
       bridgeRef.current = null;
       if (externalRef) {
         externalRef.current = null;
+      }
+      if (props.comboRef) {
+        props.comboRef.current = null;
       }
     };
     // We only want this to run on initial mount + (sessionId, sceneKey) change. The adapter

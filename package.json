@@ -1,6 +1,6 @@
 {
   "name": "kana-typing",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "private": true,
   "type": "module",
   "description": "Kana Typing — a Japanese input reflex trainer (Tauri + React + Phaser).",

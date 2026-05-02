@@ -8,4 +8,6 @@ export * from './scenes/RiverJumpScene';
 export * from './scenes/SpaceBattleScene';
 export * from './scenes/AppleRescueScene';
 export * from './audio/japaneseTts';
+export * from './audio/sfx';
+export * from './feedback/comboBus';
 export * from './PhaserGameManager';

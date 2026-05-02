@@ -8,6 +8,94 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.8.5] - 2026-05-02 — 连击 + sfx + session insights + cross-game 推荐
+
+### Added
+
+- **`ComboBus`** in `@kana-typing/game-runtime/feedback/comboBus`. Pure
+  state + tiny event emitter — every consecutive correct increments
+  `count`, any wrong resets it; `peak` is monotonic for the bus's
+  lifetime. Level threshold = 5 (count=5 → level 1, count=10 → level 2,
+  …). Subscribers receive `{type: 'increment'|'reset', count, level,
+  surge}` events; `surge=true` only on the boundary that crosses an
+  upward level. Production scenes get one bus per session via
+  `BaseSceneInit.combo`.
+- **`createBrowserSfx` + `createNoopSfx`** in
+  `@kana-typing/game-runtime/audio/sfx`. Synthesises five 8-bit cues
+  through Web Audio (no asset bundle): `correct` (two-tone square pluck),
+  `wrong` (sawtooth descending sweep), `tick` (high square, for the
+  countdown last 5s), `combo(level)` (3-note ascending arpeggio whose
+  base scales with level), `perfect` (4-note victory motif). One
+  AudioContext per Sfx instance, lazy-resumed on first play to satisfy
+  the browser user-gesture policy. Test stub fakes
+  `globalThis.AudioContext` so the path runs under jsdom.
+- **`BaseTrainingScene` combo + sfx wiring**: `submitAttemptAndAdvance`
+  now calls `combo.record(isCorrect)` after evaluation, fires the matching
+  sfx (`correct` always, `combo` on surge, `wrong` on reset), emits a new
+  `combo.changed` GameRuntimeEvent on the bridge, and renders a default
+  in-canvas "COMBO ×N" tween bubble (subclasses can override
+  `showComboBubble` for game-specific styling). Every scene inherits
+  this for free — no per-scene rewire required.
+- **`combo.changed` GameRuntimeEvent** carrying `{count, peak, level,
+  surge}` so the React HUD (and a future Boss-round shell) can react to
+  combo state without owning the bus directly.
+- **`computeSessionInsights`** pure function in
+  `apps/desktop/src/features/result/sessionInsights.ts`. Inputs: this
+  session's attempts + the user's full progress map. Outputs:
+  `newMistakeItemIds` (unique wrong items), `newlyMasteredItemIds`
+  (items now stable/fluent that were touched this session), and
+  `crossGameRecommendations` aggregated from `buildCrossGameEffects` over
+  every wrong attempt's errorTags (deduped by gameType+reason, sorted by
+  weight). 9 unit tests cover dedup, weight aggregation, sort order, and
+  the no-routing tags (timeout/misclick/unknown).
+- **`comboRecord`** localStorage helper (`features/result/comboRecord.ts`).
+  Reads / merges / persists `{peakCombo, peakKpm, updatedAt}` under
+  `kana-typing.combo-record`; `maybeUpdateComboRecord` returns
+  per-axis "broke record?" flags. 8 unit tests cover read fallbacks,
+  merge semantics, and the no-op path. Works around `localStorage`
+  via dependency injection so the tests stay browser-free.
+- **ResultPage upgrades**:
+  - Two new SCORE stat cells: 最高连击 (peak streak this session) and
+    KPM 速率 (rough chars/min). Both compare against the localStorage
+    record and render a "破纪录" badge when this session beats it; the
+    `subtitle` slot shows the historical peak when no record was broken.
+  - "▌ 本次提升" insights group beneath SCORE, with three rows:
+    新进错题 (item-id chips, danger colour), 新掌握 (accent colour),
+    推荐继续练 (cross-game chips that deep-link into the next game).
+- **MistakesPage 推荐 column**: per row, up to two "去 [game type] →"
+  chips computed from `buildCrossGameEffects(row.errorTags)`. Hover
+  title surfaces the originating ErrorTag in Chinese for context.
+
+### Changed
+
+- `BaseSceneInit` grew optional `combo` + `sfx` fields. Subclasses don't
+  need to wire anything; the new params are forwarded through
+  `super.init(params)` and the production `GameCanvasHost` injects a
+  `createBrowserSfx()` + `createComboBus()` per session mount.
+- `GameCanvasHost` exposes an optional `comboRef` so a host page can
+  read the combo bus state outside the bridge events (currently unused
+  — wired in advance for the v0.8.6 Boss HUD).
+- `PhaserGameManager.StartSessionOptions` gained matching `sfx` + `combo`
+  fields; the old call sites still compile because both are optional.
+- Synchronized package, Tauri, Cargo, shell version metadata to `0.8.5`.
+
+### Notes / known gaps
+
+- **Combo record is per-browser-profile, not per-user.** Wiping
+  localStorage clears the all-time peak. SQLite-backed profile records
+  land if/when accounts arrive.
+- **KPM is a coarse estimate** — 1 attempt ≈ 1 keystroke, which
+  understates Mole / SpeedChase (multi-key answers) and overstates
+  ChoiceTask scenes (one-key answers). The "破纪录" badge is therefore
+  best read as "fastest you've ever played this kind of session", not
+  as a typing-speed benchmark.
+- **Failure-side polish (Mole 头上砸 / SpeedChase 追兵瞬移 / 完美片尾
+  闪光) is deferred to v0.8.6** along with Boss / mixed-session work,
+  per the v0.8.5 scope agreed on the proposal review.
+- ResultPage's `progress` state is hydrated but only consumed by the
+  insights computation. Future stat panels (mastery delta over time,
+  weakness drift charts) can read it directly without another RPC.
+
 ## [0.8.4] - 2026-05-02 — v0.8.x audit fixes + daily-route closure
 
 ### Fixed

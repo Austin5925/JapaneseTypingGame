@@ -10,6 +10,7 @@ export type GameRuntimeEvent =
   | { type: 'attempt.submitted'; attempt: UserAttempt }
   | { type: 'attempt.evaluated'; result: EvaluationResult }
   | { type: 'feedback.shown'; result: EvaluationResult }
+  | { type: 'combo.changed'; count: number; peak: number; level: number; surge: boolean }
   | { type: 'session.finished'; reason: SessionFinishReason }
   | { type: 'scene.error'; error: { message: string; stack?: string } };
 
