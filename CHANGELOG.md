@@ -8,6 +8,43 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.8.7] - 2026-05-02 — Boss routing + result insight hardening
+
+### Fixed
+
+- ResultPage / MistakesPage cross-game recommendation links now preserve
+  the routed `skillDimension` in the hash query. A `particle_error`
+  recommendation opens RiverJump in `particle_usage`; katakana shape
+  mistakes open Mole in `katakana_recognition` instead of falling back to
+  generic drills.
+- ResultPage "新掌握" now matches attempts and progress by
+  `(itemId, skillDimension)` and requires the latest same-skill session
+  attempt to be correct. Stable progress from an unrelated skill no longer
+  lights up as newly mastered after a different skill was touched.
+- `AttemptEventRow` now exposes `gameType` and `skillDimension` from the
+  immutable attempt log so result and mistakes views can reason about
+  skill-specific outcomes without guessing from item ids.
+- BaseTrainingScene isolates non-critical feedback failures. Exceptions
+  from scene feedback, combo bubbles, or sfx now emit `scene.error` +
+  console diagnostics but no longer block the persisted attempt from
+  advancing to the next task.
+- Boss selector now buckets by `(gameType, skillDimension)` and carries
+  CrossGameEffect's exact skill into each segment. Katakana and particle
+  routes no longer collapse into `kana_typing` / `sentence_order`.
+- Boss choice segments now add support items for distractors while keeping
+  `taskCount` focused on the weak target items, and BossPage drops any
+  segment that still cannot generate playable tasks.
+- Selector bucket priority treats rows with `lastErrorTags` as weak even
+  if their mastery state is currently stable, keeping recent slips ahead
+  of fresh filler items in Boss and regular task queues.
+
+### Changed
+
+- BossPage now builds its learning pool from all non-sentence items, not
+  only rows typed exactly as `word`, so kana / phrase / minimal-pair
+  progress can participate in Boss segments.
+- Synchronized package, Tauri, Cargo, shell version metadata to `0.8.7`.
+
 ## [0.8.6] - 2026-05-02 — Boss 关 + 完美 finale + 失败戏剧
 
 ### Added
