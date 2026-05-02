@@ -144,6 +144,7 @@ function hasViableDistractors(
 function bucketFor(progress: SkillProgress | undefined, now: number): 0 | 1 | 2 | 3 {
   if (!progress) return 2;
   if (progress.nextDueAt && Date.parse(progress.nextDueAt) <= now) return 0;
+  if (progress.lastErrorTags.length > 0) return 1;
   if (progress.state === 'fragile' || progress.state === 'learning') return 1;
   if (progress.state === 'new' || progress.state === 'seen') return 2;
   return 3;

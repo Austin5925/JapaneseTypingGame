@@ -60,7 +60,7 @@ interface SessionStats {
 }
 
 /**
- * v0.8.6 Boss page (`#/game/boss`). Builds a multi-segment cross-game gauntlet from the
+ * v0.8.7 Boss page (`#/game/boss`). Builds a multi-segment cross-game gauntlet from the
  * user's recent weakness, then plays each segment sequentially.
  *
  * Architecture:
@@ -107,7 +107,7 @@ export function BossPage(): JSX.Element {
           listProgress({ userId: 'default-user', limit: 5000 }),
         ]);
         const learningItems: LearningItem[] = rows
-          .filter((r) => r.type === 'word')
+          .filter((r) => r.type !== 'sentence')
           .map(rowToLearningItem);
         const sentenceItems: SentenceItem[] = rows
           .filter((r) => r.type === 'sentence')
@@ -135,14 +135,24 @@ export function BossPage(): JSX.Element {
           gameType: 'boss_round',
           targetDurationMs: SESSION_DURATION_MS,
         });
-        setSessionId(created.id);
         const progressMap = buildProgressMap(progressDtos);
         const builtSegments = out.segments.map((seg) =>
           attachSegmentQueue(seg, progressMap, created.id),
         );
-        setSegments(builtSegments);
+        const playableSegments = builtSegments.filter((seg) => seg.tasks.length > 0);
+        if (playableSegments.length === 0) {
+          await session.finish('aborted').catch((finishErr: unknown) => {
+            console.warn('Boss empty queue cleanup failed', finishErr);
+          });
+          setEmptyReason(
+            '错题已经路由到 Boss 段落,但没有生成可玩的题目 — 检查 choice distractors / sentence 内容包是否完整',
+          );
+          return;
+        }
+        setSessionId(created.id);
+        setSegments(playableSegments);
         // Prime the first segment's queue so the GameCanvasHost mount immediately has tasks.
-        const firstSeg = builtSegments[0];
+        const firstSeg = playableSegments[0];
         if (firstSeg) {
           queueRef.current = [...firstSeg.tasks];
         }
@@ -318,7 +328,7 @@ export function BossPage(): JSX.Element {
             letterSpacing: '0.04em',
           }}
         >
-          段落自动轮换 · 连击跨段保持 · attempt 写入 SQLite [v0.8.6]
+          段落自动轮换 · 连击跨段保持 · attempt 写入 SQLite [v0.8.7]
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ import type { SentenceItem } from './sentenceOrderSelector';
 /**
  * Boss session = a multi-segment cross-game gauntlet built from the user's recent weakness.
  *
- * Strategy (v0.8.6):
+ * Strategy (v0.8.7):
  *   1. Filter every progress row to "weak":
  *      - state ∈ {fragile, learning}, OR
  *      - lastErrorTags is non-empty (signals a recent slip even on a stable item).
@@ -20,9 +20,10 @@ import type { SentenceItem } from './sentenceOrderSelector';
  *      should route to. This is the same routing rule the scheduler / ResultPage / Mistakes
  *      page uses, so a Boss session reads as "concentrated version of what your error log
  *      already said you should practise".
- *   3. Bucket the weak rows by recommended gameType, weighting each by `lapseCount + wrongCount`.
- *   4. Pick the top `segmentCount` buckets sorted by total weight; each bucket becomes one
- *      BossSegment. Inside a segment we surface up to `itemsPerSegment` items / sentences,
+ *   3. Bucket the weak rows by recommended (gameType, skillDimension), weighting each by
+ *      `lapseCount + wrongCount`.
+ *   4. Pick up to `segmentCount` playable buckets sorted by total weight; each bucket becomes
+ *      one BossSegment. Inside a segment we surface up to `itemsPerSegment` items / sentences,
  *      sorted by per-item weight.
  *
  * The selector deliberately stops at the segment-meta level — the actual TrainingTask shape
@@ -74,20 +75,9 @@ export interface SelectBossSessionOutput {
 const DEFAULT_SEGMENT_COUNT = 4;
 const DEFAULT_ITEMS_PER_SEGMENT = 5;
 
-const SKILL_FOR_GAME: Record<GameType, SkillDimension> = {
-  mole_story: 'kana_typing',
-  speed_chase: 'kanji_reading',
-  river_jump: 'sentence_order',
-  space_battle: 'meaning_recall',
-  apple_rescue: 'listening_discrimination',
-  // Boss is itself a meta-game; tracking dimension here only matters when a boss segment
-  // somehow routes back to itself (it doesn't — buildCrossGameEffects never produces it).
-  boss_round: 'active_output',
-  real_input: 'active_output',
-};
-
 interface Bucket {
   gameType: GameType;
+  skillDimension: SkillDimension;
   weight: number;
   reasons: Set<ErrorTag>;
   // We keep raw weak rows so the segment builder can pull either words or sentences.
@@ -106,23 +96,25 @@ export function selectBossSession(input: SelectBossSessionInput): SelectBossSess
     return { segments: [], weakCandidateCount: 0 };
   }
 
-  // 1. Bucket every weak row by the cross-game routing of its first lastErrorTag.
-  const buckets = new Map<GameType, Bucket>();
+  // 1. Bucket every weak row by the cross-game routing of its lastErrorTags.
+  const buckets = new Map<string, Bucket>();
   for (const row of weakRows) {
     const itemWeight = Math.max(1, row.lapseCount + row.wrongCount);
     const tags = row.lastErrorTags;
     const targets = tags.length === 0 ? defaultTargetForState(row) : routeTags(tags);
     if (targets.length === 0) continue;
     for (const t of targets) {
-      let bucket = buckets.get(t.targetGameType);
+      const bucketKey = `${t.targetGameType}::${t.skillDimension}`;
+      let bucket = buckets.get(bucketKey);
       if (!bucket) {
         bucket = {
           gameType: t.targetGameType,
+          skillDimension: t.skillDimension,
           weight: 0,
           reasons: new Set<ErrorTag>(),
           weakRows: [],
         };
-        buckets.set(t.targetGameType, bucket);
+        buckets.set(bucketKey, bucket);
       }
       bucket.weight += itemWeight * t.priorityBoost;
       bucket.reasons.add(t.reason);
@@ -132,9 +124,9 @@ export function selectBossSession(input: SelectBossSessionInput): SelectBossSess
 
   // 2. Sort buckets by aggregate weight; take the top N. Tie-breaker on bucket count keeps
   // gameTypes with more distinct items above thin-but-heavy buckets.
-  const sortedBuckets = [...buckets.values()]
-    .sort((a, b) => b.weight - a.weight || b.weakRows.length - a.weakRows.length)
-    .slice(0, segmentCount);
+  const sortedBuckets = [...buckets.values()].sort(
+    (a, b) => b.weight - a.weight || b.weakRows.length - a.weakRows.length,
+  );
 
   // 3. For each bucket, pull the matching content (LearningItems for word/choice/listening
   // games, SentenceItems for river_jump). Items are sorted by per-item weight desc, then
@@ -144,6 +136,7 @@ export function selectBossSession(input: SelectBossSessionInput): SelectBossSess
   const sentenceIndex = new Map(input.sentenceItems.map((s) => [s.id, s]));
   const segments: BossSegment[] = [];
   for (const bucket of sortedBuckets) {
+    if (segments.length >= segmentCount) break;
     const sortedRows = [...bucket.weakRows].sort((a, b) => b.weight - a.weight);
     if (bucket.gameType === 'river_jump') {
       const sentences: SentenceItem[] = [];
@@ -155,7 +148,7 @@ export function selectBossSession(input: SelectBossSessionInput): SelectBossSess
       if (sentences.length === 0) continue;
       segments.push({
         gameType: bucket.gameType,
-        skillDimension: 'sentence_order',
+        skillDimension: bucket.skillDimension,
         weight: bucket.weight,
         reasons: [...bucket.reasons],
         content: { kind: 'sentences', sentences },
@@ -164,16 +157,18 @@ export function selectBossSession(input: SelectBossSessionInput): SelectBossSess
       });
       continue;
     }
-    const items: LearningItem[] = [];
-    for (const row of sortedRows) {
-      if (items.length >= itemsPerSegment) break;
-      const it = itemIndex.get(row.progress.itemId);
-      if (it) items.push(it);
-    }
-    if (items.length === 0) continue;
+    const targetItems = pickTargetItems(sortedRows, itemIndex, itemsPerSegment);
+    if (targetItems.length === 0) continue;
+    const items = isChoiceGame(bucket.gameType)
+      ? withChoiceSupport(
+          targetItems,
+          input.learningItems,
+          bucket.gameType === 'apple_rescue' ? 1 : 3,
+        )
+      : targetItems;
     segments.push({
       gameType: bucket.gameType,
-      skillDimension: SKILL_FOR_GAME[bucket.gameType],
+      skillDimension: bucket.skillDimension,
       weight: bucket.weight,
       reasons: [...bucket.reasons],
       content: { kind: 'words', items },
@@ -181,11 +176,68 @@ export function selectBossSession(input: SelectBossSessionInput): SelectBossSess
         bucket.gameType === 'space_battle' || bucket.gameType === 'apple_rescue'
           ? choiceTimeLimitMs
           : wordTimeLimitMs,
-      taskCount: items.length,
+      taskCount: targetItems.length,
     });
   }
 
   return { segments, weakCandidateCount: weakRows.length };
+}
+
+function pickTargetItems(
+  sortedRows: Array<{ progress: SkillProgress; weight: number }>,
+  itemIndex: Map<string, LearningItem>,
+  limit: number,
+): LearningItem[] {
+  const out: LearningItem[] = [];
+  const seen = new Set<string>();
+  for (const row of sortedRows) {
+    if (out.length >= limit) break;
+    if (seen.has(row.progress.itemId)) continue;
+    const it = itemIndex.get(row.progress.itemId);
+    if (!it) continue;
+    seen.add(it.id);
+    out.push(it);
+  }
+  return out;
+}
+
+function isChoiceGame(gameType: GameType): boolean {
+  return gameType === 'space_battle' || gameType === 'apple_rescue';
+}
+
+function withChoiceSupport(
+  targetItems: LearningItem[],
+  allItems: LearningItem[],
+  distractorCount: number,
+): LearningItem[] {
+  const out = [...targetItems];
+  const seen = new Set(out.map((item) => item.id));
+  const allById = new Map(allItems.map((item) => [item.id, item]));
+
+  for (const target of targetItems) {
+    for (const id of target.confusableItemIds) {
+      if (seen.has(id)) continue;
+      const item = allById.get(id);
+      if (!item || !isChoiceEligible(item)) continue;
+      seen.add(item.id);
+      out.push(item);
+    }
+  }
+
+  const minimumPoolSize = Math.max(...targetItems.map((item) => item.confusableItemIds.length), 0);
+  const requiredPoolSize = Math.max(distractorCount + 1, minimumPoolSize + 1);
+  for (const item of allItems) {
+    if (out.length >= requiredPoolSize) break;
+    if (seen.has(item.id)) continue;
+    if (!isChoiceEligible(item)) continue;
+    seen.add(item.id);
+    out.push(item);
+  }
+  return out;
+}
+
+function isChoiceEligible(item: LearningItem): boolean {
+  return item.meaningsZh.length > 0 && item.surface.length > 0;
 }
 
 function isWeak(p: SkillProgress): boolean {
@@ -224,12 +276,28 @@ function routeTags(tags: ErrorTag[]): CrossGameEffect[] {
 function defaultTargetForState(p: SkillProgress): CrossGameEffect[] {
   switch (p.skillDimension) {
     case 'kana_typing':
-    case 'kana_recognition':
-    case 'katakana_recognition':
       return [
         {
           targetGameType: 'mole_story',
           skillDimension: 'kana_typing',
+          priorityBoost: 0.5,
+          reason: 'unknown',
+        },
+      ];
+    case 'kana_recognition':
+      return [
+        {
+          targetGameType: 'mole_story',
+          skillDimension: 'kana_recognition',
+          priorityBoost: 0.5,
+          reason: 'unknown',
+        },
+      ];
+    case 'katakana_recognition':
+      return [
+        {
+          targetGameType: 'mole_story',
+          skillDimension: 'katakana_recognition',
           priorityBoost: 0.5,
           reason: 'unknown',
         },
@@ -261,8 +329,16 @@ function defaultTargetForState(p: SkillProgress): CrossGameEffect[] {
           reason: 'unknown',
         },
       ];
-    case 'sentence_order':
     case 'particle_usage':
+      return [
+        {
+          targetGameType: 'river_jump',
+          skillDimension: 'particle_usage',
+          priorityBoost: 0.5,
+          reason: 'unknown',
+        },
+      ];
+    case 'sentence_order':
       return [
         {
           targetGameType: 'river_jump',

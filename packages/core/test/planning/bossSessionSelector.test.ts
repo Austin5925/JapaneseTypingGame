@@ -179,6 +179,29 @@ describe('selectBossSession — bucket routing', () => {
     expect(out.segments).toEqual([]);
     expect(out.weakCandidateCount).toBe(1); // weak count counted, but no segment built
   });
+
+  it('does not let an unplayable heavy bucket consume the segment budget', () => {
+    const out = selectBossSession({
+      progress: [
+        progress({
+          itemId: 'orphan',
+          lastErrorTags: ['same_sound_confusion'],
+          wrongCount: 99,
+        }),
+        progress({
+          itemId: 'sent-a',
+          skillDimension: 'sentence_order',
+          lastErrorTags: ['word_order_error'],
+          wrongCount: 1,
+        }),
+      ],
+      learningItems: [],
+      sentenceItems: [sentence('sent-a')],
+      segmentCount: 1,
+    });
+    expect(out.segments).toHaveLength(1);
+    expect(out.segments[0]!.gameType).toBe('river_jump');
+  });
 });
 
 describe('selectBossSession — sentence routing', () => {
@@ -203,6 +226,24 @@ describe('selectBossSession — sentence routing', () => {
     }
   });
 
+  it('keeps particle_usage on particle-error river segments', () => {
+    const out = selectBossSession({
+      progress: [
+        progress({
+          itemId: 'sent-a',
+          skillDimension: 'particle_usage',
+          lastErrorTags: ['particle_error'],
+          wrongCount: 3,
+        }),
+      ],
+      learningItems: [],
+      sentenceItems: [sentence('sent-a')],
+    });
+    const seg = out.segments[0]!;
+    expect(seg.gameType).toBe('river_jump');
+    expect(seg.skillDimension).toBe('particle_usage');
+  });
+
   it('falls back to default routing when lastErrorTags is empty but state is fragile', () => {
     const out = selectBossSession({
       progress: [
@@ -217,5 +258,52 @@ describe('selectBossSession — sentence routing', () => {
       sentenceItems: [],
     });
     expect(out.segments[0]!.gameType).toBe('speed_chase');
+  });
+
+  it('keeps fallback kana-recognition dimensions instead of collapsing to kana_typing', () => {
+    const out = selectBossSession({
+      progress: [
+        progress({
+          itemId: 'kata-a',
+          state: 'fragile',
+          lastErrorTags: [],
+          skillDimension: 'katakana_recognition',
+        }),
+      ],
+      learningItems: [
+        item({ id: 'kata-a', tags: ['katakana'], skillTags: ['katakana_recognition'] }),
+      ],
+      sentenceItems: [],
+    });
+    expect(out.segments[0]!.gameType).toBe('mole_story');
+    expect(out.segments[0]!.skillDimension).toBe('katakana_recognition');
+  });
+});
+
+describe('selectBossSession — choice support pool', () => {
+  it('adds support items for choice-game distractors while keeping taskCount focused', () => {
+    const out = selectBossSession({
+      progress: [
+        progress({
+          itemId: 'weak-a',
+          lastErrorTags: ['same_sound_confusion'],
+          wrongCount: 4,
+        }),
+      ],
+      learningItems: [
+        item({ id: 'weak-a' }),
+        item({ id: 'support-b' }),
+        item({ id: 'support-c' }),
+        item({ id: 'support-d' }),
+      ],
+      sentenceItems: [],
+    });
+    const seg = out.segments.find((s) => s.gameType === 'space_battle')!;
+    expect(seg.taskCount).toBe(1);
+    expect(seg.content.kind).toBe('words');
+    if (seg.content.kind === 'words') {
+      expect(seg.content.items.map((it) => it.id)).toContain('weak-a');
+      expect(seg.content.items.length).toBeGreaterThanOrEqual(4);
+    }
   });
 });
