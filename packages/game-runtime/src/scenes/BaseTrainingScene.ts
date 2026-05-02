@@ -84,14 +84,34 @@ export abstract class BaseTrainingScene<TTask extends TrainingTask = TrainingTas
     try {
       this.bridge.emit({ type: 'attempt.submitted', attempt });
       const result = await this.bridge.submitAttempt(attempt);
-      this.showFeedback(result);
+      try {
+        this.showFeedback(result);
+      } catch (err) {
+        this.reportNonCriticalFeedbackError('showFeedback', err);
+      }
       this.bridge.emit({ type: 'attempt.evaluated', result });
       this.bridge.emit({ type: 'feedback.shown', result });
-      this.notifyCombo(result);
+      try {
+        this.notifyCombo(result);
+      } catch (err) {
+        this.reportNonCriticalFeedbackError('notifyCombo', err);
+      }
       return result;
     } finally {
       this.busy = false;
     }
+  }
+
+  private reportNonCriticalFeedbackError(source: string, err: unknown): void {
+    const error = err instanceof Error ? err : new Error(String(err));
+    console.warn(`[${this.scene.key}] ${source} failed`, err);
+    this.bridge.emit({
+      type: 'scene.error',
+      error: {
+        message: `${source} failed: ${error.message}`,
+        ...(error.stack !== undefined && { stack: error.stack }),
+      },
+    });
   }
 
   /**
