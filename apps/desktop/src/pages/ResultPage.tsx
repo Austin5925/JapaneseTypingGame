@@ -1,3 +1,4 @@
+import { createBrowserSfx } from '@kana-typing/game-runtime';
 import { useEffect, useState, type CSSProperties, type JSX, type ReactNode } from 'react';
 
 import { maybeUpdateComboRecord, readComboRecord } from '../features/result/comboRecord';
@@ -87,6 +88,7 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
   const ag = aggregate(attempts);
   const allTimeRecord = readComboRecord();
   void progress; // ProgressDto kept in state for future stat panels; current view consumes via insights.
+  const isPerfect = ag.total > 0 && ag.correct === ag.total;
   const accuracyColor =
     ag.accuracy >= 90
       ? 'var(--kt2-accent)'
@@ -109,6 +111,7 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
 
   return (
     <div style={pageGrid}>
+      {isPerfect && <PerfectFinale />}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         <Group title="▌ SCORE">
           <div style={{ textAlign: 'center', padding: '12px 0 16px' }}>
@@ -580,6 +583,68 @@ function LoadingPanel(): JSX.Element {
         <div className="kt-skel" style={{ width: '100%', height: 14, marginBottom: 8 }} />
         <div className="kt-skel" style={{ width: '60%', height: 14 }} />
       </Group>
+    </div>
+  );
+}
+
+/**
+ * Full-screen overlay shown when accuracy hits 100%. Plays the `perfect` sfx once on mount
+ * and animates a phosphor-green "完璧 PERFECT" banner that fades after ~2s. Pointer-events
+ * stay disabled so the underlying page is still interactive while the banner runs.
+ */
+function PerfectFinale(): JSX.Element {
+  const [opacity, setOpacity] = useState(1);
+  useEffect(() => {
+    // Fire the victory sfx once. createBrowserSfx is cheap (lazy AudioContext), and the
+    // Web-Audio-policy resume happens automatically because the user clicked "再练" /
+    // navigated to the result page from a scene where they'd already gestured.
+    const sfx = createBrowserSfx();
+    sfx.play('perfect');
+    // Fade out after 1.5s; remove the overlay after 2.0s.
+    const fadeId = globalThis.setTimeout(() => setOpacity(0), 1500);
+    return () => globalThis.clearTimeout(fadeId);
+  }, []);
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        inset: 0,
+        zIndex: 50,
+        pointerEvents: 'none',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        opacity,
+        transition: 'opacity 600ms ease-out',
+        background:
+          'radial-gradient(circle at center, rgba(126, 231, 135, 0.25), rgba(0, 0, 0, 0.4) 70%)',
+      }}
+    >
+      <div
+        style={{
+          fontFamily: 'var(--pix-display)',
+          fontSize: 64,
+          color: 'var(--kt2-accent)',
+          letterSpacing: '0.12em',
+          textShadow: '0 0 20px var(--kt2-accent), 0 0 4px #fff',
+          animation: 'kt-perfect-pulse 1.4s ease-out',
+        }}
+      >
+        完璧
+      </div>
+      <div
+        style={{
+          fontFamily: 'var(--pix-display)',
+          fontSize: 24,
+          color: 'var(--kt2-fg-bright)',
+          letterSpacing: '0.4em',
+          marginTop: 12,
+          textShadow: '0 0 8px var(--kt2-accent)',
+        }}
+      >
+        PERFECT
+      </div>
     </div>
   );
 }

@@ -8,6 +8,81 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.8.6] - 2026-05-02 — Boss 关 + 完美 finale + 失败戏剧
+
+### Added
+
+- **Boss page (`#/game/boss`)** — multi-segment cross-game gauntlet
+  built dynamically from the user's recent weakness. Each Boss session
+  picks up to 4 segments, each routed to the GameType that best matches
+  the user's dominant error tags (long_vowel → AppleRescue + Mole,
+  same_sound → SpaceBattle, word_order → RiverJump, etc.). Segments
+  unmount + remount in sequence; the **ComboBus is shared across
+  segments** so the streak survives game-type switches. The whole run
+  persists as one `attempt_events` session with `gameType='boss_round'`,
+  individual attempts keep their per-segment GameType so cross-game
+  routing stays accurate.
+- **`selectBossSession`** in `@kana-typing/core/planning`. Pure function:
+  filters fragile/learning progress rows + rows with non-empty
+  lastErrorTags, buckets by recommended GameType (via
+  buildCrossGameEffects on each row's tags), weights buckets by
+  `lapseCount + wrongCount`, returns the top N segments with their
+  reasons + content (LearningItem[] for word/choice/listening games,
+  SentenceItem[] for RiverJump). Empty-history fallback returns
+  `weakCandidateCount: 0` so the page can render a friendly "数据不够"
+  panel. **8 unit tests** cover empty cases, routing, sort order,
+  segment-count cap, content fallbacks.
+- **`'boss_round'` GameType** in core enums + every exhaustive
+  `Record<GameType, …>` lookup updated (TodayTrainingPage labels,
+  MistakesPage / ResultPage recommendation labels, BossSessionSelector
+  skill table).
+- **`crown` PixIcon** (16×16 amber crown) and a "Boss 关" entry in the
+  RetroShell training nav at `#/game/boss`.
+- **PerfectFinale overlay** on ResultPage — when accuracy hits 100%, a
+  full-screen phosphor radial gradient flashes "完璧 PERFECT" for ~2s
+  and fires the v0.8.5 `perfect` sfx cue once. Pointer-events stay
+  disabled so the underlying page is interactive while the banner runs.
+- **MoleScene 砸头 drama** — wrong answer now spawns a red "BAM!"
+  splat tween over the mole and triggers a 180ms camera shake.
+  ~30 lines added; no new sprites.
+- **SpeedChaseScene 追兵瞬移** — wrong answer's pursuer setback is now a
+  cinematic tween (Cubic.easeOut, 200ms) instead of a `setX` snap, plus
+  a brief camera shake to make the threat feel closer. The setback
+  amount still comes from the difficulty curve so the regression-prone
+  "how much closer" math stays in one place.
+
+### Changed
+
+- `GameCanvasHost` accepts optional `combo?: ComboBus` and `sfx?: Sfx`
+  props. When supplied, the host forwards them to scene init instead of
+  minting fresh instances — the mechanism BossPage uses to keep one
+  ComboBus alive across segment scene mounts.
+- `BossSegment` carries its target `gameType` + `skillDimension` +
+  weighted reasons + recommended `timeLimitMs` + `taskCount`, then the
+  desktop layer attaches the actual `TrainingTask[]` per segment using
+  the matching selector (Mole/SpeedChase → kana selector;
+  SpaceBattle/AppleRescue → choice selector with audio prompt for
+  AppleRescue; RiverJump → sentence-order selector).
+- Synchronized package, Tauri, Cargo, shell version metadata to `0.8.6`.
+
+### Notes / known gaps
+
+- **Boss session needs prior data**. A first-launch user with no error
+  history sees the "还没有错题数据 — 先去 …" empty panel rather than a
+  hollow Boss. This is by design: the segment quality scales with the
+  attempt log.
+- **Segment scene-mount churn** — switching segments tears down +
+  rebuilds the Phaser game (sceneKey changes via React `key`). On
+  macOS / Windows WebView this is fast (~200ms); on Linux WebKit GTK it
+  may flash briefly. Not a blocker, just a polish item for v0.8.7.
+- **PerfectFinale sfx replay** — the cue plays once on ResultPage mount.
+  Navigating away and back replays it. If that proves annoying, gate on
+  a `localStorage` `perfectShownForSession` marker.
+- **Real-time combo HUD** — the v0.8.5 `combo.changed` bridge event is
+  available, but the HUD currently only surfaces the final peak via
+  ResultPage. A live "COMBO ×3" badge in the React HUD lands when the
+  Boss screen design crystallises in v0.8.7+.
+
 ## [0.8.5] - 2026-05-02 — 连击 + sfx + session insights + cross-game 推荐
 
 ### Added

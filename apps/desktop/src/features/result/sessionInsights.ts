@@ -50,6 +50,7 @@ const RECOMMENDATION_LABELS: Record<GameType, { label: string; href: string }> =
   river_jump: { label: '去激流勇进练语序', href: '#/game/river-jump' },
   speed_chase: { label: '去生死时速读音', href: '#/game/speed-chase' },
   mole_story: { label: '去鼹鼠的故事补假名', href: '#/game/mole' },
+  boss_round: { label: '去 Boss 关混合复习', href: '#/game/boss' },
   real_input: { label: '去实战输入', href: '#/' },
 };
 

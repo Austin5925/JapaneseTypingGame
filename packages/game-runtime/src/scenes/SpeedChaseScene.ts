@@ -234,11 +234,25 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
       const tagSummary = result.errorTags.length > 0 ? ` (${result.errorTags.join(', ')})` : '';
       this.feedbackText.setText(`✗ expected ${result.expectedDisplay}${tagSummary}`);
       this.feedbackText.setColor('#f87171');
-      // Penalty visual: pursuer jumps closer.
+      // Penalty visual: pursuer jumps closer. v0.8.6 makes the jump cinematic — a tween
+      // instead of a setX snap, plus a brief camera shake, so the user feels the threat.
       const accuracy = this.accuracyAttempts > 0 ? this.accuracyCorrect / this.accuracyAttempts : 1;
       const diff = getSpeedChaseDifficulty(this.now() - this.sessionStartedAt, accuracy);
+      const fromX = this.pursuerX;
       this.pursuerX = Math.min(this.playerX - 8, this.pursuerX + diff.wrongAnswerSetbackPx);
-      this.pursuerSprite?.setX(this.pursuerX);
+      if (this.pursuerSprite) {
+        this.tweens.add({
+          targets: { x: fromX },
+          x: this.pursuerX,
+          duration: 200,
+          ease: 'Cubic.easeOut',
+          onUpdate: (tween) => {
+            const x = tween.getValue();
+            if (typeof x === 'number') this.pursuerSprite?.setX(x);
+          },
+        });
+      }
+      this.cameras.main?.shake(160, 0.006);
     }
   }
 

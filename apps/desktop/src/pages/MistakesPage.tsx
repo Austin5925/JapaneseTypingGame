@@ -23,6 +23,7 @@ const RECO_LABEL: Record<GameType, { href: string; short: string }> = {
   river_jump: { href: '#/game/river-jump', short: '语序' },
   speed_chase: { href: '#/game/speed-chase', short: '读音' },
   mole_story: { href: '#/game/mole', short: '假名' },
+  boss_round: { href: '#/game/boss', short: 'Boss' },
   real_input: { href: '#/', short: '实战' },
 };
 

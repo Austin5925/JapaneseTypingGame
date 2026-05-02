@@ -30,6 +30,7 @@ const GAME_TYPE_LABEL: Record<GameType, string> = {
   apple_rescue: '拯救苹果',
   river_jump: '激流勇进',
   space_battle: '太空大战',
+  boss_round: 'Boss 关',
   real_input: '实战输入',
 };
 
@@ -39,6 +40,7 @@ const GAME_TYPE_SUB: Record<GameType, string> = {
   apple_rescue: 'APPLE.EXE',
   river_jump: 'RIVER.EXE',
   space_battle: 'BATTLE.EXE',
+  boss_round: 'BOSS.EXE',
   real_input: 'REAL.EXE',
 };
 
@@ -48,6 +50,7 @@ const GAME_TYPE_ICON: Record<GameType, PixIconName> = {
   apple_rescue: 'apple',
   river_jump: 'river',
   space_battle: 'rocket',
+  boss_round: 'crown',
   real_input: 'play',
 };
 

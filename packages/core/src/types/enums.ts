@@ -7,6 +7,7 @@ export type GameType =
   | 'space_battle'
   | 'river_jump'
   | 'apple_rescue'
+  | 'boss_round'
   | 'real_input';
 
 export const ALL_GAME_TYPES: readonly GameType[] = [
@@ -15,6 +16,7 @@ export const ALL_GAME_TYPES: readonly GameType[] = [
   'space_battle',
   'river_jump',
   'apple_rescue',
+  'boss_round',
   'real_input',
 ] as const;
 

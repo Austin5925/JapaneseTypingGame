@@ -19,6 +19,7 @@ export type RetroActiveKey =
   | 'game-river-jump'
   | 'game-space-battle'
   | 'game-apple-rescue'
+  | 'game-boss'
   | 'result'
   | 'dev'
   | 'dev-input'
@@ -48,6 +49,7 @@ const NAV_GROUPS: NavGroup[] = [
       { key: 'game-river-jump', label: '激流勇进', href: '#/game/river-jump', icon: 'river' },
       { key: 'game-space-battle', label: '太空大战', href: '#/game/space-battle', icon: 'rocket' },
       { key: 'game-apple-rescue', label: '拯救苹果', href: '#/game/apple-rescue', icon: 'apple' },
+      { key: 'game-boss', label: 'Boss 关', href: '#/game/boss', icon: 'crown' },
       { key: 'diagnostic', label: '水平测评', href: '#/diagnostic', icon: 'target' },
     ],
   },
@@ -94,7 +96,7 @@ export function RetroShell(props: RetroShellProps): JSX.Element {
   return (
     <div className="r-app">
       <div className="r-titlebar">
-        <span>KANA-TYPE.EXE — 假名打字通 v0.8.5 [离线模式]</span>
+        <span>KANA-TYPE.EXE — 假名打字通 v0.8.6 [离线模式]</span>
         <div className="icons">
           <span>_</span>
           <span>□</span>
@@ -184,7 +186,7 @@ export function RetroShell(props: RetroShellProps): JSX.Element {
 
       <footer className="r-statusbar">
         <span className="seg">就绪</span>
-        <span className="seg">v0.8.5 · master</span>
+        <span className="seg">v0.8.6 · master</span>
         <span className="grow" />
         <span className="seg">
           <a href="#/dev" style={{ color: 'inherit' }}>

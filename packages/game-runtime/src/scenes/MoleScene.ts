@@ -157,7 +157,38 @@ export class MoleScene extends BaseTrainingScene<TrainingTask> {
       const tagSummary = result.errorTags.length > 0 ? ` (${result.errorTags.join(', ')})` : '';
       this.feedbackText.setText(`✗ expected ${result.expectedDisplay}${tagSummary}`);
       this.feedbackText.setColor('#f87171');
+      this.playWrongDrama();
     }
+  }
+
+  /**
+   * v0.8.6 failure drama: a red "BAM!" splat sits on top of the mole + the camera shakes
+   * for ~180ms. Cheap and disposable — the BAM text auto-destroys at the end of its tween,
+   * and a missing camera (headless test) makes the shake a no-op.
+   */
+  private playWrongDrama(): void {
+    if (!this.moleContainer) return;
+    const cx = this.moleContainer.x;
+    const cy = this.moleContainer.y - 60;
+    const splat = this.add.text(cx, cy, 'BAM!', {
+      fontSize: '40px',
+      color: '#ff4444',
+      fontFamily: 'sans-serif',
+      stroke: '#1a0000',
+      strokeThickness: 4,
+    });
+    splat.setOrigin(0.5, 0.5);
+    splat.setDepth(900);
+    this.tweens.add({
+      targets: splat,
+      angle: { from: -8, to: 8 },
+      scale: { from: 1.4, to: 0.9 },
+      alpha: { from: 1, to: 0 },
+      duration: 600,
+      ease: 'Cubic.easeOut',
+      onComplete: () => splat.destroy(),
+    });
+    this.cameras.main?.shake(180, 0.008);
   }
 
   // ─── input ─────────────────────────────────────────────────────────

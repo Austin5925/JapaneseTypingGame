@@ -56,6 +56,17 @@ export interface GameCanvasHostProps {
    * record events for HUD bubbles). Defaults to a fresh bus per mount.
    */
   comboRef?: RefObject<ComboBus | null>;
+  /**
+   * If supplied, the host uses this exact ComboBus instead of minting one. Used by BossPage
+   * so the streak survives segment-by-segment scene mounts.
+   */
+  combo?: ComboBus;
+  /**
+   * If supplied, the host uses this exact Sfx instance instead of creating a fresh
+   * `createBrowserSfx()`. Useful for tests + for callers that want to control the lifecycle
+   * (e.g. mute toggle).
+   */
+  sfx?: Sfx;
 }
 
 /**
@@ -101,9 +112,10 @@ export function GameCanvasHost(props: GameCanvasHostProps): JSX.Element {
     manager.start();
     // Production sfx + combo: sfx is silent until the user gesture (browser policy);
     // combo is fresh per-mount so a session restart resets the streak. Both flow into the
-    // scene via `init` params alongside the bridge.
-    const sfx: Sfx = createBrowserSfx();
-    const combo: ComboBus = createComboBus();
+    // scene via `init` params alongside the bridge. Callers (BossPage) may inject their own
+    // instances when they need to span multiple scene mounts in one session.
+    const sfx: Sfx = props.sfx ?? createBrowserSfx();
+    const combo: ComboBus = props.combo ?? createComboBus();
     if (props.comboRef) props.comboRef.current = combo;
     manager.startScene(
       props.sceneKey,

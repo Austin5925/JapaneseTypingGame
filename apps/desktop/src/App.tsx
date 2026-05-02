@@ -3,6 +3,7 @@ import { useEffect, useState, type JSX } from 'react';
 
 import { RetroShell, type RetroActiveKey } from './features/shell/RetroShell';
 import { AppleRescuePage } from './pages/AppleRescuePage';
+import { BossPage } from './pages/BossPage';
 import { ContentPacksPage } from './pages/ContentPacksPage';
 import { DevPage } from './pages/DevPage';
 import { DiagnosticPage } from './pages/DiagnosticPage';
@@ -36,6 +37,7 @@ type Route =
   | { kind: 'game-river-jump'; overrides?: GameRouteOverrides }
   | { kind: 'game-space-battle'; overrides?: GameRouteOverrides }
   | { kind: 'game-apple-rescue'; overrides?: GameRouteOverrides }
+  | { kind: 'game-boss' }
   | { kind: 'result'; sessionId: string };
 
 function getRoute(): Route {
@@ -64,6 +66,7 @@ function getRoute(): Route {
   if (hash === '#/game/apple-rescue' || hash.startsWith('#/game/apple-rescue?')) {
     return { kind: 'game-apple-rescue', ...withOverrides(hash) };
   }
+  if (hash === '#/game/boss') return { kind: 'game-boss' };
   const resultMatch = hash.match(/^#\/result\/(.+)$/u);
   if (resultMatch) return { kind: 'result', sessionId: resultMatch[1]! };
   return { kind: 'home' };
@@ -175,6 +178,8 @@ function renderRouteContent(route: Route): JSX.Element {
           overrides={route.overrides}
         />
       );
+    case 'game-boss':
+      return <BossPage />;
     case 'result':
       return <ResultPage sessionId={route.sessionId} />;
   }
@@ -214,6 +219,8 @@ function titleForRoute(route: Route): string {
       return 'C:\\KANA\\SPACE.EXE';
     case 'game-apple-rescue':
       return 'C:\\KANA\\APPLE.EXE';
+    case 'game-boss':
+      return 'C:\\KANA\\BOSS.EXE';
     case 'result':
       return 'C:\\KANA\\RESULT.LOG';
   }

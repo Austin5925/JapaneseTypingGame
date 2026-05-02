@@ -26,6 +26,7 @@ export type PixIconName =
   | 'river'
   | 'rocket'
   | 'apple'
+  | 'crown'
   | 'help'
   | 'target'
   | 'close';
@@ -361,6 +362,29 @@ export const PIX_GRIDS: Record<PixIconName, IconDef> = {
       '0000111111110000',
       '0000011111100000',
       '0000001111000000',
+    ],
+  },
+  crown: {
+    // 8-bit crown — the "Boss 关" sidebar glyph. Amber on phosphor accents reads as
+    // "high-stakes mixed session" without competing with the regular game icons.
+    color: AMBER,
+    grid: [
+      '0000000000000000',
+      '0000000110000000',
+      '0001100110011000',
+      '0011110110111100',
+      '0011110110111100',
+      '0001100110011000',
+      '0001111111111000',
+      '0011000000001100',
+      '0111111111111110',
+      '0110011111100110',
+      '0110011001100110',
+      '0110011001100110',
+      '0111100110011110',
+      '0011111111111100',
+      '0001111111111000',
+      '0000000000000000',
     ],
   },
   apple: {
