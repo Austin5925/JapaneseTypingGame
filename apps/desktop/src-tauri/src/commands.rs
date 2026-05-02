@@ -812,6 +812,8 @@ pub struct AttemptEventRow {
     pub id: String,
     pub session_id: String,
     pub item_id: String,
+    pub game_type: String,
+    pub skill_dimension: String,
     pub answer_mode: String,
     pub is_correct: bool,
     pub score: f64,
@@ -911,13 +913,13 @@ pub fn list_recent_attempts(
     let limit = input.limit.unwrap_or(50).clamp(1, 1000);
     let rows: Vec<AttemptEventRow> = if let Some(item_id) = input.item_id.as_ref() {
         let mut stmt = conn.prepare(
-            "SELECT id, session_id, item_id, answer_mode, is_correct, score, reaction_time_ms, error_tags_json, created_at\n             FROM attempt_events WHERE user_id = ?1 AND item_id = ?2 ORDER BY created_at DESC LIMIT ?3",
+            "SELECT id, session_id, item_id, game_type, skill_dimension, answer_mode, is_correct, score, reaction_time_ms, error_tags_json, created_at\n             FROM attempt_events WHERE user_id = ?1 AND item_id = ?2 ORDER BY created_at DESC LIMIT ?3",
         )?;
         let mapped = stmt.query_map(params![input.user_id, item_id, limit], attempt_row_from)?;
         mapped.collect::<Result<_, _>>()?
     } else {
         let mut stmt = conn.prepare(
-            "SELECT id, session_id, item_id, answer_mode, is_correct, score, reaction_time_ms, error_tags_json, created_at\n             FROM attempt_events WHERE user_id = ?1 ORDER BY created_at DESC LIMIT ?2",
+            "SELECT id, session_id, item_id, game_type, skill_dimension, answer_mode, is_correct, score, reaction_time_ms, error_tags_json, created_at\n             FROM attempt_events WHERE user_id = ?1 ORDER BY created_at DESC LIMIT ?2",
         )?;
         let mapped = stmt.query_map(params![input.user_id, limit], attempt_row_from)?;
         mapped.collect::<Result<_, _>>()?
@@ -1049,7 +1051,7 @@ pub fn list_attempts_by_session(
         .lock()
         .map_err(|e| AppError::Internal(e.to_string()))?;
     let mut stmt = conn.prepare(
-        "SELECT id, session_id, item_id, answer_mode, is_correct, score, reaction_time_ms, error_tags_json, created_at\n         FROM attempt_events WHERE session_id = ?1 ORDER BY created_at ASC",
+        "SELECT id, session_id, item_id, game_type, skill_dimension, answer_mode, is_correct, score, reaction_time_ms, error_tags_json, created_at\n         FROM attempt_events WHERE session_id = ?1 ORDER BY created_at ASC",
     )?;
     let rows = stmt.query_map(params![input.session_id], attempt_row_from)?;
     let out: Vec<AttemptEventRow> = rows.collect::<Result<_, _>>()?;
@@ -1057,19 +1059,21 @@ pub fn list_attempts_by_session(
 }
 
 fn attempt_row_from(row: &rusqlite::Row<'_>) -> rusqlite::Result<AttemptEventRow> {
-    let error_tags_json: String = row.get(7)?;
+    let error_tags_json: String = row.get(9)?;
     let error_tags: Vec<String> = serde_json::from_str(&error_tags_json).unwrap_or_default();
-    let is_correct_int: i64 = row.get(4)?;
+    let is_correct_int: i64 = row.get(6)?;
     Ok(AttemptEventRow {
         id: row.get(0)?,
         session_id: row.get(1)?,
         item_id: row.get(2)?,
-        answer_mode: row.get(3)?,
+        game_type: row.get(3)?,
+        skill_dimension: row.get(4)?,
+        answer_mode: row.get(5)?,
         is_correct: is_correct_int != 0,
-        score: row.get(5)?,
-        reaction_time_ms: row.get(6)?,
+        score: row.get(7)?,
+        reaction_time_ms: row.get(8)?,
         error_tags,
-        created_at: row.get(8)?,
+        created_at: row.get(10)?,
     })
 }
 

@@ -453,7 +453,7 @@ function RecommendationChips({ recos }: { recos: CrossGameRecommendation[] }): J
     <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
       {recos.map((r) => (
         <a
-          key={`${r.targetGameType}::${r.reason}`}
+          key={`${r.targetGameType}::${r.skillDimension}::${r.reason}`}
           href={r.href}
           className="r-btn"
           style={{
@@ -598,8 +598,12 @@ function PerfectFinale(): JSX.Element {
     // Fire the victory sfx once. createBrowserSfx is cheap (lazy AudioContext), and the
     // Web-Audio-policy resume happens automatically because the user clicked "再练" /
     // navigated to the result page from a scene where they'd already gestured.
-    const sfx = createBrowserSfx();
-    sfx.play('perfect');
+    try {
+      const sfx = createBrowserSfx();
+      sfx.play('perfect');
+    } catch (err) {
+      console.warn('[result] perfect finale sfx failed', err);
+    }
     // Fade out after 1.5s; remove the overlay after 2.0s.
     const fadeId = globalThis.setTimeout(() => setOpacity(0), 1500);
     return () => globalThis.clearTimeout(fadeId);

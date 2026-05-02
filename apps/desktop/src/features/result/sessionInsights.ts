@@ -1,4 +1,9 @@
-import { buildCrossGameEffects, type ErrorTag, type GameType } from '@kana-typing/core';
+import {
+  buildCrossGameEffects,
+  type ErrorTag,
+  type GameType,
+  type SkillDimension,
+} from '@kana-typing/core';
 
 import type { AttemptEventRow, ProgressDto } from '../../tauri/invoke';
 
@@ -21,6 +26,7 @@ export interface SessionInsightsInput {
 
 export interface CrossGameRecommendation {
   targetGameType: GameType;
+  skillDimension: SkillDimension;
   reason: ErrorTag;
   /** How many attempts in the session contributed to this recommendation. */
   weight: number;
@@ -67,12 +73,16 @@ export function computeSessionInsights(input: SessionInsightsInput): SessionInsi
   // 2. Newly mastered: progress state is now in the mastered set, AND the most recent attempt
   // happened during this session. Without the latter, every previously-mastered item would
   // light up the "新掌握" badge on every result page.
-  const sessionItemIds = new Set(attempts.map((a) => a.itemId));
-  const newlyMastered: string[] = [];
+  const latestAttemptBySkillKey = new Map<string, AttemptEventRow>();
+  for (const a of attempts) {
+    latestAttemptBySkillKey.set(progressKey(a.itemId, a.skillDimension), a);
+  }
+  const newlyMasteredIds = new Set<string>();
   for (const p of currentProgress) {
-    if (!sessionItemIds.has(p.itemId)) continue;
+    const latestAttempt = latestAttemptBySkillKey.get(progressKey(p.itemId, p.skillDimension));
+    if (!latestAttempt?.isCorrect) continue;
     if (!MASTERED_STATES.has(p.state)) continue;
-    newlyMastered.push(p.itemId);
+    newlyMasteredIds.add(p.itemId);
   }
 
   // 3. Cross-game recommendations: aggregate over every wrong attempt's errorTags. We
@@ -102,7 +112,7 @@ export function computeSessionInsights(input: SessionInsightsInput): SessionInsi
     } as Parameters<typeof buildCrossGameEffects>[0];
     const effects = buildCrossGameEffects(synthetic);
     for (const e of effects) {
-      const key = `${e.targetGameType}::${e.reason}`;
+      const key = `${e.targetGameType}::${e.skillDimension}::${e.reason}`;
       const meta = RECOMMENDATION_LABELS[e.targetGameType];
       if (!meta) continue;
       const existing = recoCounts.get(key);
@@ -112,10 +122,11 @@ export function computeSessionInsights(input: SessionInsightsInput): SessionInsi
         recoCounts.set(key, {
           rec: {
             targetGameType: e.targetGameType,
+            skillDimension: e.skillDimension,
             reason: e.reason,
             weight: 0,
             label: meta.label,
-            href: meta.href,
+            href: withSkillDimension(meta.href, e.skillDimension),
           },
           count: 1,
         });
@@ -128,7 +139,19 @@ export function computeSessionInsights(input: SessionInsightsInput): SessionInsi
 
   return {
     newMistakeItemIds: [...wrongIds],
-    newlyMasteredItemIds: newlyMastered,
+    newlyMasteredItemIds: [...newlyMasteredIds],
     crossGameRecommendations: recommendations,
   };
+}
+
+function progressKey(itemId: string, skill: SkillDimension): string {
+  return `${itemId}::${skill}`;
+}
+
+function withSkillDimension(baseHref: string, skill: SkillDimension): string {
+  if (baseHref === '#/' || baseHref === '#/game/boss') return baseHref;
+  const [path, query = ''] = baseHref.split('?');
+  const params = new URLSearchParams(query);
+  params.set('skillDimension', skill);
+  return `${path}?${params.toString()}`;
 }

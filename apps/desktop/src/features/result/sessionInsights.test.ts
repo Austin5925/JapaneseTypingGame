@@ -8,6 +8,8 @@ function attempt(partial: Partial<AttemptEventRow> & { itemId: string }): Attemp
   return {
     id: `att-${partial.itemId}-${Math.random().toString(16).slice(2, 6)}`,
     sessionId: 's',
+    gameType: 'mole_story',
+    skillDimension: 'kana_typing',
     answerMode: 'kana_input',
     isCorrect: false,
     score: 0,
@@ -74,8 +76,8 @@ describe('computeSessionInsights — newlyMasteredItemIds', () => {
         attempt({ itemId: 'b', isCorrect: true }),
       ],
       currentProgress: [
-        progress({ itemId: 'a', state: 'stable', masteryScore: 82 }),
-        progress({ itemId: 'b', state: 'fluent', masteryScore: 95 }),
+        progress({ itemId: 'a', skillDimension: 'kana_typing', state: 'stable', masteryScore: 82 }),
+        progress({ itemId: 'b', skillDimension: 'kana_typing', state: 'fluent', masteryScore: 95 }),
         progress({ itemId: 'c', state: 'stable', masteryScore: 88 }), // not touched this session
       ],
     });
@@ -86,6 +88,27 @@ describe('computeSessionInsights — newlyMasteredItemIds', () => {
     const result = computeSessionInsights({
       attempts: [attempt({ itemId: 'a', isCorrect: false })],
       currentProgress: [progress({ itemId: 'a', state: 'fragile', masteryScore: 40 })],
+    });
+    expect(result.newlyMasteredItemIds).toEqual([]);
+  });
+
+  it('does not count a mastered progress row from a skill not touched this session', () => {
+    const result = computeSessionInsights({
+      attempts: [attempt({ itemId: 'a', skillDimension: 'kana_typing', isCorrect: false })],
+      currentProgress: [
+        progress({ itemId: 'a', skillDimension: 'listening_discrimination', state: 'stable' }),
+      ],
+    });
+    expect(result.newlyMasteredItemIds).toEqual([]);
+  });
+
+  it('does not count a mastered row when the latest same-skill attempt was wrong', () => {
+    const result = computeSessionInsights({
+      attempts: [
+        attempt({ itemId: 'a', skillDimension: 'kana_typing', isCorrect: true }),
+        attempt({ itemId: 'a', skillDimension: 'kana_typing', isCorrect: false }),
+      ],
+      currentProgress: [progress({ itemId: 'a', skillDimension: 'kana_typing', state: 'stable' })],
     });
     expect(result.newlyMasteredItemIds).toEqual([]);
   });
@@ -150,7 +173,19 @@ describe('computeSessionInsights — crossGameRecommendations', () => {
       currentProgress: [],
     });
     const reco = result.crossGameRecommendations[0]!;
-    expect(reco.href).toBe('#/game/river-jump');
+    expect(reco.href).toBe('#/game/river-jump?skillDimension=particle_usage');
     expect(reco.label).toContain('激流勇进');
+  });
+
+  it('preserves routed skill dimensions in recommendation links', () => {
+    const result = computeSessionInsights({
+      attempts: [
+        attempt({ itemId: 'a', isCorrect: false, errorTags: ['katakana_shape_confusion'] }),
+      ],
+      currentProgress: [],
+    });
+    const reco = result.crossGameRecommendations.find((r) => r.targetGameType === 'mole_story')!;
+    expect(reco.skillDimension).toBe('katakana_recognition');
+    expect(reco.href).toBe('#/game/mole?skillDimension=katakana_recognition');
   });
 });

@@ -1,4 +1,9 @@
-import { buildCrossGameEffects, type ErrorTag, type GameType } from '@kana-typing/core';
+import {
+  buildCrossGameEffects,
+  type ErrorTag,
+  type GameType,
+  type SkillDimension,
+} from '@kana-typing/core';
 import { useEffect, useMemo, useState, type CSSProperties, type JSX, type ReactNode } from 'react';
 
 import { ErrorTagChip } from '../features/style/ErrorTagChip';
@@ -15,6 +20,7 @@ interface RecoChip {
   href: string;
   label: string;
   reason: ErrorTag;
+  skillDimension: SkillDimension;
 }
 
 const RECO_LABEL: Record<GameType, { href: string; short: string }> = {
@@ -55,18 +61,27 @@ function recommendationsFor(errorTags: string[]): RecoChip[] {
   const effects = buildCrossGameEffects(synthetic);
   for (const e of effects) {
     if (out.length >= 2) break;
-    const key = `${e.targetGameType}::${e.reason}`;
+    const key = `${e.targetGameType}::${e.skillDimension}::${e.reason}`;
     if (seen.has(key)) continue;
     seen.add(key);
     const meta = RECO_LABEL[e.targetGameType];
     if (!meta) continue;
     out.push({
-      href: meta.href,
+      href: withSkillDimension(meta.href, e.skillDimension),
       label: `去${meta.short} →`,
       reason: e.reason,
+      skillDimension: e.skillDimension,
     });
   }
   return out;
+}
+
+function withSkillDimension(baseHref: string, skill: SkillDimension): string {
+  if (baseHref === '#/' || baseHref === '#/game/boss') return baseHref;
+  const [path, query = ''] = baseHref.split('?');
+  const params = new URLSearchParams(query);
+  params.set('skillDimension', skill);
+  return `${path}?${params.toString()}`;
 }
 
 /**
@@ -262,7 +277,7 @@ function RecommendationCell({ errorTags }: { errorTags: string[] }): JSX.Element
     <span style={{ display: 'inline-flex', gap: 4, flexWrap: 'wrap' }}>
       {recos.map((r) => (
         <a
-          key={`${r.label}::${r.reason}`}
+          key={`${r.label}::${r.skillDimension}::${r.reason}`}
           href={r.href}
           className="r-btn"
           style={{

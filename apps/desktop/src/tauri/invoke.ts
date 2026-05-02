@@ -178,6 +178,8 @@ export interface AttemptEventRow {
   id: string;
   sessionId: string;
   itemId: string;
+  gameType: GameType;
+  skillDimension: SkillDimension;
   answerMode: string;
   isCorrect: boolean;
   score: number;
