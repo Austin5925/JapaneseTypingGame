@@ -9,11 +9,21 @@ import { BaseTrainingScene } from './BaseTrainingScene';
 import { getSpeedChaseDifficulty } from './speedChaseDifficulty';
 
 export const SPEED_CHASE_SCENE_KEY = 'SpeedChaseScene';
-const MIN_PURSUER_DISTANCE_PX = 60;
-const PLAYER_START_X = 220;
-const PURSUER_START_X = 100;
-const PLAYER_ADVANCE_PX = 72;
-const TRACK_RECENTER_X = 560;
+
+// v0.8.11 race redesign: real start/finish line + caught/won outcomes.
+// - Pursuer (red) starts at the far left, player (green) at canvas centre.
+// - Finish line near the right edge; first to break it wins (player) / loses (pursuer catches up).
+// - PURSUER_BASE_TIME_MS is the wall-clock budget for the pursuer to traverse from
+//   `PURSUER_START_X` to `PLAYER_START_X` if the player never moves. ~35s feels brisk but
+//   playable for a beginner who freezes on the first kanji prompt.
+const PLAYER_START_X = 400;
+const PURSUER_START_X = 40;
+const FINISH_LINE_RATIO = 0.92;
+const PURSUER_BASE_TIME_MS = 35_000;
+const PLAYER_ADVANCE_PX = 60;
+/** How close the pursuer can get on a wrong-answer setback before clamping. 1 keeps the
+ *  caught condition gated behind the update-loop catch instead of a feedback-induced jump. */
+const MIN_PURSUER_GAP_PX = 1;
 
 /**
  * Where SpeedChaseScene reads user input from.
@@ -57,6 +67,11 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
   private pursuerSprite: Phaser.GameObjects.Container | null = null;
   private playerX = PLAYER_START_X;
   private pursuerX = PURSUER_START_X;
+  private finishLineX = 0;
+  private finishLineGraphic: Phaser.GameObjects.Graphics | null = null;
+  private outcomeOverlay: Phaser.GameObjects.Container | null = null;
+  /** 'pending' = race in progress; 'won' / 'caught' freeze input + show splash + finish. */
+  private outcome: 'pending' | 'won' | 'caught' = 'pending';
   private inputBuffer = '';
   private taskStartedAt = 0;
   private sessionStartedAt = 0;
@@ -86,6 +101,9 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
     this.locked = false;
     this.playerX = PLAYER_START_X;
     this.pursuerX = PURSUER_START_X;
+    this.finishLineX = this.widthPx * FINISH_LINE_RATIO;
+    this.outcome = 'pending';
+    this.outcomeOverlay = null;
     this.inputBuffer = '';
     this.taskStartedAt = 0;
     this.timeLimitMs = 7000;
@@ -104,6 +122,32 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
     g.fillStyle(0x232733, 1);
     g.fillRect(0, this.heightPx * 0.62, this.widthPx, 2);
     g.fillRect(0, this.heightPx * 0.62 + 58, this.widthPx, 2);
+    // v0.8.11: finish-line ribbon at the right edge — checkered pattern + "FINISH" tag.
+    this.finishLineGraphic = this.add.graphics();
+    this.drawFinishLine();
+  }
+
+  private drawFinishLine(): void {
+    if (!this.finishLineGraphic) return;
+    const g = this.finishLineGraphic;
+    g.clear();
+    const trackTop = this.heightPx * 0.62;
+    const trackHeight = 60;
+    const x = this.finishLineX;
+    g.fillStyle(0xffffff, 1);
+    for (let row = 0; row < 6; row++) {
+      g.fillRect(x - 6, trackTop + row * 10, 6, 5);
+      g.fillRect(x, trackTop + row * 10 + 5, 6, 5);
+    }
+    g.lineStyle(2, 0xffd866, 1);
+    g.lineBetween(x, trackTop - 6, x, trackTop + trackHeight + 6);
+    this.add
+      .text(x, trackTop - 12, 'FINISH', {
+        fontSize: '12px',
+        color: '#ffd866',
+        fontFamily: 'monospace',
+      })
+      .setOrigin(0.5, 1);
   }
 
   protected createHudLayer(): void {
@@ -164,25 +208,96 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
       const remaining = Math.max(0, this.timeLimitMs - elapsed);
       this.timerText.setText(`${(remaining / 1000).toFixed(1)}s`);
     }
-    // Pursuer creep based on elapsed session time. Cap delta at 50ms so a backgrounded tab
-    // or power-save throttle can't produce a single-frame catch-up that looks like a game-
-    // breaking lurch (Phaser's delta is in ms; 60fps ≈ 16.7ms; 50ms ≈ 3 frames).
+    if (this.outcome !== 'pending') return;
+    // v0.8.11 race: pursuer marches forward at a constant speed regardless of player x.
+    // Cap delta at 50ms so a backgrounded tab can't produce a single-frame catch-up.
     if (this.pursuerSprite) {
-      const accuracy = this.accuracyAttempts > 0 ? this.accuracyCorrect / this.accuracyAttempts : 1;
-      const diff = getSpeedChaseDifficulty(this.now() - this.sessionStartedAt, accuracy);
       const cappedDelta = Math.min(delta, 50);
-      const maxPursuerX = this.playerX - MIN_PURSUER_DISTANCE_PX;
-      this.pursuerX = Math.min(
-        maxPursuerX,
-        this.pursuerX + (diff.pursuerSpeedPx * cappedDelta) / 16,
-      );
-      const isAtPressure = Math.abs(this.pursuerX - maxPursuerX) <= 0.5;
+      const pursuerSpeedPxPerMs = (PLAYER_START_X - PURSUER_START_X) / PURSUER_BASE_TIME_MS;
+      this.pursuerX += pursuerSpeedPxPerMs * cappedDelta;
+      const gap = this.playerX - this.pursuerX;
+      const isAtPressure = gap <= 80;
       this.pursuerSprite.setPosition(
         this.pursuerX,
         this.trackCenterY() + (isAtPressure ? Math.sin(time / 90) * 3 : 0),
       );
       this.playerSprite?.setY(this.trackCenterY() + Math.sin(time / 140) * 1.5);
+
+      // Outcome detection: caught wins resolution race when both fire on the same frame.
+      if (this.pursuerX >= this.playerX) {
+        void this.endRace('caught');
+      } else if (this.playerX >= this.finishLineX) {
+        void this.endRace('won');
+      }
     }
+  }
+
+  /**
+   * Freeze input + render the outcome splash, then close the session via the bridge after
+   * a short tween. ResultPage takes over from there. We don't await the sfx promise — the
+   * scene just needs to be visibly "over" before the React layer navigates away.
+   */
+  private async endRace(outcome: 'won' | 'caught'): Promise<void> {
+    if (this.outcome !== 'pending') return;
+    this.outcome = outcome;
+    this.locked = true;
+    if (this.taskTimer) {
+      this.taskTimer.remove(false);
+      this.taskTimer = null;
+    }
+    // Visual freeze: snap pursuer to the catch position so the user sees what happened.
+    if (outcome === 'caught' && this.pursuerSprite) {
+      this.pursuerX = this.playerX;
+      this.pursuerSprite.setX(this.pursuerX);
+      this.cameras.main?.shake(360, 0.012);
+      this.sfx.play('wrong');
+    } else if (outcome === 'won' && this.playerSprite) {
+      this.playerX = this.finishLineX;
+      this.playerSprite.setX(this.playerX);
+      this.sfx.play('perfect');
+    }
+    this.showOutcomeSplash(outcome);
+    // Give the splash ~1.2s to read before closing the session.
+    await new Promise<void>((resolve) => {
+      this.time.delayedCall(1200, resolve);
+    });
+    await this.finishSession(outcome === 'won' ? 'completed' : 'timeout');
+  }
+
+  private showOutcomeSplash(outcome: 'won' | 'caught'): void {
+    const cx = this.widthPx / 2;
+    const cy = this.heightPx / 2;
+    const bg = this.add.graphics();
+    bg.fillStyle(outcome === 'won' ? 0x0d3a1a : 0x3a0d0d, 0.78);
+    bg.fillRect(0, 0, this.widthPx, this.heightPx);
+    const title = this.add.text(cx, cy - 18, outcome === 'won' ? 'GOAL!' : 'GAME OVER', {
+      fontSize: '64px',
+      color: outcome === 'won' ? '#4ade80' : '#f87171',
+      fontFamily: 'sans-serif',
+      stroke: '#0e0f12',
+      strokeThickness: 6,
+    });
+    title.setOrigin(0.5, 0.5);
+    const subtitle = this.add.text(
+      cx,
+      cy + 32,
+      outcome === 'won' ? '冲到终点 — 漂亮' : '被追上了 — 再来一次',
+      {
+        fontSize: '20px',
+        color: '#e6e8ec',
+        fontFamily: 'sans-serif',
+      },
+    );
+    subtitle.setOrigin(0.5, 0.5);
+    const container = this.add.container(0, 0, [bg, title, subtitle]);
+    container.setDepth(2000);
+    this.outcomeOverlay = container;
+    this.tweens.add({
+      targets: title,
+      scale: { from: 0.6, to: 1.1 },
+      duration: 280,
+      ease: 'Cubic.easeOut',
+    });
   }
 
   protected spawnTask(task: TrainingTask): void {
@@ -254,8 +369,8 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
   }
 
   private advancePlayer(): void {
-    this.playerX += PLAYER_ADVANCE_PX;
-    this.normalizeTrackPositions();
+    // v0.8.11: clamp at the finish line so the win condition fires exactly when crossed.
+    this.playerX = Math.min(this.finishLineX, this.playerX + PLAYER_ADVANCE_PX);
     if (this.playerSprite) {
       this.playerSprite.setX(this.playerX);
       this.playerSprite.setScale(1.16);
@@ -266,15 +381,6 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
         ease: 'Cubic.easeOut',
       });
     }
-  }
-
-  private normalizeTrackPositions(): void {
-    if (this.playerX <= TRACK_RECENTER_X) return;
-    const shift = this.playerX - PLAYER_START_X;
-    this.playerX -= shift;
-    this.pursuerX -= shift;
-    this.playerSprite?.setX(this.playerX);
-    this.pursuerSprite?.setX(this.pursuerX);
   }
 
   protected showFeedback(result: EvaluationResult): void {
@@ -291,12 +397,12 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
       const tagSummary = result.errorTags.length > 0 ? ` (${result.errorTags.join(', ')})` : '';
       this.feedbackText.setText(`✗ expected ${result.expectedDisplay}${tagSummary}`);
       this.feedbackText.setColor('#f87171');
-      // Penalty visual: pursuer jumps closer, but never catches the player. Position snaps
-      // directly so the per-frame update loop remains the single owner of x movement.
+      // v0.8.11: pursuer jumps closer on a wrong answer. We let it advance up to (player - 1)
+      // so the next update tick can detect a catch — no more silent clamp at -60px.
       const accuracy = this.accuracyAttempts > 0 ? this.accuracyCorrect / this.accuracyAttempts : 1;
       const diff = getSpeedChaseDifficulty(this.now() - this.sessionStartedAt, accuracy);
       this.pursuerX = Math.min(
-        this.playerX - MIN_PURSUER_DISTANCE_PX,
+        this.playerX - MIN_PURSUER_GAP_PX,
         this.pursuerX + diff.wrongAnswerSetbackPx,
       );
       if (this.pursuerSprite) {
@@ -348,7 +454,7 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
   }
 
   private async commitInput(): Promise<void> {
-    if (!this.currentTask || this.locked) return;
+    if (!this.currentTask || this.locked || this.outcome !== 'pending') return;
     const task = this.currentTask;
     const value = this.inputBuffer;
     if (!value) return;
@@ -386,7 +492,7 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
   }
 
   private async onTimeout(): Promise<void> {
-    if (!this.currentTask || this.locked) return;
+    if (!this.currentTask || this.locked || this.outcome !== 'pending') return;
     const task = this.currentTask;
     this.locked = true;
     this.taskTimer = null;

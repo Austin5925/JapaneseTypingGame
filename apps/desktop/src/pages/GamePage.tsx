@@ -66,13 +66,16 @@ const MODE_CONFIG: Record<GamePageMode, ModeConfig> = {
     timeLimitMs: 6000,
   },
   'speed-chase': {
-    durationMs: 60_000,
+    // v0.8.11 race redesign: pursuer base time = 35s, but a player who keeps just ahead can
+    // stretch the race to ~60-80s before either crossing the finish line or being caught.
+    // The wall-clock cap is the safety net for that long-tail case.
+    durationMs: 80_000,
     gameType: 'speed_chase',
     sceneKey: SPEED_CHASE_SCENE_KEY,
     answerMode: 'romaji_to_kana',
     skillDimension: 'kanji_reading',
-    title: '生死时速 — 60s 读音冲刺',
-    taskCount: 60,
+    title: '生死时速 — 冲到终点 vs 被追上',
+    taskCount: 80,
   },
 };
 

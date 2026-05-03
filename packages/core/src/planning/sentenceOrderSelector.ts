@@ -132,6 +132,8 @@ function buildSentenceTask(
       surface: sentence.surface,
       chunkOrder: canonicalOrder,
       chunks: sentence.chunks,
+      // v0.8.11: ResultPage 错题列表以 meaningZh 渲染中文解释,sentence 用 zhPrompt 填充。
+      meaningZh: sentence.zhPrompt,
       ...(sentence.acceptedOrders.length > 0 && {
         acceptedChunkOrders: sentence.acceptedOrders,
       }),

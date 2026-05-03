@@ -116,6 +116,10 @@ function fisherYates<T>(arr: T[], random: () => number): void {
 }
 
 function buildTask(item: LearningItem, input: SelectKanaTasksInput): TrainingTask {
+  // v0.8.11: forward the first Chinese meaning into expected.meaningZh so MoleScene /
+  // SpeedChase can render it in-game and ResultPage can show it on the wrong-list. The
+  // domain field already exists; we just hadn't populated it before.
+  const meaningZh = item.meaningsZh[0];
   const task: TrainingTask = {
     id: makeTaskId(),
     sessionId: input.sessionId,
@@ -130,6 +134,7 @@ function buildTask(item: LearningItem, input: SelectKanaTasksInput): TrainingTas
         ? { acceptedKana: item.acceptedKana }
         : {}),
       surface: item.surface,
+      ...(meaningZh ? { meaningZh } : {}),
     },
     difficulty: 0.4,
     allowHints: false,

@@ -19,8 +19,10 @@ import { ERROR_TAG_LABEL_ZH } from '../features/style/errorTagPalette';
 import { PixIcon } from '../features/style/PixIcon';
 import {
   listAttemptsBySession,
+  listItems,
   listProgress,
   type AttemptEventRow,
+  type DevItemRow,
   type ProgressDto,
 } from '../tauri/invoke';
 
@@ -63,6 +65,10 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
     null,
   );
   const [showPerfectFinale, setShowPerfectFinale] = useState(false);
+  // v0.8.11 itemId → 中文意思 lookup so the wrong-list can show the actual word meaning
+  // alongside the item id. SentenceItems' `meaningsZh[0]` carries the zhPrompt set by
+  // sentence_pack_to_word_pack — same shape, no special-casing needed in the UI.
+  const [meaningById, setMeaningById] = useState<Map<string, string>>(new Map());
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -70,13 +76,15 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
       try {
         // We pull attempts + every progress row in parallel. progress is the user's full set
         // (capped at 5000 to match the boot pages); computeSessionInsights filters down to
-        // the items touched in this session.
-        const [rows, progressDtos] = await Promise.all([
+        // the items touched in this session. listItems builds the meaning lookup.
+        const [rows, progressDtos, itemRows] = await Promise.all([
           listAttemptsBySession({ sessionId: props.sessionId }),
           listProgress({ userId: 'default-user', limit: 5000 }),
+          listItems({ limit: 1000 }),
         ]);
         setAttempts(rows);
         setProgress(progressDtos);
+        setMeaningById(buildMeaningLookup(itemRows));
         const computed = computeSessionInsights({ attempts: rows, currentProgress: progressDtos });
         setInsights(computed);
         // Also reconcile the all-time peak combo / KPM with this session's numbers; a one-shot
@@ -252,43 +260,50 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
               <thead>
                 <tr>
                   <th style={{ width: 40 }}>#</th>
-                  <th>词条</th>
+                  <th style={{ width: 140 }}>词条</th>
+                  <th>意思</th>
                   <th style={{ width: 80, textAlign: 'right' }}>反应</th>
                   <th style={{ width: 200 }}>类型</th>
                 </tr>
               </thead>
               <tbody>
-                {ag.wrongOnly.slice(0, 20).map((r, i) => (
-                  <tr key={r.id} className="zebra">
-                    <td style={{ color: 'var(--kt2-fg-dim)' }}>
-                      {(i + 1).toString().padStart(2, '0')}
-                    </td>
-                    <td className="r-cjk" style={{ color: 'var(--kt2-fg-bright)' }}>
-                      {r.itemId}
-                    </td>
-                    <td
-                      style={{
-                        textAlign: 'right',
-                        fontFamily: 'var(--pix-display)',
-                        fontSize: 9,
-                        color: 'var(--kt2-accent-2)',
-                      }}
-                    >
-                      {r.reactionTimeMs}ms
-                    </td>
-                    <td>
-                      {r.errorTags.length === 0 ? (
-                        <span style={{ color: 'var(--kt2-fg-dim)' }}>—</span>
-                      ) : (
-                        <span style={{ display: 'inline-flex', gap: 4, flexWrap: 'wrap' }}>
-                          {r.errorTags.map((t) => (
-                            <ErrorTagChip key={t} tag={t} />
-                          ))}
-                        </span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
+                {ag.wrongOnly.slice(0, 20).map((r, i) => {
+                  const meaning = meaningById.get(r.itemId);
+                  return (
+                    <tr key={r.id} className="zebra">
+                      <td style={{ color: 'var(--kt2-fg-dim)' }}>
+                        {(i + 1).toString().padStart(2, '0')}
+                      </td>
+                      <td className="r-cjk" style={{ color: 'var(--kt2-fg-bright)' }}>
+                        {r.itemId}
+                      </td>
+                      <td className="r-cjk" style={{ color: 'var(--kt2-fg-bright)' }}>
+                        {meaning ?? <span style={{ color: 'var(--kt2-fg-dim)' }}>—</span>}
+                      </td>
+                      <td
+                        style={{
+                          textAlign: 'right',
+                          fontFamily: 'var(--pix-display)',
+                          fontSize: 9,
+                          color: 'var(--kt2-accent-2)',
+                        }}
+                      >
+                        {r.reactionTimeMs}ms
+                      </td>
+                      <td>
+                        {r.errorTags.length === 0 ? (
+                          <span style={{ color: 'var(--kt2-fg-dim)' }}>—</span>
+                        ) : (
+                          <span style={{ display: 'inline-flex', gap: 4, flexWrap: 'wrap' }}>
+                            {r.errorTags.map((t) => (
+                              <ErrorTagChip key={t} tag={t} />
+                            ))}
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -548,6 +563,20 @@ function BossSegmentBreakdown({ rows }: { rows: GameTypeBreakdown[] }): JSX.Elem
       </div>
     </Group>
   );
+}
+
+/**
+ * Build an itemId → first-meaningZh map from the listItems projection. Sentence-typed rows
+ * already carry their zhPrompt in `meaningsZh[0]` (set by sentence_pack_to_word_pack), so
+ * the consumer doesn't need to special-case them.
+ */
+function buildMeaningLookup(rows: DevItemRow[]): Map<string, string> {
+  const out = new Map<string, string>();
+  for (const row of rows) {
+    const m = row.meaningsZh[0];
+    if (m) out.set(row.id, m);
+  }
+  return out;
 }
 
 function aggregate(attempts: AttemptEventRow[]): Aggregates {

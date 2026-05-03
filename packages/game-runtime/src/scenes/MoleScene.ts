@@ -34,6 +34,7 @@ export class MoleScene extends BaseTrainingScene<TrainingTask> {
   private heightPx = 480;
   private moleContainer: Phaser.GameObjects.Container | null = null;
   private kanaText: Phaser.GameObjects.Text | null = null;
+  private meaningText: Phaser.GameObjects.Text | null = null;
   private inputBufferText: Phaser.GameObjects.Text | null = null;
   private feedbackText: Phaser.GameObjects.Text | null = null;
   private timerText: Phaser.GameObjects.Text | null = null;
@@ -132,6 +133,25 @@ export class MoleScene extends BaseTrainingScene<TrainingTask> {
     this.kanaText.setOrigin(0.5, 0.5);
     this.moleContainer.add(this.kanaText);
 
+    // v0.8.11: 中文意思 strap below the pillar so the user learns the meaning while drilling
+    // the typing. Only shown when expected.meaningZh is populated (kana drills with type='kana'
+    // sometimes lack one, and we'd rather show nothing than an empty box).
+    const meaningZh = task.expected.meaningZh ?? '';
+    if (meaningZh) {
+      const meaningWrapW = Math.min(
+        this.widthPx - PILLAR_SCREEN_MARGIN,
+        Math.max(pillarW + 80, 280),
+      );
+      this.meaningText = this.add.text(cx, cy + PILLAR_HEIGHT / 2 + 28, meaningZh, {
+        fontSize: '18px',
+        color: '#94a0b3',
+        fontFamily: 'sans-serif',
+        align: 'center',
+        wordWrap: { width: meaningWrapW },
+      });
+      this.meaningText.setOrigin(0.5, 0);
+    }
+
     // Time-out timer
     if (this.taskTimer) {
       this.taskTimer.remove(false);
@@ -154,6 +174,10 @@ export class MoleScene extends BaseTrainingScene<TrainingTask> {
       this.moleContainer = null;
     }
     this.kanaText = null;
+    if (this.meaningText) {
+      this.meaningText.destroy();
+      this.meaningText = null;
+    }
   }
 
   private refreshInputBufferText(): void {

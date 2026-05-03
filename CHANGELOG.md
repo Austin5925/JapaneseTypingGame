@@ -8,6 +8,41 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.8.11] - 2026-05-03 — Meaning column + Mole in-game meaning + SpeedChase race redesign
+
+### Added
+
+- **Result page wrong-list now shows 意思** for every game. New `buildMeaningLookup`
+  helper joins `listItems(limit:1000)` into the existing attempt rows so each row shows
+  its first Chinese meaning (or the sentence's `zhPrompt` for sentence rows) next to
+  the item id.
+- **MoleScene shows the Chinese meaning under the kana pillar** while the user is typing.
+  Auto-wraps to keep multi-glyph words readable; hides itself when `expected.meaningZh`
+  is empty so kana-only drills stay clean.
+- **`expected.meaningZh` is now populated by `selectKanaTasks` and
+  `selectSentenceOrderTasks`** (the field was already in the domain type but never set).
+  MoleScene + ResultPage consume it; SpeedChase / Choice scenes inherit the wiring.
+
+### Changed
+
+- **SpeedChase: race-to-finish redesign** per user spec.
+  - Player starts at the canvas centre (X = 400), pursuer at the far left (X = 40),
+    finish line at the right edge (X ≈ widthPx × 0.92).
+  - Pursuer marches at a constant speed: `PURSUER_BASE_TIME_MS = 35_000` means an idle
+    player gets caught in ~35 seconds. Each correct answer pushes the player +60px ahead;
+    a fast streak crosses the finish line in ~30 seconds, a steady one ~60-80 seconds.
+  - Two real outcomes:
+    - **Won**: `playerX ≥ finishLineX` → green "GOAL!" splash + `perfect` sfx, then
+      `finishSession('completed')`.
+    - **Caught**: `pursuerX ≥ playerX` → red "GAME OVER" splash + `wrong` sfx + camera
+      shake, then `finishSession('timeout')`.
+  - Wrong-answer pursuer setback no longer clamps at -60px from the player; the next
+    `update` tick is the single owner of catch detection (no more silent clamp + cap).
+  - `normalizeTrackPositions` (the v0.8.x recenter hack) is removed — the race uses
+    absolute world coordinates with a real finish-line ribbon.
+  - `GamePage` `SESSION_DURATION_MS` for `speed-chase` raised to 80s as a wall-clock
+    safety net; actual races resolve via the won/caught conditions long before that.
+
 ### Fixed
 
 - Boss selector defaults now match the v0.8.10 rebalance math: 3 segments × 4 focused
@@ -17,6 +52,10 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
   instead of undercounting the daily route by 30s.
 - Visible release labels in README, Settings, and game footers now use the shared
   `APP_VERSION` constant instead of stale `v0.8.9` strings.
+
+### Notes
+
+- Synchronized package, Tauri, Cargo, shell version metadata to `0.8.11`.
 
 ## [0.8.10] - 2026-05-03 — Session/task rebalance + toast hoist + sentence import
 
