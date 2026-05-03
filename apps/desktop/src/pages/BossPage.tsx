@@ -20,8 +20,10 @@ import {
   rowToLearningItem,
   rowToSentenceItem,
 } from '../features/db/rowConversions';
+import { SeedFoundationsButton } from '../features/db/SeedFoundationsButton';
+import { useSceneErrorToast } from '../features/feedback/SceneErrorToast';
 import { GameCanvasHost, type GameSceneKey } from '../features/game/GameCanvasHost';
-import { GameHud } from '../features/game/GameHud';
+import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { GameSessionService } from '../features/session/GameSessionService';
 import { listItems, listProgress, type ProgressDto } from '../tauri/invoke';
 
@@ -59,8 +61,14 @@ interface SessionStats {
   remainingMs: number;
 }
 
+interface SegmentTransitionState {
+  fromIndex: number;
+  toIndex: number;
+  nextSegment: BuiltSegment;
+}
+
 /**
- * v0.8.7 Boss page (`#/game/boss`). Builds a multi-segment cross-game gauntlet from the
+ * v0.8.8 Boss page (`#/game/boss`). Builds a multi-segment cross-game gauntlet from the
  * user's recent weakness, then plays each segment sequentially.
  *
  * Architecture:
@@ -87,17 +95,22 @@ export function BossPage(): JSX.Element {
   const [emptyReason, setEmptyReason] = useState<string | null>(null);
   const [segments, setSegments] = useState<BuiltSegment[]>([]);
   const [segmentIndex, setSegmentIndex] = useState(0);
+  const [transition, setTransition] = useState<SegmentTransitionState | null>(null);
+  const [comboHud, setComboHud] = useState<GameHudCombo | null>(null);
   const [stats, setStats] = useState<SessionStats>({
     attempts: 0,
     correct: 0,
     remainingMs: SESSION_DURATION_MS,
   });
+  const sceneError = useSceneErrorToast();
 
   // Each segment has its own task queue keyed by segment id (we use index here). Holding the
   // queue in a ref keeps the adapter closure stable across renders.
   const queueRef = useRef<TrainingTask[]>([]);
   const currentTaskRef = useRef<TrainingTask | null>(null);
   const startedAtRef = useRef<number>(Date.now());
+  const transitionRef = useRef<SegmentTransitionState | null>(null);
+  transitionRef.current = transition;
 
   useEffect(() => {
     void (async (): Promise<void> => {
@@ -122,11 +135,12 @@ export function BossPage(): JSX.Element {
           sentenceItems,
           segmentCount: 4,
           itemsPerSegment: 5,
+          fallbackToWeakestN: 12,
         });
         if (out.segments.length === 0) {
           setEmptyReason(
             out.weakCandidateCount === 0
-              ? '还没有错题数据 — 先去鼹鼠 / 生死时速 / 激流勇进 / 太空大战 / 拯救苹果 任意几局再回来'
+              ? '还没有错题数据,且 foundations 内容不足以生成热身段 — 先 seed 全部 foundations 包再回来'
               : '错题虽然有,但没有可用的内容 — 检查 #/dev 是否已 seed 全部 foundations 包',
           );
           return;
@@ -188,6 +202,16 @@ export function BossPage(): JSX.Element {
     return () => globalThis.clearInterval(handle);
   }, [sessionId]);
 
+  useEffect(() => {
+    if (!transition) return;
+    const handle = globalThis.setTimeout(() => {
+      queueRef.current = [...transition.nextSegment.tasks];
+      setSegmentIndex(transition.toIndex);
+      setTransition(null);
+    }, 1000);
+    return () => globalThis.clearTimeout(handle);
+  }, [transition]);
+
   const adapter = useMemo<GameBridgeAdapter>(
     () => ({
       requestNextTask: () => {
@@ -220,6 +244,7 @@ export function BossPage(): JSX.Element {
       finishSession: () => {
         // The current segment's queue exhausted (or scene's own timeout fired). Advance to
         // the next segment if one exists; otherwise wrap up the whole Boss session.
+        if (transitionRef.current) return Promise.resolve();
         const nextIndex = segmentIndex + 1;
         if (nextIndex >= segments.length) {
           void (async (): Promise<void> => {
@@ -232,10 +257,12 @@ export function BossPage(): JSX.Element {
           })();
           return Promise.resolve();
         }
-        // Refill queueRef with the next segment's tasks before the host re-mounts.
         const next = segments[nextIndex];
-        if (next) queueRef.current = [...next.tasks];
-        setSegmentIndex(nextIndex);
+        if (next) {
+          const nextTransition = { fromIndex: segmentIndex, toIndex: nextIndex, nextSegment: next };
+          transitionRef.current = nextTransition;
+          setTransition(nextTransition);
+        }
         return Promise.resolve();
       },
     }),
@@ -286,20 +313,18 @@ export function BossPage(): JSX.Element {
           ▌ BOSS · 段 {segmentIndex + 1}/{segments.length} ·{' '}
           {GAME_LABEL[currentSeg.gameType] ?? currentSeg.gameType} · 因{' '}
           {currentSeg.reasons.join('/')}
+          {currentSeg.isWarmup ? ' · 热身段' : ''}
         </div>
 
         <GameHud
           remainingMs={stats.remainingMs}
           attemptsCount={stats.attempts}
           correctCount={stats.correct}
+          combo={comboHud}
         />
 
         <div
           className="r-crt"
-          // Keying on segmentIndex forces GameCanvasHost to fully unmount + remount when we
-          // switch segments — Phaser scenes don't survive a sceneKey prop change otherwise,
-          // and we want the next segment's scene to start clean with the next queue.
-          key={`boss-seg-${String(segmentIndex)}`}
           style={{
             alignSelf: 'center',
             width: 808,
@@ -307,16 +332,24 @@ export function BossPage(): JSX.Element {
             height: 488,
             padding: 0,
             flexShrink: 0,
+            position: 'relative',
+            overflow: 'hidden',
           }}
         >
           <GameCanvasHost
+            key={`boss-seg-${String(segmentIndex)}`}
             sessionId={sessionId}
             sceneKey={sceneKey}
             adapter={adapter}
             combo={combo}
             width={800}
             height={480}
+            onSceneError={(message) => sceneError.showSceneError(message)}
+            onComboChange={setComboHud}
           />
+          {transition ? (
+            <SegmentTransition fromIndex={transition.fromIndex} toIndex={transition.toIndex} />
+          ) : null}
         </div>
 
         <div
@@ -328,8 +361,9 @@ export function BossPage(): JSX.Element {
             letterSpacing: '0.04em',
           }}
         >
-          段落自动轮换 · 连击跨段保持 · attempt 写入 SQLite [v0.8.7]
+          段落自动轮换 · 连击跨段保持 · attempt 写入 SQLite [v0.8.8]
         </div>
+        {sceneError.sceneErrorToast}
       </div>
     </div>
   );
@@ -417,6 +451,7 @@ function BootErrorPanel({ message }: { message: string }): JSX.Element {
           <span className="kt-banner__glyph">!</span>
           <div style={{ fontSize: 13 }}>{message}</div>
         </div>
+        <SeedFoundationsButton />
         <a href="#/" className="r-btn" style={{ textDecoration: 'none' }}>
           回首页
         </a>
@@ -433,6 +468,7 @@ function EmptyHistoryPanel({ message }: { message: string }): JSX.Element {
         <div style={{ color: 'var(--kt2-fg-dim)', fontSize: 13, lineHeight: 1.6, padding: 8 }}>
           {message}
         </div>
+        <SeedFoundationsButton />
         <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
           <a href="#/today" className="r-btn primary" style={{ textDecoration: 'none' }}>
             去今日训练
@@ -440,6 +476,45 @@ function EmptyHistoryPanel({ message }: { message: string }): JSX.Element {
           <a href="#/" className="r-btn" style={{ textDecoration: 'none' }}>
             回首页
           </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SegmentTransition({
+  fromIndex,
+  toIndex,
+}: {
+  fromIndex: number;
+  toIndex: number;
+}): JSX.Element {
+  return (
+    <div
+      aria-live="polite"
+      style={{
+        position: 'absolute',
+        inset: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 5,
+        background: 'linear-gradient(180deg, rgba(7, 14, 16, 0.86), rgba(11, 21, 24, 0.94))',
+        border: '2px solid rgba(255, 196, 87, 0.74)',
+        boxShadow: 'inset 0 0 34px rgba(255, 196, 87, 0.18)',
+        color: 'var(--kt2-fg-bright)',
+        fontFamily: 'var(--pix-display)',
+        letterSpacing: '0.04em',
+        textAlign: 'center',
+        pointerEvents: 'none',
+      }}
+    >
+      <div>
+        <div style={{ fontSize: 12, color: 'var(--kt2-accent-2)', marginBottom: 10 }}>
+          SEGMENT CLEAR
+        </div>
+        <div style={{ fontSize: 22 }}>
+          {fromIndex + 1} → {toIndex + 1}
         </div>
       </div>
     </div>

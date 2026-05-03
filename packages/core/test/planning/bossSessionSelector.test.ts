@@ -280,6 +280,80 @@ describe('selectBossSession — sentence routing', () => {
   });
 });
 
+describe('selectBossSession — warm-up fallback', () => {
+  it('keeps strict empty-history behavior unless fallback is enabled', () => {
+    const out = selectBossSession({
+      progress: [],
+      learningItems: [item({ id: 'a' }), item({ id: 'b' }), item({ id: 'c' }), item({ id: 'd' })],
+      sentenceItems: [sentence('sent-a')],
+      fallbackToWeakestN: 0,
+    });
+    expect(out.segments).toEqual([]);
+  });
+
+  it('builds content warm-up segments when there is no progress history', () => {
+    const out = selectBossSession({
+      progress: [],
+      learningItems: [
+        item({ id: 'a' }),
+        item({ id: 'b' }),
+        item({ id: 'c' }),
+        item({ id: 'd' }),
+        item({ id: 'e' }),
+      ],
+      sentenceItems: [sentence('sent-a')],
+      segmentCount: 4,
+      fallbackToWeakestN: 12,
+      random: () => 0,
+    });
+
+    expect(out.weakCandidateCount).toBe(0);
+    expect(out.segments.length).toBeGreaterThan(0);
+    expect(out.segments.every((seg) => seg.isWarmup)).toBe(true);
+    expect(out.segments.map((seg) => seg.gameType)).toEqual(
+      expect.arrayContaining(['mole_story', 'space_battle', 'apple_rescue', 'river_jump']),
+    );
+  });
+
+  it('uses lowest-mastery clean progress before generic content warm-ups', () => {
+    const out = selectBossSession({
+      progress: [
+        progress({
+          itemId: 'stable-a',
+          state: 'stable',
+          lastErrorTags: [],
+          masteryScore: 18,
+          skillDimension: 'meaning_recall',
+        }),
+        progress({
+          itemId: 'stable-b',
+          state: 'stable',
+          lastErrorTags: [],
+          masteryScore: 72,
+          skillDimension: 'kana_typing',
+        }),
+      ],
+      learningItems: [
+        item({ id: 'stable-a' }),
+        item({ id: 'stable-b' }),
+        item({ id: 'support-c' }),
+        item({ id: 'support-d' }),
+      ],
+      sentenceItems: [],
+      segmentCount: 1,
+      fallbackToWeakestN: 4,
+    });
+
+    expect(out.segments).toHaveLength(1);
+    expect(out.segments[0]!.isWarmup).toBe(true);
+    expect(out.segments[0]!.gameType).toBe('space_battle');
+    expect(out.segments[0]!.content.kind).toBe('words');
+    if (out.segments[0]!.content.kind === 'words') {
+      expect(out.segments[0]!.content.items.map((it) => it.id)).toContain('stable-a');
+    }
+  });
+});
+
 describe('selectBossSession — choice support pool', () => {
   it('adds support items for choice-game distractors while keeping taskCount focused', () => {
     const out = selectBossSession({

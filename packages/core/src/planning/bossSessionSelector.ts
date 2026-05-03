@@ -12,7 +12,7 @@ import type { SentenceItem } from './sentenceOrderSelector';
 /**
  * Boss session = a multi-segment cross-game gauntlet built from the user's recent weakness.
  *
- * Strategy (v0.8.7):
+ * Strategy (v0.8.8):
  *   1. Filter every progress row to "weak":
  *      - state ∈ {fragile, learning}, OR
  *      - lastErrorTags is non-empty (signals a recent slip even on a stable item).
@@ -38,6 +38,8 @@ export type BossSegmentContent =
 export interface BossSegment {
   gameType: GameType;
   skillDimension: SkillDimension;
+  /** True when the segment is a content warm-up rather than a direct weak/error replay. */
+  isWarmup?: boolean;
   /** Sum of `lapseCount + wrongCount` across items in this segment. Higher = more urgent. */
   weight: number;
   /** Reason tags that contributed to this segment (UI shows them as chips). */
@@ -63,6 +65,14 @@ export interface SelectBossSessionInput {
   sentenceTimeLimitMs?: number;
   /** Per-task time limit for choice-mode segments (ms). Default 8000. */
   choiceTimeLimitMs?: number;
+  /**
+   * Optional warm-up fallback. When direct weak/error buckets cannot fill `segmentCount`,
+   * use up to this many lowest-mastery progress rows, then general content, to keep Boss
+   * playable for fresh users. Default 0 preserves strict empty-history behavior.
+   */
+  fallbackToWeakestN?: number;
+  /** RNG injection for warm-up content order. Defaults to Math.random. */
+  random?: () => number;
 }
 
 export interface SelectBossSessionOutput {
@@ -90,9 +100,11 @@ export function selectBossSession(input: SelectBossSessionInput): SelectBossSess
   const wordTimeLimitMs = input.wordTimeLimitMs ?? 6000;
   const sentenceTimeLimitMs = input.sentenceTimeLimitMs ?? 25_000;
   const choiceTimeLimitMs = input.choiceTimeLimitMs ?? 8000;
+  const fallbackToWeakestN = Math.max(0, input.fallbackToWeakestN ?? 0);
+  const random = input.random ?? Math.random;
 
   const weakRows = input.progress.filter(isWeak);
-  if (weakRows.length === 0) {
+  if (weakRows.length === 0 && fallbackToWeakestN === 0) {
     return { segments: [], weakCandidateCount: 0 };
   }
 
@@ -180,7 +192,244 @@ export function selectBossSession(input: SelectBossSessionInput): SelectBossSess
     });
   }
 
+  if (segments.length < segmentCount && fallbackToWeakestN > 0) {
+    appendWarmupSegments({
+      segments,
+      input,
+      segmentCount,
+      itemsPerSegment,
+      fallbackToWeakestN,
+      wordTimeLimitMs,
+      sentenceTimeLimitMs,
+      choiceTimeLimitMs,
+      random,
+      itemIndex,
+      sentenceIndex,
+    });
+  }
+
   return { segments, weakCandidateCount: weakRows.length };
+}
+
+interface AppendWarmupSegmentsInput {
+  segments: BossSegment[];
+  input: SelectBossSessionInput;
+  segmentCount: number;
+  itemsPerSegment: number;
+  fallbackToWeakestN: number;
+  wordTimeLimitMs: number;
+  sentenceTimeLimitMs: number;
+  choiceTimeLimitMs: number;
+  random: () => number;
+  itemIndex: Map<string, LearningItem>;
+  sentenceIndex: Map<string, SentenceItem>;
+}
+
+function appendWarmupSegments(args: AppendWarmupSegmentsInput): void {
+  const usedKeys = new Set(args.segments.map((s) => segmentKey(s.gameType, s.skillDimension)));
+  const append = (segment: BossSegment | null): void => {
+    if (!segment || args.segments.length >= args.segmentCount) return;
+    const key = segmentKey(segment.gameType, segment.skillDimension);
+    if (usedKeys.has(key)) return;
+    usedKeys.add(key);
+    args.segments.push(segment);
+  };
+
+  const weakestRows = [...args.input.progress]
+    .filter((row) => !isWeak(row))
+    .sort(
+      (a, b) =>
+        a.masteryScore - b.masteryScore || a.stability - b.stability || b.wrongCount - a.wrongCount,
+    )
+    .slice(0, args.fallbackToWeakestN);
+
+  for (const row of weakestRows) {
+    if (args.segments.length >= args.segmentCount) return;
+    for (const target of defaultTargetForState(row)) {
+      append(buildWarmupSegmentFromProgress(row, target, args));
+      if (args.segments.length >= args.segmentCount) return;
+    }
+  }
+
+  for (const segment of buildContentWarmups(args)) {
+    append(segment);
+    if (args.segments.length >= args.segmentCount) return;
+  }
+}
+
+function buildWarmupSegmentFromProgress(
+  row: SkillProgress,
+  target: CrossGameEffect,
+  args: AppendWarmupSegmentsInput,
+): BossSegment | null {
+  if (target.targetGameType === 'river_jump') {
+    const sentence = args.sentenceIndex.get(row.itemId);
+    if (!sentence) return null;
+    return makeSentenceWarmupSegment({
+      skillDimension: target.skillDimension,
+      sentences: [sentence],
+      timeLimitMs: args.sentenceTimeLimitMs,
+    });
+  }
+
+  const item = args.itemIndex.get(row.itemId);
+  if (!item) return null;
+  return makeWordWarmupSegment({
+    gameType: target.targetGameType,
+    skillDimension: target.skillDimension,
+    targetItems: [item],
+    allItems: args.input.learningItems,
+    itemsPerSegment: args.itemsPerSegment,
+    wordTimeLimitMs: args.wordTimeLimitMs,
+    choiceTimeLimitMs: args.choiceTimeLimitMs,
+  });
+}
+
+function buildContentWarmups(args: AppendWarmupSegmentsInput): BossSegment[] {
+  const words = args.input.learningItems;
+  const shuffledWords = shuffleCopy(words, args.random);
+  const shuffledSentences = shuffleCopy(args.input.sentenceItems, args.random);
+  const out: Array<BossSegment | null> = [];
+
+  out.push(
+    makeWordWarmupSegment({
+      gameType: 'mole_story',
+      skillDimension: 'kana_typing',
+      targetItems: shuffledWords.filter(isKanaWarmupItem).slice(0, args.itemsPerSegment),
+      allItems: words,
+      itemsPerSegment: args.itemsPerSegment,
+      wordTimeLimitMs: args.wordTimeLimitMs,
+      choiceTimeLimitMs: args.choiceTimeLimitMs,
+    }),
+  );
+
+  out.push(
+    makeWordWarmupSegment({
+      gameType: 'speed_chase',
+      skillDimension: 'kanji_reading',
+      targetItems: shuffledWords
+        .filter((item) => item.skillTags.includes('kanji_reading'))
+        .slice(0, args.itemsPerSegment),
+      allItems: words,
+      itemsPerSegment: args.itemsPerSegment,
+      wordTimeLimitMs: args.wordTimeLimitMs,
+      choiceTimeLimitMs: args.choiceTimeLimitMs,
+    }),
+  );
+
+  const choiceItems = shuffledWords.filter(isChoiceEligible);
+  out.push(
+    makeWordWarmupSegment({
+      gameType: 'space_battle',
+      skillDimension: 'meaning_recall',
+      targetItems: choiceItems.slice(0, args.itemsPerSegment),
+      allItems: words,
+      itemsPerSegment: args.itemsPerSegment,
+      wordTimeLimitMs: args.wordTimeLimitMs,
+      choiceTimeLimitMs: args.choiceTimeLimitMs,
+    }),
+  );
+
+  const audioItems = choiceItems.filter((item) => item.tags.includes('audio-discrim'));
+  out.push(
+    makeWordWarmupSegment({
+      gameType: 'apple_rescue',
+      skillDimension: 'listening_discrimination',
+      targetItems: (audioItems.length >= 2 ? audioItems : choiceItems).slice(
+        0,
+        args.itemsPerSegment,
+      ),
+      allItems: words,
+      itemsPerSegment: args.itemsPerSegment,
+      wordTimeLimitMs: args.wordTimeLimitMs,
+      choiceTimeLimitMs: args.choiceTimeLimitMs,
+    }),
+  );
+
+  out.push(
+    makeSentenceWarmupSegment({
+      skillDimension: 'sentence_order',
+      sentences: shuffledSentences.slice(0, args.itemsPerSegment),
+      timeLimitMs: args.sentenceTimeLimitMs,
+    }),
+  );
+
+  return out.filter((segment): segment is BossSegment => segment !== null);
+}
+
+function makeWordWarmupSegment({
+  gameType,
+  skillDimension,
+  targetItems,
+  allItems,
+  itemsPerSegment,
+  wordTimeLimitMs,
+  choiceTimeLimitMs,
+}: {
+  gameType: GameType;
+  skillDimension: SkillDimension;
+  targetItems: LearningItem[];
+  allItems: LearningItem[];
+  itemsPerSegment: number;
+  wordTimeLimitMs: number;
+  choiceTimeLimitMs: number;
+}): BossSegment | null {
+  const focusedItems = targetItems.slice(0, itemsPerSegment);
+  if (focusedItems.length === 0) return null;
+  const distractorCount = gameType === 'apple_rescue' ? 1 : 3;
+  const items = isChoiceGame(gameType)
+    ? withChoiceSupport(focusedItems, allItems, distractorCount)
+    : focusedItems;
+  if (isChoiceGame(gameType) && items.length < distractorCount + 1) return null;
+  return {
+    gameType,
+    skillDimension,
+    isWarmup: true,
+    weight: 0,
+    reasons: ['unknown'],
+    content: { kind: 'words', items },
+    timeLimitMs: isChoiceGame(gameType) ? choiceTimeLimitMs : wordTimeLimitMs,
+    taskCount: focusedItems.length,
+  };
+}
+
+function makeSentenceWarmupSegment({
+  skillDimension,
+  sentences,
+  timeLimitMs,
+}: {
+  skillDimension: SkillDimension;
+  sentences: SentenceItem[];
+  timeLimitMs: number;
+}): BossSegment | null {
+  if (sentences.length === 0) return null;
+  return {
+    gameType: 'river_jump',
+    skillDimension,
+    isWarmup: true,
+    weight: 0,
+    reasons: ['unknown'],
+    content: { kind: 'sentences', sentences },
+    timeLimitMs,
+    taskCount: sentences.length,
+  };
+}
+
+function isKanaWarmupItem(item: LearningItem): boolean {
+  return item.kana.length > 0 && item.type !== 'sentence' && item.type !== 'grammar_pattern';
+}
+
+function shuffleCopy<T>(items: T[], random: () => number): T[] {
+  const out = [...items];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [out[i], out[j]] = [out[j]!, out[i]!];
+  }
+  return out;
+}
+
+function segmentKey(gameType: GameType, skillDimension: SkillDimension): string {
+  return `${gameType}::${skillDimension}`;
 }
 
 function pickTargetItems(
