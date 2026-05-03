@@ -21,11 +21,23 @@ import {
   rowToSentenceItem,
 } from '../features/db/rowConversions';
 import { SeedFoundationsButton } from '../features/db/SeedFoundationsButton';
-import { useSceneErrorToast } from '../features/feedback/SceneErrorToast';
 import { GameCanvasHost, type GameSceneKey } from '../features/game/GameCanvasHost';
 import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { GameSessionService } from '../features/session/GameSessionService';
-import { listItems, listProgress, type ProgressDto } from '../tauri/invoke';
+import {
+  listContentPacks,
+  listItems,
+  listProgress,
+  type ContentPackRow,
+  type ProgressDto,
+} from '../tauri/invoke';
+
+const FOUNDATION_PACK_IDS = new Set([
+  'n5-basic-mini',
+  'confusables-foundations',
+  'audio-discrim-foundations',
+  'sentences-foundations',
+]);
 
 const STRICT_POLICY: EvaluationStrictness = {
   longVowel: 'strict',
@@ -37,7 +49,13 @@ const STRICT_POLICY: EvaluationStrictness = {
   particleReading: 'pronunciation',
 };
 
-const SESSION_DURATION_MS = 90_000; // Boss is the one longer standard mode; other games are 60s.
+// v0.8.10 Boss balance: 3 segments × 4 items + transition overhead. Word/choice segments
+// (~6s/task = ~24s/segment); RiverJump segment 4 × 18s = 72s. Worst case 3 segments include
+// one RiverJump → ~72s + 2 × 24s = 120s, plus 3s transition × 2 = ~126s. 180s gives a real
+// finish margin instead of the v0.8.9 90s cap that cut every Boss session short.
+const SESSION_DURATION_MS = 180_000;
+const BOSS_SEGMENT_COUNT = 3;
+const BOSS_ITEMS_PER_SEGMENT = 4;
 
 const SCENE_KEY_FOR_GAME: Partial<Record<GameType, GameSceneKey>> = {
   mole_story: 'MoleScene',
@@ -102,7 +120,6 @@ export function BossPage(): JSX.Element {
     correct: 0,
     remainingMs: SESSION_DURATION_MS,
   });
-  const sceneError = useSceneErrorToast();
 
   // Each segment has its own task queue keyed by segment id (we use index here). Holding the
   // queue in a ref keeps the adapter closure stable across renders.
@@ -115,9 +132,10 @@ export function BossPage(): JSX.Element {
   useEffect(() => {
     void (async (): Promise<void> => {
       try {
-        const [rows, progressDtos] = await Promise.all([
+        const [rows, progressDtos, packs] = await Promise.all([
           listItems({ limit: 1000 }),
           listProgress({ userId: 'default-user', limit: 5000 }),
+          listContentPacks(),
         ]);
         const learningItems: LearningItem[] = rows
           .filter((r) => r.type !== 'sentence')
@@ -133,16 +151,12 @@ export function BossPage(): JSX.Element {
           progress: progressDomain,
           learningItems,
           sentenceItems,
-          segmentCount: 4,
-          itemsPerSegment: 5,
+          segmentCount: BOSS_SEGMENT_COUNT,
+          itemsPerSegment: BOSS_ITEMS_PER_SEGMENT,
           fallbackToWeakestN: 12,
         });
         if (out.segments.length === 0) {
-          setEmptyReason(
-            out.weakCandidateCount === 0
-              ? '还没有错题数据,且 foundations 内容不足以生成热身段 — 先 seed 全部 foundations 包再回来'
-              : '错题虽然有,但没有可用的内容 — 检查 #/dev 是否已 seed 全部 foundations 包',
-          );
+          setEmptyReason(classifyEmptyReason(out.weakCandidateCount, packs));
           return;
         }
         const created = await session.create({
@@ -344,7 +358,6 @@ export function BossPage(): JSX.Element {
             combo={combo}
             width={800}
             height={480}
-            onSceneError={(message) => sceneError.showSceneError(message)}
             onComboChange={setComboHud}
           />
           {transition ? (
@@ -363,7 +376,6 @@ export function BossPage(): JSX.Element {
         >
           段落自动轮换 · 连击跨段保持 · 90s Boss · attempt 写入 SQLite [v0.8.9]
         </div>
-        {sceneError.sceneErrorToast}
       </div>
     </div>
   );
@@ -432,6 +444,31 @@ function attachSegmentQueue(
     }
   }
   return { ...seg, tasks };
+}
+
+/**
+ * Classify why selectBossSession returned no segments. Three buckets:
+ *   1. No foundations packs imported at all → tell user to seed.
+ *   2. Foundations packs present but every one disabled → point at #/settings/packs.
+ *   3. Packs enabled, but the user has no error history yet (and warm-up couldn't fill) →
+ *      tell them to play a few sessions first.
+ *
+ * Without this, every empty-Boss case used to print the same "go seed" message even when the
+ * real fix was to flip a toggle on the packs page.
+ */
+function classifyEmptyReason(weakCandidateCount: number, packs: ContentPackRow[]): string {
+  const foundations = packs.filter((p) => FOUNDATION_PACK_IDS.has(p.id));
+  if (foundations.length === 0) {
+    return 'foundations 内容包尚未导入 — 请到 #/dev 点击 seed,或确认已运行 ensure_seed';
+  }
+  const enabled = foundations.filter((p) => p.enabled);
+  if (enabled.length === 0) {
+    return `已导入 ${String(foundations.length)} 个 foundations 包,但全部禁用 — 去 #/settings/packs 至少启用一个再回来`;
+  }
+  if (weakCandidateCount === 0) {
+    return `已启用 ${String(enabled.length)}/${String(foundations.length)} 个 foundations 包,但还没积累错题数据 — 先去鼹鼠 / 生死时速 / 拯救苹果 / 太空大战 / 激流勇进 任意几局,Boss 会基于错题动态生成段落`;
+  }
+  return `错题虽然有 ${String(weakCandidateCount)} 项,但没有匹配的可玩内容 — 检查启用的 foundations 包是否覆盖你的错题来源(${enabled.map((p) => p.id).join(', ')})`;
 }
 
 function navigateToResult(sessionId: string | null): void {

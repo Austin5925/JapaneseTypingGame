@@ -1,6 +1,7 @@
 import { ALL_SKILL_DIMENSIONS, type SkillDimension } from '@kana-typing/core';
 import { useEffect, useState, type JSX } from 'react';
 
+import { SceneErrorToastProvider } from './features/feedback/SceneErrorToast';
 import { RetroShell, type RetroActiveKey } from './features/shell/RetroShell';
 import { AppleRescuePage } from './pages/AppleRescuePage';
 import { BossPage } from './pages/BossPage';
@@ -134,9 +135,11 @@ export function App(): JSX.Element {
   }, []);
 
   return (
-    <RetroShell active={route.kind} title={titleForRoute(route)}>
-      {renderRouteContent(route)}
-    </RetroShell>
+    <SceneErrorToastProvider>
+      <RetroShell active={route.kind} title={titleForRoute(route)}>
+        {renderRouteContent(route)}
+      </RetroShell>
+    </SceneErrorToastProvider>
   );
 }
 

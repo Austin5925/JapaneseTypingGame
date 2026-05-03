@@ -25,7 +25,14 @@ export interface ComboRecord {
 export interface ComboRecordStorage {
   getItem(key: string): string | null;
   setItem(key: string, value: string): void;
+  /** Optional — when present, enables LRU pruning of perfect-shown markers. */
+  removeItem?(key: string): void;
+  /** Optional — list every stored key. Real `localStorage` exposes length + key(i). */
+  keys?(): string[];
 }
+
+/** Cap on stored `kana-typing.perfect-shown.*` markers; oldest pruned beyond this. */
+export const PERFECT_SHOWN_MAX = 50;
 
 export function readComboRecord(storage?: ComboRecordStorage): ComboRecord {
   const store = storage ?? globalThis.localStorage;
@@ -101,6 +108,55 @@ export function markPerfectShown(sessionId: string, storage?: ComboRecordStorage
   } catch (err) {
     console.warn('[comboRecord] failed to persist perfect marker', err);
   }
+  prunePerfectShownMarkers(store, PERFECT_SHOWN_MAX);
+}
+
+/**
+ * LRU-prune `perfect-shown.*` markers when the count exceeds `maxKeep`. Drops the oldest
+ * (lowest stored ISO timestamp) markers first. Skips silently when storage doesn't expose
+ * `keys()` / `removeItem` (real `localStorage` does; in-memory test stubs may not).
+ */
+export function prunePerfectShownMarkers(
+  storage: ComboRecordStorage | undefined,
+  maxKeep: number,
+): void {
+  const store = storage ?? globalThis.localStorage;
+  if (!store) return;
+  const listKeys = resolveListKeys(store);
+  if (!listKeys || typeof store.removeItem !== 'function') return;
+  const remove = store.removeItem.bind(store);
+  const allKeys = listKeys().filter((k) => k.startsWith(PERFECT_SHOWN_PREFIX));
+  if (allKeys.length <= maxKeep) return;
+  const dated = allKeys
+    .map((key) => ({ key, ts: store.getItem(key) ?? '' }))
+    // Lexicographic sort on ISO 8601 strings == chronological. Empty timestamps (corrupted
+    // markers from older versions) sort first → pruned first, which is what we want.
+    .sort((a, b) => (a.ts < b.ts ? -1 : a.ts > b.ts ? 1 : 0));
+  const toRemove = dated.slice(0, dated.length - maxKeep);
+  for (const { key } of toRemove) {
+    try {
+      remove(key);
+    } catch (err) {
+      console.warn('[comboRecord] failed to prune perfect marker', err);
+    }
+  }
+}
+
+function resolveListKeys(store: ComboRecordStorage): (() => string[]) | null {
+  if (typeof store.keys === 'function') return store.keys.bind(store);
+  // Real DOM Storage exposes `length` + `key(index)` but ComboRecordStorage doesn't list them
+  // on the interface. Detect at runtime and synthesise a listKeys for the localStorage path.
+  const ls = store as unknown as { length?: number; key?: (index: number) => string | null };
+  if (typeof ls.length !== 'number' || typeof ls.key !== 'function') return null;
+  return (): string[] => {
+    const out: string[] = [];
+    const len = ls.length ?? 0;
+    for (let i = 0; i < len; i++) {
+      const k = ls.key?.(i);
+      if (typeof k === 'string') out.push(k);
+    }
+    return out;
+  };
 }
 
 function emptyRecord(): ComboRecord {

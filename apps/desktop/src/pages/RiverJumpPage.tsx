@@ -12,7 +12,6 @@ import { useEffect, useMemo, useRef, useState, type JSX } from 'react';
 
 import { buildProgressMap, rowToSentenceItem } from '../features/db/rowConversions';
 import { SeedFoundationsButton } from '../features/db/SeedFoundationsButton';
-import { useSceneErrorToast } from '../features/feedback/SceneErrorToast';
 import { GameCanvasHost } from '../features/game/GameCanvasHost';
 import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { GameSessionService } from '../features/session/GameSessionService';
@@ -28,9 +27,13 @@ const STRICT_POLICY: EvaluationStrictness = {
   particleReading: 'pronunciation',
 };
 
-const DEFAULT_SESSION_DURATION_MS = 60_000;
-const TASK_TIME_LIMIT_MS = 25_000;
-const DEFAULT_TASK_COUNT = 12;
+// v0.8.10 timing: RiverJump's per-task budget is the largest of the v0.8.x games (chunk
+// selection + reading input takes longer than a single kana whack), so the session is the
+// only one of the standard modes longer than 60s. taskCount = floor(session/limit) + 1
+// gives a small buffer for shouldRepeatImmediately re-pushes.
+const DEFAULT_SESSION_DURATION_MS = 90_000;
+const TASK_TIME_LIMIT_MS = 18_000;
+const DEFAULT_TASK_COUNT = Math.floor(DEFAULT_SESSION_DURATION_MS / TASK_TIME_LIMIT_MS) + 1;
 const DEFAULT_SKILL_DIMENSION: SkillDimension = 'sentence_order';
 const PARTICLE_TAGS = [
   'particle-ha',
@@ -88,7 +91,6 @@ export function RiverJumpPage(props: RiverJumpPageProps = {}): JSX.Element {
     remainingMs: sessionDurationMs,
   });
   const [comboHud, setComboHud] = useState<GameHudCombo | null>(null);
-  const sceneError = useSceneErrorToast();
 
   const queueRef = useRef<SelectedSentenceTaskQueue | null>(null);
   const currentTaskRef = useRef<TrainingTask | null>(null);
@@ -284,7 +286,6 @@ export function RiverJumpPage(props: RiverJumpPageProps = {}): JSX.Element {
             width={800}
             height={480}
             onSessionFinished={() => navigateToResult(sessionId)}
-            onSceneError={(message) => sceneError.showSceneError(message)}
             onComboChange={setComboHud}
           />
         </div>
@@ -300,7 +301,6 @@ export function RiverJumpPage(props: RiverJumpPageProps = {}): JSX.Element {
         >
           ↵ ENTER 提交 · ⌫ BACKSPACE 编辑 · 顺序错 = 跳水 · attempt 写入 SQLite [v0.8.3]
         </div>
-        {sceneError.sceneErrorToast}
       </div>
     </div>
   );

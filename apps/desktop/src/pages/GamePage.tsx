@@ -13,7 +13,6 @@ import { useEffect, useMemo, useRef, useState, type JSX, type RefObject } from '
 
 import { buildProgressMap, rowToLearningItem } from '../features/db/rowConversions';
 import { SeedFoundationsButton } from '../features/db/SeedFoundationsButton';
-import { useSceneErrorToast } from '../features/feedback/SceneErrorToast';
 import {
   GameCanvasHost,
   type GameCanvasExternalInputControl,
@@ -144,7 +143,6 @@ export function GamePage(props: GamePageProps): JSX.Element {
   });
   const [comboHud, setComboHud] = useState<GameHudCombo | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const sceneError = useSceneErrorToast();
 
   const sessionRef = useRef<GameSessionService | null>(null);
   const queueRef = useRef<SelectedTaskQueue | null>(null);
@@ -365,7 +363,6 @@ export function GamePage(props: GamePageProps): JSX.Element {
             externalInputRef={externalInputRef}
             sceneInit={inputMode === 'ime_surface' ? { inputSource: 'external' } : {}}
             onSessionFinished={() => navigateToResult(sessionId)}
-            onSceneError={(message) => sceneError.showSceneError(message)}
             onComboChange={setComboHud}
           />
         </div>
@@ -385,7 +382,6 @@ export function GamePage(props: GamePageProps): JSX.Element {
             ↵ ENTER 提交 · ⌫ BACKSPACE 编辑 · Esc 退出 [v0.7+]
           </div>
         )}
-        {sceneError.sceneErrorToast}
       </div>
     </div>
   );

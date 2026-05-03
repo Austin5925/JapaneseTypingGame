@@ -8,6 +8,55 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.8.10] - 2026-05-03 — Session/task rebalance + toast hoist + sentence import
+
+### Changed
+
+- **Session timing rebalanced** so taskCount actually drains within the wall clock:
+  - **RiverJump**: 90s session, 18s per-task limit, 6 tasks per queue. Sentence chunk
+    selection + reading input is the longest per-task budget of the v0.8.x games, so the
+    session is now the only standard mode longer than 60s.
+  - **SpaceBattle**: 60s session unchanged; task time limit lowered to 6s (was 8s);
+    explicit taskCount = 14 leaves a small buffer for `shouldRepeatImmediately` re-pushes.
+  - **AppleRescue**: 60s session unchanged; task time limit lowered to 6s (was 8s);
+    taskCount auto-fits to floor(60/6)+1 = 11.
+- **Boss session balanced** to 180s with 3 segments × 4 items (was v0.8.9's 90s × 4 × 5,
+  which couldn't possibly drain a single RiverJump segment within the cap). Worst-case math:
+  one RiverJump segment (4 × 18s = 72s) + two word/choice segments (≈24s each) + transition
+  overhead = ~126s, fits comfortably.
+
+### Added
+
+- **PerfectFinale localStorage LRU cleanup** (Q2). `markPerfectShown` now enforces a max of
+  50 stored `kana-typing.perfect-shown.*` markers, pruning oldest first by ISO timestamp.
+  Previously every perfect session left a key behind forever; long-time users would
+  accumulate hundreds. New `prunePerfectShownMarkers` helper + 5 unit tests.
+- **`SceneErrorToastProvider`** mounted once in App.tsx; `useReportSceneError()` hook makes
+  any component (chiefly `GameCanvasHost`) push a toast without per-page boilerplate. The 5
+  game pages dropped their per-page `useSceneErrorToast()` setup + `onSceneError` props —
+  net code reduction across pages, single source of truth for toast rendering.
+- **Boss empty-path classification** (Q4). Three buckets: foundations packs not imported,
+  foundations packs imported but all disabled, packs enabled but no error history yet. The
+  panel now points the user at the right fix (#/dev seed vs #/settings/packs vs play a
+  session first) instead of repeating the same generic "go seed" message.
+- **content-cli accepts SentencePack imports** (B1). `pnpm content:import` now recognises
+  `{sentences: []}` packs, validates them via `validateSentencePack`, translates each
+  sentence into a sentence-typed `learning_items` row with `extras_json` carrying
+  `{chunks, acceptedOrders, zhPrompt}`. Mirrors the Rust seed translation byte-for-byte so
+  RiverJump consumes CLI-imported sentences and `seed_test_pack` ones via the same row
+  shape. Idempotent across re-runs. 3 new unit tests cover translation correctness, idempotent
+  re-import, and round-trip rejection.
+
+### Fixed
+
+- **ComboBadge layout** (Q5). On narrow CRT widths the badge could be clipped off the right
+  edge. The HUD row now wraps + the badge gets `flexShrink: 0` and `minWidth: 96` so a high
+  combo (e.g. "COMBO ×12") drops to a second line instead of being truncated.
+
+### Changed
+
+- Synchronized package, Tauri, Cargo, shell version metadata to `0.8.10`.
+
 ## [0.8.9] - 2026-05-03 — Game feel pass + fixed session lengths
 
 ### Added

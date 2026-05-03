@@ -11,7 +11,6 @@ import { useEffect, useMemo, useRef, useState, type JSX } from 'react';
 
 import { buildProgressMap, rowToLearningItem } from '../features/db/rowConversions';
 import { SeedFoundationsButton } from '../features/db/SeedFoundationsButton';
-import { useSceneErrorToast } from '../features/feedback/SceneErrorToast';
 import { GameCanvasHost } from '../features/game/GameCanvasHost';
 import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { GameSessionService } from '../features/session/GameSessionService';
@@ -27,9 +26,12 @@ const STRICT_POLICY: EvaluationStrictness = {
   particleReading: 'surface',
 };
 
+// v0.8.10 timing: 60s session, 6s per-task budget — explicit taskCount=14 keeps the queue
+// closer to what the wall-clock can actually drain (60/6 ≈ 10 with no retries; 14 leaves a
+// small buffer for shouldRepeatImmediately re-pushes).
 const DEFAULT_SESSION_DURATION_MS = 60_000;
-const TASK_TIME_LIMIT_MS = 8000;
-const DEFAULT_TASK_COUNT = 16;
+const TASK_TIME_LIMIT_MS = 6_000;
+const DEFAULT_TASK_COUNT = 14;
 const DISTRACTOR_COUNT = 3;
 
 export interface SpaceBattlePageProps {
@@ -68,7 +70,6 @@ export function SpaceBattlePage(_props: SpaceBattlePageProps = {}): JSX.Element 
     remainingMs: sessionDurationMs,
   });
   const [comboHud, setComboHud] = useState<GameHudCombo | null>(null);
-  const sceneError = useSceneErrorToast();
 
   const queueRef = useRef<SelectedChoiceTaskQueue | null>(null);
   const currentTaskRef = useRef<TrainingTask | null>(null);
@@ -262,7 +263,6 @@ export function SpaceBattlePage(_props: SpaceBattlePageProps = {}): JSX.Element 
             width={800}
             height={480}
             onSessionFinished={() => navigateToResult(sessionId)}
-            onSceneError={(message) => sceneError.showSceneError(message)}
             onComboChange={setComboHud}
           />
         </div>
@@ -278,7 +278,6 @@ export function SpaceBattlePage(_props: SpaceBattlePageProps = {}): JSX.Element 
         >
           数字键 1-4 锁定目标 · 子弹命中后判定 · attempt 写入 SQLite [v0.8.9]
         </div>
-        {sceneError.sceneErrorToast}
       </div>
     </div>
   );

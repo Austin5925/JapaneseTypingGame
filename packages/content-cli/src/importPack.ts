@@ -1,7 +1,13 @@
 import { readFileSync } from 'node:fs';
 import { isAbsolute, resolve } from 'node:path';
 
-import { validatePack, type ContentPackInput } from '@kana-typing/content-schema';
+import {
+  validatePack,
+  validateSentencePack,
+  type ContentPackInput,
+  type LearningItemInput,
+  type SentencePackInput,
+} from '@kana-typing/content-schema';
 import type Database from 'better-sqlite3';
 
 import { openDb, runMigrations } from './migrate';
@@ -34,10 +40,39 @@ export interface ImportPackOutcome {
 
 // Pack import is idempotent: re-running with the same pack updates rows in place rather than
 // duplicating. Item ids are stable (`word-yakusoku`), so progress survives pack version bumps.
+//
+// v0.8.10: Sentence packs (`{ id, name, sentences: [...] }` instead of `items: [...]`) are
+// now accepted. Each SentenceItem is translated into a sentence-typed `learning_items` row
+// with merged kana/romaji and the chunks/acceptedOrders/zhPrompt JSON-encoded into
+// `extras_json`. RiverJump's `rowToSentenceItem` reverses the encoding at runtime, so
+// importing a sentence pack via the CLI lights up the same path as the Rust seed.
 export function importPackFile(opts: ImportPackOptions): ImportPackOutcome {
   const absolutePack = resolveUserPath(opts.packPath);
   const dbPath = opts.dbPath ? resolveUserPath(opts.dbPath) : defaultDevDbPath();
   const raw = JSON.parse(readFileSync(absolutePack, 'utf8')) as unknown;
+
+  if (looksLikeSentencePack(raw)) {
+    const validated = validateSentencePack(raw);
+    if (!validated.ok) {
+      return {
+        ok: false,
+        packPath: absolutePack,
+        dbPath,
+        errors: validated.errors.map((e) => `${e.path}: ${e.message}`),
+      };
+    }
+    const pack = sentencePackToContentPack(validated.value);
+    const quality = opts.quality ?? inferDefaultQuality(pack);
+    const db = openDb(dbPath);
+    try {
+      runMigrations(db);
+      const counts = upsertPack(db, pack, quality);
+      return { ok: true, packPath: absolutePack, dbPath, packId: pack.id, ...counts };
+    } finally {
+      db.close();
+    }
+  }
+
   const validated = validatePack(raw);
   if (!validated.ok) {
     return {
@@ -62,6 +97,66 @@ export function importPackFile(opts: ImportPackOptions): ImportPackOutcome {
   }
 }
 
+/**
+ * Cheap shape detection — sentence packs have `sentences[]` instead of `items[]`. We don't
+ * Zod-parse here because we want a clean error message from the right validator below.
+ */
+function looksLikeSentencePack(raw: unknown): boolean {
+  if (!raw || typeof raw !== 'object') return false;
+  const v = raw as { sentences?: unknown; items?: unknown };
+  return Array.isArray(v.sentences) && !Array.isArray(v.items);
+}
+
+/**
+ * Translate a SentencePack into the LearningItem-shaped ContentPack the upsert path already
+ * understands. Mirrors the Rust `sentence_pack_to_word_pack` translation in
+ * `commands.rs::seed_test_pack` so RiverJump sees identical rows whether the pack came
+ * through `seed_test_pack` or `pnpm content:import`.
+ */
+export function sentencePackToContentPack(p: SentencePackInput): ContentPackInputWithExtras {
+  const items: LearningItemWithExtras[] = p.sentences.map((s) => {
+    const mergedKana = s.chunks.map((c) => c.kana).join('');
+    const mergedRomaji = s.chunks.map((c) => c.romaji[0] ?? '').join('');
+    const extras = {
+      chunks: s.chunks,
+      acceptedOrders: s.acceptedOrders,
+      zhPrompt: s.zhPrompt,
+    };
+    const item: LearningItemWithExtras = {
+      id: s.id,
+      type: 'sentence',
+      surface: s.surface,
+      kana: mergedKana,
+      romaji: [mergedRomaji],
+      meaningsZh: [s.zhPrompt],
+      tags: [...s.tags],
+      skillTags: [...s.skillTags],
+      examples: [],
+      audioRefs: [],
+      confusableItemIds: [],
+      extrasJson: JSON.stringify(extras),
+    };
+    if (s.jlpt !== undefined) item.jlpt = s.jlpt;
+    return item;
+  });
+  const out: ContentPackInputWithExtras = {
+    id: p.id,
+    name: p.name,
+    version: p.version,
+    locale: p.locale,
+    items,
+  };
+  if (p.author !== undefined) out.author = p.author;
+  if (p.description !== undefined) out.description = p.description;
+  return out;
+}
+
+/** LearningItemInput + the optional `extrasJson` payload sentence translation needs. */
+type LearningItemWithExtras = LearningItemInput & { extrasJson?: string | null };
+type ContentPackInputWithExtras = Omit<ContentPackInput, 'items'> & {
+  items: LearningItemWithExtras[];
+};
+
 function inferDefaultQuality(pack: ContentPackInput): NonNullable<ImportPackOptions['quality']> {
   const packText = `${pack.version} ${pack.description ?? ''}`.toLowerCase();
   const draftTaggedItems = pack.items.filter((item) => item.tags.includes('draft')).length;
@@ -83,7 +178,7 @@ interface UpsertCounts {
 
 function upsertPack(
   db: Database.Database,
-  pack: ContentPackInput,
+  pack: ContentPackInputWithExtras,
   quality: NonNullable<ImportPackOptions['quality']>,
 ): UpsertCounts {
   const now = new Date().toISOString();
@@ -106,12 +201,12 @@ function upsertPack(
       id, type, surface, kana, romaji_json, meanings_zh_json, meanings_en_json,
       pos, jlpt, tags_json, skill_tags_json, error_tags_json,
       accepted_surfaces_json, accepted_kana_json,
-      source_pack_id, quality, created_at, updated_at
+      source_pack_id, quality, created_at, updated_at, extras_json
     ) VALUES (
       @id, @type, @surface, @kana, @romaji_json, @meanings_zh_json, @meanings_en_json,
       @pos, @jlpt, @tags_json, @skill_tags_json, @error_tags_json,
       @accepted_surfaces_json, @accepted_kana_json,
-      @source_pack_id, @quality, @created_at, @updated_at
+      @source_pack_id, @quality, @created_at, @updated_at, @extras_json
     )
     ON CONFLICT(id) DO UPDATE SET
       type = excluded.type,
@@ -129,7 +224,8 @@ function upsertPack(
       accepted_kana_json = excluded.accepted_kana_json,
       source_pack_id = excluded.source_pack_id,
       quality = excluded.quality,
-      updated_at = excluded.updated_at
+      updated_at = excluded.updated_at,
+      extras_json = excluded.extras_json
   `);
 
   const deleteExamplesStmt = db.prepare('DELETE FROM item_examples WHERE item_id = ?');
@@ -191,6 +287,7 @@ function upsertPack(
         quality,
         created_at: now,
         updated_at: now,
+        extras_json: item.extrasJson ?? null,
       });
       itemsUpserted++;
 

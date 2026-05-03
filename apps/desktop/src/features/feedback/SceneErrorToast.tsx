@@ -1,19 +1,51 @@
-import { useCallback, useEffect, useState, type CSSProperties, type JSX } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type CSSProperties,
+  type JSX,
+  type ReactNode,
+} from 'react';
 
-export interface SceneErrorToastApi {
-  showSceneError(message: string): void;
-  sceneErrorToast: JSX.Element | null;
-}
+/**
+ * v0.8.10: SceneErrorToast lives at the App layer instead of being plumbed through every game
+ * page. The `<SceneErrorToastProvider>` mounts once near the root; `<SceneErrorToastSlot>`
+ * renders the actual banner; any component (notably `GameCanvasHost`) calls
+ * `useReportSceneError()` to push a message — the slot picks it up via context.
+ *
+ * Previously each game page repeated `useSceneErrorToast()` + threaded `onSceneError` into
+ * GameCanvasHost. That duplication ran into "did I add the toast to this new page" bugs every
+ * time a game shipped. This hoist flattens the wiring to one provider + one slot.
+ */
 
 interface SceneErrorToastState {
   id: number;
   message: string;
 }
 
-export function useSceneErrorToast(timeoutMs = 3000): SceneErrorToastApi {
+interface SceneErrorContextValue {
+  /** Standalone function (not a method) so detaching it from the context object is safe. */
+  show: (message: string) => void;
+}
+
+const SceneErrorContext = createContext<SceneErrorContextValue | null>(null);
+
+export interface SceneErrorToastProviderProps {
+  /** Auto-dismiss delay in ms. Defaults to 3000. */
+  timeoutMs?: number;
+  children: ReactNode;
+}
+
+export function SceneErrorToastProvider({
+  timeoutMs = 3000,
+  children,
+}: SceneErrorToastProviderProps): JSX.Element {
   const [toast, setToast] = useState<SceneErrorToastState | null>(null);
 
-  const showSceneError = useCallback((message: string): void => {
+  const show = useCallback((message: string): void => {
     setToast({ id: Date.now(), message });
   }, []);
 
@@ -23,12 +55,30 @@ export function useSceneErrorToast(timeoutMs = 3000): SceneErrorToastApi {
     return () => globalThis.clearTimeout(handle);
   }, [toast, timeoutMs]);
 
-  return {
-    showSceneError,
-    sceneErrorToast: toast ? (
-      <SceneErrorToast message={toast.message} onDismiss={() => setToast(null)} />
-    ) : null,
-  };
+  // Memoise context value so unrelated re-renders don't reset hooks downstream.
+  const value = useMemo<SceneErrorContextValue>(() => ({ show }), [show]);
+
+  return (
+    <SceneErrorContext.Provider value={value}>
+      {children}
+      {toast ? <SceneErrorToast message={toast.message} onDismiss={() => setToast(null)} /> : null}
+    </SceneErrorContext.Provider>
+  );
+}
+
+/**
+ * Hook used by GameCanvasHost (and any other component that observes scene runtime errors).
+ * Returns a stable `showSceneError(message)` callback. Returns a noop when no provider is in
+ * the tree — useful for unit tests that mount components in isolation.
+ */
+export function useReportSceneError(): (message: string) => void {
+  const ctx = useContext(SceneErrorContext);
+  if (!ctx) return noop;
+  return ctx.show;
+}
+
+function noop(): void {
+  // intentional: no-provider fallback
 }
 
 export function SceneErrorToast({

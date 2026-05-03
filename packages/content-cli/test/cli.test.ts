@@ -189,3 +189,110 @@ describe('importPackFile', () => {
     expect(result.errors?.[0]).toMatch(/round-trip/);
   });
 });
+
+const VALID_SENTENCE_PACK = {
+  id: 'sent-pack',
+  name: 'Sentence Pack',
+  version: '1.0.0',
+  sentences: [
+    {
+      id: 'sent-school',
+      type: 'sentence',
+      surface: '私は学校へ行きます',
+      chunks: [
+        {
+          id: 'c1',
+          text: '私は',
+          kana: 'わたしは',
+          romaji: ['watashiha'],
+          pos: 'pronoun' as const,
+        },
+        {
+          id: 'c2',
+          text: '学校へ',
+          kana: 'がっこうへ',
+          romaji: ['gakkouhe'],
+          pos: 'noun' as const,
+        },
+        {
+          id: 'c3',
+          text: '行きます',
+          kana: 'いきます',
+          romaji: ['ikimasu'],
+          pos: 'verb' as const,
+        },
+      ],
+      zhPrompt: '我去学校。',
+      acceptedOrders: [],
+      jlpt: 'N5' as const,
+      tags: ['n5'],
+      skillTags: ['sentence_order' as const],
+    },
+  ],
+};
+
+describe('importPackFile — SentencePack', () => {
+  it('translates sentences into sentence-typed learning_items rows with extras_json', () => {
+    const path = join(tmp, 'sentences.json');
+    writeFileSync(path, JSON.stringify(VALID_SENTENCE_PACK));
+    const dbPath = join(tmp, 'sent.sqlite');
+
+    const result = importPackFile({ packPath: path, dbPath });
+    expect(result.ok).toBe(true);
+    expect(result.itemsUpserted).toBe(1);
+
+    const db = new Database(dbPath);
+    try {
+      const row = db
+        .prepare<
+          [string],
+          { type: string; surface: string; kana: string; extras_json: string | null }
+        >('SELECT type, surface, kana, extras_json FROM learning_items WHERE id = ?')
+        .get('sent-school');
+      expect(row!.type).toBe('sentence');
+      expect(row!.surface).toBe('私は学校へ行きます');
+      // Merged kana from all chunks.
+      expect(row!.kana).toBe('わたしはがっこうへいきます');
+      // extras_json round-trip
+      const extras = JSON.parse(row!.extras_json ?? '{}') as {
+        chunks: { id: string }[];
+        zhPrompt: string;
+      };
+      expect(extras.chunks).toHaveLength(3);
+      expect(extras.chunks[0]!.id).toBe('c1');
+      expect(extras.zhPrompt).toBe('我去学校。');
+    } finally {
+      db.close();
+    }
+  });
+
+  it('SentencePack import is idempotent', () => {
+    const path = join(tmp, 'sentences.json');
+    writeFileSync(path, JSON.stringify(VALID_SENTENCE_PACK));
+    const dbPath = join(tmp, 'sent.sqlite');
+
+    importPackFile({ packPath: path, dbPath });
+    const second = importPackFile({ packPath: path, dbPath });
+    expect(second.ok).toBe(true);
+
+    const db = new Database(dbPath);
+    try {
+      const count = db.prepare<[], { c: number }>('SELECT COUNT(*) AS c FROM learning_items').get();
+      expect(count!.c).toBe(1);
+    } finally {
+      db.close();
+    }
+  });
+
+  it('rejects a SentencePack whose chunk romaji does not round-trip', () => {
+    const bad = JSON.parse(JSON.stringify(VALID_SENTENCE_PACK)) as typeof VALID_SENTENCE_PACK;
+    bad.sentences[0]!.chunks[2]!.romaji = ['ikimas']; // missing trailing u
+    const path = join(tmp, 'bad-sent.json');
+    writeFileSync(path, JSON.stringify(bad));
+    const dbPath = join(tmp, 'bad-sent.sqlite');
+
+    const result = importPackFile({ packPath: path, dbPath });
+    expect(result.ok).toBe(false);
+    expect(result.errors?.some((e) => /round-trip/.test(e))).toBe(true);
+  });
+});

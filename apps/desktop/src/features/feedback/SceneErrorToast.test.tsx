@@ -4,21 +4,18 @@ import { act, type JSX } from 'react';
 import { createRoot } from 'react-dom/client';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { useSceneErrorToast } from './SceneErrorToast';
+import { SceneErrorToastProvider, useReportSceneError } from './SceneErrorToast';
 
 (
   globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT?: boolean }
 ).IS_REACT_ACT_ENVIRONMENT = true;
 
-function Harness(): JSX.Element {
-  const sceneError = useSceneErrorToast();
+function Reporter(): JSX.Element {
+  const report = useReportSceneError();
   return (
-    <div>
-      <button type="button" onClick={() => sceneError.showSceneError('feedback failed')}>
-        show
-      </button>
-      {sceneError.sceneErrorToast}
-    </div>
+    <button type="button" onClick={() => report('feedback failed')}>
+      show
+    </button>
   );
 }
 
@@ -28,14 +25,18 @@ describe('SceneErrorToast', () => {
     document.body.innerHTML = '';
   });
 
-  it('shows a scene error and auto-dismisses after 3 seconds', () => {
+  it('provider surfaces a reporter that triggers the toast and auto-dismisses', () => {
     vi.useFakeTimers();
     const host = document.createElement('div');
     document.body.appendChild(host);
     const root = createRoot(host);
 
     act(() => {
-      root.render(<Harness />);
+      root.render(
+        <SceneErrorToastProvider>
+          <Reporter />
+        </SceneErrorToastProvider>,
+      );
     });
     const button = document.querySelector('button');
     expect(button).not.toBeNull();
@@ -50,6 +51,25 @@ describe('SceneErrorToast', () => {
     });
     expect(document.body.textContent).not.toContain('feedback failed');
 
+    act(() => {
+      root.unmount();
+    });
+  });
+
+  it('useReportSceneError without a provider is a noop (does not throw)', () => {
+    const host = document.createElement('div');
+    document.body.appendChild(host);
+    const root = createRoot(host);
+    act(() => {
+      root.render(<Reporter />);
+    });
+    const button = document.querySelector('button');
+    expect(button).not.toBeNull();
+    act(() => {
+      button!.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+    // No provider → no toast rendered, but the click handler must not throw.
+    expect(document.body.textContent).not.toContain('feedback failed');
     act(() => {
       root.unmount();
     });

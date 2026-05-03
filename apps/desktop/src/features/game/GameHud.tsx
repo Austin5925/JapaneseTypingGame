@@ -53,6 +53,10 @@ export function GameHud(props: GameHudProps): JSX.Element {
 const hudWrap: CSSProperties = {
   display: 'flex',
   alignItems: 'center',
+  // v0.8.10: allow wrap so a long ComboBadge (e.g. "COMBO ×12") drops to a second line on
+  // narrow viewports instead of being clipped off the right edge of the row.
+  flexWrap: 'wrap',
+  rowGap: 4,
   gap: 0,
   padding: '4px 6px',
   background: 'var(--kt2-panel-2)',
@@ -122,11 +126,16 @@ function ComboBadge({ combo }: { combo: GameHudCombo | null | undefined }): JSX.
     <span
       key={`${String(combo.count)}-${String(combo.level)}`}
       style={{
+        // v0.8.10: pin to the right of the row when there's space, otherwise wrap below.
+        // flexShrink:0 + minWidth keep the badge readable even on narrow CRT windows.
         marginLeft: 'auto',
+        flexShrink: 0,
+        minWidth: 96,
         padding: '1px 10px',
         height: 22,
         display: 'inline-flex',
         alignItems: 'center',
+        justifyContent: 'center',
         border: `1px solid ${levelColor}`,
         fontFamily: 'var(--pix-display)',
         fontSize: 10,

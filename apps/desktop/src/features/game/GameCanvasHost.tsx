@@ -9,6 +9,8 @@ import {
 } from '@kana-typing/game-runtime';
 import { useEffect, useRef, type JSX, type RefObject } from 'react';
 
+import { useReportSceneError } from '../feedback/SceneErrorToast';
+
 // Scene keys are string literals defined inside game-runtime; we mirror them here as a union
 // type so callers stay typed without importing the runtime constants (which the lint
 // type-only-imports rule then complains about).
@@ -67,7 +69,12 @@ export interface GameCanvasHostProps {
    * (e.g. mute toggle).
    */
   sfx?: Sfx;
-  /** Fired when the scene emits a non-fatal runtime error. */
+  /**
+   * Fired when the scene emits a non-fatal runtime error. Optional override — by default the
+   * host reports through the global `SceneErrorToastProvider` (mounted in App.tsx), so most
+   * callers don't need to thread anything. Pass an explicit handler to capture errors locally
+   * (e.g. in a developer-only diagnostics page).
+   */
   onSceneError?: (message: string) => void;
   /** Fired when the shared combo bus changes. Used by the React HUD. */
   onComboChange?: (combo: { count: number; peak: number; level: number; surge: boolean }) => void;
@@ -90,6 +97,9 @@ export function GameCanvasHost(props: GameCanvasHostProps): JSX.Element {
   const onSessionFinishedRef = useRef(props.onSessionFinished);
   const onSceneErrorRef = useRef(props.onSceneError);
   const onComboChangeRef = useRef(props.onComboChange);
+  // Default scene-error sink: the global SceneErrorToastProvider in App.tsx. Page-supplied
+  // handlers still win when present (covers dev / test isolation).
+  const reportSceneErrorGlobal = useReportSceneError();
   // Keep adapter ref in sync without re-mounting Phaser.
   adapterRef.current = props.adapter;
   onSessionFinishedRef.current = props.onSessionFinished;
@@ -114,7 +124,12 @@ export function GameCanvasHost(props: GameCanvasHostProps): JSX.Element {
       onSessionFinishedRef.current?.();
     });
     const offSceneError = bridge.on('scene.error', (event) => {
-      onSceneErrorRef.current?.(event.error.message);
+      const handler = onSceneErrorRef.current;
+      if (handler) {
+        handler(event.error.message);
+      } else {
+        reportSceneErrorGlobal(event.error.message);
+      }
     });
     const offCombo = bridge.on('combo.changed', (event) => {
       onComboChangeRef.current?.({

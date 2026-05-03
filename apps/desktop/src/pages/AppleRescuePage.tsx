@@ -11,7 +11,6 @@ import { useEffect, useMemo, useRef, useState, type JSX } from 'react';
 
 import { buildProgressMap, rowToLearningItem } from '../features/db/rowConversions';
 import { SeedFoundationsButton } from '../features/db/SeedFoundationsButton';
-import { useSceneErrorToast } from '../features/feedback/SceneErrorToast';
 import { GameCanvasHost } from '../features/game/GameCanvasHost';
 import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { GameSessionService } from '../features/session/GameSessionService';
@@ -27,9 +26,11 @@ const STRICT_POLICY: EvaluationStrictness = {
   particleReading: 'surface',
 };
 
+// v0.8.10 timing: 60s session, 6s per-task budget. taskCount = floor(60/6) + 1 keeps the
+// queue length aligned with what the wall-clock can drain plus a small buffer.
 const DEFAULT_SESSION_DURATION_MS = 60_000;
-const TASK_TIME_LIMIT_MS = 8000;
-const DEFAULT_TASK_COUNT = 12;
+const TASK_TIME_LIMIT_MS = 6_000;
+const DEFAULT_TASK_COUNT = Math.floor(DEFAULT_SESSION_DURATION_MS / TASK_TIME_LIMIT_MS) + 1;
 // Three simultaneous apples: correct + two distractors, with one centered lane.
 const DISTRACTOR_COUNT = 2;
 
@@ -69,7 +70,6 @@ export function AppleRescuePage(_props: AppleRescuePageProps = {}): JSX.Element 
     remainingMs: sessionDurationMs,
   });
   const [comboHud, setComboHud] = useState<GameHudCombo | null>(null);
-  const sceneError = useSceneErrorToast();
 
   const queueRef = useRef<SelectedChoiceTaskQueue | null>(null);
   const currentTaskRef = useRef<TrainingTask | null>(null);
@@ -263,7 +263,6 @@ export function AppleRescuePage(_props: AppleRescuePageProps = {}): JSX.Element 
             width={800}
             height={480}
             onSessionFinished={() => navigateToResult(sessionId)}
-            onSceneError={(message) => sceneError.showSceneError(message)}
             onComboChange={setComboHud}
           />
         </div>
@@ -279,7 +278,6 @@ export function AppleRescuePage(_props: AppleRescuePageProps = {}): JSX.Element 
         >
           ←/→ 移动篮子 · ↓/Space 加速下落 · R 重听 · S 慢速 · attempt 写入 SQLite [v0.8.9]
         </div>
-        {sceneError.sceneErrorToast}
       </div>
     </div>
   );
