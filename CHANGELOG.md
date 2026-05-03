@@ -8,6 +8,35 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.8.8] - 2026-05-03 — First-run hardening + Boss polish
+
+### Added
+
+- Tauri startup now runs an idempotent `ensure_seed` path for the four foundations packs, so a
+  fresh desktop install has Mole / SpeedChase / SpaceBattle / AppleRescue / RiverJump content
+  without visiting `#/dev` first.
+- Empty game boot panels now expose a "seed foundations" recovery button instead of leaving the
+  user stranded on an error.
+- Boss rounds can fall back to lowest-mastery clean progress and general warm-up content when
+  weak/error history is not enough to fill the run. Warm-up segments are marked separately in
+  the Boss title.
+- Boss segment switches now show a short transition overlay while the next Phaser scene mounts.
+- Game pages now surface non-fatal `scene.error` events as a toast and mirror live combo streaks
+  in the React HUD.
+- ResultPage now gates the perfect finale per session and shows multi-game breakdown rows for
+  Boss sessions.
+
+### Fixed
+
+- Mole kana pillars now size dynamically from grapheme length, preventing long kana prompts from
+  clipping inside the pillar.
+- SpeedChase wrong-answer pursuer movement now respects a 60px minimum player gap and no longer
+  fights the update loop with a competing position tween.
+
+### Changed
+
+- Synchronized package, Tauri, Cargo, shell version metadata to `0.8.8`.
+
 ## [0.8.7] - 2026-05-02 — Boss routing + result insight hardening
 
 ### Fixed
