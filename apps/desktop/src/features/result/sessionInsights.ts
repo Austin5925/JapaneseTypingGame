@@ -48,6 +48,13 @@ export interface SessionInsights {
   crossGameRecommendations: CrossGameRecommendation[];
 }
 
+export interface GameTypeBreakdown {
+  gameType: GameType;
+  total: number;
+  correct: number;
+  accuracy: number;
+}
+
 const MASTERED_STATES = new Set<ProgressDto['state']>(['stable', 'fluent']);
 
 const RECOMMENDATION_LABELS: Record<GameType, { label: string; href: string }> = {
@@ -154,4 +161,20 @@ function withSkillDimension(baseHref: string, skill: SkillDimension): string {
   const params = new URLSearchParams(query);
   params.set('skillDimension', skill);
   return `${path}?${params.toString()}`;
+}
+
+export function groupAttemptsByGameType(attempts: AttemptEventRow[]): GameTypeBreakdown[] {
+  const byGame = new Map<GameType, { total: number; correct: number }>();
+  for (const attempt of attempts) {
+    const current = byGame.get(attempt.gameType) ?? { total: 0, correct: 0 };
+    current.total += 1;
+    if (attempt.isCorrect) current.correct += 1;
+    byGame.set(attempt.gameType, current);
+  }
+  return [...byGame.entries()].map(([gameType, row]) => ({
+    gameType,
+    total: row.total,
+    correct: row.correct,
+    accuracy: row.total === 0 ? 0 : (row.correct / row.total) * 100,
+  }));
 }

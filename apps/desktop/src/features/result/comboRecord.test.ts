@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
 
-import { maybeUpdateComboRecord, readComboRecord, type ComboRecordStorage } from './comboRecord';
+import {
+  markPerfectShown,
+  maybeUpdateComboRecord,
+  readComboRecord,
+  wasPerfectShownForSession,
+  type ComboRecordStorage,
+} from './comboRecord';
 
 function memoryStorage(initial: Record<string, string> = {}): ComboRecordStorage & {
   data: Map<string, string>;
@@ -95,5 +101,18 @@ describe('maybeUpdateComboRecord', () => {
     const store = memoryStorage();
     const out = maybeUpdateComboRecord({ peakCombo: 1, peakKpm: 0 }, store);
     expect(out.record.updatedAt).not.toBe('');
+  });
+});
+
+describe('perfect finale session marker', () => {
+  it('marks one session without affecting another session', () => {
+    const store = memoryStorage();
+    expect(wasPerfectShownForSession('s1', store)).toBe(false);
+    expect(wasPerfectShownForSession('s2', store)).toBe(false);
+
+    markPerfectShown('s1', store);
+
+    expect(wasPerfectShownForSession('s1', store)).toBe(true);
+    expect(wasPerfectShownForSession('s2', store)).toBe(false);
   });
 });

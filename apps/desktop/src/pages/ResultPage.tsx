@@ -1,10 +1,17 @@
 import { createBrowserSfx } from '@kana-typing/game-runtime';
 import { useEffect, useState, type CSSProperties, type JSX, type ReactNode } from 'react';
 
-import { maybeUpdateComboRecord, readComboRecord } from '../features/result/comboRecord';
+import {
+  markPerfectShown,
+  maybeUpdateComboRecord,
+  readComboRecord,
+  wasPerfectShownForSession,
+} from '../features/result/comboRecord';
 import {
   computeSessionInsights,
+  groupAttemptsByGameType,
   type CrossGameRecommendation,
+  type GameTypeBreakdown,
   type SessionInsights,
 } from '../features/result/sessionInsights';
 import { ErrorTagChip } from '../features/style/ErrorTagChip';
@@ -55,6 +62,7 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
   const [comboBadge, setComboBadge] = useState<{ brokeCombo: boolean; brokeKpm: boolean } | null>(
     null,
   );
+  const [showPerfectFinale, setShowPerfectFinale] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -76,6 +84,13 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
         const ag = aggregate(rows);
         const outcome = maybeUpdateComboRecord({ peakCombo: ag.peakCombo, peakKpm: ag.kpm });
         setComboBadge({ brokeCombo: outcome.brokeCombo, brokeKpm: outcome.brokeKpm });
+        const perfect = ag.total > 0 && ag.correct === ag.total;
+        if (perfect && !wasPerfectShownForSession(props.sessionId)) {
+          markPerfectShown(props.sessionId);
+          setShowPerfectFinale(true);
+        } else {
+          setShowPerfectFinale(false);
+        }
       } catch (err) {
         setError((err as Error).message);
       }
@@ -88,7 +103,7 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
   const ag = aggregate(attempts);
   const allTimeRecord = readComboRecord();
   void progress; // ProgressDto kept in state for future stat panels; current view consumes via insights.
-  const isPerfect = ag.total > 0 && ag.correct === ag.total;
+  const gameBreakdown = groupAttemptsByGameType(attempts);
   const accuracyColor =
     ag.accuracy >= 90
       ? 'var(--kt2-accent)'
@@ -111,7 +126,7 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
 
   return (
     <div style={pageGrid}>
-      {isPerfect && <PerfectFinale />}
+      {showPerfectFinale && <PerfectFinale />}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         <Group title="▌ SCORE">
           <div style={{ textAlign: 'center', padding: '12px 0 16px' }}>
@@ -171,6 +186,7 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
         </Group>
 
         {insights ? <InsightsPanel insights={insights} /> : null}
+        <BossSegmentBreakdown rows={gameBreakdown} />
 
         <Group title="▌ 错误分布">
           {ag.topErrors.length === 0 ? (
@@ -467,6 +483,70 @@ function RecommendationChips({ recos }: { recos: CrossGameRecommendation[] }): J
         </a>
       ))}
     </div>
+  );
+}
+
+const GAME_LABEL: Record<string, string> = {
+  mole_story: '鼹鼠',
+  speed_chase: '生死时速',
+  river_jump: '激流勇进',
+  space_battle: '太空大战',
+  apple_rescue: '拯救苹果',
+  boss_round: 'Boss',
+  real_input: '实战',
+};
+
+function BossSegmentBreakdown({ rows }: { rows: GameTypeBreakdown[] }): JSX.Element | null {
+  if (rows.length < 2) return null;
+  return (
+    <Group title="▌ 段落明细">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: 13 }}>
+        {rows.map((row) => {
+          const color =
+            row.accuracy >= 80
+              ? 'var(--kt2-accent)'
+              : row.accuracy >= 60
+                ? 'var(--kt2-accent-2)'
+                : 'var(--kt2-danger)';
+          return (
+            <div
+              key={row.gameType}
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '84px 54px 1fr 42px',
+                gap: 6,
+                alignItems: 'center',
+              }}
+            >
+              <span>{GAME_LABEL[row.gameType] ?? row.gameType}</span>
+              <span className="kt-mono" style={{ color: 'var(--kt2-fg-dim)' }}>
+                {row.correct}/{row.total}
+              </span>
+              <div className="r-progress" style={{ height: 12 }}>
+                <div
+                  className="fill"
+                  style={{
+                    width: `${row.accuracy.toFixed(0)}%`,
+                    background: color,
+                    opacity: 0.85,
+                  }}
+                />
+              </div>
+              <span
+                style={{
+                  textAlign: 'right',
+                  color,
+                  fontFamily: 'var(--pix-display)',
+                  fontSize: 9,
+                }}
+              >
+                {row.accuracy.toFixed(0)}%
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </Group>
   );
 }
 

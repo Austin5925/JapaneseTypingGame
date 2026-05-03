@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import type { AttemptEventRow, ProgressDto } from '../../tauri/invoke';
 
-import { computeSessionInsights } from './sessionInsights';
+import { computeSessionInsights, groupAttemptsByGameType } from './sessionInsights';
 
 function attempt(partial: Partial<AttemptEventRow> & { itemId: string }): AttemptEventRow {
   return {
@@ -187,5 +187,31 @@ describe('computeSessionInsights — crossGameRecommendations', () => {
     const reco = result.crossGameRecommendations.find((r) => r.targetGameType === 'mole_story')!;
     expect(reco.skillDimension).toBe('katakana_recognition');
     expect(reco.href).toBe('#/game/mole?skillDimension=katakana_recognition');
+  });
+});
+
+describe('groupAttemptsByGameType', () => {
+  it('groups attempts by segment game type in first-seen order', () => {
+    const result = groupAttemptsByGameType([
+      attempt({ itemId: 'a', gameType: 'mole_story', isCorrect: true }),
+      attempt({ itemId: 'b', gameType: 'space_battle', isCorrect: false }),
+      attempt({ itemId: 'c', gameType: 'mole_story', isCorrect: false }),
+    ]);
+    expect(result).toEqual([
+      { gameType: 'mole_story', total: 2, correct: 1, accuracy: 50 },
+      { gameType: 'space_battle', total: 1, correct: 0, accuracy: 0 },
+    ]);
+  });
+
+  it('returns one row for a single-game session', () => {
+    const result = groupAttemptsByGameType([
+      attempt({ itemId: 'a', gameType: 'river_jump', isCorrect: true }),
+      attempt({ itemId: 'b', gameType: 'river_jump', isCorrect: true }),
+    ]);
+    expect(result).toEqual([{ gameType: 'river_jump', total: 2, correct: 2, accuracy: 100 }]);
+  });
+
+  it('returns empty for an empty attempt list', () => {
+    expect(groupAttemptsByGameType([])).toEqual([]);
   });
 });

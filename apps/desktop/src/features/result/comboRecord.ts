@@ -13,6 +13,7 @@
  */
 
 const STORAGE_KEY = 'kana-typing.combo-record';
+const PERFECT_SHOWN_PREFIX = 'kana-typing.perfect-shown.';
 
 export interface ComboRecord {
   peakCombo: number;
@@ -83,8 +84,31 @@ export function maybeUpdateComboRecord(
   return { record: next, brokeCombo, brokeKpm };
 }
 
+export function wasPerfectShownForSession(
+  sessionId: string,
+  storage?: ComboRecordStorage,
+): boolean {
+  const store = storage ?? globalThis.localStorage;
+  if (!store) return false;
+  return store.getItem(perfectShownKey(sessionId)) !== null;
+}
+
+export function markPerfectShown(sessionId: string, storage?: ComboRecordStorage): void {
+  const store = storage ?? globalThis.localStorage;
+  if (!store) return;
+  try {
+    store.setItem(perfectShownKey(sessionId), new Date().toISOString());
+  } catch (err) {
+    console.warn('[comboRecord] failed to persist perfect marker', err);
+  }
+}
+
 function emptyRecord(): ComboRecord {
   return { peakCombo: 0, peakKpm: 0, updatedAt: '' };
+}
+
+function perfectShownKey(sessionId: string): string {
+  return `${PERFECT_SHOWN_PREFIX}${sessionId}`;
 }
 
 function isComboRecord(value: unknown): value is ComboRecord {
