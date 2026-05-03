@@ -36,6 +36,10 @@ export function seedTestPack(): Promise<SeedTestPackResult> {
   return invoke<SeedTestPackResult>('seed_test_pack');
 }
 
+export function ensureSeed(): Promise<SeedTestPackResult> {
+  return invoke<SeedTestPackResult>('ensure_seed');
+}
+
 export function listItems(args: { limit?: number } = {}): Promise<DevItemRow[]> {
   return invoke<DevItemRow[]>('list_items', { limit: args.limit ?? 50 });
 }

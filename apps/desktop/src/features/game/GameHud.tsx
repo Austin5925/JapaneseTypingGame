@@ -4,6 +4,14 @@ export interface GameHudProps {
   remainingMs: number;
   attemptsCount: number;
   correctCount: number;
+  combo?: GameHudCombo | null;
+}
+
+export interface GameHudCombo {
+  count: number;
+  peak: number;
+  level: number;
+  surge: boolean;
 }
 
 /**
@@ -37,6 +45,7 @@ export function GameHud(props: GameHudProps): JSX.Element {
       <Seg label="ATT" value={String(props.attemptsCount)} />
       <Seg label="OK" value={String(props.correctCount)} color="var(--kt2-accent)" />
       <Seg label="ACC" value={`${accuracy.toFixed(0)}%`} color={accColor} />
+      <ComboBadge combo={props.combo} />
     </div>
   );
 }
@@ -102,6 +111,31 @@ function Seg({
       >
         {value}
       </span>
+    </span>
+  );
+}
+
+function ComboBadge({ combo }: { combo: GameHudCombo | null | undefined }): JSX.Element | null {
+  if (!combo || combo.count < 3) return null;
+  const levelColor = combo.level >= 2 ? 'var(--kt2-accent-2)' : 'var(--kt2-accent)';
+  return (
+    <span
+      key={`${String(combo.count)}-${String(combo.level)}`}
+      style={{
+        marginLeft: 'auto',
+        padding: '1px 10px',
+        height: 22,
+        display: 'inline-flex',
+        alignItems: 'center',
+        border: `1px solid ${levelColor}`,
+        fontFamily: 'var(--pix-display)',
+        fontSize: 10,
+        color: levelColor,
+        textShadow: `0 0 6px ${levelColor}`,
+        animation: combo.surge ? 'kt-combo-pop 420ms ease-out' : undefined,
+      }}
+    >
+      COMBO ×{combo.count}
     </span>
   );
 }

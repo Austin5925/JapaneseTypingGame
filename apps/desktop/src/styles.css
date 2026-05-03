@@ -646,6 +646,18 @@ code {
     background-position: 400px 0;
   }
 }
+
+@keyframes kt-combo-pop {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .kt-skel {
   background: linear-gradient(
     90deg,

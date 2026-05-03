@@ -12,12 +12,14 @@ import { MOLE_SCENE_KEY, SPEED_CHASE_SCENE_KEY } from '@kana-typing/game-runtime
 import { useEffect, useMemo, useRef, useState, type JSX, type RefObject } from 'react';
 
 import { buildProgressMap, rowToLearningItem } from '../features/db/rowConversions';
+import { SeedFoundationsButton } from '../features/db/SeedFoundationsButton';
+import { useSceneErrorToast } from '../features/feedback/SceneErrorToast';
 import {
   GameCanvasHost,
   type GameCanvasExternalInputControl,
   type GameSceneKey,
 } from '../features/game/GameCanvasHost';
-import { GameHud } from '../features/game/GameHud';
+import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { ImeInputBox } from '../features/input/ImeInputBox';
 import type { ImeInputState } from '../features/input/useImeInputController';
 import { GameSessionService } from '../features/session/GameSessionService';
@@ -120,7 +122,9 @@ export function GamePage(props: GamePageProps): JSX.Element {
     correct: 0,
     remainingMs: SESSION_DURATION_MS,
   });
+  const [comboHud, setComboHud] = useState<GameHudCombo | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const sceneError = useSceneErrorToast();
 
   const sessionRef = useRef<GameSessionService | null>(null);
   const queueRef = useRef<SelectedTaskQueue | null>(null);
@@ -138,7 +142,7 @@ export function GamePage(props: GamePageProps): JSX.Element {
           listProgress({ userId: 'default-user', limit: 5000 }),
         ]);
         if (rows.length === 0) {
-          setError('No items in DB. Visit #/dev to seed the test pack first.');
+          setError('No items in DB. Seed the foundations packs first.');
           return;
         }
         setItems(rows);
@@ -266,6 +270,7 @@ export function GamePage(props: GamePageProps): JSX.Element {
             <span className="kt-banner__glyph">!</span>
             <div style={{ fontSize: 13 }}>{error}</div>
           </div>
+          <SeedFoundationsButton />
           <a href="#/" className="r-btn" style={{ textDecoration: 'none' }}>
             回首页
           </a>
@@ -310,6 +315,7 @@ export function GamePage(props: GamePageProps): JSX.Element {
           remainingMs={stats.remainingMs}
           attemptsCount={stats.attempts}
           correctCount={stats.correct}
+          combo={comboHud}
         />
 
         <div
@@ -335,6 +341,8 @@ export function GamePage(props: GamePageProps): JSX.Element {
             externalInputRef={externalInputRef}
             sceneInit={inputMode === 'ime_surface' ? { inputSource: 'external' } : {}}
             onSessionFinished={() => navigateToResult(sessionId)}
+            onSceneError={(message) => sceneError.showSceneError(message)}
+            onComboChange={setComboHud}
           />
         </div>
 
@@ -353,6 +361,7 @@ export function GamePage(props: GamePageProps): JSX.Element {
             ↵ ENTER 提交 · ⌫ BACKSPACE 编辑 · Esc 退出 [v0.7+]
           </div>
         )}
+        {sceneError.sceneErrorToast}
       </div>
     </div>
   );

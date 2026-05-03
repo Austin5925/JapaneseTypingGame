@@ -11,8 +11,10 @@ import type { GameBridgeAdapter } from '@kana-typing/game-runtime';
 import { useEffect, useMemo, useRef, useState, type JSX } from 'react';
 
 import { buildProgressMap, rowToSentenceItem } from '../features/db/rowConversions';
+import { SeedFoundationsButton } from '../features/db/SeedFoundationsButton';
+import { useSceneErrorToast } from '../features/feedback/SceneErrorToast';
 import { GameCanvasHost } from '../features/game/GameCanvasHost';
-import { GameHud } from '../features/game/GameHud';
+import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { GameSessionService } from '../features/session/GameSessionService';
 import { listItems, listProgress } from '../tauri/invoke';
 
@@ -85,6 +87,8 @@ export function RiverJumpPage(props: RiverJumpPageProps = {}): JSX.Element {
     correct: 0,
     remainingMs: sessionDurationMs,
   });
+  const [comboHud, setComboHud] = useState<GameHudCombo | null>(null);
+  const sceneError = useSceneErrorToast();
 
   const queueRef = useRef<SelectedSentenceTaskQueue | null>(null);
   const currentTaskRef = useRef<TrainingTask | null>(null);
@@ -211,6 +215,7 @@ export function RiverJumpPage(props: RiverJumpPageProps = {}): JSX.Element {
             <span className="kt-banner__glyph">!</span>
             <div style={{ fontSize: 13 }}>{bootError}</div>
           </div>
+          <SeedFoundationsButton />
           <a href="#/" className="r-btn" style={{ textDecoration: 'none' }}>
             回首页
           </a>
@@ -258,6 +263,7 @@ export function RiverJumpPage(props: RiverJumpPageProps = {}): JSX.Element {
           remainingMs={stats.remainingMs}
           attemptsCount={stats.attempts}
           correctCount={stats.correct}
+          combo={comboHud}
         />
 
         <div
@@ -278,6 +284,8 @@ export function RiverJumpPage(props: RiverJumpPageProps = {}): JSX.Element {
             width={800}
             height={480}
             onSessionFinished={() => navigateToResult(sessionId)}
+            onSceneError={(message) => sceneError.showSceneError(message)}
+            onComboChange={setComboHud}
           />
         </div>
 
@@ -292,6 +300,7 @@ export function RiverJumpPage(props: RiverJumpPageProps = {}): JSX.Element {
         >
           ↵ ENTER 提交 · ⌫ BACKSPACE 编辑 · 顺序错 = 跳水 · attempt 写入 SQLite [v0.8.3]
         </div>
+        {sceneError.sceneErrorToast}
       </div>
     </div>
   );

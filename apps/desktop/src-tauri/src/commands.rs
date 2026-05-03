@@ -164,6 +164,12 @@ const SEED_PACK_AUDIO_DISCRIM: &str =
     include_str!("../../../../content/official/audio-discrim-foundations.json");
 const SEED_PACK_SENTENCES: &str =
     include_str!("../../../../content/official/sentences-foundations.json");
+const FOUNDATION_PACK_IDS: [&str; 4] = [
+    "official-n5-basic-mini",
+    "confusables-foundations",
+    "audio-discrim-foundations",
+    "sentences-foundations",
+];
 
 #[derive(Debug, Deserialize)]
 struct PackInput {
@@ -307,6 +313,44 @@ pub struct SeedTestPackResult {
 
 #[tauri::command]
 pub fn seed_test_pack(db: State<'_, AppDb>) -> AppResult<SeedTestPackResult> {
+    seed_foundation_packs(db.inner())
+}
+
+#[tauri::command]
+pub fn ensure_seed(db: State<'_, AppDb>) -> AppResult<SeedTestPackResult> {
+    ensure_seed_for_db(db.inner())
+}
+
+pub fn ensure_seed_for_db(db: &AppDb) -> AppResult<SeedTestPackResult> {
+    let existing_pack_count = {
+        let conn = db
+            .conn
+            .lock()
+            .map_err(|e| AppError::Internal(e.to_string()))?;
+        conn.query_row(
+            "SELECT COUNT(DISTINCT source_pack_id)
+             FROM learning_items
+             WHERE source_pack_id IN (?1, ?2, ?3, ?4)",
+            params![
+                FOUNDATION_PACK_IDS[0],
+                FOUNDATION_PACK_IDS[1],
+                FOUNDATION_PACK_IDS[2],
+                FOUNDATION_PACK_IDS[3],
+            ],
+            |row| row.get::<_, i64>(0),
+        )?
+    };
+    if existing_pack_count == FOUNDATION_PACK_IDS.len() as i64 {
+        return Ok(SeedTestPackResult {
+            pack_id: FOUNDATION_PACK_IDS[0].to_string(),
+            items_upserted: 0,
+            packs_upserted: 0,
+        });
+    }
+    seed_foundation_packs(db)
+}
+
+fn seed_foundation_packs(db: &AppDb) -> AppResult<SeedTestPackResult> {
     let n5_pack: PackInput = serde_json::from_str(SEED_PACK_N5)
         .map_err(|e| AppError::InvalidPack(format!("n5 pack malformed: {}", e)))?;
     let confusables_pack: PackInput = serde_json::from_str(SEED_PACK_CONFUSABLES)
@@ -529,6 +573,29 @@ fn upsert_pack(tx: &rusqlite::Transaction<'_>, pack: &PackInput, now: &str) -> A
     }
 
     Ok(items_upserted)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn ensure_seed_is_idempotent() {
+        let unique = std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .expect("clock should be after epoch")
+            .as_nanos();
+        let dir = std::env::temp_dir().join(format!("kana-typing-ensure-seed-{unique}"));
+        let db = crate::db::init(&dir).expect("test db should initialize");
+
+        let first = ensure_seed_for_db(&db).expect("first ensure_seed should seed");
+        assert_eq!(first.packs_upserted, 4);
+        assert!(first.items_upserted > 0);
+
+        let second = ensure_seed_for_db(&db).expect("second ensure_seed should no-op");
+        assert_eq!(second.packs_upserted, 0);
+        assert_eq!(second.items_upserted, 0);
+    }
 }
 
 // ────────────────────────────────────────────────────────────────────────

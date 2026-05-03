@@ -67,6 +67,10 @@ export interface GameCanvasHostProps {
    * (e.g. mute toggle).
    */
   sfx?: Sfx;
+  /** Fired when the scene emits a non-fatal runtime error. */
+  onSceneError?: (message: string) => void;
+  /** Fired when the shared combo bus changes. Used by the React HUD. */
+  onComboChange?: (combo: { count: number; peak: number; level: number; surge: boolean }) => void;
 }
 
 /**
@@ -83,8 +87,14 @@ export function GameCanvasHost(props: GameCanvasHostProps): JSX.Element {
   const managerRef = useRef<PhaserGameManager | null>(null);
   const bridgeRef = useRef<GameBridgeImpl | null>(null);
   const adapterRef = useRef(props.adapter);
+  const onSessionFinishedRef = useRef(props.onSessionFinished);
+  const onSceneErrorRef = useRef(props.onSceneError);
+  const onComboChangeRef = useRef(props.onComboChange);
   // Keep adapter ref in sync without re-mounting Phaser.
   adapterRef.current = props.adapter;
+  onSessionFinishedRef.current = props.onSessionFinished;
+  onSceneErrorRef.current = props.onSceneError;
+  onComboChangeRef.current = props.onComboChange;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -101,7 +111,18 @@ export function GameCanvasHost(props: GameCanvasHostProps): JSX.Element {
     bridgeRef.current = bridge;
 
     const offFinish = bridge.on('session.finished', () => {
-      props.onSessionFinished?.();
+      onSessionFinishedRef.current?.();
+    });
+    const offSceneError = bridge.on('scene.error', (event) => {
+      onSceneErrorRef.current?.(event.error.message);
+    });
+    const offCombo = bridge.on('combo.changed', (event) => {
+      onComboChangeRef.current?.({
+        count: event.count,
+        peak: event.peak,
+        level: event.level,
+        surge: event.surge,
+      });
     });
 
     const manager = new PhaserGameManager({
@@ -140,6 +161,8 @@ export function GameCanvasHost(props: GameCanvasHostProps): JSX.Element {
 
     return () => {
       offFinish();
+      offSceneError();
+      offCombo();
       manager.destroy();
       managerRef.current = null;
       bridgeRef.current = null;

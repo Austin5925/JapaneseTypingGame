@@ -26,11 +26,13 @@ pub fn run() {
             let db_dir = resolve_db_dir(app_data_dir);
             eprintln!("kana-typing: SQLite directory = {}", db_dir.display());
             let db = db::init(&db_dir).map_err(|e| format!("db init failed: {e}"))?;
+            commands::ensure_seed_for_db(&db).map_err(|e| format!("seed init failed: {e}"))?;
             app.manage(db);
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
             commands::seed_test_pack,
+            commands::ensure_seed,
             commands::list_items,
             commands::get_db_info,
             commands::create_session,

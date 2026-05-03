@@ -10,8 +10,10 @@ import type { GameBridgeAdapter } from '@kana-typing/game-runtime';
 import { useEffect, useMemo, useRef, useState, type JSX } from 'react';
 
 import { buildProgressMap, rowToLearningItem } from '../features/db/rowConversions';
+import { SeedFoundationsButton } from '../features/db/SeedFoundationsButton';
+import { useSceneErrorToast } from '../features/feedback/SceneErrorToast';
 import { GameCanvasHost } from '../features/game/GameCanvasHost';
-import { GameHud } from '../features/game/GameHud';
+import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { GameSessionService } from '../features/session/GameSessionService';
 import { listItems, listProgress } from '../tauri/invoke';
 
@@ -65,6 +67,8 @@ export function SpaceBattlePage(props: SpaceBattlePageProps = {}): JSX.Element {
     correct: 0,
     remainingMs: sessionDurationMs,
   });
+  const [comboHud, setComboHud] = useState<GameHudCombo | null>(null);
+  const sceneError = useSceneErrorToast();
 
   const queueRef = useRef<SelectedChoiceTaskQueue | null>(null);
   const currentTaskRef = useRef<TrainingTask | null>(null);
@@ -191,6 +195,7 @@ export function SpaceBattlePage(props: SpaceBattlePageProps = {}): JSX.Element {
             <span className="kt-banner__glyph">!</span>
             <div style={{ fontSize: 13 }}>{bootError}</div>
           </div>
+          <SeedFoundationsButton />
           <a href="#/" className="r-btn" style={{ textDecoration: 'none' }}>
             回首页
           </a>
@@ -236,6 +241,7 @@ export function SpaceBattlePage(props: SpaceBattlePageProps = {}): JSX.Element {
           remainingMs={stats.remainingMs}
           attemptsCount={stats.attempts}
           correctCount={stats.correct}
+          combo={comboHud}
         />
 
         <div
@@ -256,6 +262,8 @@ export function SpaceBattlePage(props: SpaceBattlePageProps = {}): JSX.Element {
             width={800}
             height={480}
             onSessionFinished={() => navigateToResult(sessionId)}
+            onSceneError={(message) => sceneError.showSceneError(message)}
+            onComboChange={setComboHud}
           />
         </div>
 
@@ -270,6 +278,7 @@ export function SpaceBattlePage(props: SpaceBattlePageProps = {}): JSX.Element {
         >
           数字键 1-4 锁定目标 · 击中正确者 = 通过 · attempt 写入 SQLite [v0.8.3]
         </div>
+        {sceneError.sceneErrorToast}
       </div>
     </div>
   );
