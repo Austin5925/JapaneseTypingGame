@@ -1,0 +1,106 @@
+name: Release
+
+# v0.9.3: Workflow 已就位,但 trigger 限定在 v1+ tag。0.x 试错阶段所有 commit / tag
+# 都不会浪费 CI 配额;等真正 1.0 时不需要改 workflow,只要 `git tag v1.0.0 && git push
+# origin v1.0.0`,GitHub Actions 自动出 macOS (arm64 + x86_64) / Linux / Windows
+# 全平台 bundle 并创建一个 draft GitHub Release(等用户在网页 review 后再 publish)。
+#
+# `workflow_dispatch` 也保留,方便 1.0 之前手动测试 workflow 本身能跑通。
+on:
+  push:
+    tags:
+      - 'v[1-9]*.*.*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag (e.g. v1.0.0). Required for manual run; ignored on tag push.'
+        required: false
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build (${{ matrix.label }})
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: macos-arm64
+            platform: macos-latest
+            target: aarch64-apple-darwin
+          - label: macos-intel
+            platform: macos-latest
+            target: x86_64-apple-darwin
+          - label: linux
+            platform: ubuntu-22.04
+            target: ''
+          - label: windows
+            platform: windows-latest
+            target: ''
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Cargo cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: apps/desktop/src-tauri
+
+      - name: Install Linux deps for Tauri
+        if: matrix.platform == 'ubuntu-22.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            libgtk-3-dev \
+            libayatana-appindicator3-dev \
+            librsvg2-dev \
+            libssl-dev \
+            libsoup-3.0-dev \
+            patchelf
+
+      - name: Install JS deps
+        run: pnpm install --frozen-lockfile
+
+      # Note on macOS signing: signingIdentity = "-" in tauri.conf.json applies an
+      # ad-hoc signature so the .app isn't flagged as "damaged" on other Macs, but recipients
+      # still need to right-click → Open the first time. To fully sign + notarize:
+      #   1. Buy an Apple Developer account
+      #   2. Set repo secrets APPLE_CERTIFICATE / APPLE_CERTIFICATE_PASSWORD / APPLE_SIGNING_IDENTITY
+      #      / APPLE_ID / APPLE_PASSWORD / APPLE_TEAM_ID
+      #   3. tauri-action will pick them up automatically when those env vars are present.
+      - name: Build & release with tauri-action
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          projectPath: apps/desktop
+          tagName: ${{ github.ref_name }}
+          releaseName: '假名打字通 ${{ github.ref_name }}'
+          releaseBody: |
+            自动构建产物。完整变更见仓库 `CHANGELOG.md` 对应版本节。
+
+            **macOS 用户**:.app / .dmg 走 ad-hoc 签名(尚未 Apple Developer ID
+            正式签名),首次启动需要右键 → 打开 → 「确认打开」绕过 Gatekeeper。
+          releaseDraft: true
+          prerelease: false
+          args: ${{ matrix.target && format('--target {0}', matrix.target) || '' }}

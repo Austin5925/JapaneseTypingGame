@@ -8,26 +8,27 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
-## [0.9.2] - 2026-05-03 — v0.9 audit fixes: corpus tags, immutable attempts, full scan
+## [0.9.3] - 2026-05-04 — 视觉抛光 + icon + Backspace 修复 + 难度偏好 + release pipeline
+
+### Added
+
+- `.github/workflows/release.yml` — 多平台 Tauri 自动构建 workflow。trigger 限定
+  `tags: ['v[1-9]*.*.*']`,即 **v1.0.0 起** push tag 才会触发,0.x 试错阶段所有
+  commit / tag 不会消耗 CI。等 1.0 时 `git tag v1.0.0 && git push origin v1.0.0` 即可:
+  matrix 在 macOS (arm64 + x86_64) / Linux / Windows 各跑一遍 `tauri-action@v0`,
+  自动出 `.dmg` / `.app` / `.AppImage` / `.deb` / `.msi` / `.exe` 上传到一个 draft
+  GitHub Release(等手动 publish)。`workflow_dispatch` 也开,1.0 之前可手动测 workflow。
+- 新增桌面 app icon:retro CRT 风格 — 圆角深色外壳 + 内嵌绿色 CRT 屏幕(scanline +
+  glow)+ 中央大「か」字符 + 底部 KANA 标签。SVG 源码进
+  `apps/desktop/src-tauri/icons/icon.svg`,通过 `pnpm tauri icon` 一键生成全平台:
+  macOS `.icns` / Windows `.ico` / 桌面 PNG (32 / 64 / 128 / 256) / Windows Store
+  Square logos。iOS / Android 派生物 gitignored。
+- 新增 `apps/desktop/src/features/preferences.ts` 集中管理用户偏好(目前只有
+  `readMoleDifficultyPreference` / `writeMoleDifficultyPreference`,后续偏好都
+  收纳到此文件)。
 
 ### Fixed
 
-- Rust 内置 phase1 seed 现在与 TS content-schema 使用同一套核心 tag 归一规则:
-  `kanji-reading` / `meaning-recall` 等 hyphen 写法入库前统一转为 core 的
-  `kanji_reading` / `meaning_recall`,且 `particle-misuse` 归并为既有
-  `particle_error`。这修复了正式桌面启动路径下选择器、弱点聚合和 error chip
-  读不到 0.9 语料核心 tag 的问题。
-- v0.9 seed 不再删除 v0.8 legacy pack 的 `attempt_events`。旧 pack 只会被置为
-  disabled,旧 item 继续作为不可变 attempt 日志的外键锚点; 新 phase1 pack 仍会用稳定
-  item id 原地 upsert 可复用词条。
-- Runtime 页面读取词库的窗口从 1000 项扩到 5000 项,避免 0.9 的 1654 项 phase1 语料被
-  静默截断。覆盖 Mole / SpeedChase / AppleRescue / SpaceBattle / RiverJump / Boss /
-  Diagnostic / Library / Result 的共用 `listItems` 路径。
-- Today Training 传给游戏 hash 的 `durationMs` 现在会被 Mole / SpeedChase /
-  AppleRescue / SpaceBattle / RiverJump 实际使用,不再出现计划页显示 90s、进入游戏仍跑
-  默认 60s 的偏差。
-- Study 卡片页切换 pack 或 mode 时会清空旧 items/progress/error 并把 index 复位到 0;
-  若 localStorage 里的 resume index 超出新列表长度,也会落回 0,避免停在永久 loading。
 - HomePage `ModeBlock` 卡片里的中文 `name`(「鼹鼠的故事」「Boss 关」等)和英文 `sub`
   (`MOLE.EXE` / `BOSS.EXE` 等)在 v0.9.1 缩小尺寸后没有任何视觉间隔,挤在一起难以区分。
   给 `name` 加 `lineHeight: 1.1`、给 `sub` 加 `marginTop: 3` + `lineHeight: 1.1`,
@@ -48,6 +49,10 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
   (旧文案声称"5 个游戏均为 60s、Boss 90s",已偏差)。
 - HomePage 9 个 ModeBlock 卡片描述同步更新,每张卡片显示真实会话时长(60s / 80s /
   90s / 60s + 14 题 / 60s / 180s)而不是只放风味描述。
+- macOS WebView 默认把 Backspace 映射成 `history.back()`,在 Phaser 游戏中段按退格
+  会跳出当前 scene 退回上一个路由。App.tsx 加全局 keydown 拦截:Backspace 在
+  非 input/textarea/contentEditable target 上 `preventDefault()`,但不阻止其它
+  listener,所以 Phaser scene 仍然能用 Backspace 删 inputBuffer。
 
 ### Changed
 
@@ -57,19 +62,33 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 - SettingsPage 鼹鼠难度行从「3 个跳游戏的链接」改为「3 个保存偏好的按钮」: 点击只
   写 localStorage(`kana-mole-difficulty`)+ 高亮 active,不再跳转。GamePage 进入鼹鼠
   时如果 url override 没指定 `?difficulty=`,fallback 到 localStorage 偏好,再
-  fallback 到 `'normal'`。新增 `apps/desktop/src/features/preferences.ts` 集中管理。
-- macOS WebView 默认把 Backspace 映射成 `history.back()`,在 Phaser 游戏中段按退格
-  会跳出当前 scene 退回上一个路由。App.tsx 加全局 keydown 拦截:Backspace 在
-  非 input/textarea/contentEditable target 上 `preventDefault()`,但不阻止其它
-  listener,所以 Phaser scene 仍然能用 Backspace 删 inputBuffer。
+  fallback 到 `'normal'`。
 - `bundle.macOS.signingIdentity = "-"` 启用 ad-hoc 签名,build 出的 .app / .dmg
   传到其他 Mac 不再被误标 "The file is damaged"(仍非正式 Developer ID 签名,
   接收方首次需要右键 → 打开)。同时设 `minimumSystemVersion: "11.0"` 明确最低 macOS。
-- 替换默认 Tauri 纯色 icon: 新设计 retro CRT 风格图标 — 圆角深色外壳 + 内嵌绿色
-  CRT 屏幕(scanline + glow)+ 中央大「か」字符 + 底部 KANA 标签。SVG 源码进
-  `apps/desktop/src-tauri/icons/icon.svg`,通过 `pnpm tauri icon` 一键生成所有平台:
-  macOS `.icns` / Windows `.ico` / 桌面 PNG (32 / 64 / 128 / 256) / Windows Store
-  Square logos。iOS / Android 派生物 gitignored(我们不打这两个平台)。
+- `tauri.conf.json` `bundle.icon` 数组从 3 个 PNG 扩到 5 项,显式包含 `.icns` / `.ico`,
+  确保 `pnpm tauri build` 出 `.dmg` / `.msi` 时各 OS 都能拿到原生 icon 容器。
+
+## [0.9.2] - 2026-05-03 — v0.9 audit fixes: corpus tags, immutable attempts, full scan
+
+### Fixed
+
+- Rust 内置 phase1 seed 现在与 TS content-schema 使用同一套核心 tag 归一规则:
+  `kanji-reading` / `meaning-recall` 等 hyphen 写法入库前统一转为 core 的
+  `kanji_reading` / `meaning_recall`,且 `particle-misuse` 归并为既有
+  `particle_error`。这修复了正式桌面启动路径下选择器、弱点聚合和 error chip
+  读不到 0.9 语料核心 tag 的问题。
+- v0.9 seed 不再删除 v0.8 legacy pack 的 `attempt_events`。旧 pack 只会被置为
+  disabled,旧 item 继续作为不可变 attempt 日志的外键锚点; 新 phase1 pack 仍会用稳定
+  item id 原地 upsert 可复用词条。
+- Runtime 页面读取词库的窗口从 1000 项扩到 5000 项,避免 0.9 的 1654 项 phase1 语料被
+  静默截断。覆盖 Mole / SpeedChase / AppleRescue / SpaceBattle / RiverJump / Boss /
+  Diagnostic / Library / Result 的共用 `listItems` 路径。
+- Today Training 传给游戏 hash 的 `durationMs` 现在会被 Mole / SpeedChase /
+  AppleRescue / SpaceBattle / RiverJump 实际使用,不再出现计划页显示 90s、进入游戏仍跑
+  默认 60s 的偏差。
+- Study 卡片页切换 pack 或 mode 时会清空旧 items/progress/error 并把 index 复位到 0;
+  若 localStorage 里的 resume index 超出新列表长度,也会落回 0,避免停在永久 loading。
 
 ### Tests
 
