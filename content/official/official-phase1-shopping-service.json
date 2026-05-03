@@ -1,0 +1,3309 @@
+{
+  "id": "official-phase1-shopping-service",
+  "name": "第一阶段：购物、便利店与服务场景",
+  "version": "1.1.0",
+  "items": [
+    {
+      "id": "word-akaunto",
+      "type": "word",
+      "surface": "アカウント",
+      "kana": "アカウント",
+      "romaji": ["akaunto"],
+      "meaningsZh": ["账户"],
+      "pos": "noun",
+      "tags": ["online", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-akaunto-1",
+          "ja": "新しいアカウントを作る。",
+          "kana": "あたらしいアカウントをつくる。",
+          "zh": "创建新账号。",
+          "targetSurface": "アカウント"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-ankeeto",
+      "type": "word",
+      "surface": "アンケート",
+      "kana": "アンケート",
+      "romaji": ["ankeeto"],
+      "meaningsZh": ["问卷"],
+      "pos": "noun",
+      "tags": ["service", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ankeeto-1",
+          "ja": "レストランのアンケートに答えた。",
+          "kana": "レストランのアンケートにこたえた。",
+          "zh": "回答了餐厅的问卷。",
+          "targetSurface": "アンケート"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-baakoodokessai",
+      "type": "word",
+      "surface": "バーコード決済",
+      "kana": "ばーこーどけっさい",
+      "romaji": ["baakoodokessai"],
+      "meaningsZh": ["条码支付"],
+      "pos": "noun",
+      "tags": ["payment", "katakana", "long-vowel", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-baakoodokessai-1",
+          "ja": "バーコード決済は十時から開いている。",
+          "kana": "ばーこーどけっさいはじゅうじからあいている。",
+          "zh": "条码支付从十点开门。",
+          "targetSurface": "バーコード決済",
+          "targetKana": "ばーこーどけっさい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error", "sokuon-error"]
+    },
+    {
+      "id": "word-biyouin",
+      "type": "word",
+      "surface": "美容院",
+      "kana": "びよういん",
+      "romaji": ["biyouin"],
+      "meaningsZh": ["美容院"],
+      "pos": "noun",
+      "tags": ["shop", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-biyouin-1",
+          "ja": "月に一回、美容院で髪を切る。",
+          "kana": "つきにいっかい、びよういんでかみをきる。",
+          "zh": "每月去一次美容院剪头发。",
+          "targetSurface": "美容院",
+          "targetKana": "びよういん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-bunbouguya",
+      "type": "word",
+      "surface": "文房具屋",
+      "kana": "ぶんぼうぐや",
+      "romaji": ["bunbouguya"],
+      "meaningsZh": ["文具店"],
+      "pos": "noun",
+      "tags": ["shop", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-bunbouguya-1",
+          "ja": "駅前の文房具屋でノートを買う。",
+          "kana": "えきまえのぶんぼうぐやでノートをかう。",
+          "zh": "在车站前的文具店买本子。",
+          "targetSurface": "文房具屋",
+          "targetKana": "ぶんぼうぐや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-chuumonbangou",
+      "type": "word",
+      "surface": "注文番号",
+      "kana": "ちゅうもんばんごう",
+      "romaji": ["chuumonbangou", "tyuumonbangou"],
+      "meaningsZh": ["订单号"],
+      "pos": "noun",
+      "tags": ["online", "long-vowel", "youon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-chuumonbangou-1",
+          "ja": "注文番号は十時から開いている。",
+          "kana": "ちゅうもんばんごうはじゅうじからあいている。",
+          "zh": "订单号从十点开门。",
+          "targetSurface": "注文番号",
+          "targetKana": "ちゅうもんばんごう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-coinrandorii",
+      "type": "word",
+      "surface": "コインランドリー",
+      "kana": "コインランドリー",
+      "romaji": ["koinrandorii"],
+      "meaningsZh": ["自助洗衣店"],
+      "pos": "noun",
+      "tags": ["shop", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-coinrandorii-1",
+          "ja": "布団は近くのコインランドリーで洗う。",
+          "kana": "ふとんはちかくのコインランドリーであらう。",
+          "zh": "被子在附近的自助洗衣店洗。",
+          "targetSurface": "コインランドリー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-denshimanee",
+      "type": "word",
+      "surface": "電子マネー",
+      "kana": "でんしまねー",
+      "romaji": ["denshimanee"],
+      "meaningsZh": ["电子货币"],
+      "pos": "noun",
+      "tags": ["payment", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-denshimanee-1",
+          "ja": "電子マネーで支払う。",
+          "kana": "でんしマネーでしはらう。",
+          "zh": "用电子货币支付。",
+          "targetSurface": "電子マネー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-deribarii",
+      "type": "word",
+      "surface": "デリバリー",
+      "kana": "デリバリー",
+      "romaji": ["deribarii"],
+      "meaningsZh": ["外卖配送"],
+      "pos": "noun",
+      "tags": ["service", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-deribarii-1",
+          "ja": "夕食は寿司のデリバリーを頼んだ。",
+          "kana": "ゆうしょくはすしのデリバリーをたのんだ。",
+          "zh": "晚饭叫了寿司外卖。",
+          "targetSurface": "デリバリー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-doraggusutoa",
+      "type": "word",
+      "surface": "ドラッグストア",
+      "kana": "ドラッグストア",
+      "romaji": ["doraggusutoa"],
+      "meaningsZh": ["药妆店"],
+      "pos": "noun",
+      "tags": ["shop", "katakana", "sokuon"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-doraggusutoa-1",
+          "ja": "ドラッグストアで風邪薬を買った。",
+          "kana": "ドラッグストアでかぜぐすりをかった。",
+          "zh": "在药妆店买了感冒药。",
+          "targetSurface": "ドラッグストア"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-eigyouchuu",
+      "type": "word",
+      "surface": "営業中",
+      "kana": "えいぎょうちゅう",
+      "romaji": ["eigyouchuu", "eigyoutyuu"],
+      "meaningsZh": ["营业中"],
+      "pos": "noun",
+      "tags": ["service", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-eigyouchuu-1",
+          "ja": "店の前に「営業中」の札がある。",
+          "kana": "みせのまえに「えいぎょうちゅう」のふだがある。",
+          "zh": "店门口挂着「营业中」的牌子。",
+          "targetSurface": "営業中",
+          "targetKana": "えいぎょうちゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-furikomi",
+      "type": "word",
+      "surface": "振込",
+      "kana": "ふりこみ",
+      "romaji": ["furikomi", "hurikomi"],
+      "meaningsZh": ["转账"],
+      "pos": "noun",
+      "tags": ["online"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-furikomi-1",
+          "ja": "家賃を銀行振込で支払う。",
+          "kana": "やちんをぎんこうふりこみでしはらう。",
+          "zh": "用银行转账付房租。",
+          "targetSurface": "振込",
+          "targetKana": "ふりこみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-haitatsu",
+      "type": "word",
+      "surface": "配達",
+      "kana": "はいたつ",
+      "romaji": ["haitatsu", "haitatu"],
+      "meaningsZh": ["配送"],
+      "pos": "noun",
+      "tags": ["online"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-haitatsu-1",
+          "ja": "商品の配達は明日の午前中だ。",
+          "kana": "しょうひんのはいたつはあしたのごぜんちゅうだ。",
+          "zh": "商品配送是明天上午。",
+          "targetSurface": "配達",
+          "targetKana": "はいたつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hangaku",
+      "type": "word",
+      "surface": "半額",
+      "kana": "はんがく",
+      "romaji": ["hangaku"],
+      "meaningsZh": ["半价"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hangaku-1",
+          "ja": "夜の十時を過ぎると半額になる。",
+          "kana": "よるのじゅうじをすぎるとはんがくになる。",
+          "zh": "晚上十点后半价。",
+          "targetSurface": "半額",
+          "targetKana": "はんがく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-heiten",
+      "type": "word",
+      "surface": "閉店",
+      "kana": "へいてん",
+      "romaji": ["heiten"],
+      "meaningsZh": ["关店"],
+      "pos": "noun",
+      "tags": ["service"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-heiten-1",
+          "ja": "この店は九時に閉店する。",
+          "kana": "このみせはくじにへいてんする。",
+          "zh": "这家店九点关门。",
+          "targetSurface": "閉店",
+          "targetKana": "へいてん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-henpin",
+      "type": "word",
+      "surface": "返品",
+      "kana": "へんぴん",
+      "romaji": ["henpin"],
+      "meaningsZh": ["退货"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-henpin-1",
+          "ja": "レシートがあれば返品できる。",
+          "kana": "レシートがあればへんぴんできる。",
+          "zh": "有小票就能退货。",
+          "targetSurface": "返品",
+          "targetKana": "へんぴん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-henpinfuka",
+      "type": "word",
+      "surface": "返品不可",
+      "kana": "へんぴんふか",
+      "romaji": ["henpinfuka"],
+      "meaningsZh": ["不可退货"],
+      "pos": "noun",
+      "tags": ["service"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-henpinfuka-1",
+          "ja": "返品不可は十時から開いている。",
+          "kana": "へんぴんふかはじゅうじからあいている。",
+          "zh": "不可退货从十点开门。",
+          "targetSurface": "返品不可",
+          "targetKana": "へんぴんふか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hoshousho",
+      "type": "word",
+      "surface": "保証書",
+      "kana": "ほしょうしょ",
+      "romaji": ["hoshousho"],
+      "meaningsZh": ["保修书"],
+      "pos": "noun",
+      "tags": ["service"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hoshousho-1",
+          "ja": "保証書を大切に保管する。",
+          "kana": "ほしょうしょをたいせつにほかんする。",
+          "zh": "妥善保管保修单。",
+          "targetSurface": "保証書",
+          "targetKana": "ほしょうしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hyakuenshoppu",
+      "type": "word",
+      "surface": "百円ショップ",
+      "kana": "ひゃくえんしょっぷ",
+      "romaji": ["hyakuenshoppu"],
+      "meaningsZh": ["百元店"],
+      "pos": "noun",
+      "tags": ["shop", "katakana", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-hyakuenshoppu-1",
+          "ja": "百円ショップで日用品を揃える。",
+          "kana": "ひゃくえんショップでにちようひんをそろえる。",
+          "zh": "在百元店凑齐日用品。",
+          "targetSurface": "百円ショップ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-irochigai",
+      "type": "word",
+      "surface": "色違い",
+      "kana": "いろちがい",
+      "romaji": ["irochigai"],
+      "meaningsZh": ["不同颜色"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-irochigai-1",
+          "ja": "同じ服の色違いがほしい。",
+          "kana": "おなじふくのいろちがいがほしい。",
+          "zh": "想要同款不同色的衣服。",
+          "targetSurface": "色違い",
+          "targetKana": "いろちがい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-iryouhin",
+      "type": "word",
+      "surface": "衣料品",
+      "kana": "いりょうひん",
+      "romaji": ["iryouhin"],
+      "meaningsZh": ["服装用品"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-iryouhin-1",
+          "ja": "衣料品売り場は三階だ。",
+          "kana": "いりょうひんうりばはさんがいだ。",
+          "zh": "服装柜台在三楼。",
+          "targetSurface": "衣料品",
+          "targetKana": "いりょうひん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kaiin",
+      "type": "word",
+      "surface": "会員",
+      "kana": "かいいん",
+      "romaji": ["kaiin"],
+      "meaningsZh": ["会员"],
+      "pos": "noun",
+      "tags": ["service", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kaiin-1",
+          "ja": "会員になると割引がある。",
+          "kana": "かいいんになるとわりびきがある。",
+          "zh": "成为会员有折扣。",
+          "targetSurface": "会員",
+          "targetKana": "かいいん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kaiten-open",
+      "type": "word",
+      "surface": "開店",
+      "kana": "かいてん",
+      "romaji": ["kaiten"],
+      "meaningsZh": ["开店"],
+      "pos": "noun",
+      "tags": ["service"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaiten-open-1",
+          "ja": "デパートは十時に開店する。",
+          "kana": "デパートはじゅうじにかいてんする。",
+          "zh": "百货店十点开门。",
+          "targetSurface": "開店",
+          "targetKana": "かいてん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kakaku",
+      "type": "word",
+      "surface": "価格",
+      "kana": "かかく",
+      "romaji": ["kakaku"],
+      "meaningsZh": ["价格"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kakaku-1",
+          "ja": "休日に価格へ行ってきた。",
+          "kana": "きゅうじつにかかくへいってきた。",
+          "zh": "假日去了价格。",
+          "targetSurface": "価格",
+          "targetKana": "かかく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-koukan",
+      "type": "word",
+      "surface": "交換",
+      "kana": "こうかん",
+      "romaji": ["koukan"],
+      "meaningsZh": ["更换"],
+      "pos": "noun",
+      "tags": ["money", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-koukan-1",
+          "ja": "サイズが合わないので交換したい。",
+          "kana": "サイズがあわないのでこうかんしたい。",
+          "zh": "尺码不合，想换货。",
+          "targetSurface": "交換",
+          "targetKana": "こうかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-koukanfuka",
+      "type": "word",
+      "surface": "交換不可",
+      "kana": "こうかんふか",
+      "romaji": ["koukanfuka"],
+      "meaningsZh": ["不可更换"],
+      "pos": "noun",
+      "tags": ["service"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-koukanfuka-1",
+          "ja": "休日に交換不可へ行ってきた。",
+          "kana": "きゅうじつにこうかんふかへいってきた。",
+          "zh": "假日去了不可更换。",
+          "targetSurface": "交換不可",
+          "targetKana": "こうかんふか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kozeni",
+      "type": "word",
+      "surface": "小銭",
+      "kana": "こぜに",
+      "romaji": ["kozeni"],
+      "meaningsZh": ["零钱"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kozeni-1",
+          "ja": "小銭がないのでお札で払う。",
+          "kana": "こぜにがないのでおさつではらう。",
+          "zh": "没零钱，用纸币付。",
+          "targetSurface": "小銭",
+          "targetKana": "こぜに"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kureemu",
+      "type": "word",
+      "surface": "クレーム",
+      "kana": "クレーム",
+      "romaji": ["kureemu"],
+      "meaningsZh": ["投诉"],
+      "pos": "noun",
+      "tags": ["service", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kureemu-1",
+          "ja": "商品にクレームを入れた。",
+          "kana": "しょうひんにクレームをいれた。",
+          "zh": "对商品投诉了。",
+          "targetSurface": "クレーム"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kusuriuriba",
+      "type": "word",
+      "surface": "薬売り場",
+      "kana": "くすりうりば",
+      "romaji": ["kusuriuriba"],
+      "meaningsZh": ["药品区"],
+      "pos": "noun",
+      "tags": ["shop"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kusuriuriba-1",
+          "ja": "薬売り場は二階にあります。",
+          "kana": "くすりうりばはにかいにあります。",
+          "zh": "药品柜台在二楼。",
+          "targetSurface": "薬売り場",
+          "targetKana": "くすりうりば"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kuupon",
+      "type": "word",
+      "surface": "クーポン",
+      "kana": "クーポン",
+      "romaji": ["kuupon"],
+      "meaningsZh": ["优惠券"],
+      "pos": "noun",
+      "tags": ["service", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kuupon-1",
+          "ja": "クーポンを使って五百円引きになった。",
+          "kana": "クーポンをつかってごひゃくえんびきになった。",
+          "zh": "用优惠券打了五百日元折。",
+          "targetSurface": "クーポン"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-moushiwakenai",
+      "type": "word",
+      "surface": "申し訳ない",
+      "kana": "もうしわけない",
+      "romaji": ["moushiwakenai", "mousiwakenai"],
+      "meaningsZh": ["非常抱歉"],
+      "pos": "adjective",
+      "tags": ["service", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-moushiwakenai-1",
+          "ja": "この本は申し訳ないと思う。",
+          "kana": "このほんはもうしわけないとおもう。",
+          "zh": "我觉得这本书非常抱歉。",
+          "targetSurface": "申し訳ない",
+          "targetKana": "もうしわけない"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-neage",
+      "type": "word",
+      "surface": "値上げ",
+      "kana": "ねあげ",
+      "romaji": ["neage"],
+      "meaningsZh": ["涨价"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-neage-1",
+          "ja": "近所に値上げができた。",
+          "kana": "きんじょにねあげができた。",
+          "zh": "附近开了一家涨价。",
+          "targetSurface": "値上げ",
+          "targetKana": "ねあげ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-nebiki",
+      "type": "word",
+      "surface": "値引き",
+      "kana": "ねびき",
+      "romaji": ["nebiki"],
+      "meaningsZh": ["打折"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nebiki-1",
+          "ja": "値引きは十時から開いている。",
+          "kana": "ねびきはじゅうじからあいている。",
+          "zh": "打折从十点开门。",
+          "targetSurface": "値引き",
+          "targetKana": "ねびき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-nefuda",
+      "type": "word",
+      "surface": "値札",
+      "kana": "ねふだ",
+      "romaji": ["nefuda"],
+      "meaningsZh": ["价签"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nefuda-1",
+          "ja": "休日に値札へ行ってきた。",
+          "kana": "きゅうじつにねふだへいってきた。",
+          "zh": "假日去了价签。",
+          "targetSurface": "値札",
+          "targetKana": "ねふだ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-nesage",
+      "type": "word",
+      "surface": "値下げ",
+      "kana": "ねさげ",
+      "romaji": ["nesage"],
+      "meaningsZh": ["降价"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nesage-1",
+          "ja": "近所に値下げができた。",
+          "kana": "きんじょにねさげができた。",
+          "zh": "附近开了一家降价。",
+          "targetSurface": "値下げ",
+          "targetKana": "ねさげ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-nyuukai",
+      "type": "word",
+      "surface": "入会",
+      "kana": "にゅうかい",
+      "romaji": ["nyuukai"],
+      "meaningsZh": ["入会"],
+      "pos": "noun",
+      "tags": ["online", "long-vowel", "youon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-nyuukai-1",
+          "ja": "入会は十時から開いている。",
+          "kana": "にゅうかいはじゅうじからあいている。",
+          "zh": "入会从十点开门。",
+          "targetSurface": "入会",
+          "targetKana": "にゅうかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-omake",
+      "type": "word",
+      "surface": "おまけ",
+      "kana": "おまけ",
+      "romaji": ["omake"],
+      "meaningsZh": ["赠品"],
+      "pos": "noun",
+      "tags": ["service"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-omake-1",
+          "ja": "おまけは十時から開いている。",
+          "kana": "おまけはじゅうじからあいている。",
+          "zh": "赠品从十点开门。",
+          "targetSurface": "おまけ",
+          "targetKana": "おまけ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-onrain",
+      "type": "word",
+      "surface": "オンライン",
+      "kana": "オンライン",
+      "romaji": ["onrain"],
+      "meaningsZh": ["在线"],
+      "pos": "noun",
+      "tags": ["online", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-onrain-1",
+          "ja": "休日にオンラインへ行ってきた。",
+          "kana": "きゅうじつにおんらいんへいってきた。",
+          "zh": "假日去了在线。",
+          "targetSurface": "オンライン",
+          "targetKana": "おんらいん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-osusumeshouhin",
+      "type": "word",
+      "surface": "おすすめ商品",
+      "kana": "おすすめしょうひん",
+      "romaji": ["osusumeshouhin"],
+      "meaningsZh": ["推荐商品"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-osusumeshouhin-1",
+          "ja": "休日におすすめ商品へ行ってきた。",
+          "kana": "きゅうじつにおすすめしょうひんへいってきた。",
+          "zh": "假日去了推荐商品。",
+          "targetSurface": "おすすめ商品",
+          "targetKana": "おすすめしょうひん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-otoriyose",
+      "type": "word",
+      "surface": "お取り寄せ",
+      "kana": "おとりよせ",
+      "romaji": ["otoriyose"],
+      "meaningsZh": ["订货调货"],
+      "pos": "noun",
+      "tags": ["service"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-otoriyose-1",
+          "ja": "近所にお取り寄せができた。",
+          "kana": "きんじょにおとりよせができた。",
+          "zh": "附近开了一家订货调货。",
+          "targetSurface": "お取り寄せ",
+          "targetKana": "おとりよせ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-pasuwaado",
+      "type": "word",
+      "surface": "パスワード",
+      "kana": "パスワード",
+      "romaji": ["pasuwaado"],
+      "meaningsZh": ["密码"],
+      "pos": "noun",
+      "tags": ["online", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-pasuwaado-1",
+          "ja": "休日にパスワードへ行ってきた。",
+          "kana": "きゅうじつにぱすわーどへいってきた。",
+          "zh": "假日去了密码。",
+          "targetSurface": "パスワード",
+          "targetKana": "ぱすわーど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-rebyuu",
+      "type": "word",
+      "surface": "レビュー",
+      "kana": "レビュー",
+      "romaji": ["rebyuu"],
+      "meaningsZh": ["评论"],
+      "pos": "noun",
+      "tags": ["online", "katakana", "long-vowel", "youon"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-rebyuu-1",
+          "ja": "近所にレビューができた。",
+          "kana": "きんじょにれびゅーができた。",
+          "zh": "附近开了一家评论。",
+          "targetSurface": "レビュー",
+          "targetKana": "れびゅー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-rentaru",
+      "type": "word",
+      "surface": "レンタル",
+      "kana": "レンタル",
+      "romaji": ["rentaru"],
+      "meaningsZh": ["租赁"],
+      "pos": "noun",
+      "tags": ["online", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-rentaru-1",
+          "ja": "近所にレンタルができた。",
+          "kana": "きんじょにれんたるができた。",
+          "zh": "附近开了一家租赁。",
+          "targetSurface": "レンタル",
+          "targetKana": "れんたる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-roguin",
+      "type": "word",
+      "surface": "ログイン",
+      "kana": "ログイン",
+      "romaji": ["roguin"],
+      "meaningsZh": ["登录"],
+      "pos": "noun",
+      "tags": ["online", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-roguin-1",
+          "ja": "休日にログインへ行ってきた。",
+          "kana": "きゅうじつにろぐいんへいってきた。",
+          "zh": "假日去了登录。",
+          "targetSurface": "ログイン",
+          "targetKana": "ろぐいん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-ryougae",
+      "type": "word",
+      "surface": "両替",
+      "kana": "りょうがえ",
+      "romaji": ["ryougae"],
+      "meaningsZh": ["兑换零钱"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ryougae-1",
+          "ja": "両替は十時から開いている。",
+          "kana": "りょうがえはじゅうじからあいている。",
+          "zh": "兑换零钱从十点开门。",
+          "targetSurface": "両替",
+          "targetKana": "りょうがえ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-saihaitatsu",
+      "type": "word",
+      "surface": "再配達",
+      "kana": "さいはいたつ",
+      "romaji": ["saihaitatsu", "saihaitatu"],
+      "meaningsZh": ["重新配送"],
+      "pos": "noun",
+      "tags": ["online"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-saihaitatsu-1",
+          "ja": "休日に再配達へ行ってきた。",
+          "kana": "きゅうじつにさいはいたつへいってきた。",
+          "zh": "假日去了重新配送。",
+          "targetSurface": "再配達",
+          "targetKana": "さいはいたつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-satsu",
+      "type": "word",
+      "surface": "札",
+      "kana": "さつ",
+      "romaji": ["satsu", "satu"],
+      "meaningsZh": ["纸币", "钞票"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-satsu-1",
+          "ja": "「札」という漢字を覚える。",
+          "kana": "「札」というかんじをおぼえる。",
+          "zh": "记住「札」这个汉字（纸币）。",
+          "targetSurface": "札"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-serufureji",
+      "type": "word",
+      "surface": "セルフレジ",
+      "kana": "セルフレジ",
+      "romaji": ["serufureji"],
+      "meaningsZh": ["自助收银"],
+      "pos": "noun",
+      "tags": ["service", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-serufureji-1",
+          "ja": "近所にセルフレジができた。",
+          "kana": "きんじょにせるふれじができた。",
+          "zh": "附近开了一家自助收银。",
+          "targetSurface": "セルフレジ",
+          "targetKana": "せるふれじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shichaku",
+      "type": "word",
+      "surface": "試着",
+      "kana": "しちゃく",
+      "romaji": ["shichaku", "sityaku"],
+      "meaningsZh": ["试穿"],
+      "pos": "noun",
+      "tags": ["goods", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shichaku-1",
+          "ja": "休日に試着へ行ってきた。",
+          "kana": "きゅうじつにしちゃくへいってきた。",
+          "zh": "假日去了试穿。",
+          "targetSurface": "試着",
+          "targetKana": "しちゃく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shichakushitsu",
+      "type": "word",
+      "surface": "試着室",
+      "kana": "しちゃくしつ",
+      "romaji": ["shichakushitsu"],
+      "meaningsZh": ["试衣间"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shichakushitsu-1",
+          "ja": "試着室は十時から開いている。",
+          "kana": "しちゃくしつはじゅうじからあいている。",
+          "zh": "试衣间从十点开门。",
+          "targetSurface": "試着室",
+          "targetKana": "しちゃくしつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shiharai",
+      "type": "word",
+      "surface": "支払い",
+      "kana": "しはらい",
+      "romaji": ["shiharai", "siharai"],
+      "meaningsZh": ["付款"],
+      "pos": "adjective",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shiharai-1",
+          "ja": "今日は支払いです。",
+          "kana": "きょうはしはらいです。",
+          "zh": "今天付款。",
+          "targetSurface": "支払い",
+          "targetKana": "しはらい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shinhatsubai",
+      "type": "word",
+      "surface": "新発売",
+      "kana": "しんはつばい",
+      "romaji": ["shinhatsubai"],
+      "meaningsZh": ["新品发售"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shinhatsubai-1",
+          "ja": "新発売は十時から開いている。",
+          "kana": "しんはつばいはじゅうじからあいている。",
+          "zh": "新品发售从十点开门。",
+          "targetSurface": "新発売",
+          "targetKana": "しんはつばい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shishoku",
+      "type": "word",
+      "surface": "試食",
+      "kana": "ししょく",
+      "romaji": ["shishoku", "sisyoku"],
+      "meaningsZh": ["试吃"],
+      "pos": "noun",
+      "tags": ["goods", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shishoku-1",
+          "ja": "試食は十時から開いている。",
+          "kana": "ししょくはじゅうじからあいている。",
+          "zh": "试吃从十点开门。",
+          "targetSurface": "試食",
+          "targetKana": "ししょく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shokuhinuriba",
+      "type": "word",
+      "surface": "食品売り場",
+      "kana": "しょくひんうりば",
+      "romaji": ["shokuhin'uriba"],
+      "meaningsZh": ["食品卖场"],
+      "pos": "noun",
+      "tags": ["shop"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shokuhinuriba-1",
+          "ja": "食品売り場は十時から開いている。",
+          "kana": "しょくひんうりばはじゅうじからあいている。",
+          "zh": "食品卖场从十点开门。",
+          "targetSurface": "食品売り場",
+          "targetKana": "しょくひんうりば"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shouhizei",
+      "type": "word",
+      "surface": "消費税",
+      "kana": "しょうひぜい",
+      "romaji": ["shouhizei", "syouhizei"],
+      "meaningsZh": ["消费税"],
+      "pos": "noun",
+      "tags": ["money", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shouhizei-1",
+          "ja": "消費税は十時から開いている。",
+          "kana": "しょうひぜいはじゅうじからあいている。",
+          "zh": "消费税从十点开门。",
+          "targetSurface": "消費税",
+          "targetKana": "しょうひぜい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-shoukei",
+      "type": "word",
+      "surface": "小計",
+      "kana": "しょうけい",
+      "romaji": ["shoukei"],
+      "meaningsZh": ["小计"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shoukei-1",
+          "ja": "休日に小計へ行ってきた。",
+          "kana": "きゅうじつにしょうけいへいってきた。",
+          "zh": "假日去了小计。",
+          "targetSurface": "小計",
+          "targetKana": "しょうけい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-souryou",
+      "type": "word",
+      "surface": "送料",
+      "kana": "そうりょう",
+      "romaji": ["souryou"],
+      "meaningsZh": ["运费"],
+      "pos": "noun",
+      "tags": ["online", "long-vowel", "youon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-souryou-1",
+          "ja": "休日に送料へ行ってきた。",
+          "kana": "きゅうじつにそうりょうへいってきた。",
+          "zh": "假日去了运费。",
+          "targetSurface": "送料",
+          "targetKana": "そうりょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-taikai-leave",
+      "type": "word",
+      "surface": "退会",
+      "kana": "たいかい",
+      "romaji": ["taikai"],
+      "meaningsZh": ["退会"],
+      "pos": "noun",
+      "tags": ["online"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-taikai-leave-1",
+          "ja": "休日に退会へ行ってきた。",
+          "kana": "きゅうじつにたいかいへいってきた。",
+          "zh": "假日去了退会。",
+          "targetSurface": "退会",
+          "targetKana": "たいかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tenchou",
+      "type": "word",
+      "surface": "店長",
+      "kana": "てんちょう",
+      "romaji": ["tenchou", "tentyou"],
+      "meaningsZh": ["店长"],
+      "pos": "noun",
+      "tags": ["people", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-tenchou-1",
+          "ja": "店長は十時から開いている。",
+          "kana": "てんちょうはじゅうじからあいている。",
+          "zh": "店长从十点开门。",
+          "targetSurface": "店長",
+          "targetKana": "てんちょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-tokubai",
+      "type": "word",
+      "surface": "特売",
+      "kana": "とくばい",
+      "romaji": ["tokubai"],
+      "meaningsZh": ["特价销售"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tokubai-1",
+          "ja": "休日に特売へ行ってきた。",
+          "kana": "きゅうじつにとくばいへいってきた。",
+          "zh": "假日去了特价销售。",
+          "targetSurface": "特売",
+          "targetKana": "とくばい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-torioki",
+      "type": "word",
+      "surface": "取り置き",
+      "kana": "とりおき",
+      "romaji": ["torioki"],
+      "meaningsZh": ["预留商品"],
+      "pos": "noun",
+      "tags": ["service"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-torioki-1",
+          "ja": "取り置きは十時から開いている。",
+          "kana": "とりおきはじゅうじからあいている。",
+          "zh": "预留商品从十点开门。",
+          "targetSurface": "取り置き",
+          "targetKana": "とりおき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-toriyose",
+      "type": "word",
+      "surface": "取り寄せ",
+      "kana": "とりよせ",
+      "romaji": ["toriyose"],
+      "meaningsZh": ["调货"],
+      "pos": "noun",
+      "tags": ["service"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-toriyose-1",
+          "ja": "取り寄せは十時から開いている。",
+          "kana": "とりよせはじゅうじからあいている。",
+          "zh": "调货从十点开门。",
+          "targetSurface": "取り寄せ",
+          "targetKana": "とりよせ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-touroku",
+      "type": "word",
+      "surface": "登録",
+      "kana": "とうろく",
+      "romaji": ["touroku"],
+      "meaningsZh": ["注册"],
+      "pos": "noun",
+      "tags": ["online", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-touroku-1",
+          "ja": "近所に登録ができた。",
+          "kana": "きんじょにとうろくができた。",
+          "zh": "附近开了一家注册。",
+          "targetSurface": "登録",
+          "targetKana": "とうろく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-tsurisen",
+      "type": "word",
+      "surface": "釣銭",
+      "kana": "つりせん",
+      "romaji": ["tsurisen"],
+      "meaningsZh": ["找零"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsurisen-1",
+          "ja": "休日に釣銭へ行ってきた。",
+          "kana": "きゅうじつにつりせんへいってきた。",
+          "zh": "假日去了找零。",
+          "targetSurface": "釣銭",
+          "targetKana": "つりせん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tsuuhan",
+      "type": "word",
+      "surface": "通販",
+      "kana": "つうはん",
+      "romaji": ["tsuuhan", "tuuhan"],
+      "meaningsZh": ["邮购", "网购"],
+      "pos": "noun",
+      "tags": ["online", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-tsuuhan-1",
+          "ja": "近所に通販ができた。",
+          "kana": "きんじょにつうはんができた。",
+          "zh": "附近开了一家邮购。",
+          "targetSurface": "通販",
+          "targetKana": "つうはん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-urikire",
+      "type": "word",
+      "surface": "売り切れ",
+      "kana": "うりきれ",
+      "romaji": ["urikire"],
+      "meaningsZh": ["售罄"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-urikire-1",
+          "ja": "休日に売り切れへ行ってきた。",
+          "kana": "きゅうじつにうりきれへいってきた。",
+          "zh": "假日去了售罄。",
+          "targetSurface": "売り切れ",
+          "targetKana": "うりきれ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-waribiki",
+      "type": "word",
+      "surface": "割引",
+      "kana": "わりびき",
+      "romaji": ["waribiki"],
+      "meaningsZh": ["打折"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-waribiki-1",
+          "ja": "割引は十時から開いている。",
+          "kana": "わりびきはじゅうじからあいている。",
+          "zh": "打折从十点开门。",
+          "targetSurface": "割引",
+          "targetKana": "わりびき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-waribikiken",
+      "type": "word",
+      "surface": "割引券",
+      "kana": "わりびきけん",
+      "romaji": ["waribikiken"],
+      "meaningsZh": ["折扣券"],
+      "pos": "noun",
+      "tags": ["service"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-waribikiken-1",
+          "ja": "休日に割引券へ行ってきた。",
+          "kana": "きゅうじつにわりびきけんへいってきた。",
+          "zh": "假日去了折扣券。",
+          "targetSurface": "割引券",
+          "targetKana": "わりびきけん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-yuujinreji",
+      "type": "word",
+      "surface": "有人レジ",
+      "kana": "ゆうじんれじ",
+      "romaji": ["yuujinreji"],
+      "meaningsZh": ["人工收银"],
+      "pos": "noun",
+      "tags": ["service", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yuujinreji-1",
+          "ja": "近所に有人レジができた。",
+          "kana": "きんじょにゆうじんれじができた。",
+          "zh": "附近开了一家人工收银。",
+          "targetSurface": "有人レジ",
+          "targetKana": "ゆうじんれじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-yuuryou",
+      "type": "word",
+      "surface": "有料",
+      "kana": "ゆうりょう",
+      "romaji": ["yuuryou"],
+      "meaningsZh": ["收费"],
+      "pos": "noun",
+      "tags": ["goods", "long-vowel", "youon", "restaurant"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-yuuryou-1",
+          "ja": "休日に有料へ行ってきた。",
+          "kana": "きゅうじつにゆうりょうへいってきた。",
+          "zh": "假日去了收费。",
+          "targetSurface": "有料",
+          "targetKana": "ゆうりょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-zaiko",
+      "type": "word",
+      "surface": "在庫",
+      "kana": "ざいこ",
+      "romaji": ["zaiko"],
+      "meaningsZh": ["库存"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-zaiko-1",
+          "ja": "休日に在庫へ行ってきた。",
+          "kana": "きゅうじつにざいこへいってきた。",
+          "zh": "假日去了库存。",
+          "targetSurface": "在庫",
+          "targetKana": "ざいこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-zaikokakunin",
+      "type": "word",
+      "surface": "在庫確認",
+      "kana": "ざいこかくにん",
+      "romaji": ["zaikokakunin"],
+      "meaningsZh": ["确认库存"],
+      "pos": "noun",
+      "tags": ["service"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-zaikokakunin-1",
+          "ja": "在庫確認は十時から開いている。",
+          "kana": "ざいこかくにんはじゅうじからあいている。",
+          "zh": "确认库存从十点开门。",
+          "targetSurface": "在庫確認",
+          "targetKana": "ざいこかくにん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-zeikomi",
+      "type": "word",
+      "surface": "税込",
+      "kana": "ぜいこみ",
+      "romaji": ["zeikomi"],
+      "meaningsZh": ["含税"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-zeikomi-1",
+          "ja": "休日に税込へ行ってきた。",
+          "kana": "きゅうじつにぜいこみへいってきた。",
+          "zh": "假日去了含税。",
+          "targetSurface": "税込",
+          "targetKana": "ぜいこみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-zeinuki",
+      "type": "word",
+      "surface": "税抜",
+      "kana": "ぜいぬき",
+      "romaji": ["zeinuki"],
+      "meaningsZh": ["不含税"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-zeinuki-1",
+          "ja": "近所に税抜ができた。",
+          "kana": "きんじょにぜいぬきができた。",
+          "zh": "附近开了一家不含税。",
+          "targetSurface": "税抜",
+          "targetKana": "ぜいぬき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-atatame",
+      "type": "word",
+      "surface": "温め",
+      "kana": "あたため",
+      "romaji": ["atatame"],
+      "meaningsZh": ["加热"],
+      "pos": "noun",
+      "tags": ["konbini"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-atatame-1",
+          "ja": "休日に温めへ行ってきた。",
+          "kana": "きゅうじつにあたためへいってきた。",
+          "zh": "假日去了加热。",
+          "targetSurface": "温め",
+          "targetKana": "あたため"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-fukurogoiriyoudesuka",
+      "type": "word",
+      "surface": "袋ご入用ですか",
+      "kana": "ふくろごいりようですか",
+      "romaji": ["fukurogoiriyoudesuka"],
+      "meaningsZh": ["需要袋子吗"],
+      "pos": "expression",
+      "tags": ["konbini", "service"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-fukurogoiriyoudesuka-1",
+          "ja": "店員「袋ご入用ですか?」「いえ、結構です。」",
+          "kana": "てんいん「ふくろごいりようですか?」「いえ、けっこうです。」",
+          "zh": "店员问「需要袋子吗？」「不用，谢谢。」",
+          "targetSurface": "袋ご入用ですか",
+          "targetKana": "ふくろごいりようですか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-fusoku",
+      "type": "word",
+      "surface": "不足",
+      "kana": "ふそく",
+      "romaji": ["fusoku"],
+      "meaningsZh": ["不足"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-fusoku-1",
+          "ja": "休日に不足へ行ってきた。",
+          "kana": "きゅうじつにふそくへいってきた。",
+          "zh": "假日去了不足。",
+          "targetSurface": "不足",
+          "targetKana": "ふそく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-genkin",
+      "type": "word",
+      "surface": "現金",
+      "kana": "げんきん",
+      "romaji": ["genkin"],
+      "meaningsZh": ["现金"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-genkin-1",
+          "ja": "現金は十時から開いている。",
+          "kana": "げんきんはじゅうじからあいている。",
+          "zh": "现金从十点开门。",
+          "targetSurface": "現金",
+          "targetKana": "げんきん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-genkindeonegaishimasu",
+      "type": "word",
+      "surface": "現金でお願いします",
+      "kana": "げんきんでおねがいします",
+      "romaji": ["genkindeonegaishimasu"],
+      "meaningsZh": ["请用现金", "我用现金"],
+      "pos": "expression",
+      "tags": ["payment"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-genkindeonegaishimasu-1",
+          "ja": "お支払いは現金でお願いします。",
+          "kana": "おしはらいはげんきんでおねがいします。",
+          "zh": "支付请用现金。",
+          "targetSurface": "現金でお願いします",
+          "targetKana": "げんきんでおねがいします"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-goukei",
+      "type": "word",
+      "surface": "合計",
+      "kana": "ごうけい",
+      "romaji": ["goukei"],
+      "meaningsZh": ["合计"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-goukei-1",
+          "ja": "近所に合計ができた。",
+          "kana": "きんじょにごうけいができた。",
+          "zh": "附近开了一家合计。",
+          "targetSurface": "合計",
+          "targetKana": "ごうけい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-henpindekimasuka",
+      "type": "word",
+      "surface": "返品できますか",
+      "kana": "へんぴんできますか",
+      "romaji": ["henpindekimasuka"],
+      "meaningsZh": ["可以退货吗"],
+      "pos": "expression",
+      "tags": ["service"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-henpindekimasuka-1",
+          "ja": "これ、返品できますか?",
+          "kana": "これ、へんぴんできますか?",
+          "zh": "这个能退货吗？",
+          "targetSurface": "返品できますか",
+          "targetKana": "へんぴんできますか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hyakkaten",
+      "type": "word",
+      "surface": "百貨店",
+      "kana": "ひゃっかてん",
+      "romaji": ["hyakkaten"],
+      "meaningsZh": ["百货公司"],
+      "pos": "noun",
+      "tags": ["shop", "sokuon", "youon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-hyakkaten-1",
+          "ja": "百貨店は十時から開いている。",
+          "kana": "ひゃっかてんはじゅうじからあいている。",
+          "zh": "百货公司从十点开门。",
+          "targetSurface": "百貨店",
+          "targetKana": "ひゃっかてん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-jimu",
+      "type": "word",
+      "surface": "ジム",
+      "kana": "ジム",
+      "romaji": ["jimu", "zimu"],
+      "meaningsZh": ["健身房"],
+      "pos": "noun",
+      "tags": ["shop", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-jimu-1",
+          "ja": "ジムは十時から開いている。",
+          "kana": "じむはじゅうじからあいている。",
+          "zh": "健身房从十点开门。",
+          "targetSurface": "ジム",
+          "targetKana": "じむ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kaadodeharaimasu",
+      "type": "word",
+      "surface": "カードで払います",
+      "kana": "かーどではらいます",
+      "romaji": ["kaadodeharaimasu"],
+      "meaningsZh": ["用卡支付"],
+      "pos": "expression",
+      "tags": ["payment", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaadodeharaimasu-1",
+          "ja": "カードで払います。",
+          "kana": "カードではらいます。",
+          "zh": "我用卡支付。",
+          "targetSurface": "カードで払います"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kakunin",
+      "type": "word",
+      "surface": "確認",
+      "kana": "かくにん",
+      "romaji": ["kakunin"],
+      "meaningsZh": ["确认"],
+      "pos": "noun",
+      "tags": ["online", "work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kakunin-1",
+          "ja": "休日に確認へ行ってきた。",
+          "kana": "きゅうじつにかくにんへいってきた。",
+          "zh": "假日去了确认。",
+          "targetSurface": "確認",
+          "targetKana": "かくにん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kochiraatatamemasuka",
+      "type": "word",
+      "surface": "こちら温めますか",
+      "kana": "こちらあたためますか",
+      "romaji": ["kochiraatatamemasuka"],
+      "meaningsZh": ["这个要加热吗"],
+      "pos": "expression",
+      "tags": ["service"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kochiraatatamemasuka-1",
+          "ja": "店員「こちら温めますか?」「お願いします。」",
+          "kana": "てんいん「こちらあたためますか?」「おねがいします。」",
+          "zh": "店员问「这个要加热吗？」「请加热。」",
+          "targetSurface": "こちら温めますか",
+          "targetKana": "こちらあたためますか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kurejittokaado",
+      "type": "word",
+      "surface": "クレジットカード",
+      "kana": "クレジットカード",
+      "romaji": ["kurejittokaado", "kurezittokaado"],
+      "meaningsZh": ["信用卡"],
+      "pos": "noun",
+      "tags": ["money", "katakana", "sokuon", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kurejittokaado-1",
+          "ja": "クレジットカードは十時から開いている。",
+          "kana": "くれじっとかーどはじゅうじからあいている。",
+          "zh": "信用卡从十点开门。",
+          "targetSurface": "クレジットカード",
+          "targetKana": "くれじっとかーど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error", "sokuon-error"]
+    },
+    {
+      "id": "word-muryou",
+      "type": "word",
+      "surface": "無料",
+      "kana": "むりょう",
+      "romaji": ["muryou"],
+      "meaningsZh": ["免费"],
+      "pos": "noun",
+      "tags": ["goods", "long-vowel", "youon", "restaurant"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-muryou-1",
+          "ja": "休日に無料へ行ってきた。",
+          "kana": "きゅうじつにむりょうへいってきた。",
+          "zh": "假日去了免费。",
+          "targetSurface": "無料",
+          "targetKana": "むりょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-nichiyouhin",
+      "type": "word",
+      "surface": "日用品",
+      "kana": "にちようひん",
+      "romaji": ["nichiyouhin"],
+      "meaningsZh": ["日用品"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nichiyouhin-1",
+          "ja": "休日に日用品へ行ってきた。",
+          "kana": "きゅうじつににちようひんへいってきた。",
+          "zh": "假日去了日用品。",
+          "targetSurface": "日用品",
+          "targetKana": "にちようひん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nikuya",
+      "type": "word",
+      "surface": "肉屋",
+      "kana": "にくや",
+      "romaji": ["nikuya"],
+      "meaningsZh": ["肉店"],
+      "pos": "noun",
+      "tags": ["shop"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-nikuya-1",
+          "ja": "肉屋は十時から開いている。",
+          "kana": "にくやはじゅうじからあいている。",
+          "zh": "肉店从十点开门。",
+          "targetSurface": "肉屋",
+          "targetKana": "にくや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-pointo",
+      "type": "word",
+      "surface": "ポイント",
+      "kana": "ポイント",
+      "romaji": ["pointo"],
+      "meaningsZh": ["积分"],
+      "pos": "noun",
+      "tags": ["service", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-pointo-1",
+          "ja": "ポイントは十時から開いている。",
+          "kana": "ぽいんとはじゅうじからあいている。",
+          "zh": "积分从十点开门。",
+          "targetSurface": "ポイント",
+          "targetKana": "ぽいんと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-pointokaado",
+      "type": "word",
+      "surface": "ポイントカード",
+      "kana": "ポイントカード",
+      "romaji": ["pointokaado"],
+      "meaningsZh": ["积分卡"],
+      "pos": "expression",
+      "tags": ["service", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-pointokaado-1",
+          "ja": "「ポイントカード」と一言添えた。",
+          "kana": "「ぽいんとかーど」とひとことそえた。",
+          "zh": "加了一句「ポイントカード」（积分卡）。",
+          "targetSurface": "ポイントカード",
+          "targetKana": "ぽいんとかーど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-reji",
+      "type": "word",
+      "surface": "レジ",
+      "kana": "レジ",
+      "romaji": ["reji", "rezi"],
+      "meaningsZh": ["收银台"],
+      "pos": "noun",
+      "tags": ["goods", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-reji-1",
+          "ja": "レジは十時から開いている。",
+          "kana": "れじはじゅうじからあいている。",
+          "zh": "收银台从十点开门。",
+          "targetSurface": "レジ",
+          "targetKana": "れじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-rejibukuro",
+      "type": "word",
+      "surface": "レジ袋",
+      "kana": "れじぶくろ",
+      "romaji": ["rejibukuro"],
+      "meaningsZh": ["购物袋"],
+      "pos": "noun",
+      "tags": ["konbini", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-rejibukuro-1",
+          "ja": "休日にレジ袋へ行ってきた。",
+          "kana": "きゅうじつにれじぶくろへいってきた。",
+          "zh": "假日去了购物袋。",
+          "targetSurface": "レジ袋",
+          "targetKana": "れじぶくろ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-reshiitohairimasen",
+      "type": "word",
+      "surface": "レシートはいりません",
+      "kana": "れしーとはいりません",
+      "romaji": ["reshiitohairimasen"],
+      "meaningsZh": ["不需要小票"],
+      "pos": "expression",
+      "tags": ["service", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-reshiitohairimasen-1",
+          "ja": "レシートはいりません、そのままで。",
+          "kana": "レシートはいりません、そのままで。",
+          "zh": "小票不要，就这样。",
+          "targetSurface": "レシートはいりません"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-sakanaya",
+      "type": "word",
+      "surface": "魚屋",
+      "kana": "さかなや",
+      "romaji": ["sakanaya"],
+      "meaningsZh": ["鱼店"],
+      "pos": "noun",
+      "tags": ["shop"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-sakanaya-1",
+          "ja": "休日に魚屋へ行ってきた。",
+          "kana": "きゅうじつにさかなやへいってきた。",
+          "zh": "假日去了鱼店。",
+          "targetSurface": "魚屋",
+          "targetKana": "さかなや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-seeru",
+      "type": "word",
+      "surface": "セール",
+      "kana": "セール",
+      "romaji": ["seeru"],
+      "meaningsZh": ["促销"],
+      "pos": "noun",
+      "tags": ["goods", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-seeru-1",
+          "ja": "休日にセールへ行ってきた。",
+          "kana": "きゅうじつにせーるへいってきた。",
+          "zh": "假日去了促销。",
+          "targetSurface": "セール",
+          "targetKana": "せーる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-shouhin",
+      "type": "word",
+      "surface": "商品",
+      "kana": "しょうひん",
+      "romaji": ["shouhin", "syouhin"],
+      "meaningsZh": ["商品"],
+      "pos": "noun",
+      "tags": ["goods", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shouhin-1",
+          "ja": "休日に商品へ行ってきた。",
+          "kana": "きゅうじつにしょうひんへいってきた。",
+          "zh": "假日去了商品。",
+          "targetSurface": "商品",
+          "targetKana": "しょうひん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-shoutengai",
+      "type": "word",
+      "surface": "商店街",
+      "kana": "しょうてんがい",
+      "romaji": ["shoutengai"],
+      "meaningsZh": ["商店街"],
+      "pos": "noun",
+      "tags": ["shop"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shoutengai-1",
+          "ja": "近所に商店街ができた。",
+          "kana": "きんじょにしょうてんがいができた。",
+          "zh": "附近开了一家商店街。",
+          "targetSurface": "商店街",
+          "targetKana": "しょうてんがい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tenin",
+      "type": "word",
+      "surface": "店員",
+      "kana": "てんいん",
+      "romaji": ["ten'in"],
+      "meaningsZh": ["店员"],
+      "pos": "noun",
+      "tags": ["people"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tenin-1",
+          "ja": "休日に店員へ行ってきた。",
+          "kana": "きゅうじつにてんいんへいってきた。",
+          "zh": "假日去了店员。",
+          "targetSurface": "店員",
+          "targetKana": "てんいん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tokoya",
+      "type": "word",
+      "surface": "床屋",
+      "kana": "とこや",
+      "romaji": ["tokoya"],
+      "meaningsZh": ["理发店"],
+      "pos": "noun",
+      "tags": ["shop"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-tokoya-1",
+          "ja": "休日に床屋へ行ってきた。",
+          "kana": "きゅうじつにとこやへいってきた。",
+          "zh": "假日去了理发店。",
+          "targetSurface": "床屋",
+          "targetKana": "とこや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-uketsuke",
+      "type": "word",
+      "surface": "受付",
+      "kana": "うけつけ",
+      "romaji": ["uketsuke", "uketuke"],
+      "meaningsZh": ["前台", "受理", "挂号"],
+      "pos": "noun",
+      "tags": ["service", "health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-uketsuke-1",
+          "ja": "休日に受付へ行ってきた。",
+          "kana": "きゅうじつにうけつけへいってきた。",
+          "zh": "假日去了前台。",
+          "targetSurface": "受付",
+          "targetKana": "うけつけ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yakkyoku",
+      "type": "word",
+      "surface": "薬局",
+      "kana": "やっきょく",
+      "romaji": ["yakkyoku"],
+      "meaningsZh": ["药店", "药局"],
+      "pos": "noun",
+      "tags": ["shop", "sokuon", "youon", "health"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-yakkyoku-1",
+          "ja": "近所に薬局ができた。",
+          "kana": "きんじょにやっきょくができた。",
+          "zh": "附近开了一家药店。",
+          "targetSurface": "薬局",
+          "targetKana": "やっきょく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-yokin",
+      "type": "word",
+      "surface": "預金",
+      "kana": "よきん",
+      "romaji": ["yokin"],
+      "meaningsZh": ["存款"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yokin-1",
+          "ja": "預金は十時から開いている。",
+          "kana": "よきんはじゅうじからあいている。",
+          "zh": "存款从十点开门。",
+          "targetSurface": "預金",
+          "targetKana": "よきん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-chuui",
+      "type": "word",
+      "surface": "注意",
+      "kana": "ちゅうい",
+      "romaji": ["chuui", "tyuui"],
+      "meaningsZh": ["注意"],
+      "pos": "noun",
+      "tags": ["service", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-chuui-1",
+          "ja": "休日に注意へ行ってきた。",
+          "kana": "きゅうじつにちゅういへいってきた。",
+          "zh": "假日去了注意。",
+          "targetSurface": "注意",
+          "targetKana": "ちゅうい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-denwabangou",
+      "type": "word",
+      "surface": "電話番号",
+      "kana": "でんわばんごう",
+      "romaji": ["denwabangou"],
+      "meaningsZh": ["电话号码"],
+      "pos": "noun",
+      "tags": ["online", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-denwabangou-1",
+          "ja": "休日に電話番号へ行ってきた。",
+          "kana": "きゅうじつにでんわばんごうへいってきた。",
+          "zh": "假日去了电话号码。",
+          "targetSurface": "電話番号",
+          "targetKana": "でんわばんごう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-depaato",
+      "type": "word",
+      "surface": "デパート",
+      "kana": "デパート",
+      "romaji": ["depaato"],
+      "meaningsZh": ["百货店"],
+      "pos": "noun",
+      "tags": ["shop", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-depaato-1",
+          "ja": "デパートで贈り物を選ぶ。",
+          "kana": "デパートでおくりものをえらぶ。",
+          "zh": "在百货店挑礼物。",
+          "targetSurface": "デパート"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-en",
+      "type": "word",
+      "surface": "円",
+      "kana": "えん",
+      "romaji": ["en"],
+      "meaningsZh": ["日元"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-en-1",
+          "ja": "「円」という漢字を覚える。",
+          "kana": "「円」というかんじをおぼえる。",
+          "zh": "记住「円」这个汉字（日元）。",
+          "targetSurface": "円"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ginkou",
+      "type": "word",
+      "surface": "銀行",
+      "kana": "ぎんこう",
+      "romaji": ["ginkou"],
+      "meaningsZh": ["银行"],
+      "pos": "noun",
+      "tags": ["shop", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-ginkou-1",
+          "ja": "銀行で口座を開いた。",
+          "kana": "ぎんこうでこうざをひらいた。",
+          "zh": "在银行开了账户。",
+          "targetSurface": "銀行",
+          "targetKana": "ぎんこう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-hanaya",
+      "type": "word",
+      "surface": "花屋",
+      "kana": "はなや",
+      "romaji": ["hanaya"],
+      "meaningsZh": ["花店"],
+      "pos": "noun",
+      "tags": ["shop"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-hanaya-1",
+          "ja": "休日に花屋へ行ってきた。",
+          "kana": "きゅうじつにはなやへいってきた。",
+          "zh": "假日去了花店。",
+          "targetSurface": "花屋",
+          "targetKana": "はなや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-harau",
+      "type": "word",
+      "surface": "払う",
+      "kana": "はらう",
+      "romaji": ["harau"],
+      "meaningsZh": ["付", "支付"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-harau-1",
+          "ja": "払うは十時から開いている。",
+          "kana": "はらうはじゅうじからあいている。",
+          "zh": "付从十点开门。",
+          "targetSurface": "払う",
+          "targetKana": "はらう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-honya",
+      "type": "word",
+      "surface": "本屋",
+      "kana": "ほんや",
+      "romaji": ["hon'ya"],
+      "meaningsZh": ["书店"],
+      "pos": "noun",
+      "tags": ["shop"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-honya-1",
+          "ja": "駅前の本屋で参考書を買う。",
+          "kana": "えきまえのほんやでさんこうしょをかう。",
+          "zh": "在车站前的书店买参考书。",
+          "targetSurface": "本屋",
+          "targetKana": "ほんや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-irasshaimase",
+      "type": "word",
+      "surface": "いらっしゃいませ",
+      "kana": "いらっしゃいませ",
+      "romaji": ["irasshaimase", "irassyaimase"],
+      "meaningsZh": ["欢迎光临"],
+      "pos": "expression",
+      "tags": ["service", "sokuon"],
+      "skillTags": ["kana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-irasshaimase-1",
+          "ja": "店員が「いらっしゃいませ」と笑顔で迎えた。",
+          "kana": "てんいんが「いらっしゃいませ」とえがおでむかえた。",
+          "zh": "店员笑着说「欢迎光临」迎接。",
+          "targetSurface": "いらっしゃいませ",
+          "targetKana": "いらっしゃいませ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-juusho",
+      "type": "word",
+      "surface": "住所",
+      "kana": "じゅうしょ",
+      "romaji": ["juusho", "zyuusyo"],
+      "meaningsZh": ["地址"],
+      "pos": "noun",
+      "tags": ["online", "long-vowel", "youon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-juusho-1",
+          "ja": "休日に住所へ行ってきた。",
+          "kana": "きゅうじつにじゅうしょへいってきた。",
+          "zh": "假日去了地址。",
+          "targetSurface": "住所",
+          "targetKana": "じゅうしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kaado",
+      "type": "word",
+      "surface": "カード",
+      "kana": "カード",
+      "romaji": ["kaado"],
+      "meaningsZh": ["卡"],
+      "pos": "noun",
+      "tags": ["money", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kaado-1",
+          "ja": "近所にカードができた。",
+          "kana": "きんじょにかーどができた。",
+          "zh": "附近开了一家卡。",
+          "targetSurface": "カード",
+          "targetKana": "かーど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-karaoke",
+      "type": "word",
+      "surface": "カラオケ",
+      "kana": "カラオケ",
+      "romaji": ["karaoke"],
+      "meaningsZh": ["卡拉 OK"],
+      "pos": "noun",
+      "tags": ["shop", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-karaoke-1",
+          "ja": "休日にカラオケへ行ってきた。",
+          "kana": "きゅうじつにからおけへいってきた。",
+          "zh": "假日去了卡拉 OK。",
+          "targetSurface": "カラオケ",
+          "targetKana": "からおけ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kissaten",
+      "type": "word",
+      "surface": "喫茶店",
+      "kana": "きっさてん",
+      "romaji": ["kissaten"],
+      "meaningsZh": ["咖啡馆"],
+      "pos": "noun",
+      "tags": ["shop", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-kissaten-1",
+          "ja": "近所に喫茶店ができた。",
+          "kana": "きんじょにきっさてんができた。",
+          "zh": "附近开了一家咖啡馆。",
+          "targetSurface": "喫茶店",
+          "targetKana": "きっさてん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-konbini",
+      "type": "word",
+      "surface": "コンビニ",
+      "kana": "コンビニ",
+      "romaji": ["konbini"],
+      "meaningsZh": ["便利店"],
+      "pos": "noun",
+      "tags": ["shop", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-konbini-1",
+          "ja": "夜中にコンビニに寄る。",
+          "kana": "よなかにコンビニによる。",
+          "zh": "半夜去便利店。",
+          "targetSurface": "コンビニ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kudasai",
+      "type": "word",
+      "surface": "ください",
+      "kana": "ください",
+      "romaji": ["kudasai"],
+      "meaningsZh": ["请给我"],
+      "pos": "expression",
+      "tags": ["service"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kudasai-1",
+          "ja": "お水、一杯ください。",
+          "kana": "おみず、いっぱいください。",
+          "zh": "请给我一杯水。",
+          "targetSurface": "ください",
+          "targetKana": "ください"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kyaku",
+      "type": "word",
+      "surface": "客",
+      "kana": "きゃく",
+      "romaji": ["kyaku"],
+      "meaningsZh": ["客人", "顾客"],
+      "pos": "noun",
+      "tags": ["people", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kyaku-1",
+          "ja": "「客」は「きゃく」と読む。",
+          "kana": "「客」は「きゃく」とよむ。",
+          "zh": "「客」读作「きゃく」，意思是客人。",
+          "targetSurface": "客",
+          "targetKana": "きゃく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-meeru",
+      "type": "word",
+      "surface": "メール",
+      "kana": "メール",
+      "romaji": ["meeru"],
+      "meaningsZh": ["邮件"],
+      "pos": "noun",
+      "tags": ["online", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-meeru-1",
+          "ja": "仕事のメールに返信する。",
+          "kana": "しごとのメールにへんしんする。",
+          "zh": "回复工作邮件。",
+          "targetSurface": "メール"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-namae",
+      "type": "word",
+      "surface": "名前",
+      "kana": "なまえ",
+      "romaji": ["namae"],
+      "meaningsZh": ["名字"],
+      "pos": "noun",
+      "tags": ["online"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-namae-1",
+          "ja": "お名前を教えてください。",
+          "kana": "おなまえをおしえてください。",
+          "zh": "请告诉我您的名字。",
+          "targetSurface": "名前",
+          "targetKana": "なまえ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nedan",
+      "type": "word",
+      "surface": "値段",
+      "kana": "ねだん",
+      "romaji": ["nedan"],
+      "meaningsZh": ["价格"],
+      "pos": "noun",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nedan-1",
+          "ja": "近所に値段ができた。",
+          "kana": "きんじょにねだんができた。",
+          "zh": "附近开了一家价格。",
+          "targetSurface": "値段",
+          "targetKana": "ねだん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-otsuri",
+      "type": "word",
+      "surface": "お釣り",
+      "kana": "おつり",
+      "romaji": ["otsuri", "oturi"],
+      "meaningsZh": ["找零"],
+      "pos": "noun",
+      "tags": ["money"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-otsuri-1",
+          "ja": "お釣りは十時から開いている。",
+          "kana": "おつりはじゅうじからあいている。",
+          "zh": "找零从十点开门。",
+          "targetSurface": "お釣り",
+          "targetKana": "おつり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-panya",
+      "type": "word",
+      "surface": "パン屋",
+      "kana": "ぱんや",
+      "romaji": ["pan'ya"],
+      "meaningsZh": ["面包店"],
+      "pos": "noun",
+      "tags": ["shop", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-panya-1",
+          "ja": "近所にパン屋ができた。",
+          "kana": "きんじょにぱんやができた。",
+          "zh": "附近开了一家面包店。",
+          "targetSurface": "パン屋",
+          "targetKana": "ぱんや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-saizu",
+      "type": "word",
+      "surface": "サイズ",
+      "kana": "サイズ",
+      "romaji": ["saizu"],
+      "meaningsZh": ["尺寸"],
+      "pos": "noun",
+      "tags": ["goods", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-saizu-1",
+          "ja": "サイズは十時から開いている。",
+          "kana": "さいずはじゅうじからあいている。",
+          "zh": "尺寸从十点开门。",
+          "targetSurface": "サイズ",
+          "targetKana": "さいず"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-suupaa",
+      "type": "word",
+      "surface": "スーパー",
+      "kana": "スーパー",
+      "romaji": ["suupaa"],
+      "meaningsZh": ["超市"],
+      "pos": "noun",
+      "tags": ["shop", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-suupaa-1",
+          "ja": "週末、スーパーで買い物する。",
+          "kana": "しゅうまつ、スーパーでかいものする。",
+          "zh": "周末去超市购物。",
+          "targetSurface": "スーパー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-takai",
+      "type": "word",
+      "surface": "高い",
+      "kana": "たかい",
+      "romaji": ["takai"],
+      "meaningsZh": ["贵", "高"],
+      "pos": "adjective",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-takai-1",
+          "ja": "ここは家賃が高い。",
+          "kana": "ここはやちんがたかい。",
+          "zh": "这里房租高。",
+          "targetSurface": "高い",
+          "targetKana": "たかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yaoya",
+      "type": "word",
+      "surface": "八百屋",
+      "kana": "やおや",
+      "romaji": ["yaoya"],
+      "meaningsZh": ["蔬果店"],
+      "pos": "noun",
+      "tags": ["shop"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-yaoya-1",
+          "ja": "八百屋は十時から開いている。",
+          "kana": "やおやはじゅうじからあいている。",
+          "zh": "蔬果店从十点开门。",
+          "targetSurface": "八百屋",
+          "targetKana": "やおや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yasui",
+      "type": "word",
+      "surface": "安い",
+      "kana": "やすい",
+      "romaji": ["yasui"],
+      "meaningsZh": ["便宜"],
+      "pos": "adjective",
+      "tags": ["goods"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yasui-1",
+          "ja": "この店は安いと評判だ。",
+          "kana": "このみせはやすいとひょうばんだ。",
+          "zh": "这家店以便宜出名。",
+          "targetSurface": "安い",
+          "targetKana": "やすい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yuubinkyoku",
+      "type": "word",
+      "surface": "郵便局",
+      "kana": "ゆうびんきょく",
+      "romaji": ["yuubinkyoku"],
+      "meaningsZh": ["邮局"],
+      "pos": "noun",
+      "tags": ["shop", "long-vowel", "youon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-yuubinkyoku-1",
+          "ja": "郵便局で切手を買う。",
+          "kana": "ゆうびんきょくできってをかう。",
+          "zh": "在邮局买邮票。",
+          "targetSurface": "郵便局",
+          "targetKana": "ゆうびんきょく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    }
+  ]
+}

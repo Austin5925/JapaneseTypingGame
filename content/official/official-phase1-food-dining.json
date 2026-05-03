@@ -1,0 +1,5574 @@
+{
+  "id": "official-phase1-food-dining",
+  "name": "第一阶段：食物与餐饮",
+  "version": "1.1.0",
+  "items": [
+    {
+      "id": "word-aburakkoi",
+      "type": "word",
+      "surface": "脂っこい",
+      "kana": "あぶらっこい",
+      "romaji": ["aburakkoi"],
+      "meaningsZh": ["油腻"],
+      "pos": "adjective",
+      "tags": ["restaurant", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-aburakkoi-1",
+          "ja": "この本は脂っこいと思う。",
+          "kana": "このほんはあぶらっこいとおもう。",
+          "zh": "我觉得这本书油腻。",
+          "targetSurface": "脂っこい",
+          "targetKana": "あぶらっこい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-aburasukuname",
+      "type": "word",
+      "surface": "油少なめ",
+      "kana": "あぶらすくなめ",
+      "romaji": ["aburasukuname"],
+      "meaningsZh": ["油少一点"],
+      "pos": "expression",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-aburasukuname-1",
+          "ja": "「油少なめ」と一言添えた。",
+          "kana": "「あぶらすくなめ」とひとことそえた。",
+          "zh": "加了一句「油少なめ」（油少一点）。",
+          "targetSurface": "油少なめ",
+          "targetKana": "あぶらすくなめ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-ajikoime",
+      "type": "word",
+      "surface": "味濃いめ",
+      "kana": "あじこいめ",
+      "romaji": ["ajikoime"],
+      "meaningsZh": ["味道重一点"],
+      "pos": "expression",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ajikoime-1",
+          "ja": "「味濃いめ」と一言添えた。",
+          "kana": "「あじこいめ」とひとことそえた。",
+          "zh": "加了一句「味濃いめ」（味道重一点）。",
+          "targetSurface": "味濃いめ",
+          "targetKana": "あじこいめ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-betsuzara",
+      "type": "word",
+      "surface": "別皿",
+      "kana": "べつざら",
+      "romaji": ["betsuzara"],
+      "meaningsZh": ["另装盘"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-betsuzara-1",
+          "ja": "ランチに別皿を頼んだ。",
+          "kana": "ランチにべつざらをたのんだ。",
+          "zh": "午餐点了另装盘。",
+          "targetSurface": "別皿",
+          "targetKana": "べつざら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kaedama",
+      "type": "word",
+      "surface": "替え玉",
+      "kana": "かえだま",
+      "romaji": ["kaedama"],
+      "meaningsZh": ["加面"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kaedama-1",
+          "ja": "メニューに替え玉があった。",
+          "kana": "メニューにかえだまがあった。",
+          "zh": "菜单上有加面。",
+          "targetSurface": "替え玉",
+          "targetKana": "かえだま"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-menkatame",
+      "type": "word",
+      "surface": "麺硬め",
+      "kana": "めんかため",
+      "romaji": ["menkatame"],
+      "meaningsZh": ["面硬一点"],
+      "pos": "expression",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-menkatame-1",
+          "ja": "こういう時は「麺硬め」と言う。",
+          "kana": "こういうときは「めんかため」という。",
+          "zh": "这种时候要说「麺硬め」（面硬一点）。",
+          "targetSurface": "麺硬め",
+          "targetKana": "めんかため"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-nomihoudai",
+      "type": "word",
+      "surface": "飲み放題",
+      "kana": "のみほうだい",
+      "romaji": ["nomihoudai"],
+      "meaningsZh": ["畅饮"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-nomihoudai-1",
+          "ja": "家で飲み放題を作ってみた。",
+          "kana": "いえでのみほうだいをつくってみた。",
+          "zh": "在家试做了畅饮。",
+          "targetSurface": "飲み放題",
+          "targetKana": "のみほうだい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-okayu",
+      "type": "word",
+      "surface": "お粥",
+      "kana": "おかゆ",
+      "romaji": ["okayu"],
+      "meaningsZh": ["粥"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-okayu-1",
+          "ja": "家でお粥を作ってみた。",
+          "kana": "いえでおかゆをつくってみた。",
+          "zh": "在家试做了粥。",
+          "targetSurface": "お粥",
+          "targetKana": "おかゆ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-ryoushuusho",
+      "type": "word",
+      "surface": "領収書",
+      "kana": "りょうしゅうしょ",
+      "romaji": ["ryoushuusho", "ryousyuusyo"],
+      "meaningsZh": ["收据"],
+      "pos": "noun",
+      "tags": ["restaurant", "long-vowel", "youon", "konbini"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-ryoushuusho-1",
+          "ja": "領収書が一番好きだ。",
+          "kana": "りょうしゅうしょがいちばんすきだ。",
+          "zh": "收据最好吃。",
+          "targetSurface": "領収書",
+          "targetKana": "りょうしゅうしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-su",
+      "type": "word",
+      "surface": "酢",
+      "kana": "す",
+      "romaji": ["su"],
+      "meaningsZh": ["醋"],
+      "pos": "noun",
+      "tags": ["seasoning"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-su-1",
+          "ja": "「酢」という漢字を覚える。",
+          "kana": "「酢」というかんじをおぼえる。",
+          "zh": "记住「酢」这个汉字（醋）。",
+          "targetSurface": "酢"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tabehoudai",
+      "type": "word",
+      "surface": "食べ放題",
+      "kana": "たべほうだい",
+      "romaji": ["tabehoudai"],
+      "meaningsZh": ["自助畅吃"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-tabehoudai-1",
+          "ja": "ランチに食べ放題を頼んだ。",
+          "kana": "ランチにたべほうだいをたのんだ。",
+          "zh": "午餐点了自助畅吃。",
+          "targetSurface": "食べ放題",
+          "targetKana": "たべほうだい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tanpin",
+      "type": "word",
+      "surface": "単品",
+      "kana": "たんぴん",
+      "romaji": ["tanpin"],
+      "meaningsZh": ["单点"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-tanpin-1",
+          "ja": "単品が一番好きだ。",
+          "kana": "たんぴんがいちばんすきだ。",
+          "zh": "单点最好吃。",
+          "targetSurface": "単品",
+          "targetKana": "たんぴん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tsumayouji",
+      "type": "word",
+      "surface": "爪楊枝",
+      "kana": "つまようじ",
+      "romaji": ["tsumayouji"],
+      "meaningsZh": ["牙签"],
+      "pos": "noun",
+      "tags": ["tableware"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsumayouji-1",
+          "ja": "爪楊枝を洗って棚にしまう。",
+          "kana": "つまようじをあらってたなにしまう。",
+          "zh": "把牙签洗好放回橱柜。",
+          "targetSurface": "爪楊枝",
+          "targetKana": "つまようじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-zeikomikakaku",
+      "type": "word",
+      "surface": "税込価格",
+      "kana": "ぜいこみかかく",
+      "romaji": ["zeikomikakaku"],
+      "meaningsZh": ["含税价格"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-zeikomikakaku-1",
+          "ja": "家で税込価格を作ってみた。",
+          "kana": "いえでぜいこみかかくをつくってみた。",
+          "zh": "在家试做了含税价格。",
+          "targetSurface": "税込価格",
+          "targetKana": "ぜいこみかかく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-abura",
+      "type": "word",
+      "surface": "油",
+      "kana": "あぶら",
+      "romaji": ["abura"],
+      "meaningsZh": ["油"],
+      "pos": "noun",
+      "tags": ["seasoning"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-abura-1",
+          "ja": "「油」は「あぶら」と読む。",
+          "kana": "「油」は「あぶら」とよむ。",
+          "zh": "「油」读作「あぶら」，意思是油。",
+          "targetSurface": "油",
+          "targetKana": "あぶら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-aisukoohii",
+      "type": "word",
+      "surface": "アイスコーヒー",
+      "kana": "アイスコーヒー",
+      "romaji": ["aisukoohii"],
+      "meaningsZh": ["冰咖啡"],
+      "pos": "noun",
+      "tags": ["drink", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-aisukoohii-1",
+          "ja": "冷たいアイスコーヒーを一杯ください。",
+          "kana": "つめたいあいすこーひーをいっぱいください。",
+          "zh": "请来一杯凉的冰咖啡。",
+          "targetSurface": "アイスコーヒー",
+          "targetKana": "あいすこーひー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-aiteimasuka",
+      "type": "word",
+      "surface": "空いていますか",
+      "kana": "あいていますか",
+      "romaji": ["aiteimasuka"],
+      "meaningsZh": ["有空位吗"],
+      "pos": "expression",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-aiteimasuka-1",
+          "ja": "すみません、この席は空いていますか?",
+          "kana": "すみません、このせきはあいていますか?",
+          "zh": "请问，这个座位空着吗？",
+          "targetSurface": "空いていますか",
+          "targetKana": "あいていますか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-arerugii",
+      "type": "word",
+      "surface": "アレルギー",
+      "kana": "アレルギー",
+      "romaji": ["arerugii"],
+      "meaningsZh": ["过敏"],
+      "pos": "noun",
+      "tags": ["restaurant", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-arerugii-1",
+          "ja": "メニューにアレルギーがあった。",
+          "kana": "メニューにあれるぎーがあった。",
+          "zh": "菜单上有过敏。",
+          "targetSurface": "アレルギー",
+          "targetKana": "あれるぎー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-atatamemasuka",
+      "type": "word",
+      "surface": "温めますか",
+      "kana": "あたためますか",
+      "romaji": ["atatamemasuka"],
+      "meaningsZh": ["要加热吗"],
+      "pos": "expression",
+      "tags": ["restaurant", "service"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-atatamemasuka-1",
+          "ja": "店員「お弁当、温めますか?」「はい、お願いします。」",
+          "kana": "てんいん「おべんとう、あたためますか?」「はい、おねがいします。」",
+          "zh": "店员问「便当要加热吗？」「好的，麻烦了。」",
+          "targetSurface": "温めますか",
+          "targetKana": "あたためますか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-atatameru",
+      "type": "word",
+      "surface": "温める",
+      "kana": "あたためる",
+      "romaji": ["atatameru"],
+      "meaningsZh": ["加热"],
+      "pos": "verb",
+      "tags": ["cooking"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-atatameru-1",
+          "ja": "ご飯を電子レンジで温める。",
+          "kana": "ごはんをでんしレンジであたためる。",
+          "zh": "用微波炉加热米饭。",
+          "targetSurface": "温める",
+          "targetKana": "あたためる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-atsuatsu",
+      "type": "word",
+      "surface": "熱々",
+      "kana": "あつあつ",
+      "romaji": ["atsuatsu"],
+      "meaningsZh": ["热腾腾"],
+      "pos": "adjective",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-atsuatsu-1",
+          "ja": "彼は熱々な人だ。",
+          "kana": "かれはあつあつなひとだ。",
+          "zh": "他是个热腾腾的人。",
+          "targetSurface": "熱々",
+          "targetKana": "あつあつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-betsubetsudeonegaishimasu",
+      "type": "word",
+      "surface": "別々でお願いします",
+      "kana": "べつべつでおねがいします",
+      "romaji": ["betsubetsudeonegaishimasu"],
+      "meaningsZh": ["请分开结账"],
+      "pos": "expression",
+      "tags": ["restaurant", "service"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-betsubetsudeonegaishimasu-1",
+          "ja": "お会計、別々でお願いします。",
+          "kana": "おかいけい、べつべつでおねがいします。",
+          "zh": "结账请分开。",
+          "targetSurface": "別々でお願いします",
+          "targetKana": "べつべつでおねがいします"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-budou",
+      "type": "word",
+      "surface": "ぶどう",
+      "kana": "ぶどう",
+      "romaji": ["budou"],
+      "meaningsZh": ["葡萄"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-budou-1",
+          "ja": "メニューにぶどうがあった。",
+          "kana": "メニューにぶどうがあった。",
+          "zh": "菜单上有葡萄。",
+          "targetSurface": "ぶどう",
+          "targetKana": "ぶどう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-burokkorii",
+      "type": "word",
+      "surface": "ブロッコリー",
+      "kana": "ブロッコリー",
+      "romaji": ["burokkorii"],
+      "meaningsZh": ["西兰花"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-burokkorii-1",
+          "ja": "ランチにブロッコリーを頼んだ。",
+          "kana": "ランチにぶろっこりーをたのんだ。",
+          "zh": "午餐点了西兰花。",
+          "targetSurface": "ブロッコリー",
+          "targetKana": "ぶろっこりー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-chaahan",
+      "type": "word",
+      "surface": "チャーハン",
+      "kana": "チャーハン",
+      "romaji": ["chaahan"],
+      "meaningsZh": ["炒饭"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-chaahan-1",
+          "ja": "家でチャーハンを作ってみた。",
+          "kana": "いえでちゃーはんをつくってみた。",
+          "zh": "在家试做了炒饭。",
+          "targetSurface": "チャーハン",
+          "targetKana": "ちゃーはん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-chawan",
+      "type": "word",
+      "surface": "茶碗",
+      "kana": "ちゃわん",
+      "romaji": ["chawan", "tyawan"],
+      "meaningsZh": ["饭碗"],
+      "pos": "noun",
+      "tags": ["tableware", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-chawan-1",
+          "ja": "食卓に茶碗を並べる。",
+          "kana": "しょくたくにちゃわんをならべる。",
+          "zh": "把饭碗摆到餐桌上。",
+          "targetSurface": "茶碗",
+          "targetKana": "ちゃわん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-choushoku",
+      "type": "word",
+      "surface": "朝食",
+      "kana": "ちょうしょく",
+      "romaji": ["choushoku", "tyousyoku"],
+      "meaningsZh": ["早餐"],
+      "pos": "noun",
+      "tags": ["food", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-choushoku-1",
+          "ja": "朝食が一番好きだ。",
+          "kana": "ちょうしょくがいちばんすきだ。",
+          "zh": "早餐最好吃。",
+          "targetSurface": "朝食",
+          "targetKana": "ちょうしょく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-chuushoku",
+      "type": "word",
+      "surface": "昼食",
+      "kana": "ちゅうしょく",
+      "romaji": ["chuushoku", "tyuusyoku"],
+      "meaningsZh": ["午餐"],
+      "pos": "noun",
+      "tags": ["food", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-chuushoku-1",
+          "ja": "メニューに昼食があった。",
+          "kana": "メニューにちゅうしょくがあった。",
+          "zh": "菜单上有午餐。",
+          "targetSurface": "昼食",
+          "targetKana": "ちゅうしょく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-dango",
+      "type": "word",
+      "surface": "団子",
+      "kana": "だんご",
+      "romaji": ["dango"],
+      "meaningsZh": ["团子"],
+      "pos": "noun",
+      "tags": ["food", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-dango-1",
+          "ja": "ランチに団子を頼んだ。",
+          "kana": "ランチにだんごをたのんだ。",
+          "zh": "午餐点了团子。",
+          "targetSurface": "団子",
+          "targetKana": "だんご"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-dezaato",
+      "type": "word",
+      "surface": "デザート",
+      "kana": "デザート",
+      "romaji": ["dezaato"],
+      "meaningsZh": ["甜点"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-dezaato-1",
+          "ja": "メニューにデザートがあった。",
+          "kana": "メニューにでざーとがあった。",
+          "zh": "菜单上有甜点。",
+          "targetSurface": "デザート",
+          "targetKana": "でざーと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-donburi",
+      "type": "word",
+      "surface": "丼",
+      "kana": "どんぶり",
+      "romaji": ["donburi"],
+      "meaningsZh": ["盖饭", "大碗"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-donburi-1",
+          "ja": "「丼」という漢字を覚える。",
+          "kana": "「丼」というかんじをおぼえる。",
+          "zh": "记住「丼」这个汉字（盖饭）。",
+          "targetSurface": "丼"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-doonatsu",
+      "type": "word",
+      "surface": "ドーナツ",
+      "kana": "ドーナツ",
+      "romaji": ["doonatsu"],
+      "meaningsZh": ["甜甜圈"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-doonatsu-1",
+          "ja": "ランチにドーナツを頼んだ。",
+          "kana": "ランチにどーなつをたのんだ。",
+          "zh": "午餐点了甜甜圈。",
+          "targetSurface": "ドーナツ",
+          "targetKana": "どーなつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-doresshingu",
+      "type": "word",
+      "surface": "ドレッシング",
+      "kana": "ドレッシング",
+      "romaji": ["doresshingu"],
+      "meaningsZh": ["沙拉酱"],
+      "pos": "noun",
+      "tags": ["seasoning", "katakana", "sokuon"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-doresshingu-1",
+          "ja": "スーパーでドレッシングを選ぶ。",
+          "kana": "スーパーでどれっしんぐをえらぶ。",
+          "zh": "在超市挑沙拉酱。",
+          "targetSurface": "ドレッシング",
+          "targetKana": "どれっしんぐ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-famiresu",
+      "type": "word",
+      "surface": "ファミレス",
+      "kana": "ファミレス",
+      "romaji": ["famiresu"],
+      "meaningsZh": ["家庭餐厅"],
+      "pos": "noun",
+      "tags": ["restaurant", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-famiresu-1",
+          "ja": "ランチにファミレスを頼んだ。",
+          "kana": "ランチにふぁみれすをたのんだ。",
+          "zh": "午餐点了家庭餐厅。",
+          "targetSurface": "ファミレス",
+          "targetKana": "ふぁみれす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-fasutofuudo",
+      "type": "word",
+      "surface": "ファストフード",
+      "kana": "ファストフード",
+      "romaji": ["fasutofuudo"],
+      "meaningsZh": ["快餐"],
+      "pos": "noun",
+      "tags": ["restaurant", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-fasutofuudo-1",
+          "ja": "ファストフードが一番好きだ。",
+          "kana": "ふぁすとふーどがいちばんすきだ。",
+          "zh": "快餐最好吃。",
+          "targetSurface": "ファストフード",
+          "targetKana": "ふぁすとふーど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-fukurohairimasen",
+      "type": "word",
+      "surface": "袋はいりません",
+      "kana": "ふくろはいりません",
+      "romaji": ["fukurohairimasen"],
+      "meaningsZh": ["不需要袋子"],
+      "pos": "expression",
+      "tags": ["restaurant", "service"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-fukurohairimasen-1",
+          "ja": "袋はいりません、そのままで結構です。",
+          "kana": "ふくろはいりません、そのままでけっこうです。",
+          "zh": "袋子不需要，这样就好。",
+          "targetSurface": "袋はいりません",
+          "targetKana": "ふくろはいりません"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-furaidopoteto",
+      "type": "word",
+      "surface": "フライドポテト",
+      "kana": "フライドポテト",
+      "romaji": ["furaidopoteto"],
+      "meaningsZh": ["炸薯条"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-furaidopoteto-1",
+          "ja": "メニューにフライドポテトがあった。",
+          "kana": "メニューにふらいどぽてとがあった。",
+          "zh": "菜单上有炸薯条。",
+          "targetSurface": "フライドポテト",
+          "targetKana": "ふらいどぽてと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-futsuumori",
+      "type": "word",
+      "surface": "普通盛り",
+      "kana": "ふつうもり",
+      "romaji": ["futsuumori"],
+      "meaningsZh": ["普通份"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-futsuumori-1",
+          "ja": "メニューに普通盛りがあった。",
+          "kana": "メニューにふつうもりがあった。",
+          "zh": "菜单上有普通份。",
+          "targetSurface": "普通盛り",
+          "targetKana": "ふつうもり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-gochuumonhaokimaridesuka",
+      "type": "word",
+      "surface": "ご注文はお決まりですか",
+      "kana": "ごちゅうもんはおきまりですか",
+      "romaji": ["gochuumonhaokimaridesuka"],
+      "meaningsZh": ["您决定好点什么了吗"],
+      "pos": "expression",
+      "tags": ["restaurant", "service"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-gochuumonhaokimaridesuka-1",
+          "ja": "店員「ご注文はお決まりですか?」",
+          "kana": "てんいん「ごちゅうもんはおきまりですか?」",
+          "zh": "店员问「点好餐了吗?」",
+          "targetSurface": "ご注文はお決まりですか",
+          "targetKana": "ごちゅうもんはおきまりですか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-gurasu",
+      "type": "word",
+      "surface": "グラス",
+      "kana": "グラス",
+      "romaji": ["gurasu"],
+      "meaningsZh": ["玻璃杯"],
+      "pos": "noun",
+      "tags": ["tableware", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-gurasu-1",
+          "ja": "グラスを洗って棚にしまう。",
+          "kana": "ぐらすをあらってたなにしまう。",
+          "zh": "把玻璃杯洗好放回橱柜。",
+          "targetSurface": "グラス",
+          "targetKana": "ぐらす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-gyouza",
+      "type": "word",
+      "surface": "餃子",
+      "kana": "ぎょうざ",
+      "romaji": ["gyouza"],
+      "meaningsZh": ["饺子"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-gyouza-1",
+          "ja": "ランチに餃子を頼んだ。",
+          "kana": "ランチにぎょうざをたのんだ。",
+          "zh": "午餐点了饺子。",
+          "targetSurface": "餃子",
+          "targetKana": "ぎょうざ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-gyuudon",
+      "type": "word",
+      "surface": "牛丼",
+      "kana": "ぎゅうどん",
+      "romaji": ["gyuudon"],
+      "meaningsZh": ["牛肉盖饭"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-gyuudon-1",
+          "ja": "牛丼が一番好きだ。",
+          "kana": "ぎゅうどんがいちばんすきだ。",
+          "zh": "牛肉盖饭最好吃。",
+          "targetSurface": "牛丼",
+          "targetKana": "ぎゅうどん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hashihairimasuka",
+      "type": "word",
+      "surface": "箸はいりますか",
+      "kana": "はしはいりますか",
+      "romaji": ["hashihairimasuka"],
+      "meaningsZh": ["需要筷子吗"],
+      "pos": "expression",
+      "tags": ["restaurant", "service"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-hashihairimasuka-1",
+          "ja": "店員「お箸はいりますか?」「お願いします。」",
+          "kana": "てんいん「おはしはいりますか?」「おねがいします。」",
+          "zh": "店员问「要筷子吗？」「请给一双。」",
+          "targetSurface": "箸はいりますか",
+          "targetKana": "はしはいりますか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hottokoohii",
+      "type": "word",
+      "surface": "ホットコーヒー",
+      "kana": "ホットコーヒー",
+      "romaji": ["hottokoohii"],
+      "meaningsZh": ["热咖啡"],
+      "pos": "noun",
+      "tags": ["drink", "katakana", "sokuon", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hottokoohii-1",
+          "ja": "毎朝ホットコーヒーを一杯飲む。",
+          "kana": "まいあさほっとこーひーをいっぱいのむ。",
+          "zh": "每天早上喝一杯热咖啡。",
+          "targetSurface": "ホットコーヒー",
+          "targetKana": "ほっとこーひー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error", "sokuon-error"]
+    },
+    {
+      "id": "word-ijoudesu",
+      "type": "word",
+      "surface": "以上です",
+      "kana": "いじょうです",
+      "romaji": ["ijoudesu"],
+      "meaningsZh": ["就这些"],
+      "pos": "expression",
+      "tags": ["restaurant", "service"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ijoudesu-1",
+          "ja": "以上です、お願いします。",
+          "kana": "いじょうです、おねがいします。",
+          "zh": "就这些，麻烦了（点单结束）。",
+          "targetSurface": "以上です",
+          "targetKana": "いじょうです"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-isshodeonegaishimasu",
+      "type": "word",
+      "surface": "一緒でお願いします",
+      "kana": "いっしょでおねがいします",
+      "romaji": ["isshodeonegaishimasu"],
+      "meaningsZh": ["请一起结账"],
+      "pos": "expression",
+      "tags": ["restaurant", "service"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-isshodeonegaishimasu-1",
+          "ja": "お会計、一緒でお願いします。",
+          "kana": "おかいけい、いっしょでおねがいします。",
+          "zh": "结账一起算。",
+          "targetSurface": "一緒でお願いします",
+          "targetKana": "いっしょでおねがいします"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-izakaya",
+      "type": "word",
+      "surface": "居酒屋",
+      "kana": "いざかや",
+      "romaji": ["izakaya"],
+      "meaningsZh": ["居酒屋"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-izakaya-1",
+          "ja": "メニューに居酒屋があった。",
+          "kana": "メニューにいざかやがあった。",
+          "zh": "菜单上有居酒屋。",
+          "targetSurface": "居酒屋",
+          "targetKana": "いざかや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kabocha",
+      "type": "word",
+      "surface": "かぼちゃ",
+      "kana": "かぼちゃ",
+      "romaji": ["kabocha"],
+      "meaningsZh": ["南瓜"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kabocha-1",
+          "ja": "家でかぼちゃを作ってみた。",
+          "kana": "いえでかぼちゃをつくってみた。",
+          "zh": "在家试做了南瓜。",
+          "targetSurface": "かぼちゃ",
+          "targetKana": "かぼちゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kafe",
+      "type": "word",
+      "surface": "カフェ",
+      "kana": "カフェ",
+      "romaji": ["kafe"],
+      "meaningsZh": ["咖啡馆"],
+      "pos": "noun",
+      "tags": ["restaurant", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kafe-1",
+          "ja": "カフェで友達と話す。",
+          "kana": "カフェでともだちとはなす。",
+          "zh": "在咖啡馆和朋友聊天。",
+          "targetSurface": "カフェ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-karaage",
+      "type": "word",
+      "surface": "唐揚げ",
+      "kana": "からあげ",
+      "romaji": ["karaage"],
+      "meaningsZh": ["炸鸡块"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-karaage-1",
+          "ja": "唐揚げが一番好きだ。",
+          "kana": "からあげがいちばんすきだ。",
+          "zh": "炸鸡块最好吃。",
+          "targetSurface": "唐揚げ",
+          "targetKana": "からあげ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-karasa",
+      "type": "word",
+      "surface": "辛さ",
+      "kana": "からさ",
+      "romaji": ["karasa"],
+      "meaningsZh": ["辣度"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-karasa-1",
+          "ja": "家で辛さを作ってみた。",
+          "kana": "いえでからさをつくってみた。",
+          "zh": "在家试做了辣度。",
+          "targetSurface": "辛さ",
+          "targetKana": "からさ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kauntaa",
+      "type": "word",
+      "surface": "カウンター",
+      "kana": "カウンター",
+      "romaji": ["kauntaa"],
+      "meaningsZh": ["吧台", "柜台"],
+      "pos": "noun",
+      "tags": ["restaurant", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-kauntaa-1",
+          "ja": "ランチにカウンターを頼んだ。",
+          "kana": "ランチにかうんたーをたのんだ。",
+          "zh": "午餐点了吧台。",
+          "targetSurface": "カウンター",
+          "targetKana": "かうんたー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kechappu",
+      "type": "word",
+      "surface": "ケチャップ",
+      "kana": "ケチャップ",
+      "romaji": ["kechappu"],
+      "meaningsZh": ["番茄酱"],
+      "pos": "noun",
+      "tags": ["seasoning", "katakana", "sokuon"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kechappu-1",
+          "ja": "スーパーでケチャップを選ぶ。",
+          "kana": "スーパーでけちゃっぷをえらぶ。",
+          "zh": "在超市挑番茄酱。",
+          "targetSurface": "ケチャップ",
+          "targetKana": "けちゃっぷ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-kinenseki",
+      "type": "word",
+      "surface": "禁煙席",
+      "kana": "きんえんせき",
+      "romaji": ["kin'enseki"],
+      "meaningsZh": ["禁烟席"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kinenseki-1",
+          "ja": "禁煙席が一番好きだ。",
+          "kana": "きんえんせきがいちばんすきだ。",
+          "zh": "禁烟席最好吃。",
+          "targetSurface": "禁煙席",
+          "targetKana": "きんえんせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kitsuenseki",
+      "type": "word",
+      "surface": "喫煙席",
+      "kana": "きつえんせき",
+      "romaji": ["kitsuenseki"],
+      "meaningsZh": ["吸烟席"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kitsuenseki-1",
+          "ja": "家で喫煙席を作ってみた。",
+          "kana": "いえできつえんせきをつくってみた。",
+          "zh": "在家试做了吸烟席。",
+          "targetSurface": "喫煙席",
+          "targetKana": "きつえんせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-koiaji",
+      "type": "word",
+      "surface": "濃い味",
+      "kana": "こいあじ",
+      "romaji": ["koiaji"],
+      "meaningsZh": ["重口味"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-koiaji-1",
+          "ja": "ランチに濃い味を頼んだ。",
+          "kana": "ランチにこいあじをたのんだ。",
+          "zh": "午餐点了重口味。",
+          "targetSurface": "濃い味",
+          "targetKana": "こいあじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kokoa",
+      "type": "word",
+      "surface": "ココア",
+      "kana": "ココア",
+      "romaji": ["kokoa"],
+      "meaningsZh": ["可可"],
+      "pos": "noun",
+      "tags": ["drink", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kokoa-1",
+          "ja": "食事と一緒にココアを頼んだ。",
+          "kana": "しょくじといっしょにここあをたのんだ。",
+          "zh": "用餐时点了可可。",
+          "targetSurface": "ココア",
+          "targetKana": "ここあ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-komori",
+      "type": "word",
+      "surface": "小盛り",
+      "kana": "こもり",
+      "romaji": ["komori"],
+      "meaningsZh": ["小份"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-komori-1",
+          "ja": "小盛りが一番好きだ。",
+          "kana": "こもりがいちばんすきだ。",
+          "zh": "小份最好吃。",
+          "targetSurface": "小盛り",
+          "targetKana": "こもり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-koshou-2",
+      "type": "word",
+      "surface": "胡椒",
+      "kana": "こしょう",
+      "romaji": ["koshou"],
+      "meaningsZh": ["胡椒"],
+      "pos": "noun",
+      "tags": ["seasoning"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-koshou-2-1",
+          "ja": "スーパーで胡椒を選ぶ。",
+          "kana": "スーパーでこしょうをえらぶ。",
+          "zh": "在超市挑胡椒。",
+          "targetSurface": "胡椒",
+          "targetKana": "こしょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kyuuri",
+      "type": "word",
+      "surface": "きゅうり",
+      "kana": "きゅうり",
+      "romaji": ["kyuuri"],
+      "meaningsZh": ["黄瓜"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kyuuri-1",
+          "ja": "きゅうりが一番好きだ。",
+          "kana": "きゅうりがいちばんすきだ。",
+          "zh": "黄瓜最好吃。",
+          "targetSurface": "きゅうり",
+          "targetKana": "きゅうり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-maccha",
+      "type": "word",
+      "surface": "抹茶",
+      "kana": "まっちゃ",
+      "romaji": ["matcha", "maccha"],
+      "meaningsZh": ["抹茶"],
+      "pos": "noun",
+      "tags": ["drink", "culture", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-maccha-1",
+          "ja": "食事と一緒に抹茶を頼んだ。",
+          "kana": "しょくじといっしょにまっちゃをたのんだ。",
+          "zh": "用餐时点了抹茶。",
+          "targetSurface": "抹茶",
+          "targetKana": "まっちゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-magukappu",
+      "type": "word",
+      "surface": "マグカップ",
+      "kana": "マグカップ",
+      "romaji": ["magukappu"],
+      "meaningsZh": ["马克杯"],
+      "pos": "noun",
+      "tags": ["tableware", "katakana", "sokuon"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-magukappu-1",
+          "ja": "食卓にマグカップを並べる。",
+          "kana": "しょくたくにまぐかっぷをならべる。",
+          "zh": "把马克杯摆到餐桌上。",
+          "targetSurface": "マグカップ",
+          "targetKana": "まぐかっぷ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-maguro",
+      "type": "word",
+      "surface": "マグロ",
+      "kana": "マグロ",
+      "romaji": ["maguro"],
+      "meaningsZh": ["金枪鱼"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-maguro-1",
+          "ja": "家でマグロを作ってみた。",
+          "kana": "いえでまぐろをつくってみた。",
+          "zh": "在家试做了金枪鱼。",
+          "targetSurface": "マグロ",
+          "targetKana": "まぐろ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-mayoneezu",
+      "type": "word",
+      "surface": "マヨネーズ",
+      "kana": "マヨネーズ",
+      "romaji": ["mayoneezu"],
+      "meaningsZh": ["蛋黄酱"],
+      "pos": "noun",
+      "tags": ["seasoning", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-mayoneezu-1",
+          "ja": "料理にマヨネーズを加える。",
+          "kana": "りょうりにまよねーずをくわえる。",
+          "zh": "在菜里加蛋黄酱。",
+          "targetSurface": "マヨネーズ",
+          "targetKana": "まよねーず"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-mazeru",
+      "type": "word",
+      "surface": "混ぜる",
+      "kana": "まぜる",
+      "romaji": ["mazeru"],
+      "meaningsZh": ["搅拌"],
+      "pos": "verb",
+      "tags": ["cooking"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mazeru-1",
+          "ja": "卵と砂糖をよく混ぜる。",
+          "kana": "たまごとさとうをよくまぜる。",
+          "zh": "把鸡蛋和糖充分搅拌。",
+          "targetSurface": "混ぜる",
+          "targetKana": "まぜる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-men",
+      "type": "word",
+      "surface": "麺",
+      "kana": "めん",
+      "romaji": ["men"],
+      "meaningsZh": ["面条"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-men-1",
+          "ja": "「麺」という漢字を覚える。",
+          "kana": "「麺」というかんじをおぼえる。",
+          "zh": "记住「麺」这个汉字（面条）。",
+          "targetSurface": "麺"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-meron",
+      "type": "word",
+      "surface": "メロン",
+      "kana": "メロン",
+      "romaji": ["meron"],
+      "meaningsZh": ["哈密瓜", "甜瓜"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-meron-1",
+          "ja": "家でメロンを作ってみた。",
+          "kana": "いえでめろんをつくってみた。",
+          "zh": "在家试做了哈密瓜。",
+          "targetSurface": "メロン",
+          "targetKana": "めろん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-miso",
+      "type": "word",
+      "surface": "味噌",
+      "kana": "みそ",
+      "romaji": ["miso"],
+      "meaningsZh": ["味噌"],
+      "pos": "noun",
+      "tags": ["seasoning"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-miso-1",
+          "ja": "味噌でスープを作る。",
+          "kana": "みそでスープをつくる。",
+          "zh": "用味噌做汤。",
+          "targetSurface": "味噌",
+          "targetKana": "みそ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-misoraamen",
+      "type": "word",
+      "surface": "味噌ラーメン",
+      "kana": "みそらーめん",
+      "romaji": ["misoraamen"],
+      "meaningsZh": ["味噌拉面"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-misoraamen-1",
+          "ja": "味噌ラーメンが一番好きだ。",
+          "kana": "みそらーめんがいちばんすきだ。",
+          "zh": "味噌拉面最好吃。",
+          "targetSurface": "味噌ラーメン",
+          "targetKana": "みそらーめん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-misoshiru",
+      "type": "word",
+      "surface": "味噌汁",
+      "kana": "みそしる",
+      "romaji": ["misoshiru"],
+      "meaningsZh": ["味噌汤"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-misoshiru-1",
+          "ja": "メニューに味噌汁があった。",
+          "kana": "メニューにみそしるがあった。",
+          "zh": "菜单上有味噌汤。",
+          "targetSurface": "味噌汁",
+          "targetKana": "みそしる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-mochikaeri",
+      "type": "word",
+      "surface": "持ち帰り",
+      "kana": "もちかえり",
+      "romaji": ["mochikaeri"],
+      "meaningsZh": ["外带"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-mochikaeri-1",
+          "ja": "メニューに持ち帰りがあった。",
+          "kana": "メニューにもちかえりがあった。",
+          "zh": "菜单上有外带。",
+          "targetSurface": "持ち帰り",
+          "targetKana": "もちかえり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-momo",
+      "type": "word",
+      "surface": "桃",
+      "kana": "もも",
+      "romaji": ["momo"],
+      "meaningsZh": ["桃子"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-momo-1",
+          "ja": "「桃」という漢字を覚える。",
+          "kana": "「桃」というかんじをおぼえる。",
+          "zh": "记住「桃」这个汉字（桃子）。",
+          "targetSurface": "桃"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-mugicha",
+      "type": "word",
+      "surface": "麦茶",
+      "kana": "むぎちゃ",
+      "romaji": ["mugicha"],
+      "meaningsZh": ["麦茶"],
+      "pos": "noun",
+      "tags": ["drink", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mugicha-1",
+          "ja": "毎朝麦茶を一杯飲む。",
+          "kana": "まいあさむぎちゃをいっぱいのむ。",
+          "zh": "每天早上喝一杯麦茶。",
+          "targetSurface": "麦茶",
+          "targetKana": "むぎちゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nabe",
+      "type": "word",
+      "surface": "鍋",
+      "kana": "なべ",
+      "romaji": ["nabe"],
+      "meaningsZh": ["锅"],
+      "pos": "noun",
+      "tags": ["tableware"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nabe-1",
+          "ja": "「鍋」という漢字を覚える。",
+          "kana": "「鍋」というかんじをおぼえる。",
+          "zh": "记住「鍋」这个汉字（锅）。",
+          "targetSurface": "鍋"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-naifu",
+      "type": "word",
+      "surface": "ナイフ",
+      "kana": "ナイフ",
+      "romaji": ["naifu"],
+      "meaningsZh": ["刀"],
+      "pos": "noun",
+      "tags": ["tableware", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-naifu-1",
+          "ja": "ナイフを洗って棚にしまう。",
+          "kana": "ないふをあらってたなにしまう。",
+          "zh": "把刀洗好放回橱柜。",
+          "targetSurface": "ナイフ",
+          "targetKana": "ないふ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nanmeisama",
+      "type": "word",
+      "surface": "何名様",
+      "kana": "なんめいさま",
+      "romaji": ["nanmeisama"],
+      "meaningsZh": ["几位客人"],
+      "pos": "expression",
+      "tags": ["restaurant", "service"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-nanmeisama-1",
+          "ja": "店員「何名様ですか?」「三名です。」",
+          "kana": "てんいん「なんめいさまですか?」「さんめいです。」",
+          "zh": "店员问「几位？」「三位。」",
+          "targetSurface": "何名様",
+          "targetKana": "なんめいさま"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nashi",
+      "type": "word",
+      "surface": "梨",
+      "kana": "なし",
+      "romaji": ["nashi"],
+      "meaningsZh": ["梨"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nashi-1",
+          "ja": "「梨」という漢字を覚える。",
+          "kana": "「梨」というかんじをおぼえる。",
+          "zh": "记住「梨」这个汉字（梨）。",
+          "targetSurface": "梨"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nasu",
+      "type": "word",
+      "surface": "なす",
+      "kana": "なす",
+      "romaji": ["nasu"],
+      "meaningsZh": ["茄子"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nasu-1",
+          "ja": "ランチになすを頼んだ。",
+          "kana": "ランチになすをたのんだ。",
+          "zh": "午餐点了茄子。",
+          "targetSurface": "なす",
+          "targetKana": "なす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nattou",
+      "type": "word",
+      "surface": "納豆",
+      "kana": "なっとう",
+      "romaji": ["nattou"],
+      "meaningsZh": ["纳豆"],
+      "pos": "noun",
+      "tags": ["food", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-nattou-1",
+          "ja": "メニューに納豆があった。",
+          "kana": "メニューになっとうがあった。",
+          "zh": "菜单上有纳豆。",
+          "targetSurface": "納豆",
+          "targetKana": "なっとう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-negi",
+      "type": "word",
+      "surface": "ねぎ",
+      "kana": "ねぎ",
+      "romaji": ["negi"],
+      "meaningsZh": ["葱"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-negi-1",
+          "ja": "メニューにねぎがあった。",
+          "kana": "メニューにねぎがあった。",
+          "zh": "菜单上有葱。",
+          "targetSurface": "ねぎ",
+          "targetKana": "ねぎ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nigai",
+      "type": "word",
+      "surface": "苦い",
+      "kana": "にがい",
+      "romaji": ["nigai"],
+      "meaningsZh": ["苦"],
+      "pos": "adjective",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-nigai-1",
+          "ja": "この薬は苦い。",
+          "kana": "このくすりはにがい。",
+          "zh": "这药苦。",
+          "targetSurface": "苦い",
+          "targetKana": "にがい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nihonshu",
+      "type": "word",
+      "surface": "日本酒",
+      "kana": "にほんしゅ",
+      "romaji": ["nihonshu", "nihonsyu"],
+      "meaningsZh": ["清酒"],
+      "pos": "noun",
+      "tags": ["drink", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nihonshu-1",
+          "ja": "毎朝日本酒を一杯飲む。",
+          "kana": "まいあさにほんしゅをいっぱいのむ。",
+          "zh": "每天早上喝一杯清酒。",
+          "targetSurface": "日本酒",
+          "targetKana": "にほんしゅ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nikuman",
+      "type": "word",
+      "surface": "肉まん",
+      "kana": "にくまん",
+      "romaji": ["nikuman"],
+      "meaningsZh": ["肉包"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nikuman-1",
+          "ja": "ランチに肉まんを頼んだ。",
+          "kana": "ランチににくまんをたのんだ。",
+          "zh": "午餐点了肉包。",
+          "targetSurface": "肉まん",
+          "targetKana": "にくまん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-ninniku",
+      "type": "word",
+      "surface": "にんにく",
+      "kana": "にんにく",
+      "romaji": ["ninniku"],
+      "meaningsZh": ["大蒜"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ninniku-1",
+          "ja": "料理ににんにくを加える。",
+          "kana": "りょうりににんにくをくわえる。",
+          "zh": "在菜里加大蒜。",
+          "targetSurface": "にんにく",
+          "targetKana": "にんにく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-niru",
+      "type": "word",
+      "surface": "煮る",
+      "kana": "にる",
+      "romaji": ["niru"],
+      "meaningsZh": ["煮"],
+      "pos": "verb",
+      "tags": ["cooking"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-niru-1",
+          "ja": "大根をコトコト煮る。",
+          "kana": "だいこんをコトコトにる。",
+          "zh": "把萝卜慢慢炖。",
+          "targetSurface": "煮る",
+          "targetKana": "にる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nori",
+      "type": "word",
+      "surface": "海苔",
+      "kana": "のり",
+      "romaji": ["nori"],
+      "meaningsZh": ["海苔"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nori-1",
+          "ja": "メニューに海苔があった。",
+          "kana": "メニューにのりがあった。",
+          "zh": "菜单上有海苔。",
+          "targetSurface": "海苔",
+          "targetKana": "のり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-oden",
+      "type": "word",
+      "surface": "おでん",
+      "kana": "おでん",
+      "romaji": ["oden"],
+      "meaningsZh": ["关东煮"],
+      "pos": "noun",
+      "tags": ["food", "culture"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-oden-1",
+          "ja": "おでんが一番好きだ。",
+          "kana": "おでんがいちばんすきだ。",
+          "zh": "关东煮最好吃。",
+          "targetSurface": "おでん",
+          "targetKana": "おでん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-okaikei",
+      "type": "word",
+      "surface": "お会計",
+      "kana": "おかいけい",
+      "romaji": ["okaikei"],
+      "meaningsZh": ["买单", "结账"],
+      "pos": "noun",
+      "tags": ["restaurant", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-okaikei-1",
+          "ja": "家でお会計を作ってみた。",
+          "kana": "いえでおかいけいをつくってみた。",
+          "zh": "在家试做了买单。",
+          "targetSurface": "お会計",
+          "targetKana": "おかいけい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-okaikeionegaishimasu",
+      "type": "word",
+      "surface": "お会計お願いします",
+      "kana": "おかいけいおねがいします",
+      "romaji": ["okaikeionegaishimasu"],
+      "meaningsZh": ["请结账"],
+      "pos": "expression",
+      "tags": ["restaurant", "service"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-okaikeionegaishimasu-1",
+          "ja": "すみません、お会計お願いします。",
+          "kana": "すみません、おかいけいおねがいします。",
+          "zh": "麻烦结账。",
+          "targetSurface": "お会計お願いします",
+          "targetKana": "おかいけいおねがいします"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-okawari",
+      "type": "word",
+      "surface": "お代わり",
+      "kana": "おかわり",
+      "romaji": ["okawari"],
+      "meaningsZh": ["再来一份"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-okawari-1",
+          "ja": "メニューにお代わりがあった。",
+          "kana": "メニューにおかわりがあった。",
+          "zh": "菜单上有再来一份。",
+          "targetSurface": "お代わり",
+          "targetKana": "おかわり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-okonomiyaki",
+      "type": "word",
+      "surface": "お好み焼き",
+      "kana": "おこのみやき",
+      "romaji": ["okonomiyaki"],
+      "meaningsZh": ["御好烧"],
+      "pos": "noun",
+      "tags": ["food", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-okonomiyaki-1",
+          "ja": "お好み焼きが一番好きだ。",
+          "kana": "おこのみやきがいちばんすきだ。",
+          "zh": "御好烧最好吃。",
+          "targetSurface": "お好み焼き",
+          "targetKana": "おこのみやき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-omuretsu",
+      "type": "word",
+      "surface": "オムレツ",
+      "kana": "オムレツ",
+      "romaji": ["omuretsu", "omuretu"],
+      "meaningsZh": ["煎蛋卷"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-omuretsu-1",
+          "ja": "オムレツが一番好きだ。",
+          "kana": "おむれつがいちばんすきだ。",
+          "zh": "煎蛋卷最好吃。",
+          "targetSurface": "オムレツ",
+          "targetKana": "おむれつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-oome",
+      "type": "word",
+      "surface": "多め",
+      "kana": "おおめ",
+      "romaji": ["oome"],
+      "meaningsZh": ["多一点"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-oome-1",
+          "ja": "ランチに多めを頼んだ。",
+          "kana": "ランチにおおめをたのんだ。",
+          "zh": "午餐点了多一点。",
+          "targetSurface": "多め",
+          "targetKana": "おおめ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-oomori",
+      "type": "word",
+      "surface": "大盛り",
+      "kana": "おおもり",
+      "romaji": ["oomori"],
+      "meaningsZh": ["大份"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-oomori-1",
+          "ja": "ランチに大盛りを頼んだ。",
+          "kana": "ランチにおおもりをたのんだ。",
+          "zh": "午餐点了大份。",
+          "targetSurface": "大盛り",
+          "targetKana": "おおもり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-oshibori",
+      "type": "word",
+      "surface": "おしぼり",
+      "kana": "おしぼり",
+      "romaji": ["oshibori"],
+      "meaningsZh": ["湿巾"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-oshibori-1",
+          "ja": "家でおしぼりを作ってみた。",
+          "kana": "いえでおしぼりをつくってみた。",
+          "zh": "在家试做了湿巾。",
+          "targetSurface": "おしぼり",
+          "targetKana": "おしぼり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-osusume",
+      "type": "word",
+      "surface": "お勧め",
+      "kana": "おすすめ",
+      "romaji": ["osusume"],
+      "meaningsZh": ["推荐"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-osusume-1",
+          "ja": "家でお勧めを作ってみた。",
+          "kana": "いえでおすすめをつくってみた。",
+          "zh": "在家试做了推荐。",
+          "targetSurface": "お勧め",
+          "targetKana": "おすすめ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-osusumehanandesuka",
+      "type": "word",
+      "surface": "おすすめは何ですか",
+      "kana": "おすすめはなんですか",
+      "romaji": ["osusumehanandesuka"],
+      "meaningsZh": ["推荐是什么"],
+      "pos": "expression",
+      "tags": ["restaurant", "service"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-osusumehanandesuka-1",
+          "ja": "初めて来ました、おすすめは何ですか?",
+          "kana": "はじめてきました、おすすめはなんですか?",
+          "zh": "我第一次来，推荐什么？",
+          "targetSurface": "おすすめは何ですか",
+          "targetKana": "おすすめはなんですか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-owan",
+      "type": "word",
+      "surface": "お椀",
+      "kana": "おわん",
+      "romaji": ["owan"],
+      "meaningsZh": ["碗"],
+      "pos": "noun",
+      "tags": ["tableware"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-owan-1",
+          "ja": "お椀を洗って棚にしまう。",
+          "kana": "おわんをあらってたなにしまう。",
+          "zh": "把碗洗好放回橱柜。",
+          "targetSurface": "お椀",
+          "targetKana": "おわん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-oyakodon",
+      "type": "word",
+      "surface": "親子丼",
+      "kana": "おやこどん",
+      "romaji": ["oyakodon"],
+      "meaningsZh": ["亲子盖饭"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-oyakodon-1",
+          "ja": "家で親子丼を作ってみた。",
+          "kana": "いえでおやこどんをつくってみた。",
+          "zh": "在家试做了亲子盖饭。",
+          "targetSurface": "親子丼",
+          "targetKana": "おやこどん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-piiman",
+      "type": "word",
+      "surface": "ピーマン",
+      "kana": "ピーマン",
+      "romaji": ["piiman"],
+      "meaningsZh": ["青椒"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-piiman-1",
+          "ja": "家でピーマンを作ってみた。",
+          "kana": "いえでぴーまんをつくってみた。",
+          "zh": "在家试做了青椒。",
+          "targetSurface": "ピーマン",
+          "targetKana": "ぴーまん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-purin",
+      "type": "word",
+      "surface": "プリン",
+      "kana": "プリン",
+      "romaji": ["purin"],
+      "meaningsZh": ["布丁"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-purin-1",
+          "ja": "プリンが一番好きだ。",
+          "kana": "ぷりんがいちばんすきだ。",
+          "zh": "布丁最好吃。",
+          "targetSurface": "プリン",
+          "targetKana": "ぷりん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-raamenya",
+      "type": "word",
+      "surface": "ラーメン屋",
+      "kana": "らーめんや",
+      "romaji": ["raamen'ya"],
+      "meaningsZh": ["拉面店"],
+      "pos": "noun",
+      "tags": ["restaurant", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-raamenya-1",
+          "ja": "メニューにラーメン屋があった。",
+          "kana": "メニューにらーめんやがあった。",
+          "zh": "菜单上有拉面店。",
+          "targetSurface": "ラーメン屋",
+          "targetKana": "らーめんや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-raisu",
+      "type": "word",
+      "surface": "ライス",
+      "kana": "ライス",
+      "romaji": ["raisu"],
+      "meaningsZh": ["米饭"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-raisu-1",
+          "ja": "ランチにライスを頼んだ。",
+          "kana": "ランチにらいすをたのんだ。",
+          "zh": "午餐点了米饭。",
+          "targetSurface": "ライス",
+          "targetKana": "らいす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-remon",
+      "type": "word",
+      "surface": "レモン",
+      "kana": "レモン",
+      "romaji": ["remon"],
+      "meaningsZh": ["柠檬"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-remon-1",
+          "ja": "メニューにレモンがあった。",
+          "kana": "メニューにれもんがあった。",
+          "zh": "菜单上有柠檬。",
+          "targetSurface": "レモン",
+          "targetKana": "れもん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-reshiito",
+      "type": "word",
+      "surface": "レシート",
+      "kana": "レシート",
+      "romaji": ["reshiito", "resiito"],
+      "meaningsZh": ["小票"],
+      "pos": "noun",
+      "tags": ["restaurant", "katakana", "long-vowel", "konbini"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-reshiito-1",
+          "ja": "メニューにレシートがあった。",
+          "kana": "メニューにれしーとがあった。",
+          "zh": "菜单上有小票。",
+          "targetSurface": "レシート",
+          "targetKana": "れしーと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-retasu",
+      "type": "word",
+      "surface": "レタス",
+      "kana": "レタス",
+      "romaji": ["retasu"],
+      "meaningsZh": ["生菜"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-retasu-1",
+          "ja": "ランチにレタスを頼んだ。",
+          "kana": "ランチにれたすをたのんだ。",
+          "zh": "午餐点了生菜。",
+          "targetSurface": "レタス",
+          "targetKana": "れたす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-sake-fish",
+      "type": "word",
+      "surface": "鮭",
+      "kana": "さけ",
+      "romaji": ["sake"],
+      "meaningsZh": ["三文鱼"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sake-fish-1",
+          "ja": "「鮭」は「さけ」と読む。",
+          "kana": "「鮭」は「さけ」とよむ。",
+          "zh": "「鮭」读作「さけ」，意思是三文鱼。",
+          "targetSurface": "鮭",
+          "targetKana": "さけ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-sandoicchi",
+      "type": "word",
+      "surface": "サンドイッチ",
+      "kana": "サンドイッチ",
+      "romaji": ["sandoitchi", "sandoicchi"],
+      "meaningsZh": ["三明治"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "sokuon"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-sandoicchi-1",
+          "ja": "サンドイッチが一番好きだ。",
+          "kana": "さんどいっちがいちばんすきだ。",
+          "zh": "三明治最好吃。",
+          "targetSurface": "サンドイッチ",
+          "targetKana": "さんどいっち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-sashimi",
+      "type": "word",
+      "surface": "刺身",
+      "kana": "さしみ",
+      "romaji": ["sashimi"],
+      "meaningsZh": ["生鱼片"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sashimi-1",
+          "ja": "刺身が一番好きだ。",
+          "kana": "さしみがいちばんすきだ。",
+          "zh": "生鱼片最好吃。",
+          "targetSurface": "刺身",
+          "targetKana": "さしみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-setto",
+      "type": "word",
+      "surface": "セット",
+      "kana": "セット",
+      "romaji": ["setto"],
+      "meaningsZh": ["套餐", "组合"],
+      "pos": "noun",
+      "tags": ["restaurant", "katakana", "sokuon"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-setto-1",
+          "ja": "家でセットを作ってみた。",
+          "kana": "いえでせっとをつくってみた。",
+          "zh": "在家试做了套餐。",
+          "targetSurface": "セット",
+          "targetKana": "せっと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-shichimi",
+      "type": "word",
+      "surface": "七味",
+      "kana": "しちみ",
+      "romaji": ["shichimi"],
+      "meaningsZh": ["七味粉"],
+      "pos": "noun",
+      "tags": ["seasoning"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shichimi-1",
+          "ja": "料理に七味を加える。",
+          "kana": "りょうりにしちみをくわえる。",
+          "zh": "在菜里加七味粉。",
+          "targetSurface": "七味",
+          "targetKana": "しちみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shioraamen",
+      "type": "word",
+      "surface": "塩ラーメン",
+      "kana": "しおらーめん",
+      "romaji": ["shioraamen"],
+      "meaningsZh": ["盐味拉面"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-shioraamen-1",
+          "ja": "塩ラーメンが一番好きだ。",
+          "kana": "しおらーめんがいちばんすきだ。",
+          "zh": "盐味拉面最好吃。",
+          "targetSurface": "塩ラーメン",
+          "targetKana": "しおらーめん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-shokuji",
+      "type": "word",
+      "surface": "食事",
+      "kana": "しょくじ",
+      "romaji": ["shokuji", "syokuzi"],
+      "meaningsZh": ["用餐"],
+      "pos": "noun",
+      "tags": ["food", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shokuji-1",
+          "ja": "メニューに食事があった。",
+          "kana": "メニューにしょくじがあった。",
+          "zh": "菜单上有用餐。",
+          "targetSurface": "食事",
+          "targetKana": "しょくじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shoppai",
+      "type": "word",
+      "surface": "しょっぱい",
+      "kana": "しょっぱい",
+      "romaji": ["shoppai"],
+      "meaningsZh": ["咸"],
+      "pos": "adjective",
+      "tags": ["restaurant", "sokuon"],
+      "skillTags": [
+        "kana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-shoppai-1",
+          "ja": "この本はしょっぱいと思う。",
+          "kana": "このほんはしょっぱいとおもう。",
+          "zh": "我觉得这本书咸。",
+          "targetSurface": "しょっぱい",
+          "targetKana": "しょっぱい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-shouga",
+      "type": "word",
+      "surface": "しょうが",
+      "kana": "しょうが",
+      "romaji": ["shouga"],
+      "meaningsZh": ["姜"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shouga-1",
+          "ja": "料理にしょうがを加える。",
+          "kana": "りょうりにしょうがをくわえる。",
+          "zh": "在菜里加姜。",
+          "targetSurface": "しょうが",
+          "targetKana": "しょうが"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shoushouomachikudasai",
+      "type": "word",
+      "surface": "少々お待ちください",
+      "kana": "しょうしょうおまちください",
+      "romaji": ["shoushouomachikudasai"],
+      "meaningsZh": ["请稍等"],
+      "pos": "expression",
+      "tags": ["restaurant", "service"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shoushouomachikudasai-1",
+          "ja": "店員「少々お待ちください。」",
+          "kana": "てんいん「しょうしょうおまちください。」",
+          "zh": "店员说「请稍等。」",
+          "targetSurface": "少々お待ちください",
+          "targetKana": "しょうしょうおまちください"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shouyuraamen",
+      "type": "word",
+      "surface": "醤油ラーメン",
+      "kana": "しょうゆらーめん",
+      "romaji": ["shouyuraamen"],
+      "meaningsZh": ["酱油拉面"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-shouyuraamen-1",
+          "ja": "家で醤油ラーメンを作ってみた。",
+          "kana": "いえでしょうゆらーめんをつくってみた。",
+          "zh": "在家试做了酱油拉面。",
+          "targetSurface": "醤油ラーメン",
+          "targetKana": "しょうゆらーめん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-sukuname",
+      "type": "word",
+      "surface": "少なめ",
+      "kana": "すくなめ",
+      "romaji": ["sukuname"],
+      "meaningsZh": ["少一点"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-sukuname-1",
+          "ja": "メニューに少なめがあった。",
+          "kana": "メニューにすくなめがあった。",
+          "zh": "菜单上有少一点。",
+          "targetSurface": "少なめ",
+          "targetKana": "すくなめ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-suppai",
+      "type": "word",
+      "surface": "酸っぱい",
+      "kana": "すっぱい",
+      "romaji": ["suppai"],
+      "meaningsZh": ["酸"],
+      "pos": "adjective",
+      "tags": ["restaurant", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-suppai-1",
+          "ja": "レモンは酸っぱい。",
+          "kana": "レモンはすっぱい。",
+          "zh": "柠檬酸。",
+          "targetSurface": "酸っぱい",
+          "targetKana": "すっぱい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-sushiya",
+      "type": "word",
+      "surface": "寿司屋",
+      "kana": "すしや",
+      "romaji": ["sushiya"],
+      "meaningsZh": ["寿司店"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-sushiya-1",
+          "ja": "家で寿司屋を作ってみた。",
+          "kana": "いえですしやをつくってみた。",
+          "zh": "在家试做了寿司店。",
+          "targetSurface": "寿司屋",
+          "targetKana": "すしや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-sutoroo",
+      "type": "word",
+      "surface": "ストロー",
+      "kana": "ストロー",
+      "romaji": ["sutoroo"],
+      "meaningsZh": ["吸管"],
+      "pos": "noun",
+      "tags": ["tableware", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-sutoroo-1",
+          "ja": "食卓にストローを並べる。",
+          "kana": "しょくたくにすとろーをならべる。",
+          "zh": "把吸管摆到餐桌上。",
+          "targetSurface": "ストロー",
+          "targetKana": "すとろー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-taiyaki",
+      "type": "word",
+      "surface": "たい焼き",
+      "kana": "たいやき",
+      "romaji": ["taiyaki"],
+      "meaningsZh": ["鲷鱼烧"],
+      "pos": "noun",
+      "tags": ["food", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-taiyaki-1",
+          "ja": "メニューにたい焼きがあった。",
+          "kana": "メニューにたいやきがあった。",
+          "zh": "菜单上有鲷鱼烧。",
+          "targetSurface": "たい焼き",
+          "targetKana": "たいやき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-takoyaki",
+      "type": "word",
+      "surface": "たこ焼き",
+      "kana": "たこやき",
+      "romaji": ["takoyaki"],
+      "meaningsZh": ["章鱼烧"],
+      "pos": "noun",
+      "tags": ["food", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-takoyaki-1",
+          "ja": "ランチにたこ焼きを頼んだ。",
+          "kana": "ランチにたこやきをたのんだ。",
+          "zh": "午餐点了章鱼烧。",
+          "targetSurface": "たこ焼き",
+          "targetKana": "たこやき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tansansui",
+      "type": "word",
+      "surface": "炭酸水",
+      "kana": "たんさんすい",
+      "romaji": ["tansansui"],
+      "meaningsZh": ["苏打水"],
+      "pos": "noun",
+      "tags": ["drink"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tansansui-1",
+          "ja": "毎朝炭酸水を一杯飲む。",
+          "kana": "まいあさたんさんすいをいっぱいのむ。",
+          "zh": "每天早上喝一杯苏打水。",
+          "targetSurface": "炭酸水",
+          "targetKana": "たんさんすい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-teeburuseki",
+      "type": "word",
+      "surface": "テーブル席",
+      "kana": "てーぶるせき",
+      "romaji": ["teeburuseki"],
+      "meaningsZh": ["桌席"],
+      "pos": "noun",
+      "tags": ["restaurant", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-teeburuseki-1",
+          "ja": "ランチにテーブル席を頼んだ。",
+          "kana": "ランチにてーぶるせきをたのんだ。",
+          "zh": "午餐点了桌席。",
+          "targetSurface": "テーブル席",
+          "targetKana": "てーぶるせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-teikuauto",
+      "type": "word",
+      "surface": "テイクアウト",
+      "kana": "テイクアウト",
+      "romaji": ["teikuauto"],
+      "meaningsZh": ["外带"],
+      "pos": "noun",
+      "tags": ["restaurant", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-teikuauto-1",
+          "ja": "家でテイクアウトを作ってみた。",
+          "kana": "いえでていくあうとをつくってみた。",
+          "zh": "在家试做了外带。",
+          "targetSurface": "テイクアウト",
+          "targetKana": "ていくあうと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-teishoku",
+      "type": "word",
+      "surface": "定食",
+      "kana": "ていしょく",
+      "romaji": ["teishoku"],
+      "meaningsZh": ["套餐"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-teishoku-1",
+          "ja": "ランチに定食を頼んだ。",
+          "kana": "ランチにていしょくをたのんだ。",
+          "zh": "午餐点了套餐。",
+          "targetSurface": "定食",
+          "targetKana": "ていしょく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tennai",
+      "type": "word",
+      "surface": "店内",
+      "kana": "てんない",
+      "romaji": ["tennai"],
+      "meaningsZh": ["店内"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-tennai-1",
+          "ja": "メニューに店内があった。",
+          "kana": "メニューにてんないがあった。",
+          "zh": "菜单上有店内。",
+          "targetSurface": "店内",
+          "targetKana": "てんない"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tenpura",
+      "type": "word",
+      "surface": "天ぷら",
+      "kana": "てんぷら",
+      "romaji": ["tenpura"],
+      "meaningsZh": ["天妇罗"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tenpura-1",
+          "ja": "天ぷらが一番好きだ。",
+          "kana": "てんぷらがいちばんすきだ。",
+          "zh": "天妇罗最好吃。",
+          "targetSurface": "天ぷら",
+          "targetKana": "てんぷら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-torizara",
+      "type": "word",
+      "surface": "取り皿",
+      "kana": "とりざら",
+      "romaji": ["torizara"],
+      "meaningsZh": ["分食小盘"],
+      "pos": "noun",
+      "tags": ["tableware"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-torizara-1",
+          "ja": "取り皿を洗って棚にしまう。",
+          "kana": "とりざらをあらってたなにしまう。",
+          "zh": "把分食小盘洗好放回橱柜。",
+          "targetSurface": "取り皿",
+          "targetKana": "とりざら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tsukemono",
+      "type": "word",
+      "surface": "漬物",
+      "kana": "つけもの",
+      "romaji": ["tsukemono"],
+      "meaningsZh": ["腌菜"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsukemono-1",
+          "ja": "漬物が一番好きだ。",
+          "kana": "つけものがいちばんすきだ。",
+          "zh": "腌菜最好吃。",
+          "targetSurface": "漬物",
+          "targetKana": "つけもの"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-usuaji",
+      "type": "word",
+      "surface": "薄味",
+      "kana": "うすあじ",
+      "romaji": ["usuaji"],
+      "meaningsZh": ["清淡口味"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-usuaji-1",
+          "ja": "メニューに薄味があった。",
+          "kana": "メニューにうすあじがあった。",
+          "zh": "菜单上有清淡口味。",
+          "targetSurface": "薄味",
+          "targetKana": "うすあじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-uuroncha",
+      "type": "word",
+      "surface": "烏龍茶",
+      "kana": "うーろんちゃ",
+      "romaji": ["uuroncha"],
+      "meaningsZh": ["乌龙茶"],
+      "pos": "noun",
+      "tags": ["drink", "katakana", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-uuroncha-1",
+          "ja": "毎朝烏龍茶を一杯飲む。",
+          "kana": "まいあさうーろんちゃをいっぱいのむ。",
+          "zh": "每天早上喝一杯乌龙茶。",
+          "targetSurface": "烏龍茶",
+          "targetKana": "うーろんちゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-wagashi",
+      "type": "word",
+      "surface": "和菓子",
+      "kana": "わがし",
+      "romaji": ["wagashi"],
+      "meaningsZh": ["日式点心"],
+      "pos": "noun",
+      "tags": ["food", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-wagashi-1",
+          "ja": "メニューに和菓子があった。",
+          "kana": "メニューにわがしがあった。",
+          "zh": "菜单上有日式点心。",
+          "targetSurface": "和菓子",
+          "targetKana": "わがし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-waribashi",
+      "type": "word",
+      "surface": "割り箸",
+      "kana": "わりばし",
+      "romaji": ["waribashi"],
+      "meaningsZh": ["一次性筷子"],
+      "pos": "noun",
+      "tags": ["tableware"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-waribashi-1",
+          "ja": "食卓に割り箸を並べる。",
+          "kana": "しょくたくにわりばしをならべる。",
+          "zh": "把一次性筷子摆到餐桌上。",
+          "targetSurface": "割り箸",
+          "targetKana": "わりばし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-wasabi",
+      "type": "word",
+      "surface": "わさび",
+      "kana": "わさび",
+      "romaji": ["wasabi"],
+      "meaningsZh": ["芥末"],
+      "pos": "noun",
+      "tags": ["seasoning"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-wasabi-1",
+          "ja": "料理にわさびを加える。",
+          "kana": "りょうりにわさびをくわえる。",
+          "zh": "在菜里加芥末。",
+          "targetSurface": "わさび",
+          "targetKana": "わさび"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yakiniku",
+      "type": "word",
+      "surface": "焼肉",
+      "kana": "やきにく",
+      "romaji": ["yakiniku"],
+      "meaningsZh": ["烤肉"],
+      "pos": "noun",
+      "tags": ["restaurant", "food"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-yakiniku-1",
+          "ja": "メニューに焼肉があった。",
+          "kana": "メニューにやきにくがあった。",
+          "zh": "菜单上有烤肉。",
+          "targetSurface": "焼肉",
+          "targetKana": "やきにく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yakinikuya",
+      "type": "word",
+      "surface": "焼肉屋",
+      "kana": "やきにくや",
+      "romaji": ["yakinikuya"],
+      "meaningsZh": ["烤肉店"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-yakinikuya-1",
+          "ja": "メニューに焼肉屋があった。",
+          "kana": "メニューにやきにくやがあった。",
+          "zh": "菜单上有烤肉店。",
+          "targetSurface": "焼肉屋",
+          "targetKana": "やきにくや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yakisoba",
+      "type": "word",
+      "surface": "焼きそば",
+      "kana": "やきそば",
+      "romaji": ["yakisoba"],
+      "meaningsZh": ["炒面"],
+      "pos": "noun",
+      "tags": ["food", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yakisoba-1",
+          "ja": "メニューに焼きそばがあった。",
+          "kana": "メニューにやきそばがあった。",
+          "zh": "菜单上有炒面。",
+          "targetSurface": "焼きそば",
+          "targetKana": "やきそば"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yakitori",
+      "type": "word",
+      "surface": "焼き鳥",
+      "kana": "やきとり",
+      "romaji": ["yakitori"],
+      "meaningsZh": ["烤鸡串"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yakitori-1",
+          "ja": "焼き鳥が一番好きだ。",
+          "kana": "やきとりがいちばんすきだ。",
+          "zh": "烤鸡串最好吃。",
+          "targetSurface": "焼き鳥",
+          "targetKana": "やきとり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yooguruto",
+      "type": "word",
+      "surface": "ヨーグルト",
+      "kana": "ヨーグルト",
+      "romaji": ["yooguruto"],
+      "meaningsZh": ["酸奶"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-yooguruto-1",
+          "ja": "ランチにヨーグルトを頼んだ。",
+          "kana": "ランチによーぐるとをたのんだ。",
+          "zh": "午餐点了酸奶。",
+          "targetSurface": "ヨーグルト",
+          "targetKana": "よーぐると"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-yoyakushiteimasu",
+      "type": "word",
+      "surface": "予約しています",
+      "kana": "よやくしています",
+      "romaji": ["yoyakushiteimasu"],
+      "meaningsZh": ["已经预约了"],
+      "pos": "expression",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-yoyakushiteimasu-1",
+          "ja": "七時から二名で予約しています。",
+          "kana": "しちじからにめいでよやくしています。",
+          "zh": "预约了七点两位。",
+          "targetSurface": "予約しています",
+          "targetKana": "よやくしています"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yuushoku",
+      "type": "word",
+      "surface": "夕食",
+      "kana": "ゆうしょく",
+      "romaji": ["yuushoku", "yuusyoku"],
+      "meaningsZh": ["晚餐"],
+      "pos": "noun",
+      "tags": ["food", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-yuushoku-1",
+          "ja": "メニューに夕食があった。",
+          "kana": "メニューにゆうしょくがあった。",
+          "zh": "菜单上有晚餐。",
+          "targetSurface": "夕食",
+          "targetKana": "ゆうしょく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-aisu",
+      "type": "word",
+      "surface": "アイス",
+      "kana": "アイス",
+      "romaji": ["aisu"],
+      "meaningsZh": ["冰淇淋"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-aisu-1",
+          "ja": "メニューにアイスがあった。",
+          "kana": "メニューにあいすがあった。",
+          "zh": "菜单上有冰淇淋。",
+          "targetSurface": "アイス",
+          "targetKana": "あいす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-amai",
+      "type": "word",
+      "surface": "甘い",
+      "kana": "あまい",
+      "romaji": ["amai"],
+      "meaningsZh": ["甜"],
+      "pos": "adjective",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-amai-1",
+          "ja": "このケーキは甘い。",
+          "kana": "このケーキはあまい。",
+          "zh": "这蛋糕甜。",
+          "targetSurface": "甘い",
+          "targetKana": "あまい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-banana",
+      "type": "word",
+      "surface": "バナナ",
+      "kana": "バナナ",
+      "romaji": ["banana"],
+      "meaningsZh": ["香蕉"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-banana-1",
+          "ja": "バナナは安くて栄養がある。",
+          "kana": "バナナはやすくてえいようがある。",
+          "zh": "香蕉便宜又有营养。",
+          "targetSurface": "バナナ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-bataa",
+      "type": "word",
+      "surface": "バター",
+      "kana": "バター",
+      "romaji": ["bataa"],
+      "meaningsZh": ["黄油"],
+      "pos": "noun",
+      "tags": ["seasoning", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-bataa-1",
+          "ja": "料理にバターを加える。",
+          "kana": "りょうりにばたーをくわえる。",
+          "zh": "在菜里加黄油。",
+          "targetSurface": "バター",
+          "targetKana": "ばたー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-bentou",
+      "type": "word",
+      "surface": "弁当",
+      "kana": "べんとう",
+      "romaji": ["bentou"],
+      "meaningsZh": ["便当"],
+      "pos": "noun",
+      "tags": ["food", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-bentou-1",
+          "ja": "家で弁当を作ってみた。",
+          "kana": "いえでべんとうをつくってみた。",
+          "zh": "在家试做了便当。",
+          "targetSurface": "弁当",
+          "targetKana": "べんとう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-butaniku",
+      "type": "word",
+      "surface": "豚肉",
+      "kana": "ぶたにく",
+      "romaji": ["butaniku"],
+      "meaningsZh": ["猪肉"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-butaniku-1",
+          "ja": "メニューに豚肉があった。",
+          "kana": "メニューにぶたにくがあった。",
+          "zh": "菜单上有猪肉。",
+          "targetSurface": "豚肉",
+          "targetKana": "ぶたにく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-chiizu",
+      "type": "word",
+      "surface": "チーズ",
+      "kana": "チーズ",
+      "romaji": ["chiizu", "tiizu"],
+      "meaningsZh": ["奶酪"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-chiizu-1",
+          "ja": "チーズが一番好きだ。",
+          "kana": "ちーずがいちばんすきだ。",
+          "zh": "奶酪最好吃。",
+          "targetSurface": "チーズ",
+          "targetKana": "ちーず"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-chokoreeto",
+      "type": "word",
+      "surface": "チョコレート",
+      "kana": "チョコレート",
+      "romaji": ["chokoreeto", "tyokoreeto"],
+      "meaningsZh": ["巧克力"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel", "youon"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-chokoreeto-1",
+          "ja": "チョコレートが一番好きだ。",
+          "kana": "ちょこれーとがいちばんすきだ。",
+          "zh": "巧克力最好吃。",
+          "targetSurface": "チョコレート",
+          "targetKana": "ちょこれーと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-chuumon",
+      "type": "word",
+      "surface": "注文",
+      "kana": "ちゅうもん",
+      "romaji": ["chuumon", "tyuumon"],
+      "meaningsZh": ["点单"],
+      "pos": "noun",
+      "tags": ["restaurant", "long-vowel", "youon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-chuumon-1",
+          "ja": "メニューに注文があった。",
+          "kana": "メニューにちゅうもんがあった。",
+          "zh": "菜单上有点单。",
+          "targetSurface": "注文",
+          "targetKana": "ちゅうもん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-daikon",
+      "type": "word",
+      "surface": "大根",
+      "kana": "だいこん",
+      "romaji": ["daikon"],
+      "meaningsZh": ["白萝卜"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-daikon-1",
+          "ja": "大根が一番好きだ。",
+          "kana": "だいこんがいちばんすきだ。",
+          "zh": "白萝卜最好吃。",
+          "targetSurface": "大根",
+          "targetKana": "だいこん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-fooku",
+      "type": "word",
+      "surface": "フォーク",
+      "kana": "フォーク",
+      "romaji": ["fooku"],
+      "meaningsZh": ["叉子"],
+      "pos": "noun",
+      "tags": ["tableware", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-fooku-1",
+          "ja": "フォークを洗って棚にしまう。",
+          "kana": "ふぉーくをあらってたなにしまう。",
+          "zh": "把叉子洗好放回橱柜。",
+          "targetSurface": "フォーク",
+          "targetKana": "ふぉーく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-gochisousamadeshita",
+      "type": "word",
+      "surface": "ごちそうさまでした",
+      "kana": "ごちそうさまでした",
+      "romaji": ["gochisousamadeshita"],
+      "meaningsZh": ["多谢款待"],
+      "pos": "expression",
+      "tags": ["restaurant", "greeting"],
+      "skillTags": ["kana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-gochisousamadeshita-1",
+          "ja": "おいしかったです、ごちそうさまでした。",
+          "kana": "おいしかったです、ごちそうさまでした。",
+          "zh": "很好吃，多谢款待（餐后用语）。",
+          "targetSurface": "ごちそうさまでした",
+          "targetKana": "ごちそうさまでした"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-gohan",
+      "type": "word",
+      "surface": "ご飯",
+      "kana": "ごはん",
+      "romaji": ["gohan"],
+      "meaningsZh": ["米饭", "饭"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-gohan-1",
+          "ja": "毎日、お米のご飯を食べる。",
+          "kana": "まいにち、おこめのごはんをたべる。",
+          "zh": "每天吃米饭。",
+          "targetSurface": "ご飯",
+          "targetKana": "ごはん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-gyuuniku",
+      "type": "word",
+      "surface": "牛肉",
+      "kana": "ぎゅうにく",
+      "romaji": ["gyuuniku"],
+      "meaningsZh": ["牛肉"],
+      "pos": "noun",
+      "tags": ["food", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-gyuuniku-1",
+          "ja": "家で牛肉を作ってみた。",
+          "kana": "いえでぎゅうにくをつくってみた。",
+          "zh": "在家试做了牛肉。",
+          "targetSurface": "牛肉",
+          "targetKana": "ぎゅうにく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-gyuunyuu",
+      "type": "word",
+      "surface": "牛乳",
+      "kana": "ぎゅうにゅう",
+      "romaji": ["gyuunyuu"],
+      "meaningsZh": ["牛奶"],
+      "pos": "noun",
+      "tags": ["drink", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-gyuunyuu-1",
+          "ja": "毎朝、牛乳を一杯飲む。",
+          "kana": "まいあさ、ぎゅうにゅうをいっぱいのむ。",
+          "zh": "每天早上喝一杯牛奶。",
+          "targetSurface": "牛乳",
+          "targetKana": "ぎゅうにゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-hamu",
+      "type": "word",
+      "surface": "ハム",
+      "kana": "ハム",
+      "romaji": ["hamu"],
+      "meaningsZh": ["火腿"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hamu-1",
+          "ja": "メニューにハムがあった。",
+          "kana": "メニューにはむがあった。",
+          "zh": "菜单上有火腿。",
+          "targetSurface": "ハム",
+          "targetKana": "はむ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hanbaagaa",
+      "type": "word",
+      "surface": "ハンバーガー",
+      "kana": "ハンバーガー",
+      "romaji": ["hanbaagaa"],
+      "meaningsZh": ["汉堡"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hanbaagaa-1",
+          "ja": "ランチにハンバーガーを頼んだ。",
+          "kana": "ランチにはんばーがーをたのんだ。",
+          "zh": "午餐点了汉堡。",
+          "targetSurface": "ハンバーガー",
+          "targetKana": "はんばーがー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-hanbun",
+      "type": "word",
+      "surface": "半分",
+      "kana": "はんぶん",
+      "romaji": ["hanbun"],
+      "meaningsZh": ["一半"],
+      "pos": "noun",
+      "tags": ["quantity"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hanbun-1",
+          "ja": "半分が一番好きだ。",
+          "kana": "はんぶんがいちばんすきだ。",
+          "zh": "一半最好吃。",
+          "targetSurface": "半分",
+          "targetKana": "はんぶん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ichigo",
+      "type": "word",
+      "surface": "いちご",
+      "kana": "いちご",
+      "romaji": ["ichigo", "itigo"],
+      "meaningsZh": ["草莓"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ichigo-1",
+          "ja": "家でいちごを作ってみた。",
+          "kana": "いえでいちごをつくってみた。",
+          "zh": "在家试做了草莓。",
+          "targetSurface": "いちご",
+          "targetKana": "いちご"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ichimai",
+      "type": "word",
+      "surface": "一枚",
+      "kana": "いちまい",
+      "romaji": ["ichimai", "itimai"],
+      "meaningsZh": ["一张"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ichimai-1",
+          "ja": "チケットを一枚ください。",
+          "kana": "チケットをいちまいください。",
+          "zh": "请给我一张票。",
+          "targetSurface": "一枚",
+          "targetKana": "いちまい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ikko",
+      "type": "word",
+      "surface": "一個",
+      "kana": "いっこ",
+      "romaji": ["ikko"],
+      "meaningsZh": ["一个"],
+      "pos": "numeral",
+      "tags": ["counter", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ikko-1",
+          "ja": "全部で一個あります。",
+          "kana": "ぜんぶでいっこあります。",
+          "zh": "一共有一个。",
+          "targetSurface": "一個",
+          "targetKana": "いっこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-ippai",
+      "type": "word",
+      "surface": "一杯",
+      "kana": "いっぱい",
+      "romaji": ["ippai"],
+      "meaningsZh": ["一杯"],
+      "pos": "numeral",
+      "tags": ["counter", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ippai-1",
+          "ja": "コーヒーを一杯ください。",
+          "kana": "コーヒーをいっぱいください。",
+          "zh": "请给我一杯咖啡。",
+          "targetSurface": "一杯",
+          "targetKana": "いっぱい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-ippon",
+      "type": "word",
+      "surface": "一本",
+      "kana": "いっぽん",
+      "romaji": ["ippon"],
+      "meaningsZh": ["一根", "一瓶(细长)"],
+      "pos": "numeral",
+      "tags": ["counter", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ippon-1",
+          "ja": "ペンを一本ください。",
+          "kana": "ペンをいっぽんください。",
+          "zh": "请给我一支笔。",
+          "targetSurface": "一本",
+          "targetKana": "いっぽん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-itadakimasu",
+      "type": "word",
+      "surface": "いただきます",
+      "kana": "いただきます",
+      "romaji": ["itadakimasu"],
+      "meaningsZh": ["我开动了"],
+      "pos": "expression",
+      "tags": ["restaurant", "greeting"],
+      "skillTags": ["kana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-itadakimasu-1",
+          "ja": "では、いただきます。",
+          "kana": "では、いただきます。",
+          "zh": "那么，我开动了（餐前用语）。",
+          "targetSurface": "いただきます",
+          "targetKana": "いただきます"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-jagaimo",
+      "type": "word",
+      "surface": "じゃがいも",
+      "kana": "じゃがいも",
+      "romaji": ["jagaimo", "zyagaimo"],
+      "meaningsZh": ["土豆"],
+      "pos": "noun",
+      "tags": ["food", "youon"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-jagaimo-1",
+          "ja": "じゃがいもが一番好きだ。",
+          "kana": "じゃがいもがいちばんすきだ。",
+          "zh": "土豆最好吃。",
+          "targetSurface": "じゃがいも",
+          "targetKana": "じゃがいも"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-juusu",
+      "type": "word",
+      "surface": "ジュース",
+      "kana": "ジュース",
+      "romaji": ["juusu", "zyuusu"],
+      "meaningsZh": ["果汁"],
+      "pos": "noun",
+      "tags": ["drink", "katakana", "long-vowel", "youon"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-juusu-1",
+          "ja": "毎朝ジュースを一杯飲む。",
+          "kana": "まいあさじゅーすをいっぱいのむ。",
+          "zh": "每天早上喝一杯果汁。",
+          "targetSurface": "ジュース",
+          "targetKana": "じゅーす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-karai",
+      "type": "word",
+      "surface": "辛い",
+      "kana": "からい",
+      "romaji": ["karai"],
+      "meaningsZh": ["辣"],
+      "pos": "adjective",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-karai-1",
+          "ja": "インドカレーは辛い。",
+          "kana": "インドカレーはからい。",
+          "zh": "印度咖喱辣。",
+          "targetSurface": "辛い",
+          "targetKana": "からい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-karee",
+      "type": "word",
+      "surface": "カレー",
+      "kana": "カレー",
+      "romaji": ["karee"],
+      "meaningsZh": ["咖喱"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-karee-1",
+          "ja": "辛口のカレーが好きだ。",
+          "kana": "からくちのカレーがすきだ。",
+          "zh": "喜欢辣口咖喱。",
+          "targetSurface": "カレー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-keeki",
+      "type": "word",
+      "surface": "ケーキ",
+      "kana": "ケーキ",
+      "romaji": ["keeki"],
+      "meaningsZh": ["蛋糕"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-keeki-1",
+          "ja": "ランチにケーキを頼んだ。",
+          "kana": "ランチにけーきをたのんだ。",
+          "zh": "午餐点了蛋糕。",
+          "targetSurface": "ケーキ",
+          "targetKana": "けーき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kiru-cut",
+      "type": "word",
+      "surface": "切る",
+      "kana": "きる",
+      "romaji": ["kiru"],
+      "meaningsZh": ["切"],
+      "pos": "verb",
+      "tags": ["cooking"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kiru-cut-1",
+          "ja": "ハサミで紙を切る。",
+          "kana": "ハサミでかみをきる。",
+          "zh": "用剪刀剪纸。",
+          "targetSurface": "切る",
+          "targetKana": "きる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-koohii",
+      "type": "word",
+      "surface": "コーヒー",
+      "kana": "コーヒー",
+      "romaji": ["koohii", "ko-hi-"],
+      "meaningsZh": ["咖啡"],
+      "pos": "noun",
+      "tags": ["daily", "katakana", "long-vowel", "loanword", "drink"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-koohii-1",
+          "ja": "朝はブラックコーヒーを飲む。",
+          "kana": "あさはブラックコーヒーをのむ。",
+          "zh": "早上喝黑咖啡。",
+          "targetSurface": "コーヒー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-koppu",
+      "type": "word",
+      "surface": "コップ",
+      "kana": "コップ",
+      "romaji": ["koppu"],
+      "meaningsZh": ["杯子"],
+      "pos": "noun",
+      "tags": ["tableware", "katakana", "sokuon"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-koppu-1",
+          "ja": "食卓にコップを並べる。",
+          "kana": "しょくたくにこっぷをならべる。",
+          "zh": "把杯子摆到餐桌上。",
+          "targetSurface": "コップ",
+          "targetKana": "こっぷ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-korewokudasai",
+      "type": "word",
+      "surface": "これをください",
+      "kana": "これをください",
+      "romaji": ["korewokudasai"],
+      "meaningsZh": ["请给我这个"],
+      "pos": "expression",
+      "tags": ["restaurant", "service"],
+      "skillTags": ["kana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-korewokudasai-1",
+          "ja": "すみません、これをください。",
+          "kana": "すみません、これをください。",
+          "zh": "麻烦了，请给我这个（顾客用）。",
+          "targetSurface": "これをください",
+          "targetKana": "これをください"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-koucha",
+      "type": "word",
+      "surface": "紅茶",
+      "kana": "こうちゃ",
+      "romaji": ["koucha", "koutya"],
+      "meaningsZh": ["红茶"],
+      "pos": "noun",
+      "tags": ["drink", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-koucha-1",
+          "ja": "冷たい紅茶を一杯ください。",
+          "kana": "つめたいこうちゃをいっぱいください。",
+          "zh": "请来一杯凉的红茶。",
+          "targetSurface": "紅茶",
+          "targetKana": "こうちゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kudamono",
+      "type": "word",
+      "surface": "果物",
+      "kana": "くだもの",
+      "romaji": ["kudamono"],
+      "meaningsZh": ["水果"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kudamono-1",
+          "ja": "デザートに果物を出す。",
+          "kana": "デザートにくだものをだす。",
+          "zh": "甜点上水果。",
+          "targetSurface": "果物",
+          "targetKana": "くだもの"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kyabetsu",
+      "type": "word",
+      "surface": "キャベツ",
+      "kana": "キャベツ",
+      "romaji": ["kyabetsu", "kyabetu"],
+      "meaningsZh": ["卷心菜"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "youon"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kyabetsu-1",
+          "ja": "キャベツが一番好きだ。",
+          "kana": "きゃべつがいちばんすきだ。",
+          "zh": "卷心菜最好吃。",
+          "targetSurface": "キャベツ",
+          "targetKana": "きゃべつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mazui",
+      "type": "word",
+      "surface": "まずい",
+      "kana": "まずい",
+      "romaji": ["mazui"],
+      "meaningsZh": ["难吃"],
+      "pos": "adjective",
+      "tags": ["restaurant"],
+      "skillTags": ["kana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-mazui-1",
+          "ja": "このお茶はまずい。",
+          "kana": "このおちゃはまずい。",
+          "zh": "这茶难喝。",
+          "targetSurface": "まずい",
+          "targetKana": "まずい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-menyuu",
+      "type": "word",
+      "surface": "メニュー",
+      "kana": "メニュー",
+      "romaji": ["menyuu"],
+      "meaningsZh": ["菜单"],
+      "pos": "noun",
+      "tags": ["restaurant", "katakana", "long-vowel", "youon"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-menyuu-1",
+          "ja": "メニューが一番好きだ。",
+          "kana": "めにゅーがいちばんすきだ。",
+          "zh": "菜单最好吃。",
+          "targetSurface": "メニュー",
+          "targetKana": "めにゅー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-mikan",
+      "type": "word",
+      "surface": "みかん",
+      "kana": "みかん",
+      "romaji": ["mikan"],
+      "meaningsZh": ["橘子"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mikan-1",
+          "ja": "家でみかんを作ってみた。",
+          "kana": "いえでみかんをつくってみた。",
+          "zh": "在家试做了橘子。",
+          "targetSurface": "みかん",
+          "targetKana": "みかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mizu",
+      "type": "word",
+      "surface": "水",
+      "kana": "みず",
+      "romaji": ["mizu"],
+      "meaningsZh": ["水"],
+      "pos": "noun",
+      "tags": ["drink"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mizu-1",
+          "ja": "コップに水を注ぐ。",
+          "kana": "コップにみずをそそぐ。",
+          "zh": "往杯子里倒水。",
+          "targetSurface": "水",
+          "targetKana": "みず"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nigate",
+      "type": "word",
+      "surface": "苦手",
+      "kana": "にがて",
+      "romaji": ["nigate"],
+      "meaningsZh": ["不擅长", "不爱吃"],
+      "pos": "adjective",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-nigate-1",
+          "ja": "人前で話すのが苦手だ。",
+          "kana": "ひとまえではなすのがにがてだ。",
+          "zh": "不擅长在人前讲话。",
+          "targetSurface": "苦手",
+          "targetKana": "にがて"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-niku",
+      "type": "word",
+      "surface": "肉",
+      "kana": "にく",
+      "romaji": ["niku"],
+      "meaningsZh": ["肉"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-niku-1",
+          "ja": "野菜と肉を一緒に炒める。",
+          "kana": "やさいとにくをいっしょにいためる。",
+          "zh": "蔬菜和肉一起炒。",
+          "targetSurface": "肉",
+          "targetKana": "にく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nimeidesu",
+      "type": "word",
+      "surface": "二名です",
+      "kana": "にめいです",
+      "romaji": ["nimeidesu"],
+      "meaningsZh": ["两位"],
+      "pos": "expression",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-nimeidesu-1",
+          "ja": "二名です、お願いします。",
+          "kana": "にめいです、おねがいします。",
+          "zh": "两位，麻烦了。",
+          "targetSurface": "二名です",
+          "targetKana": "にめいです"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ninjin",
+      "type": "word",
+      "surface": "にんじん",
+      "kana": "にんじん",
+      "romaji": ["ninjin"],
+      "meaningsZh": ["胡萝卜"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ninjin-1",
+          "ja": "にんじんが一番好きだ。",
+          "kana": "にんじんがいちばんすきだ。",
+          "zh": "胡萝卜最好吃。",
+          "targetSurface": "にんじん",
+          "targetKana": "にんじん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nomimono",
+      "type": "word",
+      "surface": "飲み物",
+      "kana": "のみもの",
+      "romaji": ["nomimono"],
+      "meaningsZh": ["饮料"],
+      "pos": "noun",
+      "tags": ["drink"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nomimono-1",
+          "ja": "食事と一緒に飲み物を頼んだ。",
+          "kana": "しょくじといっしょにのみものをたのんだ。",
+          "zh": "用餐时点了饮料。",
+          "targetSurface": "飲み物",
+          "targetKana": "のみもの"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ocha",
+      "type": "word",
+      "surface": "お茶",
+      "kana": "おちゃ",
+      "romaji": ["ocha", "otya"],
+      "meaningsZh": ["茶"],
+      "pos": "noun",
+      "tags": ["drink", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ocha-1",
+          "ja": "食事と一緒にお茶を頼んだ。",
+          "kana": "しょくじといっしょにおちゃをたのんだ。",
+          "zh": "用餐时点了茶。",
+          "targetSurface": "お茶",
+          "targetKana": "おちゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ohashi",
+      "type": "word",
+      "surface": "お箸",
+      "kana": "おはし",
+      "romaji": ["ohashi", "ohasi"],
+      "meaningsZh": ["筷子"],
+      "pos": "noun",
+      "tags": ["tableware"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ohashi-1",
+          "ja": "お箸を洗って棚にしまう。",
+          "kana": "おはしをあらってたなにしまう。",
+          "zh": "把筷子洗好放回橱柜。",
+          "targetSurface": "お箸",
+          "targetKana": "おはし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-oishii",
+      "type": "word",
+      "surface": "おいしい",
+      "kana": "おいしい",
+      "romaji": ["oishii", "oisii"],
+      "meaningsZh": ["好吃"],
+      "pos": "adjective",
+      "tags": ["restaurant", "long-vowel"],
+      "skillTags": [
+        "kana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-oishii-1",
+          "ja": "今日はおいしいです。",
+          "kana": "きょうはおいしいです。",
+          "zh": "今天好吃。",
+          "targetSurface": "おいしい",
+          "targetKana": "おいしい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-okashi",
+      "type": "word",
+      "surface": "お菓子",
+      "kana": "おかし",
+      "romaji": ["okashi", "okasi"],
+      "meaningsZh": ["点心", "糖果"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-okashi-1",
+          "ja": "ランチにお菓子を頼んだ。",
+          "kana": "ランチにおかしをたのんだ。",
+          "zh": "午餐点了点心。",
+          "targetSurface": "お菓子",
+          "targetKana": "おかし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-omiyage",
+      "type": "word",
+      "surface": "お土産",
+      "kana": "おみやげ",
+      "romaji": ["omiyage"],
+      "meaningsZh": ["礼物", "特产"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-omiyage-1",
+          "ja": "ランチにお土産を頼んだ。",
+          "kana": "ランチにおみやげをたのんだ。",
+          "zh": "午餐点了礼物。",
+          "targetSurface": "お土産",
+          "targetKana": "おみやげ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-onigiri",
+      "type": "word",
+      "surface": "おにぎり",
+      "kana": "おにぎり",
+      "romaji": ["onigiri"],
+      "meaningsZh": ["饭团"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-onigiri-1",
+          "ja": "コンビニでおにぎりを買った。",
+          "kana": "コンビニでおにぎりをかった。",
+          "zh": "在便利店买了饭团。",
+          "targetSurface": "おにぎり",
+          "targetKana": "おにぎり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-osara",
+      "type": "word",
+      "surface": "お皿",
+      "kana": "おさら",
+      "romaji": ["osara"],
+      "meaningsZh": ["盘子"],
+      "pos": "noun",
+      "tags": ["tableware"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-osara-1",
+          "ja": "お皿を洗って棚にしまう。",
+          "kana": "おさらをあらってたなにしまう。",
+          "zh": "把盘子洗好放回橱柜。",
+          "targetSurface": "お皿",
+          "targetKana": "おさら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-piza",
+      "type": "word",
+      "surface": "ピザ",
+      "kana": "ピザ",
+      "romaji": ["piza"],
+      "meaningsZh": ["披萨"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-piza-1",
+          "ja": "ピザが一番好きだ。",
+          "kana": "ぴざがいちばんすきだ。",
+          "zh": "披萨最好吃。",
+          "targetSurface": "ピザ",
+          "targetKana": "ぴざ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-raamen",
+      "type": "word",
+      "surface": "ラーメン",
+      "kana": "ラーメン",
+      "romaji": ["raamen"],
+      "meaningsZh": ["拉面"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-raamen-1",
+          "ja": "夜中にラーメンを食べてしまった。",
+          "kana": "よなかにラーメンをたべてしまった。",
+          "zh": "半夜吃了拉面。",
+          "targetSurface": "ラーメン"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-resutoran",
+      "type": "word",
+      "surface": "レストラン",
+      "kana": "レストラン",
+      "romaji": ["resutoran"],
+      "meaningsZh": ["餐厅"],
+      "pos": "noun",
+      "tags": ["restaurant", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-resutoran-1",
+          "ja": "誕生日にレストランで食事した。",
+          "kana": "たんじょうびにレストランでしょくじした。",
+          "zh": "生日时在餐厅吃饭。",
+          "targetSurface": "レストラン"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ringo",
+      "type": "word",
+      "surface": "りんご",
+      "kana": "りんご",
+      "romaji": ["ringo"],
+      "meaningsZh": ["苹果"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ringo-1",
+          "ja": "りんごを丸かじりする。",
+          "kana": "りんごをまるかじりする。",
+          "zh": "整个啃苹果。",
+          "targetSurface": "りんご",
+          "targetKana": "りんご"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sakana",
+      "type": "word",
+      "surface": "魚",
+      "kana": "さかな",
+      "romaji": ["sakana"],
+      "meaningsZh": ["鱼"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sakana-1",
+          "ja": "夕食は焼き魚にした。",
+          "kana": "ゆうしょくはやきざかなにした。",
+          "zh": "晚餐做了烤鱼。",
+          "targetSurface": "魚"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sarada",
+      "type": "word",
+      "surface": "サラダ",
+      "kana": "サラダ",
+      "romaji": ["sarada"],
+      "meaningsZh": ["沙拉"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sarada-1",
+          "ja": "ランチにサラダを頼んだ。",
+          "kana": "ランチにさらだをたのんだ。",
+          "zh": "午餐点了沙拉。",
+          "targetSurface": "サラダ",
+          "targetKana": "さらだ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-satou",
+      "type": "word",
+      "surface": "砂糖",
+      "kana": "さとう",
+      "romaji": ["satou"],
+      "meaningsZh": ["糖"],
+      "pos": "noun",
+      "tags": ["seasoning", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-satou-1",
+          "ja": "コーヒーに砂糖を入れる。",
+          "kana": "コーヒーにさとうをいれる。",
+          "zh": "咖啡里加糖。",
+          "targetSurface": "砂糖",
+          "targetKana": "さとう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-shio",
+      "type": "word",
+      "surface": "塩",
+      "kana": "しお",
+      "romaji": ["shio", "sio"],
+      "meaningsZh": ["盐"],
+      "pos": "noun",
+      "tags": ["seasoning"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shio-1",
+          "ja": "塩を少し加える。",
+          "kana": "しおをすこしくわえる。",
+          "zh": "加一点盐。",
+          "targetSurface": "塩",
+          "targetKana": "しお"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shokudou",
+      "type": "word",
+      "surface": "食堂",
+      "kana": "しょくどう",
+      "romaji": ["shokudou"],
+      "meaningsZh": ["食堂"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shokudou-1",
+          "ja": "メニューに食堂があった。",
+          "kana": "メニューにしょくどうがあった。",
+          "zh": "菜单上有食堂。",
+          "targetSurface": "食堂",
+          "targetKana": "しょくどう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shouyu",
+      "type": "word",
+      "surface": "醤油",
+      "kana": "しょうゆ",
+      "romaji": ["shouyu", "syouyu"],
+      "meaningsZh": ["酱油"],
+      "pos": "noun",
+      "tags": ["seasoning", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shouyu-1",
+          "ja": "お刺身に醤油をつける。",
+          "kana": "おさしみにしょうゆをつける。",
+          "zh": "刺身蘸酱油。",
+          "targetSurface": "醤油",
+          "targetKana": "しょうゆ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-soba",
+      "type": "word",
+      "surface": "そば",
+      "kana": "そば",
+      "romaji": ["soba"],
+      "meaningsZh": ["荞麦面"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-soba-1",
+          "ja": "年越しに天ぷらそばを食べる。",
+          "kana": "としこしにてんぷらそばをたべる。",
+          "zh": "跨年吃天妇罗荞麦面。",
+          "targetSurface": "そば",
+          "targetKana": "そば"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-soosu",
+      "type": "word",
+      "surface": "ソース",
+      "kana": "ソース",
+      "romaji": ["soosu"],
+      "meaningsZh": ["酱汁"],
+      "pos": "noun",
+      "tags": ["seasoning", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-soosu-1",
+          "ja": "スーパーでソースを選ぶ。",
+          "kana": "スーパーでそーすをえらぶ。",
+          "zh": "在超市挑酱汁。",
+          "targetSurface": "ソース",
+          "targetKana": "そーす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-supuun",
+      "type": "word",
+      "surface": "スプーン",
+      "kana": "スプーン",
+      "romaji": ["supuun"],
+      "meaningsZh": ["勺子"],
+      "pos": "noun",
+      "tags": ["tableware", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-supuun-1",
+          "ja": "スプーンを洗って棚にしまう。",
+          "kana": "すぷーんをあらってたなにしまう。",
+          "zh": "把勺子洗好放回橱柜。",
+          "targetSurface": "スプーン",
+          "targetKana": "すぷーん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-sushi",
+      "type": "word",
+      "surface": "寿司",
+      "kana": "すし",
+      "romaji": ["sushi", "susi"],
+      "meaningsZh": ["寿司"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sushi-1",
+          "ja": "回転寿司に行ってみたい。",
+          "kana": "かいてんずしにいってみたい。",
+          "zh": "想去看看回转寿司。",
+          "targetSurface": "寿司"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-suupu",
+      "type": "word",
+      "surface": "スープ",
+      "kana": "スープ",
+      "romaji": ["suupu"],
+      "meaningsZh": ["汤"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-suupu-1",
+          "ja": "メニューにスープがあった。",
+          "kana": "メニューにすーぷがあった。",
+          "zh": "菜单上有汤。",
+          "targetSurface": "スープ",
+          "targetKana": "すーぷ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-tabemono",
+      "type": "word",
+      "surface": "食べ物",
+      "kana": "たべもの",
+      "romaji": ["tabemono"],
+      "meaningsZh": ["食物"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tabemono-1",
+          "ja": "メニューに食べ物があった。",
+          "kana": "メニューにたべものがあった。",
+          "zh": "菜单上有食物。",
+          "targetSurface": "食べ物",
+          "targetKana": "たべもの"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tamago",
+      "type": "word",
+      "surface": "卵",
+      "kana": "たまご",
+      "romaji": ["tamago"],
+      "meaningsZh": ["鸡蛋"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tamago-1",
+          "ja": "毎朝、卵焼きを作る。",
+          "kana": "まいあさ、たまごやきをつくる。",
+          "zh": "每天早上做煎蛋。",
+          "targetSurface": "卵",
+          "targetKana": "たまご"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tamanegi",
+      "type": "word",
+      "surface": "玉ねぎ",
+      "kana": "たまねぎ",
+      "romaji": ["tamanegi"],
+      "meaningsZh": ["洋葱"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tamanegi-1",
+          "ja": "ランチに玉ねぎを頼んだ。",
+          "kana": "ランチにたまねぎをたのんだ。",
+          "zh": "午餐点了洋葱。",
+          "targetSurface": "玉ねぎ",
+          "targetKana": "たまねぎ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tomato",
+      "type": "word",
+      "surface": "トマト",
+      "kana": "トマト",
+      "romaji": ["tomato"],
+      "meaningsZh": ["番茄"],
+      "pos": "noun",
+      "tags": ["food", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tomato-1",
+          "ja": "トマトが一番好きだ。",
+          "kana": "とまとがいちばんすきだ。",
+          "zh": "番茄最好吃。",
+          "targetSurface": "トマト",
+          "targetKana": "とまと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-toriniku",
+      "type": "word",
+      "surface": "鶏肉",
+      "kana": "とりにく",
+      "romaji": ["toriniku"],
+      "meaningsZh": ["鸡肉"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-toriniku-1",
+          "ja": "ランチに鶏肉を頼んだ。",
+          "kana": "ランチにとりにくをたのんだ。",
+          "zh": "午餐点了鸡肉。",
+          "targetSurface": "鶏肉",
+          "targetKana": "とりにく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-toufu",
+      "type": "word",
+      "surface": "豆腐",
+      "kana": "とうふ",
+      "romaji": ["toufu"],
+      "meaningsZh": ["豆腐"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-toufu-1",
+          "ja": "メニューに豆腐があった。",
+          "kana": "メニューにとうふがあった。",
+          "zh": "菜单上有豆腐。",
+          "targetSurface": "豆腐",
+          "targetKana": "とうふ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tsumetai",
+      "type": "word",
+      "surface": "冷たい",
+      "kana": "つめたい",
+      "romaji": ["tsumetai"],
+      "meaningsZh": ["冰冷"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsumetai-1",
+          "ja": "今日は冷たいです。",
+          "kana": "きょうはつめたいです。",
+          "zh": "今天冰冷。",
+          "targetSurface": "冷たい",
+          "targetKana": "つめたい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-udon",
+      "type": "word",
+      "surface": "うどん",
+      "kana": "うどん",
+      "romaji": ["udon"],
+      "meaningsZh": ["乌冬面"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-udon-1",
+          "ja": "讃岐うどんは麺が太い。",
+          "kana": "さぬきうどんはめんがふとい。",
+          "zh": "赞岐乌冬面条粗。",
+          "targetSurface": "うどん",
+          "targetKana": "うどん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-wain",
+      "type": "word",
+      "surface": "ワイン",
+      "kana": "ワイン",
+      "romaji": ["wain"],
+      "meaningsZh": ["葡萄酒"],
+      "pos": "noun",
+      "tags": ["drink", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-wain-1",
+          "ja": "冷たいワインを一杯ください。",
+          "kana": "つめたいわいんをいっぱいください。",
+          "zh": "请来一杯凉的葡萄酒。",
+          "targetSurface": "ワイン",
+          "targetKana": "わいん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yaku",
+      "type": "word",
+      "surface": "焼く",
+      "kana": "やく",
+      "romaji": ["yaku"],
+      "meaningsZh": ["烤", "煎"],
+      "pos": "verb",
+      "tags": ["cooking"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yaku-1",
+          "ja": "魚をグリルで焼く。",
+          "kana": "さかなをグリルでやく。",
+          "zh": "用烤架烤鱼。",
+          "targetSurface": "焼く",
+          "targetKana": "やく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yasai",
+      "type": "word",
+      "surface": "野菜",
+      "kana": "やさい",
+      "romaji": ["yasai"],
+      "meaningsZh": ["蔬菜"],
+      "pos": "noun",
+      "tags": ["food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yasai-1",
+          "ja": "野菜をたくさん食べる。",
+          "kana": "やさいをたくさんたべる。",
+          "zh": "多吃蔬菜。",
+          "targetSurface": "野菜",
+          "targetKana": "やさい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yoyaku",
+      "type": "word",
+      "surface": "予約",
+      "kana": "よやく",
+      "romaji": ["yoyaku"],
+      "meaningsZh": ["预约"],
+      "pos": "noun",
+      "tags": ["restaurant"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-yoyaku-1",
+          "ja": "ランチに予約を頼んだ。",
+          "kana": "ランチによやくをたのんだ。",
+          "zh": "午餐点了预约。",
+          "targetSurface": "予約",
+          "targetKana": "よやく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-add-biiru",
+      "type": "word",
+      "surface": "ビール",
+      "kana": "ビール",
+      "romaji": ["biiru"],
+      "meaningsZh": ["啤酒"],
+      "pos": "noun",
+      "tags": ["drink", "katakana", "long-vowel"],
+      "skillTags": ["meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-add-biiru-1",
+          "ja": "生ビールを一杯ください。",
+          "kana": "なまビールをいっぱいください。",
+          "zh": "请来一杯生啤。",
+          "targetSurface": "ビール",
+          "targetKana": "ビール"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-asagohan",
+      "type": "word",
+      "surface": "朝ごはん",
+      "kana": "あさごはん",
+      "romaji": ["asagohan"],
+      "meaningsZh": ["早饭", "早餐"],
+      "pos": "noun",
+      "tags": ["meal", "food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-asagohan-1",
+          "ja": "家で朝ごはんを作ってみた。",
+          "kana": "いえであさごはんをつくってみた。",
+          "zh": "在家试做了早饭。",
+          "targetSurface": "朝ごはん",
+          "targetKana": "あさごはん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-hirugohan",
+      "type": "word",
+      "surface": "昼ごはん",
+      "kana": "ひるごはん",
+      "romaji": ["hirugohan"],
+      "meaningsZh": ["午饭", "午餐"],
+      "pos": "noun",
+      "tags": ["meal", "food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-hirugohan-1",
+          "ja": "昼ごはんが一番好きだ。",
+          "kana": "ひるごはんがいちばんすきだ。",
+          "zh": "午饭最好吃。",
+          "targetSurface": "昼ごはん",
+          "targetKana": "ひるごはん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-bangohan",
+      "type": "word",
+      "surface": "晩ごはん",
+      "kana": "ばんごはん",
+      "romaji": ["bangohan"],
+      "meaningsZh": ["晚饭", "晚餐"],
+      "pos": "noun",
+      "tags": ["meal", "food"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-bangohan-1",
+          "ja": "晩ごはんが一番好きだ。",
+          "kana": "ばんごはんがいちばんすきだ。",
+          "zh": "晚饭最好吃。",
+          "targetSurface": "晩ごはん",
+          "targetKana": "ばんごはん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    }
+  ]
+}

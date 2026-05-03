@@ -34,10 +34,17 @@ import {
 } from '../tauri/invoke';
 
 const FOUNDATION_PACK_IDS = new Set([
-  'n5-basic-mini',
-  'confusables-foundations',
-  'audio-discrim-foundations',
-  'sentences-foundations',
+  'official-phase1-n5-core',
+  'official-phase1-home-household',
+  'official-phase1-transport-travel',
+  'official-phase1-food-dining',
+  'official-phase1-japan-culture-facilities',
+  'official-phase1-shopping-service',
+  'official-phase1-school-work-office',
+  'official-phase1-health-emergency',
+  'official-phase1-digital-communication',
+  'official-phase1-error-lab',
+  'official-phase1-sentences',
 ]);
 
 const STRICT_POLICY: EvaluationStrictness = {

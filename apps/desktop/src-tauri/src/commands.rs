@@ -155,17 +155,67 @@ pub fn list_items(db: State<'_, AppDb>, limit: Option<i64>) -> AppResult<Vec<Dev
 //
 // Embedded at compile time so a packaged build doesn't need the repo on disk. When we move
 // content to a real installer/resource pipeline (Sprint 4+), this will switch to reading from
-// `tauri::path::resource_dir`. v0.8.3 bundles four foundations packs so SpaceBattle / AppleRescue
-// / RiverJump can boot SQLite-driven without manual content:import.
-const SEED_PACK_N5: &str = include_str!("../../../../content/official/n5-basic-mini.json");
-const SEED_PACK_CONFUSABLES: &str =
-    include_str!("../../../../content/official/confusables-foundations.json");
-const SEED_PACK_AUDIO_DISCRIM: &str =
-    include_str!("../../../../content/official/audio-discrim-foundations.json");
+// `tauri::path::resource_dir`. v0.9.0 bundles the phase1 v1.1.0 corpus: 10 word packs + 1
+// sentence pack (1534 word items + 120 sentences total) so every game boots SQLite-driven
+// without manual content:import.
+const SEED_PACK_N5_CORE: &str =
+    include_str!("../../../../content/official/official-phase1-n5-core.json");
+const SEED_PACK_HOME: &str =
+    include_str!("../../../../content/official/official-phase1-home-household.json");
+const SEED_PACK_TRANSPORT: &str =
+    include_str!("../../../../content/official/official-phase1-transport-travel.json");
+const SEED_PACK_FOOD: &str =
+    include_str!("../../../../content/official/official-phase1-food-dining.json");
+const SEED_PACK_CULTURE: &str =
+    include_str!("../../../../content/official/official-phase1-japan-culture-facilities.json");
+const SEED_PACK_SHOPPING: &str =
+    include_str!("../../../../content/official/official-phase1-shopping-service.json");
+const SEED_PACK_SCHOOL_WORK: &str =
+    include_str!("../../../../content/official/official-phase1-school-work-office.json");
+const SEED_PACK_HEALTH: &str =
+    include_str!("../../../../content/official/official-phase1-health-emergency.json");
+const SEED_PACK_DIGITAL: &str =
+    include_str!("../../../../content/official/official-phase1-digital-communication.json");
+const SEED_PACK_ERROR_LAB: &str =
+    include_str!("../../../../content/official/official-phase1-error-lab.json");
 const SEED_PACK_SENTENCES: &str =
-    include_str!("../../../../content/official/sentences-foundations.json");
-const FOUNDATION_PACK_IDS: [&str; 4] = [
+    include_str!("../../../../content/official/official-phase1-sentences.json");
+
+/// Word-shaped packs (regular `PackInput`). Order is the seed order; the first id is reported
+/// back as `primary_pack_id` for the dev-page UI.
+const SEED_WORD_PACK_BLOBS: [(&str, &str); 10] = [
+    ("n5-core", SEED_PACK_N5_CORE),
+    ("home-household", SEED_PACK_HOME),
+    ("transport-travel", SEED_PACK_TRANSPORT),
+    ("food-dining", SEED_PACK_FOOD),
+    ("japan-culture-facilities", SEED_PACK_CULTURE),
+    ("shopping-service", SEED_PACK_SHOPPING),
+    ("school-work-office", SEED_PACK_SCHOOL_WORK),
+    ("health-emergency", SEED_PACK_HEALTH),
+    ("digital-communication", SEED_PACK_DIGITAL),
+    ("error-lab", SEED_PACK_ERROR_LAB),
+];
+
+const FOUNDATION_PACK_IDS: [&str; 11] = [
+    "official-phase1-n5-core",
+    "official-phase1-home-household",
+    "official-phase1-transport-travel",
+    "official-phase1-food-dining",
+    "official-phase1-japan-culture-facilities",
+    "official-phase1-shopping-service",
+    "official-phase1-school-work-office",
+    "official-phase1-health-emergency",
+    "official-phase1-digital-communication",
+    "official-phase1-error-lab",
+    "official-phase1-sentences",
+];
+
+/// v0.8 foundations packs that the v0.9 phase1 corpus replaces. ensure_seed_for_db purges any
+/// rows belonging to these packs (idempotent: no-op when none exist) so existing dev DBs don't
+/// keep ~600 stale items + their examples / progress / attempts hanging around in `#/dev`.
+const LEGACY_PACK_IDS: [&str; 5] = [
     "official-n5-basic-mini",
+    "official-daily-life-foundations-500",
     "confusables-foundations",
     "audio-discrim-foundations",
     "sentences-foundations",
@@ -304,8 +354,8 @@ struct AudioRefInput {
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SeedTestPackResult {
-    /// First pack id seeded (the original n5-basic-mini for backward compatibility with the
-    /// dev page UI that still shows a single pack).
+    /// First pack id seeded (currently `official-phase1-n5-core`); kept for the dev-page UI
+    /// which still shows a single representative pack id.
     pub pack_id: String,
     pub items_upserted: u32,
     pub packs_upserted: u32,
@@ -322,21 +372,24 @@ pub fn ensure_seed(db: State<'_, AppDb>) -> AppResult<SeedTestPackResult> {
 }
 
 pub fn ensure_seed_for_db(db: &AppDb) -> AppResult<SeedTestPackResult> {
+    cleanup_legacy_packs(db)?;
     let existing_pack_count = {
         let conn = db
             .conn
             .lock()
             .map_err(|e| AppError::Internal(e.to_string()))?;
-        conn.query_row(
+        let placeholders: String = (1..=FOUNDATION_PACK_IDS.len())
+            .map(|i| format!("?{i}"))
+            .collect::<Vec<_>>()
+            .join(", ");
+        let sql = format!(
             "SELECT COUNT(DISTINCT source_pack_id)
              FROM learning_items
-             WHERE source_pack_id IN (?1, ?2, ?3, ?4)",
-            params![
-                FOUNDATION_PACK_IDS[0],
-                FOUNDATION_PACK_IDS[1],
-                FOUNDATION_PACK_IDS[2],
-                FOUNDATION_PACK_IDS[3],
-            ],
+             WHERE source_pack_id IN ({placeholders})"
+        );
+        conn.query_row(
+            &sql,
+            rusqlite::params_from_iter(FOUNDATION_PACK_IDS.iter()),
             |row| row.get::<_, i64>(0),
         )?
     };
@@ -350,15 +403,76 @@ pub fn ensure_seed_for_db(db: &AppDb) -> AppResult<SeedTestPackResult> {
     seed_foundation_packs(db)
 }
 
+/// Drop every row that belonged to the v0.8 legacy packs. Idempotent: when no legacy pack rows
+/// exist this is a 0-op. We can't rely on FK CASCADE alone because:
+///   - `attempt_events.item_id` and `item_confusables.item_id` lack ON DELETE CASCADE, and FKs
+///     are enabled (`PRAGMA foreign_keys = ON`), so a naive `DELETE FROM learning_items` would
+///     fail before the in-place upsert had a chance to overwrite the rows.
+///   - `item_examples`, `item_skill_progress`, and `item_pack_membership` *do* cascade, so we
+///     only need to delete the parent rows for those.
+fn cleanup_legacy_packs(db: &AppDb) -> AppResult<u32> {
+    let mut conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let placeholders: String = (1..=LEGACY_PACK_IDS.len())
+        .map(|i| format!("?{i}"))
+        .collect::<Vec<_>>()
+        .join(", ");
+
+    let pack_count: i64 = conn.query_row(
+        &format!("SELECT COUNT(*) FROM content_packs WHERE id IN ({placeholders})"),
+        rusqlite::params_from_iter(LEGACY_PACK_IDS.iter()),
+        |row| row.get(0),
+    )?;
+    if pack_count == 0 {
+        return Ok(0);
+    }
+
+    let tx = conn.transaction()?;
+    let item_subquery =
+        format!("SELECT id FROM learning_items WHERE source_pack_id IN ({placeholders})");
+    // Order matters: clear non-cascading children first (attempt_events, item_confusables),
+    // then the parent learning_items (CASCADE handles examples + progress + membership), and
+    // finally the content_packs themselves.
+    tx.execute(
+        &format!("DELETE FROM attempt_events WHERE item_id IN ({item_subquery})"),
+        rusqlite::params_from_iter(LEGACY_PACK_IDS.iter()),
+    )?;
+    tx.execute(
+        &format!("DELETE FROM item_confusables WHERE item_id IN ({item_subquery})"),
+        rusqlite::params_from_iter(LEGACY_PACK_IDS.iter()),
+    )?;
+    tx.execute(
+        &format!("DELETE FROM item_confusables WHERE confusable_item_id IN ({item_subquery})"),
+        rusqlite::params_from_iter(LEGACY_PACK_IDS.iter()),
+    )?;
+    let removed_items = tx.execute(
+        &format!("DELETE FROM learning_items WHERE source_pack_id IN ({placeholders})"),
+        rusqlite::params_from_iter(LEGACY_PACK_IDS.iter()),
+    )?;
+    let removed_packs = tx.execute(
+        &format!("DELETE FROM content_packs WHERE id IN ({placeholders})"),
+        rusqlite::params_from_iter(LEGACY_PACK_IDS.iter()),
+    )?;
+    tx.commit()?;
+
+    eprintln!(
+        "kana-typing: dropped {} legacy pack rows ({} items)",
+        removed_packs, removed_items
+    );
+    Ok(removed_items as u32)
+}
+
 fn seed_foundation_packs(db: &AppDb) -> AppResult<SeedTestPackResult> {
-    let n5_pack: PackInput = serde_json::from_str(SEED_PACK_N5)
-        .map_err(|e| AppError::InvalidPack(format!("n5 pack malformed: {}", e)))?;
-    let confusables_pack: PackInput = serde_json::from_str(SEED_PACK_CONFUSABLES)
-        .map_err(|e| AppError::InvalidPack(format!("confusables pack malformed: {}", e)))?;
-    let audio_pack: PackInput = serde_json::from_str(SEED_PACK_AUDIO_DISCRIM)
-        .map_err(|e| AppError::InvalidPack(format!("audio-discrim pack malformed: {}", e)))?;
+    let mut word_packs: Vec<PackInput> = Vec::with_capacity(SEED_WORD_PACK_BLOBS.len());
+    for (label, blob) in SEED_WORD_PACK_BLOBS.iter() {
+        let pack: PackInput = serde_json::from_str(blob)
+            .map_err(|e| AppError::InvalidPack(format!("{label} pack malformed: {e}")))?;
+        word_packs.push(pack);
+    }
     let sentence_pack_raw: SentencePackInput = serde_json::from_str(SEED_PACK_SENTENCES)
-        .map_err(|e| AppError::InvalidPack(format!("sentences pack malformed: {}", e)))?;
+        .map_err(|e| AppError::InvalidPack(format!("sentences pack malformed: {e}")))?;
     let sentence_pack = sentence_pack_to_word_pack(sentence_pack_raw)?;
 
     let mut conn = db
@@ -369,17 +483,18 @@ fn seed_foundation_packs(db: &AppDb) -> AppResult<SeedTestPackResult> {
     let tx = conn.transaction()?;
 
     let mut total_items: u32 = 0;
-    let primary_pack_id = n5_pack.id.clone();
-    for pack in [&n5_pack, &confusables_pack, &audio_pack, &sentence_pack] {
+    let primary_pack_id = word_packs[0].id.clone();
+    for pack in &word_packs {
         total_items += upsert_pack(&tx, pack, &now)?;
     }
+    total_items += upsert_pack(&tx, &sentence_pack, &now)?;
 
     tx.commit()?;
 
     Ok(SeedTestPackResult {
         pack_id: primary_pack_id,
         items_upserted: total_items,
-        packs_upserted: 4,
+        packs_upserted: (word_packs.len() + 1) as u32,
     })
 }
 
@@ -515,9 +630,23 @@ fn upsert_pack(tx: &rusqlite::Transaction<'_>, pack: &PackInput, now: &str) -> A
             params![item.id],
         )?;
         for ex in &item.examples {
+            // v0.9.0: ON CONFLICT(id) DO UPDATE because re-seeding into a DB that already
+            // contains the legacy v0.8 packs can collide on example.id values that the new
+            // phase1 corpus reuses (e.g. `ex-machi-1`). The legacy row's owning item is gone
+            // from `learning_items` once its source_pack drops out of the seed list, but the
+            // example row sticks around because nothing CASCADEs from learning_items → examples.
             tx.execute(
                 "INSERT INTO item_examples (id, item_id, ja, kana, zh, target_surface, target_kana, audio_ref, tags_json, created_at)
-                 VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)",
+                 VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)
+                 ON CONFLICT(id) DO UPDATE SET
+                     item_id = excluded.item_id,
+                     ja = excluded.ja,
+                     kana = excluded.kana,
+                     zh = excluded.zh,
+                     target_surface = excluded.target_surface,
+                     target_kana = excluded.target_kana,
+                     audio_ref = excluded.audio_ref,
+                     tags_json = excluded.tags_json",
                 params![
                     ex.id,
                     item.id,
@@ -579,22 +708,287 @@ fn upsert_pack(tx: &rusqlite::Transaction<'_>, pack: &PackInput, now: &str) -> A
 mod tests {
     use super::*;
 
-    #[test]
-    fn ensure_seed_is_idempotent() {
+    fn fresh_seeded_db(scope: &str) -> AppDb {
         let unique = std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
             .expect("clock should be after epoch")
             .as_nanos();
-        let dir = std::env::temp_dir().join(format!("kana-typing-ensure-seed-{unique}"));
+        let dir = std::env::temp_dir().join(format!("kana-typing-{scope}-{unique}"));
         let db = crate::db::init(&dir).expect("test db should initialize");
+        ensure_seed_for_db(&db).expect("seed should succeed");
+        db
+    }
 
-        let first = ensure_seed_for_db(&db).expect("first ensure_seed should seed");
-        assert_eq!(first.packs_upserted, 4);
-        assert!(first.items_upserted > 0);
+    fn pick_real_item_id(db: &AppDb, pack_id: &str) -> String {
+        let conn = db.conn.lock().expect("lock");
+        conn.query_row(
+            "SELECT id FROM learning_items WHERE source_pack_id = ?1 LIMIT 1",
+            params![pack_id],
+            |row| row.get::<_, String>(0),
+        )
+        .expect("pack should have at least one item")
+    }
+
+    #[test]
+    fn ensure_seed_is_idempotent() {
+        let db = fresh_seeded_db("ensure-seed");
 
         let second = ensure_seed_for_db(&db).expect("second ensure_seed should no-op");
         assert_eq!(second.packs_upserted, 0);
         assert_eq!(second.items_upserted, 0);
+    }
+
+    #[test]
+    fn record_study_view_increments_count_and_sets_timestamps() {
+        let db = fresh_seeded_db("study-view");
+        let item_id = pick_real_item_id(&db, "official-phase1-n5-core");
+
+        for _ in 0..3 {
+            record_study_view_inner(&db, "u1", &item_id).expect("view should succeed");
+        }
+
+        let conn = db.conn.lock().expect("lock");
+        let (view_count, marked, first_at, last_at): (i64, i64, Option<String>, Option<String>) =
+            conn.query_row(
+                "SELECT view_count, marked, first_viewed_at, last_viewed_at \
+                 FROM study_progress WHERE user_id = ?1 AND item_id = ?2",
+                params!["u1", item_id],
+                |row| Ok((row.get(0)?, row.get(1)?, row.get(2)?, row.get(3)?)),
+            )
+            .expect("row exists");
+        assert_eq!(view_count, 3);
+        assert_eq!(marked, 0);
+        assert!(first_at.is_some());
+        assert!(last_at.is_some());
+    }
+
+    #[test]
+    fn toggle_study_marked_round_trips() {
+        let db = fresh_seeded_db("study-mark");
+        let item_id = pick_real_item_id(&db, "official-phase1-n5-core");
+
+        toggle_study_marked_inner(&db, "u1", &item_id, true).expect("mark");
+        assert_eq!(read_marked(&db, "u1", &item_id), Some(1));
+        toggle_study_marked_inner(&db, "u1", &item_id, false).expect("unmark");
+        assert_eq!(read_marked(&db, "u1", &item_id), Some(0));
+    }
+
+    #[test]
+    fn list_study_items_filter_separates_new_and_reviewed() {
+        let db = fresh_seeded_db("study-filter");
+        let pack_id = "official-phase1-n5-core";
+        let item_id = pick_real_item_id(&db, pack_id);
+
+        // view one item — moves it from `new` to `reviewed`.
+        record_study_view_inner(&db, "u1", &item_id).expect("view");
+
+        let new_only = list_study_items_inner(&db, pack_id, "u1", "new").expect("list new");
+        let reviewed_only =
+            list_study_items_inner(&db, pack_id, "u1", "reviewed").expect("list reviewed");
+
+        assert!(
+            !new_only.iter().any(|r| r.id == item_id),
+            "viewed item should not be in 'new' bucket"
+        );
+        assert!(
+            reviewed_only.iter().any(|r| r.id == item_id),
+            "viewed item should appear in 'reviewed' bucket"
+        );
+    }
+
+    #[test]
+    fn list_study_packs_reports_studied_count() {
+        let db = fresh_seeded_db("study-packs");
+        let pack_id = "official-phase1-n5-core";
+        let item_id = pick_real_item_id(&db, pack_id);
+        record_study_view_inner(&db, "u1", &item_id).expect("view");
+
+        let packs = list_study_packs_inner(&db, "u1").expect("list packs");
+        let target = packs
+            .iter()
+            .find(|p| p.pack_id == pack_id)
+            .expect("n5-core pack should be listed");
+        assert!(target.total_count > 0);
+        assert_eq!(target.studied_count, 1);
+        assert!(
+            !target.jlpt_breakdown.is_empty(),
+            "n5-core should have JLPT distribution"
+        );
+        // First entry should be the lowest JLPT band present (N5 in this pack).
+        assert_eq!(target.jlpt_breakdown[0].0, "N5");
+    }
+
+    // Helpers that mirror the #[tauri::command] entry points but skip the State<'_, AppDb>
+    // wrapper, so unit tests can exercise the SQL paths without a full Tauri context.
+
+    fn record_study_view_inner(db: &AppDb, user_id: &str, item_id: &str) -> AppResult<()> {
+        let conn = db
+            .conn
+            .lock()
+            .map_err(|e| AppError::Internal(e.to_string()))?;
+        let now = Utc::now().to_rfc3339();
+        conn.execute(
+            "INSERT INTO study_progress (user_id, item_id, view_count, marked, first_viewed_at, last_viewed_at) \
+             VALUES (?1, ?2, 1, 0, ?3, ?3) \
+             ON CONFLICT(user_id, item_id) DO UPDATE SET \
+                 view_count = study_progress.view_count + 1, \
+                 first_viewed_at = COALESCE(study_progress.first_viewed_at, excluded.first_viewed_at), \
+                 last_viewed_at = excluded.last_viewed_at",
+            params![user_id, item_id, now],
+        )?;
+        Ok(())
+    }
+
+    fn toggle_study_marked_inner(
+        db: &AppDb,
+        user_id: &str,
+        item_id: &str,
+        marked: bool,
+    ) -> AppResult<()> {
+        let conn = db
+            .conn
+            .lock()
+            .map_err(|e| AppError::Internal(e.to_string()))?;
+        let now = Utc::now().to_rfc3339();
+        let m = if marked { 1 } else { 0 };
+        conn.execute(
+            "INSERT INTO study_progress (user_id, item_id, view_count, marked, first_viewed_at, last_viewed_at) \
+             VALUES (?1, ?2, 0, ?3, ?4, ?4) \
+             ON CONFLICT(user_id, item_id) DO UPDATE SET \
+                 marked = excluded.marked, \
+                 first_viewed_at = COALESCE(study_progress.first_viewed_at, excluded.first_viewed_at), \
+                 last_viewed_at = excluded.last_viewed_at",
+            params![user_id, item_id, m, now],
+        )?;
+        Ok(())
+    }
+
+    fn read_marked(db: &AppDb, user_id: &str, item_id: &str) -> Option<i64> {
+        let conn = db.conn.lock().expect("lock");
+        conn.query_row(
+            "SELECT marked FROM study_progress WHERE user_id = ?1 AND item_id = ?2",
+            params![user_id, item_id],
+            |row| row.get::<_, i64>(0),
+        )
+        .ok()
+    }
+
+    fn list_study_items_inner(
+        db: &AppDb,
+        pack_id: &str,
+        user_id: &str,
+        filter: &str,
+    ) -> AppResult<Vec<StudyItemRow>> {
+        // Exercise the same SQL the command builds. Duplicating a few lines is cleaner than
+        // refactoring the command to take a State stand-in.
+        let conn = db
+            .conn
+            .lock()
+            .map_err(|e| AppError::Internal(e.to_string()))?;
+        let where_extra = match filter {
+            "new" => "AND COALESCE(sp.view_count, 0) = 0 AND COALESCE(sp.marked, 0) = 0",
+            "reviewed" => "AND (COALESCE(sp.view_count, 0) >= 1 OR COALESCE(sp.marked, 0) = 1)",
+            _ => "",
+        };
+        let order_clause = if filter == "reviewed" {
+            "ORDER BY sp.last_viewed_at ASC NULLS FIRST, i.id ASC"
+        } else {
+            "ORDER BY CASE i.jlpt \
+                 WHEN 'N5' THEN 1 WHEN 'N4' THEN 2 WHEN 'N3' THEN 3 \
+                 WHEN 'N2' THEN 4 WHEN 'N1' THEN 5 ELSE 6 END, \
+             i.id ASC"
+        };
+        let sql = format!(
+            "SELECT i.id, i.type, i.surface, i.kana, i.romaji_json, i.pos, i.jlpt, \
+                    i.tags_json, i.meanings_zh_json, \
+                    COALESCE(sp.view_count, 0), COALESCE(sp.marked, 0), sp.last_viewed_at \
+             FROM learning_items i \
+             JOIN content_packs p ON p.id = i.source_pack_id \
+             LEFT JOIN study_progress sp ON sp.item_id = i.id AND sp.user_id = ?2 \
+             WHERE i.source_pack_id = ?1 AND p.enabled = 1 {where_extra} {order_clause}"
+        );
+        let mut stmt = conn.prepare(&sql)?;
+        let rows = stmt.query_map(params![pack_id, user_id], |row| {
+            let romaji_json: String = row.get(4)?;
+            let tags_json: String = row.get(7)?;
+            let meanings_zh_json: String = row.get(8)?;
+            let marked_int: i64 = row.get(10)?;
+            Ok(StudyItemRow {
+                id: row.get(0)?,
+                item_type: row.get(1)?,
+                surface: row.get(2)?,
+                kana: row.get(3)?,
+                romaji: serde_json::from_str(&romaji_json).unwrap_or_default(),
+                pos: row.get(5)?,
+                jlpt: row.get(6)?,
+                tags: serde_json::from_str(&tags_json).unwrap_or_default(),
+                meanings_zh: serde_json::from_str(&meanings_zh_json).unwrap_or_default(),
+                examples: Vec::new(),
+                view_count: row.get(9)?,
+                marked: marked_int != 0,
+                last_viewed_at: row.get(11)?,
+            })
+        })?;
+        Ok(rows.collect::<Result<_, _>>()?)
+    }
+
+    fn list_study_packs_inner(db: &AppDb, user_id: &str) -> AppResult<Vec<StudyPackSummary>> {
+        let conn = db
+            .conn
+            .lock()
+            .map_err(|e| AppError::Internal(e.to_string()))?;
+        let mut stmt = conn.prepare(
+            "SELECT p.id, p.name, p.description, COUNT(i.id) AS total, \
+                    COALESCE(SUM(CASE WHEN sp.view_count >= 1 OR sp.marked = 1 THEN 1 ELSE 0 END), 0) AS studied \
+             FROM content_packs p \
+             LEFT JOIN learning_items i ON i.source_pack_id = p.id \
+             LEFT JOIN study_progress sp ON sp.item_id = i.id AND sp.user_id = ?1 \
+             WHERE p.enabled = 1 \
+             GROUP BY p.id",
+        )?;
+        let rows = stmt.query_map(params![user_id], |row| {
+            Ok(StudyPackSummary {
+                pack_id: row.get(0)?,
+                name: row.get(1)?,
+                description: row.get(2)?,
+                total_count: row.get(3)?,
+                studied_count: row.get(4)?,
+                jlpt_breakdown: Vec::new(),
+            })
+        })?;
+        let mut summaries: Vec<StudyPackSummary> = rows.collect::<Result<_, _>>()?;
+
+        let mut jlpt_stmt = conn.prepare(
+            "SELECT source_pack_id, IFNULL(jlpt, '?'), COUNT(*) FROM learning_items GROUP BY source_pack_id, jlpt",
+        )?;
+        let jlpt_rows = jlpt_stmt.query_map([], |row| {
+            Ok((
+                row.get::<_, String>(0)?,
+                row.get::<_, String>(1)?,
+                row.get::<_, i64>(2)?,
+            ))
+        })?;
+        let mut by_pack: std::collections::HashMap<String, Vec<(String, i64)>> =
+            std::collections::HashMap::new();
+        for r in jlpt_rows {
+            let (pack_id, jlpt, count) = r?;
+            by_pack.entry(pack_id).or_default().push((jlpt, count));
+        }
+        let order = |s: &str| match s {
+            "N5" => 1,
+            "N4" => 2,
+            "N3" => 3,
+            "N2" => 4,
+            "N1" => 5,
+            _ => 6,
+        };
+        for s in summaries.iter_mut() {
+            if let Some(mut pairs) = by_pack.remove(&s.pack_id) {
+                pairs.sort_by_key(|(j, _)| order(j));
+                s.jlpt_breakdown = pairs;
+            }
+        }
+        Ok(summaries)
     }
 }
 
@@ -1224,5 +1618,296 @@ pub fn set_pack_enabled(db: State<'_, AppDb>, input: SetPackEnabledInput) -> App
             input.pack_id
         )));
     }
+    Ok(())
+}
+
+// ────────────────────────────────────────────────────────────────────────
+// Study mode (v0.9.0) — non-game card-based learning surface.
+// ────────────────────────────────────────────────────────────────────────
+//
+// Distinct from the game-side `item_skill_progress` table: study_progress only tracks
+// "this user has been shown this card" — orthogonal to the per-skill mastery state.
+// See migrations/006_study_progress.sql for the table.
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct StudyPackSummary {
+    pub pack_id: String,
+    pub name: String,
+    pub description: Option<String>,
+    pub total_count: i64,
+    /// view_count >= 1 OR marked = 1 — see migration 006 for the predicate.
+    pub studied_count: i64,
+    /// (jlpt, count) pairs in N5→N1 order, with `null`-jlpt items bucketed last as "?".
+    pub jlpt_breakdown: Vec<(String, i64)>,
+}
+
+#[tauri::command]
+pub fn list_study_packs(db: State<'_, AppDb>, user_id: String) -> AppResult<Vec<StudyPackSummary>> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+
+    // Two queries: (1) per-pack totals + studied_count, (2) per-pack JLPT distribution.
+    // Simpler to merge in Rust than to do everything in one nested SELECT.
+    let mut stmt = conn.prepare(
+        "SELECT p.id, p.name, p.description, COUNT(i.id) AS total, \
+                COALESCE(SUM(CASE WHEN sp.view_count >= 1 OR sp.marked = 1 THEN 1 ELSE 0 END), 0) AS studied \
+         FROM content_packs p \
+         LEFT JOIN learning_items i ON i.source_pack_id = p.id \
+         LEFT JOIN study_progress sp ON sp.item_id = i.id AND sp.user_id = ?1 \
+         WHERE p.enabled = 1 \
+         GROUP BY p.id \
+         ORDER BY total DESC",
+    )?;
+    let rows = stmt.query_map(params![user_id], |row| {
+        Ok((
+            row.get::<_, String>(0)?,
+            row.get::<_, String>(1)?,
+            row.get::<_, Option<String>>(2)?,
+            row.get::<_, i64>(3)?,
+            row.get::<_, i64>(4)?,
+        ))
+    })?;
+    let mut summaries: Vec<StudyPackSummary> = Vec::new();
+    for r in rows {
+        let (pack_id, name, description, total, studied) = r?;
+        summaries.push(StudyPackSummary {
+            pack_id,
+            name,
+            description,
+            total_count: total,
+            studied_count: studied,
+            jlpt_breakdown: Vec::new(),
+        });
+    }
+
+    // JLPT distribution: aggregate once across all packs, then attach to each summary.
+    let mut jlpt_stmt = conn.prepare(
+        "SELECT source_pack_id, IFNULL(jlpt, '?'), COUNT(*) \
+         FROM learning_items \
+         GROUP BY source_pack_id, jlpt",
+    )?;
+    let jlpt_rows = jlpt_stmt.query_map([], |row| {
+        Ok((
+            row.get::<_, String>(0)?,
+            row.get::<_, String>(1)?,
+            row.get::<_, i64>(2)?,
+        ))
+    })?;
+    let mut by_pack: std::collections::HashMap<String, Vec<(String, i64)>> =
+        std::collections::HashMap::new();
+    for r in jlpt_rows {
+        let (pack_id, jlpt, count) = r?;
+        by_pack.entry(pack_id).or_default().push((jlpt, count));
+    }
+    let jlpt_order = |s: &str| -> i32 {
+        match s {
+            "N5" => 1,
+            "N4" => 2,
+            "N3" => 3,
+            "N2" => 4,
+            "N1" => 5,
+            _ => 6,
+        }
+    };
+    for s in summaries.iter_mut() {
+        if let Some(mut pairs) = by_pack.remove(&s.pack_id) {
+            pairs.sort_by_key(|(j, _)| jlpt_order(j));
+            s.jlpt_breakdown = pairs;
+        }
+    }
+
+    Ok(summaries)
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct StudyExample {
+    pub id: String,
+    pub ja: String,
+    pub kana: Option<String>,
+    pub zh: String,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct StudyItemRow {
+    pub id: String,
+    #[serde(rename = "type")]
+    pub item_type: String,
+    pub surface: String,
+    pub kana: String,
+    pub romaji: Vec<String>,
+    pub pos: Option<String>,
+    pub jlpt: Option<String>,
+    pub tags: Vec<String>,
+    pub meanings_zh: Vec<String>,
+    pub examples: Vec<StudyExample>,
+    pub view_count: i64,
+    pub marked: bool,
+    pub last_viewed_at: Option<String>,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ListStudyItemsInput {
+    pub pack_id: String,
+    pub user_id: String,
+    /// `"all"` | `"new"` | `"reviewed"`. Defaults to `"all"` if missing.
+    #[serde(default)]
+    pub filter: Option<String>,
+}
+
+#[tauri::command]
+pub fn list_study_items(
+    db: State<'_, AppDb>,
+    input: ListStudyItemsInput,
+) -> AppResult<Vec<StudyItemRow>> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+
+    let filter = input.filter.as_deref().unwrap_or("all");
+    let where_extra = match filter {
+        "new" => "AND COALESCE(sp.view_count, 0) = 0 AND COALESCE(sp.marked, 0) = 0",
+        "reviewed" => "AND (COALESCE(sp.view_count, 0) >= 1 OR COALESCE(sp.marked, 0) = 1)",
+        _ => "",
+    };
+    // Default order: JLPT ascending (N5 first), then item.id. Review mode prioritises the
+    // longest-unseen so spaced revisits feel natural.
+    let order_clause = if filter == "reviewed" {
+        "ORDER BY sp.last_viewed_at ASC NULLS FIRST, i.id ASC"
+    } else {
+        "ORDER BY CASE i.jlpt \
+             WHEN 'N5' THEN 1 WHEN 'N4' THEN 2 WHEN 'N3' THEN 3 \
+             WHEN 'N2' THEN 4 WHEN 'N1' THEN 5 ELSE 6 END, \
+         i.id ASC"
+    };
+
+    let sql = format!(
+        "SELECT i.id, i.type, i.surface, i.kana, i.romaji_json, i.pos, i.jlpt, \
+                i.tags_json, i.meanings_zh_json, \
+                COALESCE(sp.view_count, 0), COALESCE(sp.marked, 0), sp.last_viewed_at \
+         FROM learning_items i \
+         JOIN content_packs p ON p.id = i.source_pack_id \
+         LEFT JOIN study_progress sp ON sp.item_id = i.id AND sp.user_id = ?2 \
+         WHERE i.source_pack_id = ?1 AND p.enabled = 1 {where_extra} \
+         {order_clause}"
+    );
+    let mut stmt = conn.prepare(&sql)?;
+    let rows = stmt.query_map(params![input.pack_id, input.user_id], |row| {
+        let romaji_json: String = row.get(4)?;
+        let tags_json: String = row.get(7)?;
+        let meanings_zh_json: String = row.get(8)?;
+        let marked_int: i64 = row.get(10)?;
+        Ok(StudyItemRow {
+            id: row.get(0)?,
+            item_type: row.get(1)?,
+            surface: row.get(2)?,
+            kana: row.get(3)?,
+            romaji: serde_json::from_str(&romaji_json).unwrap_or_default(),
+            pos: row.get(5)?,
+            jlpt: row.get(6)?,
+            tags: serde_json::from_str(&tags_json).unwrap_or_default(),
+            meanings_zh: serde_json::from_str(&meanings_zh_json).unwrap_or_default(),
+            examples: Vec::new(),
+            view_count: row.get(9)?,
+            marked: marked_int != 0,
+            last_viewed_at: row.get(11)?,
+        })
+    })?;
+    let mut out: Vec<StudyItemRow> = rows.collect::<Result<_, _>>()?;
+    if out.is_empty() {
+        return Ok(out);
+    }
+
+    // Examples backfill — single SELECT keyed by item_id, partition into rows. Same pattern as
+    // list_items's confusables backfill.
+    let mut ex_stmt = conn.prepare(
+        "SELECT e.item_id, e.id, e.ja, e.kana, e.zh \
+         FROM item_examples e \
+         JOIN learning_items i ON i.id = e.item_id \
+         WHERE i.source_pack_id = ?1",
+    )?;
+    let ex_rows = ex_stmt.query_map(params![input.pack_id], |row| {
+        Ok((
+            row.get::<_, String>(0)?,
+            StudyExample {
+                id: row.get(1)?,
+                ja: row.get(2)?,
+                kana: row.get(3)?,
+                zh: row.get(4)?,
+            },
+        ))
+    })?;
+    let mut by_item: std::collections::HashMap<String, Vec<StudyExample>> =
+        std::collections::HashMap::new();
+    for r in ex_rows {
+        let (item_id, ex) = r?;
+        by_item.entry(item_id).or_default().push(ex);
+    }
+    for row in out.iter_mut() {
+        if let Some(list) = by_item.remove(&row.id) {
+            row.examples = list;
+        }
+    }
+
+    Ok(out)
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct StudyMutationInput {
+    pub user_id: String,
+    pub item_id: String,
+}
+
+#[tauri::command]
+pub fn record_study_view(db: State<'_, AppDb>, input: StudyMutationInput) -> AppResult<()> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let now = Utc::now().to_rfc3339();
+    conn.execute(
+        "INSERT INTO study_progress (user_id, item_id, view_count, marked, first_viewed_at, last_viewed_at) \
+         VALUES (?1, ?2, 1, 0, ?3, ?3) \
+         ON CONFLICT(user_id, item_id) DO UPDATE SET \
+             view_count = study_progress.view_count + 1, \
+             first_viewed_at = COALESCE(study_progress.first_viewed_at, excluded.first_viewed_at), \
+             last_viewed_at = excluded.last_viewed_at",
+        params![input.user_id, input.item_id, now],
+    )?;
+    Ok(())
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ToggleStudyMarkedInput {
+    pub user_id: String,
+    pub item_id: String,
+    pub marked: bool,
+}
+
+#[tauri::command]
+pub fn toggle_study_marked(db: State<'_, AppDb>, input: ToggleStudyMarkedInput) -> AppResult<()> {
+    let conn = db
+        .conn
+        .lock()
+        .map_err(|e| AppError::Internal(e.to_string()))?;
+    let now = Utc::now().to_rfc3339();
+    let marked_int = if input.marked { 1 } else { 0 };
+    conn.execute(
+        "INSERT INTO study_progress (user_id, item_id, view_count, marked, first_viewed_at, last_viewed_at) \
+         VALUES (?1, ?2, 0, ?3, ?4, ?4) \
+         ON CONFLICT(user_id, item_id) DO UPDATE SET \
+             marked = excluded.marked, \
+             first_viewed_at = COALESCE(study_progress.first_viewed_at, excluded.first_viewed_at), \
+             last_viewed_at = excluded.last_viewed_at",
+        params![input.user_id, input.item_id, marked_int, now],
+    )?;
     Ok(())
 }

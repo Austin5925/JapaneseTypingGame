@@ -30,6 +30,10 @@ const MIGRATIONS: &[(&str, &str)] = &[
         "005_extras.sql",
         include_str!("../../../../migrations/005_extras.sql"),
     ),
+    (
+        "006_study_progress.sql",
+        include_str!("../../../../migrations/006_study_progress.sql"),
+    ),
 ];
 
 pub struct AppDb {

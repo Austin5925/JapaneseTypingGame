@@ -6,13 +6,14 @@ import { describe, expect, it } from 'vitest';
 import { validatePack, type ContentPackInput } from '../src';
 
 /**
- * Smoke-test the confusables-foundations.json pack ships through the standard validator
- * (LearningItem, not SentenceItem). v0.8.1 SpaceBattle loads this pack via the regular
- * SQLite import path, so a typo or unresolved confusableItemId surfaces here at gate time.
+ * Smoke-test the phase1 error-lab pack (replaces the old confusables-foundations.json since
+ * v0.9.0). The pack merges the old confusables + audio-discrim sets plus 50+ new minimal
+ * pairs and zh-misleading items, so SpaceBattle / AppleRescue both feed off this single file.
+ * A typo or a broken confusableItemId surfaces here at gate time.
  */
-const PACK_PATH = resolve(__dirname, '../../../content/official/confusables-foundations.json');
+const PACK_PATH = resolve(__dirname, '../../../content/official/official-phase1-error-lab.json');
 
-describe('confusables-foundations.json (real pack)', () => {
+describe('official-phase1-error-lab.json (real pack)', () => {
   const raw = JSON.parse(readFileSync(PACK_PATH, 'utf8')) as unknown;
   const result = validatePack(raw);
 
@@ -24,20 +25,22 @@ describe('confusables-foundations.json (real pack)', () => {
     expect(result.ok).toBe(true);
   });
 
-  it('contains at least 40 items for v0.8.1 minimum', () => {
+  it('contains at least 100 items (covers confusables + audio-discrim)', () => {
     expect(result.ok).toBe(true);
     if (result.ok) {
       const pack: ContentPackInput = result.value;
-      expect(pack.items.length).toBeGreaterThanOrEqual(40);
+      expect(pack.items.length).toBeGreaterThanOrEqual(100);
     }
   });
 
-  it('every item declares at least one confusable peer', () => {
+  it('most items declare at least one confusable peer (>=60% coverage)', () => {
     expect(result.ok).toBe(true);
     if (result.ok) {
-      for (const item of result.value.items) {
-        expect(item.confusableItemIds.length).toBeGreaterThan(0);
-      }
+      const items = result.value.items;
+      const withPeers = items.filter((i) => i.confusableItemIds.length > 0).length;
+      // ~67% of error-lab items currently have peers; the rest are stand-alone zh-misleading
+      // entries (汽車/老婆/etc.) that don't pair against another phase1 item.
+      expect(withPeers / items.length).toBeGreaterThanOrEqual(0.6);
     }
   });
 });

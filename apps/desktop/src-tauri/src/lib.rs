@@ -47,6 +47,10 @@ pub fn run() {
             commands::aggregate_recent_error_tags,
             commands::list_content_packs,
             commands::set_pack_enabled,
+            commands::list_study_packs,
+            commands::list_study_items,
+            commands::record_study_view,
+            commands::toggle_study_marked,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

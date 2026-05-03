@@ -1,0 +1,2669 @@
+{
+  "id": "official-phase1-school-work-office",
+  "name": "第一阶段：学校、职场与办公室",
+  "version": "1.1.0",
+  "items": [
+    {
+      "id": "word-ringi",
+      "type": "word",
+      "surface": "稟議",
+      "kana": "りんぎ",
+      "romaji": ["ringi"],
+      "meaningsZh": ["内部审批"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ringi-1",
+          "ja": "稟議について上司に確認する。",
+          "kana": "りんぎについてじょうしにかくにんする。",
+          "zh": "向上司确认内部审批的事。",
+          "targetSurface": "稟議",
+          "targetKana": "りんぎ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N2"
+    },
+    {
+      "id": "word-busho",
+      "type": "word",
+      "surface": "部署",
+      "kana": "ぶしょ",
+      "romaji": ["busho"],
+      "meaningsZh": ["部门"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-busho-1",
+          "ja": "部署の手続きを進める。",
+          "kana": "ぶしょのてつづきをすすめる。",
+          "zh": "推进部门的手续。",
+          "targetSurface": "部署",
+          "targetKana": "ぶしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-denwataiou",
+      "type": "word",
+      "surface": "電話対応",
+      "kana": "でんわたいおう",
+      "romaji": ["denwataiou"],
+      "meaningsZh": ["电话应对"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-denwataiou-1",
+          "ja": "電話対応について上司に確認する。",
+          "kana": "でんわたいおうについてじょうしにかくにんする。",
+          "zh": "向上司确认电话应对的事。",
+          "targetSurface": "電話対応",
+          "targetKana": "でんわたいおう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-eigyou",
+      "type": "word",
+      "surface": "営業",
+      "kana": "えいぎょう",
+      "romaji": ["eigyou"],
+      "meaningsZh": ["营业", "销售"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-eigyou-1",
+          "ja": "営業の手続きを進める。",
+          "kana": "えいぎょうのてつづきをすすめる。",
+          "zh": "推进营业的手续。",
+          "targetSurface": "営業",
+          "targetKana": "えいぎょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-gijiroku",
+      "type": "word",
+      "surface": "議事録",
+      "kana": "ぎじろく",
+      "romaji": ["gijiroku"],
+      "meaningsZh": ["会议记录"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-gijiroku-1",
+          "ja": "会議で議事録が話題になった。",
+          "kana": "かいぎでぎじろくがわだいになった。",
+          "zh": "会议上聊到了会议记录。",
+          "targetSurface": "議事録",
+          "targetKana": "ぎじろく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-jinji",
+      "type": "word",
+      "surface": "人事",
+      "kana": "じんじ",
+      "romaji": ["jinji"],
+      "meaningsZh": ["人事"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-jinji-1",
+          "ja": "会議で人事が話題になった。",
+          "kana": "かいぎでじんじがわだいになった。",
+          "zh": "会议上聊到了人事。",
+          "targetSurface": "人事",
+          "targetKana": "じんじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kadai",
+      "type": "word",
+      "surface": "課題",
+      "kana": "かだい",
+      "romaji": ["kadai"],
+      "meaningsZh": ["课题", "任务"],
+      "pos": "noun",
+      "tags": ["school", "work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kadai-1",
+          "ja": "課題の手続きを進める。",
+          "kana": "かだいのてつづきをすすめる。",
+          "zh": "推进课题的手续。",
+          "targetSurface": "課題",
+          "targetKana": "かだい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kakuninitashimasu",
+      "type": "word",
+      "surface": "確認いたします",
+      "kana": "かくにんいたします",
+      "romaji": ["kakunin'itashimasu"],
+      "meaningsZh": ["我来确认"],
+      "pos": "expression",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kakuninitashimasu-1",
+          "ja": "少々お待ちください、こちらで確認いたします。",
+          "kana": "しょうしょうおまちください、こちらでかくにんいたします。",
+          "zh": "请稍等，我这边查一下。",
+          "targetSurface": "確認いたします",
+          "targetKana": "かくにんいたします"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-keiri",
+      "type": "word",
+      "surface": "経理",
+      "kana": "けいり",
+      "romaji": ["keiri"],
+      "meaningsZh": ["财务", "会计"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-keiri-1",
+          "ja": "経理の手続きを進める。",
+          "kana": "けいりのてつづきをすすめる。",
+          "zh": "推进财务的手续。",
+          "targetSurface": "経理",
+          "targetKana": "けいり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kekkin",
+      "type": "word",
+      "surface": "欠勤",
+      "kana": "けっきん",
+      "romaji": ["kekkin"],
+      "meaningsZh": ["缺勤"],
+      "pos": "noun",
+      "tags": ["work", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-kekkin-1",
+          "ja": "会議で欠勤が話題になった。",
+          "kana": "かいぎでけっきんがわだいになった。",
+          "zh": "会议上聊到了缺勤。",
+          "targetSurface": "欠勤",
+          "targetKana": "けっきん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-kenkyuushitsu",
+      "type": "word",
+      "surface": "研究室",
+      "kana": "けんきゅうしつ",
+      "romaji": ["kenkyuushitsu"],
+      "meaningsZh": ["研究室"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kenkyuushitsu-1",
+          "ja": "研究室について上司に確認する。",
+          "kana": "けんきゅうしつについてじょうしにかくにんする。",
+          "zh": "向上司确认研究室的事。",
+          "targetSurface": "研究室",
+          "targetKana": "けんきゅうしつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kessai",
+      "type": "word",
+      "surface": "決裁",
+      "kana": "けっさい",
+      "romaji": ["kessai"],
+      "meaningsZh": ["审批"],
+      "pos": "noun",
+      "tags": ["work", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-kessai-1",
+          "ja": "決裁について上司に確認する。",
+          "kana": "けっさいについてじょうしにかくにんする。",
+          "zh": "向上司确认审批的事。",
+          "targetSurface": "決裁",
+          "targetKana": "けっさい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-kigen",
+      "type": "word",
+      "surface": "期限",
+      "kana": "きげん",
+      "romaji": ["kigen"],
+      "meaningsZh": ["期限"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kigen-1",
+          "ja": "期限について上司に確認する。",
+          "kana": "きげんについてじょうしにかくにんする。",
+          "zh": "向上司确认期限的事。",
+          "targetSurface": "期限",
+          "targetKana": "きげん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kikaku",
+      "type": "word",
+      "surface": "企画",
+      "kana": "きかく",
+      "romaji": ["kikaku"],
+      "meaningsZh": ["企划"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kikaku-1",
+          "ja": "会議で企画が話題になった。",
+          "kana": "かいぎできかくがわだいになった。",
+          "zh": "会议上聊到了企划。",
+          "targetSurface": "企画",
+          "targetKana": "きかく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kougi",
+      "type": "word",
+      "surface": "講義",
+      "kana": "こうぎ",
+      "romaji": ["kougi"],
+      "meaningsZh": ["讲义", "课程"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kougi-1",
+          "ja": "講義の手続きを進める。",
+          "kana": "こうぎのてつづきをすすめる。",
+          "zh": "推进讲义的手续。",
+          "targetSurface": "講義",
+          "targetKana": "こうぎ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kyoutou",
+      "type": "word",
+      "surface": "教頭",
+      "kana": "きょうとう",
+      "romaji": ["kyoutou"],
+      "meaningsZh": ["副校长"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kyoutou-1",
+          "ja": "教頭について上司に確認する。",
+          "kana": "きょうとうについてじょうしにかくにんする。",
+          "zh": "向上司确认副校长的事。",
+          "targetSurface": "教頭",
+          "targetKana": "きょうとう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kyuuka",
+      "type": "word",
+      "surface": "休暇",
+      "kana": "きゅうか",
+      "romaji": ["kyuuka"],
+      "meaningsZh": ["休假"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kyuuka-1",
+          "ja": "休暇について上司に確認する。",
+          "kana": "きゅうかについてじょうしにかくにんする。",
+          "zh": "向上司确认休假的事。",
+          "targetSurface": "休暇",
+          "targetKana": "きゅうか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-meeruhenshin",
+      "type": "word",
+      "surface": "メール返信",
+      "kana": "めーるへんしん",
+      "romaji": ["meeruhenshin"],
+      "meaningsZh": ["邮件回复"],
+      "pos": "noun",
+      "tags": ["work", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-meeruhenshin-1",
+          "ja": "会議でメール返信が話題になった。",
+          "kana": "かいぎでめーるへんしんがわだいになった。",
+          "zh": "会议上聊到了邮件回复。",
+          "targetSurface": "メール返信",
+          "targetKana": "めーるへんしん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-meishikoukan",
+      "type": "word",
+      "surface": "名刺交換",
+      "kana": "めいしこうかん",
+      "romaji": ["meishikoukan"],
+      "meaningsZh": ["交换名片"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-meishikoukan-1",
+          "ja": "会議で名刺交換が話題になった。",
+          "kana": "かいぎでめいしこうかんがわだいになった。",
+          "zh": "会议上聊到了交换名片。",
+          "targetSurface": "名刺交換",
+          "targetKana": "めいしこうかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-mitsumorisho",
+      "type": "word",
+      "surface": "見積書",
+      "kana": "みつもりしょ",
+      "romaji": ["mitsumorisho"],
+      "meaningsZh": ["报价单"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-mitsumorisho-1",
+          "ja": "見積書の手続きを進める。",
+          "kana": "みつもりしょのてつづきをすすめる。",
+          "zh": "推进报价单的手续。",
+          "targetSurface": "見積書",
+          "targetKana": "みつもりしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-moushiwakegozaimasen",
+      "type": "word",
+      "surface": "申し訳ございません",
+      "kana": "もうしわけございません",
+      "romaji": ["moushiwakegozaimasen"],
+      "meaningsZh": ["非常抱歉"],
+      "pos": "expression",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-moushiwakegozaimasen-1",
+          "ja": "ご迷惑をおかけして、申し訳ございません。",
+          "kana": "ごめいわくをおかけして、もうしわけございません。",
+          "zh": "给您添麻烦了，非常抱歉。",
+          "targetSurface": "申し訳ございません",
+          "targetKana": "もうしわけございません"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-nouhin",
+      "type": "word",
+      "surface": "納品",
+      "kana": "のうひん",
+      "romaji": ["nouhin"],
+      "meaningsZh": ["交货"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-nouhin-1",
+          "ja": "納品について上司に確認する。",
+          "kana": "のうひんについてじょうしにかくにんする。",
+          "zh": "向上司确认交货的事。",
+          "targetSurface": "納品",
+          "targetKana": "のうひん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-orikaeshimasu",
+      "type": "word",
+      "surface": "折り返します",
+      "kana": "おりかえします",
+      "romaji": ["orikaeshimasu"],
+      "meaningsZh": ["稍后回电"],
+      "pos": "expression",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-orikaeshimasu-1",
+          "ja": "ただ今席を外しております。後ほど折り返します。",
+          "kana": "ただいませきをはずしております。のちほどおりかえします。",
+          "zh": "他现在不在座位上，稍后我们回拨给您。",
+          "targetSurface": "折り返します",
+          "targetKana": "おりかえします"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-osewaninatteorimasu",
+      "type": "word",
+      "surface": "お世話になっております",
+      "kana": "おせわになっております",
+      "romaji": ["osewaninatteorimasu"],
+      "meaningsZh": ["承蒙关照"],
+      "pos": "expression",
+      "tags": ["work", "greeting"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-osewaninatteorimasu-1",
+          "ja": "いつもお世話になっております、株式会社○○の山田です。",
+          "kana": "いつもおせわになっております、かぶしきがいしゃまるまるのやまだです。",
+          "zh": "一直承蒙关照，我是○○公司的山田。",
+          "targetSurface": "お世話になっております",
+          "targetKana": "おせわになっております"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-osoreirimasu",
+      "type": "word",
+      "surface": "恐れ入ります",
+      "kana": "おそれいります",
+      "romaji": ["osoreirimasu"],
+      "meaningsZh": ["不好意思", "劳驾"],
+      "pos": "expression",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-osoreirimasu-1",
+          "ja": "お忙しいところ恐れ入りますが、ご確認をお願いいたします。",
+          "kana": "おいそがしいところおそれいりますが、ごかくにんをおねがいいたします。",
+          "zh": "百忙之中实在抱歉，请您确认一下。",
+          "targetSurface": "恐れ入ります",
+          "targetKana": "おそれいります"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-rimootowaaku",
+      "type": "word",
+      "surface": "リモートワーク",
+      "kana": "リモートワーク",
+      "romaji": ["rimootowaaku"],
+      "meaningsZh": ["远程办公"],
+      "pos": "noun",
+      "tags": ["work", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-rimootowaaku-1",
+          "ja": "リモートワークの手続きを進める。",
+          "kana": "りもーとわーくのてつづきをすすめる。",
+          "zh": "推进远程办公的手续。",
+          "targetSurface": "リモートワーク",
+          "targetKana": "りもーとわーく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-seikyuusho",
+      "type": "word",
+      "surface": "請求書",
+      "kana": "せいきゅうしょ",
+      "romaji": ["seikyuusho"],
+      "meaningsZh": ["账单", "请款单"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-seikyuusho-1",
+          "ja": "請求書について上司に確認する。",
+          "kana": "せいきゅうしょについてじょうしにかくにんする。",
+          "zh": "向上司确认账单的事。",
+          "targetSurface": "請求書",
+          "targetKana": "せいきゅうしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-senpou",
+      "type": "word",
+      "surface": "先方",
+      "kana": "せんぽう",
+      "romaji": ["senpou"],
+      "meaningsZh": ["对方公司", "客户方"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-senpou-1",
+          "ja": "会議で先方が話題になった。",
+          "kana": "かいぎでせんぽうがわだいになった。",
+          "zh": "会议上聊到了对方公司。",
+          "targetSurface": "先方",
+          "targetKana": "せんぽう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shimekiri",
+      "type": "word",
+      "surface": "締切",
+      "kana": "しめきり",
+      "romaji": ["shimekiri"],
+      "meaningsZh": ["截止日期"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shimekiri-1",
+          "ja": "締切に間に合うように頑張る。",
+          "kana": "しめきりにまにあうようにがんばる。",
+          "zh": "努力赶上截止日期。",
+          "targetSurface": "締切",
+          "targetKana": "しめきり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shouchishimashita",
+      "type": "word",
+      "surface": "承知しました",
+      "kana": "しょうちしました",
+      "romaji": ["shouchishimashita"],
+      "meaningsZh": ["明白了"],
+      "pos": "expression",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shouchishimashita-1",
+          "ja": "承知しました。すぐに対応いたします。",
+          "kana": "しょうちしました。すぐにたいおういたします。",
+          "zh": "明白了，我立刻处理。",
+          "targetSurface": "承知しました",
+          "targetKana": "しょうちしました"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shounin",
+      "type": "word",
+      "surface": "承認",
+      "kana": "しょうにん",
+      "romaji": ["shounin"],
+      "meaningsZh": ["批准"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shounin-1",
+          "ja": "会議で承認が話題になった。",
+          "kana": "かいぎでしょうにんがわだいになった。",
+          "zh": "会议上聊到了批准。",
+          "targetSurface": "承認",
+          "targetKana": "しょうにん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shussha",
+      "type": "word",
+      "surface": "出社",
+      "kana": "しゅっしゃ",
+      "romaji": ["shussha"],
+      "meaningsZh": ["到公司上班"],
+      "pos": "noun",
+      "tags": ["work", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-shussha-1",
+          "ja": "出社について上司に確認する。",
+          "kana": "しゅっしゃについてじょうしにかくにんする。",
+          "zh": "向上司确认到公司上班的事。",
+          "targetSurface": "出社",
+          "targetKana": "しゅっしゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-soutai",
+      "type": "word",
+      "surface": "早退",
+      "kana": "そうたい",
+      "romaji": ["soutai"],
+      "meaningsZh": ["早退"],
+      "pos": "noun",
+      "tags": ["school", "work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-soutai-1",
+          "ja": "早退について上司に確認する。",
+          "kana": "そうたいについてじょうしにかくにんする。",
+          "zh": "向上司确认早退的事。",
+          "targetSurface": "早退",
+          "targetKana": "そうたい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-taikin",
+      "type": "word",
+      "surface": "退勤",
+      "kana": "たいきん",
+      "romaji": ["taikin"],
+      "meaningsZh": ["下班打卡"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-taikin-1",
+          "ja": "会議で退勤が話題になった。",
+          "kana": "かいぎでたいきんがわだいになった。",
+          "zh": "会议上聊到了下班打卡。",
+          "targetSurface": "退勤",
+          "targetKana": "たいきん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-taisha",
+      "type": "word",
+      "surface": "退社",
+      "kana": "たいしゃ",
+      "romaji": ["taisha"],
+      "meaningsZh": ["下班", "离职"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-taisha-1",
+          "ja": "会議で退社が話題になった。",
+          "kana": "かいぎでたいしゃがわだいになった。",
+          "zh": "会议上聊到了下班。",
+          "targetSurface": "退社",
+          "targetKana": "たいしゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tannin",
+      "type": "word",
+      "surface": "担任",
+      "kana": "たんにん",
+      "romaji": ["tannin"],
+      "meaningsZh": ["班主任"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tannin-1",
+          "ja": "担任の手続きを進める。",
+          "kana": "たんにんのてつづきをすすめる。",
+          "zh": "推进班主任的手续。",
+          "targetSurface": "担任",
+          "targetKana": "たんにん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-torihikisaki",
+      "type": "word",
+      "surface": "取引先",
+      "kana": "とりひきさき",
+      "romaji": ["torihikisaki"],
+      "meaningsZh": ["客户", "交易方"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-torihikisaki-1",
+          "ja": "取引先について上司に確認する。",
+          "kana": "とりひきさきについてじょうしにかくにんする。",
+          "zh": "向上司确认客户的事。",
+          "targetSurface": "取引先",
+          "targetKana": "とりひきさき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-uchiawase",
+      "type": "word",
+      "surface": "打ち合わせ",
+      "kana": "うちあわせ",
+      "romaji": ["uchiawase"],
+      "meaningsZh": ["碰头会", "商量"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-uchiawase-1",
+          "ja": "会議で打ち合わせが話題になった。",
+          "kana": "かいぎでうちあわせがわだいになった。",
+          "zh": "会议上聊到了碰头会。",
+          "targetSurface": "打ち合わせ",
+          "targetKana": "うちあわせ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-yuukyuu",
+      "type": "word",
+      "surface": "有給",
+      "kana": "ゆうきゅう",
+      "romaji": ["yuukyuu"],
+      "meaningsZh": ["带薪假"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-yuukyuu-1",
+          "ja": "有給を使って旅行に行く。",
+          "kana": "ゆうきゅうをつかってりょこうにいく。",
+          "zh": "用带薪假去旅行。",
+          "targetSurface": "有給",
+          "targetKana": "ゆうきゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-zaitakukinmu",
+      "type": "word",
+      "surface": "在宅勤務",
+      "kana": "ざいたくきんむ",
+      "romaji": ["zaitakukinmu"],
+      "meaningsZh": ["居家办公"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-zaitakukinmu-1",
+          "ja": "会議で在宅勤務が話題になった。",
+          "kana": "かいぎでざいたくきんむがわだいになった。",
+          "zh": "会议上聊到了居家办公。",
+          "targetSurface": "在宅勤務",
+          "targetKana": "ざいたくきんむ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-zemi",
+      "type": "word",
+      "surface": "ゼミ",
+      "kana": "ゼミ",
+      "romaji": ["zemi"],
+      "meaningsZh": ["研讨课"],
+      "pos": "noun",
+      "tags": ["school", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-zemi-1",
+          "ja": "会議でゼミが話題になった。",
+          "kana": "かいぎでぜみがわだいになった。",
+          "zh": "会议上聊到了研讨课。",
+          "targetSurface": "ゼミ",
+          "targetKana": "ぜみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-zukoushitsu",
+      "type": "word",
+      "surface": "図工室",
+      "kana": "ずこうしつ",
+      "romaji": ["zukoushitsu"],
+      "meaningsZh": ["美术", "手工教室"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-zukoushitsu-1",
+          "ja": "図工室について上司に確認する。",
+          "kana": "ずこうしつについてじょうしにかくにんする。",
+          "zh": "向上司确认美术的事。",
+          "targetSurface": "図工室",
+          "targetKana": "ずこうしつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-anki",
+      "type": "word",
+      "surface": "暗記",
+      "kana": "あんき",
+      "romaji": ["anki"],
+      "meaningsZh": ["背诵"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-anki-1",
+          "ja": "暗記の手続きを進める。",
+          "kana": "あんきのてつづきをすすめる。",
+          "zh": "推进背诵的手续。",
+          "targetSurface": "暗記",
+          "targetKana": "あんき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-bijutsu",
+      "type": "word",
+      "surface": "美術",
+      "kana": "びじゅつ",
+      "romaji": ["bijutsu"],
+      "meaningsZh": ["美术"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-bijutsu-1",
+          "ja": "美術の手続きを進める。",
+          "kana": "びじゅつのてつづきをすすめる。",
+          "zh": "推进美术的手续。",
+          "targetSurface": "美術",
+          "targetKana": "びじゅつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-buka",
+      "type": "word",
+      "surface": "部下",
+      "kana": "ぶか",
+      "romaji": ["buka"],
+      "meaningsZh": ["下属"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-buka-1",
+          "ja": "部下に仕事を任せる。",
+          "kana": "ぶかにしごとをまかせる。",
+          "zh": "把工作交给下属。",
+          "targetSurface": "部下",
+          "targetKana": "ぶか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-bukatsu",
+      "type": "word",
+      "surface": "部活",
+      "kana": "ぶかつ",
+      "romaji": ["bukatsu"],
+      "meaningsZh": ["社团活动"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-bukatsu-1",
+          "ja": "放課後はサッカーの部活がある。",
+          "kana": "ほうかごはサッカーのぶかつがある。",
+          "zh": "放学后有足球社团。",
+          "targetSurface": "部活",
+          "targetKana": "ぶかつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-bunkasai",
+      "type": "word",
+      "surface": "文化祭",
+      "kana": "ぶんかさい",
+      "romaji": ["bunkasai"],
+      "meaningsZh": ["文化祭"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-bunkasai-1",
+          "ja": "十月に文化祭がある。",
+          "kana": "じゅうがつにぶんかさいがある。",
+          "zh": "十月有文化祭。",
+          "targetSurface": "文化祭",
+          "targetKana": "ぶんかさい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-chikoku",
+      "type": "word",
+      "surface": "遅刻",
+      "kana": "ちこく",
+      "romaji": ["chikoku"],
+      "meaningsZh": ["迟到"],
+      "pos": "noun",
+      "tags": ["school", "work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-chikoku-1",
+          "ja": "遅刻について上司に確認する。",
+          "kana": "ちこくについてじょうしにかくにんする。",
+          "zh": "向上司确认迟到的事。",
+          "targetSurface": "遅刻",
+          "targetKana": "ちこく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-chooku",
+      "type": "word",
+      "surface": "チョーク",
+      "kana": "チョーク",
+      "romaji": ["chooku"],
+      "meaningsZh": ["粉笔"],
+      "pos": "noun",
+      "tags": ["school", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-chooku-1",
+          "ja": "チョークについて上司に確認する。",
+          "kana": "ちょーくについてじょうしにかくにんする。",
+          "zh": "向上司确认粉笔的事。",
+          "targetSurface": "チョーク",
+          "targetKana": "ちょーく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-doukyuusei",
+      "type": "word",
+      "surface": "同級生",
+      "kana": "どうきゅうせい",
+      "romaji": ["doukyuusei"],
+      "meaningsZh": ["同级生"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-doukyuusei-1",
+          "ja": "同級生について上司に確認する。",
+          "kana": "どうきゅうせいについてじょうしにかくにんする。",
+          "zh": "向上司确认同级生的事。",
+          "targetSurface": "同級生",
+          "targetKana": "どうきゅうせい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-douryou",
+      "type": "word",
+      "surface": "同僚",
+      "kana": "どうりょう",
+      "romaji": ["douryou"],
+      "meaningsZh": ["同事"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-douryou-1",
+          "ja": "同僚と昼食を一緒に食べた。",
+          "kana": "どうりょうとちゅうしょくをいっしょにたべた。",
+          "zh": "和同事一起吃了午饭。",
+          "targetSurface": "同僚",
+          "targetKana": "どうりょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-fugoukaku",
+      "type": "word",
+      "surface": "不合格",
+      "kana": "ふごうかく",
+      "romaji": ["fugoukaku"],
+      "meaningsZh": ["不合格"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-fugoukaku-1",
+          "ja": "不合格でも来年もう一度受ける。",
+          "kana": "ふごうかくでもらいねんもういちどうける。",
+          "zh": "不合格的话明年再考一次。",
+          "targetSurface": "不合格",
+          "targetKana": "ふごうかく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-fukushuu",
+      "type": "word",
+      "surface": "復習",
+      "kana": "ふくしゅう",
+      "romaji": ["fukushuu"],
+      "meaningsZh": ["复习"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-fukushuu-1",
+          "ja": "復習の手続きを進める。",
+          "kana": "ふくしゅうのてつづきをすすめる。",
+          "zh": "推进复习的手续。",
+          "targetSurface": "復習",
+          "targetKana": "ふくしゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-gokurousamadesu",
+      "type": "word",
+      "surface": "ご苦労様です",
+      "kana": "ごくろうさまです",
+      "romaji": ["gokurousamadesu"],
+      "meaningsZh": ["辛苦了(上对下慎用)"],
+      "pos": "expression",
+      "tags": ["work", "greeting"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-gokurousamadesu-1",
+          "ja": "配達の方に「ご苦労様です」と声をかけた。",
+          "kana": "はいたつのかたに「ごくろうさまです」とこえをかけた。",
+          "zh": "对送货员说了声「辛苦了」。",
+          "targetSurface": "ご苦労様です",
+          "targetKana": "ごくろうさまです"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-goukaku",
+      "type": "word",
+      "surface": "合格",
+      "kana": "ごうかく",
+      "romaji": ["goukaku"],
+      "meaningsZh": ["合格"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-goukaku-1",
+          "ja": "入試に合格して家族が喜んだ。",
+          "kana": "にゅうしにごうかくしてかぞくがよろこんだ。",
+          "zh": "考试合格了，家人很高兴。",
+          "targetSurface": "合格",
+          "targetKana": "ごうかく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hokenshitsu",
+      "type": "word",
+      "surface": "保健室",
+      "kana": "ほけんしつ",
+      "romaji": ["hokenshitsu"],
+      "meaningsZh": ["保健室"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hokenshitsu-1",
+          "ja": "熱があるので保健室で休んだ。",
+          "kana": "ねつがあるのでほけんしつでやすんだ。",
+          "zh": "发烧了，在保健室休息。",
+          "targetSurface": "保健室",
+          "targetKana": "ほけんしつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-houkago",
+      "type": "word",
+      "surface": "放課後",
+      "kana": "ほうかご",
+      "romaji": ["houkago"],
+      "meaningsZh": ["放学后"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-houkago-1",
+          "ja": "会議で放課後が話題になった。",
+          "kana": "かいぎでほうかごがわだいになった。",
+          "zh": "会议上聊到了放学后。",
+          "targetSurface": "放課後",
+          "targetKana": "ほうかご"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-houkoku",
+      "type": "word",
+      "surface": "報告",
+      "kana": "ほうこく",
+      "romaji": ["houkoku"],
+      "meaningsZh": ["报告"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-houkoku-1",
+          "ja": "毎週月曜に進捗を報告する。",
+          "kana": "まいしゅうげつように しんちょくをほうこくする。",
+          "zh": "每周一汇报进度。",
+          "targetSurface": "報告",
+          "targetKana": "ほうこく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-howaitoboodo",
+      "type": "word",
+      "surface": "ホワイトボード",
+      "kana": "ホワイトボード",
+      "romaji": ["howaitoboodo"],
+      "meaningsZh": ["白板"],
+      "pos": "noun",
+      "tags": ["school", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-howaitoboodo-1",
+          "ja": "ホワイトボードについて上司に確認する。",
+          "kana": "ほわいとぼーどについてじょうしにかくにんする。",
+          "zh": "向上司确认白板的事。",
+          "targetSurface": "ホワイトボード",
+          "targetKana": "ほわいとぼーど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-jikanwari",
+      "type": "word",
+      "surface": "時間割",
+      "kana": "じかんわり",
+      "romaji": ["jikanwari"],
+      "meaningsZh": ["课程表"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-jikanwari-1",
+          "ja": "時間割の手続きを進める。",
+          "kana": "じかんわりのてつづきをすすめる。",
+          "zh": "推进课程表的手续。",
+          "targetSurface": "時間割",
+          "targetKana": "じかんわり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-jimusho",
+      "type": "word",
+      "surface": "事務所",
+      "kana": "じむしょ",
+      "romaji": ["jimusho"],
+      "meaningsZh": ["事务所", "办公室"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-jimusho-1",
+          "ja": "会議で事務所が話題になった。",
+          "kana": "かいぎでじむしょがわだいになった。",
+          "zh": "会议上聊到了事务所。",
+          "targetSurface": "事務所",
+          "targetKana": "じむしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-joushi",
+      "type": "word",
+      "surface": "上司",
+      "kana": "じょうし",
+      "romaji": ["joushi"],
+      "meaningsZh": ["上司"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-joushi-1",
+          "ja": "上司に相談してから決める。",
+          "kana": "じょうしにそうだんしてからきめる。",
+          "zh": "和上司商量后再决定。",
+          "targetSurface": "上司",
+          "targetKana": "じょうし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kaigi",
+      "type": "word",
+      "surface": "会議",
+      "kana": "かいぎ",
+      "romaji": ["kaigi"],
+      "meaningsZh": ["会议"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kaigi-1",
+          "ja": "午後三時から会議がある。",
+          "kana": "ごごさんじからかいぎがある。",
+          "zh": "下午三点开始有会议。",
+          "targetSurface": "会議",
+          "targetKana": "かいぎ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kesseki",
+      "type": "word",
+      "surface": "欠席",
+      "kana": "けっせき",
+      "romaji": ["kesseki"],
+      "meaningsZh": ["缺席"],
+      "pos": "noun",
+      "tags": ["school", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kesseki-1",
+          "ja": "欠席の手続きを進める。",
+          "kana": "けっせきのてつづきをすすめる。",
+          "zh": "推进缺席的手续。",
+          "targetSurface": "欠席",
+          "targetKana": "けっせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-kouchou",
+      "type": "word",
+      "surface": "校長",
+      "kana": "こうちょう",
+      "romaji": ["kouchou"],
+      "meaningsZh": ["校长"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kouchou-1",
+          "ja": "校長先生のお話を聞いた。",
+          "kana": "こうちょうせんせいのおはなしをきいた。",
+          "zh": "听了校长的讲话。",
+          "targetSurface": "校長",
+          "targetKana": "こうちょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kouhai",
+      "type": "word",
+      "surface": "後輩",
+      "kana": "こうはい",
+      "romaji": ["kouhai"],
+      "meaningsZh": ["后辈"],
+      "pos": "noun",
+      "tags": ["school", "work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kouhai-1",
+          "ja": "後輩について上司に確認する。",
+          "kana": "こうはいについてじょうしにかくにんする。",
+          "zh": "向上司确认后辈的事。",
+          "targetSurface": "後輩",
+          "targetKana": "こうはい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nyuugaku",
+      "type": "word",
+      "surface": "入学",
+      "kana": "にゅうがく",
+      "romaji": ["nyuugaku"],
+      "meaningsZh": ["入学"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nyuugaku-1",
+          "ja": "入学について上司に確認する。",
+          "kana": "にゅうがくについてじょうしにかくにんする。",
+          "zh": "向上司确认入学的事。",
+          "targetSurface": "入学",
+          "targetKana": "にゅうがく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-otsukaresamadesu",
+      "type": "word",
+      "surface": "お疲れ様です",
+      "kana": "おつかれさまです",
+      "romaji": ["otsukaresamadesu"],
+      "meaningsZh": ["辛苦了", "职场问候"],
+      "pos": "expression",
+      "tags": ["work", "greeting"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-otsukaresamadesu-1",
+          "ja": "お疲れ様です。今、お時間よろしいですか。",
+          "kana": "おつかれさまです。いま、おじかんよろしいですか。",
+          "zh": "辛苦了。现在方便说话吗？",
+          "targetSurface": "お疲れ様です",
+          "targetKana": "おつかれさまです"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-purinto",
+      "type": "word",
+      "surface": "プリント",
+      "kana": "プリント",
+      "romaji": ["purinto"],
+      "meaningsZh": ["讲义", "打印材料"],
+      "pos": "noun",
+      "tags": ["school", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-purinto-1",
+          "ja": "会議でプリントが話題になった。",
+          "kana": "かいぎでぷりんとがわだいになった。",
+          "zh": "会议上聊到了讲义。",
+          "targetSurface": "プリント",
+          "targetKana": "ぷりんと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-renraku",
+      "type": "word",
+      "surface": "連絡",
+      "kana": "れんらく",
+      "romaji": ["renraku"],
+      "meaningsZh": ["联系"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-renraku-1",
+          "ja": "到着したら連絡してください。",
+          "kana": "とうちゃくしたられんらくしてください。",
+          "zh": "到达后请联系。",
+          "targetSurface": "連絡",
+          "targetKana": "れんらく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-seifuku",
+      "type": "word",
+      "surface": "制服",
+      "kana": "せいふく",
+      "romaji": ["seifuku"],
+      "meaningsZh": ["制服"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-seifuku-1",
+          "ja": "制服について上司に確認する。",
+          "kana": "せいふくについてじょうしにかくにんする。",
+          "zh": "向上司确认制服的事。",
+          "targetSurface": "制服",
+          "targetKana": "せいふく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-seiseki",
+      "type": "word",
+      "surface": "成績",
+      "kana": "せいせき",
+      "romaji": ["seiseki"],
+      "meaningsZh": ["成绩"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-seiseki-1",
+          "ja": "成績について上司に確認する。",
+          "kana": "せいせきについてじょうしにかくにんする。",
+          "zh": "向上司确认成绩的事。",
+          "targetSurface": "成績",
+          "targetKana": "せいせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-senpai",
+      "type": "word",
+      "surface": "先輩",
+      "kana": "せんぱい",
+      "romaji": ["senpai"],
+      "meaningsZh": ["前辈"],
+      "pos": "noun",
+      "tags": ["school", "work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-senpai-1",
+          "ja": "先輩について上司に確認する。",
+          "kana": "せんぱいについてじょうしにかくにんする。",
+          "zh": "向上司确认前辈的事。",
+          "targetSurface": "先輩",
+          "targetKana": "せんぱい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shiken",
+      "type": "word",
+      "surface": "試験",
+      "kana": "しけん",
+      "romaji": ["shiken"],
+      "meaningsZh": ["考试"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shiken-1",
+          "ja": "試験の手続きを進める。",
+          "kana": "しけんのてつづきをすすめる。",
+          "zh": "推进考试的手续。",
+          "targetSurface": "試験",
+          "targetKana": "しけん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shiryou",
+      "type": "word",
+      "surface": "資料",
+      "kana": "しりょう",
+      "romaji": ["shiryou"],
+      "meaningsZh": ["资料"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shiryou-1",
+          "ja": "会議の前に資料に目を通す。",
+          "kana": "かいぎのまえにしりょうにめをとおす。",
+          "zh": "开会前先浏览资料。",
+          "targetSurface": "資料",
+          "targetKana": "しりょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shokuba",
+      "type": "word",
+      "surface": "職場",
+      "kana": "しょくば",
+      "romaji": ["shokuba"],
+      "meaningsZh": ["职场"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shokuba-1",
+          "ja": "職場の手続きを進める。",
+          "kana": "しょくばのてつづきをすすめる。",
+          "zh": "推进职场的手续。",
+          "targetSurface": "職場",
+          "targetKana": "しょくば"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shokuinshitsu",
+      "type": "word",
+      "surface": "職員室",
+      "kana": "しょくいんしつ",
+      "romaji": ["shokuinshitsu"],
+      "meaningsZh": ["教师办公室"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shokuinshitsu-1",
+          "ja": "先生に質問しに職員室へ行く。",
+          "kana": "せんせいにしつもんしにしょくいんしつへいく。",
+          "zh": "去办公室问老师问题。",
+          "targetSurface": "職員室",
+          "targetKana": "しょくいんしつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shucchou",
+      "type": "word",
+      "surface": "出張",
+      "kana": "しゅっちょう",
+      "romaji": ["shutchou", "shucchou"],
+      "meaningsZh": ["出差"],
+      "pos": "noun",
+      "tags": ["work", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-shucchou-1",
+          "ja": "来週、大阪に出張する。",
+          "kana": "らいしゅう、おおさかにしゅっちょうする。",
+          "zh": "下周去大阪出差。",
+          "targetSurface": "出張",
+          "targetKana": "しゅっちょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-shusseki",
+      "type": "word",
+      "surface": "出席",
+      "kana": "しゅっせき",
+      "romaji": ["shusseki"],
+      "meaningsZh": ["出席"],
+      "pos": "noun",
+      "tags": ["school", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shusseki-1",
+          "ja": "会議で出席が話題になった。",
+          "kana": "かいぎでしゅっせきがわだいになった。",
+          "zh": "会议上聊到了出席。",
+          "targetSurface": "出席",
+          "targetKana": "しゅっせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-sotsugyou",
+      "type": "word",
+      "surface": "卒業",
+      "kana": "そつぎょう",
+      "romaji": ["sotsugyou"],
+      "meaningsZh": ["毕业"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sotsugyou-1",
+          "ja": "会議で卒業が話題になった。",
+          "kana": "かいぎでそつぎょうがわだいになった。",
+          "zh": "会议上聊到了毕业。",
+          "targetSurface": "卒業",
+          "targetKana": "そつぎょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-soudan",
+      "type": "word",
+      "surface": "相談",
+      "kana": "そうだん",
+      "romaji": ["soudan"],
+      "meaningsZh": ["商量", "咨询"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-soudan-1",
+          "ja": "先輩に進路を相談する。",
+          "kana": "せんぱいにしんろをそうだんする。",
+          "zh": "和前辈商量发展方向。",
+          "targetSurface": "相談",
+          "targetKana": "そうだん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-taiiku",
+      "type": "word",
+      "surface": "体育",
+      "kana": "たいいく",
+      "romaji": ["taiiku"],
+      "meaningsZh": ["体育"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-taiiku-1",
+          "ja": "体育について上司に確認する。",
+          "kana": "たいいくについてじょうしにかくにんする。",
+          "zh": "向上司确认体育的事。",
+          "targetSurface": "体育",
+          "targetKana": "たいいく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-undoukai",
+      "type": "word",
+      "surface": "運動会",
+      "kana": "うんどうかい",
+      "romaji": ["undoukai"],
+      "meaningsZh": ["运动会"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-undoukai-1",
+          "ja": "運動会について上司に確認する。",
+          "kana": "うんどうかいについてじょうしにかくにんする。",
+          "zh": "向上司确认运动会的事。",
+          "targetSurface": "運動会",
+          "targetKana": "うんどうかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yoshuu",
+      "type": "word",
+      "surface": "予習",
+      "kana": "よしゅう",
+      "romaji": ["yoshuu"],
+      "meaningsZh": ["预习"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yoshuu-1",
+          "ja": "予習について上司に確認する。",
+          "kana": "よしゅうについてじょうしにかくにんする。",
+          "zh": "向上司确认预习的事。",
+          "targetSurface": "予習",
+          "targetKana": "よしゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-zangyou",
+      "type": "word",
+      "surface": "残業",
+      "kana": "ざんぎょう",
+      "romaji": ["zangyou"],
+      "meaningsZh": ["加班"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-zangyou-1",
+          "ja": "今日は残業で帰りが遅くなる。",
+          "kana": "きょうはざんぎょうでかえりがおそくなる。",
+          "zh": "今天加班，会晚回家。",
+          "targetSurface": "残業",
+          "targetKana": "ざんぎょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-eigo",
+      "type": "word",
+      "surface": "英語",
+      "kana": "えいご",
+      "romaji": ["eigo"],
+      "meaningsZh": ["英语"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-eigo-1",
+          "ja": "英語について上司に確認する。",
+          "kana": "えいごについてじょうしにかくにんする。",
+          "zh": "向上司确认英语的事。",
+          "targetSurface": "英語",
+          "targetKana": "えいご"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-gakusei",
+      "type": "word",
+      "surface": "学生",
+      "kana": "がくせい",
+      "romaji": ["gakusei"],
+      "meaningsZh": ["学生"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-gakusei-1",
+          "ja": "学生時代に旅行をたくさんした。",
+          "kana": "がくせいじだいにりょこうをたくさんした。",
+          "zh": "学生时代旅行了很多。",
+          "targetSurface": "学生",
+          "targetKana": "がくせい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-jugyou",
+      "type": "word",
+      "surface": "授業",
+      "kana": "じゅぎょう",
+      "romaji": ["jugyou"],
+      "meaningsZh": ["课", "上课"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-jugyou-1",
+          "ja": "会議で授業が話題になった。",
+          "kana": "かいぎでじゅぎょうがわだいになった。",
+          "zh": "会议上聊到了课。",
+          "targetSurface": "授業",
+          "targetKana": "じゅぎょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kaisha",
+      "type": "word",
+      "surface": "会社",
+      "kana": "かいしゃ",
+      "romaji": ["kaisha"],
+      "meaningsZh": ["公司"],
+      "pos": "noun",
+      "tags": ["work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kaisha-1",
+          "ja": "会社まで電車で三十分かかる。",
+          "kana": "かいしゃまででんしゃでさんじゅっぷんかかる。",
+          "zh": "到公司坐电车要三十分钟。",
+          "targetSurface": "会社",
+          "targetKana": "かいしゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kaishain",
+      "type": "word",
+      "surface": "会社員",
+      "kana": "かいしゃいん",
+      "romaji": ["kaishain"],
+      "meaningsZh": ["公司职员"],
+      "pos": "noun",
+      "tags": ["job", "work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kaishain-1",
+          "ja": "父は会社員だ。",
+          "kana": "ちちはかいしゃいんだ。",
+          "zh": "父亲是上班族。",
+          "targetSurface": "会社員",
+          "targetKana": "かいしゃいん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kokuban",
+      "type": "word",
+      "surface": "黒板",
+      "kana": "こくばん",
+      "romaji": ["kokuban"],
+      "meaningsZh": ["黑板"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kokuban-1",
+          "ja": "黒板について上司に確認する。",
+          "kana": "こくばんについてじょうしにかくにんする。",
+          "zh": "向上司确认黑板的事。",
+          "targetSurface": "黒板",
+          "targetKana": "こくばん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kokugo",
+      "type": "word",
+      "surface": "国語",
+      "kana": "こくご",
+      "romaji": ["kokugo"],
+      "meaningsZh": ["国语", "日语课"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kokugo-1",
+          "ja": "国語の手続きを進める。",
+          "kana": "こくごのてつづきをすすめる。",
+          "zh": "推进国语的手续。",
+          "targetSurface": "国語",
+          "targetKana": "こくご"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kotae",
+      "type": "word",
+      "surface": "答え",
+      "kana": "こたえ",
+      "romaji": ["kotae"],
+      "meaningsZh": ["答案"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kotae-1",
+          "ja": "答えについて上司に確認する。",
+          "kana": "こたえについてじょうしにかくにんする。",
+          "zh": "向上司确认答案的事。",
+          "targetSurface": "答え",
+          "targetKana": "こたえ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kyoushitsu",
+      "type": "word",
+      "surface": "教室",
+      "kana": "きょうしつ",
+      "romaji": ["kyoushitsu"],
+      "meaningsZh": ["教室"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kyoushitsu-1",
+          "ja": "教室の手続きを進める。",
+          "kana": "きょうしつのてつづきをすすめる。",
+          "zh": "推进教室的手续。",
+          "targetSurface": "教室",
+          "targetKana": "きょうしつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-narau",
+      "type": "word",
+      "surface": "習う",
+      "kana": "ならう",
+      "romaji": ["narau"],
+      "meaningsZh": ["学习"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-narau-1",
+          "ja": "ピアノを五歳から習っている。",
+          "kana": "ピアノをごさいからならっている。",
+          "zh": "从五岁开始学钢琴。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ongaku",
+      "type": "word",
+      "surface": "音楽",
+      "kana": "おんがく",
+      "romaji": ["ongaku"],
+      "meaningsZh": ["音乐"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ongaku-1",
+          "ja": "会議で音楽が話題になった。",
+          "kana": "かいぎでおんがくがわだいになった。",
+          "zh": "会议上聊到了音乐。",
+          "targetSurface": "音楽",
+          "targetKana": "おんがく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-oshieru",
+      "type": "word",
+      "surface": "教える",
+      "kana": "おしえる",
+      "romaji": ["oshieru"],
+      "meaningsZh": ["教", "告诉"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-oshieru-1",
+          "ja": "先生に発音を教えてもらう。",
+          "kana": "せんせいにはつおんをおしえてもらう。",
+          "zh": "请老师教我发音。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-rika",
+      "type": "word",
+      "surface": "理科",
+      "kana": "りか",
+      "romaji": ["rika"],
+      "meaningsZh": ["理科"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-rika-1",
+          "ja": "理科について上司に確認する。",
+          "kana": "りかについてじょうしにかくにんする。",
+          "zh": "向上司确认理科的事。",
+          "targetSurface": "理科",
+          "targetKana": "りか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ryuugakusei",
+      "type": "word",
+      "surface": "留学生",
+      "kana": "りゅうがくせい",
+      "romaji": ["ryuugakusei"],
+      "meaningsZh": ["留学生"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ryuugakusei-1",
+          "ja": "会議で留学生が話題になった。",
+          "kana": "かいぎでりゅうがくせいがわだいになった。",
+          "zh": "会议上聊到了留学生。",
+          "targetSurface": "留学生",
+          "targetKana": "りゅうがくせい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sensei",
+      "type": "word",
+      "surface": "先生",
+      "kana": "せんせい",
+      "romaji": ["sensei"],
+      "meaningsZh": ["老师"],
+      "pos": "noun",
+      "tags": ["daily", "kanji-word", "relation", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-sensei-1",
+          "ja": "先生に質問した。",
+          "kana": "せんせいにしつもんした。",
+          "zh": "向老师提了问题。",
+          "targetSurface": "先生",
+          "targetKana": "せんせい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-shain",
+      "type": "word",
+      "surface": "社員",
+      "kana": "しゃいん",
+      "romaji": ["shain"],
+      "meaningsZh": ["职员"],
+      "pos": "noun",
+      "tags": ["job", "work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shain-1",
+          "ja": "会議で社員が話題になった。",
+          "kana": "かいぎでしゃいんがわだいになった。",
+          "zh": "会议上聊到了职员。",
+          "targetSurface": "社員",
+          "targetKana": "しゃいん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shakai",
+      "type": "word",
+      "surface": "社会",
+      "kana": "しゃかい",
+      "romaji": ["shakai"],
+      "meaningsZh": ["社会科"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shakai-1",
+          "ja": "会議で社会が話題になった。",
+          "kana": "かいぎでしゃかいがわだいになった。",
+          "zh": "会议上聊到了社会科。",
+          "targetSurface": "社会",
+          "targetKana": "しゃかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shitsumon",
+      "type": "word",
+      "surface": "質問",
+      "kana": "しつもん",
+      "romaji": ["shitsumon"],
+      "meaningsZh": ["提问"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shitsumon-1",
+          "ja": "先生に質問してもいいですか?",
+          "kana": "せんせいにしつもんしてもいいですか?",
+          "zh": "可以向老师提问吗？",
+          "targetSurface": "質問",
+          "targetKana": "しつもん"
+        },
+        {
+          "id": "ex-shitsumon-2",
+          "ja": "「質問」は中国語の「責める」ではなく、「問う」の意。",
+          "kana": "「しつもん」はちゅうごくごの「せめる」ではなく、「とう」のい。",
+          "zh": "日语「質問」是提问，不是中文「质问」。",
+          "targetSurface": "質問",
+          "targetKana": "しつもん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shitsureishimasu",
+      "type": "word",
+      "surface": "失礼します",
+      "kana": "しつれいします",
+      "romaji": ["shitsureishimasu"],
+      "meaningsZh": ["失礼了"],
+      "pos": "expression",
+      "tags": ["work", "greeting"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shitsureishimasu-1",
+          "ja": "お先に失礼します。",
+          "kana": "おさきにしつれいします。",
+          "zh": "我先走了（告辞用语）。",
+          "targetSurface": "失礼します",
+          "targetKana": "しつれいします"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shukudai",
+      "type": "word",
+      "surface": "宿題",
+      "kana": "しゅくだい",
+      "romaji": ["shukudai"],
+      "meaningsZh": ["作业"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shukudai-1",
+          "ja": "帰ったら宿題をする。",
+          "kana": "かえったらしゅくだいをする。",
+          "zh": "回家后做作业。",
+          "targetSurface": "宿題",
+          "targetKana": "しゅくだい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-suugaku",
+      "type": "word",
+      "surface": "数学",
+      "kana": "すうがく",
+      "romaji": ["suugaku"],
+      "meaningsZh": ["数学"],
+      "pos": "noun",
+      "tags": ["school"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-suugaku-1",
+          "ja": "数学について上司に確認する。",
+          "kana": "すうがくについてじょうしにかくにんする。",
+          "zh": "向上司确认数学的事。",
+          "targetSurface": "数学",
+          "targetKana": "すうがく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tesuto",
+      "type": "word",
+      "surface": "テスト",
+      "kana": "テスト",
+      "romaji": ["tesuto"],
+      "meaningsZh": ["考试"],
+      "pos": "noun",
+      "tags": ["school", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tesuto-1",
+          "ja": "テストの手続きを進める。",
+          "kana": "てすとのてつづきをすすめる。",
+          "zh": "推进考试的手续。",
+          "targetSurface": "テスト",
+          "targetKana": "てすと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tomodachi",
+      "type": "word",
+      "surface": "友達",
+      "kana": "ともだち",
+      "romaji": ["tomodachi", "tomodati"],
+      "meaningsZh": ["朋友"],
+      "pos": "noun",
+      "tags": ["daily", "kanji-word", "relation"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tomodachi-1",
+          "ja": "週末、友達と遊んだ。",
+          "kana": "しゅうまつ、ともだちとあそんだ。",
+          "zh": "周末和朋友玩了。",
+          "targetSurface": "友達",
+          "targetKana": "ともだち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yoroshikuonegaishimasu",
+      "type": "word",
+      "surface": "よろしくお願いします",
+      "kana": "よろしくおねがいします",
+      "romaji": ["yoroshikuonegaishimasu"],
+      "meaningsZh": ["请多关照"],
+      "pos": "expression",
+      "tags": ["work", "greeting"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-yoroshikuonegaishimasu-1",
+          "ja": "これから一年間、よろしくお願いします。",
+          "kana": "これからいちねんかん、よろしくおねがいします。",
+          "zh": "今后一年请多关照。",
+          "targetSurface": "よろしくお願いします",
+          "targetKana": "よろしくおねがいします"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    }
+  ]
+}

@@ -1,0 +1,4517 @@
+{
+  "id": "official-phase1-sentences",
+  "name": "第一阶段：核心句子训练",
+  "version": "1.1.0",
+  "sentences": [
+    {
+      "id": "sent-phase1-001",
+      "type": "sentence",
+      "surface": "私は学校へ行きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c2",
+          "text": "学校へ",
+          "kana": "がっこうへ",
+          "romaji": ["gakkouhe"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "行きます",
+          "kana": "いきます",
+          "romaji": ["ikimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我去学校。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-he"],
+      "skillTags": ["sentence-order"],
+      "ja": "私は学校へ行きます",
+      "kana": "わたしはがっこうへいきます",
+      "zh": "我去学校。",
+      "grammarPoints": ["助詞「he」"]
+    },
+    {
+      "id": "sent-phase1-002",
+      "type": "sentence",
+      "surface": "私はお茶を飲みます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c2",
+          "text": "お茶を",
+          "kana": "おちゃを",
+          "romaji": ["ochawo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "飲みます",
+          "kana": "のみます",
+          "romaji": ["nomimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我喝茶。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-wo"],
+      "skillTags": ["sentence-order"],
+      "ja": "私はお茶を飲みます",
+      "kana": "わたしはおちゃをのみます",
+      "zh": "我喝茶。",
+      "grammarPoints": ["助詞「wo」"]
+    },
+    {
+      "id": "sent-phase1-003",
+      "type": "sentence",
+      "surface": "田中さんは医者です",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "田中さんは",
+          "kana": "たなかさんは",
+          "romaji": ["tanakasanha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "医者です",
+          "kana": "いしゃです",
+          "romaji": ["ishadesu"],
+          "pos": "noun"
+        }
+      ],
+      "zhPrompt": "田中先生是医生。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "copula"],
+      "skillTags": ["sentence-order"],
+      "ja": "田中さんは医者です",
+      "kana": "たなかさんはいしゃです",
+      "zh": "田中先生是医生。"
+    },
+    {
+      "id": "sent-phase1-004",
+      "type": "sentence",
+      "surface": "友達と公園に行きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "友達と",
+          "kana": "ともだちと",
+          "romaji": ["tomodachito"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "公園に",
+          "kana": "こうえんに",
+          "romaji": ["kouenni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "行きます",
+          "kana": "いきます",
+          "romaji": ["ikimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "和朋友去公园。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-to", "particle-ni"],
+      "skillTags": ["sentence-order"],
+      "ja": "友達と公園に行きます",
+      "kana": "ともだちとこうえんにいきます",
+      "zh": "和朋友去公园。",
+      "grammarPoints": ["助詞「to」", "助詞「ni」"]
+    },
+    {
+      "id": "sent-phase1-005",
+      "type": "sentence",
+      "surface": "今日は雨が降ります",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "今日は",
+          "kana": "きょうは",
+          "romaji": ["kyouha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "雨が",
+          "kana": "あめが",
+          "romaji": ["amega"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "降ります",
+          "kana": "ふります",
+          "romaji": ["furimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "今天下雨。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-ha", "particle-ga"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "今日は雨が降ります",
+      "kana": "きょうはあめがふります",
+      "zh": "今天下雨。",
+      "grammarPoints": ["助詞「ha」", "助詞「ga」"]
+    },
+    {
+      "id": "sent-phase1-006",
+      "type": "sentence",
+      "surface": "母は本を読みます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "母は",
+          "kana": "ははは",
+          "romaji": ["hahaha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "本を",
+          "kana": "ほんを",
+          "romaji": ["honwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "読みます",
+          "kana": "よみます",
+          "romaji": ["yomimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "妈妈读书。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-wo"],
+      "skillTags": ["sentence-order"],
+      "ja": "母は本を読みます",
+      "kana": "はははほんをよみます",
+      "zh": "妈妈读书。",
+      "grammarPoints": ["助詞「wo」"]
+    },
+    {
+      "id": "sent-phase1-007",
+      "type": "sentence",
+      "surface": "兄は会社に行きました",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "兄は",
+          "kana": "あには",
+          "romaji": ["aniha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "会社に",
+          "kana": "かいしゃに",
+          "romaji": ["kaishani"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "行きました",
+          "kana": "いきました",
+          "romaji": ["ikimashita"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "哥哥去了公司。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "past-polite", "particle-ni"],
+      "skillTags": ["sentence-order"],
+      "ja": "兄は会社に行きました",
+      "kana": "あにはかいしゃにいきました",
+      "zh": "哥哥去了公司。",
+      "grammarPoints": ["过去式", "助詞「ni」"]
+    },
+    {
+      "id": "sent-phase1-008",
+      "type": "sentence",
+      "surface": "学生は宿題をします",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "学生は",
+          "kana": "がくせいは",
+          "romaji": ["gakuseiha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "宿題を",
+          "kana": "しゅくだいを",
+          "romaji": ["shukudaiwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "します",
+          "kana": "します",
+          "romaji": ["shimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "学生做作业。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "school"],
+      "skillTags": ["sentence-order"],
+      "ja": "学生は宿題をします",
+      "kana": "がくせいはしゅくだいをします",
+      "zh": "学生做作业。"
+    },
+    {
+      "id": "sent-phase1-009",
+      "type": "sentence",
+      "surface": "駅から家まで歩きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "駅から",
+          "kana": "えきから",
+          "romaji": ["ekikara"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "家まで",
+          "kana": "いえまで",
+          "romaji": ["iemade"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "歩きます",
+          "kana": "あるきます",
+          "romaji": ["arukimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "从车站走到家。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["foundation", "particle-kara", "particle-made"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "駅から家まで歩きます",
+      "kana": "えきからいえまであるきます",
+      "zh": "从车站走到家。",
+      "grammarPoints": ["助詞「kara」", "助詞「made」"]
+    },
+    {
+      "id": "sent-phase1-010",
+      "type": "sentence",
+      "surface": "先生は学校で教えます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "先生は",
+          "kana": "せんせいは",
+          "romaji": ["senseiha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "学校で",
+          "kana": "がっこうで",
+          "romaji": ["gakkoude"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "教えます",
+          "kana": "おしえます",
+          "romaji": ["oshiemasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "老师在学校教书。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-de"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "先生は学校で教えます",
+      "kana": "せんせいはがっこうでおしえます",
+      "zh": "老师在学校教书。",
+      "grammarPoints": ["助詞「de」"]
+    },
+    {
+      "id": "sent-phase1-011",
+      "type": "sentence",
+      "surface": "私は筆で手紙を書きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c2",
+          "text": "筆で",
+          "kana": "ふでで",
+          "romaji": ["fudede"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "手紙を",
+          "kana": "てがみを",
+          "romaji": ["tegamiwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "書きます",
+          "kana": "かきます",
+          "romaji": ["kakimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我用毛笔写信。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["foundation", "particle-de", "particle-wo"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "私は筆で手紙を書きます",
+      "kana": "わたしはふででてがみをかきます",
+      "zh": "我用毛笔写信。",
+      "grammarPoints": ["助詞「de」", "助詞「wo」"]
+    },
+    {
+      "id": "sent-phase1-012",
+      "type": "sentence",
+      "surface": "子供は公園で遊びます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "子供は",
+          "kana": "こどもは",
+          "romaji": ["kodomoha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "公園で",
+          "kana": "こうえんで",
+          "romaji": ["kouende"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "遊びます",
+          "kana": "あそびます",
+          "romaji": ["asobimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "孩子在公园玩。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "particle-de"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "子供は公園で遊びます",
+      "kana": "こどもはこうえんであそびます",
+      "zh": "孩子在公园玩。",
+      "grammarPoints": ["助詞「de」"]
+    },
+    {
+      "id": "sent-phase1-013",
+      "type": "sentence",
+      "surface": "兄は東京に住んでいます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "兄は",
+          "kana": "あには",
+          "romaji": ["aniha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "東京に",
+          "kana": "とうきょうに",
+          "romaji": ["toukyouni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "住んでいます",
+          "kana": "すんでいます",
+          "romaji": ["sundeimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "哥哥住在东京。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["te-iru", "particle-ni"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "兄は東京に住んでいます",
+      "kana": "あにはとうきょうにすんでいます",
+      "zh": "哥哥住在东京。",
+      "grammarPoints": ["助詞「ni」"]
+    },
+    {
+      "id": "sent-phase1-014",
+      "type": "sentence",
+      "surface": "父は新聞を読んでいます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "父は",
+          "kana": "ちちは",
+          "romaji": ["chichiha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "新聞を",
+          "kana": "しんぶんを",
+          "romaji": ["shinbunwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "読んでいます",
+          "kana": "よんでいます",
+          "romaji": ["yondeimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "父亲在读报纸。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["te-iru"],
+      "skillTags": ["sentence-order"],
+      "ja": "父は新聞を読んでいます",
+      "kana": "ちちはしんぶんをよんでいます",
+      "zh": "父亲在读报纸。"
+    },
+    {
+      "id": "sent-phase1-015",
+      "type": "sentence",
+      "surface": "母は買い物に行きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "母は",
+          "kana": "ははは",
+          "romaji": ["hahaha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "買い物に",
+          "kana": "かいものに",
+          "romaji": ["kaimononi"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "行きます",
+          "kana": "いきます",
+          "romaji": ["ikimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "妈妈去买东西。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["particle-ni-purpose"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "母は買い物に行きます",
+      "kana": "はははかいものにいきます",
+      "zh": "妈妈去买东西。",
+      "grammarPoints": ["助詞「ni-purpose」"]
+    },
+    {
+      "id": "sent-phase1-016",
+      "type": "sentence",
+      "surface": "私は学校で日本語を習います",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c2",
+          "text": "学校で",
+          "kana": "がっこうで",
+          "romaji": ["gakkoude"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "日本語を",
+          "kana": "にほんごを",
+          "romaji": ["nihongowo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "習います",
+          "kana": "ならいます",
+          "romaji": ["naraimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我在学校学日语。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["particle-de", "particle-wo"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "私は学校で日本語を習います",
+      "kana": "わたしはがっこうでにほんごをならいます",
+      "zh": "我在学校学日语。",
+      "grammarPoints": ["助詞「de」", "助詞「wo」"]
+    },
+    {
+      "id": "sent-phase1-017",
+      "type": "sentence",
+      "surface": "私は毎朝水を飲みます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c2",
+          "text": "毎朝",
+          "kana": "まいあさ",
+          "romaji": ["maiasa"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "水を",
+          "kana": "みずを",
+          "romaji": ["mizuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "飲みます",
+          "kana": "のみます",
+          "romaji": ["nomimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我每天早上喝水。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation"],
+      "skillTags": ["sentence-order"],
+      "ja": "私は毎朝水を飲みます",
+      "kana": "わたしはまいあさみずをのみます",
+      "zh": "我每天早上喝水。"
+    },
+    {
+      "id": "sent-phase1-018",
+      "type": "sentence",
+      "surface": "春に花が咲きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "春に",
+          "kana": "はるに",
+          "romaji": ["haruni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "花が",
+          "kana": "はなが",
+          "romaji": ["hanaga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "咲きます",
+          "kana": "さきます",
+          "romaji": ["sakimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "春天花开。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["particle-ni-time", "particle-ga"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "春に花が咲きます",
+      "kana": "はるにはながさきます",
+      "zh": "春天花开。",
+      "grammarPoints": ["助詞「ni-time」", "助詞「ga」"]
+    },
+    {
+      "id": "sent-phase1-019",
+      "type": "sentence",
+      "surface": "これは私の傘です",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "これは",
+          "kana": "これは",
+          "romaji": ["koreha"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c2",
+          "text": "私の",
+          "kana": "わたしの",
+          "romaji": ["watashino"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c3",
+          "text": "傘です",
+          "kana": "かさです",
+          "romaji": ["kasadesu"],
+          "pos": "noun"
+        }
+      ],
+      "zhPrompt": "这是我的伞。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["foundation", "possessive"],
+      "skillTags": ["sentence-order"],
+      "ja": "これは私の傘です",
+      "kana": "これはわたしのかさです",
+      "zh": "这是我的伞。"
+    },
+    {
+      "id": "sent-phase1-020",
+      "type": "sentence",
+      "surface": "机の上に鍵があります",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "机の上に",
+          "kana": "つくえのうえに",
+          "romaji": ["tsukuenoueni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "鍵が",
+          "kana": "かぎが",
+          "romaji": ["kagiga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "あります",
+          "kana": "あります",
+          "romaji": ["arimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "桌子上有钥匙。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["particle-ni", "particle-ga"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "机の上に鍵があります",
+      "kana": "つくえのうえにかぎがあります",
+      "zh": "桌子上有钥匙。",
+      "grammarPoints": ["助詞「ni」", "助詞「ga」"]
+    },
+    {
+      "id": "sent-phase1-021",
+      "type": "sentence",
+      "surface": "部屋に猫がいます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "部屋に",
+          "kana": "へやに",
+          "romaji": ["heyani"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "猫が",
+          "kana": "ねこが",
+          "romaji": ["nekoga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "います",
+          "kana": "います",
+          "romaji": ["imasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "房间里有猫。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["particle-ni", "particle-ga"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "部屋に猫がいます",
+      "kana": "へやにねこがいます",
+      "zh": "房间里有猫。",
+      "grammarPoints": ["助詞「ni」", "助詞「ga」"]
+    },
+    {
+      "id": "sent-phase1-022",
+      "type": "sentence",
+      "surface": "この店は安いです",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "この店は",
+          "kana": "このみせは",
+          "romaji": ["konomiseha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "安いです",
+          "kana": "やすいです",
+          "romaji": ["yasuidesu"],
+          "pos": "adjective"
+        }
+      ],
+      "zhPrompt": "这家店很便宜。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["adjective"],
+      "skillTags": ["sentence-order"],
+      "ja": "この店は安いです",
+      "kana": "このみせはやすいです",
+      "zh": "这家店很便宜。"
+    },
+    {
+      "id": "sent-phase1-023",
+      "type": "sentence",
+      "surface": "駅はあのビルの前です",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "駅は",
+          "kana": "えきは",
+          "romaji": ["ekiha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "あのビルの前です",
+          "kana": "あのビルのまえです",
+          "romaji": ["anobirunomaedesu"],
+          "pos": "noun"
+        }
+      ],
+      "zhPrompt": "车站在那栋楼前面。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["location"],
+      "skillTags": ["sentence-order"],
+      "ja": "駅はあのビルの前です",
+      "kana": "えきはあのビルのまえです",
+      "zh": "车站在那栋楼前面。"
+    },
+    {
+      "id": "sent-phase1-024",
+      "type": "sentence",
+      "surface": "私は七時に起きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c2",
+          "text": "七時に",
+          "kana": "しちじに",
+          "romaji": ["shichijini"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "起きます",
+          "kana": "おきます",
+          "romaji": ["okimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我七点起床。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["particle-ni-time"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "私は七時に起きます",
+      "kana": "わたしはしちじにおきます",
+      "zh": "我七点起床。",
+      "grammarPoints": ["助詞「ni-time」"]
+    },
+    {
+      "id": "sent-phase1-025",
+      "type": "sentence",
+      "surface": "週末に映画を見ます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "週末に",
+          "kana": "しゅうまつに",
+          "romaji": ["shuumatsuni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "映画を",
+          "kana": "えいがを",
+          "romaji": ["eigawo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "見ます",
+          "kana": "みます",
+          "romaji": ["mimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "周末看电影。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["particle-ni", "particle-wo"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "週末に映画を見ます",
+      "kana": "しゅうまつにえいがをみます",
+      "zh": "周末看电影。",
+      "grammarPoints": ["助詞「ni」", "助詞「wo」"]
+    },
+    {
+      "id": "sent-phase1-026",
+      "type": "sentence",
+      "surface": "財布を家に忘れました",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "財布を",
+          "kana": "さいふを",
+          "romaji": ["saifuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "家に",
+          "kana": "いえに",
+          "romaji": ["ieni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "忘れました",
+          "kana": "わすれました",
+          "romaji": ["wasuremashita"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "把钱包忘在家里了。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["particle-wo", "particle-ni"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "財布を家に忘れました",
+      "kana": "さいふをいえにわすれました",
+      "zh": "把钱包忘在家里了。",
+      "grammarPoints": ["助詞「wo」", "助詞「ni」"]
+    },
+    {
+      "id": "sent-phase1-027",
+      "type": "sentence",
+      "surface": "私は友達にメールを送ります",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "私は",
+          "kana": "わたしは",
+          "romaji": ["watashiha"],
+          "pos": "pronoun"
+        },
+        {
+          "id": "c2",
+          "text": "友達に",
+          "kana": "ともだちに",
+          "romaji": ["tomodachini"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "メールを",
+          "kana": "メールを",
+          "romaji": ["meeruwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "送ります",
+          "kana": "おくります",
+          "romaji": ["okurimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我给朋友发邮件。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["particle-ni", "particle-wo"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "私は友達にメールを送ります",
+      "kana": "わたしはともだちにメールをおくります",
+      "zh": "我给朋友发邮件。",
+      "grammarPoints": ["助詞「ni」", "助詞「wo」"]
+    },
+    {
+      "id": "sent-phase1-028",
+      "type": "sentence",
+      "surface": "スーパーで野菜を買います",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "スーパーで",
+          "kana": "スーパーで",
+          "romaji": ["suupaade"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "野菜を",
+          "kana": "やさいを",
+          "romaji": ["yasaiwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "買います",
+          "kana": "かいます",
+          "romaji": ["kaimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "在超市买蔬菜。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["scene-shopping", "particle-de"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "スーパーで野菜を買います",
+      "kana": "スーパーでやさいをかいます",
+      "zh": "在超市买蔬菜。",
+      "grammarPoints": ["助詞「de」"]
+    },
+    {
+      "id": "sent-phase1-029",
+      "type": "sentence",
+      "surface": "レストランで水をください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "レストランで",
+          "kana": "レストランで",
+          "romaji": ["resutorande"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "水を",
+          "kana": "みずを",
+          "romaji": ["mizuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "ください",
+          "kana": "ください",
+          "romaji": ["kudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "请在餐厅给我水。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["scene-food", "particle-de"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "レストランで水をください",
+      "kana": "レストランでみずをください",
+      "zh": "请在餐厅给我水。",
+      "grammarPoints": ["助詞「de」"]
+    },
+    {
+      "id": "sent-phase1-030",
+      "type": "sentence",
+      "surface": "電車は三番線に来ます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "電車は",
+          "kana": "でんしゃは",
+          "romaji": ["denshaha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "三番線に",
+          "kana": "さんばんせんに",
+          "romaji": ["sanbansenni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "来ます",
+          "kana": "きます",
+          "romaji": ["kimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "电车会到三号站台。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["scene-transport", "particle-ni"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "電車は三番線に来ます",
+      "kana": "でんしゃはさんばんせんにきます",
+      "zh": "电车会到三号站台。",
+      "grammarPoints": ["助詞「ni」"]
+    },
+    {
+      "id": "sent-phase1-031",
+      "type": "sentence",
+      "surface": "鍵を忘れたので家に入れません",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "鍵を",
+          "kana": "かぎを",
+          "romaji": ["kagiwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "忘れたので",
+          "kana": "わすれたので",
+          "romaji": ["wasuretanode"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "家に",
+          "kana": "いえに",
+          "romaji": ["ieni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "入れません",
+          "kana": "はいれません",
+          "romaji": ["hairemasen"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "因为忘了钥匙，进不了家。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["home", "reason"],
+      "skillTags": ["sentence-order"],
+      "ja": "鍵を忘れたので家に入れません",
+      "kana": "かぎをわすれたのでいえにはいれません",
+      "zh": "因为忘了钥匙，进不了家。"
+    },
+    {
+      "id": "sent-phase1-032",
+      "type": "sentence",
+      "surface": "洗濯機を使った後で掃除します",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "洗濯機を",
+          "kana": "せんたくきを",
+          "romaji": ["sentakukiwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "使った後で",
+          "kana": "つかったあとで",
+          "romaji": ["tsukattaatode"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "掃除します",
+          "kana": "そうじします",
+          "romaji": ["soujishimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "用完洗衣机之后打扫。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["home", "after"],
+      "skillTags": ["sentence-order"],
+      "ja": "洗濯機を使った後で掃除します",
+      "kana": "せんたくきをつかったあとでそうじします",
+      "zh": "用完洗衣机之后打扫。"
+    },
+    {
+      "id": "sent-phase1-033",
+      "type": "sentence",
+      "surface": "燃えるごみは月曜日に出してください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "燃えるごみは",
+          "kana": "もえるごみは",
+          "romaji": ["moerugomiha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "月曜日に",
+          "kana": "げつようびに",
+          "romaji": ["getsuyoubini"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "出してください",
+          "kana": "だしてください",
+          "romaji": ["dashitekudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "请在星期一扔可燃垃圾。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["home", "particle-ni", "te-kudasai"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "燃えるごみは月曜日に出してください",
+      "kana": "もえるごみはげつようびにだしてください",
+      "zh": "请在星期一扔可燃垃圾。",
+      "grammarPoints": ["助詞「ni」"]
+    },
+    {
+      "id": "sent-phase1-034",
+      "type": "sentence",
+      "surface": "家賃は毎月二十五日までに払います",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "家賃は",
+          "kana": "やちんは",
+          "romaji": ["yachinha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "毎月二十五日までに",
+          "kana": "まいつきにじゅうごにちまでに",
+          "romaji": ["maitsukinijuugonichimadeni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "払います",
+          "kana": "はらいます",
+          "romaji": ["haraimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "房租每月二十五日前支付。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["home", "made-ni"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "家賃は毎月二十五日までに払います",
+      "kana": "やちんはまいつきにじゅうごにちまでにはらいます",
+      "zh": "房租每月二十五日前支付。"
+    },
+    {
+      "id": "sent-phase1-035",
+      "type": "sentence",
+      "surface": "宅配便が来たら印鑑を使います",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "宅配便が",
+          "kana": "たくはいびんが",
+          "romaji": ["takuhaibinga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "来たら",
+          "kana": "きたら",
+          "romaji": ["kitara"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "印鑑を",
+          "kana": "いんかんを",
+          "romaji": ["inkanwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "使います",
+          "kana": "つかいます",
+          "romaji": ["tsukaimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "快递来了就用印章。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["home", "tara"],
+      "skillTags": ["sentence-order"],
+      "ja": "宅配便が来たら印鑑を使います",
+      "kana": "たくはいびんがきたらいんかんをつかいます",
+      "zh": "快递来了就用印章。"
+    },
+    {
+      "id": "sent-phase1-036",
+      "type": "sentence",
+      "surface": "窓を開けて部屋を換気しています",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "窓を",
+          "kana": "まどを",
+          "romaji": ["madowo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "開けて",
+          "kana": "あけて",
+          "romaji": ["akete"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "部屋を",
+          "kana": "へやを",
+          "romaji": ["heyawo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "換気しています",
+          "kana": "かんきしています",
+          "romaji": ["kankishiteimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "打开窗户给房间通风。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["home", "te-iru"],
+      "skillTags": ["sentence-order"],
+      "ja": "窓を開けて部屋を換気しています",
+      "kana": "まどをあけてへやをかんきしています",
+      "zh": "打开窗户给房间通风。"
+    },
+    {
+      "id": "sent-phase1-037",
+      "type": "sentence",
+      "surface": "エアコンをつけながら勉強します",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "エアコンを",
+          "kana": "エアコンを",
+          "romaji": ["eakonwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "つけながら",
+          "kana": "つけながら",
+          "romaji": ["tsukenagara"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "勉強します",
+          "kana": "べんきょうします",
+          "romaji": ["benkyoushimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "一边开空调一边学习。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["home", "nagara"],
+      "skillTags": ["sentence-order"],
+      "ja": "エアコンをつけながら勉強します",
+      "kana": "エアコンをつけながらべんきょうします",
+      "zh": "一边开空调一边学习。"
+    },
+    {
+      "id": "sent-phase1-038",
+      "type": "sentence",
+      "surface": "引っ越しの前に電気を止めます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "引っ越しの前に",
+          "kana": "ひっこしのまえに",
+          "romaji": ["hikkoshinomaeni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "電気を",
+          "kana": "でんきを",
+          "romaji": ["denkiwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "止めます",
+          "kana": "とめます",
+          "romaji": ["tomemasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "搬家前停止电力服务。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["home", "mae-ni"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "引っ越しの前に電気を止めます",
+      "kana": "ひっこしのまえにでんきをとめます",
+      "zh": "搬家前停止电力服务。"
+    },
+    {
+      "id": "sent-phase1-039",
+      "type": "sentence",
+      "surface": "洗剤がなければ買いに行きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "洗剤が",
+          "kana": "せんざいが",
+          "romaji": ["senzaiga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "なければ",
+          "kana": "なければ",
+          "romaji": ["nakereba"],
+          "pos": "adjective"
+        },
+        {
+          "id": "c3",
+          "text": "買いに",
+          "kana": "かいに",
+          "romaji": ["kaini"],
+          "pos": "verb"
+        },
+        {
+          "id": "c4",
+          "text": "行きます",
+          "kana": "いきます",
+          "romaji": ["ikimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "如果没有洗涤剂，就去买。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["home", "ba"],
+      "skillTags": ["sentence-order"],
+      "ja": "洗剤がなければ買いに行きます",
+      "kana": "せんざいがなければかいにいきます",
+      "zh": "如果没有洗涤剂，就去买。"
+    },
+    {
+      "id": "sent-phase1-040",
+      "type": "sentence",
+      "surface": "部屋が寒いなら暖房をつけます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "部屋が",
+          "kana": "へやが",
+          "romaji": ["heyaga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "寒いなら",
+          "kana": "さむいなら",
+          "romaji": ["samuinara"],
+          "pos": "adjective"
+        },
+        {
+          "id": "c3",
+          "text": "暖房を",
+          "kana": "だんぼうを",
+          "romaji": ["danbouwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "つけます",
+          "kana": "つけます",
+          "romaji": ["tsukemasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "如果房间冷，就开暖气。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["home", "nara"],
+      "skillTags": ["sentence-order"],
+      "ja": "部屋が寒いなら暖房をつけます",
+      "kana": "へやがさむいならだんぼうをつけます",
+      "zh": "如果房间冷，就开暖气。"
+    },
+    {
+      "id": "sent-phase1-041",
+      "type": "sentence",
+      "surface": "改札を出たら右に曲がってください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "改札を",
+          "kana": "かいさつを",
+          "romaji": ["kaisatsuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "出たら",
+          "kana": "でたら",
+          "romaji": ["detara"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "右に",
+          "kana": "みぎに",
+          "romaji": ["migini"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "曲がってください",
+          "kana": "まがってください",
+          "romaji": ["magattekudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "出检票口后请向右转。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["transport", "tara", "te-kudasai"],
+      "skillTags": ["sentence-order"],
+      "ja": "改札を出たら右に曲がってください",
+      "kana": "かいさつをでたらみぎにまがってください",
+      "zh": "出检票口后请向右转。"
+    },
+    {
+      "id": "sent-phase1-042",
+      "type": "sentence",
+      "surface": "地下鉄よりバスのほうが安いです",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "地下鉄より",
+          "kana": "ちかてつより",
+          "romaji": ["chikatetsuyori"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "バスのほうが",
+          "kana": "バスのほうが",
+          "romaji": ["basunohouga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "安いです",
+          "kana": "やすいです",
+          "romaji": ["yasuidesu"],
+          "pos": "adjective"
+        }
+      ],
+      "zhPrompt": "公交比地铁便宜。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["transport", "comparison-yori"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "地下鉄よりバスのほうが安いです",
+      "kana": "ちかてつよりバスのほうがやすいです",
+      "zh": "公交比地铁便宜。"
+    },
+    {
+      "id": "sent-phase1-043",
+      "type": "sentence",
+      "surface": "新幹線に乗る前に切符を買います",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "新幹線に",
+          "kana": "しんかんせんに",
+          "romaji": ["shinkansenni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "乗る前に",
+          "kana": "のるまえに",
+          "romaji": ["norumaeni"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "切符を",
+          "kana": "きっぷを",
+          "romaji": ["kippuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "買います",
+          "kana": "かいます",
+          "romaji": ["kaimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "坐新干线前买票。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["transport", "mae-ni"],
+      "skillTags": ["sentence-order"],
+      "ja": "新幹線に乗る前に切符を買います",
+      "kana": "しんかんせんにのるまえにきっぷをかいます",
+      "zh": "坐新干线前买票。"
+    },
+    {
+      "id": "sent-phase1-044",
+      "type": "sentence",
+      "surface": "電車が遅れているので会社に遅れます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "電車が",
+          "kana": "でんしゃが",
+          "romaji": ["denshaga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "遅れているので",
+          "kana": "おくれているので",
+          "romaji": ["okureteirunode"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "会社に",
+          "kana": "かいしゃに",
+          "romaji": ["kaishani"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "遅れます",
+          "kana": "おくれます",
+          "romaji": ["okuremasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "因为电车延误，所以上班会迟到。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["transport", "te-iru", "reason"],
+      "skillTags": ["sentence-order"],
+      "ja": "電車が遅れているので会社に遅れます",
+      "kana": "でんしゃがおくれているのでかいしゃにおくれます",
+      "zh": "因为电车延误，所以上班会迟到。"
+    },
+    {
+      "id": "sent-phase1-045",
+      "type": "sentence",
+      "surface": "空港で手荷物を預けます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "空港で",
+          "kana": "くうこうで",
+          "romaji": ["kuukoude"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "手荷物を",
+          "kana": "てにもつを",
+          "romaji": ["tenimotsuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "預けます",
+          "kana": "あずけます",
+          "romaji": ["azukemasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "在机场托运行李。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["transport", "airport", "particle-de"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "空港で手荷物を預けます",
+      "kana": "くうこうでてにもつをあずけます",
+      "zh": "在机场托运行李。",
+      "grammarPoints": ["助詞「de」"]
+    },
+    {
+      "id": "sent-phase1-046",
+      "type": "sentence",
+      "surface": "搭乗口が変わったらアナウンスを聞きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "搭乗口が",
+          "kana": "とうじょうぐちが",
+          "romaji": ["toujouguchiga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "変わったら",
+          "kana": "かわったら",
+          "romaji": ["kawattara"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "アナウンスを",
+          "kana": "アナウンスを",
+          "romaji": ["anaunsuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "聞きます",
+          "kana": "ききます",
+          "romaji": ["kikimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "登机口变更的话就听广播。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["transport", "tara"],
+      "skillTags": ["sentence-order"],
+      "ja": "搭乗口が変わったらアナウンスを聞きます",
+      "kana": "とうじょうぐちがかわったらアナウンスをききます",
+      "zh": "登机口变更的话就听广播。"
+    },
+    {
+      "id": "sent-phase1-047",
+      "type": "sentence",
+      "surface": "駅員に乗り換えを尋ねました",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "駅員に",
+          "kana": "えきいんに",
+          "romaji": ["ekiinni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "乗り換えを",
+          "kana": "のりかえを",
+          "romaji": ["norikaewo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "尋ねました",
+          "kana": "たずねました",
+          "romaji": ["tazunemashita"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "向车站工作人员询问了换乘。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["transport", "particle-ni"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "駅員に乗り換えを尋ねました",
+      "kana": "えきいんにのりかえをたずねました",
+      "zh": "向车站工作人员询问了换乘。",
+      "grammarPoints": ["助詞「ni」"]
+    },
+    {
+      "id": "sent-phase1-048",
+      "type": "sentence",
+      "surface": "終電に乗り遅れないように急ぎます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "終電に",
+          "kana": "しゅうでんに",
+          "romaji": ["shuudenni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "乗り遅れないように",
+          "kana": "のりおくれないように",
+          "romaji": ["noriokurenaiyouni"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "急ぎます",
+          "kana": "いそぎます",
+          "romaji": ["isogimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "为了不错过末班车而赶路。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["transport", "you-ni"],
+      "skillTags": ["sentence-order"],
+      "ja": "終電に乗り遅れないように急ぎます",
+      "kana": "しゅうでんにのりおくれないようにいそぎます",
+      "zh": "为了不错过末班车而赶路。"
+    },
+    {
+      "id": "sent-phase1-049",
+      "type": "sentence",
+      "surface": "雨が降ると道が混みます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "雨が",
+          "kana": "あめが",
+          "romaji": ["amega"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "降ると",
+          "kana": "ふると",
+          "romaji": ["furuto"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "道が",
+          "kana": "みちが",
+          "romaji": ["michiga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "混みます",
+          "kana": "こみます",
+          "romaji": ["komimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "一下雨道路就会拥堵。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["transport", "to-conditional"],
+      "skillTags": ["sentence-order"],
+      "ja": "雨が降ると道が混みます",
+      "kana": "あめがふるとみちがこみます",
+      "zh": "一下雨道路就会拥堵。"
+    },
+    {
+      "id": "sent-phase1-050",
+      "type": "sentence",
+      "surface": "タクシー乗り場は出口の左です",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "タクシー乗り場は",
+          "kana": "タクシーのりばは",
+          "romaji": ["takushiinoribaha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "出口の左です",
+          "kana": "でぐちのひだりです",
+          "romaji": ["deguchinohidaridesu"],
+          "pos": "noun"
+        }
+      ],
+      "zhPrompt": "出租车乘车处在出口左边。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["transport", "direction"],
+      "skillTags": ["sentence-order"],
+      "ja": "タクシー乗り場は出口の左です",
+      "kana": "タクシーのりばはでぐちのひだりです",
+      "zh": "出租车乘车处在出口左边。"
+    },
+    {
+      "id": "sent-phase1-051",
+      "type": "sentence",
+      "surface": "すみません、メニューを見せてください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "すみません",
+          "kana": "すみません",
+          "romaji": ["sumimasen"],
+          "pos": "expression"
+        },
+        {
+          "id": "c2",
+          "text": "メニューを",
+          "kana": "メニューを",
+          "romaji": ["menyuuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "見せてください",
+          "kana": "みせてください",
+          "romaji": ["misetekudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "不好意思，请让我看一下菜单。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["food", "te-kudasai"],
+      "skillTags": ["sentence-order"],
+      "ja": "すみません、メニューを見せてください",
+      "kana": "すみませんメニューをみせてください",
+      "zh": "不好意思，请让我看一下菜单。"
+    },
+    {
+      "id": "sent-phase1-052",
+      "type": "sentence",
+      "surface": "おすすめは何ですか",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "おすすめは",
+          "kana": "おすすめは",
+          "romaji": ["osusumeha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "何ですか",
+          "kana": "なんですか",
+          "romaji": ["nandesuka"],
+          "pos": "pronoun"
+        }
+      ],
+      "zhPrompt": "推荐菜是什么？",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["food", "restaurant"],
+      "skillTags": ["sentence-order"],
+      "ja": "おすすめは何ですか",
+      "kana": "おすすめはなんですか",
+      "zh": "推荐菜是什么？"
+    },
+    {
+      "id": "sent-phase1-053",
+      "type": "sentence",
+      "surface": "アレルギーがあるので卵は食べられません",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "アレルギーが",
+          "kana": "アレルギーが",
+          "romaji": ["arerugiiga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "あるので",
+          "kana": "あるので",
+          "romaji": ["arunode"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "卵は",
+          "kana": "たまごは",
+          "romaji": ["tamagoha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "食べられません",
+          "kana": "たべられません",
+          "romaji": ["taberaremasen"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "因为有过敏，不能吃鸡蛋。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["food", "reason", "potential"],
+      "skillTags": ["sentence-order"],
+      "ja": "アレルギーがあるので卵は食べられません",
+      "kana": "アレルギーがあるのでたまごはたべられません",
+      "zh": "因为有过敏，不能吃鸡蛋。"
+    },
+    {
+      "id": "sent-phase1-054",
+      "type": "sentence",
+      "surface": "辛い料理が苦手なら店員に言ってください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "辛い料理が",
+          "kana": "からいりょうりが",
+          "romaji": ["karairyouriga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "苦手なら",
+          "kana": "にがてなら",
+          "romaji": ["nigatenara"],
+          "pos": "adjective"
+        },
+        {
+          "id": "c3",
+          "text": "店員に",
+          "kana": "てんいんに",
+          "romaji": ["ten'in'ni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "言ってください",
+          "kana": "いってください",
+          "romaji": ["ittekudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "如果不爱吃辣，请告诉店员。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["food", "nara", "te-kudasai"],
+      "skillTags": ["sentence-order"],
+      "ja": "辛い料理が苦手なら店員に言ってください",
+      "kana": "からいりょうりがにがてならてんいんにいってください",
+      "zh": "如果不爱吃辣，请告诉店员。"
+    },
+    {
+      "id": "sent-phase1-055",
+      "type": "sentence",
+      "surface": "ラーメンを食べた後でお会計をします",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "ラーメンを",
+          "kana": "ラーメンを",
+          "romaji": ["raamenwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "食べた後で",
+          "kana": "たべたあとで",
+          "romaji": ["tabetaatode"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "お会計を",
+          "kana": "おかいけいを",
+          "romaji": ["okaikeiwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "します",
+          "kana": "します",
+          "romaji": ["shimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "吃完拉面后结账。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["food", "after"],
+      "skillTags": ["sentence-order"],
+      "ja": "ラーメンを食べた後でお会計をします",
+      "kana": "ラーメンをたべたあとでおかいけいをします",
+      "zh": "吃完拉面后结账。"
+    },
+    {
+      "id": "sent-phase1-056",
+      "type": "sentence",
+      "surface": "店内で食べますか、持ち帰りますか",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "店内で",
+          "kana": "てんないで",
+          "romaji": ["tennaide"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "食べますか",
+          "kana": "たべますか",
+          "romaji": ["tabemasuka"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "持ち帰りますか",
+          "kana": "もちかえりますか",
+          "romaji": ["mochikaerimasuka"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "在店内吃，还是外带？",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["food", "restaurant"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "店内で食べますか、持ち帰りますか",
+      "kana": "てんないでたべますかもちかえりますか",
+      "zh": "在店内吃，还是外带？"
+    },
+    {
+      "id": "sent-phase1-057",
+      "type": "sentence",
+      "surface": "水をもう一杯ください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "水を",
+          "kana": "みずを",
+          "romaji": ["mizuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "もう一杯",
+          "kana": "もういっぱい",
+          "romaji": ["mouippai"],
+          "pos": "numeral"
+        },
+        {
+          "id": "c3",
+          "text": "ください",
+          "kana": "ください",
+          "romaji": ["kudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "请再给我一杯水。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["food", "counter"],
+      "skillTags": ["sentence-order"],
+      "ja": "水をもう一杯ください",
+      "kana": "みずをもういっぱいください",
+      "zh": "请再给我一杯水。"
+    },
+    {
+      "id": "sent-phase1-058",
+      "type": "sentence",
+      "surface": "別々でお願いします",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "別々で",
+          "kana": "べつべつで",
+          "romaji": ["betsubetsude"],
+          "pos": "adverb"
+        },
+        {
+          "id": "c2",
+          "text": "お願いします",
+          "kana": "おねがいします",
+          "romaji": ["onegaishimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "请分开结账。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["food", "restaurant"],
+      "skillTags": ["sentence-order"],
+      "ja": "別々でお願いします",
+      "kana": "べつべつでおねがいします",
+      "zh": "请分开结账。"
+    },
+    {
+      "id": "sent-phase1-059",
+      "type": "sentence",
+      "surface": "料理が来るまで少々待ちます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "料理が",
+          "kana": "りょうりが",
+          "romaji": ["ryouriga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "来るまで",
+          "kana": "くるまで",
+          "romaji": ["kurumade"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "少々",
+          "kana": "しょうしょう",
+          "romaji": ["shoushou"],
+          "pos": "adverb"
+        },
+        {
+          "id": "c4",
+          "text": "待ちます",
+          "kana": "まちます",
+          "romaji": ["machimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "等到菜来之前稍等。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["food", "made"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "料理が来るまで少々待ちます",
+      "kana": "りょうりがくるまでしょうしょうまちます",
+      "zh": "等到菜来之前稍等。"
+    },
+    {
+      "id": "sent-phase1-060",
+      "type": "sentence",
+      "surface": "味が薄ければ醤油を少し入れます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "味が",
+          "kana": "あじが",
+          "romaji": ["ajiga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "薄ければ",
+          "kana": "うすければ",
+          "romaji": ["usukereba"],
+          "pos": "adjective"
+        },
+        {
+          "id": "c3",
+          "text": "醤油を",
+          "kana": "しょうゆを",
+          "romaji": ["shouyuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "少し入れます",
+          "kana": "すこしいれます",
+          "romaji": ["sukoshiiremasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "如果味道淡，就加一点酱油。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["food", "ba"],
+      "skillTags": ["sentence-order"],
+      "ja": "味が薄ければ醤油を少し入れます",
+      "kana": "あじがうすければしょうゆをすこしいれます",
+      "zh": "如果味道淡，就加一点酱油。"
+    },
+    {
+      "id": "sent-phase1-061",
+      "type": "sentence",
+      "surface": "図書館では静かにしてください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "図書館では",
+          "kana": "としょかんでは",
+          "romaji": ["toshokandeha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "静かにしてください",
+          "kana": "しずかにしてください",
+          "romaji": ["shizukanishitekudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "在图书馆请保持安静。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["culture", "particle-dewa"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "図書館では静かにしてください",
+      "kana": "としょかんではしずかにしてください",
+      "zh": "在图书馆请保持安静。",
+      "grammarPoints": ["助詞「dewa」"]
+    },
+    {
+      "id": "sent-phase1-062",
+      "type": "sentence",
+      "surface": "美術館で写真を撮ってはいけません",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "美術館で",
+          "kana": "びじゅつかんで",
+          "romaji": ["bijutsukande"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "写真を",
+          "kana": "しゃしんを",
+          "romaji": ["shashinwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "撮ってはいけません",
+          "kana": "とってはいけません",
+          "romaji": ["tottehaikemasen"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "在美术馆不能拍照。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["culture", "prohibition"],
+      "skillTags": ["sentence-order"],
+      "ja": "美術館で写真を撮ってはいけません",
+      "kana": "びじゅつかんでしゃしんをとってはいけません",
+      "zh": "在美术馆不能拍照。"
+    },
+    {
+      "id": "sent-phase1-063",
+      "type": "sentence",
+      "surface": "休館日を確認してから映画館へ行きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "休館日を",
+          "kana": "きゅうかんびを",
+          "romaji": ["kyuukanbiwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "確認してから",
+          "kana": "かくにんしてから",
+          "romaji": ["kakuninshitekara"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "映画館へ",
+          "kana": "えいがかんへ",
+          "romaji": ["eigakanhe"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "行きます",
+          "kana": "いきます",
+          "romaji": ["ikimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "确认休馆日后去电影院。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["culture", "te-kara"],
+      "skillTags": ["sentence-order"],
+      "ja": "休館日を確認してから映画館へ行きます",
+      "kana": "きゅうかんびをかくにんしてからえいがかんへいきます",
+      "zh": "确认休馆日后去电影院。"
+    },
+    {
+      "id": "sent-phase1-064",
+      "type": "sentence",
+      "surface": "神社でおみくじを引きました",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "神社で",
+          "kana": "じんじゃで",
+          "romaji": ["jinjade"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "おみくじを",
+          "kana": "おみくじを",
+          "romaji": ["omikujiwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "引きました",
+          "kana": "ひきました",
+          "romaji": ["hikimashita"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "在神社抽了签。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["sentence-order"],
+      "ja": "神社でおみくじを引きました",
+      "kana": "じんじゃでおみくじをひきました",
+      "zh": "在神社抽了签。"
+    },
+    {
+      "id": "sent-phase1-065",
+      "type": "sentence",
+      "surface": "温泉に入る前に体を洗います",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "温泉に",
+          "kana": "おんせんに",
+          "romaji": ["onsenni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "入る前に",
+          "kana": "はいるまえに",
+          "romaji": ["hairumaeni"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "体を",
+          "kana": "からだを",
+          "romaji": ["karadawo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "洗います",
+          "kana": "あらいます",
+          "romaji": ["araimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "泡温泉前先洗身体。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["culture", "mae-ni"],
+      "skillTags": ["sentence-order"],
+      "ja": "温泉に入る前に体を洗います",
+      "kana": "おんせんにはいるまえにからだをあらいます",
+      "zh": "泡温泉前先洗身体。"
+    },
+    {
+      "id": "sent-phase1-066",
+      "type": "sentence",
+      "surface": "市役所で住民票を取ります",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "市役所で",
+          "kana": "しやくしょで",
+          "romaji": ["shiyakushode"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "住民票を",
+          "kana": "じゅうみんひょうを",
+          "romaji": ["juuminhyouwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "取ります",
+          "kana": "とります",
+          "romaji": ["torimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "在市役所办理住民票。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["japan-life", "public"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "市役所で住民票を取ります",
+      "kana": "しやくしょでじゅうみんひょうをとります",
+      "zh": "在市役所办理住民票。"
+    },
+    {
+      "id": "sent-phase1-067",
+      "type": "sentence",
+      "surface": "在留カードを忘れたら手続きができません",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "在留カードを",
+          "kana": "ざいりゅうカードを",
+          "romaji": ["zairyuukaadowo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "忘れたら",
+          "kana": "わすれたら",
+          "romaji": ["wasuretara"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "手続きが",
+          "kana": "てつづきが",
+          "romaji": ["tetsudukiga", "tetsuzukiga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "できません",
+          "kana": "できません",
+          "romaji": ["dekimasen"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "如果忘了在留卡，就办不了手续。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["japan-life", "tara"],
+      "skillTags": ["sentence-order"],
+      "ja": "在留カードを忘れたら手続きができません",
+      "kana": "ざいりゅうカードをわすれたらてつづきができません",
+      "zh": "如果忘了在留卡，就办不了手续。"
+    },
+    {
+      "id": "sent-phase1-068",
+      "type": "sentence",
+      "surface": "番号札を取って窓口で待ちます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "番号札を",
+          "kana": "ばんごうふだを",
+          "romaji": ["bangoufudawo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "取って",
+          "kana": "とって",
+          "romaji": ["totte"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "窓口で",
+          "kana": "まどぐちで",
+          "romaji": ["madoguchide"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "待ちます",
+          "kana": "まちます",
+          "romaji": ["machimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "拿号码牌后在窗口等待。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["japan-life", "te-form"],
+      "skillTags": ["sentence-order"],
+      "ja": "番号札を取って窓口で待ちます",
+      "kana": "ばんごうふだをとってまどぐちでまちます",
+      "zh": "拿号码牌后在窗口等待。",
+      "grammarPoints": ["て形"]
+    },
+    {
+      "id": "sent-phase1-069",
+      "type": "sentence",
+      "surface": "申請書に名前と住所を書きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "申請書に",
+          "kana": "しんせいしょに",
+          "romaji": ["shinseishoni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "名前と住所を",
+          "kana": "なまえとじゅうしょを",
+          "romaji": ["namaetojuushowo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "書きます",
+          "kana": "かきます",
+          "romaji": ["kakimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "在申请书上写姓名和地址。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["japan-life", "particle-ni"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "申請書に名前と住所を書きます",
+      "kana": "しんせいしょになまえとじゅうしょをかきます",
+      "zh": "在申请书上写姓名和地址。",
+      "grammarPoints": ["助詞「ni」"]
+    },
+    {
+      "id": "sent-phase1-070",
+      "type": "sentence",
+      "surface": "予約をしていれば待ち時間が短いです",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "予約を",
+          "kana": "よやくを",
+          "romaji": ["yoyakuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "していれば",
+          "kana": "していれば",
+          "romaji": ["shiteireba"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "待ち時間が",
+          "kana": "まちじかんが",
+          "romaji": ["machijikanga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "短いです",
+          "kana": "みじかいです",
+          "romaji": ["mijikaidesu"],
+          "pos": "adjective"
+        }
+      ],
+      "zhPrompt": "如果预约了，等待时间会短。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["japan-life", "ba"],
+      "skillTags": ["sentence-order"],
+      "ja": "予約をしていれば待ち時間が短いです",
+      "kana": "よやくをしていればまちじかんがみじかいです",
+      "zh": "如果预约了，等待时间会短。"
+    },
+    {
+      "id": "sent-phase1-071",
+      "type": "sentence",
+      "surface": "レジ袋はいりません",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "レジ袋は",
+          "kana": "レジぶくろは",
+          "romaji": ["rejibukuroha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "いりません",
+          "kana": "いりません",
+          "romaji": ["irimasen"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "不需要购物袋。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["shopping", "konbini"],
+      "skillTags": ["sentence-order"],
+      "ja": "レジ袋はいりません",
+      "kana": "レジぶくろはいりません",
+      "zh": "不需要购物袋。"
+    },
+    {
+      "id": "sent-phase1-072",
+      "type": "sentence",
+      "surface": "お弁当を温めてもらえますか",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "お弁当を",
+          "kana": "おべんとうを",
+          "romaji": ["obentouwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "温めてもらえますか",
+          "kana": "あたためてもらえますか",
+          "romaji": ["atatametemoraemasuka"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "可以帮我加热便当吗？",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["shopping", "request"],
+      "skillTags": ["sentence-order"],
+      "ja": "お弁当を温めてもらえますか",
+      "kana": "おべんとうをあたためてもらえますか",
+      "zh": "可以帮我加热便当吗？"
+    },
+    {
+      "id": "sent-phase1-073",
+      "type": "sentence",
+      "surface": "税込の値段を確認します",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "税込の値段を",
+          "kana": "ぜいこみのねだんを",
+          "romaji": ["zeikominonedanwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "確認します",
+          "kana": "かくにんします",
+          "romaji": ["kakuninshimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "确认含税价格。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["shopping"],
+      "skillTags": ["sentence-order"],
+      "ja": "税込の値段を確認します",
+      "kana": "ぜいこみのねだんをかくにんします",
+      "zh": "确认含税价格。"
+    },
+    {
+      "id": "sent-phase1-074",
+      "type": "sentence",
+      "surface": "ポイントカードがあれば出してください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "ポイントカードが",
+          "kana": "ポイントカードが",
+          "romaji": ["pointokaadoga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "あれば",
+          "kana": "あれば",
+          "romaji": ["areba"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "出してください",
+          "kana": "だしてください",
+          "romaji": ["dashitekudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "如果有积分卡，请出示。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["shopping", "ba", "te-kudasai"],
+      "skillTags": ["sentence-order"],
+      "ja": "ポイントカードがあれば出してください",
+      "kana": "ポイントカードがあればだしてください",
+      "zh": "如果有积分卡，请出示。"
+    },
+    {
+      "id": "sent-phase1-075",
+      "type": "sentence",
+      "surface": "現金よりカードで払うほうが便利です",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "現金より",
+          "kana": "げんきんより",
+          "romaji": ["genkin'yori"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "カードで払うほうが",
+          "kana": "カードではらうほうが",
+          "romaji": ["kaadodeharauhouga"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "便利です",
+          "kana": "べんりです",
+          "romaji": ["benridesu"],
+          "pos": "adjective"
+        }
+      ],
+      "zhPrompt": "比起现金，用卡支付更方便。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["shopping", "comparison-yori"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "現金よりカードで払うほうが便利です",
+      "kana": "げんきんよりカードではらうほうがべんりです",
+      "zh": "比起现金，用卡支付更方便。"
+    },
+    {
+      "id": "sent-phase1-076",
+      "type": "sentence",
+      "surface": "商品を返品したいです",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "商品を",
+          "kana": "しょうひんを",
+          "romaji": ["shouhinwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "返品したいです",
+          "kana": "へんぴんしたいです",
+          "romaji": ["henpinshitaidesu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我想退货。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["shopping", "tai-form"],
+      "skillTags": ["sentence-order"],
+      "ja": "商品を返品したいです",
+      "kana": "しょうひんをへんぴんしたいです",
+      "zh": "我想退货。"
+    },
+    {
+      "id": "sent-phase1-077",
+      "type": "sentence",
+      "surface": "在庫がなければ取り寄せます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "在庫が",
+          "kana": "ざいこが",
+          "romaji": ["zaikoga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "なければ",
+          "kana": "なければ",
+          "romaji": ["nakereba"],
+          "pos": "adjective"
+        },
+        {
+          "id": "c3",
+          "text": "取り寄せます",
+          "kana": "とりよせます",
+          "romaji": ["toriyosemasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "如果没有库存，就调货。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["shopping", "ba"],
+      "skillTags": ["sentence-order"],
+      "ja": "在庫がなければ取り寄せます",
+      "kana": "ざいこがなければとりよせます",
+      "zh": "如果没有库存，就调货。"
+    },
+    {
+      "id": "sent-phase1-078",
+      "type": "sentence",
+      "surface": "この服を試着してもいいですか",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "この服を",
+          "kana": "このふくを",
+          "romaji": ["konofukuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "試着してもいいですか",
+          "kana": "しちゃくしてもいいですか",
+          "romaji": ["shichakushitemoiidesuka"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "这件衣服可以试穿吗？",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["shopping", "permission"],
+      "skillTags": ["sentence-order"],
+      "ja": "この服を試着してもいいですか",
+      "kana": "このふくをしちゃくしてもいいですか",
+      "zh": "这件衣服可以试穿吗？"
+    },
+    {
+      "id": "sent-phase1-079",
+      "type": "sentence",
+      "surface": "レシートをなくしたので返品できません",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "レシートを",
+          "kana": "レシートを",
+          "romaji": ["reshiitowo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "なくしたので",
+          "kana": "なくしたので",
+          "romaji": ["nakushitanode"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "返品できません",
+          "kana": "へんぴんできません",
+          "romaji": ["henpindekimasen"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "因为弄丢了小票，所以不能退货。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["shopping", "reason"],
+      "skillTags": ["sentence-order"],
+      "ja": "レシートをなくしたので返品できません",
+      "kana": "レシートをなくしたのでへんぴんできません",
+      "zh": "因为弄丢了小票，所以不能退货。"
+    },
+    {
+      "id": "sent-phase1-080",
+      "type": "sentence",
+      "surface": "クーポンを使うと半額になります",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "クーポンを",
+          "kana": "クーポンを",
+          "romaji": ["kuuponwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "使うと",
+          "kana": "つかうと",
+          "romaji": ["tsukauto"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "半額になります",
+          "kana": "はんがくになります",
+          "romaji": ["hangakuninarimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "使用优惠券就会变成半价。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["shopping", "to-conditional"],
+      "skillTags": ["sentence-order"],
+      "ja": "クーポンを使うと半額になります",
+      "kana": "クーポンをつかうとはんがくになります",
+      "zh": "使用优惠券就会变成半价。"
+    },
+    {
+      "id": "sent-phase1-081",
+      "type": "sentence",
+      "surface": "明日までに宿題を提出してください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "明日までに",
+          "kana": "あしたまでに",
+          "romaji": ["ashitamadeni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "宿題を",
+          "kana": "しゅくだいを",
+          "romaji": ["shukudaiwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "提出してください",
+          "kana": "ていしゅつしてください",
+          "romaji": ["teishutsushitekudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "请在明天前提交作业。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["school", "made-ni", "te-kudasai"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "明日までに宿題を提出してください",
+      "kana": "あしたまでにしゅくだいをていしゅつしてください",
+      "zh": "请在明天前提交作业。"
+    },
+    {
+      "id": "sent-phase1-082",
+      "type": "sentence",
+      "surface": "授業中にスマホを使ってはいけません",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "授業中に",
+          "kana": "じゅぎょうちゅうに",
+          "romaji": ["jugyouchuuni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "スマホを",
+          "kana": "スマホを",
+          "romaji": ["sumahowo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "使ってはいけません",
+          "kana": "つかってはいけません",
+          "romaji": ["tsukattehaikemasen"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "上课时不能用手机。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["school", "prohibition"],
+      "skillTags": ["sentence-order"],
+      "ja": "授業中にスマホを使ってはいけません",
+      "kana": "じゅぎょうちゅうにスマホをつかってはいけません",
+      "zh": "上课时不能用手机。"
+    },
+    {
+      "id": "sent-phase1-083",
+      "type": "sentence",
+      "surface": "テストの前に復習します",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "テストの前に",
+          "kana": "テストのまえに",
+          "romaji": ["tesutonomaeni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "復習します",
+          "kana": "ふくしゅうします",
+          "romaji": ["fukushuushimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "考试前复习。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["school", "mae-ni"],
+      "skillTags": ["sentence-order"],
+      "ja": "テストの前に復習します",
+      "kana": "テストのまえにふくしゅうします",
+      "zh": "考试前复习。"
+    },
+    {
+      "id": "sent-phase1-084",
+      "type": "sentence",
+      "surface": "欠席するときは先生に連絡します",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "欠席するときは",
+          "kana": "けっせきするときは",
+          "romaji": ["kessekisurutokiha"],
+          "pos": "verb"
+        },
+        {
+          "id": "c2",
+          "text": "先生に",
+          "kana": "せんせいに",
+          "romaji": ["senseini"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "連絡します",
+          "kana": "れんらくします",
+          "romaji": ["renrakushimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "缺席时联系老师。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["school", "toki"],
+      "skillTags": ["sentence-order"],
+      "ja": "欠席するときは先生に連絡します",
+      "kana": "けっせきするときはせんせいにれんらくします",
+      "zh": "缺席时联系老师。"
+    },
+    {
+      "id": "sent-phase1-085",
+      "type": "sentence",
+      "surface": "合格したら家族に知らせます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "合格したら",
+          "kana": "ごうかくしたら",
+          "romaji": ["goukakushitara"],
+          "pos": "verb"
+        },
+        {
+          "id": "c2",
+          "text": "家族に",
+          "kana": "かぞくに",
+          "romaji": ["kazokuni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "知らせます",
+          "kana": "しらせます",
+          "romaji": ["shirasemasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "如果合格了，就告诉家人。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["school", "tara"],
+      "skillTags": ["sentence-order"],
+      "ja": "合格したら家族に知らせます",
+      "kana": "ごうかくしたらかぞくにしらせます",
+      "zh": "如果合格了，就告诉家人。"
+    },
+    {
+      "id": "sent-phase1-086",
+      "type": "sentence",
+      "surface": "部活をしながら日本語を勉強しています",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "部活を",
+          "kana": "ぶかつを",
+          "romaji": ["bukatsuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "しながら",
+          "kana": "しながら",
+          "romaji": ["shinagara"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "日本語を",
+          "kana": "にほんごを",
+          "romaji": ["nihongowo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "勉強しています",
+          "kana": "べんきょうしています",
+          "romaji": ["benkyoushiteimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "一边参加社团，一边学日语。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["school", "nagara", "te-iru"],
+      "skillTags": ["sentence-order"],
+      "ja": "部活をしながら日本語を勉強しています",
+      "kana": "ぶかつをしながらにほんごをべんきょうしています",
+      "zh": "一边参加社团，一边学日语。"
+    },
+    {
+      "id": "sent-phase1-087",
+      "type": "sentence",
+      "surface": "先輩に資料の場所を聞きました",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "先輩に",
+          "kana": "せんぱいに",
+          "romaji": ["senpaini"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "資料の場所を",
+          "kana": "しりょうのばしょを",
+          "romaji": ["shiryounobashowo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "聞きました",
+          "kana": "ききました",
+          "romaji": ["kikimashita"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "向前辈询问了资料的位置。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["school", "work"],
+      "skillTags": ["sentence-order"],
+      "ja": "先輩に資料の場所を聞きました",
+      "kana": "せんぱいにしりょうのばしょをききました",
+      "zh": "向前辈询问了资料的位置。"
+    },
+    {
+      "id": "sent-phase1-088",
+      "type": "sentence",
+      "surface": "会議が始まる前に資料を配ります",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "会議が",
+          "kana": "かいぎが",
+          "romaji": ["kaigiga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "始まる前に",
+          "kana": "はじまるまえに",
+          "romaji": ["hajimarumaeni"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "資料を",
+          "kana": "しりょうを",
+          "romaji": ["shiryouwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "配ります",
+          "kana": "くばります",
+          "romaji": ["kubarimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "会议开始前分发资料。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["work", "mae-ni"],
+      "skillTags": ["sentence-order"],
+      "ja": "会議が始まる前に資料を配ります",
+      "kana": "かいぎがはじまるまえにしりょうをくばります",
+      "zh": "会议开始前分发资料。"
+    },
+    {
+      "id": "sent-phase1-089",
+      "type": "sentence",
+      "surface": "締切までに報告書を書きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "締切までに",
+          "kana": "しめきりまでに",
+          "romaji": ["shimekirimadeni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "報告書を",
+          "kana": "ほうこくしょを",
+          "romaji": ["houkokushowo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "書きます",
+          "kana": "かきます",
+          "romaji": ["kakimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "在截止日期前写报告。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["work", "made-ni"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "締切までに報告書を書きます",
+      "kana": "しめきりまでにほうこくしょをかきます",
+      "zh": "在截止日期前写报告。"
+    },
+    {
+      "id": "sent-phase1-090",
+      "type": "sentence",
+      "surface": "上司に確認してから返信します",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "上司に",
+          "kana": "じょうしに",
+          "romaji": ["joushini"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "確認してから",
+          "kana": "かくにんしてから",
+          "romaji": ["kakuninshitekara"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "返信します",
+          "kana": "へんしんします",
+          "romaji": ["henshinshimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "向上司确认后再回复。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["work", "te-kara"],
+      "skillTags": ["sentence-order"],
+      "ja": "上司に確認してから返信します",
+      "kana": "じょうしにかくにんしてからへんしんします",
+      "zh": "向上司确认后再回复。"
+    },
+    {
+      "id": "sent-phase1-091",
+      "type": "sentence",
+      "surface": "お客様を会議室に案内します",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "お客様を",
+          "kana": "おきゃくさまを",
+          "romaji": ["okyakusamawo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "会議室に",
+          "kana": "かいぎしつに",
+          "romaji": ["kaigishitsuni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "案内します",
+          "kana": "あんないします",
+          "romaji": ["annaishimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "把客户带到会议室。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["work", "particle-ni"],
+      "skillTags": ["sentence-order"],
+      "errorTags": ["particle_misuse"],
+      "ja": "お客様を会議室に案内します",
+      "kana": "おきゃくさまをかいぎしつにあんないします",
+      "zh": "把客户带到会议室。",
+      "grammarPoints": ["助詞「ni」"]
+    },
+    {
+      "id": "sent-phase1-092",
+      "type": "sentence",
+      "surface": "残業が多いと疲れます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "残業が",
+          "kana": "ざんぎょうが",
+          "romaji": ["zangyouga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "多いと",
+          "kana": "おおいと",
+          "romaji": ["ooito"],
+          "pos": "adjective"
+        },
+        {
+          "id": "c3",
+          "text": "疲れます",
+          "kana": "つかれます",
+          "romaji": ["tsukaremasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "加班多就会累。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["work", "to-conditional"],
+      "skillTags": ["sentence-order"],
+      "ja": "残業が多いと疲れます",
+      "kana": "ざんぎょうがおおいとつかれます",
+      "zh": "加班多就会累。"
+    },
+    {
+      "id": "sent-phase1-093",
+      "type": "sentence",
+      "surface": "有給を取るなら早めに相談してください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "有給を",
+          "kana": "ゆうきゅうを",
+          "romaji": ["yuukyuuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "取るなら",
+          "kana": "とるなら",
+          "romaji": ["torunara"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "早めに",
+          "kana": "はやめに",
+          "romaji": ["hayameni"],
+          "pos": "adverb"
+        },
+        {
+          "id": "c4",
+          "text": "相談してください",
+          "kana": "そうだんしてください",
+          "romaji": ["soudanshitekudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "如果要请带薪假，请早点商量。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["work", "nara"],
+      "skillTags": ["sentence-order"],
+      "ja": "有給を取るなら早めに相談してください",
+      "kana": "ゆうきゅうをとるならはやめにそうだんしてください",
+      "zh": "如果要请带薪假，请早点商量。"
+    },
+    {
+      "id": "sent-phase1-094",
+      "type": "sentence",
+      "surface": "出張から戻った後で精算します",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "出張から",
+          "kana": "しゅっちょうから",
+          "romaji": ["shutchoukara", "shucchoukara"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "戻った後で",
+          "kana": "もどったあとで",
+          "romaji": ["modottaatode"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "精算します",
+          "kana": "せいさんします",
+          "romaji": ["seisanshimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "出差回来后报销结算。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["work", "after"],
+      "skillTags": ["sentence-order"],
+      "ja": "出張から戻った後で精算します",
+      "kana": "しゅっちょうからもどったあとでせいさんします",
+      "zh": "出差回来后报销结算。"
+    },
+    {
+      "id": "sent-phase1-095",
+      "type": "sentence",
+      "surface": "メールを送ったつもりですが届いていません",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "メールを",
+          "kana": "メールを",
+          "romaji": ["meeruwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "送ったつもりですが",
+          "kana": "おくったつもりですが",
+          "romaji": ["okuttatsumoridesuga"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "届いていません",
+          "kana": "とどいていません",
+          "romaji": ["todoiteimasen"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我以为发了邮件，但没有送达。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["work", "te-iru"],
+      "skillTags": ["sentence-order"],
+      "ja": "メールを送ったつもりですが届いていません",
+      "kana": "メールをおくったつもりですがとどいていません",
+      "zh": "我以为发了邮件，但没有送达。"
+    },
+    {
+      "id": "sent-phase1-096",
+      "type": "sentence",
+      "surface": "恐れ入りますが少々お待ちください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "恐れ入りますが",
+          "kana": "おそれいりますが",
+          "romaji": ["osoreirimasuga"],
+          "pos": "expression"
+        },
+        {
+          "id": "c2",
+          "text": "少々お待ちください",
+          "kana": "しょうしょうおまちください",
+          "romaji": ["shoushouomachikudasai"],
+          "pos": "expression"
+        }
+      ],
+      "zhPrompt": "不好意思，请稍等。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["work", "polite"],
+      "skillTags": ["sentence-order"],
+      "ja": "恐れ入りますが少々お待ちください",
+      "kana": "おそれいりますがしょうしょうおまちください",
+      "zh": "不好意思，请稍等。"
+    },
+    {
+      "id": "sent-phase1-097",
+      "type": "sentence",
+      "surface": "頭が痛いので病院へ行きます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "頭が",
+          "kana": "あたまが",
+          "romaji": ["atamaga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "痛いので",
+          "kana": "いたいので",
+          "romaji": ["itainode"],
+          "pos": "adjective"
+        },
+        {
+          "id": "c3",
+          "text": "病院へ",
+          "kana": "びょういんへ",
+          "romaji": ["byouinhe"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "行きます",
+          "kana": "いきます",
+          "romaji": ["ikimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "因为头痛，所以去医院。",
+      "acceptedOrders": [],
+      "jlpt": "N5",
+      "tags": ["health", "reason"],
+      "skillTags": ["sentence-order"],
+      "ja": "頭が痛いので病院へ行きます",
+      "kana": "あたまがいたいのでびょういんへいきます",
+      "zh": "因为头痛，所以去医院。"
+    },
+    {
+      "id": "sent-phase1-098",
+      "type": "sentence",
+      "surface": "熱があるときは無理をしないでください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "熱があるときは",
+          "kana": "ねつがあるときは",
+          "romaji": ["netsugaarutokiha"],
+          "pos": "expression"
+        },
+        {
+          "id": "c2",
+          "text": "無理を",
+          "kana": "むりを",
+          "romaji": ["muriwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "しないでください",
+          "kana": "しないでください",
+          "romaji": ["shinaidekudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "发烧的时候请不要勉强。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["health", "te-kudasai"],
+      "skillTags": ["sentence-order"],
+      "ja": "熱があるときは無理をしないでください",
+      "kana": "ねつがあるときはむりをしないでください",
+      "zh": "发烧的时候请不要勉强。"
+    },
+    {
+      "id": "sent-phase1-099",
+      "type": "sentence",
+      "surface": "薬を飲む前に説明を読みます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "薬を",
+          "kana": "くすりを",
+          "romaji": ["kusuriwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "飲む前に",
+          "kana": "のむまえに",
+          "romaji": ["nomumaeni"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "説明を",
+          "kana": "せつめいを",
+          "romaji": ["setsumeiwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "読みます",
+          "kana": "よみます",
+          "romaji": ["yomimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "吃药前阅读说明。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["health", "mae-ni"],
+      "skillTags": ["sentence-order"],
+      "ja": "薬を飲む前に説明を読みます",
+      "kana": "くすりをのむまえにせつめいをよみます",
+      "zh": "吃药前阅读说明。"
+    },
+    {
+      "id": "sent-phase1-100",
+      "type": "sentence",
+      "surface": "救急車を呼んでください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "救急車を",
+          "kana": "きゅうきゅうしゃを",
+          "romaji": ["kyuukyuushawo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "呼んでください",
+          "kana": "よんでください",
+          "romaji": ["yondekudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "请叫救护车。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["emergency", "te-kudasai"],
+      "skillTags": ["sentence-order"],
+      "ja": "救急車を呼んでください",
+      "kana": "きゅうきゅうしゃをよんでください",
+      "zh": "请叫救护车。"
+    },
+    {
+      "id": "sent-phase1-101",
+      "type": "sentence",
+      "surface": "地震が来たら机の下に入ります",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "地震が",
+          "kana": "じしんが",
+          "romaji": ["jishinga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "来たら",
+          "kana": "きたら",
+          "romaji": ["kitara"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "机の下に",
+          "kana": "つくえのしたに",
+          "romaji": ["tsukuenoshitani"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "入ります",
+          "kana": "はいります",
+          "romaji": ["hairimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "地震来了就躲到桌子下面。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["emergency", "tara"],
+      "skillTags": ["sentence-order"],
+      "ja": "地震が来たら机の下に入ります",
+      "kana": "じしんがきたらつくえのしたにはいります",
+      "zh": "地震来了就躲到桌子下面。"
+    },
+    {
+      "id": "sent-phase1-102",
+      "type": "sentence",
+      "surface": "雨が降りそうなら傘を持っていきます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "雨が",
+          "kana": "あめが",
+          "romaji": ["amega"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "降りそうなら",
+          "kana": "ふりそうなら",
+          "romaji": ["furisounara"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "傘を",
+          "kana": "かさを",
+          "romaji": ["kasawo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "持っていきます",
+          "kana": "もっていきます",
+          "romaji": ["motteikimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "看起来要下雨的话，就带伞去。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["weather", "nara"],
+      "skillTags": ["sentence-order"],
+      "ja": "雨が降りそうなら傘を持っていきます",
+      "kana": "あめがふりそうならかさをもっていきます",
+      "zh": "看起来要下雨的话，就带伞去。"
+    },
+    {
+      "id": "sent-phase1-103",
+      "type": "sentence",
+      "surface": "台風のときは外に出ないでください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "台風のときは",
+          "kana": "たいふうのときは",
+          "romaji": ["taifuunotokiha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "外に",
+          "kana": "そとに",
+          "romaji": ["sotoni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "出ないでください",
+          "kana": "でないでください",
+          "romaji": ["denaidekudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "台风时请不要外出。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["weather", "te-kudasai"],
+      "skillTags": ["sentence-order"],
+      "ja": "台風のときは外に出ないでください",
+      "kana": "たいふうのときはそとにでないでください",
+      "zh": "台风时请不要外出。"
+    },
+    {
+      "id": "sent-phase1-104",
+      "type": "sentence",
+      "surface": "保険証を持っていれば受付が早いです",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "保険証を",
+          "kana": "ほけんしょうを",
+          "romaji": ["hokenshouwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "持っていれば",
+          "kana": "もっていれば",
+          "romaji": ["motteireba"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "受付が",
+          "kana": "うけつけが",
+          "romaji": ["uketsukega"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "早いです",
+          "kana": "はやいです",
+          "romaji": ["hayaidesu"],
+          "pos": "adjective"
+        }
+      ],
+      "zhPrompt": "如果带着保险证，挂号会快。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["health", "ba"],
+      "skillTags": ["sentence-order"],
+      "ja": "保険証を持っていれば受付が早いです",
+      "kana": "ほけんしょうをもっていればうけつけがはやいです",
+      "zh": "如果带着保险证，挂号会快。"
+    },
+    {
+      "id": "sent-phase1-105",
+      "type": "sentence",
+      "surface": "マスクをしてから電車に乗ります",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "マスクを",
+          "kana": "マスクを",
+          "romaji": ["masukuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "してから",
+          "kana": "してから",
+          "romaji": ["shitekara"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "電車に",
+          "kana": "でんしゃに",
+          "romaji": ["denshani"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "乗ります",
+          "kana": "のります",
+          "romaji": ["norimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "戴上口罩后坐电车。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["health", "transport", "te-kara"],
+      "skillTags": ["sentence-order"],
+      "ja": "マスクをしてから電車に乗ります",
+      "kana": "マスクをしてからでんしゃにのります",
+      "zh": "戴上口罩后坐电车。"
+    },
+    {
+      "id": "sent-phase1-106",
+      "type": "sentence",
+      "surface": "スマホの電池がなくなりました",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "スマホの電池が",
+          "kana": "スマホのでんちが",
+          "romaji": ["sumahonodenchiga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "なくなりました",
+          "kana": "なくなりました",
+          "romaji": ["nakunarimashita"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "手机电池没电了。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["digital"],
+      "skillTags": ["sentence-order"],
+      "ja": "スマホの電池がなくなりました",
+      "kana": "スマホのでんちがなくなりました",
+      "zh": "手机电池没电了。"
+    },
+    {
+      "id": "sent-phase1-107",
+      "type": "sentence",
+      "surface": "パスワードを入力してログインします",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "パスワードを",
+          "kana": "パスワードを",
+          "romaji": ["pasuwaadowo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "入力して",
+          "kana": "にゅうりょくして",
+          "romaji": ["nyuuryokushite"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "ログインします",
+          "kana": "ログインします",
+          "romaji": ["roguinshimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "输入密码并登录。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["digital", "te-form"],
+      "skillTags": ["sentence-order"],
+      "ja": "パスワードを入力してログインします",
+      "kana": "パスワードをにゅうりょくしてログインします",
+      "zh": "输入密码并登录。",
+      "grammarPoints": ["て形"]
+    },
+    {
+      "id": "sent-phase1-108",
+      "type": "sentence",
+      "surface": "ファイルを添付してメールを送ります",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "ファイルを",
+          "kana": "ファイルを",
+          "romaji": ["fairuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "添付して",
+          "kana": "てんぷして",
+          "romaji": ["tenpushite"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "メールを",
+          "kana": "メールを",
+          "romaji": ["meeruwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "送ります",
+          "kana": "おくります",
+          "romaji": ["okurimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "添加附件后发送邮件。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["digital", "work"],
+      "skillTags": ["sentence-order"],
+      "ja": "ファイルを添付してメールを送ります",
+      "kana": "ファイルをてんぷしてメールをおくります",
+      "zh": "添加附件后发送邮件。"
+    },
+    {
+      "id": "sent-phase1-109",
+      "type": "sentence",
+      "surface": "通知が多ければ設定を変えます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "通知が",
+          "kana": "つうちが",
+          "romaji": ["tsuuchiga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "多ければ",
+          "kana": "おおければ",
+          "romaji": ["ookereba"],
+          "pos": "adjective"
+        },
+        {
+          "id": "c3",
+          "text": "設定を",
+          "kana": "せっていを",
+          "romaji": ["setteiwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "変えます",
+          "kana": "かえます",
+          "romaji": ["kaemasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "如果通知多，就更改设置。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["digital", "ba"],
+      "skillTags": ["sentence-order"],
+      "ja": "通知が多ければ設定を変えます",
+      "kana": "つうちがおおければせっていをかえます",
+      "zh": "如果通知多，就更改设置。"
+    },
+    {
+      "id": "sent-phase1-110",
+      "type": "sentence",
+      "surface": "写真を保存した後で共有します",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "写真を",
+          "kana": "しゃしんを",
+          "romaji": ["shashinwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "保存した後で",
+          "kana": "ほぞんしたあとで",
+          "romaji": ["hozonshitaatode"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "共有します",
+          "kana": "きょうゆうします",
+          "romaji": ["kyouyuushimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "保存照片后共享。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["digital", "after"],
+      "skillTags": ["sentence-order"],
+      "ja": "写真を保存した後で共有します",
+      "kana": "しゃしんをほぞんしたあとできょうゆうします",
+      "zh": "保存照片后共享。"
+    },
+    {
+      "id": "sent-phase1-111",
+      "type": "sentence",
+      "surface": "ネットが遅いならワイファイを確認します",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "ネットが",
+          "kana": "ネットが",
+          "romaji": ["nettoga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "遅いなら",
+          "kana": "おそいなら",
+          "romaji": ["osoinara"],
+          "pos": "adjective"
+        },
+        {
+          "id": "c3",
+          "text": "ワイファイを",
+          "kana": "ワイファイを",
+          "romaji": ["waifaiwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "確認します",
+          "kana": "かくにんします",
+          "romaji": ["kakuninshimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "如果网络慢，就确认 Wi-Fi。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["digital", "nara"],
+      "skillTags": ["sentence-order"],
+      "ja": "ネットが遅いならワイファイを確認します",
+      "kana": "ネットがおそいならワイファイをかくにんします",
+      "zh": "如果网络慢，就确认 Wi-Fi。"
+    },
+    {
+      "id": "sent-phase1-112",
+      "type": "sentence",
+      "surface": "注文をキャンセルしたいです",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "注文を",
+          "kana": "ちゅうもんを",
+          "romaji": ["chuumonwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "キャンセルしたいです",
+          "kana": "キャンセルしたいです",
+          "romaji": ["kyanserushitaidesu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "我想取消订单。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["digital", "shopping", "tai-form"],
+      "skillTags": ["sentence-order"],
+      "ja": "注文をキャンセルしたいです",
+      "kana": "ちゅうもんをキャンセルしたいです",
+      "zh": "我想取消订单。"
+    },
+    {
+      "id": "sent-phase1-113",
+      "type": "sentence",
+      "surface": "配送状況を見れば荷物の場所が分かります",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "配送状況を",
+          "kana": "はいそうじょうきょうを",
+          "romaji": ["haisoujoukyouwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "見れば",
+          "kana": "みれば",
+          "romaji": ["mireba"],
+          "pos": "verb"
+        },
+        {
+          "id": "c3",
+          "text": "荷物の場所が",
+          "kana": "にもつのばしょが",
+          "romaji": ["nimotsunobashoga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c4",
+          "text": "分かります",
+          "kana": "わかります",
+          "romaji": ["wakarimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "查看配送状态就知道包裹的位置。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["digital", "ba"],
+      "skillTags": ["sentence-order"],
+      "ja": "配送状況を見れば荷物の場所が分かります",
+      "kana": "はいそうじょうきょうをみればにもつのばしょがわかります",
+      "zh": "查看配送状态就知道包裹的位置。"
+    },
+    {
+      "id": "sent-phase1-114",
+      "type": "sentence",
+      "surface": "レビューを書く前に商品を使ってみます",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "レビューを書く前に",
+          "kana": "レビューをかくまえに",
+          "romaji": ["rebyuuwokakumaeni"],
+          "pos": "verb"
+        },
+        {
+          "id": "c2",
+          "text": "商品を",
+          "kana": "しょうひんを",
+          "romaji": ["shouhinwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "使ってみます",
+          "kana": "つかってみます",
+          "romaji": ["tsukattemimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "写评论前先试用商品。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["digital", "mae-ni"],
+      "skillTags": ["sentence-order"],
+      "ja": "レビューを書く前に商品を使ってみます",
+      "kana": "レビューをかくまえにしょうひんをつかってみます",
+      "zh": "写评论前先试用商品。"
+    },
+    {
+      "id": "sent-phase1-115",
+      "type": "sentence",
+      "surface": "大事なファイルはバックアップしてください",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "大事なファイルは",
+          "kana": "だいじなファイルは",
+          "romaji": ["daijinafairuha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "バックアップしてください",
+          "kana": "バックアップしてください",
+          "romaji": ["bakkuappushitekudasai"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "重要文件请备份。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["digital", "te-kudasai"],
+      "skillTags": ["sentence-order"],
+      "ja": "大事なファイルはバックアップしてください",
+      "kana": "だいじなファイルはバックアップしてください",
+      "zh": "重要文件请备份。"
+    },
+    {
+      "id": "sent-phase1-116",
+      "type": "sentence",
+      "surface": "雨と飴は同じ読み方です",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "雨と飴は",
+          "kana": "あめとあめは",
+          "romaji": ["ametoameha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "同じ読み方です",
+          "kana": "おなじよみかたです",
+          "romaji": ["onajiyomikatadesu"],
+          "pos": "noun"
+        }
+      ],
+      "zhPrompt": "雨和糖的读音相同。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["error-lab", "same-sound"],
+      "skillTags": ["sentence-order"],
+      "ja": "雨と飴は同じ読み方です",
+      "kana": "あめとあめはおなじよみかたです",
+      "zh": "雨和糖的读音相同。"
+    },
+    {
+      "id": "sent-phase1-117",
+      "type": "sentence",
+      "surface": "ビルとビールは長音が違います",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "ビルとビールは",
+          "kana": "ビルとビールは",
+          "romaji": ["birutobiiruha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "長音が",
+          "kana": "ちょうおんが",
+          "romaji": ["chouonga"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "違います",
+          "kana": "ちがいます",
+          "romaji": ["chigaimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "ビル 和 ビール 的长音不同。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["error-lab", "long-vowel"],
+      "skillTags": ["sentence-order"],
+      "ja": "ビルとビールは長音が違います",
+      "kana": "ビルとビールはちょうおんがちがいます",
+      "zh": "ビル 和 ビール 的长音不同。"
+    },
+    {
+      "id": "sent-phase1-118",
+      "type": "sentence",
+      "surface": "切手と来ては促音に注意します",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "切手と来ては",
+          "kana": "きってときては",
+          "romaji": ["kittetokiteha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "促音に",
+          "kana": "そくおんに",
+          "romaji": ["sokuonni"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "注意します",
+          "kana": "ちゅういします",
+          "romaji": ["chuuishimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "切手 和 来て 要注意促音。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["error-lab", "sokuon"],
+      "skillTags": ["sentence-order"],
+      "ja": "切手と来ては促音に注意します",
+      "kana": "きってときてはそくおんにちゅういします",
+      "zh": "切手 和 来て 要注意促音。"
+    },
+    {
+      "id": "sent-phase1-119",
+      "type": "sentence",
+      "surface": "手紙は日本語で信という意味です",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "手紙は",
+          "kana": "てがみは",
+          "romaji": ["tegamiha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "日本語で",
+          "kana": "にほんごで",
+          "romaji": ["nihongode"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "信という意味です",
+          "kana": "てがみといういみです",
+          "romaji": ["tegamitoiuimidesu"],
+          "pos": "noun"
+        }
+      ],
+      "zhPrompt": "手紙在日语里是“信”的意思。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["error-lab", "zh-misleading"],
+      "skillTags": ["sentence-order"],
+      "ja": "手紙は日本語で信という意味です",
+      "kana": "てがみはにほんごでてがみといういみです",
+      "zh": "手紙在日语里是“信”的意思。"
+    },
+    {
+      "id": "sent-phase1-120",
+      "type": "sentence",
+      "surface": "真面目な人は約束を守ります",
+      "chunks": [
+        {
+          "id": "c1",
+          "text": "真面目な人は",
+          "kana": "まじめなひとは",
+          "romaji": ["majimenahitoha"],
+          "pos": "noun"
+        },
+        {
+          "id": "c2",
+          "text": "約束を",
+          "kana": "やくそくを",
+          "romaji": ["yakusokuwo"],
+          "pos": "noun"
+        },
+        {
+          "id": "c3",
+          "text": "守ります",
+          "kana": "まもります",
+          "romaji": ["mamorimasu"],
+          "pos": "verb"
+        }
+      ],
+      "zhPrompt": "认真的人会遵守约定。",
+      "acceptedOrders": [],
+      "jlpt": "N4",
+      "tags": ["error-lab", "zh-misleading"],
+      "skillTags": ["sentence-order"],
+      "ja": "真面目な人は約束を守ります",
+      "kana": "まじめなひとはやくそくをまもります",
+      "zh": "认真的人会遵守约定。"
+    }
+  ]
+}

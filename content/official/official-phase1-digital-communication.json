@@ -1,0 +1,2346 @@
+{
+  "id": "official-phase1-digital-communication",
+  "name": "第一阶段：数码、互联网与通信",
+  "version": "1.1.0",
+  "items": [
+    {
+      "id": "word-aninsutooru",
+      "type": "word",
+      "surface": "アンインストール",
+      "kana": "アンインストール",
+      "romaji": ["an'insutooru"],
+      "meaningsZh": ["卸载"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-aninsutooru-1",
+          "ja": "使わないアプリをアンインストールする。",
+          "kana": "つかわないアプリをアンインストールする。",
+          "zh": "卸载不用的应用。",
+          "targetSurface": "アンインストール"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-appuroodo",
+      "type": "word",
+      "surface": "アップロード",
+      "kana": "アップロード",
+      "romaji": ["appuroodo"],
+      "meaningsZh": ["上传"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "sokuon", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-appuroodo-1",
+          "ja": "写真をクラウドにアップロードする。",
+          "kana": "しゃしんをクラウドにアップロードする。",
+          "zh": "把照片上传到云端。",
+          "targetSurface": "アップロード"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error", "sokuon-error"]
+    },
+    {
+      "id": "word-bakkuappu",
+      "type": "word",
+      "surface": "バックアップ",
+      "kana": "バックアップ",
+      "romaji": ["bakkuappu"],
+      "meaningsZh": ["备份"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "sokuon"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-bakkuappu-1",
+          "ja": "大事なデータをバックアップしておく。",
+          "kana": "だいじなデータをバックアップしておく。",
+          "zh": "重要的数据要备份。",
+          "targetSurface": "バックアップ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-burauza",
+      "type": "word",
+      "surface": "ブラウザ",
+      "kana": "ブラウザ",
+      "romaji": ["burauza"],
+      "meaningsZh": ["浏览器"],
+      "pos": "noun",
+      "tags": ["digital", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-burauza-1",
+          "ja": "お使いのブラウザを教えてください。",
+          "kana": "おつかいのブラウザをおしえてください。",
+          "zh": "请告诉我您用的浏览器。",
+          "targetSurface": "ブラウザ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-chuumonrireki",
+      "type": "word",
+      "surface": "注文履歴",
+      "kana": "ちゅうもんりれき",
+      "romaji": ["chuumonrireki"],
+      "meaningsZh": ["订单记录"],
+      "pos": "noun",
+      "tags": ["digital", "online"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-chuumonrireki-1",
+          "ja": "画面に注文履歴が表示された。",
+          "kana": "がめんにちゅうもんりれきがひょうじされた。",
+          "zh": "画面上显示了订单记录。",
+          "targetSurface": "注文履歴",
+          "targetKana": "ちゅうもんりれき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-daunroodo",
+      "type": "word",
+      "surface": "ダウンロード",
+      "kana": "ダウンロード",
+      "romaji": ["daunroodo"],
+      "meaningsZh": ["下载"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-daunroodo-1",
+          "ja": "アプリをダウンロードする。",
+          "kana": "アプリをダウンロードする。",
+          "zh": "下载应用。",
+          "targetSurface": "ダウンロード"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-dengenadaputaa",
+      "type": "word",
+      "surface": "電源アダプター",
+      "kana": "でんげんあだぷたー",
+      "romaji": ["dengen'adaputaa"],
+      "meaningsZh": ["电源适配器"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-dengenadaputaa-1",
+          "ja": "出張のために電源アダプターを持っていく。",
+          "kana": "しゅっちょうのためにでんげんアダプターをもっていく。",
+          "zh": "为出差带上电源适配器。",
+          "targetSurface": "電源アダプター"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-douki",
+      "type": "word",
+      "surface": "同期",
+      "kana": "どうき",
+      "romaji": ["douki"],
+      "meaningsZh": ["同步"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-douki-1",
+          "ja": "画面に同期が表示された。",
+          "kana": "がめんにどうきがひょうじされた。",
+          "zh": "画面上显示了同步。",
+          "targetSurface": "同期",
+          "targetKana": "どうき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-eraa",
+      "type": "word",
+      "surface": "エラー",
+      "kana": "エラー",
+      "romaji": ["eraa"],
+      "meaningsZh": ["错误"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-eraa-1",
+          "ja": "エラーが出てログインできない。",
+          "kana": "エラーがでてログインできない。",
+          "zh": "出现错误，无法登录。",
+          "targetSurface": "エラー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-fuguai",
+      "type": "word",
+      "surface": "不具合",
+      "kana": "ふぐあい",
+      "romaji": ["fuguai"],
+      "meaningsZh": ["故障", "异常"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-fuguai-1",
+          "ja": "スマホで不具合を確認する。",
+          "kana": "スマホでふぐあいをかくにんする。",
+          "zh": "用手机查故障。",
+          "targetSurface": "不具合",
+          "targetKana": "ふぐあい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-fukugen",
+      "type": "word",
+      "surface": "復元",
+      "kana": "ふくげん",
+      "romaji": ["fukugen"],
+      "meaningsZh": ["恢复"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-fukugen-1",
+          "ja": "画面に復元が表示された。",
+          "kana": "がめんにふくげんがひょうじされた。",
+          "zh": "画面上显示了恢复。",
+          "targetSurface": "復元",
+          "targetKana": "ふくげん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-haisoujoukyou",
+      "type": "word",
+      "surface": "配送状況",
+      "kana": "はいそうじょうきょう",
+      "romaji": ["haisoujoukyou"],
+      "meaningsZh": ["配送状态"],
+      "pos": "noun",
+      "tags": ["digital", "online"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-haisoujoukyou-1",
+          "ja": "画面に配送状況が表示された。",
+          "kana": "がめんにはいそうじょうきょうがひょうじされた。",
+          "zh": "画面上显示了配送状态。",
+          "targetSurface": "配送状況",
+          "targetKana": "はいそうじょうきょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-henkanadaputaa",
+      "type": "word",
+      "surface": "変換アダプター",
+      "kana": "へんかんあだぷたー",
+      "romaji": ["henkan'adaputaa"],
+      "meaningsZh": ["转换适配器"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-henkanadaputaa-1",
+          "ja": "画面に変換アダプターが表示された。",
+          "kana": "がめんにへんかんあだぷたーがひょうじされた。",
+          "zh": "画面上显示了转换适配器。",
+          "targetSurface": "変換アダプター",
+          "targetKana": "へんかんあだぷたー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-henkin",
+      "type": "word",
+      "surface": "返金",
+      "kana": "へんきん",
+      "romaji": ["henkin"],
+      "meaningsZh": ["退款"],
+      "pos": "noun",
+      "tags": ["digital", "online"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-henkin-1",
+          "ja": "商品が破損していたので返金を求めた。",
+          "kana": "しょうひんがはそんしていたのでへんきんをもとめた。",
+          "zh": "商品破损了，要求退款。",
+          "targetSurface": "返金",
+          "targetKana": "へんきん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-henkinshinsei",
+      "type": "word",
+      "surface": "返金申請",
+      "kana": "へんきんしんせい",
+      "romaji": ["henkinshinsei"],
+      "meaningsZh": ["退款申请"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-henkinshinsei-1",
+          "ja": "返金申請の設定を変更する。",
+          "kana": "へんきんしんせいのせっていをへんこうする。",
+          "zh": "修改退款申请的设置。",
+          "targetSurface": "返金申請",
+          "targetKana": "へんきんしんせい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-ichijiteishi",
+      "type": "word",
+      "surface": "一時停止",
+      "kana": "いちじていし",
+      "romaji": ["ichijiteishi"],
+      "meaningsZh": ["暂停"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ichijiteishi-1",
+          "ja": "一時停止の設定を変更する。",
+          "kana": "いちじていしのせっていをへんこうする。",
+          "zh": "修改暂停的设置。",
+          "targetSurface": "一時停止",
+          "targetKana": "いちじていし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-ichijouhou",
+      "type": "word",
+      "surface": "位置情報",
+      "kana": "いちじょうほう",
+      "romaji": ["ichijouhou"],
+      "meaningsZh": ["位置信息"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ichijouhou-1",
+          "ja": "画面に位置情報が表示された。",
+          "kana": "がめんにいちじょうほうがひょうじされた。",
+          "zh": "画面上显示了位置信息。",
+          "targetSurface": "位置情報",
+          "targetKana": "いちじょうほう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-insutooru",
+      "type": "word",
+      "surface": "インストール",
+      "kana": "インストール",
+      "romaji": ["insutooru"],
+      "meaningsZh": ["安装"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-insutooru-1",
+          "ja": "ソフトをインストールするのに時間がかかった。",
+          "kana": "ソフトをインストールするのにじかんがかかった。",
+          "zh": "安装软件花了不少时间。",
+          "targetSurface": "インストール"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kakin",
+      "type": "word",
+      "surface": "課金",
+      "kana": "かきん",
+      "romaji": ["kakin"],
+      "meaningsZh": ["付费", "计费"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kakin-1",
+          "ja": "ゲームに課金しないように気をつける。",
+          "kana": "ゲームにかきんしないようにきをつける。",
+          "zh": "注意不要在游戏里氪金。",
+          "targetSurface": "課金",
+          "targetKana": "かきん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kakuninkoodo",
+      "type": "word",
+      "surface": "確認コード",
+      "kana": "かくにんこーど",
+      "romaji": ["kakuninkoodo"],
+      "meaningsZh": ["验证码"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-kakuninkoodo-1",
+          "ja": "スマホで確認コードを確認する。",
+          "kana": "スマホでかくにんこーどをかくにんする。",
+          "zh": "用手机查验证码。",
+          "targetSurface": "確認コード",
+          "targetKana": "かくにんこーど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kengai",
+      "type": "word",
+      "surface": "圏外",
+      "kana": "けんがい",
+      "romaji": ["kengai"],
+      "meaningsZh": ["无服务区"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kengai-1",
+          "ja": "地下鉄の中はずっと圏外だ。",
+          "kana": "ちかてつのなかはずっとけんがいだ。",
+          "zh": "地铁里一直是无信号。",
+          "targetSurface": "圏外",
+          "targetKana": "けんがい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kessai-2",
+      "type": "word",
+      "surface": "決済",
+      "kana": "けっさい",
+      "romaji": ["kessai"],
+      "meaningsZh": ["结算", "支付"],
+      "pos": "noun",
+      "tags": ["digital", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-kessai-2-1",
+          "ja": "バーコードで決済する。",
+          "kana": "バーコードでけっさいする。",
+          "zh": "用条码支付。",
+          "targetSurface": "決済",
+          "targetKana": "けっさい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-kojinjouhou",
+      "type": "word",
+      "surface": "個人情報",
+      "kana": "こじんじょうほう",
+      "romaji": ["kojinjouhou"],
+      "meaningsZh": ["个人信息"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kojinjouhou-1",
+          "ja": "個人情報は厳重に管理する。",
+          "kana": "こじんじょうほうはげんじゅうにかんりする。",
+          "zh": "个人信息要严格管理。",
+          "targetSurface": "個人情報",
+          "targetKana": "こじんじょうほう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kounyuurireki",
+      "type": "word",
+      "surface": "購入履歴",
+      "kana": "こうにゅうりれき",
+      "romaji": ["kounyuurireki"],
+      "meaningsZh": ["购买记录"],
+      "pos": "noun",
+      "tags": ["digital", "online"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kounyuurireki-1",
+          "ja": "購入履歴の設定を変更する。",
+          "kana": "こうにゅうりれきのせっていをへんこうする。",
+          "zh": "修改购买记录的设置。",
+          "targetSurface": "購入履歴",
+          "targetKana": "こうにゅうりれき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-memoriikaado",
+      "type": "word",
+      "surface": "メモリーカード",
+      "kana": "メモリーカード",
+      "romaji": ["memoriikaado"],
+      "meaningsZh": ["存储卡"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-memoriikaado-1",
+          "ja": "スマホでメモリーカードを確認する。",
+          "kana": "スマホでめもりーかーどをかくにんする。",
+          "zh": "用手机查存储卡。",
+          "targetSurface": "メモリーカード",
+          "targetKana": "めもりーかーど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-mobairubatterii",
+      "type": "word",
+      "surface": "モバイルバッテリー",
+      "kana": "モバイルバッテリー",
+      "romaji": ["mobairubatterii"],
+      "meaningsZh": ["移动电源"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "sokuon", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-mobairubatterii-1",
+          "ja": "モバイルバッテリーの設定を変更する。",
+          "kana": "もばいるばってりーのせっていをへんこうする。",
+          "zh": "修改移动电源的设置。",
+          "targetSurface": "モバイルバッテリー",
+          "targetKana": "もばいるばってりー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error", "sokuon-error"]
+    },
+    {
+      "id": "word-myuuto",
+      "type": "word",
+      "surface": "ミュート",
+      "kana": "ミュート",
+      "romaji": ["myuuto"],
+      "meaningsZh": ["静音"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-myuuto-1",
+          "ja": "会議に入る前にマイクをミュートにする。",
+          "kana": "かいぎにはいるまえにマイクをミュートにする。",
+          "zh": "进会议前先把麦克风静音。",
+          "targetSurface": "ミュート"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-nidankaininshou",
+      "type": "word",
+      "surface": "二段階認証",
+      "kana": "にだんかいにんしょう",
+      "romaji": ["nidankaininshou"],
+      "meaningsZh": ["二步验证"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-nidankaininshou-1",
+          "ja": "二段階認証を有効にしておく。",
+          "kana": "にだんかいにんしょうをゆうこうにしておく。",
+          "zh": "把双重认证打开。",
+          "targetSurface": "二段階認証",
+          "targetKana": "にだんかいにんしょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-ninshou",
+      "type": "word",
+      "surface": "認証",
+      "kana": "にんしょう",
+      "romaji": ["ninshou"],
+      "meaningsZh": ["认证"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ninshou-1",
+          "ja": "認証の設定を変更する。",
+          "kana": "にんしょうのせっていをへんこうする。",
+          "zh": "修改认证的设置。",
+          "targetSurface": "認証",
+          "targetKana": "にんしょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-niyousoninshou",
+      "type": "word",
+      "surface": "二要素認証",
+      "kana": "にようそにんしょう",
+      "romaji": ["niyousoninshou"],
+      "meaningsZh": ["双因素认证"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-niyousoninshou-1",
+          "ja": "スマホで二要素認証を確認する。",
+          "kana": "スマホでにようそにんしょうをかくにんする。",
+          "zh": "用手机查双因素认证。",
+          "targetSurface": "二要素認証",
+          "targetKana": "にようそにんしょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-pasukoodo",
+      "type": "word",
+      "surface": "パスコード",
+      "kana": "パスコード",
+      "romaji": ["pasukoodo"],
+      "meaningsZh": ["通行码", "密码码"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-pasukoodo-1",
+          "ja": "画面ロックのパスコードを変える。",
+          "kana": "がめんロックのパスコードをかえる。",
+          "zh": "更改屏幕锁定的密码。",
+          "targetSurface": "パスコード"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-riyoukiyaku",
+      "type": "word",
+      "surface": "利用規約",
+      "kana": "りようきやく",
+      "romaji": ["riyoukiyaku"],
+      "meaningsZh": ["使用条款"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-riyoukiyaku-1",
+          "ja": "利用規約の設定を変更する。",
+          "kana": "りようきやくのせっていをへんこうする。",
+          "zh": "修改使用条款的设置。",
+          "targetSurface": "利用規約",
+          "targetKana": "りようきやく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-riyouteishi",
+      "type": "word",
+      "surface": "利用停止",
+      "kana": "りようていし",
+      "romaji": ["riyouteishi"],
+      "meaningsZh": ["停止使用"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-riyouteishi-1",
+          "ja": "スマホで利用停止を確認する。",
+          "kana": "スマホでりようていしをかくにんする。",
+          "zh": "用手机查停止使用。",
+          "targetSurface": "利用停止",
+          "targetKana": "りようていし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-roguauto",
+      "type": "word",
+      "surface": "ログアウト",
+      "kana": "ログアウト",
+      "romaji": ["roguauto"],
+      "meaningsZh": ["登出"],
+      "pos": "noun",
+      "tags": ["digital", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-roguauto-1",
+          "ja": "使い終わったらログアウトしてください。",
+          "kana": "つかいおわったらログアウトしてください。",
+          "zh": "用完请登出。",
+          "targetSurface": "ログアウト"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-rokuga",
+      "type": "word",
+      "surface": "録画",
+      "kana": "ろくが",
+      "romaji": ["rokuga"],
+      "meaningsZh": ["录屏", "录像"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-rokuga-1",
+          "ja": "録画の設定を変更する。",
+          "kana": "ろくがのせっていをへんこうする。",
+          "zh": "修改录屏的设置。",
+          "targetSurface": "録画",
+          "targetKana": "ろくが"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-sabusuku",
+      "type": "word",
+      "surface": "サブスク",
+      "kana": "サブスク",
+      "romaji": ["sabusuku"],
+      "meaningsZh": ["订阅服务"],
+      "pos": "noun",
+      "tags": ["digital", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-sabusuku-1",
+          "ja": "画面にサブスクが表示された。",
+          "kana": "がめんにさぶすくがひょうじされた。",
+          "zh": "画面上显示了订阅服务。",
+          "targetSurface": "サブスク",
+          "targetKana": "さぶすく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-saisettei",
+      "type": "word",
+      "surface": "再設定",
+      "kana": "さいせってい",
+      "romaji": ["saisettei"],
+      "meaningsZh": ["重新设置"],
+      "pos": "noun",
+      "tags": ["digital", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-saisettei-1",
+          "ja": "画面に再設定が表示された。",
+          "kana": "がめんにさいせっていがひょうじされた。",
+          "zh": "画面上显示了重新设置。",
+          "targetSurface": "再設定",
+          "targetKana": "さいせってい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-shokika",
+      "type": "word",
+      "surface": "初期化",
+      "kana": "しょきか",
+      "romaji": ["shokika"],
+      "meaningsZh": ["初始化"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shokika-1",
+          "ja": "画面に初期化が表示された。",
+          "kana": "がめんにしょきかがひょうじされた。",
+          "zh": "画面上显示了初始化。",
+          "targetSurface": "初期化",
+          "targetKana": "しょきか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-sotozukehaadodisuku",
+      "type": "word",
+      "surface": "外付けハードディスク",
+      "kana": "そとづけはーどでぃすく",
+      "romaji": ["sotodukehaadodhisuku"],
+      "meaningsZh": ["外置硬盘"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-sotozukehaadodisuku-1",
+          "ja": "画面に外付けハードディスクが表示された。",
+          "kana": "がめんにそとづけはーどでぃすくがひょうじされた。",
+          "zh": "画面上显示了外置硬盘。",
+          "targetSurface": "外付けハードディスク",
+          "targetKana": "そとづけはーどでぃすく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-sukuriinshotto",
+      "type": "word",
+      "surface": "スクリーンショット",
+      "kana": "スクリーンショット",
+      "romaji": ["sukuriinshotto"],
+      "meaningsZh": ["截屏"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel", "sokuon"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-sukuriinshotto-1",
+          "ja": "画面にスクリーンショットが表示された。",
+          "kana": "がめんにすくりーんしょっとがひょうじされた。",
+          "zh": "画面上显示了截屏。",
+          "targetSurface": "スクリーンショット",
+          "targetKana": "すくりーんしょっと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error", "sokuon-error"]
+    },
+    {
+      "id": "word-tenpu",
+      "type": "word",
+      "surface": "添付",
+      "kana": "てんぷ",
+      "romaji": ["tenpu"],
+      "meaningsZh": ["附件", "附加"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-tenpu-1",
+          "ja": "画面に添付が表示された。",
+          "kana": "がめんにてんぷがひょうじされた。",
+          "zh": "画面上显示了附件。",
+          "targetSurface": "添付",
+          "targetKana": "てんぷ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tensou",
+      "type": "word",
+      "surface": "転送",
+      "kana": "てんそう",
+      "romaji": ["tensou"],
+      "meaningsZh": ["转发"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-tensou-1",
+          "ja": "スマホで転送を確認する。",
+          "kana": "スマホでてんそうをかくにんする。",
+          "zh": "用手机查转发。",
+          "targetSurface": "転送",
+          "targetKana": "てんそう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-toiawase",
+      "type": "word",
+      "surface": "問い合わせ",
+      "kana": "といあわせ",
+      "romaji": ["toiawase"],
+      "meaningsZh": ["咨询", "问询"],
+      "pos": "noun",
+      "tags": ["digital", "online"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-toiawase-1",
+          "ja": "画面に問い合わせが表示された。",
+          "kana": "がめんにといあわせがひょうじされた。",
+          "zh": "画面上显示了咨询。",
+          "targetSurface": "問い合わせ",
+          "targetKana": "といあわせ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-toiawasefoomu",
+      "type": "word",
+      "surface": "問い合わせフォーム",
+      "kana": "といあわせふぉーむ",
+      "romaji": ["toiawasefoomu"],
+      "meaningsZh": ["咨询表单"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-toiawasefoomu-1",
+          "ja": "スマホで問い合わせフォームを確認する。",
+          "kana": "スマホでといあわせふぉーむをかくにんする。",
+          "zh": "用手机查咨询表单。",
+          "targetSurface": "問い合わせフォーム",
+          "targetKana": "といあわせふぉーむ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-tsuushin",
+      "type": "word",
+      "surface": "通信",
+      "kana": "つうしん",
+      "romaji": ["tsuushin"],
+      "meaningsZh": ["通信"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-tsuushin-1",
+          "ja": "画面に通信が表示された。",
+          "kana": "がめんにつうしんがひょうじされた。",
+          "zh": "画面上显示了通信。",
+          "targetSurface": "通信",
+          "targetKana": "つうしん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-wantaimupasuwaado",
+      "type": "word",
+      "surface": "ワンタイムパスワード",
+      "kana": "ワンタイムパスワード",
+      "romaji": ["wantaimupasuwaado"],
+      "meaningsZh": ["一次性密码"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-wantaimupasuwaado-1",
+          "ja": "スマホでワンタイムパスワードを確認する。",
+          "kana": "スマホでわんたいむぱすわーどをかくにんする。",
+          "zh": "用手机查一次性密码。",
+          "targetSurface": "ワンタイムパスワード",
+          "targetKana": "わんたいむぱすわーど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-webusaito",
+      "type": "word",
+      "surface": "ウェブサイト",
+      "kana": "ウェブサイト",
+      "romaji": ["webusaito"],
+      "meaningsZh": ["网站"],
+      "pos": "noun",
+      "tags": ["digital", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-webusaito-1",
+          "ja": "スマホでウェブサイトを確認する。",
+          "kana": "スマホでうぇぶさいとをかくにんする。",
+          "zh": "用手机查网站。",
+          "targetSurface": "ウェブサイト",
+          "targetKana": "うぇぶさいと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-youryou",
+      "type": "word",
+      "surface": "容量",
+      "kana": "ようりょう",
+      "romaji": ["youryou"],
+      "meaningsZh": ["容量"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-youryou-1",
+          "ja": "画面に容量が表示された。",
+          "kana": "がめんにようりょうがひょうじされた。",
+          "zh": "画面上显示了容量。",
+          "targetSurface": "容量",
+          "targetKana": "ようりょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-apuri",
+      "type": "word",
+      "surface": "アプリ",
+      "kana": "アプリ",
+      "romaji": ["apuri"],
+      "meaningsZh": ["应用"],
+      "pos": "noun",
+      "tags": ["digital", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-apuri-1",
+          "ja": "アプリの設定を変更する。",
+          "kana": "あぷりのせっていをへんこうする。",
+          "zh": "修改应用的设置。",
+          "targetSurface": "アプリ",
+          "targetKana": "あぷり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-denpa",
+      "type": "word",
+      "surface": "電波",
+      "kana": "でんぱ",
+      "romaji": ["denpa"],
+      "meaningsZh": ["信号", "电波"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-denpa-1",
+          "ja": "画面に電波が表示された。",
+          "kana": "がめんにでんぱがひょうじされた。",
+          "zh": "画面上显示了信号。",
+          "targetSurface": "電波",
+          "targetKana": "でんぱ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-douga",
+      "type": "word",
+      "surface": "動画",
+      "kana": "どうが",
+      "romaji": ["douga"],
+      "meaningsZh": ["视频"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-douga-1",
+          "ja": "画面に動画が表示された。",
+          "kana": "がめんにどうががひょうじされた。",
+          "zh": "画面上显示了视频。",
+          "targetSurface": "動画",
+          "targetKana": "どうが"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-fairu",
+      "type": "word",
+      "surface": "ファイル",
+      "kana": "ファイル",
+      "romaji": ["fairu"],
+      "meaningsZh": ["文件"],
+      "pos": "noun",
+      "tags": ["digital", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-fairu-1",
+          "ja": "会議のファイルを共有しておきます。",
+          "kana": "かいぎのファイルをきょうゆうしておきます。",
+          "zh": "我先把会议文件共享出来。",
+          "targetSurface": "ファイル"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-fairuwotenpushimasu",
+      "type": "word",
+      "surface": "ファイルを添付します",
+      "kana": "ふぁいるをてんぷします",
+      "romaji": ["fairuwotenpushimasu"],
+      "meaningsZh": ["添加附件"],
+      "pos": "expression",
+      "tags": ["digital", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-fairuwotenpushimasu-1",
+          "ja": "こういう時は「ファイルを添付します」と言う。",
+          "kana": "こういうときは「ふぁいるをてんぷします」という。",
+          "zh": "这种时候要说「ファイルを添付します」（添加附件）。",
+          "targetSurface": "ファイルを添付します",
+          "targetKana": "ふぁいるをてんぷします"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-foruda",
+      "type": "word",
+      "surface": "フォルダ",
+      "kana": "フォルダ",
+      "romaji": ["foruda"],
+      "meaningsZh": ["文件夹"],
+      "pos": "noun",
+      "tags": ["digital", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-foruda-1",
+          "ja": "デスクトップに新しいフォルダを作る。",
+          "kana": "デスクトップにあたらしいフォルダをつくる。",
+          "zh": "在桌面新建一个文件夹。",
+          "targetSurface": "フォルダ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-gamen",
+      "type": "word",
+      "surface": "画面",
+      "kana": "がめん",
+      "romaji": ["gamen"],
+      "meaningsZh": ["屏幕"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-gamen-1",
+          "ja": "スマホで画面を確認する。",
+          "kana": "スマホでがめんをかくにんする。",
+          "zh": "用手机查屏幕。",
+          "targetSurface": "画面",
+          "targetKana": "がめん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-gazou",
+      "type": "word",
+      "surface": "画像",
+      "kana": "がぞう",
+      "romaji": ["gazou"],
+      "meaningsZh": ["图片"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-gazou-1",
+          "ja": "画面に画像が表示された。",
+          "kana": "がめんにがぞうがひょうじされた。",
+          "zh": "画面上显示了图片。",
+          "targetSurface": "画像",
+          "targetKana": "がぞう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-heddohon",
+      "type": "word",
+      "surface": "ヘッドホン",
+      "kana": "ヘッドホン",
+      "romaji": ["heddohon"],
+      "meaningsZh": ["头戴耳机"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "sokuon"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-heddohon-1",
+          "ja": "ヘッドホンで音楽を聴く。",
+          "kana": "ヘッドホンでおんがくをきく。",
+          "zh": "用头戴耳机听音乐。",
+          "targetSurface": "ヘッドホン"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-henshin",
+      "type": "word",
+      "surface": "返信",
+      "kana": "へんしん",
+      "romaji": ["henshin"],
+      "meaningsZh": ["回复"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-henshin-1",
+          "ja": "画面に返信が表示された。",
+          "kana": "がめんにへんしんがひょうじされた。",
+          "zh": "画面上显示了回复。",
+          "targetSurface": "返信",
+          "targetKana": "へんしん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-henshuu",
+      "type": "word",
+      "surface": "編集",
+      "kana": "へんしゅう",
+      "romaji": ["henshuu"],
+      "meaningsZh": ["编辑"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-henshuu-1",
+          "ja": "画面に編集が表示された。",
+          "kana": "がめんにへんしゅうがひょうじされた。",
+          "zh": "画面上显示了编辑。",
+          "targetSurface": "編集",
+          "targetKana": "へんしゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hoomupeeji",
+      "type": "word",
+      "surface": "ホームページ",
+      "kana": "ホームページ",
+      "romaji": ["hoomupeeji"],
+      "meaningsZh": ["网页", "主页"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-hoomupeeji-1",
+          "ja": "画面にホームページが表示された。",
+          "kana": "がめんにほーむぺーじがひょうじされた。",
+          "zh": "画面上显示了网页。",
+          "targetSurface": "ホームページ",
+          "targetKana": "ほーむぺーじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-hozon",
+      "type": "word",
+      "surface": "保存",
+      "kana": "ほぞん",
+      "romaji": ["hozon"],
+      "meaningsZh": ["保存"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-hozon-1",
+          "ja": "保存の設定を変更する。",
+          "kana": "ほぞんのせっていをへんこうする。",
+          "zh": "修改保存的设置。",
+          "targetSurface": "保存",
+          "targetKana": "ほぞん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-iyahon",
+      "type": "word",
+      "surface": "イヤホン",
+      "kana": "イヤホン",
+      "romaji": ["iyahon"],
+      "meaningsZh": ["耳机"],
+      "pos": "noun",
+      "tags": ["digital", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-iyahon-1",
+          "ja": "ワイヤレスイヤホンが切れた。",
+          "kana": "ワイヤレスイヤホンがきれた。",
+          "zh": "无线耳机没电了。",
+          "targetSurface": "イヤホン"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-jushin",
+      "type": "word",
+      "surface": "受信",
+      "kana": "じゅしん",
+      "romaji": ["jushin"],
+      "meaningsZh": ["接收"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-jushin-1",
+          "ja": "画面に受信が表示された。",
+          "kana": "がめんにじゅしんがひょうじされた。",
+          "zh": "画面上显示了接收。",
+          "targetSurface": "受信",
+          "targetKana": "じゅしん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-juudenkeeburu",
+      "type": "word",
+      "surface": "充電ケーブル",
+      "kana": "じゅうでんけーぶる",
+      "romaji": ["juudenkeeburu"],
+      "meaningsZh": ["充电线"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-juudenkeeburu-1",
+          "ja": "スマホで充電ケーブルを確認する。",
+          "kana": "スマホでじゅうでんけーぶるをかくにんする。",
+          "zh": "用手机查充电线。",
+          "targetSurface": "充電ケーブル",
+          "targetKana": "じゅうでんけーぶる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-juudenki",
+      "type": "word",
+      "surface": "充電器",
+      "kana": "じゅうでんき",
+      "romaji": ["juudenki"],
+      "meaningsZh": ["充电器"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-juudenki-1",
+          "ja": "充電器の設定を変更する。",
+          "kana": "じゅうでんきのせっていをへんこうする。",
+          "zh": "修改充电器的设置。",
+          "targetSurface": "充電器",
+          "targetKana": "じゅうでんき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-keitaidenwa",
+      "type": "word",
+      "surface": "携帯電話",
+      "kana": "けいたいでんわ",
+      "romaji": ["keitaidenwa"],
+      "meaningsZh": ["手机"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-keitaidenwa-1",
+          "ja": "携帯電話の設定を変更する。",
+          "kana": "けいたいでんわのせっていをへんこうする。",
+          "zh": "修改手机的设置。",
+          "targetSurface": "携帯電話",
+          "targetKana": "けいたいでんわ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kensaku",
+      "type": "word",
+      "surface": "検索",
+      "kana": "けんさく",
+      "romaji": ["kensaku"],
+      "meaningsZh": ["搜索"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kensaku-1",
+          "ja": "検索の設定を変更する。",
+          "kana": "けんさくのせっていをへんこうする。",
+          "zh": "修改搜索的设置。",
+          "targetSurface": "検索",
+          "targetKana": "けんさく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kiiboodo",
+      "type": "word",
+      "surface": "キーボード",
+      "kana": "キーボード",
+      "romaji": ["kiiboodo"],
+      "meaningsZh": ["键盘"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-kiiboodo-1",
+          "ja": "キーボードのF キーが効かない。",
+          "kana": "キーボードのエフキーがきかない。",
+          "zh": "键盘的 F 键失灵。",
+          "targetSurface": "キーボード"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kyanseru",
+      "type": "word",
+      "surface": "キャンセル",
+      "kana": "キャンセル",
+      "romaji": ["kyanseru"],
+      "meaningsZh": ["取消"],
+      "pos": "noun",
+      "tags": ["digital", "online", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kyanseru-1",
+          "ja": "キャンセルの設定を変更する。",
+          "kana": "きゃんせるのせっていをへんこうする。",
+          "zh": "修改取消的设置。",
+          "targetSurface": "キャンセル",
+          "targetKana": "きゃんせる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kyouyuu",
+      "type": "word",
+      "surface": "共有",
+      "kana": "きょうゆう",
+      "romaji": ["kyouyuu"],
+      "meaningsZh": ["共享"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kyouyuu-1",
+          "ja": "スマホで共有を確認する。",
+          "kana": "スマホできょうゆうをかくにんする。",
+          "zh": "用手机查共享。",
+          "targetSurface": "共有",
+          "targetKana": "きょうゆう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-mausu",
+      "type": "word",
+      "surface": "マウス",
+      "kana": "マウス",
+      "romaji": ["mausu"],
+      "meaningsZh": ["鼠标"],
+      "pos": "noun",
+      "tags": ["digital", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-mausu-1",
+          "ja": "ワイヤレスマウスを買い替えた。",
+          "kana": "ワイヤレスマウスをかいかえた。",
+          "zh": "换了新的无线鼠标。",
+          "targetSurface": "マウス"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-monitaa",
+      "type": "word",
+      "surface": "モニター",
+      "kana": "モニター",
+      "romaji": ["monitaa"],
+      "meaningsZh": ["显示器"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-monitaa-1",
+          "ja": "二台のモニターを並べて使う。",
+          "kana": "にだいのモニターをならべてつかう。",
+          "zh": "两台显示器并排使用。",
+          "targetSurface": "モニター"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-nootopasokon",
+      "type": "word",
+      "surface": "ノートパソコン",
+      "kana": "ノートパソコン",
+      "romaji": ["nootopasokon"],
+      "meaningsZh": ["笔记本电脑"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-nootopasokon-1",
+          "ja": "カフェでノートパソコンを開く。",
+          "kana": "カフェでノートパソコンをひらく。",
+          "zh": "在咖啡馆打开笔记本电脑。",
+          "targetSurface": "ノートパソコン"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-onryou",
+      "type": "word",
+      "surface": "音量",
+      "kana": "おんりょう",
+      "romaji": ["onryou"],
+      "meaningsZh": ["音量"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-onryou-1",
+          "ja": "画面に音量が表示された。",
+          "kana": "がめんにおんりょうがひょうじされた。",
+          "zh": "画面上显示了音量。",
+          "targetSurface": "音量",
+          "targetKana": "おんりょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-onsei",
+      "type": "word",
+      "surface": "音声",
+      "kana": "おんせい",
+      "romaji": ["onsei"],
+      "meaningsZh": ["音频", "语音"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-onsei-1",
+          "ja": "スマホで音声を確認する。",
+          "kana": "スマホでおんせいをかくにんする。",
+          "zh": "用手机查音频。",
+          "targetSurface": "音声",
+          "targetKana": "おんせい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-pasuwaadowonyuuryoku",
+      "type": "word",
+      "surface": "パスワードを入力",
+      "kana": "ぱすわーどをにゅうりょく",
+      "romaji": ["pasuwaadowonyuuryoku"],
+      "meaningsZh": ["输入密码"],
+      "pos": "expression",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-pasuwaadowonyuuryoku-1",
+          "ja": "「パスワードを入力」と一言添えた。",
+          "kana": "「ぱすわーどをにゅうりょく」とひとことそえた。",
+          "zh": "加了一句「パスワードを入力」（输入密码）。",
+          "targetSurface": "パスワードを入力",
+          "targetKana": "ぱすわーどをにゅうりょく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-purintaa",
+      "type": "word",
+      "surface": "プリンター",
+      "kana": "プリンター",
+      "romaji": ["purintaa"],
+      "meaningsZh": ["打印机"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-purintaa-1",
+          "ja": "プリンターのインクが切れた。",
+          "kana": "プリンターのインクがきれた。",
+          "zh": "打印机墨水用完了。",
+          "targetSurface": "プリンター"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-rebyuuwokaku",
+      "type": "word",
+      "surface": "レビューを書く",
+      "kana": "れびゅーをかく",
+      "romaji": ["rebyuuwokaku"],
+      "meaningsZh": ["写评论"],
+      "pos": "expression",
+      "tags": ["digital", "online", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-rebyuuwokaku-1",
+          "ja": "こういう時は「レビューを書く」と言う。",
+          "kana": "こういうときは「れびゅーをかく」という。",
+          "zh": "这种时候要说「レビューを書く」（写评论）。",
+          "targetSurface": "レビューを書く",
+          "targetKana": "れびゅーをかく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-rinku",
+      "type": "word",
+      "surface": "リンク",
+      "kana": "リンク",
+      "romaji": ["rinku"],
+      "meaningsZh": ["链接"],
+      "pos": "noun",
+      "tags": ["digital", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-rinku-1",
+          "ja": "リンクの設定を変更する。",
+          "kana": "りんくのせっていをへんこうする。",
+          "zh": "修改链接的设置。",
+          "targetSurface": "リンク",
+          "targetKana": "りんく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-roguindekimasen",
+      "type": "word",
+      "surface": "ログインできません",
+      "kana": "ろぐいんできません",
+      "romaji": ["roguindekimasen"],
+      "meaningsZh": ["无法登录"],
+      "pos": "expression",
+      "tags": ["digital", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-roguindekimasen-1",
+          "ja": "パスワードが違うのか、ログインできません。",
+          "kana": "パスワードがちがうのか、ログインできません。",
+          "zh": "可能密码错了，登不上去。",
+          "targetSurface": "ログインできません"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-saisei",
+      "type": "word",
+      "surface": "再生",
+      "kana": "さいせい",
+      "romaji": ["saisei"],
+      "meaningsZh": ["播放"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-saisei-1",
+          "ja": "再生の設定を変更する。",
+          "kana": "さいせいのせっていをへんこうする。",
+          "zh": "修改播放的设置。",
+          "targetSurface": "再生",
+          "targetKana": "さいせい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-sakujo",
+      "type": "word",
+      "surface": "削除",
+      "kana": "さくじょ",
+      "romaji": ["sakujo"],
+      "meaningsZh": ["删除"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-sakujo-1",
+          "ja": "削除の設定を変更する。",
+          "kana": "さくじょのせっていをへんこうする。",
+          "zh": "修改删除的设置。",
+          "targetSurface": "削除",
+          "targetKana": "さくじょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-settei",
+      "type": "word",
+      "surface": "設定",
+      "kana": "せってい",
+      "romaji": ["settei"],
+      "meaningsZh": ["设置"],
+      "pos": "noun",
+      "tags": ["digital", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-settei-1",
+          "ja": "設定を変更してから保存する。",
+          "kana": "せっていをへんこうしてからほぞんする。",
+          "zh": "修改设置后保存。",
+          "targetSurface": "設定",
+          "targetKana": "せってい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-soushin",
+      "type": "word",
+      "surface": "送信",
+      "kana": "そうしん",
+      "romaji": ["soushin"],
+      "meaningsZh": ["发送"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-soushin-1",
+          "ja": "スマホで送信を確認する。",
+          "kana": "スマホでそうしんをかくにんする。",
+          "zh": "用手机查发送。",
+          "targetSurface": "送信",
+          "targetKana": "そうしん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-sumaatofon",
+      "type": "word",
+      "surface": "スマートフォン",
+      "kana": "スマートフォン",
+      "romaji": ["sumaatofon"],
+      "meaningsZh": ["智能手机"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-sumaatofon-1",
+          "ja": "スマホでスマートフォンを確認する。",
+          "kana": "スマホですまーとふぉんをかくにんする。",
+          "zh": "用手机查智能手机。",
+          "targetSurface": "スマートフォン",
+          "targetKana": "すまーとふぉん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-taburetto",
+      "type": "word",
+      "surface": "タブレット",
+      "kana": "タブレット",
+      "romaji": ["taburetto"],
+      "meaningsZh": ["平板电脑"],
+      "pos": "noun",
+      "tags": ["digital", "katakana", "sokuon"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-taburetto-1",
+          "ja": "スマホでタブレットを確認する。",
+          "kana": "スマホでたぶれっとをかくにんする。",
+          "zh": "用手机查平板电脑。",
+          "targetSurface": "タブレット",
+          "targetKana": "たぶれっと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-teishi",
+      "type": "word",
+      "surface": "停止",
+      "kana": "ていし",
+      "romaji": ["teishi"],
+      "meaningsZh": ["停止"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-teishi-1",
+          "ja": "停止の設定を変更する。",
+          "kana": "ていしのせっていをへんこうする。",
+          "zh": "修改停止的设置。",
+          "targetSurface": "停止",
+          "targetKana": "ていし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tsuuchi",
+      "type": "word",
+      "surface": "通知",
+      "kana": "つうち",
+      "romaji": ["tsuuchi"],
+      "meaningsZh": ["通知"],
+      "pos": "noun",
+      "tags": ["digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-tsuuchi-1",
+          "ja": "メッセージの通知をオフにする。",
+          "kana": "メッセージのつうちをオフにする。",
+          "zh": "把消息通知关掉。",
+          "targetSurface": "通知",
+          "targetKana": "つうち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-waifai",
+      "type": "word",
+      "surface": "ワイファイ",
+      "kana": "ワイファイ",
+      "romaji": ["waifai"],
+      "meaningsZh": ["Wi-Fi"],
+      "pos": "noun",
+      "tags": ["digital", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-waifai-1",
+          "ja": "ホテルのワイファイに繋ぐ。",
+          "kana": "ホテルのワイファイにつなぐ。",
+          "zh": "连接酒店的Wi-Fi。",
+          "targetSurface": "ワイファイ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-meeruwookurimasu",
+      "type": "word",
+      "surface": "メールを送ります",
+      "kana": "めーるをおくります",
+      "romaji": ["meeruwookurimasu"],
+      "meaningsZh": ["发送邮件"],
+      "pos": "expression",
+      "tags": ["digital", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-meeruwookurimasu-1",
+          "ja": "「メールを送ります」と一言添えた。",
+          "kana": "「めーるをおくります」とひとことそえた。",
+          "zh": "加了一句「メールを送ります」（发送邮件）。",
+          "targetSurface": "メールを送ります",
+          "targetKana": "めーるをおくります"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    }
+  ]
+}

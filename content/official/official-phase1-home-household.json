@@ -1,0 +1,4154 @@
+{
+  "id": "official-phase1-home-household",
+  "name": "第一阶段：家用物品与家居",
+  "version": "1.1.0",
+  "items": [
+    {
+      "id": "word-bunbetsu",
+      "type": "word",
+      "surface": "分別",
+      "kana": "ぶんべつ",
+      "romaji": ["bunbetsu"],
+      "meaningsZh": ["垃圾分类"],
+      "pos": "noun",
+      "tags": ["cleaning"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-bunbetsu-1",
+          "ja": "ゴミは種類ごとに分別する。",
+          "kana": "ゴミはしゅるいごとにぶんべつする。",
+          "zh": "垃圾要按种类分类。",
+          "targetSurface": "分別",
+          "targetKana": "ぶんべつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-chintai",
+      "type": "word",
+      "surface": "賃貸",
+      "kana": "ちんたい",
+      "romaji": ["chintai"],
+      "meaningsZh": ["租赁住宅"],
+      "pos": "noun",
+      "tags": ["housing"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-chintai-1",
+          "ja": "「賃貸」という言葉の意味を確認する。",
+          "kana": "「賃貸」ということばのいみをかくにんする。",
+          "zh": "确认「賃貸」（租赁住宅）这个词的含义。",
+          "targetSurface": "賃貸"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-enchoukoodo",
+      "type": "word",
+      "surface": "延長コード",
+      "kana": "えんちょうこーど",
+      "romaji": ["enchoukoodo"],
+      "meaningsZh": ["延长线"],
+      "pos": "noun",
+      "tags": ["appliance", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-enchoukoodo-1",
+          "ja": "古い延長コードを新しいものに買い替えた。",
+          "kana": "ふるいえんちょうこーどをあたらしいものにかいかえた。",
+          "zh": "把旧的延长线换成新的了。",
+          "targetSurface": "延長コード",
+          "targetKana": "えんちょうこーど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-fuzaihyou",
+      "type": "word",
+      "surface": "不在票",
+      "kana": "ふざいひょう",
+      "romaji": ["fuzaihyou"],
+      "meaningsZh": ["不在通知单"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-fuzaihyou-1",
+          "ja": "不在票について説明する。",
+          "kana": "ふざいひょうについてせつめいする。",
+          "zh": "对不在通知单进行说明。",
+          "targetSurface": "不在票",
+          "targetKana": "ふざいひょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-gokiburi",
+      "type": "word",
+      "surface": "ゴキブリ",
+      "kana": "ゴキブリ",
+      "romaji": ["gokiburi"],
+      "meaningsZh": ["蟑螂"],
+      "pos": "noun",
+      "tags": ["home", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-gokiburi-1",
+          "ja": "辞書でゴキブリを引いた。",
+          "kana": "じしょでごきぶりをひいた。",
+          "zh": "在字典里查了蟑螂。",
+          "targetSurface": "ゴキブリ",
+          "targetKana": "ごきぶり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hyousatsu",
+      "type": "word",
+      "surface": "表札",
+      "kana": "ひょうさつ",
+      "romaji": ["hyousatsu"],
+      "meaningsZh": ["门牌姓名牌"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-hyousatsu-1",
+          "ja": "表札について説明する。",
+          "kana": "ひょうさつについてせつめいする。",
+          "zh": "对门牌姓名牌进行说明。",
+          "targetSurface": "表札",
+          "targetKana": "ひょうさつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-inkan",
+      "type": "word",
+      "surface": "印鑑",
+      "kana": "いんかん",
+      "romaji": ["inkan"],
+      "meaningsZh": ["印章"],
+      "pos": "noun",
+      "tags": ["home", "document"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-inkan-1",
+          "ja": "印鑑について説明する。",
+          "kana": "いんかんについてせつめいする。",
+          "zh": "对印章进行说明。",
+          "targetSurface": "印鑑",
+          "targetKana": "いんかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-jaguchi",
+      "type": "word",
+      "surface": "蛇口",
+      "kana": "じゃぐち",
+      "romaji": ["jaguchi"],
+      "meaningsZh": ["水龙头"],
+      "pos": "noun",
+      "tags": ["home", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-jaguchi-1",
+          "ja": "蛇口について説明する。",
+          "kana": "じゃぐちについてせつめいする。",
+          "zh": "对水龙头进行说明。",
+          "targetSurface": "蛇口",
+          "targetKana": "じゃぐち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-juuden",
+      "type": "word",
+      "surface": "充電",
+      "kana": "じゅうでん",
+      "romaji": ["juuden"],
+      "meaningsZh": ["充电"],
+      "pos": "noun",
+      "tags": ["appliance", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-juuden-1",
+          "ja": "充電が壊れたので修理に出した。",
+          "kana": "じゅうでんがこわれたのでしゅうりにだした。",
+          "zh": "充电坏了拿去修了。",
+          "targetSurface": "充電",
+          "targetKana": "じゅうでん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-juunanzai",
+      "type": "word",
+      "surface": "柔軟剤",
+      "kana": "じゅうなんざい",
+      "romaji": ["juunanzai"],
+      "meaningsZh": ["柔顺剂"],
+      "pos": "noun",
+      "tags": ["cleaning"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-juunanzai-1",
+          "ja": "「柔軟剤」という言葉の意味を確認する。",
+          "kana": "「柔軟剤」ということばのいみをかくにんする。",
+          "zh": "确认「柔軟剤」（柔顺剂）这个词的含义。",
+          "targetSurface": "柔軟剤"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kagiana",
+      "type": "word",
+      "surface": "鍵穴",
+      "kana": "かぎあな",
+      "romaji": ["kagiana"],
+      "meaningsZh": ["钥匙孔"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kagiana-1",
+          "ja": "辞書で鍵穴を引いた。",
+          "kana": "じしょでかぎあなをひいた。",
+          "zh": "在字典里查了钥匙孔。",
+          "targetSurface": "鍵穴",
+          "targetKana": "かぎあな"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kanki",
+      "type": "word",
+      "surface": "換気",
+      "kana": "かんき",
+      "romaji": ["kanki"],
+      "meaningsZh": ["通风"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kanki-1",
+          "ja": "換気について説明する。",
+          "kana": "かんきについてせつめいする。",
+          "zh": "对通风进行说明。",
+          "targetSurface": "換気",
+          "targetKana": "かんき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kanrihi",
+      "type": "word",
+      "surface": "管理費",
+      "kana": "かんりひ",
+      "romaji": ["kanrihi"],
+      "meaningsZh": ["管理费"],
+      "pos": "noun",
+      "tags": ["housing"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kanrihi-1",
+          "ja": "家賃の他に管理費が三千円かかる。",
+          "kana": "やちんのほかにかんりひがさんぜんえんかかる。",
+          "zh": "除了房租另收三千日元管理费。",
+          "targetSurface": "管理費",
+          "targetKana": "かんりひ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kashitsuki",
+      "type": "word",
+      "surface": "加湿器",
+      "kana": "かしつき",
+      "romaji": ["kashitsuki"],
+      "meaningsZh": ["加湿器"],
+      "pos": "noun",
+      "tags": ["appliance"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kashitsuki-1",
+          "ja": "加湿器が壊れたので修理に出した。",
+          "kana": "かしつきがこわれたのでしゅうりにだした。",
+          "zh": "加湿器坏了拿去修了。",
+          "targetSurface": "加湿器",
+          "targetKana": "かしつき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-koshou",
+      "type": "word",
+      "surface": "故障",
+      "kana": "こしょう",
+      "romaji": ["koshou"],
+      "meaningsZh": ["故障"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-koshou-1",
+          "ja": "「故障」という言葉の意味を確認する。",
+          "kana": "「故障」ということばのいみをかくにんする。",
+          "zh": "确认「故障」（故障）这个词的含义。",
+          "targetSurface": "故障"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-koushinryou",
+      "type": "word",
+      "surface": "更新料",
+      "kana": "こうしんりょう",
+      "romaji": ["koushinryou"],
+      "meaningsZh": ["续约费"],
+      "pos": "noun",
+      "tags": ["housing"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-koushinryou-1",
+          "ja": "「更新料」という言葉の意味を確認する。",
+          "kana": "「更新料」ということばのいみをかくにんする。",
+          "zh": "确认「更新料」（续约费）这个词的含义。",
+          "targetSurface": "更新料"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kuukiseijouki",
+      "type": "word",
+      "surface": "空気清浄機",
+      "kana": "くうきせいじょうき",
+      "romaji": ["kuukiseijouki"],
+      "meaningsZh": ["空气净化器"],
+      "pos": "noun",
+      "tags": ["appliance", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kuukiseijouki-1",
+          "ja": "空気清浄機が壊れたので修理に出した。",
+          "kana": "くうきせいじょうきがこわれたのでしゅうりにだした。",
+          "zh": "空气净化器坏了拿去修了。",
+          "targetSurface": "空気清浄機",
+          "targetKana": "くうきせいじょうき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kyuutouki",
+      "type": "word",
+      "surface": "給湯器",
+      "kana": "きゅうとうき",
+      "romaji": ["kyuutouki"],
+      "meaningsZh": ["热水器"],
+      "pos": "noun",
+      "tags": ["appliance"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kyuutouki-1",
+          "ja": "古い給湯器を新しいものに買い替えた。",
+          "kana": "ふるいきゅうとうきをあたらしいものにかいかえた。",
+          "zh": "把旧的热水器换成新的了。",
+          "targetSurface": "給湯器",
+          "targetKana": "きゅうとうき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-monohoshizao",
+      "type": "word",
+      "surface": "物干し竿",
+      "kana": "ものほしざお",
+      "romaji": ["monohoshizao"],
+      "meaningsZh": ["晾衣杆"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-monohoshizao-1",
+          "ja": "物干し竿について説明する。",
+          "kana": "ものほしざおについてせつめいする。",
+          "zh": "对晾衣杆进行说明。",
+          "targetSurface": "物干し竿",
+          "targetKana": "ものほしざお"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-ragu",
+      "type": "word",
+      "surface": "ラグ",
+      "kana": "ラグ",
+      "romaji": ["ragu"],
+      "meaningsZh": ["小地毯"],
+      "pos": "noun",
+      "tags": ["home", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ragu-1",
+          "ja": "ラグについて説明する。",
+          "kana": "らぐについてせつめいする。",
+          "zh": "对小地毯进行说明。",
+          "targetSurface": "ラグ",
+          "targetKana": "らぐ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-reikin",
+      "type": "word",
+      "surface": "礼金",
+      "kana": "れいきん",
+      "romaji": ["reikin"],
+      "meaningsZh": ["礼金"],
+      "pos": "noun",
+      "tags": ["housing"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-reikin-1",
+          "ja": "この物件は礼金一ヶ月だ。",
+          "kana": "このぶっけんはれいきんいっかげつだ。",
+          "zh": "这套房子礼金一个月。",
+          "targetSurface": "礼金",
+          "targetKana": "れいきん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-rinjin",
+      "type": "word",
+      "surface": "隣人",
+      "kana": "りんじん",
+      "romaji": ["rinjin"],
+      "meaningsZh": ["邻居"],
+      "pos": "noun",
+      "tags": ["housing"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-rinjin-1",
+          "ja": "辞書で隣人を引いた。",
+          "kana": "じしょでりんじんをひいた。",
+          "zh": "在字典里查了邻居。",
+          "targetSurface": "隣人",
+          "targetKana": "りんじん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shikikin",
+      "type": "word",
+      "surface": "敷金",
+      "kana": "しききん",
+      "romaji": ["shikikin"],
+      "meaningsZh": ["押金"],
+      "pos": "noun",
+      "tags": ["housing"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shikikin-1",
+          "ja": "退去時に敷金は返ってくる。",
+          "kana": "たいきょじにしききんはかえってくる。",
+          "zh": "退租时押金会退回。",
+          "targetSurface": "敷金",
+          "targetKana": "しききん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shinshitsu",
+      "type": "word",
+      "surface": "寝室",
+      "kana": "しんしつ",
+      "romaji": ["shinshitsu", "sinsitu"],
+      "meaningsZh": ["卧室"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shinshitsu-1",
+          "ja": "広い寝室でくつろぐ。",
+          "kana": "ひろいしんしつでくつろぐ。",
+          "zh": "在宽敞的卧室里放松。",
+          "targetSurface": "寝室",
+          "targetKana": "しんしつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shitsudo",
+      "type": "word",
+      "surface": "湿度",
+      "kana": "しつど",
+      "romaji": ["shitsudo"],
+      "meaningsZh": ["湿度"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shitsudo-1",
+          "ja": "「湿度」という言葉の意味を確認する。",
+          "kana": "「湿度」ということばのいみをかくにんする。",
+          "zh": "确认「湿度」（湿度）这个词的含义。",
+          "targetSurface": "湿度"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shokkidana",
+      "type": "word",
+      "surface": "食器棚",
+      "kana": "しょっきだな",
+      "romaji": ["shokkidana"],
+      "meaningsZh": ["餐具柜"],
+      "pos": "noun",
+      "tags": ["furniture", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shokkidana-1",
+          "ja": "部屋に新しい食器棚を置いた。",
+          "kana": "へやにあたらしいしょっきだなをおいた。",
+          "zh": "在房间放了新的餐具柜。",
+          "targetSurface": "食器棚",
+          "targetKana": "しょっきだな"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-shoumei",
+      "type": "word",
+      "surface": "照明",
+      "kana": "しょうめい",
+      "romaji": ["shoumei"],
+      "meaningsZh": ["照明"],
+      "pos": "noun",
+      "tags": ["appliance"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shoumei-1",
+          "ja": "古い照明を新しいものに買い替えた。",
+          "kana": "ふるいしょうめいをあたらしいものにかいかえた。",
+          "zh": "把旧的照明换成新的了。",
+          "targetSurface": "照明",
+          "targetKana": "しょうめい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-sodaigomi",
+      "type": "word",
+      "surface": "粗大ごみ",
+      "kana": "そだいごみ",
+      "romaji": ["sodaigomi"],
+      "meaningsZh": ["大件垃圾"],
+      "pos": "noun",
+      "tags": ["cleaning"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sodaigomi-1",
+          "ja": "粗大ごみについて説明する。",
+          "kana": "そだいごみについてせつめいする。",
+          "zh": "对大件垃圾进行说明。",
+          "targetSurface": "粗大ごみ",
+          "targetKana": "そだいごみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-takuhaibin",
+      "type": "word",
+      "surface": "宅配便",
+      "kana": "たくはいびん",
+      "romaji": ["takuhaibin"],
+      "meaningsZh": ["快递"],
+      "pos": "noun",
+      "tags": ["home", "service"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-takuhaibin-1",
+          "ja": "宅配便について説明する。",
+          "kana": "たくはいびんについてせつめいする。",
+          "zh": "对快递进行说明。",
+          "targetSurface": "宅配便",
+          "targetKana": "たくはいびん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-yachin",
+      "type": "word",
+      "surface": "家賃",
+      "kana": "やちん",
+      "romaji": ["yachin"],
+      "meaningsZh": ["房租"],
+      "pos": "noun",
+      "tags": ["housing"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yachin-1",
+          "ja": "家賃は毎月二十五日までに振り込む。",
+          "kana": "やちんはまいつきにじゅうごにちまでにふりこむ。",
+          "zh": "房租在每月25日前转账。",
+          "targetSurface": "家賃",
+          "targetKana": "やちん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-yokusou",
+      "type": "word",
+      "surface": "浴槽",
+      "kana": "よくそう",
+      "romaji": ["yokusou"],
+      "meaningsZh": ["浴缸"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-yokusou-1",
+          "ja": "浴槽について説明する。",
+          "kana": "よくそうについてせつめいする。",
+          "zh": "对浴缸进行说明。",
+          "targetSurface": "浴槽",
+          "targetKana": "よくそう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-airon",
+      "type": "word",
+      "surface": "アイロン",
+      "kana": "アイロン",
+      "romaji": ["airon"],
+      "meaningsZh": ["熨斗"],
+      "pos": "noun",
+      "tags": ["appliance", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-airon-1",
+          "ja": "アイロンが壊れたので修理に出した。",
+          "kana": "あいろんがこわれたのでしゅうりにだした。",
+          "zh": "熨斗坏了拿去修了。",
+          "targetSurface": "アイロン",
+          "targetKana": "あいろん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-beranda",
+      "type": "word",
+      "surface": "ベランダ",
+      "kana": "ベランダ",
+      "romaji": ["beranda"],
+      "meaningsZh": ["阳台"],
+      "pos": "noun",
+      "tags": ["home", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-beranda-1",
+          "ja": "ベランダを掃除する。",
+          "kana": "べらんだをそうじする。",
+          "zh": "打扫阳台。",
+          "targetSurface": "ベランダ",
+          "targetKana": "べらんだ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-bodiisoopu",
+      "type": "word",
+      "surface": "ボディーソープ",
+      "kana": "ボディーソープ",
+      "romaji": ["bodhiisoopu"],
+      "meaningsZh": ["沐浴露"],
+      "pos": "noun",
+      "tags": ["daily-item", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-bodiisoopu-1",
+          "ja": "「ボディーソープ」という言葉の意味を確認する。",
+          "kana": "「ボディーソープ」ということばのいみをかくにんする。",
+          "zh": "确认「ボディーソープ」（沐浴露）这个词的含义。",
+          "targetSurface": "ボディーソープ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-chaimu",
+      "type": "word",
+      "surface": "チャイム",
+      "kana": "チャイム",
+      "romaji": ["chaimu"],
+      "meaningsZh": ["门铃"],
+      "pos": "noun",
+      "tags": ["home", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-chaimu-1",
+          "ja": "「チャイム」という言葉の意味を確認する。",
+          "kana": "「チャイム」ということばのいみをかくにんする。",
+          "zh": "确认「チャイム」（门铃）这个词的含义。",
+          "targetSurface": "チャイム"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-danbou",
+      "type": "word",
+      "surface": "暖房",
+      "kana": "だんぼう",
+      "romaji": ["danbou"],
+      "meaningsZh": ["暖气"],
+      "pos": "noun",
+      "tags": ["appliance"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-danbou-1",
+          "ja": "暖房が壊れたので修理に出した。",
+          "kana": "だんぼうがこわれたのでしゅうりにだした。",
+          "zh": "暖气坏了拿去修了。",
+          "targetSurface": "暖房",
+          "targetKana": "だんぼう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-denchi",
+      "type": "word",
+      "surface": "電池",
+      "kana": "でんち",
+      "romaji": ["denchi", "denti"],
+      "meaningsZh": ["电池"],
+      "pos": "noun",
+      "tags": ["appliance"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-denchi-1",
+          "ja": "電池が壊れたので修理に出した。",
+          "kana": "でんちがこわれたのでしゅうりにだした。",
+          "zh": "电池坏了拿去修了。",
+          "targetSurface": "電池",
+          "targetKana": "でんち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-dengen",
+      "type": "word",
+      "surface": "電源",
+      "kana": "でんげん",
+      "romaji": ["dengen"],
+      "meaningsZh": ["电源"],
+      "pos": "noun",
+      "tags": ["appliance"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-dengen-1",
+          "ja": "電源が壊れたので修理に出した。",
+          "kana": "でんげんがこわれたのでしゅうりにだした。",
+          "zh": "电源坏了拿去修了。",
+          "targetSurface": "電源",
+          "targetKana": "でんげん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-denkyuu",
+      "type": "word",
+      "surface": "電球",
+      "kana": "でんきゅう",
+      "romaji": ["denkyuu"],
+      "meaningsZh": ["灯泡"],
+      "pos": "noun",
+      "tags": ["appliance"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-denkyuu-1",
+          "ja": "古い電球を新しいものに買い替えた。",
+          "kana": "ふるいでんきゅうをあたらしいものにかいかえた。",
+          "zh": "把旧的灯泡换成新的了。",
+          "targetSurface": "電球",
+          "targetKana": "でんきゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-denshirenji",
+      "type": "word",
+      "surface": "電子レンジ",
+      "kana": "でんしれんじ",
+      "romaji": ["denshirenji"],
+      "meaningsZh": ["微波炉"],
+      "pos": "noun",
+      "tags": ["appliance", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-denshirenji-1",
+          "ja": "電子レンジで温める。",
+          "kana": "でんしレンジであたためる。",
+          "zh": "用微波炉加热。",
+          "targetSurface": "電子レンジ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-doraiyaa",
+      "type": "word",
+      "surface": "ドライヤー",
+      "kana": "ドライヤー",
+      "romaji": ["doraiyaa"],
+      "meaningsZh": ["吹风机"],
+      "pos": "noun",
+      "tags": ["appliance", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-doraiyaa-1",
+          "ja": "古いドライヤーを新しいものに買い替えた。",
+          "kana": "ふるいどらいやーをあたらしいものにかいかえた。",
+          "zh": "把旧的吹风机换成新的了。",
+          "targetSurface": "ドライヤー",
+          "targetKana": "どらいやー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-fuku-2",
+      "type": "word",
+      "surface": "拭く",
+      "kana": "ふく",
+      "romaji": ["fuku"],
+      "meaningsZh": ["擦"],
+      "pos": "verb",
+      "tags": ["cleaning", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-fuku-2-1",
+          "ja": "テーブルを布巾で拭く。",
+          "kana": "テーブルをふきんでふく。",
+          "zh": "用抹布擦桌子。",
+          "targetSurface": "拭く",
+          "targetKana": "ふく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-fuutou",
+      "type": "word",
+      "surface": "封筒",
+      "kana": "ふうとう",
+      "romaji": ["fuutou", "huutou"],
+      "meaningsZh": ["信封"],
+      "pos": "noun",
+      "tags": ["daily-item", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-fuutou-1",
+          "ja": "「封筒」という言葉の意味を確認する。",
+          "kana": "「封筒」ということばのいみをかくにんする。",
+          "zh": "确认「封筒」（信封）这个词的含义。",
+          "targetSurface": "封筒"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-genkan",
+      "type": "word",
+      "surface": "玄関",
+      "kana": "げんかん",
+      "romaji": ["genkan"],
+      "meaningsZh": ["玄关"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-genkan-1",
+          "ja": "広い玄関でくつろぐ。",
+          "kana": "ひろいげんかんでくつろぐ。",
+          "zh": "在宽敞的玄关里放松。",
+          "targetSurface": "玄関",
+          "targetKana": "げんかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-genkanmatto",
+      "type": "word",
+      "surface": "玄関マット",
+      "kana": "げんかんまっと",
+      "romaji": ["genkanmatto"],
+      "meaningsZh": ["玄关地垫"],
+      "pos": "noun",
+      "tags": ["home", "katakana", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-genkanmatto-1",
+          "ja": "辞書で玄関マットを引いた。",
+          "kana": "じしょでげんかんまっとをひいた。",
+          "zh": "在字典里查了玄关地垫。",
+          "targetSurface": "玄関マット",
+          "targetKana": "げんかんまっと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-gomibako",
+      "type": "word",
+      "surface": "ゴミ箱",
+      "kana": "ごみばこ",
+      "romaji": ["gomibako"],
+      "meaningsZh": ["垃圾桶"],
+      "pos": "noun",
+      "tags": ["cleaning", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-gomibako-1",
+          "ja": "駅のゴミ箱は少ない。",
+          "kana": "えきのゴミばこはすくない。",
+          "zh": "车站的垃圾箱很少。",
+          "targetSurface": "ゴミ箱"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-gomibukuro",
+      "type": "word",
+      "surface": "ゴミ袋",
+      "kana": "ごみぶくろ",
+      "romaji": ["gomibukuro"],
+      "meaningsZh": ["垃圾袋"],
+      "pos": "noun",
+      "tags": ["cleaning", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-gomibukuro-1",
+          "ja": "市指定のゴミ袋を使う。",
+          "kana": "ししていのゴミぶくろをつかう。",
+          "zh": "用市政指定的垃圾袋。",
+          "targetSurface": "ゴミ袋"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-haku-2",
+      "type": "word",
+      "surface": "掃く",
+      "kana": "はく",
+      "romaji": ["haku"],
+      "meaningsZh": ["扫"],
+      "pos": "verb",
+      "tags": ["cleaning", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-haku-2-1",
+          "ja": "玄関を箒で掃く。",
+          "kana": "げんかんをほうきではく。",
+          "zh": "用扫帚扫玄关。",
+          "targetSurface": "掃く",
+          "targetKana": "はく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hamigakiko",
+      "type": "word",
+      "surface": "歯磨き粉",
+      "kana": "はみがきこ",
+      "romaji": ["hamigakiko"],
+      "meaningsZh": ["牙膏"],
+      "pos": "noun",
+      "tags": ["daily-item"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hamigakiko-1",
+          "ja": "辞書で歯磨き粉を引いた。",
+          "kana": "じしょではみがきこをひいた。",
+          "zh": "在字典里查了牙膏。",
+          "targetSurface": "歯磨き粉",
+          "targetKana": "はみがきこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hangaa",
+      "type": "word",
+      "surface": "ハンガー",
+      "kana": "ハンガー",
+      "romaji": ["hangaa"],
+      "meaningsZh": ["衣架"],
+      "pos": "noun",
+      "tags": ["home", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-hangaa-1",
+          "ja": "辞書でハンガーを引いた。",
+          "kana": "じしょではんがーをひいた。",
+          "zh": "在字典里查了衣架。",
+          "targetSurface": "ハンガー",
+          "targetKana": "はんがー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-hanko",
+      "type": "word",
+      "surface": "はんこ",
+      "kana": "はんこ",
+      "romaji": ["hanko"],
+      "meaningsZh": ["印章"],
+      "pos": "noun",
+      "tags": ["home", "document"],
+      "skillTags": ["kana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-hanko-1",
+          "ja": "辞書ではんこを引いた。",
+          "kana": "じしょではんこをひいた。",
+          "zh": "在字典里查了印章。",
+          "targetSurface": "はんこ",
+          "targetKana": "はんこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hikidashi",
+      "type": "word",
+      "surface": "引き出し",
+      "kana": "ひきだし",
+      "romaji": ["hikidashi"],
+      "meaningsZh": ["抽屉"],
+      "pos": "noun",
+      "tags": ["furniture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hikidashi-1",
+          "ja": "引き出しの上を片付ける。",
+          "kana": "ひきだしのうえをかたづける。",
+          "zh": "整理抽屉上面。",
+          "targetSurface": "引き出し",
+          "targetKana": "ひきだし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hikkoshi",
+      "type": "word",
+      "surface": "引っ越し",
+      "kana": "ひっこし",
+      "romaji": ["hikkoshi"],
+      "meaningsZh": ["搬家"],
+      "pos": "noun",
+      "tags": ["housing", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hikkoshi-1",
+          "ja": "辞書で引っ越しを引いた。",
+          "kana": "じしょでひっこしをひいた。",
+          "zh": "在字典里查了搬家。",
+          "targetSurface": "引っ越し",
+          "targetKana": "ひっこし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-hirou",
+      "type": "word",
+      "surface": "拾う",
+      "kana": "ひろう",
+      "romaji": ["hirou"],
+      "meaningsZh": ["捡起"],
+      "pos": "verb",
+      "tags": ["home", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-hirou-1",
+          "ja": "公園でごみを拾った。",
+          "kana": "こうえんでごみをひろった。",
+          "zh": "在公园捡了垃圾。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hondana",
+      "type": "word",
+      "surface": "本棚",
+      "kana": "ほんだな",
+      "romaji": ["hondana"],
+      "meaningsZh": ["书架"],
+      "pos": "noun",
+      "tags": ["furniture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hondana-1",
+          "ja": "部屋に新しい本棚を置いた。",
+          "kana": "へやにあたらしいほんだなをおいた。",
+          "zh": "在房间放了新的书架。",
+          "targetSurface": "本棚",
+          "targetKana": "ほんだな"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-ima-room",
+      "type": "word",
+      "surface": "居間",
+      "kana": "いま",
+      "romaji": ["ima"],
+      "meaningsZh": ["客厅", "起居室"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ima-room-1",
+          "ja": "辞書で居間を引いた。",
+          "kana": "じしょでいまをひいた。",
+          "zh": "在字典里查了客厅。",
+          "targetSurface": "居間",
+          "targetKana": "いま"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-jiinzu",
+      "type": "word",
+      "surface": "ジーンズ",
+      "kana": "ジーンズ",
+      "romaji": ["jiinzu", "ziinzu"],
+      "meaningsZh": ["牛仔裤"],
+      "pos": "noun",
+      "tags": ["clothes", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-jiinzu-1",
+          "ja": "「ジーンズ」という言葉の意味を確認する。",
+          "kana": "「ジーンズ」ということばのいみをかくにんする。",
+          "zh": "确认「ジーンズ」（牛仔裤）这个词的含义。",
+          "targetSurface": "ジーンズ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kaapetto",
+      "type": "word",
+      "surface": "カーペット",
+      "kana": "カーペット",
+      "romaji": ["kaapetto"],
+      "meaningsZh": ["地毯"],
+      "pos": "noun",
+      "tags": ["home", "katakana", "long-vowel", "sokuon"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-kaapetto-1",
+          "ja": "カーペットについて説明する。",
+          "kana": "かーぺっとについてせつめいする。",
+          "zh": "对地毯进行说明。",
+          "targetSurface": "カーペット",
+          "targetKana": "かーぺっと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error", "sokuon-error"]
+    },
+    {
+      "id": "word-kaaten",
+      "type": "word",
+      "surface": "カーテン",
+      "kana": "カーテン",
+      "romaji": ["kaaten"],
+      "meaningsZh": ["窗帘"],
+      "pos": "noun",
+      "tags": ["home", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-kaaten-1",
+          "ja": "辞書でカーテンを引いた。",
+          "kana": "じしょでかーてんをひいた。",
+          "zh": "在字典里查了窗帘。",
+          "targetSurface": "カーテン",
+          "targetKana": "かーてん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kagami",
+      "type": "word",
+      "surface": "鏡",
+      "kana": "かがみ",
+      "romaji": ["kagami"],
+      "meaningsZh": ["镜子"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kagami-1",
+          "ja": "「鏡」という漢字を覚える。",
+          "kana": "「鏡」というかんじをおぼえる。",
+          "zh": "记住「鏡」这个汉字（镜子）。",
+          "targetSurface": "鏡"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-katazukeru",
+      "type": "word",
+      "surface": "片付ける",
+      "kana": "かたづける",
+      "romaji": ["katadukeru", "katazukeru"],
+      "meaningsZh": ["收拾"],
+      "pos": "verb",
+      "tags": ["cleaning", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-katazukeru-1",
+          "ja": "食事の後、テーブルを片付ける。",
+          "kana": "しょくじのあと、テーブルをかたづける。",
+          "zh": "饭后收拾桌子。",
+          "targetSurface": "片付ける",
+          "targetKana": "かたづける"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-keiyaku",
+      "type": "word",
+      "surface": "契約",
+      "kana": "けいやく",
+      "romaji": ["keiyaku"],
+      "meaningsZh": ["合同", "契约"],
+      "pos": "noun",
+      "tags": ["housing"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-keiyaku-1",
+          "ja": "二年契約で部屋を借りる。",
+          "kana": "にねんけいやくでへやをかりる。",
+          "zh": "签两年合约租房。",
+          "targetSurface": "契約",
+          "targetKana": "けいやく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-konsento",
+      "type": "word",
+      "surface": "コンセント",
+      "kana": "コンセント",
+      "romaji": ["konsento"],
+      "meaningsZh": ["插座"],
+      "pos": "noun",
+      "tags": ["appliance", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-konsento-1",
+          "ja": "古いコンセントを新しいものに買い替えた。",
+          "kana": "ふるいこんせんとをあたらしいものにかいかえた。",
+          "zh": "把旧的插座换成新的了。",
+          "targetSurface": "コンセント",
+          "targetKana": "こんせんと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kuroozetto",
+      "type": "word",
+      "surface": "クローゼット",
+      "kana": "クローゼット",
+      "romaji": ["kuroozetto"],
+      "meaningsZh": ["衣柜"],
+      "pos": "noun",
+      "tags": ["home", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-kuroozetto-1",
+          "ja": "「クローゼット」という言葉の意味を確認する。",
+          "kana": "「クローゼット」ということばのいみをかくにんする。",
+          "zh": "确认「クローゼット」（衣柜）这个词的含义。",
+          "targetSurface": "クローゼット"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-meishi",
+      "type": "word",
+      "surface": "名刺",
+      "kana": "めいし",
+      "romaji": ["meishi", "meisi"],
+      "meaningsZh": ["名片"],
+      "pos": "noun",
+      "tags": ["daily-item"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-meishi-1",
+          "ja": "「名刺」という言葉の意味を確認する。",
+          "kana": "「名刺」ということばのいみをかくにんする。",
+          "zh": "确认「名刺」（名片）这个词的含义。",
+          "targetSurface": "名刺"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-moenaigomi",
+      "type": "word",
+      "surface": "燃えないごみ",
+      "kana": "もえないごみ",
+      "romaji": ["moenaigomi"],
+      "meaningsZh": ["不可燃垃圾"],
+      "pos": "noun",
+      "tags": ["cleaning"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-moenaigomi-1",
+          "ja": "燃えないごみは月に二回だけだ。",
+          "kana": "もえないごみはつきににかいだけだ。",
+          "zh": "不可燃垃圾每月只收两次。",
+          "targetSurface": "燃えないごみ",
+          "targetKana": "もえないごみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-moerugomi",
+      "type": "word",
+      "surface": "燃えるごみ",
+      "kana": "もえるごみ",
+      "romaji": ["moerugomi"],
+      "meaningsZh": ["可燃垃圾"],
+      "pos": "noun",
+      "tags": ["cleaning"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-moerugomi-1",
+          "ja": "燃えるごみは火曜と金曜に出す。",
+          "kana": "もえるごみはかようときんようにだす。",
+          "zh": "可燃垃圾周二周五扔。",
+          "targetSurface": "燃えるごみ",
+          "targetKana": "もえるごみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-moufu",
+      "type": "word",
+      "surface": "毛布",
+      "kana": "もうふ",
+      "romaji": ["moufu"],
+      "meaningsZh": ["毛毯"],
+      "pos": "noun",
+      "tags": ["home", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-moufu-1",
+          "ja": "毛布について説明する。",
+          "kana": "もうふについてせつめいする。",
+          "zh": "对毛毯进行说明。",
+          "targetSurface": "毛布",
+          "targetKana": "もうふ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-murasaki",
+      "type": "word",
+      "surface": "紫",
+      "kana": "むらさき",
+      "romaji": ["murasaki"],
+      "meaningsZh": ["紫"],
+      "pos": "noun",
+      "tags": ["color"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-murasaki-1",
+          "ja": "「紫」は「むらさき」と読む。",
+          "kana": "「紫」は「むらさき」とよむ。",
+          "zh": "「紫」读作「むらさき」，意思是紫。",
+          "targetSurface": "紫",
+          "targetKana": "むらさき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nakusu",
+      "type": "word",
+      "surface": "なくす",
+      "kana": "なくす",
+      "romaji": ["nakusu"],
+      "meaningsZh": ["弄丢"],
+      "pos": "verb",
+      "tags": ["home", "verb"],
+      "skillTags": ["kana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-nakusu-1",
+          "ja": "電車の中で財布をなくした。",
+          "kana": "でんしゃのなかでさいふをなくした。",
+          "zh": "在电车里弄丢了钱包。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-ondo",
+      "type": "word",
+      "surface": "温度",
+      "kana": "おんど",
+      "romaji": ["ondo"],
+      "meaningsZh": ["温度"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ondo-1",
+          "ja": "辞書で温度を引いた。",
+          "kana": "じしょでおんどをひいた。",
+          "zh": "在字典里查了温度。",
+          "targetSurface": "温度",
+          "targetKana": "おんど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-ooyasan",
+      "type": "word",
+      "surface": "大家さん",
+      "kana": "おおやさん",
+      "romaji": ["ooyasan"],
+      "meaningsZh": ["房东"],
+      "pos": "noun",
+      "tags": ["housing", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ooyasan-1",
+          "ja": "「大家さん」という言葉の意味を確認する。",
+          "kana": "「大家さん」ということばのいみをかくにんする。",
+          "zh": "确认「大家さん」（房东）这个词的含义。",
+          "targetSurface": "大家さん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-orenji",
+      "type": "word",
+      "surface": "オレンジ",
+      "kana": "オレンジ",
+      "romaji": ["orenji"],
+      "meaningsZh": ["橙色", "橘子"],
+      "pos": "noun",
+      "tags": ["color", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-orenji-1",
+          "ja": "「オレンジ」という言葉の意味を確認する。",
+          "kana": "「オレンジ」ということばのいみをかくにんする。",
+          "zh": "确认「オレンジ」（橙色）这个词的含义。",
+          "targetSurface": "オレンジ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-oshiire",
+      "type": "word",
+      "surface": "押し入れ",
+      "kana": "おしいれ",
+      "romaji": ["oshiire"],
+      "meaningsZh": ["壁橱"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-oshiire-1",
+          "ja": "辞書で押し入れを引いた。",
+          "kana": "じしょでおしいれをひいた。",
+          "zh": "在字典里查了壁橱。",
+          "targetSurface": "押し入れ",
+          "targetKana": "おしいれ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-reibou",
+      "type": "word",
+      "surface": "冷房",
+      "kana": "れいぼう",
+      "romaji": ["reibou"],
+      "meaningsZh": ["冷气"],
+      "pos": "noun",
+      "tags": ["appliance"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-reibou-1",
+          "ja": "古い冷房を新しいものに買い替えた。",
+          "kana": "ふるいれいぼうをあたらしいものにかいかえた。",
+          "zh": "把旧的冷气换成新的了。",
+          "targetSurface": "冷房",
+          "targetKana": "れいぼう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-reizouko",
+      "type": "word",
+      "surface": "冷蔵庫",
+      "kana": "れいぞうこ",
+      "romaji": ["reizouko"],
+      "meaningsZh": ["冰箱"],
+      "pos": "noun",
+      "tags": ["appliance", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-reizouko-1",
+          "ja": "古い冷蔵庫を新しいものに買い替えた。",
+          "kana": "ふるいれいぞうこをあたらしいものにかいかえた。",
+          "zh": "把旧的冰箱换成新的了。",
+          "targetSurface": "冷蔵庫",
+          "targetKana": "れいぞうこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-ribingu",
+      "type": "word",
+      "surface": "リビング",
+      "kana": "リビング",
+      "romaji": ["ribingu"],
+      "meaningsZh": ["客厅"],
+      "pos": "noun",
+      "tags": ["home", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ribingu-1",
+          "ja": "リビングを掃除する。",
+          "kana": "りびんぐをそうじする。",
+          "zh": "打扫客厅。",
+          "targetSurface": "リビング",
+          "targetKana": "りびんぐ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-rimokon",
+      "type": "word",
+      "surface": "リモコン",
+      "kana": "リモコン",
+      "romaji": ["rimokon"],
+      "meaningsZh": ["遥控器"],
+      "pos": "noun",
+      "tags": ["appliance", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-rimokon-1",
+          "ja": "古いリモコンを新しいものに買い替えた。",
+          "kana": "ふるいりもこんをあたらしいものにかいかえた。",
+          "zh": "把旧的遥控器换成新的了。",
+          "targetSurface": "リモコン",
+          "targetKana": "りもこん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-rinsu",
+      "type": "word",
+      "surface": "リンス",
+      "kana": "リンス",
+      "romaji": ["rinsu"],
+      "meaningsZh": ["护发素"],
+      "pos": "noun",
+      "tags": ["daily-item", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-rinsu-1",
+          "ja": "辞書でリンスを引いた。",
+          "kana": "じしょでりんすをひいた。",
+          "zh": "在字典里查了护发素。",
+          "targetSurface": "リンス",
+          "targetKana": "りんす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-rouka",
+      "type": "word",
+      "surface": "廊下",
+      "kana": "ろうか",
+      "romaji": ["rouka"],
+      "meaningsZh": ["走廊"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-rouka-1",
+          "ja": "辞書で廊下を引いた。",
+          "kana": "じしょでろうかをひいた。",
+          "zh": "在字典里查了走廊。",
+          "targetSurface": "廊下",
+          "targetKana": "ろうか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-senmenjo",
+      "type": "word",
+      "surface": "洗面所",
+      "kana": "せんめんじょ",
+      "romaji": ["senmenjo"],
+      "meaningsZh": ["洗漱间"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-senmenjo-1",
+          "ja": "洗面所について説明する。",
+          "kana": "せんめんじょについてせつめいする。",
+          "zh": "对洗漱间进行说明。",
+          "targetSurface": "洗面所",
+          "targetKana": "せんめんじょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-sentakuki",
+      "type": "word",
+      "surface": "洗濯機",
+      "kana": "せんたくき",
+      "romaji": ["sentakuki"],
+      "meaningsZh": ["洗衣机"],
+      "pos": "noun",
+      "tags": ["appliance"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sentakuki-1",
+          "ja": "古い洗濯機を新しいものに買い替えた。",
+          "kana": "ふるいせんたくきをあたらしいものにかいかえた。",
+          "zh": "把旧的洗衣机换成新的了。",
+          "targetSurface": "洗濯機",
+          "targetKana": "せんたくき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-senzai",
+      "type": "word",
+      "surface": "洗剤",
+      "kana": "せんざい",
+      "romaji": ["senzai"],
+      "meaningsZh": ["洗涤剂"],
+      "pos": "noun",
+      "tags": ["cleaning"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-senzai-1",
+          "ja": "食器用の洗剤を買い足す。",
+          "kana": "しょっきようのせんざいをかいたす。",
+          "zh": "再买点餐具洗洁精。",
+          "targetSurface": "洗剤",
+          "targetKana": "せんざい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shigengomi",
+      "type": "word",
+      "surface": "資源ごみ",
+      "kana": "しげんごみ",
+      "romaji": ["shigengomi"],
+      "meaningsZh": ["资源垃圾"],
+      "pos": "noun",
+      "tags": ["cleaning"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shigengomi-1",
+          "ja": "「資源ごみ」という言葉の意味を確認する。",
+          "kana": "「資源ごみ」ということばのいみをかくにんする。",
+          "zh": "确认「資源ごみ」（资源垃圾）这个词的含义。",
+          "targetSurface": "資源ごみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shiitsu",
+      "type": "word",
+      "surface": "シーツ",
+      "kana": "シーツ",
+      "romaji": ["shiitsu"],
+      "meaningsZh": ["床单"],
+      "pos": "noun",
+      "tags": ["home", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-shiitsu-1",
+          "ja": "辞書でシーツを引いた。",
+          "kana": "じしょでしーつをひいた。",
+          "zh": "在字典里查了床单。",
+          "targetSurface": "シーツ",
+          "targetKana": "しーつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-shuuri",
+      "type": "word",
+      "surface": "修理",
+      "kana": "しゅうり",
+      "romaji": ["shuuri"],
+      "meaningsZh": ["修理"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shuuri-1",
+          "ja": "「修理」という言葉の意味を確認する。",
+          "kana": "「修理」ということばのいみをかくにんする。",
+          "zh": "确认「修理」（修理）这个词的含义。",
+          "targetSurface": "修理"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-sofa",
+      "type": "word",
+      "surface": "ソファ",
+      "kana": "ソファ",
+      "romaji": ["sofa"],
+      "meaningsZh": ["沙发"],
+      "pos": "noun",
+      "tags": ["furniture", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sofa-1",
+          "ja": "ソファの上を片付ける。",
+          "kana": "そふぁのうえをかたづける。",
+          "zh": "整理沙发上面。",
+          "targetSurface": "ソファ",
+          "targetKana": "そふぁ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-soujiki",
+      "type": "word",
+      "surface": "掃除機",
+      "kana": "そうじき",
+      "romaji": ["soujiki"],
+      "meaningsZh": ["吸尘器"],
+      "pos": "noun",
+      "tags": ["appliance", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-soujiki-1",
+          "ja": "古い掃除機を新しいものに買い替えた。",
+          "kana": "ふるいそうじきをあたらしいものにかいかえた。",
+          "zh": "把旧的吸尘器换成新的了。",
+          "targetSurface": "掃除機",
+          "targetKana": "そうじき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-suicchi",
+      "type": "word",
+      "surface": "スイッチ",
+      "kana": "スイッチ",
+      "romaji": ["suitchi", "suicchi"],
+      "meaningsZh": ["开关"],
+      "pos": "noun",
+      "tags": ["appliance", "katakana", "sokuon"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-suicchi-1",
+          "ja": "スイッチが壊れたので修理に出した。",
+          "kana": "すいっちがこわれたのでしゅうりにだした。",
+          "zh": "开关坏了拿去修了。",
+          "targetSurface": "スイッチ",
+          "targetKana": "すいっち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-suihanki",
+      "type": "word",
+      "surface": "炊飯器",
+      "kana": "すいはんき",
+      "romaji": ["suihanki"],
+      "meaningsZh": ["电饭煲"],
+      "pos": "noun",
+      "tags": ["appliance"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-suihanki-1",
+          "ja": "炊飯器が壊れたので修理に出した。",
+          "kana": "すいはんきがこわれたのでしゅうりにだした。",
+          "zh": "电饭煲坏了拿去修了。",
+          "targetSurface": "炊飯器",
+          "targetKana": "すいはんき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-sumaho",
+      "type": "word",
+      "surface": "スマホ",
+      "kana": "スマホ",
+      "romaji": ["sumaho"],
+      "meaningsZh": ["智能手机"],
+      "pos": "noun",
+      "tags": ["appliance", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sumaho-1",
+          "ja": "最近、新しいスマホに変えた。",
+          "kana": "さいきん、あたらしいスマホにかえた。",
+          "zh": "最近换了新手机。",
+          "targetSurface": "スマホ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-suponji",
+      "type": "word",
+      "surface": "スポンジ",
+      "kana": "スポンジ",
+      "romaji": ["suponji"],
+      "meaningsZh": ["海绵"],
+      "pos": "noun",
+      "tags": ["cleaning", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-suponji-1",
+          "ja": "「スポンジ」という言葉の意味を確認する。",
+          "kana": "「スポンジ」ということばのいみをかくにんする。",
+          "zh": "确认「スポンジ」（海绵）这个词的含义。",
+          "targetSurface": "スポンジ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-surippa",
+      "type": "word",
+      "surface": "スリッパ",
+      "kana": "スリッパ",
+      "romaji": ["surippa"],
+      "meaningsZh": ["拖鞋"],
+      "pos": "noun",
+      "tags": ["home", "katakana", "sokuon"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-surippa-1",
+          "ja": "スリッパについて説明する。",
+          "kana": "すりっぱについてせつめいする。",
+          "zh": "对拖鞋进行说明。",
+          "targetSurface": "スリッパ",
+          "targetKana": "すりっぱ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-tana",
+      "type": "word",
+      "surface": "棚",
+      "kana": "たな",
+      "romaji": ["tana"],
+      "meaningsZh": ["架子"],
+      "pos": "noun",
+      "tags": ["furniture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tana-1",
+          "ja": "「棚」は「たな」と読む。",
+          "kana": "「棚」は「たな」とよむ。",
+          "zh": "「棚」读作「たな」，意思是架子。",
+          "targetSurface": "棚",
+          "targetKana": "たな"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tansu",
+      "type": "word",
+      "surface": "たんす",
+      "kana": "たんす",
+      "romaji": ["tansu"],
+      "meaningsZh": ["衣柜", "五斗柜"],
+      "pos": "noun",
+      "tags": ["furniture"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tansu-1",
+          "ja": "たんすの上を片付ける。",
+          "kana": "たんすのうえをかたづける。",
+          "zh": "整理衣柜上面。",
+          "targetSurface": "たんす",
+          "targetKana": "たんす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tatamu",
+      "type": "word",
+      "surface": "畳む",
+      "kana": "たたむ",
+      "romaji": ["tatamu"],
+      "meaningsZh": ["折叠"],
+      "pos": "verb",
+      "tags": ["cleaning", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tatamu-1",
+          "ja": "洗濯物を畳んでタンスにしまう。",
+          "kana": "せんたくものをたたんでタンスにしまう。",
+          "zh": "把洗好的衣服叠起来收进衣柜。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tisshu",
+      "type": "word",
+      "surface": "ティッシュ",
+      "kana": "ティッシュ",
+      "romaji": ["thisshu"],
+      "meaningsZh": ["纸巾"],
+      "pos": "noun",
+      "tags": ["daily-item", "katakana", "sokuon"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-tisshu-1",
+          "ja": "ティッシュについて説明する。",
+          "kana": "てぃっしゅについてせつめいする。",
+          "zh": "对纸巾进行说明。",
+          "targetSurface": "ティッシュ",
+          "targetKana": "てぃっしゅ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-uketori",
+      "type": "word",
+      "surface": "受け取り",
+      "kana": "うけとり",
+      "romaji": ["uketori"],
+      "meaningsZh": ["收取"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-uketori-1",
+          "ja": "受け取りについて説明する。",
+          "kana": "うけとりについてせつめいする。",
+          "zh": "对收取进行说明。",
+          "targetSurface": "受け取り",
+          "targetKana": "うけとり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-washitsu",
+      "type": "word",
+      "surface": "和室",
+      "kana": "わしつ",
+      "romaji": ["washitsu"],
+      "meaningsZh": ["和室"],
+      "pos": "noun",
+      "tags": ["home", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-washitsu-1",
+          "ja": "和室を掃除する。",
+          "kana": "わしつをそうじする。",
+          "zh": "打扫和室。",
+          "targetSurface": "和室",
+          "targetKana": "わしつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-youshitsu",
+      "type": "word",
+      "surface": "洋室",
+      "kana": "ようしつ",
+      "romaji": ["youshitsu"],
+      "meaningsZh": ["西式房间"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-youshitsu-1",
+          "ja": "洋室を掃除する。",
+          "kana": "ようしつをそうじする。",
+          "zh": "打扫西式房间。",
+          "targetSurface": "洋室",
+          "targetKana": "ようしつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yuubinuke",
+      "type": "word",
+      "surface": "郵便受け",
+      "kana": "ゆうびんうけ",
+      "romaji": ["yuubin'uke"],
+      "meaningsZh": ["信箱"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-yuubinuke-1",
+          "ja": "辞書で郵便受けを引いた。",
+          "kana": "じしょでゆうびんうけをひいた。",
+          "zh": "在字典里查了信箱。",
+          "targetSurface": "郵便受け",
+          "targetKana": "ゆうびんうけ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-zoukin",
+      "type": "word",
+      "surface": "雑巾",
+      "kana": "ぞうきん",
+      "romaji": ["zoukin"],
+      "meaningsZh": ["抹布"],
+      "pos": "noun",
+      "tags": ["cleaning", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-zoukin-1",
+          "ja": "「雑巾」という言葉の意味を確認する。",
+          "kana": "「雑巾」ということばのいみをかくにんする。",
+          "zh": "确认「雑巾」（抹布）这个词的含义。",
+          "targetSurface": "雑巾"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-aka",
+      "type": "word",
+      "surface": "赤",
+      "kana": "あか",
+      "romaji": ["aka"],
+      "meaningsZh": ["红"],
+      "pos": "noun",
+      "tags": ["color"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-aka-1",
+          "ja": "「赤」は「あか」と読む。",
+          "kana": "「赤」は「あか」とよむ。",
+          "zh": "「赤」读作「あか」，意思是红。",
+          "targetSurface": "赤",
+          "targetKana": "あか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ao",
+      "type": "word",
+      "surface": "青",
+      "kana": "あお",
+      "romaji": ["ao"],
+      "meaningsZh": ["蓝"],
+      "pos": "noun",
+      "tags": ["color"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ao-1",
+          "ja": "「青」は「あお」と読む。",
+          "kana": "「青」は「あお」とよむ。",
+          "zh": "「青」读作「あお」，意思是蓝。",
+          "targetSurface": "青",
+          "targetKana": "あお"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-arau",
+      "type": "word",
+      "surface": "洗う",
+      "kana": "あらう",
+      "romaji": ["arau"],
+      "meaningsZh": ["洗"],
+      "pos": "verb",
+      "tags": ["cleaning", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-arau-1",
+          "ja": "食器を洗剤で洗う。",
+          "kana": "しょっきをせんざいであらう。",
+          "zh": "用洗洁精洗餐具。",
+          "targetSurface": "洗う",
+          "targetKana": "あらう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-beddo",
+      "type": "word",
+      "surface": "ベッド",
+      "kana": "ベッド",
+      "romaji": ["beddo"],
+      "meaningsZh": ["床"],
+      "pos": "noun",
+      "tags": ["furniture", "katakana", "sokuon"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-beddo-1",
+          "ja": "ベッドに横になる。",
+          "kana": "ベッドによこになる。",
+          "zh": "躺在床上。",
+          "targetSurface": "ベッド"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-boushi",
+      "type": "word",
+      "surface": "帽子",
+      "kana": "ぼうし",
+      "romaji": ["boushi", "bousi"],
+      "meaningsZh": ["帽子"],
+      "pos": "noun",
+      "tags": ["clothes", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-boushi-1",
+          "ja": "新しい帽子を試着した。",
+          "kana": "あたらしいぼうしをしちゃくした。",
+          "zh": "试穿了新帽子。",
+          "targetSurface": "帽子",
+          "targetKana": "ぼうし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-chairo",
+      "type": "word",
+      "surface": "茶色",
+      "kana": "ちゃいろ",
+      "romaji": ["chairo", "tyairo"],
+      "meaningsZh": ["棕色", "茶色"],
+      "pos": "noun",
+      "tags": ["color", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-chairo-1",
+          "ja": "茶色について説明する。",
+          "kana": "ちゃいろについてせつめいする。",
+          "zh": "对棕色进行说明。",
+          "targetSurface": "茶色",
+          "targetKana": "ちゃいろ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-daidokoro",
+      "type": "word",
+      "surface": "台所",
+      "kana": "だいどころ",
+      "romaji": ["daidokoro"],
+      "meaningsZh": ["厨房"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-daidokoro-1",
+          "ja": "台所を掃除する。",
+          "kana": "だいどころをそうじする。",
+          "zh": "打扫厨房。",
+          "targetSurface": "台所",
+          "targetKana": "だいどころ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-denwa",
+      "type": "word",
+      "surface": "電話",
+      "kana": "でんわ",
+      "romaji": ["denwa"],
+      "meaningsZh": ["电话"],
+      "pos": "noun",
+      "tags": ["appliance"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-denwa-1",
+          "ja": "夜、母に電話した。",
+          "kana": "よる、ははにでんわした。",
+          "zh": "晚上给妈妈打了电话。",
+          "targetSurface": "電話",
+          "targetKana": "でんわ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-doa",
+      "type": "word",
+      "surface": "ドア",
+      "kana": "ドア",
+      "romaji": ["doa"],
+      "meaningsZh": ["门"],
+      "pos": "noun",
+      "tags": ["home", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-doa-1",
+          "ja": "ドアをそっと閉めた。",
+          "kana": "ドアをそっとしめた。",
+          "zh": "轻轻关上门。",
+          "targetSurface": "ドア"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-eakon",
+      "type": "word",
+      "surface": "エアコン",
+      "kana": "エアコン",
+      "romaji": ["eakon"],
+      "meaningsZh": ["空调"],
+      "pos": "noun",
+      "tags": ["appliance", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-eakon-1",
+          "ja": "エアコンが壊れたので修理に出した。",
+          "kana": "えあこんがこわれたのでしゅうりにだした。",
+          "zh": "空调坏了拿去修了。",
+          "targetSurface": "エアコン",
+          "targetKana": "えあこん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-enpitsu",
+      "type": "word",
+      "surface": "鉛筆",
+      "kana": "えんぴつ",
+      "romaji": ["enpitsu", "enpitu"],
+      "meaningsZh": ["铅笔"],
+      "pos": "noun",
+      "tags": ["daily-item"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-enpitsu-1",
+          "ja": "鉛筆について説明する。",
+          "kana": "えんぴつについてせつめいする。",
+          "zh": "对铅笔进行说明。",
+          "targetSurface": "鉛筆",
+          "targetKana": "えんぴつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-fuku",
+      "type": "word",
+      "surface": "服",
+      "kana": "ふく",
+      "romaji": ["fuku", "huku"],
+      "meaningsZh": ["衣服"],
+      "pos": "noun",
+      "tags": ["clothes"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-fuku-1",
+          "ja": "洗濯した服を畳む。",
+          "kana": "せんたくしたふくをたたむ。",
+          "zh": "把洗好的衣服叠起来。",
+          "targetSurface": "服",
+          "targetKana": "ふく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-futon",
+      "type": "word",
+      "surface": "布団",
+      "kana": "ふとん",
+      "romaji": ["futon"],
+      "meaningsZh": ["被褥"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-futon-1",
+          "ja": "辞書で布団を引いた。",
+          "kana": "じしょでふとんをひいた。",
+          "zh": "在字典里查了被褥。",
+          "targetSurface": "布団",
+          "targetKana": "ふとん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-haburashi",
+      "type": "word",
+      "surface": "歯ブラシ",
+      "kana": "はぶらし",
+      "romaji": ["haburashi"],
+      "meaningsZh": ["牙刷"],
+      "pos": "noun",
+      "tags": ["daily-item", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-haburashi-1",
+          "ja": "毎食後、歯ブラシで歯を磨く。",
+          "kana": "まいしょくご、はブラシではをみがく。",
+          "zh": "每餐后用牙刷刷牙。",
+          "targetSurface": "歯ブラシ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hiku",
+      "type": "word",
+      "surface": "引く",
+      "kana": "ひく",
+      "romaji": ["hiku"],
+      "meaningsZh": ["拉"],
+      "pos": "verb",
+      "tags": ["home", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-hiku-1",
+          "ja": "ドアを引いて開けてください。",
+          "kana": "ドアをひいてあけてください。",
+          "zh": "请拉开门。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ie",
+      "type": "word",
+      "surface": "家",
+      "kana": "いえ",
+      "romaji": ["ie"],
+      "meaningsZh": ["家", "房子"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ie-1",
+          "ja": "家で本を読む。",
+          "kana": "いえでほんをよむ。",
+          "zh": "在家里看书。",
+          "targetSurface": "家",
+          "targetKana": "いえ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-isu",
+      "type": "word",
+      "surface": "椅子",
+      "kana": "いす",
+      "romaji": ["isu"],
+      "meaningsZh": ["椅子"],
+      "pos": "noun",
+      "tags": ["furniture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-isu-1",
+          "ja": "椅子に座って本を読む。",
+          "kana": "いすにすわってほんをよむ。",
+          "zh": "坐在椅子上看书。",
+          "targetSurface": "椅子",
+          "targetKana": "いす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kaban",
+      "type": "word",
+      "surface": "鞄",
+      "kana": "かばん",
+      "romaji": ["kaban"],
+      "meaningsZh": ["包"],
+      "pos": "noun",
+      "tags": ["clothes"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaban-1",
+          "ja": "鞄に教科書を入れる。",
+          "kana": "かばんにきょうかしょをいれる。",
+          "zh": "把课本装进包。",
+          "targetSurface": "鞄",
+          "targetKana": "かばん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kagi",
+      "type": "word",
+      "surface": "鍵",
+      "kana": "かぎ",
+      "romaji": ["kagi"],
+      "meaningsZh": ["钥匙"],
+      "pos": "noun",
+      "tags": ["daily-item"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kagi-1",
+          "ja": "家を出る前に鍵を確認する。",
+          "kana": "いえをでるまえにかぎをかくにんする。",
+          "zh": "出门前确认钥匙。",
+          "targetSurface": "鍵",
+          "targetKana": "かぎ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kaidan",
+      "type": "word",
+      "surface": "階段",
+      "kana": "かいだん",
+      "romaji": ["kaidan"],
+      "meaningsZh": ["楼梯"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kaidan-1",
+          "ja": "階段について説明する。",
+          "kana": "かいだんについてせつめいする。",
+          "zh": "对楼梯进行说明。",
+          "targetSurface": "階段",
+          "targetKana": "かいだん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kaimono",
+      "type": "word",
+      "surface": "買い物",
+      "kana": "かいもの",
+      "romaji": ["kaimono"],
+      "meaningsZh": ["购物"],
+      "pos": "noun",
+      "tags": ["chore"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaimono-1",
+          "ja": "買い物について説明する。",
+          "kana": "かいものについてせつめいする。",
+          "zh": "对购物进行说明。",
+          "targetSurface": "買い物",
+          "targetKana": "かいもの"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kamera",
+      "type": "word",
+      "surface": "カメラ",
+      "kana": "カメラ",
+      "romaji": ["kamera"],
+      "meaningsZh": ["相机"],
+      "pos": "noun",
+      "tags": ["appliance", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kamera-1",
+          "ja": "カメラが壊れたので修理に出した。",
+          "kana": "かめらがこわれたのでしゅうりにだした。",
+          "zh": "相机坏了拿去修了。",
+          "targetSurface": "カメラ",
+          "targetKana": "かめら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kasa",
+      "type": "word",
+      "surface": "傘",
+      "kana": "かさ",
+      "romaji": ["kasa"],
+      "meaningsZh": ["伞"],
+      "pos": "noun",
+      "tags": ["clothes"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kasa-1",
+          "ja": "雨が降りそうなので傘を持つ。",
+          "kana": "あめがふりそうなのでかさをもつ。",
+          "zh": "看起来要下雨，所以带伞。",
+          "targetSurface": "傘",
+          "targetKana": "かさ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kesu",
+      "type": "word",
+      "surface": "消す",
+      "kana": "けす",
+      "romaji": ["kesu"],
+      "meaningsZh": ["关掉", "擦掉"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kesu-1",
+          "ja": "出かける前に電気を消す。",
+          "kana": "でかけるまえにでんきをけす。",
+          "zh": "出门前关灯。",
+          "targetSurface": "消す",
+          "targetKana": "けす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kiiro",
+      "type": "word",
+      "surface": "黄色",
+      "kana": "きいろ",
+      "romaji": ["kiiro"],
+      "meaningsZh": ["黄"],
+      "pos": "noun",
+      "tags": ["color", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kiiro-1",
+          "ja": "「黄色」という言葉の意味を確認する。",
+          "kana": "「黄色」ということばのいみをかくにんする。",
+          "zh": "确认「黄色」（黄）这个词的含义。",
+          "targetSurface": "黄色"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kooto",
+      "type": "word",
+      "surface": "コート",
+      "kana": "コート",
+      "romaji": ["kooto"],
+      "meaningsZh": ["大衣"],
+      "pos": "noun",
+      "tags": ["clothes", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kooto-1",
+          "ja": "冬は厚手のコートが要る。",
+          "kana": "ふゆはあつでのこーとがいる。",
+          "zh": "冬天需要厚的大衣。",
+          "targetSurface": "コート",
+          "targetKana": "こーと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kuro",
+      "type": "word",
+      "surface": "黒",
+      "kana": "くろ",
+      "romaji": ["kuro"],
+      "meaningsZh": ["黑"],
+      "pos": "noun",
+      "tags": ["color"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kuro-1",
+          "ja": "「黒」は「くろ」と読む。",
+          "kana": "「黒」は「くろ」とよむ。",
+          "zh": "「黒」读作「くろ」，意思是黑。",
+          "targetSurface": "黒",
+          "targetKana": "くろ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kutsu",
+      "type": "word",
+      "surface": "靴",
+      "kana": "くつ",
+      "romaji": ["kutsu", "kutu"],
+      "meaningsZh": ["鞋"],
+      "pos": "noun",
+      "tags": ["clothes"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kutsu-1",
+          "ja": "玄関で靴を脱ぐ。",
+          "kana": "げんかんでくつをぬぐ。",
+          "zh": "在玄关脱鞋。",
+          "targetSurface": "靴",
+          "targetKana": "くつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kutsushita",
+      "type": "word",
+      "surface": "靴下",
+      "kana": "くつした",
+      "romaji": ["kutsushita", "kutusita"],
+      "meaningsZh": ["袜子"],
+      "pos": "noun",
+      "tags": ["clothes"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kutsushita-1",
+          "ja": "新しい靴下を試着した。",
+          "kana": "あたらしいくつしたをしちゃくした。",
+          "zh": "试穿了新袜子。",
+          "targetSurface": "靴下",
+          "targetKana": "くつした"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mado",
+      "type": "word",
+      "surface": "窓",
+      "kana": "まど",
+      "romaji": ["mado"],
+      "meaningsZh": ["窗户"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-mado-1",
+          "ja": "窓を開けて空気を入れる。",
+          "kana": "まどをあけてくうきをいれる。",
+          "zh": "打开窗户换气。",
+          "targetSurface": "窓",
+          "targetKana": "まど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-makura",
+      "type": "word",
+      "surface": "枕",
+      "kana": "まくら",
+      "romaji": ["makura"],
+      "meaningsZh": ["枕头"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-makura-1",
+          "ja": "「枕」は「まくら」と読む。",
+          "kana": "「枕」は「まくら」とよむ。",
+          "zh": "「枕」读作「まくら」，意思是枕头。",
+          "targetSurface": "枕",
+          "targetKana": "まくら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-megane",
+      "type": "word",
+      "surface": "メガネ",
+      "kana": "メガネ",
+      "romaji": ["megane"],
+      "meaningsZh": ["眼镜"],
+      "pos": "noun",
+      "tags": ["clothes", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-megane-1",
+          "ja": "「メガネ」という言葉の意味を確認する。",
+          "kana": "「メガネ」ということばのいみをかくにんする。",
+          "zh": "确认「メガネ」（眼镜）这个词的含义。",
+          "targetSurface": "メガネ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-midori",
+      "type": "word",
+      "surface": "緑",
+      "kana": "みどり",
+      "romaji": ["midori"],
+      "meaningsZh": ["绿"],
+      "pos": "noun",
+      "tags": ["color"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-midori-1",
+          "ja": "「緑」という漢字を覚える。",
+          "kana": "「緑」というかんじをおぼえる。",
+          "zh": "记住「緑」这个汉字（绿）。",
+          "targetSurface": "緑"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mushi",
+      "type": "word",
+      "surface": "虫",
+      "kana": "むし",
+      "romaji": ["mushi"],
+      "meaningsZh": ["虫子"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-mushi-1",
+          "ja": "「虫」という漢字を覚える。",
+          "kana": "「虫」というかんじをおぼえる。",
+          "zh": "记住「虫」这个汉字（虫子）。",
+          "targetSurface": "虫"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-naosu",
+      "type": "word",
+      "surface": "直す",
+      "kana": "なおす",
+      "romaji": ["naosu"],
+      "meaningsZh": ["修理", "改正"],
+      "pos": "verb",
+      "tags": ["home", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-naosu-1",
+          "ja": "壊れた時計を直す。",
+          "kana": "こわれたとけいをなおす。",
+          "zh": "修理坏掉的钟表。",
+          "targetSurface": "直す",
+          "targetKana": "なおす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nekutai",
+      "type": "word",
+      "surface": "ネクタイ",
+      "kana": "ネクタイ",
+      "romaji": ["nekutai"],
+      "meaningsZh": ["领带"],
+      "pos": "noun",
+      "tags": ["clothes", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nekutai-1",
+          "ja": "「ネクタイ」という言葉の意味を確認する。",
+          "kana": "「ネクタイ」ということばのいみをかくにんする。",
+          "zh": "确认「ネクタイ」（领带）这个词的含义。",
+          "targetSurface": "ネクタイ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nimotsu",
+      "type": "word",
+      "surface": "荷物",
+      "kana": "にもつ",
+      "romaji": ["nimotsu"],
+      "meaningsZh": ["行李", "包裹"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-nimotsu-1",
+          "ja": "荷物について説明する。",
+          "kana": "にもつについてせつめいする。",
+          "zh": "对行李进行说明。",
+          "targetSurface": "荷物",
+          "targetKana": "にもつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nooto",
+      "type": "word",
+      "surface": "ノート",
+      "kana": "ノート",
+      "romaji": ["nooto"],
+      "meaningsZh": ["笔记本"],
+      "pos": "noun",
+      "tags": ["daily-item", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-nooto-1",
+          "ja": "辞書でノートを引いた。",
+          "kana": "じしょでのーとをひいた。",
+          "zh": "在字典里查了笔记本。",
+          "targetSurface": "ノート",
+          "targetKana": "のーと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-ofuro",
+      "type": "word",
+      "surface": "お風呂",
+      "kana": "おふろ",
+      "romaji": ["ofuro", "ohuro"],
+      "meaningsZh": ["浴室", "澡"],
+      "pos": "noun",
+      "tags": ["home"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ofuro-1",
+          "ja": "辞書でお風呂を引いた。",
+          "kana": "じしょでおふろをひいた。",
+          "zh": "在字典里查了浴室。",
+          "targetSurface": "お風呂",
+          "targetKana": "おふろ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-okane",
+      "type": "word",
+      "surface": "お金",
+      "kana": "おかね",
+      "romaji": ["okane"],
+      "meaningsZh": ["钱"],
+      "pos": "noun",
+      "tags": ["daily-item"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-okane-1",
+          "ja": "お金を貯めて旅行に行く。",
+          "kana": "おかねをためてりょこうにいく。",
+          "zh": "存钱去旅行。",
+          "targetSurface": "お金",
+          "targetKana": "おかね"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-oku",
+      "type": "word",
+      "surface": "置く",
+      "kana": "おく",
+      "romaji": ["oku"],
+      "meaningsZh": ["放置"],
+      "pos": "verb",
+      "tags": ["home", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-oku-1",
+          "ja": "カバンを椅子の上に置く。",
+          "kana": "カバンをいすのうえにおく。",
+          "zh": "把包放在椅子上。",
+          "targetSurface": "置く",
+          "targetKana": "おく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-osu",
+      "type": "word",
+      "surface": "押す",
+      "kana": "おす",
+      "romaji": ["osu"],
+      "meaningsZh": ["按", "推"],
+      "pos": "verb",
+      "tags": ["home", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-osu-1",
+          "ja": "ボタンを強く押してください。",
+          "kana": "ボタンをつよくおしてください。",
+          "zh": "请用力按按钮。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-pasokon",
+      "type": "word",
+      "surface": "パソコン",
+      "kana": "パソコン",
+      "romaji": ["pasokon"],
+      "meaningsZh": ["电脑"],
+      "pos": "noun",
+      "tags": ["appliance", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-pasokon-1",
+          "ja": "パソコンが壊れたので修理に出した。",
+          "kana": "ぱそこんがこわれたのでしゅうりにだした。",
+          "zh": "电脑坏了拿去修了。",
+          "targetSurface": "パソコン",
+          "targetKana": "ぱそこん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-pen",
+      "type": "word",
+      "surface": "ペン",
+      "kana": "ペン",
+      "romaji": ["pen"],
+      "meaningsZh": ["笔"],
+      "pos": "noun",
+      "tags": ["daily-item", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-pen-1",
+          "ja": "「ペン」という言葉の意味を確認する。",
+          "kana": "「ペン」ということばのいみをかくにんする。",
+          "zh": "确认「ペン」（笔）这个词的含义。",
+          "targetSurface": "ペン"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-pinku",
+      "type": "word",
+      "surface": "ピンク",
+      "kana": "ピンク",
+      "romaji": ["pinku"],
+      "meaningsZh": ["粉色"],
+      "pos": "noun",
+      "tags": ["color", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-pinku-1",
+          "ja": "辞書でピンクを引いた。",
+          "kana": "じしょでぴんくをひいた。",
+          "zh": "在字典里查了粉色。",
+          "targetSurface": "ピンク",
+          "targetKana": "ぴんく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ryokou",
+      "type": "word",
+      "surface": "旅行",
+      "kana": "りょこう",
+      "romaji": ["ryokou"],
+      "meaningsZh": ["旅行"],
+      "pos": "noun",
+      "tags": ["chore", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ryokou-1",
+          "ja": "「旅行」という言葉の意味を確認する。",
+          "kana": "「旅行」ということばのいみをかくにんする。",
+          "zh": "确认「旅行」（旅行）这个词的含义。",
+          "targetSurface": "旅行"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-ryouri",
+      "type": "word",
+      "surface": "料理",
+      "kana": "りょうり",
+      "romaji": ["ryouri"],
+      "meaningsZh": ["做饭", "菜"],
+      "pos": "noun",
+      "tags": ["chore", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ryouri-1",
+          "ja": "料理について説明する。",
+          "kana": "りょうりについてせつめいする。",
+          "zh": "对做饭进行说明。",
+          "targetSurface": "料理",
+          "targetKana": "りょうり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-saifu",
+      "type": "word",
+      "surface": "財布",
+      "kana": "さいふ",
+      "romaji": ["saifu", "saihu"],
+      "meaningsZh": ["钱包"],
+      "pos": "noun",
+      "tags": ["daily-item"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-saifu-1",
+          "ja": "財布をテーブルに置く。",
+          "kana": "さいふをテーブルにおく。",
+          "zh": "把钱包放在桌上。",
+          "targetSurface": "財布",
+          "targetKana": "さいふ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sanpo",
+      "type": "word",
+      "surface": "散歩",
+      "kana": "さんぽ",
+      "romaji": ["sanpo"],
+      "meaningsZh": ["散步"],
+      "pos": "noun",
+      "tags": ["chore"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sanpo-1",
+          "ja": "辞書で散歩を引いた。",
+          "kana": "じしょでさんぽをひいた。",
+          "zh": "在字典里查了散步。",
+          "targetSurface": "散歩",
+          "targetKana": "さんぽ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sentaku",
+      "type": "word",
+      "surface": "洗濯",
+      "kana": "せんたく",
+      "romaji": ["sentaku"],
+      "meaningsZh": ["洗衣服"],
+      "pos": "noun",
+      "tags": ["chore"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sentaku-1",
+          "ja": "辞書で洗濯を引いた。",
+          "kana": "じしょでせんたくをひいた。",
+          "zh": "在字典里查了洗衣服。",
+          "targetSurface": "洗濯",
+          "targetKana": "せんたく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shanpuu",
+      "type": "word",
+      "surface": "シャンプー",
+      "kana": "シャンプー",
+      "romaji": ["shanpuu"],
+      "meaningsZh": ["洗发水"],
+      "pos": "noun",
+      "tags": ["daily-item", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shanpuu-1",
+          "ja": "「シャンプー」という言葉の意味を確認する。",
+          "kana": "「シャンプー」ということばのいみをかくにんする。",
+          "zh": "确认「シャンプー」（洗发水）这个词的含义。",
+          "targetSurface": "シャンプー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-shashin",
+      "type": "word",
+      "surface": "写真",
+      "kana": "しゃしん",
+      "romaji": ["shashin", "syasin"],
+      "meaningsZh": ["照片"],
+      "pos": "noun",
+      "tags": ["daily-item", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shashin-1",
+          "ja": "辞書で写真を引いた。",
+          "kana": "じしょでしゃしんをひいた。",
+          "zh": "在字典里查了照片。",
+          "targetSurface": "写真",
+          "targetKana": "しゃしん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shatsu",
+      "type": "word",
+      "surface": "シャツ",
+      "kana": "シャツ",
+      "romaji": ["shatsu", "syatu"],
+      "meaningsZh": ["衬衫"],
+      "pos": "noun",
+      "tags": ["clothes", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shatsu-1",
+          "ja": "新しいシャツを試着した。",
+          "kana": "あたらしいしゃつをしちゃくした。",
+          "zh": "试穿了新衬衫。",
+          "targetSurface": "シャツ",
+          "targetKana": "しゃつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shawaa",
+      "type": "word",
+      "surface": "シャワー",
+      "kana": "シャワー",
+      "romaji": ["shawaa"],
+      "meaningsZh": ["淋浴"],
+      "pos": "noun",
+      "tags": ["home", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-shawaa-1",
+          "ja": "シャワーについて説明する。",
+          "kana": "しゃわーについてせつめいする。",
+          "zh": "对淋浴进行说明。",
+          "targetSurface": "シャワー",
+          "targetKana": "しゃわー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-shigoto",
+      "type": "word",
+      "surface": "仕事",
+      "kana": "しごと",
+      "romaji": ["shigoto", "sigoto"],
+      "meaningsZh": ["工作"],
+      "pos": "noun",
+      "tags": ["chore"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shigoto-1",
+          "ja": "「仕事」という言葉の意味を確認する。",
+          "kana": "「仕事」ということばのいみをかくにんする。",
+          "zh": "确认「仕事」（工作）这个词的含义。",
+          "targetSurface": "仕事"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shiro",
+      "type": "word",
+      "surface": "白",
+      "kana": "しろ",
+      "romaji": ["shiro", "siro"],
+      "meaningsZh": ["白"],
+      "pos": "noun",
+      "tags": ["color"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shiro-1",
+          "ja": "「白」は「しろ」と読む。",
+          "kana": "「白」は「しろ」とよむ。",
+          "zh": "「白」读作「しろ」，意思是白。",
+          "targetSurface": "白",
+          "targetKana": "しろ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-souji",
+      "type": "word",
+      "surface": "掃除",
+      "kana": "そうじ",
+      "romaji": ["souji"],
+      "meaningsZh": ["打扫"],
+      "pos": "noun",
+      "tags": ["chore", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-souji-1",
+          "ja": "掃除について説明する。",
+          "kana": "そうじについてせつめいする。",
+          "zh": "对打扫进行说明。",
+          "targetSurface": "掃除",
+          "targetKana": "そうじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-sukaato",
+      "type": "word",
+      "surface": "スカート",
+      "kana": "スカート",
+      "romaji": ["sukaato"],
+      "meaningsZh": ["裙子"],
+      "pos": "noun",
+      "tags": ["clothes", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-sukaato-1",
+          "ja": "新しいスカートを試着した。",
+          "kana": "あたらしいすかーとをしちゃくした。",
+          "zh": "试穿了新裙子。",
+          "targetSurface": "スカート",
+          "targetKana": "すかーと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-suteru",
+      "type": "word",
+      "surface": "捨てる",
+      "kana": "すてる",
+      "romaji": ["suteru"],
+      "meaningsZh": ["扔掉"],
+      "pos": "verb",
+      "tags": ["cleaning", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-suteru-1",
+          "ja": "ゴミは月曜日に捨てる。",
+          "kana": "ゴミはげつようびにすてる。",
+          "zh": "垃圾在星期一扔。",
+          "targetSurface": "捨てる",
+          "targetKana": "すてる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-teeburu",
+      "type": "word",
+      "surface": "テーブル",
+      "kana": "テーブル",
+      "romaji": ["teeburu"],
+      "meaningsZh": ["桌子"],
+      "pos": "noun",
+      "tags": ["furniture", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-teeburu-1",
+          "ja": "テーブルの上を片付ける。",
+          "kana": "テーブルのうえをかたづける。",
+          "zh": "整理桌上。",
+          "targetSurface": "テーブル"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-terebi",
+      "type": "word",
+      "surface": "テレビ",
+      "kana": "テレビ",
+      "romaji": ["terebi"],
+      "meaningsZh": ["电视"],
+      "pos": "noun",
+      "tags": ["appliance", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-terebi-1",
+          "ja": "古いテレビを新しいものに買い替えた。",
+          "kana": "ふるいてれびをあたらしいものにかいかえた。",
+          "zh": "把旧的电视换成新的了。",
+          "targetSurface": "テレビ",
+          "targetKana": "てれび"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-toire",
+      "type": "word",
+      "surface": "トイレ",
+      "kana": "トイレ",
+      "romaji": ["toire"],
+      "meaningsZh": ["厕所"],
+      "pos": "noun",
+      "tags": ["home", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-toire-1",
+          "ja": "トイレを掃除する。",
+          "kana": "といれをそうじする。",
+          "zh": "打扫厕所。",
+          "targetSurface": "トイレ",
+          "targetKana": "といれ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tokei",
+      "type": "word",
+      "surface": "時計",
+      "kana": "とけい",
+      "romaji": ["tokei"],
+      "meaningsZh": ["钟表"],
+      "pos": "noun",
+      "tags": ["clothes"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tokei-1",
+          "ja": "壁の時計が止まった。",
+          "kana": "かべのとけいがとまった。",
+          "zh": "墙上的钟停了。",
+          "targetSurface": "時計",
+          "targetKana": "とけい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tsukeru",
+      "type": "word",
+      "surface": "つける",
+      "kana": "つける",
+      "romaji": ["tsukeru"],
+      "meaningsZh": ["打开", "点上"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsukeru-1",
+          "ja": "部屋が暗いので電気をつける。",
+          "kana": "へやがくらいのででんきをつける。",
+          "zh": "房间太暗，所以开灯。",
+          "targetSurface": "つける",
+          "targetKana": "つける"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tsukue",
+      "type": "word",
+      "surface": "机",
+      "kana": "つくえ",
+      "romaji": ["tsukue", "tukue"],
+      "meaningsZh": ["书桌"],
+      "pos": "noun",
+      "tags": ["furniture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsukue-1",
+          "ja": "机の上に本がある。",
+          "kana": "つくえのうえにほんがある。",
+          "zh": "桌子上有书。",
+          "targetSurface": "机",
+          "targetKana": "つくえ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-undou",
+      "type": "word",
+      "surface": "運動",
+      "kana": "うんどう",
+      "romaji": ["undou"],
+      "meaningsZh": ["运动"],
+      "pos": "noun",
+      "tags": ["chore", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-undou-1",
+          "ja": "辞書で運動を引いた。",
+          "kana": "じしょでうんどうをひいた。",
+          "zh": "在字典里查了运动。",
+          "targetSurface": "運動",
+          "targetKana": "うんどう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-yasumu",
+      "type": "word",
+      "surface": "休む",
+      "kana": "やすむ",
+      "romaji": ["yasumu"],
+      "meaningsZh": ["休息"],
+      "pos": "noun",
+      "tags": ["chore"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yasumu-1",
+          "ja": "休むについて説明する。",
+          "kana": "やすむについてせつめいする。",
+          "zh": "对休息进行说明。",
+          "targetSurface": "休む",
+          "targetKana": "やすむ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-zasshi",
+      "type": "word",
+      "surface": "雑誌",
+      "kana": "ざっし",
+      "romaji": ["zasshi", "zassi"],
+      "meaningsZh": ["杂志"],
+      "pos": "noun",
+      "tags": ["daily-item", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-zasshi-1",
+          "ja": "雑誌について説明する。",
+          "kana": "ざっしについてせつめいする。",
+          "zh": "对杂志进行说明。",
+          "targetSurface": "雑誌",
+          "targetKana": "ざっし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-zubon",
+      "type": "word",
+      "surface": "ズボン",
+      "kana": "ズボン",
+      "romaji": ["zubon"],
+      "meaningsZh": ["裤子"],
+      "pos": "noun",
+      "tags": ["clothes", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-zubon-1",
+          "ja": "新しいズボンを試着した。",
+          "kana": "あたらしいずぼんをしちゃくした。",
+          "zh": "试穿了新裤子。",
+          "targetSurface": "ズボン",
+          "targetKana": "ずぼん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    }
+  ]
+}

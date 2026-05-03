@@ -1,0 +1,3718 @@
+{
+  "id": "official-phase1-transport-travel",
+  "name": "第一阶段：交通工具与出行",
+  "version": "1.1.0",
+  "items": [
+    {
+      "id": "word-amidana",
+      "type": "word",
+      "surface": "網棚",
+      "kana": "あみだな",
+      "romaji": ["amidana"],
+      "meaningsZh": ["行李架"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-amidana-1",
+          "ja": "「網棚」という言葉の意味を確認する。",
+          "kana": "「網棚」ということばのいみをかくにんする。",
+          "zh": "确认「網棚」（行李架）这个词的含义。",
+          "targetSurface": "網棚"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-azukenimotsu",
+      "type": "word",
+      "surface": "預け荷物",
+      "kana": "あずけにもつ",
+      "romaji": ["azukenimotsu"],
+      "meaningsZh": ["托运行李"],
+      "pos": "noun",
+      "tags": ["airport"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-azukenimotsu-1",
+          "ja": "駅の預け荷物で待ち合わせる。",
+          "kana": "えきのあずけにもつでまちあわせる。",
+          "zh": "在车站的托运行李碰头。",
+          "targetSurface": "預け荷物",
+          "targetKana": "あずけにもつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-bansen",
+      "type": "word",
+      "surface": "番線",
+      "kana": "ばんせん",
+      "romaji": ["bansen"],
+      "meaningsZh": ["几号站台", "线路"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-bansen-1",
+          "ja": "駅の番線で待ち合わせる。",
+          "kana": "えきのばんせんでまちあわせる。",
+          "zh": "在车站的几号站台碰头。",
+          "targetSurface": "番線",
+          "targetKana": "ばんせん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-chien",
+      "type": "word",
+      "surface": "遅延",
+      "kana": "ちえん",
+      "romaji": ["chien"],
+      "meaningsZh": ["延误"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-chien-1",
+          "ja": "事故で電車が遅延している。",
+          "kana": "じこででんしゃがちえんしている。",
+          "zh": "因事故，电车晚点。",
+          "targetSurface": "遅延",
+          "targetKana": "ちえん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-chienshoumeisho",
+      "type": "word",
+      "surface": "遅延証明書",
+      "kana": "ちえんしょうめいしょ",
+      "romaji": ["chienshoumeisho"],
+      "meaningsZh": ["延误证明"],
+      "pos": "noun",
+      "tags": ["transport", "document"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-chienshoumeisho-1",
+          "ja": "辞書で遅延証明書を引いた。",
+          "kana": "じしょでちえんしょうめいしょをひいた。",
+          "zh": "在字典里查了延误证明。",
+          "targetSurface": "遅延証明書",
+          "targetKana": "ちえんしょうめいしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-chokushin",
+      "type": "word",
+      "surface": "直進",
+      "kana": "ちょくしん",
+      "romaji": ["chokushin"],
+      "meaningsZh": ["直行"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-chokushin-1",
+          "ja": "辞書で直進を引いた。",
+          "kana": "じしょでちょくしんをひいた。",
+          "zh": "在字典里查了直行。",
+          "targetSurface": "直進",
+          "targetKana": "ちょくしん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-fumikiri",
+      "type": "word",
+      "surface": "踏切",
+      "kana": "ふみきり",
+      "romaji": ["fumikiri"],
+      "meaningsZh": ["铁路道口"],
+      "pos": "noun",
+      "tags": ["road"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-fumikiri-1",
+          "ja": "辞書で踏切を引いた。",
+          "kana": "じしょでふみきりをひいた。",
+          "zh": "在字典里查了铁路道口。",
+          "targetSurface": "踏切",
+          "targetKana": "ふみきり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-gesha",
+      "type": "word",
+      "surface": "下車",
+      "kana": "げしゃ",
+      "romaji": ["gesha"],
+      "meaningsZh": ["下车"],
+      "pos": "noun",
+      "tags": ["transport", "ticket"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-gesha-1",
+          "ja": "「下車」という言葉の意味を確認する。",
+          "kana": "「下車」ということばのいみをかくにんする。",
+          "zh": "确认「下車」（下车）这个词的含义。",
+          "targetSurface": "下車"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-guriinsha",
+      "type": "word",
+      "surface": "グリーン車",
+      "kana": "ぐりーんしゃ",
+      "romaji": ["guriinsha"],
+      "meaningsZh": ["绿色车厢", "一等车厢"],
+      "pos": "noun",
+      "tags": ["ticket", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-guriinsha-1",
+          "ja": "「グリーン車」という言葉の意味を確認する。",
+          "kana": "「グリーン車」ということばのいみをかくにんする。",
+          "zh": "确认「グリーン車」（绿色车厢）这个词的含义。",
+          "targetSurface": "グリーン車"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-hassha",
+      "type": "word",
+      "surface": "発車",
+      "kana": "はっしゃ",
+      "romaji": ["hassha"],
+      "meaningsZh": ["发车"],
+      "pos": "noun",
+      "tags": ["station", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hassha-1",
+          "ja": "駅の発車で待ち合わせる。",
+          "kana": "えきのはっしゃでまちあわせる。",
+          "zh": "在车站的发车碰头。",
+          "targetSurface": "発車",
+          "targetKana": "はっしゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-hoankensa",
+      "type": "word",
+      "surface": "保安検査",
+      "kana": "ほあんけんさ",
+      "romaji": ["hoankensa"],
+      "meaningsZh": ["安检"],
+      "pos": "noun",
+      "tags": ["airport"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hoankensa-1",
+          "ja": "保安検査まで案内します。",
+          "kana": "ほあんけんさまであんないします。",
+          "zh": "我带您到安检。",
+          "targetSurface": "保安検査",
+          "targetKana": "ほあんけんさ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hoomudoa",
+      "type": "word",
+      "surface": "ホームドア",
+      "kana": "ホームドア",
+      "romaji": ["hoomudoa"],
+      "meaningsZh": ["站台屏蔽门"],
+      "pos": "noun",
+      "tags": ["station", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hoomudoa-1",
+          "ja": "ホームドアまで案内します。",
+          "kana": "ほーむどあまであんないします。",
+          "zh": "我带您到站台屏蔽门。",
+          "targetSurface": "ホームドア",
+          "targetKana": "ほーむどあ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-ippoutsuukou",
+      "type": "word",
+      "surface": "一方通行",
+      "kana": "いっぽうつうこう",
+      "romaji": ["ippoutsuukou"],
+      "meaningsZh": ["单行道"],
+      "pos": "noun",
+      "tags": ["road", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ippoutsuukou-1",
+          "ja": "「一方通行」という言葉の意味を確認する。",
+          "kana": "「一方通行」ということばのいみをかくにんする。",
+          "zh": "确认「一方通行」（单行道）这个词的含义。",
+          "targetSurface": "一方通行"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-jiyuuseki",
+      "type": "word",
+      "surface": "自由席",
+      "kana": "じゆうせき",
+      "romaji": ["jiyuuseki"],
+      "meaningsZh": ["自由席"],
+      "pos": "noun",
+      "tags": ["ticket"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-jiyuuseki-1",
+          "ja": "自由席は混んでいた。",
+          "kana": "じゆうせきはこんでいた。",
+          "zh": "自由席很拥挤。",
+          "targetSurface": "自由席",
+          "targetKana": "じゆうせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-joseisenyousha",
+      "type": "word",
+      "surface": "女性専用車",
+      "kana": "じょせいせんようしゃ",
+      "romaji": ["joseisen'yousha"],
+      "meaningsZh": ["女性专用车厢"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-joseisenyousha-1",
+          "ja": "女性専用車について説明する。",
+          "kana": "じょせいせんようしゃについてせつめいする。",
+          "zh": "对女性专用车厢进行说明。",
+          "targetSurface": "女性専用車",
+          "targetKana": "じょせいせんようしゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-jousha",
+      "type": "word",
+      "surface": "乗車",
+      "kana": "じょうしゃ",
+      "romaji": ["jousha"],
+      "meaningsZh": ["乘车"],
+      "pos": "noun",
+      "tags": ["transport", "ticket"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-jousha-1",
+          "ja": "「乗車」という言葉の意味を確認する。",
+          "kana": "「乗車」ということばのいみをかくにんする。",
+          "zh": "确认「乗車」（乘车）这个词的含义。",
+          "targetSurface": "乗車"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-joushaken",
+      "type": "word",
+      "surface": "乗車券",
+      "kana": "じょうしゃけん",
+      "romaji": ["joushaken"],
+      "meaningsZh": ["乘车券"],
+      "pos": "noun",
+      "tags": ["ticket"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-joushaken-1",
+          "ja": "辞書で乗車券を引いた。",
+          "kana": "じしょでじょうしゃけんをひいた。",
+          "zh": "在字典里查了乘车券。",
+          "targetSurface": "乗車券",
+          "targetKana": "じょうしゃけん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-junkyuu",
+      "type": "word",
+      "surface": "準急",
+      "kana": "じゅんきゅう",
+      "romaji": ["junkyuu"],
+      "meaningsZh": ["准急"],
+      "pos": "noun",
+      "tags": ["train-type"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-junkyuu-1",
+          "ja": "辞書で準急を引いた。",
+          "kana": "じしょでじゅんきゅうをひいた。",
+          "zh": "在字典里查了准急。",
+          "targetSurface": "準急",
+          "targetKana": "じゅんきゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-juutai",
+      "type": "word",
+      "surface": "渋滞",
+      "kana": "じゅうたい",
+      "romaji": ["juutai"],
+      "meaningsZh": ["堵车"],
+      "pos": "noun",
+      "tags": ["road"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-juutai-1",
+          "ja": "辞書で渋滞を引いた。",
+          "kana": "じしょでじゅうたいをひいた。",
+          "zh": "在字典里查了堵车。",
+          "targetSurface": "渋滞",
+          "targetKana": "じゅうたい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kaisatsu",
+      "type": "word",
+      "surface": "改札",
+      "kana": "かいさつ",
+      "romaji": ["kaisatsu", "kaisatu"],
+      "meaningsZh": ["检票口"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaisatsu-1",
+          "ja": "改札を出てすぐ右に進む。",
+          "kana": "かいさつをでてすぐみぎにすすむ。",
+          "zh": "出了检票口立刻往右走。",
+          "targetSurface": "改札",
+          "targetKana": "かいさつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kaisatsuguchi",
+      "type": "word",
+      "surface": "改札口",
+      "kana": "かいさつぐち",
+      "romaji": ["kaisatsuguchi"],
+      "meaningsZh": ["检票口"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaisatsuguchi-1",
+          "ja": "改札口まで案内します。",
+          "kana": "かいさつぐちまであんないします。",
+          "zh": "我带您到检票口。",
+          "targetSurface": "改札口",
+          "targetKana": "かいさつぐち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kaisoku",
+      "type": "word",
+      "surface": "快速",
+      "kana": "かいそく",
+      "romaji": ["kaisoku"],
+      "meaningsZh": ["快速"],
+      "pos": "noun",
+      "tags": ["train-type"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaisoku-1",
+          "ja": "辞書で快速を引いた。",
+          "kana": "じしょでかいそくをひいた。",
+          "zh": "在字典里查了快速。",
+          "targetSurface": "快速",
+          "targetKana": "かいそく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kaisuuken",
+      "type": "word",
+      "surface": "回数券",
+      "kana": "かいすうけん",
+      "romaji": ["kaisuuken"],
+      "meaningsZh": ["回数券"],
+      "pos": "noun",
+      "tags": ["ticket"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaisuuken-1",
+          "ja": "回数券について説明する。",
+          "kana": "かいすうけんについてせつめいする。",
+          "zh": "对回数券进行说明。",
+          "targetSurface": "回数券",
+          "targetKana": "かいすうけん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kakuekiteisha",
+      "type": "word",
+      "surface": "各駅停車",
+      "kana": "かくえきていしゃ",
+      "romaji": ["kakuekiteisha"],
+      "meaningsZh": ["各站停车"],
+      "pos": "noun",
+      "tags": ["train-type"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kakuekiteisha-1",
+          "ja": "辞書で各駅停車を引いた。",
+          "kana": "じしょでかくえきていしゃをひいた。",
+          "zh": "在字典里查了各站停车。",
+          "targetSurface": "各駅停車",
+          "targetKana": "かくえきていしゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kankou",
+      "type": "word",
+      "surface": "観光",
+      "kana": "かんこう",
+      "romaji": ["kankou"],
+      "meaningsZh": ["观光"],
+      "pos": "noun",
+      "tags": ["travel", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kankou-1",
+          "ja": "辞書で観光を引いた。",
+          "kana": "じしょでかんこうをひいた。",
+          "zh": "在字典里查了观光。",
+          "targetSurface": "観光",
+          "targetKana": "かんこう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kenbaiki",
+      "type": "word",
+      "surface": "券売機",
+      "kana": "けんばいき",
+      "romaji": ["kenbaiki"],
+      "meaningsZh": ["售票机"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kenbaiki-1",
+          "ja": "券売機まで案内します。",
+          "kana": "けんばいきまであんないします。",
+          "zh": "我带您到售票机。",
+          "targetSurface": "券売機",
+          "targetKana": "けんばいき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-koukuuken",
+      "type": "word",
+      "surface": "航空券",
+      "kana": "こうくうけん",
+      "romaji": ["koukuuken"],
+      "meaningsZh": ["机票"],
+      "pos": "noun",
+      "tags": ["airport"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-koukuuken-1",
+          "ja": "航空券まで案内します。",
+          "kana": "こうくうけんまであんないします。",
+          "zh": "我带您到机票。",
+          "targetSurface": "航空券",
+          "targetKana": "こうくうけん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kousokudouro",
+      "type": "word",
+      "surface": "高速道路",
+      "kana": "こうそくどうろ",
+      "romaji": ["kousokudouro"],
+      "meaningsZh": ["高速公路"],
+      "pos": "noun",
+      "tags": ["road", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kousokudouro-1",
+          "ja": "高速道路について説明する。",
+          "kana": "こうそくどうろについてせつめいする。",
+          "zh": "对高速公路进行说明。",
+          "targetSurface": "高速道路",
+          "targetKana": "こうそくどうろ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-koutsuujouhou",
+      "type": "word",
+      "surface": "交通情報",
+      "kana": "こうつうじょうほう",
+      "romaji": ["koutsuujouhou"],
+      "meaningsZh": ["交通信息"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-koutsuujouhou-1",
+          "ja": "交通情報について説明する。",
+          "kana": "こうつうじょうほうについてせつめいする。",
+          "zh": "对交通信息进行说明。",
+          "targetSurface": "交通情報",
+          "targetKana": "こうつうじょうほう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-koutsuukeiaishiikaado",
+      "type": "word",
+      "surface": "交通系ICカード",
+      "kana": "こうつうけいあいしーかーど",
+      "romaji": ["koutsuukeiaishiikaado"],
+      "meaningsZh": ["交通 IC 卡"],
+      "pos": "noun",
+      "tags": ["ticket", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-koutsuukeiaishiikaado-1",
+          "ja": "辞書で交通系ICカードを引いた。",
+          "kana": "じしょでこうつうけいあいしーかーどをひいた。",
+          "zh": "在字典里查了交通 IC 卡。",
+          "targetSurface": "交通系ICカード",
+          "targetKana": "こうつうけいあいしーかーど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kyuukyuusha",
+      "type": "word",
+      "surface": "救急車",
+      "kana": "きゅうきゅうしゃ",
+      "romaji": ["kyuukyuusha", "kyuukyuusya"],
+      "meaningsZh": ["救护车"],
+      "pos": "noun",
+      "tags": ["transport", "long-vowel", "youon", "emergency"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-kyuukyuusha-1",
+          "ja": "「救急車」という言葉の意味を確認する。",
+          "kana": "「救急車」ということばのいみをかくにんする。",
+          "zh": "确认「救急車」（救护车）这个词的含义。",
+          "targetSurface": "救急車"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-monoreeru",
+      "type": "word",
+      "surface": "モノレール",
+      "kana": "モノレール",
+      "romaji": ["monoreeru"],
+      "meaningsZh": ["单轨电车"],
+      "pos": "noun",
+      "tags": ["transport", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-monoreeru-1",
+          "ja": "モノレールで会社に通っている。",
+          "kana": "ものれーるでかいしゃにかよっている。",
+          "zh": "坐单轨电车上下班。",
+          "targetSurface": "モノレール",
+          "targetKana": "ものれーる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-norikaeannai",
+      "type": "word",
+      "surface": "乗換案内",
+      "kana": "のりかえあんない",
+      "romaji": ["norikaeannai"],
+      "meaningsZh": ["换乘指南"],
+      "pos": "noun",
+      "tags": ["transport", "digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-norikaeannai-1",
+          "ja": "辞書で乗換案内を引いた。",
+          "kana": "じしょでのりかえあんないをひいた。",
+          "zh": "在字典里查了换乘指南。",
+          "targetSurface": "乗換案内",
+          "targetKana": "のりかえあんない"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-norisugosu",
+      "type": "word",
+      "surface": "乗り過ごす",
+      "kana": "のりすごす",
+      "romaji": ["norisugosu"],
+      "meaningsZh": ["坐过站"],
+      "pos": "verb",
+      "tags": ["transport", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-norisugosu-1",
+          "ja": "うっかり一駅乗り過ごした。",
+          "kana": "うっかりひとえきのりすごした。",
+          "zh": "不小心坐过了一站。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-nyuukokushinsa",
+      "type": "word",
+      "surface": "入国審査",
+      "kana": "にゅうこくしんさ",
+      "romaji": ["nyuukokushinsa"],
+      "meaningsZh": ["入境审查"],
+      "pos": "noun",
+      "tags": ["airport"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nyuukokushinsa-1",
+          "ja": "駅の入国審査で待ち合わせる。",
+          "kana": "えきのにゅうこくしんさでまちあわせる。",
+          "zh": "在车站的入境审查碰头。",
+          "targetSurface": "入国審査",
+          "targetKana": "にゅうこくしんさ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-orisokoneru",
+      "type": "word",
+      "surface": "降り損ねる",
+      "kana": "おりそこねる",
+      "romaji": ["orisokoneru"],
+      "meaningsZh": ["错过下车"],
+      "pos": "verb",
+      "tags": ["transport", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-orisokoneru-1",
+          "ja": "降り損ねるのは難しい。",
+          "kana": "おりそこねるのはむずかしい。",
+          "zh": "错过下车很难。",
+          "targetSurface": "降り損ねる",
+          "targetKana": "おりそこねる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-rokkaa",
+      "type": "word",
+      "surface": "ロッカー",
+      "kana": "ロッカー",
+      "romaji": ["rokkaa"],
+      "meaningsZh": ["储物柜"],
+      "pos": "noun",
+      "tags": ["station", "katakana", "sokuon", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-rokkaa-1",
+          "ja": "駅のロッカーで待ち合わせる。",
+          "kana": "えきのろっかーでまちあわせる。",
+          "zh": "在车站的储物柜碰头。",
+          "targetSurface": "ロッカー",
+          "targetKana": "ろっかー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error", "sokuon-error"]
+    },
+    {
+      "id": "word-sasetsu",
+      "type": "word",
+      "surface": "左折",
+      "kana": "させつ",
+      "romaji": ["sasetsu"],
+      "meaningsZh": ["左转"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sasetsu-1",
+          "ja": "左折について説明する。",
+          "kana": "させつについてせつめいする。",
+          "zh": "对左转进行说明。",
+          "targetSurface": "左折",
+          "targetKana": "させつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-seisanki",
+      "type": "word",
+      "surface": "精算機",
+      "kana": "せいさんき",
+      "romaji": ["seisanki"],
+      "meaningsZh": ["补票", "结算机"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-seisanki-1",
+          "ja": "精算機まで案内します。",
+          "kana": "せいさんきまであんないします。",
+          "zh": "我带您到补票。",
+          "targetSurface": "精算機",
+          "targetKana": "せいさんき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-sentousharyou",
+      "type": "word",
+      "surface": "先頭車両",
+      "kana": "せんとうしゃりょう",
+      "romaji": ["sentousharyou"],
+      "meaningsZh": ["头部车厢"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-sentousharyou-1",
+          "ja": "「先頭車両」という言葉の意味を確認する。",
+          "kana": "「先頭車両」ということばのいみをかくにんする。",
+          "zh": "确认「先頭車両」（头部车厢）这个词的含义。",
+          "targetSurface": "先頭車両"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-sharyou",
+      "type": "word",
+      "surface": "車両",
+      "kana": "しゃりょう",
+      "romaji": ["sharyou"],
+      "meaningsZh": ["车辆"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-sharyou-1",
+          "ja": "辞書で車両を引いた。",
+          "kana": "じしょでしゃりょうをひいた。",
+          "zh": "在字典里查了车辆。",
+          "targetSurface": "車両",
+          "targetKana": "しゃりょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shashou",
+      "type": "word",
+      "surface": "車掌",
+      "kana": "しゃしょう",
+      "romaji": ["shashou"],
+      "meaningsZh": ["列车员"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shashou-1",
+          "ja": "車掌について説明する。",
+          "kana": "しゃしょうについてせつめいする。",
+          "zh": "对列车员进行说明。",
+          "targetSurface": "車掌",
+          "targetKana": "しゃしょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shihatsu",
+      "type": "word",
+      "surface": "始発",
+      "kana": "しはつ",
+      "romaji": ["shihatsu", "sihatu"],
+      "meaningsZh": ["首班车"],
+      "pos": "noun",
+      "tags": ["train-type"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shihatsu-1",
+          "ja": "始発について説明する。",
+          "kana": "しはつについてせつめいする。",
+          "zh": "对首班车进行说明。",
+          "targetSurface": "始発",
+          "targetKana": "しはつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shiteiseki",
+      "type": "word",
+      "surface": "指定席",
+      "kana": "していせき",
+      "romaji": ["shiteiseki"],
+      "meaningsZh": ["指定席"],
+      "pos": "noun",
+      "tags": ["ticket"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shiteiseki-1",
+          "ja": "新幹線の指定席を予約した。",
+          "kana": "しんかんせんのしていせきをよやくした。",
+          "zh": "预定了新干线的指定席。",
+          "targetSurface": "指定席",
+          "targetKana": "していせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shoubousha",
+      "type": "word",
+      "surface": "消防車",
+      "kana": "しょうぼうしゃ",
+      "romaji": ["shoubousha", "syoubousya"],
+      "meaningsZh": ["消防车"],
+      "pos": "noun",
+      "tags": ["transport", "long-vowel", "youon", "emergency"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-shoubousha-1",
+          "ja": "辞書で消防車を引いた。",
+          "kana": "じしょでしょうぼうしゃをひいた。",
+          "zh": "在字典里查了消防车。",
+          "targetSurface": "消防車",
+          "targetKana": "しょうぼうしゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-shuppatsurobii",
+      "type": "word",
+      "surface": "出発ロビー",
+      "kana": "しゅっぱつろびー",
+      "romaji": ["shuppatsurobii"],
+      "meaningsZh": ["出发大厅"],
+      "pos": "noun",
+      "tags": ["airport", "katakana", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-shuppatsurobii-1",
+          "ja": "出発ロビーまで案内します。",
+          "kana": "しゅっぱつろびーまであんないします。",
+          "zh": "我带您到出发大厅。",
+          "targetSurface": "出発ロビー",
+          "targetKana": "しゅっぱつろびー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-shuuden",
+      "type": "word",
+      "surface": "終電",
+      "kana": "しゅうでん",
+      "romaji": ["shuuden", "syuuden"],
+      "meaningsZh": ["末班车"],
+      "pos": "noun",
+      "tags": ["train-type", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shuuden-1",
+          "ja": "終電を逃してタクシーで帰った。",
+          "kana": "しゅうでんをのがしてタクシーでかえった。",
+          "zh": "错过末班车，打车回家。",
+          "targetSurface": "終電",
+          "targetKana": "しゅうでん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-teikiken",
+      "type": "word",
+      "surface": "定期券",
+      "kana": "ていきけん",
+      "romaji": ["teikiken"],
+      "meaningsZh": ["月票", "定期券"],
+      "pos": "noun",
+      "tags": ["ticket"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-teikiken-1",
+          "ja": "通学のために定期券を買う。",
+          "kana": "つうがくのためにていきけんをかう。",
+          "zh": "为了上学买月票。",
+          "targetSurface": "定期券",
+          "targetKana": "ていきけん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-temae",
+      "type": "word",
+      "surface": "手前",
+      "kana": "てまえ",
+      "romaji": ["temae"],
+      "meaningsZh": ["跟前"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-temae-1",
+          "ja": "「手前」という言葉の意味を確認する。",
+          "kana": "「手前」ということばのいみをかくにんする。",
+          "zh": "确认「手前」（跟前）这个词的含义。",
+          "targetSurface": "手前"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tenimotsu",
+      "type": "word",
+      "surface": "手荷物",
+      "kana": "てにもつ",
+      "romaji": ["tenimotsu"],
+      "meaningsZh": ["随身行李"],
+      "pos": "noun",
+      "tags": ["airport"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tenimotsu-1",
+          "ja": "駅の手荷物で待ち合わせる。",
+          "kana": "えきのてにもつでまちあわせる。",
+          "zh": "在车站的随身行李碰头。",
+          "targetSurface": "手荷物",
+          "targetKana": "てにもつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-touchakurobii",
+      "type": "word",
+      "surface": "到着ロビー",
+      "kana": "とうちゃくろびー",
+      "romaji": ["touchakurobii"],
+      "meaningsZh": ["到达大厅"],
+      "pos": "noun",
+      "tags": ["airport", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-touchakurobii-1",
+          "ja": "駅の到着ロビーで待ち合わせる。",
+          "kana": "えきのとうちゃくろびーでまちあわせる。",
+          "zh": "在车站的到达大厅碰头。",
+          "targetSurface": "到着ロビー",
+          "targetKana": "とうちゃくろびー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-toujou",
+      "type": "word",
+      "surface": "搭乗",
+      "kana": "とうじょう",
+      "romaji": ["toujou"],
+      "meaningsZh": ["登机"],
+      "pos": "noun",
+      "tags": ["airport"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-toujou-1",
+          "ja": "搭乗まで案内します。",
+          "kana": "とうじょうまであんないします。",
+          "zh": "我带您到登机。",
+          "targetSurface": "搭乗",
+          "targetKana": "とうじょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-toujouguchi",
+      "type": "word",
+      "surface": "搭乗口",
+      "kana": "とうじょうぐち",
+      "romaji": ["toujouguchi"],
+      "meaningsZh": ["登机口"],
+      "pos": "noun",
+      "tags": ["airport"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-toujouguchi-1",
+          "ja": "搭乗口は二十二番です。",
+          "kana": "とうじょうぐちはにじゅうにばんです。",
+          "zh": "登机口是22号。",
+          "targetSurface": "搭乗口",
+          "targetKana": "とうじょうぐち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-toujouken",
+      "type": "word",
+      "surface": "搭乗券",
+      "kana": "とうじょうけん",
+      "romaji": ["toujouken"],
+      "meaningsZh": ["登机牌"],
+      "pos": "noun",
+      "tags": ["airport"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-toujouken-1",
+          "ja": "搭乗券を見せてください。",
+          "kana": "とうじょうけんをみせてください。",
+          "zh": "请出示登机牌。",
+          "targetSurface": "搭乗券",
+          "targetKana": "とうじょうけん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tsukiatari",
+      "type": "word",
+      "surface": "突き当たり",
+      "kana": "つきあたり",
+      "romaji": ["tsukiatari"],
+      "meaningsZh": ["尽头"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsukiatari-1",
+          "ja": "「突き当たり」という言葉の意味を確認する。",
+          "kana": "「突き当たり」ということばのいみをかくにんする。",
+          "zh": "确认「突き当たり」（尽头）这个词的含义。",
+          "targetSurface": "突き当たり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tsurikawa",
+      "type": "word",
+      "surface": "つり革",
+      "kana": "つりかわ",
+      "romaji": ["tsurikawa"],
+      "meaningsZh": ["吊环"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-tsurikawa-1",
+          "ja": "つり革について説明する。",
+          "kana": "つりかわについてせつめいする。",
+          "zh": "对吊环进行说明。",
+          "targetSurface": "つり革",
+          "targetKana": "つりかわ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-unchin",
+      "type": "word",
+      "surface": "運賃",
+      "kana": "うんちん",
+      "romaji": ["unchin"],
+      "meaningsZh": ["车费"],
+      "pos": "noun",
+      "tags": ["ticket"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-unchin-1",
+          "ja": "「運賃」という言葉の意味を確認する。",
+          "kana": "「運賃」ということばのいみをかくにんする。",
+          "zh": "确认「運賃」（车费）这个词的含义。",
+          "targetSurface": "運賃"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-unkou",
+      "type": "word",
+      "surface": "運行",
+      "kana": "うんこう",
+      "romaji": ["unkou"],
+      "meaningsZh": ["运行"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-unkou-1",
+          "ja": "運行まで案内します。",
+          "kana": "うんこうまであんないします。",
+          "zh": "我带您到运行。",
+          "targetSurface": "運行",
+          "targetKana": "うんこう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-unkoujouhou",
+      "type": "word",
+      "surface": "運行情報",
+      "kana": "うんこうじょうほう",
+      "romaji": ["unkoujouhou"],
+      "meaningsZh": ["运行信息"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-unkoujouhou-1",
+          "ja": "「運行情報」という言葉の意味を確認する。",
+          "kana": "「運行情報」ということばのいみをかくにんする。",
+          "zh": "确认「運行情報」（运行信息）这个词的含义。",
+          "targetSurface": "運行情報"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-unkyuu",
+      "type": "word",
+      "surface": "運休",
+      "kana": "うんきゅう",
+      "romaji": ["unkyuu"],
+      "meaningsZh": ["停运"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-unkyuu-1",
+          "ja": "駅の運休で待ち合わせる。",
+          "kana": "えきのうんきゅうでまちあわせる。",
+          "zh": "在车站的停运碰头。",
+          "targetSurface": "運休",
+          "targetKana": "うんきゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-usetsu",
+      "type": "word",
+      "surface": "右折",
+      "kana": "うせつ",
+      "romaji": ["usetsu"],
+      "meaningsZh": ["右转"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-usetsu-1",
+          "ja": "辞書で右折を引いた。",
+          "kana": "じしょでうせつをひいた。",
+          "zh": "在字典里查了右转。",
+          "targetSurface": "右折",
+          "targetKana": "うせつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-wasuremonosentaa",
+      "type": "word",
+      "surface": "忘れ物センター",
+      "kana": "わすれものせんたー",
+      "romaji": ["wasuremonosentaa"],
+      "meaningsZh": ["失物中心"],
+      "pos": "noun",
+      "tags": ["transport", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-wasuremonosentaa-1",
+          "ja": "「忘れ物センター」という言葉の意味を確認する。",
+          "kana": "「忘れ物センター」ということばのいみをかくにんする。",
+          "zh": "确认「忘れ物センター」（失物中心）这个词的含义。",
+          "targetSurface": "忘れ物センター"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-yoyakubangou",
+      "type": "word",
+      "surface": "予約番号",
+      "kana": "よやくばんごう",
+      "romaji": ["yoyakubangou"],
+      "meaningsZh": ["预约号码"],
+      "pos": "noun",
+      "tags": ["travel", "ticket"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yoyakubangou-1",
+          "ja": "予約番号について説明する。",
+          "kana": "よやくばんごうについてせつめいする。",
+          "zh": "对预约号码进行说明。",
+          "targetSurface": "予約番号",
+          "targetKana": "よやくばんごう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-yuusenseki",
+      "type": "word",
+      "surface": "優先席",
+      "kana": "ゆうせんせき",
+      "romaji": ["yuusenseki"],
+      "meaningsZh": ["优先座"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-yuusenseki-1",
+          "ja": "辞書で優先席を引いた。",
+          "kana": "じしょでゆうせんせきをひいた。",
+          "zh": "在字典里查了优先座。",
+          "targetSurface": "優先席",
+          "targetKana": "ゆうせんせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-zandaka",
+      "type": "word",
+      "surface": "残高",
+      "kana": "ざんだか",
+      "romaji": ["zandaka"],
+      "meaningsZh": ["余额"],
+      "pos": "noun",
+      "tags": ["ticket"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-zandaka-1",
+          "ja": "Suicaの残高を確認する。",
+          "kana": "Suicaのざんだかをかくにんする。",
+          "zh": "查Suica余额。",
+          "targetSurface": "残高",
+          "targetKana": "ざんだか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-zeikan",
+      "type": "word",
+      "surface": "税関",
+      "kana": "ぜいかん",
+      "romaji": ["zeikan"],
+      "meaningsZh": ["海关"],
+      "pos": "noun",
+      "tags": ["airport"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-zeikan-1",
+          "ja": "駅の税関で待ち合わせる。",
+          "kana": "えきのぜいかんでまちあわせる。",
+          "zh": "在车站的海关碰头。",
+          "targetSurface": "税関",
+          "targetKana": "ぜいかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-anaunsu",
+      "type": "word",
+      "surface": "アナウンス",
+      "kana": "アナウンス",
+      "romaji": ["anaunsu"],
+      "meaningsZh": ["广播"],
+      "pos": "noun",
+      "tags": ["station", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-anaunsu-1",
+          "ja": "駅のアナウンスで待ち合わせる。",
+          "kana": "えきのあなうんすでまちあわせる。",
+          "zh": "在车站的广播碰头。",
+          "targetSurface": "アナウンス",
+          "targetKana": "あなうんす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-annai",
+      "type": "word",
+      "surface": "案内",
+      "kana": "あんない",
+      "romaji": ["annai"],
+      "meaningsZh": ["指引", "导览"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-annai-1",
+          "ja": "駅の案内で待ち合わせる。",
+          "kana": "えきのあんないでまちあわせる。",
+          "zh": "在车站的指引碰头。",
+          "targetSurface": "案内",
+          "targetKana": "あんない"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-basutei",
+      "type": "word",
+      "surface": "バス停",
+      "kana": "ばすてい",
+      "romaji": ["basutei"],
+      "meaningsZh": ["公交站"],
+      "pos": "noun",
+      "tags": ["transport", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-basutei-1",
+          "ja": "「バス停」という言葉の意味を確認する。",
+          "kana": "「バス停」ということばのいみをかくにんする。",
+          "zh": "确认「バス停」（公交站）这个词的含义。",
+          "targetSurface": "バス停"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-bijutsukan",
+      "type": "word",
+      "surface": "美術館",
+      "kana": "びじゅつかん",
+      "romaji": ["bijutsukan", "bizyutukan"],
+      "meaningsZh": ["美术馆"],
+      "pos": "noun",
+      "tags": ["travel", "youon", "facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-bijutsukan-1",
+          "ja": "「美術館」という言葉の意味を確認する。",
+          "kana": "「美術館」ということばのいみをかくにんする。",
+          "zh": "确认「美術館」（美术馆）这个词的含义。",
+          "targetSurface": "美術館"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-bin",
+      "type": "word",
+      "surface": "便",
+      "kana": "びん",
+      "romaji": ["bin"],
+      "meaningsZh": ["航班", "班次"],
+      "pos": "noun",
+      "tags": ["airport"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-bin-1",
+          "ja": "「便」という漢字を覚える。",
+          "kana": "「便」というかんじをおぼえる。",
+          "zh": "记住「便」这个汉字（航班）。",
+          "targetSurface": "便"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-chaaji",
+      "type": "word",
+      "surface": "チャージ",
+      "kana": "チャージ",
+      "romaji": ["chaaji"],
+      "meaningsZh": ["充值"],
+      "pos": "noun",
+      "tags": ["ticket", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-chaaji-1",
+          "ja": "Suicaに千円チャージする。",
+          "kana": "Suicaにせんえんチャージする。",
+          "zh": "给Suica充值一千日元。",
+          "targetSurface": "チャージ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-chuuouguchi",
+      "type": "word",
+      "surface": "中央口",
+      "kana": "ちゅうおうぐち",
+      "romaji": ["chuuouguchi"],
+      "meaningsZh": ["中央口"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-chuuouguchi-1",
+          "ja": "中央口まで案内します。",
+          "kana": "ちゅうおうぐちまであんないします。",
+          "zh": "我带您到中央口。",
+          "targetSurface": "中央口",
+          "targetKana": "ちゅうおうぐち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-chuushajou",
+      "type": "word",
+      "surface": "駐車場",
+      "kana": "ちゅうしゃじょう",
+      "romaji": ["chuushajou", "tyuusyazyou"],
+      "meaningsZh": ["停车场"],
+      "pos": "noun",
+      "tags": ["road", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-chuushajou-1",
+          "ja": "駐車場について説明する。",
+          "kana": "ちゅうしゃじょうについてせつめいする。",
+          "zh": "对停车场进行说明。",
+          "targetSurface": "駐車場",
+          "targetKana": "ちゅうしゃじょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-douro",
+      "type": "word",
+      "surface": "道路",
+      "kana": "どうろ",
+      "romaji": ["douro"],
+      "meaningsZh": ["道路"],
+      "pos": "noun",
+      "tags": ["road", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-douro-1",
+          "ja": "辞書で道路を引いた。",
+          "kana": "じしょでどうろをひいた。",
+          "zh": "在字典里查了道路。",
+          "targetSurface": "道路",
+          "targetKana": "どうろ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-esukareetaa",
+      "type": "word",
+      "surface": "エスカレーター",
+      "kana": "エスカレーター",
+      "romaji": ["esukareetaa"],
+      "meaningsZh": ["扶梯"],
+      "pos": "noun",
+      "tags": ["station", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-esukareetaa-1",
+          "ja": "エスカレーターまで案内します。",
+          "kana": "えすかれーたーまであんないします。",
+          "zh": "我带您到扶梯。",
+          "targetSurface": "エスカレーター",
+          "targetKana": "えすかれーたー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-futsuu",
+      "type": "word",
+      "surface": "普通",
+      "kana": "ふつう",
+      "romaji": ["futsuu", "hutuu"],
+      "meaningsZh": ["普通"],
+      "pos": "noun",
+      "tags": ["train-type", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-futsuu-1",
+          "ja": "普通について説明する。",
+          "kana": "ふつうについてせつめいする。",
+          "zh": "对普通进行说明。",
+          "targetSurface": "普通",
+          "targetKana": "ふつう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-hakubutsukan",
+      "type": "word",
+      "surface": "博物館",
+      "kana": "はくぶつかん",
+      "romaji": ["hakubutsukan", "hakubutukan"],
+      "meaningsZh": ["博物馆"],
+      "pos": "noun",
+      "tags": ["travel", "facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hakubutsukan-1",
+          "ja": "博物館について説明する。",
+          "kana": "はくぶつかんについてせつめいする。",
+          "zh": "对博物馆进行说明。",
+          "targetSurface": "博物館",
+          "targetKana": "はくぶつかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-higashiguchi",
+      "type": "word",
+      "surface": "東口",
+      "kana": "ひがしぐち",
+      "romaji": ["higashiguchi"],
+      "meaningsZh": ["东口"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-higashiguchi-1",
+          "ja": "駅の東口で待ち合わせる。",
+          "kana": "えきのひがしぐちでまちあわせる。",
+          "zh": "在车站的东口碰头。",
+          "targetSurface": "東口",
+          "targetKana": "ひがしぐち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hoomu",
+      "type": "word",
+      "surface": "ホーム",
+      "kana": "ホーム",
+      "romaji": ["hoomu"],
+      "meaningsZh": ["站台"],
+      "pos": "noun",
+      "tags": ["station", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hoomu-1",
+          "ja": "三番ホームで電車を待つ。",
+          "kana": "さんばんホームででんしゃをまつ。",
+          "zh": "在3号站台等电车。",
+          "targetSurface": "ホーム"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-katamichi",
+      "type": "word",
+      "surface": "片道",
+      "kana": "かたみち",
+      "romaji": ["katamichi"],
+      "meaningsZh": ["单程"],
+      "pos": "noun",
+      "tags": ["ticket"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-katamichi-1",
+          "ja": "辞書で片道を引いた。",
+          "kana": "じしょでかたみちをひいた。",
+          "zh": "在字典里查了单程。",
+          "targetSurface": "片道",
+          "targetKana": "かたみち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kinai",
+      "type": "word",
+      "surface": "機内",
+      "kana": "きない",
+      "romaji": ["kinai"],
+      "meaningsZh": ["机内"],
+      "pos": "noun",
+      "tags": ["airport"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kinai-1",
+          "ja": "駅の機内で待ち合わせる。",
+          "kana": "えきのきないでまちあわせる。",
+          "zh": "在车站的机内碰头。",
+          "targetSurface": "機内",
+          "targetKana": "きない"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kitaguchi",
+      "type": "word",
+      "surface": "北口",
+      "kana": "きたぐち",
+      "romaji": ["kitaguchi"],
+      "meaningsZh": ["北口"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kitaguchi-1",
+          "ja": "北口まで案内します。",
+          "kana": "きたぐちまであんないします。",
+          "zh": "我带您到北口。",
+          "targetSurface": "北口",
+          "targetKana": "きたぐち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kousaten",
+      "type": "word",
+      "surface": "交差点",
+      "kana": "こうさてん",
+      "romaji": ["kousaten"],
+      "meaningsZh": ["十字路口"],
+      "pos": "noun",
+      "tags": ["direction", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kousaten-1",
+          "ja": "交差点について説明する。",
+          "kana": "こうさてんについてせつめいする。",
+          "zh": "对十字路口进行说明。",
+          "targetSurface": "交差点",
+          "targetKana": "こうさてん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kuukou",
+      "type": "word",
+      "surface": "空港",
+      "kana": "くうこう",
+      "romaji": ["kuukou"],
+      "meaningsZh": ["机场"],
+      "pos": "noun",
+      "tags": ["travel", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kuukou-1",
+          "ja": "空港まで電車で行く。",
+          "kana": "くうこうまででんしゃでいく。",
+          "zh": "坐电车去机场。",
+          "targetSurface": "空港",
+          "targetKana": "くうこう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kuukoubasu",
+      "type": "word",
+      "surface": "空港バス",
+      "kana": "くうこうばす",
+      "romaji": ["kuukoubasu"],
+      "meaningsZh": ["机场巴士"],
+      "pos": "noun",
+      "tags": ["transport", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kuukoubasu-1",
+          "ja": "辞書で空港バスを引いた。",
+          "kana": "じしょでくうこうばすをひいた。",
+          "zh": "在字典里查了机场巴士。",
+          "targetSurface": "空港バス",
+          "targetKana": "くうこうばす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kyuukou",
+      "type": "word",
+      "surface": "急行",
+      "kana": "きゅうこう",
+      "romaji": ["kyuukou"],
+      "meaningsZh": ["快车"],
+      "pos": "noun",
+      "tags": ["train-type", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kyuukou-1",
+          "ja": "「急行」という言葉の意味を確認する。",
+          "kana": "「急行」ということばのいみをかくにんする。",
+          "zh": "确认「急行」（快车）这个词的含义。",
+          "targetSurface": "急行"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-minamiguchi",
+      "type": "word",
+      "surface": "南口",
+      "kana": "みなみぐち",
+      "romaji": ["minamiguchi"],
+      "meaningsZh": ["南口"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-minamiguchi-1",
+          "ja": "駅の南口で待ち合わせる。",
+          "kana": "えきのみなみぐちでまちあわせる。",
+          "zh": "在车站的南口碰头。",
+          "targetSurface": "南口",
+          "targetKana": "みなみぐち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-mukou",
+      "type": "word",
+      "surface": "向こう",
+      "kana": "むこう",
+      "romaji": ["mukou"],
+      "meaningsZh": ["对面", "那边"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mukou-1",
+          "ja": "向こうについて説明する。",
+          "kana": "むこうについてせつめいする。",
+          "zh": "对对面进行说明。",
+          "targetSurface": "向こう",
+          "targetKana": "むこう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nishiguchi",
+      "type": "word",
+      "surface": "西口",
+      "kana": "にしぐち",
+      "romaji": ["nishiguchi"],
+      "meaningsZh": ["西口"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nishiguchi-1",
+          "ja": "西口まで案内します。",
+          "kana": "にしぐちまであんないします。",
+          "zh": "我带您到西口。",
+          "targetSurface": "西口",
+          "targetKana": "にしぐち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-noriba",
+      "type": "word",
+      "surface": "乗り場",
+      "kana": "のりば",
+      "romaji": ["noriba"],
+      "meaningsZh": ["乘车处"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-noriba-1",
+          "ja": "乗り場まで案内します。",
+          "kana": "のりばまであんないします。",
+          "zh": "我带您到乘车处。",
+          "targetSurface": "乗り場",
+          "targetKana": "のりば"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-norikae",
+      "type": "word",
+      "surface": "乗り換え",
+      "kana": "のりかえ",
+      "romaji": ["norikae"],
+      "meaningsZh": ["换乘"],
+      "pos": "noun",
+      "tags": ["train-type"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-norikae-1",
+          "ja": "品川で乗り換えがある。",
+          "kana": "しながわでのりかえがある。",
+          "zh": "在品川换乘。",
+          "targetSurface": "乗り換え",
+          "targetKana": "のりかえ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-norikaeru",
+      "type": "word",
+      "surface": "乗り換える",
+      "kana": "のりかえる",
+      "romaji": ["norikaeru"],
+      "meaningsZh": ["换乘"],
+      "pos": "verb",
+      "tags": ["transport", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-norikaeru-1",
+          "ja": "新宿で山手線に乗り換える。",
+          "kana": "しんじゅくでやまのてせんにのりかえる。",
+          "zh": "在新宿换乘山手线。",
+          "targetSurface": "乗り換える",
+          "targetKana": "のりかえる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-okureru",
+      "type": "word",
+      "surface": "遅れる",
+      "kana": "おくれる",
+      "romaji": ["okureru"],
+      "meaningsZh": ["迟到", "晚点"],
+      "pos": "noun",
+      "tags": ["action", "transport", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-okureru-1",
+          "ja": "遅れるについて説明する。",
+          "kana": "おくれるについてせつめいする。",
+          "zh": "对迟到进行说明。",
+          "targetSurface": "遅れる",
+          "targetKana": "おくれる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-onsen",
+      "type": "word",
+      "surface": "温泉",
+      "kana": "おんせん",
+      "romaji": ["onsen"],
+      "meaningsZh": ["温泉"],
+      "pos": "noun",
+      "tags": ["travel", "culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-onsen-1",
+          "ja": "「温泉」という言葉の意味を確認する。",
+          "kana": "「温泉」ということばのいみをかくにんする。",
+          "zh": "确认「温泉」（温泉）这个词的含义。",
+          "targetSurface": "温泉"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-ootobai",
+      "type": "word",
+      "surface": "オートバイ",
+      "kana": "オートバイ",
+      "romaji": ["ootobai"],
+      "meaningsZh": ["摩托车"],
+      "pos": "noun",
+      "tags": ["transport", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-ootobai-1",
+          "ja": "オートバイについて説明する。",
+          "kana": "おーとばいについてせつめいする。",
+          "zh": "对摩托车进行说明。",
+          "targetSurface": "オートバイ",
+          "targetKana": "おーとばい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-oudanhodou",
+      "type": "word",
+      "surface": "横断歩道",
+      "kana": "おうだんほどう",
+      "romaji": ["oudanhodou"],
+      "meaningsZh": ["人行横道"],
+      "pos": "noun",
+      "tags": ["road"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-oudanhodou-1",
+          "ja": "「横断歩道」という言葉の意味を確認する。",
+          "kana": "「横断歩道」ということばのいみをかくにんする。",
+          "zh": "确认「横断歩道」（人行横道）这个词的含义。",
+          "targetSurface": "横断歩道"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-oufuku",
+      "type": "word",
+      "surface": "往復",
+      "kana": "おうふく",
+      "romaji": ["oufuku"],
+      "meaningsZh": ["往返"],
+      "pos": "noun",
+      "tags": ["ticket"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-oufuku-1",
+          "ja": "往復について説明する。",
+          "kana": "おうふくについてせつめいする。",
+          "zh": "对往返进行说明。",
+          "targetSurface": "往復",
+          "targetKana": "おうふく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-pasumo",
+      "type": "word",
+      "surface": "パスモ",
+      "kana": "パスモ",
+      "romaji": ["pasumo"],
+      "meaningsZh": ["PASMO"],
+      "pos": "noun",
+      "tags": ["ticket", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-pasumo-1",
+          "ja": "辞書でパスモを引いた。",
+          "kana": "じしょでぱすもをひいた。",
+          "zh": "在字典里查了PASMO。",
+          "targetSurface": "パスモ",
+          "targetKana": "ぱすも"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-pasupooto",
+      "type": "word",
+      "surface": "パスポート",
+      "kana": "パスポート",
+      "romaji": ["pasupooto"],
+      "meaningsZh": ["护照"],
+      "pos": "noun",
+      "tags": ["travel", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-pasupooto-1",
+          "ja": "旅行の前にパスポートを確認する。",
+          "kana": "りょこうのまえにパスポートをかくにんする。",
+          "zh": "出行前确认护照。",
+          "targetSurface": "パスポート"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-rentakaa",
+      "type": "word",
+      "surface": "レンタカー",
+      "kana": "レンタカー",
+      "romaji": ["rentakaa"],
+      "meaningsZh": ["租车"],
+      "pos": "noun",
+      "tags": ["transport", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-rentakaa-1",
+          "ja": "レンタカーについて説明する。",
+          "kana": "れんたかーについてせつめいする。",
+          "zh": "对租车进行说明。",
+          "targetSurface": "レンタカー",
+          "targetKana": "れんたかー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-ryoukin",
+      "type": "word",
+      "surface": "料金",
+      "kana": "りょうきん",
+      "romaji": ["ryoukin"],
+      "meaningsZh": ["费用"],
+      "pos": "noun",
+      "tags": ["ticket"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ryoukin-1",
+          "ja": "「料金」という言葉の意味を確認する。",
+          "kana": "「料金」ということばのいみをかくにんする。",
+          "zh": "确认「料金」（费用）这个词的含义。",
+          "targetSurface": "料金"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shanai",
+      "type": "word",
+      "surface": "車内",
+      "kana": "しゃない",
+      "romaji": ["shanai"],
+      "meaningsZh": ["车内"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shanai-1",
+          "ja": "車内について説明する。",
+          "kana": "しゃないについてせつめいする。",
+          "zh": "对车内进行说明。",
+          "targetSurface": "車内",
+          "targetKana": "しゃない"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shiro-castle",
+      "type": "word",
+      "surface": "城",
+      "kana": "しろ",
+      "romaji": ["shiro", "siro"],
+      "meaningsZh": ["城堡"],
+      "pos": "noun",
+      "tags": ["travel"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shiro-castle-1",
+          "ja": "「城」という漢字を覚える。",
+          "kana": "「城」というかんじをおぼえる。",
+          "zh": "记住「城」这个汉字（城堡）。",
+          "targetSurface": "城"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shuppatsu",
+      "type": "word",
+      "surface": "出発",
+      "kana": "しゅっぱつ",
+      "romaji": ["shuppatsu"],
+      "meaningsZh": ["出发"],
+      "pos": "noun",
+      "tags": ["airport", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shuppatsu-1",
+          "ja": "出発の三十分前に集合する。",
+          "kana": "しゅっぱつのさんじゅっぷんまえにしゅうごうする。",
+          "zh": "出发前30分钟集合。",
+          "targetSurface": "出発",
+          "targetKana": "しゅっぱつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-suika",
+      "type": "word",
+      "surface": "スイカ",
+      "kana": "スイカ",
+      "romaji": ["suika"],
+      "meaningsZh": ["Suica"],
+      "pos": "noun",
+      "tags": ["ticket", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-suika-1",
+          "ja": "辞書でスイカを引いた。",
+          "kana": "じしょですいかをひいた。",
+          "zh": "在字典里查了Suica。",
+          "targetSurface": "スイカ",
+          "targetKana": "すいか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-takushiinoriba",
+      "type": "word",
+      "surface": "タクシー乗り場",
+      "kana": "たくしーのりば",
+      "romaji": ["takushiinoriba"],
+      "meaningsZh": ["出租车乘车处"],
+      "pos": "noun",
+      "tags": ["transport", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-takushiinoriba-1",
+          "ja": "辞書でタクシー乗り場を引いた。",
+          "kana": "じしょでたくしーのりばをひいた。",
+          "zh": "在字典里查了出租车乘车处。",
+          "targetSurface": "タクシー乗り場",
+          "targetKana": "たくしーのりば"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-tazuneru",
+      "type": "word",
+      "surface": "尋ねる",
+      "kana": "たずねる",
+      "romaji": ["tazuneru"],
+      "meaningsZh": ["询问"],
+      "pos": "verb",
+      "tags": ["transport", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-tazuneru-1",
+          "ja": "駅員に道を尋ねた。",
+          "kana": "えきいんにみちをたずねた。",
+          "zh": "向车站工作人员问了路。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-toho",
+      "type": "word",
+      "surface": "徒歩",
+      "kana": "とほ",
+      "romaji": ["toho"],
+      "meaningsZh": ["步行"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-toho-1",
+          "ja": "徒歩について説明する。",
+          "kana": "とほについてせつめいする。",
+          "zh": "对步行进行说明。",
+          "targetSurface": "徒歩",
+          "targetKana": "とほ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tokkyuu",
+      "type": "word",
+      "surface": "特急",
+      "kana": "とっきゅう",
+      "romaji": ["tokkyuu"],
+      "meaningsZh": ["特快"],
+      "pos": "noun",
+      "tags": ["train-type", "sokuon", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-tokkyuu-1",
+          "ja": "辞書で特急を引いた。",
+          "kana": "じしょでとっきゅうをひいた。",
+          "zh": "在字典里查了特快。",
+          "targetSurface": "特急",
+          "targetKana": "とっきゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error", "sokuon-error"]
+    },
+    {
+      "id": "word-tonneru",
+      "type": "word",
+      "surface": "トンネル",
+      "kana": "トンネル",
+      "romaji": ["tonneru"],
+      "meaningsZh": ["隧道"],
+      "pos": "noun",
+      "tags": ["road", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tonneru-1",
+          "ja": "「トンネル」という言葉の意味を確認する。",
+          "kana": "「トンネル」ということばのいみをかくにんする。",
+          "zh": "确认「トンネル」（隧道）这个词的含义。",
+          "targetSurface": "トンネル"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-torakku",
+      "type": "word",
+      "surface": "トラック",
+      "kana": "トラック",
+      "romaji": ["torakku"],
+      "meaningsZh": ["卡车"],
+      "pos": "noun",
+      "tags": ["transport", "katakana", "sokuon"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-torakku-1",
+          "ja": "辞書でトラックを引いた。",
+          "kana": "じしょでとらっくをひいた。",
+          "zh": "在字典里查了卡车。",
+          "targetSurface": "トラック",
+          "targetKana": "とらっく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-touchaku",
+      "type": "word",
+      "surface": "到着",
+      "kana": "とうちゃく",
+      "romaji": ["touchaku"],
+      "meaningsZh": ["到达"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-touchaku-1",
+          "ja": "無事に到着しました。",
+          "kana": "ぶじにとうちゃくしました。",
+          "zh": "平安到达了。",
+          "targetSurface": "到着",
+          "targetKana": "とうちゃく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yuuenchi",
+      "type": "word",
+      "surface": "遊園地",
+      "kana": "ゆうえんち",
+      "romaji": ["yuuenchi", "yuuenti"],
+      "meaningsZh": ["游乐园"],
+      "pos": "noun",
+      "tags": ["travel", "long-vowel", "facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-yuuenchi-1",
+          "ja": "辞書で遊園地を引いた。",
+          "kana": "じしょでゆうえんちをひいた。",
+          "zh": "在字典里查了游乐园。",
+          "targetSurface": "遊園地",
+          "targetKana": "ゆうえんち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-basu",
+      "type": "word",
+      "surface": "バス",
+      "kana": "バス",
+      "romaji": ["basu"],
+      "meaningsZh": ["公交车"],
+      "pos": "noun",
+      "tags": ["transport", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-basu-1",
+          "ja": "バス停まで五分歩く。",
+          "kana": "バスていまでごふんあるく。",
+          "zh": "走到公交站要五分钟。",
+          "targetSurface": "バス"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-chikai",
+      "type": "word",
+      "surface": "近い",
+      "kana": "ちかい",
+      "romaji": ["chikai", "tikai"],
+      "meaningsZh": ["近"],
+      "pos": "adjective",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-chikai-1",
+          "ja": "駅から近い場所に住んでいる。",
+          "kana": "えきからちかいばしょにすんでいる。",
+          "zh": "住在离车站近的地方。",
+          "targetSurface": "近い",
+          "targetKana": "ちかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-chikatetsu",
+      "type": "word",
+      "surface": "地下鉄",
+      "kana": "ちかてつ",
+      "romaji": ["chikatetsu", "tikatetu"],
+      "meaningsZh": ["地铁"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-chikatetsu-1",
+          "ja": "地下鉄で会社に通う。",
+          "kana": "ちかてつでかいしゃにかよう。",
+          "zh": "坐地铁上班。",
+          "targetSurface": "地下鉄",
+          "targetKana": "ちかてつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-deguchi",
+      "type": "word",
+      "surface": "出口",
+      "kana": "でぐち",
+      "romaji": ["deguchi", "deguti"],
+      "meaningsZh": ["出口"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-deguchi-1",
+          "ja": "出口まで案内します。",
+          "kana": "でぐちまであんないします。",
+          "zh": "我带您到出口。",
+          "targetSurface": "出口",
+          "targetKana": "でぐち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-densha",
+      "type": "word",
+      "surface": "電車",
+      "kana": "でんしゃ",
+      "romaji": ["densha", "densya"],
+      "meaningsZh": ["电车"],
+      "pos": "noun",
+      "tags": ["daily", "kanji-word", "youon", "transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-densha-1",
+          "ja": "電車が遅れている。",
+          "kana": "でんしゃがおくれている。",
+          "zh": "电车晚点了。",
+          "targetSurface": "電車",
+          "targetKana": "でんしゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-eki",
+      "type": "word",
+      "surface": "駅",
+      "kana": "えき",
+      "romaji": ["eki"],
+      "meaningsZh": ["车站"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-eki-1",
+          "ja": "家から駅まで歩いて十分。",
+          "kana": "いえからえきまであるいてじゅっぷん。",
+          "zh": "从家到车站走路十分钟。",
+          "targetSurface": "駅",
+          "targetKana": "えき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ekiin",
+      "type": "word",
+      "surface": "駅員",
+      "kana": "えきいん",
+      "romaji": ["ekiin"],
+      "meaningsZh": ["车站工作人员"],
+      "pos": "noun",
+      "tags": ["job", "transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ekiin-1",
+          "ja": "駅員について説明する。",
+          "kana": "えきいんについてせつめいする。",
+          "zh": "对车站工作人员进行说明。",
+          "targetSurface": "駅員",
+          "targetKana": "えきいん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-erebeetaa",
+      "type": "word",
+      "surface": "エレベーター",
+      "kana": "エレベーター",
+      "romaji": ["erebeetaa"],
+      "meaningsZh": ["电梯"],
+      "pos": "noun",
+      "tags": ["station", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-erebeetaa-1",
+          "ja": "エレベーターまで案内します。",
+          "kana": "えれべーたーまであんないします。",
+          "zh": "我带您到电梯。",
+          "targetSurface": "エレベーター",
+          "targetKana": "えれべーたー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-fune",
+      "type": "word",
+      "surface": "船",
+      "kana": "ふね",
+      "romaji": ["fune", "hune"],
+      "meaningsZh": ["船"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-fune-1",
+          "ja": "島に行くには船しかない。",
+          "kana": "しまにいくにはふねしかない。",
+          "zh": "去那个岛只能坐船。",
+          "targetSurface": "船",
+          "targetKana": "ふね"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hidari",
+      "type": "word",
+      "surface": "左",
+      "kana": "ひだり",
+      "romaji": ["hidari"],
+      "meaningsZh": ["左"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hidari-1",
+          "ja": "「左」という漢字を覚える。",
+          "kana": "「左」というかんじをおぼえる。",
+          "zh": "记住「左」这个汉字（左）。",
+          "targetSurface": "左"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hikouki",
+      "type": "word",
+      "surface": "飛行機",
+      "kana": "ひこうき",
+      "romaji": ["hikouki"],
+      "meaningsZh": ["飞机"],
+      "pos": "noun",
+      "tags": ["transport", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-hikouki-1",
+          "ja": "飛行機の中ではWi-Fiが使える。",
+          "kana": "ひこうきのなかではWi-Fiがつかえる。",
+          "zh": "飞机上可以用Wi-Fi。",
+          "targetSurface": "飛行機",
+          "targetKana": "ひこうき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-hoteru",
+      "type": "word",
+      "surface": "ホテル",
+      "kana": "ホテル",
+      "romaji": ["hoteru"],
+      "meaningsZh": ["酒店"],
+      "pos": "noun",
+      "tags": ["travel", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hoteru-1",
+          "ja": "駅近くのホテルに泊まる。",
+          "kana": "えきちかくのホテルにとまる。",
+          "zh": "住在车站附近的酒店。",
+          "targetSurface": "ホテル"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-iriguchi",
+      "type": "word",
+      "surface": "入口",
+      "kana": "いりぐち",
+      "romaji": ["iriguchi", "iriguti"],
+      "meaningsZh": ["入口"],
+      "pos": "noun",
+      "tags": ["station"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-iriguchi-1",
+          "ja": "駅の入口で待ち合わせる。",
+          "kana": "えきのいりぐちでまちあわせる。",
+          "zh": "在车站的入口碰头。",
+          "targetSurface": "入口",
+          "targetKana": "いりぐち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-jinja",
+      "type": "word",
+      "surface": "神社",
+      "kana": "じんじゃ",
+      "romaji": ["jinja", "zinzya"],
+      "meaningsZh": ["神社"],
+      "pos": "noun",
+      "tags": ["travel", "youon", "culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-jinja-1",
+          "ja": "神社について説明する。",
+          "kana": "じんじゃについてせつめいする。",
+          "zh": "对神社进行说明。",
+          "targetSurface": "神社",
+          "targetKana": "じんじゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-jitensha",
+      "type": "word",
+      "surface": "自転車",
+      "kana": "じてんしゃ",
+      "romaji": ["jitensha", "zitensya"],
+      "meaningsZh": ["自行车"],
+      "pos": "noun",
+      "tags": ["transport", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-jitensha-1",
+          "ja": "駅まで自転車で行く。",
+          "kana": "えきまでじてんしゃでいく。",
+          "zh": "骑自行车到车站。",
+          "targetSurface": "自転車",
+          "targetKana": "じてんしゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kado",
+      "type": "word",
+      "surface": "角",
+      "kana": "かど",
+      "romaji": ["kado"],
+      "meaningsZh": ["角", "拐角"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kado-1",
+          "ja": "「角」は「かど」と読む。",
+          "kana": "「角」は「かど」とよむ。",
+          "zh": "「角」读作「かど」，意思是角。",
+          "targetSurface": "角",
+          "targetKana": "かど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kippu",
+      "type": "word",
+      "surface": "切符",
+      "kana": "きっぷ",
+      "romaji": ["kippu"],
+      "meaningsZh": ["票"],
+      "pos": "noun",
+      "tags": ["station", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kippu-1",
+          "ja": "自動券売機で切符を買う。",
+          "kana": "じどうけんばいきできっぷをかう。",
+          "zh": "在自动售票机买票。",
+          "targetSurface": "切符",
+          "targetKana": "きっぷ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-kouen",
+      "type": "word",
+      "surface": "公園",
+      "kana": "こうえん",
+      "romaji": ["kouen"],
+      "meaningsZh": ["公园"],
+      "pos": "noun",
+      "tags": ["travel", "long-vowel", "facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kouen-1",
+          "ja": "子供と公園で遊ぶ。",
+          "kana": "こどもとこうえんであそぶ。",
+          "zh": "和孩子在公园玩。",
+          "targetSurface": "公園",
+          "targetKana": "こうえん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kuruma",
+      "type": "word",
+      "surface": "車",
+      "kana": "くるま",
+      "romaji": ["kuruma"],
+      "meaningsZh": ["车", "汽车"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-kuruma-1",
+          "ja": "週末は車で出かける。",
+          "kana": "しゅうまつはくるまででかける。",
+          "zh": "周末开车出门。",
+          "targetSurface": "車",
+          "targetKana": "くるま"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mae",
+      "type": "word",
+      "surface": "前",
+      "kana": "まえ",
+      "romaji": ["mae"],
+      "meaningsZh": ["前"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mae-1",
+          "ja": "「前」という漢字を覚える。",
+          "kana": "「前」というかんじをおぼえる。",
+          "zh": "记住「前」这个汉字（前）。",
+          "targetSurface": "前"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mayou",
+      "type": "word",
+      "surface": "迷う",
+      "kana": "まよう",
+      "romaji": ["mayou"],
+      "meaningsZh": ["迷路", "犹豫"],
+      "pos": "verb",
+      "tags": ["transport", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-mayou-1",
+          "ja": "どの服を買うか迷っている。",
+          "kana": "どのふくをかうかまよっている。",
+          "zh": "在犹豫买哪件衣服。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-michi",
+      "type": "word",
+      "surface": "道",
+      "kana": "みち",
+      "romaji": ["michi", "miti"],
+      "meaningsZh": ["路"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-michi-1",
+          "ja": "「道」は「みち」と読む。",
+          "kana": "「道」は「みち」とよむ。",
+          "zh": "「道」读作「みち」，意思是路。",
+          "targetSurface": "道",
+          "targetKana": "みち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-migi",
+      "type": "word",
+      "surface": "右",
+      "kana": "みぎ",
+      "romaji": ["migi"],
+      "meaningsZh": ["右"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-migi-1",
+          "ja": "「右」は「みぎ」と読む。",
+          "kana": "「右」は「みぎ」とよむ。",
+          "zh": "「右」读作「みぎ」，意思是右。",
+          "targetSurface": "右",
+          "targetKana": "みぎ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-naka",
+      "type": "word",
+      "surface": "中",
+      "kana": "なか",
+      "romaji": ["naka"],
+      "meaningsZh": ["里面"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-naka-1",
+          "ja": "「中」という漢字を覚える。",
+          "kana": "「中」というかんじをおぼえる。",
+          "zh": "记住「中」这个汉字（里面）。",
+          "targetSurface": "中"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-otera",
+      "type": "word",
+      "surface": "お寺",
+      "kana": "おてら",
+      "romaji": ["otera"],
+      "meaningsZh": ["寺庙"],
+      "pos": "noun",
+      "tags": ["travel", "culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-otera-1",
+          "ja": "辞書でお寺を引いた。",
+          "kana": "じしょでおてらをひいた。",
+          "zh": "在字典里查了寺庙。",
+          "targetSurface": "お寺",
+          "targetKana": "おてら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shingou",
+      "type": "word",
+      "surface": "信号",
+      "kana": "しんごう",
+      "romaji": ["shingou", "singou"],
+      "meaningsZh": ["信号灯", "红绿灯"],
+      "pos": "noun",
+      "tags": ["direction", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shingou-1",
+          "ja": "辞書で信号を引いた。",
+          "kana": "じしょでしんごうをひいた。",
+          "zh": "在字典里查了信号灯。",
+          "targetSurface": "信号",
+          "targetKana": "しんごう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-shinkansen",
+      "type": "word",
+      "surface": "新幹線",
+      "kana": "しんかんせん",
+      "romaji": ["shinkansen", "sinkansen"],
+      "meaningsZh": ["新干线"],
+      "pos": "noun",
+      "tags": ["transport"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-shinkansen-1",
+          "ja": "新幹線で東京から大阪へ。",
+          "kana": "しんかんせんでとうきょうからおおさかへ。",
+          "zh": "坐新干线从东京到大阪。",
+          "targetSurface": "新幹線",
+          "targetKana": "しんかんせん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shita",
+      "type": "word",
+      "surface": "下",
+      "kana": "した",
+      "romaji": ["shita", "sita"],
+      "meaningsZh": ["下面"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shita-1",
+          "ja": "「下」という漢字を覚える。",
+          "kana": "「下」というかんじをおぼえる。",
+          "zh": "记住「下」这个汉字（下面）。",
+          "targetSurface": "下"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-soto",
+      "type": "word",
+      "surface": "外",
+      "kana": "そと",
+      "romaji": ["soto"],
+      "meaningsZh": ["外面"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-soto-1",
+          "ja": "「外」という漢字を覚える。",
+          "kana": "「外」というかんじをおぼえる。",
+          "zh": "记住「外」这个汉字（外面）。",
+          "targetSurface": "外"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-takushii",
+      "type": "word",
+      "surface": "タクシー",
+      "kana": "タクシー",
+      "romaji": ["takushii", "takusii"],
+      "meaningsZh": ["出租车"],
+      "pos": "noun",
+      "tags": ["transport", "katakana", "long-vowel"],
+      "skillTags": [
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination",
+        "ime-conversion"
+      ],
+      "examples": [
+        {
+          "id": "ex-takushii-1",
+          "ja": "駅前でタクシーを拾う。",
+          "kana": "えきまえでタクシーをひろう。",
+          "zh": "在车站前拦出租车。",
+          "targetSurface": "タクシー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-tomaru",
+      "type": "word",
+      "surface": "止まる",
+      "kana": "とまる",
+      "romaji": ["tomaru"],
+      "meaningsZh": ["停下", "停运"],
+      "pos": "verb",
+      "tags": ["action", "transport", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-tomaru-1",
+          "ja": "毎日止まるようにしている。",
+          "kana": "まいにちとまるようにしている。",
+          "zh": "每天坚持停下。",
+          "targetSurface": "止まる",
+          "targetKana": "とまる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tonari",
+      "type": "word",
+      "surface": "隣",
+      "kana": "となり",
+      "romaji": ["tonari"],
+      "meaningsZh": ["旁边", "邻"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tonari-1",
+          "ja": "「隣」という漢字を覚える。",
+          "kana": "「隣」というかんじをおぼえる。",
+          "zh": "记住「隣」这个汉字（旁边）。",
+          "targetSurface": "隣"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tooi",
+      "type": "word",
+      "surface": "遠い",
+      "kana": "とおい",
+      "romaji": ["tooi"],
+      "meaningsZh": ["远"],
+      "pos": "adjective",
+      "tags": ["direction", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-tooi-1",
+          "ja": "空港から遠いホテルだ。",
+          "kana": "くうこうからとおいホテルだ。",
+          "zh": "离机场远的酒店。",
+          "targetSurface": "遠い",
+          "targetKana": "とおい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-ue",
+      "type": "word",
+      "surface": "上",
+      "kana": "うえ",
+      "romaji": ["ue"],
+      "meaningsZh": ["上面"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ue-1",
+          "ja": "「上」は「うえ」と読む。",
+          "kana": "「上」は「うえ」とよむ。",
+          "zh": "「上」读作「うえ」，意思是上面。",
+          "targetSurface": "上",
+          "targetKana": "うえ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ugoku",
+      "type": "word",
+      "surface": "動く",
+      "kana": "うごく",
+      "romaji": ["ugoku"],
+      "meaningsZh": ["移动", "运转"],
+      "pos": "verb",
+      "tags": ["transport", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-ugoku-1",
+          "ja": "信号が変わるまで動かないで。",
+          "kana": "しんごうがかわるまでうごかないで。",
+          "zh": "信号变之前别动。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-umi",
+      "type": "word",
+      "surface": "海",
+      "kana": "うみ",
+      "romaji": ["umi"],
+      "meaningsZh": ["海"],
+      "pos": "noun",
+      "tags": ["travel"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-umi-1",
+          "ja": "「海」は「うみ」と読む。",
+          "kana": "「海」は「うみ」とよむ。",
+          "zh": "「海」读作「うみ」，意思是海。",
+          "targetSurface": "海",
+          "targetKana": "うみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ushiro",
+      "type": "word",
+      "surface": "後ろ",
+      "kana": "うしろ",
+      "romaji": ["ushiro", "usiro"],
+      "meaningsZh": ["后面"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ushiro-1",
+          "ja": "後ろについて説明する。",
+          "kana": "うしろについてせつめいする。",
+          "zh": "对后面进行说明。",
+          "targetSurface": "後ろ",
+          "targetKana": "うしろ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yama",
+      "type": "word",
+      "surface": "山",
+      "kana": "やま",
+      "romaji": ["yama"],
+      "meaningsZh": ["山"],
+      "pos": "noun",
+      "tags": ["travel"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yama-1",
+          "ja": "「山」という漢字を覚える。",
+          "kana": "「山」というかんじをおぼえる。",
+          "zh": "记住「山」这个汉字（山）。",
+          "targetSurface": "山"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    }
+  ]
+}

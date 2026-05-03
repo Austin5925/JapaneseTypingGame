@@ -15,6 +15,11 @@ devdocs/
 # 内部ui开发文档
 handoff/
 
+# 第三方/外部协作生成的语料中间产物（修订报告、合并 JSON、覆盖率统计）。
+# 上线词汇会被复制到 content/official/ 入库，imports/ 是源副本，不入库。
+content/imports/
+content/official/_archive/
+
 # Claude / AI agent 的项目上下文。包含产品判断、工程纪律、踩坑记录，
 # 不希望以原文形式公开。和 CEOAssistant 同模式。
 CLAUDE.md

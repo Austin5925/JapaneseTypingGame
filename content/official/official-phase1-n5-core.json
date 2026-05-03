@@ -1,0 +1,7721 @@
+{
+  "id": "official-phase1-n5-core",
+  "name": "第一阶段：N5 核心通用词汇",
+  "version": "1.1.0",
+  "items": [
+    {
+      "id": "word-jikokuhyou",
+      "type": "word",
+      "surface": "時刻表",
+      "kana": "じこくひょう",
+      "romaji": ["jikokuhyou", "zikokuhyou"],
+      "meaningsZh": ["时刻表"],
+      "pos": "noun",
+      "tags": ["speed", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-jikokuhyou-1",
+          "ja": "「時刻表」という言葉の意味を確認する。",
+          "kana": "「時刻表」ということばのいみをかくにんする。",
+          "zh": "确认「時刻表」（时刻表）这个词的含义。",
+          "targetSurface": "時刻表"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-mooshikomu",
+      "type": "word",
+      "surface": "申し込む",
+      "kana": "もうしこむ",
+      "romaji": ["moushikomu", "mousikomu"],
+      "meaningsZh": ["申请"],
+      "pos": "verb",
+      "tags": ["action", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-mooshikomu-1",
+          "ja": "オンラインでセミナーに申し込む。",
+          "kana": "オンラインでセミナーにもうしこむ。",
+          "zh": "在线报名参加研讨会。",
+          "targetSurface": "申し込む",
+          "targetKana": "もうしこむ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-mukau",
+      "type": "word",
+      "surface": "向かう",
+      "kana": "むかう",
+      "romaji": ["mukau"],
+      "meaningsZh": ["朝...走"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mukau-1",
+          "ja": "これから空港に向かいます。",
+          "kana": "これからくうこうにむかいます。",
+          "zh": "我现在前往机场。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-torikesu",
+      "type": "word",
+      "surface": "取り消す",
+      "kana": "とりけす",
+      "romaji": ["torikesu"],
+      "meaningsZh": ["取消"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-torikesu-1",
+          "ja": "会議の予定を取り消した。",
+          "kana": "かいぎのよていをとりけした。",
+          "zh": "取消了会议安排。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-azukeru",
+      "type": "word",
+      "surface": "預ける",
+      "kana": "あずける",
+      "romaji": ["azukeru"],
+      "meaningsZh": ["存", "寄"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-azukeru-1",
+          "ja": "荷物をホテルに預ける。",
+          "kana": "にもつをホテルにあずける。",
+          "zh": "把行李寄存在酒店。",
+          "targetSurface": "預ける",
+          "targetKana": "あずける"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-gasorin",
+      "type": "word",
+      "surface": "ガソリン",
+      "kana": "ガソリン",
+      "romaji": ["gasorin"],
+      "meaningsZh": ["汽油"],
+      "pos": "noun",
+      "tags": ["car-part", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-gasorin-1",
+          "ja": "ガソリンについて説明する。",
+          "kana": "がそりんについてせつめいする。",
+          "zh": "对汽油进行说明。",
+          "targetSurface": "ガソリン",
+          "targetKana": "がそりん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-jiyuu",
+      "type": "word",
+      "surface": "自由",
+      "kana": "じゆう",
+      "romaji": ["jiyuu", "ziyuu"],
+      "meaningsZh": ["自由"],
+      "pos": "adjective",
+      "tags": ["feeling", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-jiyuu-1",
+          "ja": "週末は自由に過ごす。",
+          "kana": "しゅうまつはじゆうにすごす。",
+          "zh": "周末自由度过。",
+          "targetSurface": "自由",
+          "targetKana": "じゆう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kimeru",
+      "type": "word",
+      "surface": "決める",
+      "kana": "きめる",
+      "romaji": ["kimeru"],
+      "meaningsZh": ["决定"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kimeru-1",
+          "ja": "旅行先を北海道に決めた。",
+          "kana": "りょこうさきをほっかいどうにきめた。",
+          "zh": "决定旅行目的地是北海道。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kuraberu",
+      "type": "word",
+      "surface": "比べる",
+      "kana": "くらべる",
+      "romaji": ["kuraberu"],
+      "meaningsZh": ["比较"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kuraberu-1",
+          "ja": "値段を比べて安い方を買う。",
+          "kana": "ねだんをくらべてやすいほうをかう。",
+          "zh": "比较价格买便宜的。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-maniau",
+      "type": "word",
+      "surface": "間に合う",
+      "kana": "まにあう",
+      "romaji": ["maniau"],
+      "meaningsZh": ["来得及"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-maniau-1",
+          "ja": "急げばまだ電車に間に合う。",
+          "kana": "いそげばまだでんしゃにまにあう。",
+          "zh": "快点的话还赶得上电车。",
+          "targetSurface": "間に合う",
+          "targetKana": "まにあう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-modoru",
+      "type": "word",
+      "surface": "戻る",
+      "kana": "もどる",
+      "romaji": ["modoru"],
+      "meaningsZh": ["返回"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-modoru-1",
+          "ja": "忘れ物を取りに家に戻る。",
+          "kana": "わすれものをとりにいえにもどる。",
+          "zh": "回家拿落下的东西。",
+          "targetSurface": "戻る",
+          "targetKana": "もどる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-susumu",
+      "type": "word",
+      "surface": "進む",
+      "kana": "すすむ",
+      "romaji": ["susumu"],
+      "meaningsZh": ["前进"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-susumu-1",
+          "ja": "工事が予定通りに進んでいる。",
+          "kana": "こうじがよていどおりにすすんでいる。",
+          "zh": "工程按计划进行。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-taiya",
+      "type": "word",
+      "surface": "タイヤ",
+      "kana": "タイヤ",
+      "romaji": ["taiya"],
+      "meaningsZh": ["轮胎"],
+      "pos": "noun",
+      "tags": ["car-part", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-taiya-1",
+          "ja": "タイヤについて説明する。",
+          "kana": "たいやについてせつめいする。",
+          "zh": "对轮胎进行说明。",
+          "targetSurface": "タイヤ",
+          "targetKana": "たいや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tamesu",
+      "type": "word",
+      "surface": "試す",
+      "kana": "ためす",
+      "romaji": ["tamesu"],
+      "meaningsZh": ["试"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tamesu-1",
+          "ja": "新しいレシピを試してみた。",
+          "kana": "あたらしいレシピをためしてみた。",
+          "zh": "试了新的菜谱。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tsutsumu",
+      "type": "word",
+      "surface": "包む",
+      "kana": "つつむ",
+      "romaji": ["tsutsumu", "tutumu"],
+      "meaningsZh": ["包装"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsutsumu-1",
+          "ja": "プレゼントをきれいに包む。",
+          "kana": "プレゼントをきれいにつつむ。",
+          "zh": "把礼物漂亮地包起来。",
+          "targetSurface": "包む",
+          "targetKana": "つつむ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-uketoru",
+      "type": "word",
+      "surface": "受け取る",
+      "kana": "うけとる",
+      "romaji": ["uketoru"],
+      "meaningsZh": ["收下"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-uketoru-1",
+          "ja": "コンビニで荷物を受け取る。",
+          "kana": "コンビニでにもつをうけとる。",
+          "zh": "在便利店领取包裹。",
+          "targetSurface": "受け取る",
+          "targetKana": "うけとる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-unten",
+      "type": "word",
+      "surface": "運転",
+      "kana": "うんてん",
+      "romaji": ["unten"],
+      "meaningsZh": ["驾驶"],
+      "pos": "noun",
+      "tags": ["car-part"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-unten-1",
+          "ja": "辞書で運転を引いた。",
+          "kana": "じしょでうんてんをひいた。",
+          "zh": "在字典里查了驾驶。",
+          "targetSurface": "運転",
+          "targetKana": "うんてん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-untenshu",
+      "type": "word",
+      "surface": "運転手",
+      "kana": "うんてんしゅ",
+      "romaji": ["untenshu", "untensyu"],
+      "meaningsZh": ["司机"],
+      "pos": "noun",
+      "tags": ["car-part", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-untenshu-1",
+          "ja": "辞書で運転手を引いた。",
+          "kana": "じしょでうんてんしゅをひいた。",
+          "zh": "在字典里查了司机。",
+          "targetSurface": "運転手",
+          "targetKana": "うんてんしゅ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-ureshii",
+      "type": "word",
+      "surface": "嬉しい",
+      "kana": "うれしい",
+      "romaji": ["ureshii", "uresii"],
+      "meaningsZh": ["高兴"],
+      "pos": "adjective",
+      "tags": ["adjective", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ureshii-1",
+          "ja": "プレゼントをもらって嬉しい。",
+          "kana": "プレゼントをもらってうれしい。",
+          "zh": "收到礼物很开心。",
+          "targetSurface": "嬉しい",
+          "targetKana": "うれしい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-yakusoku",
+      "type": "word",
+      "surface": "約束",
+      "kana": "やくそく",
+      "romaji": ["yakusoku"],
+      "meaningsZh": ["约定"],
+      "pos": "noun",
+      "tags": ["daily", "kanji-word"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yakusoku-1",
+          "ja": "約束について説明する。",
+          "kana": "やくそくについてせつめいする。",
+          "zh": "对约定进行说明。",
+          "targetSurface": "約束",
+          "targetKana": "やくそく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-abiru",
+      "type": "word",
+      "surface": "浴びる",
+      "kana": "あびる",
+      "romaji": ["abiru"],
+      "meaningsZh": ["淋浴", "浇"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-abiru-1",
+          "ja": "浴びるのは難しい。",
+          "kana": "あびるのはむずかしい。",
+          "zh": "淋浴很难。",
+          "targetSurface": "浴びる",
+          "targetKana": "あびる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-abunai",
+      "type": "word",
+      "surface": "危ない",
+      "kana": "あぶない",
+      "romaji": ["abunai"],
+      "meaningsZh": ["危险"],
+      "pos": "adjective",
+      "tags": ["feeling"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-abunai-1",
+          "ja": "今日は危ないです。",
+          "kana": "きょうはあぶないです。",
+          "zh": "今天危险。",
+          "targetSurface": "危ない",
+          "targetKana": "あぶない"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-achira",
+      "type": "word",
+      "surface": "あちら",
+      "kana": "あちら",
+      "romaji": ["achira"],
+      "meaningsZh": ["那边", "那位(远)"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-achira-1",
+          "ja": "あちらの席にどうぞ。",
+          "kana": "あちらのせきにどうぞ。",
+          "zh": "请坐那边的座位。",
+          "targetSurface": "あちら",
+          "targetKana": "あちら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ageru",
+      "type": "word",
+      "surface": "あげる",
+      "kana": "あげる",
+      "romaji": ["ageru"],
+      "meaningsZh": ["给"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ageru-1",
+          "ja": "あげるのは難しい。",
+          "kana": "あげるのはむずかしい。",
+          "zh": "给很难。",
+          "targetSurface": "あげる",
+          "targetKana": "あげる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-akarui",
+      "type": "word",
+      "surface": "明るい",
+      "kana": "あかるい",
+      "romaji": ["akarui"],
+      "meaningsZh": ["明亮", "开朗"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-akarui-1",
+          "ja": "この部屋は明るい。",
+          "kana": "このへやはあかるい。",
+          "zh": "这房间亮堂。",
+          "targetSurface": "明るい",
+          "targetKana": "あかるい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-akeru",
+      "type": "word",
+      "surface": "開ける",
+      "kana": "あける",
+      "romaji": ["akeru"],
+      "meaningsZh": ["打开"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-akeru-1",
+          "ja": "毎日開けるようにしている。",
+          "kana": "まいにちあけるようにしている。",
+          "zh": "每天坚持打开。",
+          "targetSurface": "開ける",
+          "targetKana": "あける"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-anata",
+      "type": "word",
+      "surface": "あなた",
+      "kana": "あなた",
+      "romaji": ["anata"],
+      "meaningsZh": ["你"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-anata-1",
+          "ja": "あなたの名前を教えてください。",
+          "kana": "あなたのなまえをおしえてください。",
+          "zh": "请告诉我你的名字。",
+          "targetSurface": "あなた",
+          "targetKana": "あなた"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ane",
+      "type": "word",
+      "surface": "姉",
+      "kana": "あね",
+      "romaji": ["ane"],
+      "meaningsZh": ["姐姐"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ane-1",
+          "ja": "姉は看護師として働いている。",
+          "kana": "あねはかんごしとしてはたらいている。",
+          "zh": "姐姐做护士工作。",
+          "targetSurface": "姉",
+          "targetKana": "あね"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ani",
+      "type": "word",
+      "surface": "兄",
+      "kana": "あに",
+      "romaji": ["ani"],
+      "meaningsZh": ["哥哥"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ani-1",
+          "ja": "兄は会社員だ。",
+          "kana": "あにはかいしゃいんだ。",
+          "zh": "哥哥是上班族。",
+          "targetSurface": "兄",
+          "targetKana": "あに"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-are",
+      "type": "word",
+      "surface": "あれ",
+      "kana": "あれ",
+      "romaji": ["are"],
+      "meaningsZh": ["那个(远)"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-are-1",
+          "ja": "あれは富士山ですか?",
+          "kana": "あれはふじさんですか?",
+          "zh": "那是富士山吗？",
+          "targetSurface": "あれ",
+          "targetKana": "あれ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-arigatou",
+      "type": "word",
+      "surface": "ありがとう",
+      "kana": "ありがとう",
+      "romaji": ["arigatou"],
+      "meaningsZh": ["谢谢"],
+      "pos": "expression",
+      "tags": ["greeting", "long-vowel"],
+      "skillTags": ["kana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-arigatou-1",
+          "ja": "お土産、ありがとう。",
+          "kana": "おみやげ、ありがとう。",
+          "zh": "礼物，谢谢啦。",
+          "targetSurface": "ありがとう",
+          "targetKana": "ありがとう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-aru",
+      "type": "word",
+      "surface": "ある",
+      "kana": "ある",
+      "romaji": ["aru"],
+      "meaningsZh": ["有(无生命)"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-aru-1",
+          "ja": "毎日あるようにしている。",
+          "kana": "まいにちあるようにしている。",
+          "zh": "每天坚持有。",
+          "targetSurface": "ある",
+          "targetKana": "ある"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-aruku",
+      "type": "word",
+      "surface": "歩く",
+      "kana": "あるく",
+      "romaji": ["aruku"],
+      "meaningsZh": ["走"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-aruku-1",
+          "ja": "歩くのは難しい。",
+          "kana": "あるくのはむずかしい。",
+          "zh": "走很难。",
+          "targetSurface": "歩く",
+          "targetKana": "あるく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-asa",
+      "type": "word",
+      "surface": "朝",
+      "kana": "あさ",
+      "romaji": ["asa"],
+      "meaningsZh": ["早上"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-asa-1",
+          "ja": "朝の散歩は気持ちがいい。",
+          "kana": "あさのさんぽはきもちがいい。",
+          "zh": "早上散步很舒服。",
+          "targetSurface": "朝",
+          "targetKana": "あさ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-asatte",
+      "type": "word",
+      "surface": "明後日",
+      "kana": "あさって",
+      "romaji": ["asatte"],
+      "meaningsZh": ["后天"],
+      "pos": "noun",
+      "tags": ["time", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-asatte-1",
+          "ja": "明後日は予定があります。",
+          "kana": "あさってはよていがあります。",
+          "zh": "后天有安排。",
+          "targetSurface": "明後日",
+          "targetKana": "あさって"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-ashita",
+      "type": "word",
+      "surface": "明日",
+      "kana": "あした",
+      "romaji": ["ashita", "asita"],
+      "meaningsZh": ["明天"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ashita-1",
+          "ja": "明日、十時に会いましょう。",
+          "kana": "あした、じゅうじにあいましょう。",
+          "zh": "明天十点见面吧。",
+          "targetSurface": "明日",
+          "targetKana": "あした"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-asobu",
+      "type": "word",
+      "surface": "遊ぶ",
+      "kana": "あそぶ",
+      "romaji": ["asobu"],
+      "meaningsZh": ["玩"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-asobu-1",
+          "ja": "遊ぶのは難しい。",
+          "kana": "あそぶのはむずかしい。",
+          "zh": "玩很难。",
+          "targetSurface": "遊ぶ",
+          "targetKana": "あそぶ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-asoko",
+      "type": "word",
+      "surface": "あそこ",
+      "kana": "あそこ",
+      "romaji": ["asoko"],
+      "meaningsZh": ["那边(远)"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-asoko-1",
+          "ja": "あそこに見える建物が駅です。",
+          "kana": "あそこにみえるたてものがえきです。",
+          "zh": "那边能看到的建筑是车站。",
+          "targetSurface": "あそこ",
+          "targetKana": "あそこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-atarashii",
+      "type": "word",
+      "surface": "新しい",
+      "kana": "あたらしい",
+      "romaji": ["atarashii", "atarasii"],
+      "meaningsZh": ["新"],
+      "pos": "adjective",
+      "tags": ["adjective", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-atarashii-1",
+          "ja": "新しい靴を買った。",
+          "kana": "あたらしいくつをかった。",
+          "zh": "买了新鞋。",
+          "targetSurface": "新しい",
+          "targetKana": "あたらしい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-atatakai",
+      "type": "word",
+      "surface": "暖かい",
+      "kana": "あたたかい",
+      "romaji": ["atatakai"],
+      "meaningsZh": ["温暖"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-atatakai-1",
+          "ja": "今日は暖かい。",
+          "kana": "きょうはあたたかい。",
+          "zh": "今天暖和。",
+          "targetSurface": "暖かい",
+          "targetKana": "あたたかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-benri",
+      "type": "word",
+      "surface": "便利",
+      "kana": "べんり",
+      "romaji": ["benri"],
+      "meaningsZh": ["方便"],
+      "pos": "adjective",
+      "tags": ["feeling"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-benri-1",
+          "ja": "駅から近くて、便利な場所だ。",
+          "kana": "えきからちかくて、べんりなばしょだ。",
+          "zh": "离车站近，地方很方便。",
+          "targetSurface": "便利",
+          "targetKana": "べんり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-chiisai",
+      "type": "word",
+      "surface": "小さい",
+      "kana": "ちいさい",
+      "romaji": ["chiisai", "tiisai"],
+      "meaningsZh": ["小"],
+      "pos": "adjective",
+      "tags": ["adjective", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-chiisai-1",
+          "ja": "猫は小さい音にも反応する。",
+          "kana": "ねこはちいさいおとにもはんのうする。",
+          "zh": "猫对很小的声音也有反应。",
+          "targetSurface": "小さい",
+          "targetKana": "ちいさい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-dare",
+      "type": "word",
+      "surface": "誰",
+      "kana": "だれ",
+      "romaji": ["dare"],
+      "meaningsZh": ["谁"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-dare-1",
+          "ja": "誰と一緒に行きますか?",
+          "kana": "だれといっしょにいきますか?",
+          "zh": "和谁一起去？",
+          "targetSurface": "誰",
+          "targetKana": "だれ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-dekakeru",
+      "type": "word",
+      "surface": "出かける",
+      "kana": "でかける",
+      "romaji": ["dekakeru"],
+      "meaningsZh": ["出门"],
+      "pos": "noun",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-dekakeru-1",
+          "ja": "「出かける」という言葉の意味を確認する。",
+          "kana": "「出かける」ということばのいみをかくにんする。",
+          "zh": "确认「出かける」（出门）这个词的含义。",
+          "targetSurface": "出かける"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-deru",
+      "type": "word",
+      "surface": "出る",
+      "kana": "でる",
+      "romaji": ["deru"],
+      "meaningsZh": ["出去", "出现"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-deru-1",
+          "ja": "毎日出るようにしている。",
+          "kana": "まいにちでるようにしている。",
+          "zh": "每天坚持出去。",
+          "targetSurface": "出る",
+          "targetKana": "でる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-dochira",
+      "type": "word",
+      "surface": "どちら",
+      "kana": "どちら",
+      "romaji": ["dochira"],
+      "meaningsZh": ["哪边", "哪位"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-dochira-1",
+          "ja": "どちらからお越しですか?",
+          "kana": "どちらからおこしですか?",
+          "zh": "您从哪儿来？",
+          "targetSurface": "どちら",
+          "targetKana": "どちら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-doko",
+      "type": "word",
+      "surface": "どこ",
+      "kana": "どこ",
+      "romaji": ["doko"],
+      "meaningsZh": ["哪里"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-doko-1",
+          "ja": "トイレはどこですか?",
+          "kana": "トイレはどこですか?",
+          "zh": "洗手间在哪里？",
+          "targetSurface": "どこ",
+          "targetKana": "どこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-dore",
+      "type": "word",
+      "surface": "どれ",
+      "kana": "どれ",
+      "romaji": ["dore"],
+      "meaningsZh": ["哪一个"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-dore-1",
+          "ja": "どれが一番おすすめですか?",
+          "kana": "どれがいちばんおすすめですか?",
+          "zh": "哪个最推荐？",
+          "targetSurface": "どれ",
+          "targetKana": "どれ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-dou",
+      "type": "word",
+      "surface": "どう",
+      "kana": "どう",
+      "romaji": ["dou"],
+      "meaningsZh": ["怎么样"],
+      "pos": "adverb",
+      "tags": ["adverb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-dou-1",
+          "ja": "どうそう思います。",
+          "kana": "どうそうおもいます。",
+          "zh": "我也怎么样这么想。",
+          "targetSurface": "どう",
+          "targetKana": "どう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-doushite",
+      "type": "word",
+      "surface": "どうして",
+      "kana": "どうして",
+      "romaji": ["doushite"],
+      "meaningsZh": ["为什么"],
+      "pos": "adverb",
+      "tags": ["adverb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-doushite-1",
+          "ja": "どうしてそう思います。",
+          "kana": "どうしてそうおもいます。",
+          "zh": "我也为什么这么想。",
+          "targetSurface": "どうして",
+          "targetKana": "どうして"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-doyoubi",
+      "type": "word",
+      "surface": "土曜日",
+      "kana": "どようび",
+      "romaji": ["doyoubi"],
+      "meaningsZh": ["星期六"],
+      "pos": "noun",
+      "tags": ["time", "weekday"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-doyoubi-1",
+          "ja": "土曜日は予定があります。",
+          "kana": "どようびはよていがあります。",
+          "zh": "星期六有安排。",
+          "targetSurface": "土曜日",
+          "targetKana": "どようび"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-erabu",
+      "type": "word",
+      "surface": "選ぶ",
+      "kana": "えらぶ",
+      "romaji": ["erabu"],
+      "meaningsZh": ["选择"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-erabu-1",
+          "ja": "選ぶのは難しい。",
+          "kana": "えらぶのはむずかしい。",
+          "zh": "选择很难。",
+          "targetSurface": "選ぶ",
+          "targetKana": "えらぶ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-fuben",
+      "type": "word",
+      "surface": "不便",
+      "kana": "ふべん",
+      "romaji": ["fuben"],
+      "meaningsZh": ["不方便"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-fuben-1",
+          "ja": "彼は不便な人だ。",
+          "kana": "かれはふべんなひとだ。",
+          "zh": "他是个不方便的人。",
+          "targetSurface": "不便",
+          "targetKana": "ふべん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-fun",
+      "type": "word",
+      "surface": "分",
+      "kana": "ふん",
+      "romaji": ["fun"],
+      "meaningsZh": ["分钟"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-fun-1",
+          "ja": "「分」という漢字を覚える。",
+          "kana": "「分」というかんじをおぼえる。",
+          "zh": "记住「分」这个汉字（分钟）。",
+          "targetSurface": "分"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-furui",
+      "type": "word",
+      "surface": "古い",
+      "kana": "ふるい",
+      "romaji": ["furui", "hurui"],
+      "meaningsZh": ["旧"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-furui-1",
+          "ja": "古い写真を見て懐かしくなった。",
+          "kana": "ふるいしゃしんをみてなつかしくなった。",
+          "zh": "看到旧照片很怀念。",
+          "targetSurface": "古い",
+          "targetKana": "ふるい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-futari",
+      "type": "word",
+      "surface": "二人",
+      "kana": "ふたり",
+      "romaji": ["futari"],
+      "meaningsZh": ["两个人"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-futari-1",
+          "ja": "二人で映画を見た。",
+          "kana": "ふたりでえいがをみた。",
+          "zh": "两个人看了电影。",
+          "targetSurface": "二人",
+          "targetKana": "ふたり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-futatsu",
+      "type": "word",
+      "surface": "二つ",
+      "kana": "ふたつ",
+      "romaji": ["futatsu"],
+      "meaningsZh": ["两个"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-futatsu-1",
+          "ja": "おにぎりを二つ買った。",
+          "kana": "おにぎりをふたつかった。",
+          "zh": "买了两个饭团。",
+          "targetSurface": "二つ",
+          "targetKana": "ふたつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-gakkou",
+      "type": "word",
+      "surface": "学校",
+      "kana": "がっこう",
+      "romaji": ["gakkou"],
+      "meaningsZh": ["学校"],
+      "pos": "noun",
+      "tags": ["daily", "kanji-word", "sokuon", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-gakkou-1",
+          "ja": "八時に学校へ行く。",
+          "kana": "はちじにがっこうへいく。",
+          "zh": "八点去学校。",
+          "targetSurface": "学校",
+          "targetKana": "がっこう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error", "sokuon-error"]
+    },
+    {
+      "id": "word-getsuyoubi",
+      "type": "word",
+      "surface": "月曜日",
+      "kana": "げつようび",
+      "romaji": ["getsuyoubi"],
+      "meaningsZh": ["星期一"],
+      "pos": "noun",
+      "tags": ["time", "weekday"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-getsuyoubi-1",
+          "ja": "月曜日は予定があります。",
+          "kana": "げつようびはよていがあります。",
+          "zh": "星期一有安排。",
+          "targetSurface": "月曜日",
+          "targetKana": "げつようび"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-go",
+      "type": "word",
+      "surface": "五",
+      "kana": "ご",
+      "romaji": ["go"],
+      "meaningsZh": ["五", "5"],
+      "pos": "numeral",
+      "tags": ["number"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-go-1",
+          "ja": "五分後に出発します。",
+          "kana": "ごふんごにしゅっぱつします。",
+          "zh": "五分钟后出发。",
+          "targetSurface": "五",
+          "targetKana": "ご"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-gogatsu",
+      "type": "word",
+      "surface": "五月",
+      "kana": "ごがつ",
+      "romaji": ["gogatsu"],
+      "meaningsZh": ["五月"],
+      "pos": "noun",
+      "tags": ["time", "month"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-gogatsu-1",
+          "ja": "五月に集合してください。",
+          "kana": "ごがつにしゅうごうしてください。",
+          "zh": "请在五月集合。",
+          "targetSurface": "五月",
+          "targetKana": "ごがつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-gogo",
+      "type": "word",
+      "surface": "午後",
+      "kana": "ごご",
+      "romaji": ["gogo"],
+      "meaningsZh": ["下午"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-gogo-1",
+          "ja": "午後、会議がある。",
+          "kana": "ごご、かいぎがある。",
+          "zh": "下午有会议。",
+          "targetSurface": "午後",
+          "targetKana": "ごご"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-gomennasai",
+      "type": "word",
+      "surface": "ごめんなさい",
+      "kana": "ごめんなさい",
+      "romaji": ["gomennasai"],
+      "meaningsZh": ["对不起"],
+      "pos": "expression",
+      "tags": ["greeting"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-gomennasai-1",
+          "ja": "遅れて、ごめんなさい。",
+          "kana": "おくれて、ごめんなさい。",
+          "zh": "迟到了，对不起。",
+          "targetSurface": "ごめんなさい",
+          "targetKana": "ごめんなさい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-goshujin",
+      "type": "word",
+      "surface": "ご主人",
+      "kana": "ごしゅじん",
+      "romaji": ["goshujin"],
+      "meaningsZh": ["丈夫", "先生"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-goshujin-1",
+          "ja": "辞書でご主人を引いた。",
+          "kana": "じしょでごしゅじんをひいた。",
+          "zh": "在字典里查了丈夫。",
+          "targetSurface": "ご主人",
+          "targetKana": "ごしゅじん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hachigatsu",
+      "type": "word",
+      "surface": "八月",
+      "kana": "はちがつ",
+      "romaji": ["hachigatsu"],
+      "meaningsZh": ["八月"],
+      "pos": "noun",
+      "tags": ["time", "month"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hachigatsu-1",
+          "ja": "八月に集合してください。",
+          "kana": "はちがつにしゅうごうしてください。",
+          "zh": "请在八月集合。",
+          "targetSurface": "八月",
+          "targetKana": "はちがつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hai",
+      "type": "word",
+      "surface": "はい",
+      "kana": "はい",
+      "romaji": ["hai"],
+      "meaningsZh": ["是"],
+      "pos": "expression",
+      "tags": ["greeting"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hai-1",
+          "ja": "はい、分かりました。",
+          "kana": "はい、わかりました。",
+          "zh": "好的，我明白了。",
+          "targetSurface": "はい",
+          "targetKana": "はい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hairu",
+      "type": "word",
+      "surface": "入る",
+      "kana": "はいる",
+      "romaji": ["hairu"],
+      "meaningsZh": ["进入"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hairu-1",
+          "ja": "入るのは難しい。",
+          "kana": "はいるのはむずかしい。",
+          "zh": "进入很难。",
+          "targetSurface": "入る",
+          "targetKana": "はいる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-haku",
+      "type": "word",
+      "surface": "履く",
+      "kana": "はく",
+      "romaji": ["haku"],
+      "meaningsZh": ["穿鞋", "裤子"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-haku-1",
+          "ja": "履くのは難しい。",
+          "kana": "はくのはむずかしい。",
+          "zh": "穿鞋很难。",
+          "targetSurface": "履く",
+          "targetKana": "はく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hanasu",
+      "type": "word",
+      "surface": "話す",
+      "kana": "はなす",
+      "romaji": ["hanasu"],
+      "meaningsZh": ["说", "谈"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hanasu-1",
+          "ja": "毎日話すようにしている。",
+          "kana": "まいにちはなすようにしている。",
+          "zh": "每天坚持说。",
+          "targetSurface": "話す",
+          "targetKana": "はなす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hashiru",
+      "type": "word",
+      "surface": "走る",
+      "kana": "はしる",
+      "romaji": ["hashiru", "hasiru"],
+      "meaningsZh": ["跑"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hashiru-1",
+          "ja": "毎朝、公園を走っている。",
+          "kana": "まいあさ、こうえんをはしっている。",
+          "zh": "每天早上在公园跑步。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-heta",
+      "type": "word",
+      "surface": "下手",
+      "kana": "へた",
+      "romaji": ["heta"],
+      "meaningsZh": ["不擅长"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-heta-1",
+          "ja": "私は歌が下手です。",
+          "kana": "わたしはうたがへたです。",
+          "zh": "我唱歌不行。",
+          "targetSurface": "下手",
+          "targetKana": "へた"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hiroi",
+      "type": "word",
+      "surface": "広い",
+      "kana": "ひろい",
+      "romaji": ["hiroi"],
+      "meaningsZh": ["宽广"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hiroi-1",
+          "ja": "公園は広い。",
+          "kana": "こうえんはひろい。",
+          "zh": "公园宽阔。",
+          "targetSurface": "広い",
+          "targetKana": "ひろい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hiru",
+      "type": "word",
+      "surface": "昼",
+      "kana": "ひる",
+      "romaji": ["hiru"],
+      "meaningsZh": ["中午", "白天"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hiru-1",
+          "ja": "昼にラーメンを食べた。",
+          "kana": "ひるにラーメンをたべた。",
+          "zh": "中午吃了拉面。",
+          "targetSurface": "昼",
+          "targetKana": "ひる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hitori",
+      "type": "word",
+      "surface": "一人",
+      "kana": "ひとり",
+      "romaji": ["hitori"],
+      "meaningsZh": ["一个人"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hitori-1",
+          "ja": "一人でレストランに行った。",
+          "kana": "ひとりでレストランにいった。",
+          "zh": "一个人去了餐厅。",
+          "targetSurface": "一人",
+          "targetKana": "ひとり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hitotsu",
+      "type": "word",
+      "surface": "一つ",
+      "kana": "ひとつ",
+      "romaji": ["hitotsu"],
+      "meaningsZh": ["一个"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hitotsu-1",
+          "ja": "リンゴを一つください。",
+          "kana": "リンゴをひとつください。",
+          "zh": "请给我一个苹果。",
+          "targetSurface": "一つ",
+          "targetKana": "ひとつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hyaku",
+      "type": "word",
+      "surface": "百",
+      "kana": "ひゃく",
+      "romaji": ["hyaku"],
+      "meaningsZh": ["百", "100"],
+      "pos": "numeral",
+      "tags": ["number", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hyaku-1",
+          "ja": "ここから百メートル先にある。",
+          "kana": "ここからひゃくメートルさきにある。",
+          "zh": "从这里再走一百米就到。",
+          "targetSurface": "百",
+          "targetKana": "ひゃく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ichi",
+      "type": "word",
+      "surface": "一",
+      "kana": "いち",
+      "romaji": ["ichi"],
+      "meaningsZh": ["一", "1"],
+      "pos": "numeral",
+      "tags": ["number"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ichi-1",
+          "ja": "一から始めよう。",
+          "kana": "いちからはじめよう。",
+          "zh": "从一开始吧。",
+          "targetSurface": "一",
+          "targetKana": "いち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ichidai",
+      "type": "word",
+      "surface": "一台",
+      "kana": "いちだい",
+      "romaji": ["ichidai"],
+      "meaningsZh": ["一台"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ichidai-1",
+          "ja": "駐車場に車が一台ある。",
+          "kana": "ちゅうしゃじょうにくるまがいちだいある。",
+          "zh": "停车场里有一辆车。",
+          "targetSurface": "一台",
+          "targetKana": "いちだい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ichigatsu",
+      "type": "word",
+      "surface": "一月",
+      "kana": "いちがつ",
+      "romaji": ["ichigatsu"],
+      "meaningsZh": ["一月"],
+      "pos": "noun",
+      "tags": ["time", "month"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ichigatsu-1",
+          "ja": "一月に集合してください。",
+          "kana": "いちがつにしゅうごうしてください。",
+          "zh": "请在一月集合。",
+          "targetSurface": "一月",
+          "targetKana": "いちがつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ii",
+      "type": "word",
+      "surface": "いい",
+      "kana": "いい",
+      "romaji": ["ii"],
+      "meaningsZh": ["好"],
+      "pos": "adjective",
+      "tags": ["adjective", "long-vowel"],
+      "skillTags": ["kana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ii-1",
+          "ja": "この本はいいと思う。",
+          "kana": "このほんはいいとおもう。",
+          "zh": "我觉得这本书好。",
+          "targetSurface": "いい",
+          "targetKana": "いい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-iie",
+      "type": "word",
+      "surface": "いいえ",
+      "kana": "いいえ",
+      "romaji": ["iie"],
+      "meaningsZh": ["不"],
+      "pos": "expression",
+      "tags": ["greeting", "long-vowel"],
+      "skillTags": ["kana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-iie-1",
+          "ja": "いいえ、それは違います。",
+          "kana": "いいえ、それはちがいます。",
+          "zh": "不，那不对。",
+          "targetSurface": "いいえ",
+          "targetKana": "いいえ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-ikkai",
+      "type": "word",
+      "surface": "一階",
+      "kana": "いっかい",
+      "romaji": ["ikkai"],
+      "meaningsZh": ["一楼"],
+      "pos": "numeral",
+      "tags": ["counter", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ikkai-1",
+          "ja": "受付は一階にあります。",
+          "kana": "うけつけはいっかいにあります。",
+          "zh": "前台在一楼。",
+          "targetSurface": "一階",
+          "targetKana": "いっかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-iku",
+      "type": "word",
+      "surface": "行く",
+      "kana": "いく",
+      "romaji": ["iku"],
+      "meaningsZh": ["去"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-iku-1",
+          "ja": "行くのは難しい。",
+          "kana": "いくのはむずかしい。",
+          "zh": "去很难。",
+          "targetSurface": "行く",
+          "targetKana": "いく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ikura",
+      "type": "word",
+      "surface": "いくら",
+      "kana": "いくら",
+      "romaji": ["ikura"],
+      "meaningsZh": ["多少钱"],
+      "pos": "pronoun",
+      "tags": ["money"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ikura-1",
+          "ja": "これはいくらですか?",
+          "kana": "これはいくらですか?",
+          "zh": "这个多少钱？",
+          "targetSurface": "いくら",
+          "targetKana": "いくら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ikutsu",
+      "type": "word",
+      "surface": "いくつ",
+      "kana": "いくつ",
+      "romaji": ["ikutsu"],
+      "meaningsZh": ["几个", "几岁"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ikutsu-1",
+          "ja": "お子さんはいくつですか?",
+          "kana": "おこさんはいくつですか?",
+          "zh": "孩子几岁了？",
+          "targetSurface": "いくつ",
+          "targetKana": "いくつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ima",
+      "type": "word",
+      "surface": "今",
+      "kana": "いま",
+      "romaji": ["ima"],
+      "meaningsZh": ["现在"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ima-1",
+          "ja": "今、何時ですか?",
+          "kana": "いま、なんじですか?",
+          "zh": "现在几点？",
+          "targetSurface": "今",
+          "targetKana": "いま"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-imouto",
+      "type": "word",
+      "surface": "妹",
+      "kana": "いもうと",
+      "romaji": ["imouto"],
+      "meaningsZh": ["妹妹"],
+      "pos": "noun",
+      "tags": ["family", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-imouto-1",
+          "ja": "妹は今年、大学に入った。",
+          "kana": "いもうとはことし、だいがくにはいった。",
+          "zh": "妹妹今年上了大学。",
+          "targetSurface": "妹",
+          "targetKana": "いもうと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-imoutosan",
+      "type": "word",
+      "surface": "妹さん",
+      "kana": "いもうとさん",
+      "romaji": ["imoutosan"],
+      "meaningsZh": ["妹妹(敬称)"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-imoutosan-1",
+          "ja": "辞書で妹さんを引いた。",
+          "kana": "じしょでいもうとさんをひいた。",
+          "zh": "在字典里查了妹妹。",
+          "targetSurface": "妹さん",
+          "targetKana": "いもうとさん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ippiki",
+      "type": "word",
+      "surface": "一匹",
+      "kana": "いっぴき",
+      "romaji": ["ippiki"],
+      "meaningsZh": ["一只小动物"],
+      "pos": "numeral",
+      "tags": ["counter", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ippiki-1",
+          "ja": "猫を一匹飼っている。",
+          "kana": "ねこをいっぴきかっている。",
+          "zh": "养着一只猫。",
+          "targetSurface": "一匹",
+          "targetKana": "いっぴき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-iru",
+      "type": "word",
+      "surface": "いる",
+      "kana": "いる",
+      "romaji": ["iru"],
+      "meaningsZh": ["有(生命)", "在"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-iru-1",
+          "ja": "毎日いるようにしている。",
+          "kana": "まいにちいるようにしている。",
+          "zh": "每天坚持有。",
+          "targetSurface": "いる",
+          "targetKana": "いる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-isogashii",
+      "type": "word",
+      "surface": "忙しい",
+      "kana": "いそがしい",
+      "romaji": ["isogashii"],
+      "meaningsZh": ["忙"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-isogashii-1",
+          "ja": "最近、仕事が忙しい。",
+          "kana": "さいきん、しごとがいそがしい。",
+          "zh": "最近工作忙。",
+          "targetSurface": "忙しい",
+          "targetKana": "いそがしい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-isogu",
+      "type": "word",
+      "surface": "急ぐ",
+      "kana": "いそぐ",
+      "romaji": ["isogu"],
+      "meaningsZh": ["赶快"],
+      "pos": "noun",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-isogu-1",
+          "ja": "辞書で急ぐを引いた。",
+          "kana": "じしょでいそぐをひいた。",
+          "zh": "在字典里查了赶快。",
+          "targetSurface": "急ぐ",
+          "targetKana": "いそぐ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-issatsu",
+      "type": "word",
+      "surface": "一冊",
+      "kana": "いっさつ",
+      "romaji": ["issatsu"],
+      "meaningsZh": ["一本", "一册书"],
+      "pos": "numeral",
+      "tags": ["counter", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-issatsu-1",
+          "ja": "本を一冊借りた。",
+          "kana": "ほんをいっさつかりた。",
+          "zh": "借了一本书。",
+          "targetSurface": "一冊",
+          "targetKana": "いっさつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-itsumo",
+      "type": "word",
+      "surface": "いつも",
+      "kana": "いつも",
+      "romaji": ["itsumo", "itumo"],
+      "meaningsZh": ["总是"],
+      "pos": "adverb",
+      "tags": ["adverb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-itsumo-1",
+          "ja": "彼はいつも遅刻する。",
+          "kana": "かれはいつもちこくする。",
+          "zh": "他总是迟到。",
+          "targetSurface": "いつも",
+          "targetKana": "いつも"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-itsutsu",
+      "type": "word",
+      "surface": "五つ",
+      "kana": "いつつ",
+      "romaji": ["itsutsu"],
+      "meaningsZh": ["五个"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-itsutsu-1",
+          "ja": "質問が五つあります。",
+          "kana": "しつもんがいつつあります。",
+          "zh": "我有五个问题。",
+          "targetSurface": "五つ",
+          "targetKana": "いつつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-iu",
+      "type": "word",
+      "surface": "言う",
+      "kana": "いう",
+      "romaji": ["iu"],
+      "meaningsZh": ["说"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-iu-1",
+          "ja": "毎日言うようにしている。",
+          "kana": "まいにちいうようにしている。",
+          "zh": "每天坚持说。",
+          "targetSurface": "言う",
+          "targetKana": "いう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-jikan",
+      "type": "word",
+      "surface": "時間",
+      "kana": "じかん",
+      "romaji": ["jikan"],
+      "meaningsZh": ["时间", "小时"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-jikan-1",
+          "ja": "時間に集合してください。",
+          "kana": "じかんにしゅうごうしてください。",
+          "zh": "请在时间集合。",
+          "targetSurface": "時間",
+          "targetKana": "じかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-jouzu",
+      "type": "word",
+      "surface": "上手",
+      "kana": "じょうず",
+      "romaji": ["jouzu"],
+      "meaningsZh": ["擅长"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-jouzu-1",
+          "ja": "彼は日本語が上手だ。",
+          "kana": "かれはにほんごがじょうずだ。",
+          "zh": "他日语很好。",
+          "targetSurface": "上手",
+          "targetKana": "じょうず"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-juu",
+      "type": "word",
+      "surface": "十",
+      "kana": "じゅう",
+      "romaji": ["juu"],
+      "meaningsZh": ["十", "10"],
+      "pos": "numeral",
+      "tags": ["number", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-juu-1",
+          "ja": "十分待ってください。",
+          "kana": "じゅっぷんまってください。",
+          "zh": "请等十分钟。",
+          "targetSurface": "十"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-juugatsu",
+      "type": "word",
+      "surface": "十月",
+      "kana": "じゅうがつ",
+      "romaji": ["juugatsu"],
+      "meaningsZh": ["十月"],
+      "pos": "noun",
+      "tags": ["time", "month"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-juugatsu-1",
+          "ja": "十月に集合してください。",
+          "kana": "じゅうがつにしゅうごうしてください。",
+          "zh": "请在十月集合。",
+          "targetSurface": "十月",
+          "targetKana": "じゅうがつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-juuichigatsu",
+      "type": "word",
+      "surface": "十一月",
+      "kana": "じゅういちがつ",
+      "romaji": ["juuichigatsu"],
+      "meaningsZh": ["十一月"],
+      "pos": "noun",
+      "tags": ["time", "month"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-juuichigatsu-1",
+          "ja": "十一月に集合してください。",
+          "kana": "じゅういちがつにしゅうごうしてください。",
+          "zh": "请在十一月集合。",
+          "targetSurface": "十一月",
+          "targetKana": "じゅういちがつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-juunigatsu",
+      "type": "word",
+      "surface": "十二月",
+      "kana": "じゅうにがつ",
+      "romaji": ["juunigatsu"],
+      "meaningsZh": ["十二月"],
+      "pos": "noun",
+      "tags": ["time", "month"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-juunigatsu-1",
+          "ja": "十二月に集合してください。",
+          "kana": "じゅうにがつにしゅうごうしてください。",
+          "zh": "请在十二月集合。",
+          "targetSurface": "十二月",
+          "targetKana": "じゅうにがつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kaeru",
+      "type": "word",
+      "surface": "帰る",
+      "kana": "かえる",
+      "romaji": ["kaeru"],
+      "meaningsZh": ["回"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaeru-1",
+          "ja": "毎日帰るようにしている。",
+          "kana": "まいにちかえるようにしている。",
+          "zh": "每天坚持回。",
+          "targetSurface": "帰る",
+          "targetKana": "かえる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kaesu",
+      "type": "word",
+      "surface": "返す",
+      "kana": "かえす",
+      "romaji": ["kaesu"],
+      "meaningsZh": ["归还"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaesu-1",
+          "ja": "返すのは難しい。",
+          "kana": "かえすのはむずかしい。",
+          "zh": "归还很难。",
+          "targetSurface": "返す",
+          "targetKana": "かえす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kaku",
+      "type": "word",
+      "surface": "書く",
+      "kana": "かく",
+      "romaji": ["kaku"],
+      "meaningsZh": ["写"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaku-1",
+          "ja": "毎日書くようにしている。",
+          "kana": "まいにちかくようにしている。",
+          "zh": "每天坚持写。",
+          "targetSurface": "書く",
+          "targetKana": "かく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kanojo",
+      "type": "word",
+      "surface": "彼女",
+      "kana": "かのじょ",
+      "romaji": ["kanojo"],
+      "meaningsZh": ["她", "女朋友"],
+      "pos": "pronoun",
+      "tags": ["pronoun", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kanojo-1",
+          "ja": "彼女は今、京都にいる。",
+          "kana": "かのじょはいま、きょうとにいる。",
+          "zh": "她现在在京都。",
+          "targetSurface": "彼女",
+          "targetKana": "かのじょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kantan",
+      "type": "word",
+      "surface": "簡単",
+      "kana": "かんたん",
+      "romaji": ["kantan"],
+      "meaningsZh": ["简单"],
+      "pos": "adjective",
+      "tags": ["feeling"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kantan-1",
+          "ja": "この問題は簡単だ。",
+          "kana": "このもんだいはかんたんだ。",
+          "zh": "这道题很简单。",
+          "targetSurface": "簡単",
+          "targetKana": "かんたん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kare",
+      "type": "word",
+      "surface": "彼",
+      "kana": "かれ",
+      "romaji": ["kare"],
+      "meaningsZh": ["他"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kare-1",
+          "ja": "彼は私の同僚です。",
+          "kana": "かれはわたしのどうりょうです。",
+          "zh": "他是我的同事。",
+          "targetSurface": "彼",
+          "targetKana": "かれ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kariru",
+      "type": "word",
+      "surface": "借りる",
+      "kana": "かりる",
+      "romaji": ["kariru"],
+      "meaningsZh": ["借入"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kariru-1",
+          "ja": "借りるのは難しい。",
+          "kana": "かりるのはむずかしい。",
+          "zh": "借入很难。",
+          "targetSurface": "借りる",
+          "targetKana": "かりる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-karui",
+      "type": "word",
+      "surface": "軽い",
+      "kana": "かるい",
+      "romaji": ["karui"],
+      "meaningsZh": ["轻"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-karui-1",
+          "ja": "このノートパソコンは軽い。",
+          "kana": "このノートパソコンはかるい。",
+          "zh": "这台笔记本电脑很轻。",
+          "targetSurface": "軽い",
+          "targetKana": "かるい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kasu",
+      "type": "word",
+      "surface": "貸す",
+      "kana": "かす",
+      "romaji": ["kasu"],
+      "meaningsZh": ["借出"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kasu-1",
+          "ja": "毎日貸すようにしている。",
+          "kana": "まいにちかすようにしている。",
+          "zh": "每天坚持借出。",
+          "targetSurface": "貸す",
+          "targetKana": "かす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kau",
+      "type": "word",
+      "surface": "買う",
+      "kana": "かう",
+      "romaji": ["kau"],
+      "meaningsZh": ["买"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kau-1",
+          "ja": "買うのは難しい。",
+          "kana": "かうのはむずかしい。",
+          "zh": "买很难。",
+          "targetSurface": "買う",
+          "targetKana": "かう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kayoubi",
+      "type": "word",
+      "surface": "火曜日",
+      "kana": "かようび",
+      "romaji": ["kayoubi"],
+      "meaningsZh": ["星期二"],
+      "pos": "noun",
+      "tags": ["time", "weekday"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kayoubi-1",
+          "ja": "火曜日は予定があります。",
+          "kana": "かようびはよていがあります。",
+          "zh": "星期二有安排。",
+          "targetSurface": "火曜日",
+          "targetKana": "かようび"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kazoku",
+      "type": "word",
+      "surface": "家族",
+      "kana": "かぞく",
+      "romaji": ["kazoku"],
+      "meaningsZh": ["家人"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kazoku-1",
+          "ja": "家族と一緒に夕食を食べる。",
+          "kana": "かぞくといっしょにゆうしょくをたべる。",
+          "zh": "和家人一起吃晚饭。",
+          "targetSurface": "家族",
+          "targetKana": "かぞく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kinou",
+      "type": "word",
+      "surface": "昨日",
+      "kana": "きのう",
+      "romaji": ["kinou"],
+      "meaningsZh": ["昨天"],
+      "pos": "noun",
+      "tags": ["time", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kinou-1",
+          "ja": "昨日、映画を見た。",
+          "kana": "きのう、えいがをみた。",
+          "zh": "昨天看了电影。",
+          "targetSurface": "昨日",
+          "targetKana": "きのう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kinyoubi",
+      "type": "word",
+      "surface": "金曜日",
+      "kana": "きんようび",
+      "romaji": ["kin'youbi"],
+      "meaningsZh": ["星期五"],
+      "pos": "noun",
+      "tags": ["time", "weekday"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kinyoubi-1",
+          "ja": "金曜日は予定があります。",
+          "kana": "きんようびはよていがあります。",
+          "zh": "星期五有安排。",
+          "targetSurface": "金曜日",
+          "targetKana": "きんようび"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kirai",
+      "type": "word",
+      "surface": "嫌い",
+      "kana": "きらい",
+      "romaji": ["kirai"],
+      "meaningsZh": ["讨厌"],
+      "pos": "adjective",
+      "tags": ["feeling"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kirai-1",
+          "ja": "生のトマトが嫌いだ。",
+          "kana": "なまのトマトがきらいだ。",
+          "zh": "讨厌生番茄。",
+          "targetSurface": "嫌い",
+          "targetKana": "きらい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kirei",
+      "type": "word",
+      "surface": "きれい",
+      "kana": "きれい",
+      "romaji": ["kirei"],
+      "meaningsZh": ["漂亮", "干净"],
+      "pos": "adjective",
+      "tags": ["feeling"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kirei-1",
+          "ja": "ここはとてもきれいな場所だ。",
+          "kana": "ここはとてもきれいなばしょだ。",
+          "zh": "这里非常漂亮。",
+          "targetSurface": "きれい",
+          "targetKana": "きれい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kiru",
+      "type": "word",
+      "surface": "着る",
+      "kana": "きる",
+      "romaji": ["kiru"],
+      "meaningsZh": ["穿上衣"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kiru-1",
+          "ja": "毎日着るようにしている。",
+          "kana": "まいにちきるようにしている。",
+          "zh": "每天坚持穿上衣。",
+          "targetSurface": "着る",
+          "targetKana": "きる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kochira",
+      "type": "word",
+      "surface": "こちら",
+      "kana": "こちら",
+      "romaji": ["kochira"],
+      "meaningsZh": ["这边", "这位"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kochira-1",
+          "ja": "こちらは新人の田中さんです。",
+          "kana": "こちらはしんじんのたなかさんです。",
+          "zh": "这位是新来的田中先生。",
+          "targetSurface": "こちら",
+          "targetKana": "こちら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kodomo",
+      "type": "word",
+      "surface": "子供",
+      "kana": "こども",
+      "romaji": ["kodomo"],
+      "meaningsZh": ["孩子"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kodomo-1",
+          "ja": "「子供」という言葉の意味を確認する。",
+          "kana": "「子供」ということばのいみをかくにんする。",
+          "zh": "确认「子供」（孩子）这个词的含义。",
+          "targetSurface": "子供"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-koi",
+      "type": "word",
+      "surface": "濃い",
+      "kana": "こい",
+      "romaji": ["koi"],
+      "meaningsZh": ["浓"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-koi-1",
+          "ja": "今日は濃いです。",
+          "kana": "きょうはこいです。",
+          "zh": "今天浓。",
+          "targetSurface": "濃い",
+          "targetKana": "こい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kokonotsu",
+      "type": "word",
+      "surface": "九つ",
+      "kana": "ここのつ",
+      "romaji": ["kokonotsu"],
+      "meaningsZh": ["九个"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kokonotsu-1",
+          "ja": "九つの星座が見える。",
+          "kana": "ここのつのせいざがみえる。",
+          "zh": "可以看到九个星座。",
+          "targetSurface": "九つ",
+          "targetKana": "ここのつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-konbanwa",
+      "type": "word",
+      "surface": "こんばんは",
+      "kana": "こんばんは",
+      "romaji": ["konbanha"],
+      "meaningsZh": ["晚上好"],
+      "pos": "expression",
+      "tags": ["greeting", "particle"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-konbanwa-1",
+          "ja": "こんばんは、お先に失礼します。",
+          "kana": "こんばんは、おさきにしつれいします。",
+          "zh": "晚上好，我先告辞了。",
+          "targetSurface": "こんばんは",
+          "targetKana": "こんばんは"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["particle-misuse"]
+    },
+    {
+      "id": "word-kongetsu",
+      "type": "word",
+      "surface": "今月",
+      "kana": "こんげつ",
+      "romaji": ["kongetsu"],
+      "meaningsZh": ["这个月"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kongetsu-1",
+          "ja": "今月は仕事が多い。",
+          "kana": "こんげつはしごとがおおい。",
+          "zh": "本月工作多。",
+          "targetSurface": "今月",
+          "targetKana": "こんげつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-konnichiwa",
+      "type": "word",
+      "surface": "こんにちは",
+      "kana": "こんにちは",
+      "romaji": ["konnichiha", "konnitiha"],
+      "meaningsZh": ["你好"],
+      "pos": "expression",
+      "tags": ["greeting", "particle"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-konnichiwa-1",
+          "ja": "こんにちは、いいお天気ですね。",
+          "kana": "こんにちは、いいおてんきですね。",
+          "zh": "你好，天气真好啊。",
+          "targetSurface": "こんにちは",
+          "targetKana": "こんにちは"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["particle-misuse"]
+    },
+    {
+      "id": "word-konshuu",
+      "type": "word",
+      "surface": "今週",
+      "kana": "こんしゅう",
+      "romaji": ["konshuu"],
+      "meaningsZh": ["本周"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-konshuu-1",
+          "ja": "今週は忙しい。",
+          "kana": "こんしゅうはいそがしい。",
+          "zh": "这周很忙。",
+          "targetSurface": "今週",
+          "targetKana": "こんしゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kore",
+      "type": "word",
+      "surface": "これ",
+      "kana": "これ",
+      "romaji": ["kore"],
+      "meaningsZh": ["这个"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kore-1",
+          "ja": "これは何ですか?",
+          "kana": "これはなんですか?",
+          "zh": "这是什么？",
+          "targetSurface": "これ",
+          "targetKana": "これ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kotoshi",
+      "type": "word",
+      "surface": "今年",
+      "kana": "ことし",
+      "romaji": ["kotoshi"],
+      "meaningsZh": ["今年"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kotoshi-1",
+          "ja": "今年は東京で過ごす。",
+          "kana": "ことしはとうきょうですごす。",
+          "zh": "今年在东京度过。",
+          "targetSurface": "今年",
+          "targetKana": "ことし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kugatsu",
+      "type": "word",
+      "surface": "九月",
+      "kana": "くがつ",
+      "romaji": ["kugatsu"],
+      "meaningsZh": ["九月"],
+      "pos": "noun",
+      "tags": ["time", "month"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kugatsu-1",
+          "ja": "九月は予定があります。",
+          "kana": "くがつはよていがあります。",
+          "zh": "九月有安排。",
+          "targetSurface": "九月",
+          "targetKana": "くがつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kurai",
+      "type": "word",
+      "surface": "暗い",
+      "kana": "くらい",
+      "romaji": ["kurai"],
+      "meaningsZh": ["昏暗"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kurai-1",
+          "ja": "外はもう暗い。",
+          "kana": "そとはもうくらい。",
+          "zh": "外面已经黑了。",
+          "targetSurface": "暗い",
+          "targetKana": "くらい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kuru",
+      "type": "word",
+      "surface": "来る",
+      "kana": "くる",
+      "romaji": ["kuru"],
+      "meaningsZh": ["来"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kuru-1",
+          "ja": "毎日来るようにしている。",
+          "kana": "まいにちくるようにしている。",
+          "zh": "每天坚持来。",
+          "targetSurface": "来る",
+          "targetKana": "くる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kyonen",
+      "type": "word",
+      "surface": "去年",
+      "kana": "きょねん",
+      "romaji": ["kyonen"],
+      "meaningsZh": ["去年"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kyonen-1",
+          "ja": "去年、結婚した。",
+          "kana": "きょねん、けっこんした。",
+          "zh": "去年结婚了。",
+          "targetSurface": "去年",
+          "targetKana": "きょねん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kyou",
+      "type": "word",
+      "surface": "今日",
+      "kana": "きょう",
+      "romaji": ["kyou"],
+      "meaningsZh": ["今天"],
+      "pos": "noun",
+      "tags": ["time", "youon", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kyou-1",
+          "ja": "今日は天気がいい。",
+          "kana": "きょうはてんきがいい。",
+          "zh": "今天天气好。",
+          "targetSurface": "今日",
+          "targetKana": "きょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-kyoudai",
+      "type": "word",
+      "surface": "兄弟",
+      "kana": "きょうだい",
+      "romaji": ["kyoudai"],
+      "meaningsZh": ["兄弟姐妹"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kyoudai-1",
+          "ja": "「兄弟」という言葉の意味を確認する。",
+          "kana": "「兄弟」ということばのいみをかくにんする。",
+          "zh": "确认「兄弟」（兄弟姐妹）这个词的含义。",
+          "targetSurface": "兄弟"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kyuu",
+      "type": "word",
+      "surface": "九",
+      "kana": "きゅう",
+      "romaji": ["kyuu"],
+      "meaningsZh": ["九", "9"],
+      "pos": "numeral",
+      "tags": ["number", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kyuu-1",
+          "ja": "九時から会議がある。",
+          "kana": "くじからかいぎがある。",
+          "zh": "九点开始有会议。",
+          "targetSurface": "九"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mada",
+      "type": "word",
+      "surface": "まだ",
+      "kana": "まだ",
+      "romaji": ["mada"],
+      "meaningsZh": ["还(没)"],
+      "pos": "adverb",
+      "tags": ["adverb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mada-1",
+          "ja": "まだ宿題が終わっていない。",
+          "kana": "まだしゅくだいがおわっていない。",
+          "zh": "作业还没做完。",
+          "targetSurface": "まだ",
+          "targetKana": "まだ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-magaru",
+      "type": "word",
+      "surface": "曲がる",
+      "kana": "まがる",
+      "romaji": ["magaru"],
+      "meaningsZh": ["拐弯"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-magaru-1",
+          "ja": "次の信号を右に曲がってください。",
+          "kana": "つぎのしんごうをみぎにまがってください。",
+          "zh": "请在下一个红绿灯右转。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-maiasa",
+      "type": "word",
+      "surface": "毎朝",
+      "kana": "まいあさ",
+      "romaji": ["maiasa"],
+      "meaningsZh": ["每天早上"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-maiasa-1",
+          "ja": "毎朝六時に起きる。",
+          "kana": "まいあささんじにおきる。",
+          "zh": "每天早上六点起床。",
+          "targetSurface": "毎朝",
+          "targetKana": "まいあさ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-maiban",
+      "type": "word",
+      "surface": "毎晩",
+      "kana": "まいばん",
+      "romaji": ["maiban"],
+      "meaningsZh": ["每天晚上"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-maiban-1",
+          "ja": "毎晩、日記を書いている。",
+          "kana": "まいばん、にっきをかいている。",
+          "zh": "每晚写日记。",
+          "targetSurface": "毎晩",
+          "targetKana": "まいばん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mainichi",
+      "type": "word",
+      "surface": "毎日",
+      "kana": "まいにち",
+      "romaji": ["mainichi", "mainiti"],
+      "meaningsZh": ["每天"],
+      "pos": "noun",
+      "tags": ["daily", "kanji-word", "time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mainichi-1",
+          "ja": "毎日、日本語を勉強している。",
+          "kana": "まいにち、にほんごをべんきょうしている。",
+          "zh": "每天都在学日语。",
+          "targetSurface": "毎日",
+          "targetKana": "まいにち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-maishuu",
+      "type": "word",
+      "surface": "毎週",
+      "kana": "まいしゅう",
+      "romaji": ["maishuu"],
+      "meaningsZh": ["每周"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-maishuu-1",
+          "ja": "毎週日曜日に買い物に行く。",
+          "kana": "まいしゅうにちようびにかいものにいく。",
+          "zh": "每周日去购物。",
+          "targetSurface": "毎週",
+          "targetKana": "まいしゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-maitoshi",
+      "type": "word",
+      "surface": "毎年",
+      "kana": "まいとし",
+      "romaji": ["maitoshi"],
+      "meaningsZh": ["每年"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-maitoshi-1",
+          "ja": "毎年実家に帰る。",
+          "kana": "まいとしじっかにかえる。",
+          "zh": "每年回老家。",
+          "targetSurface": "毎年",
+          "targetKana": "まいとし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-maitsuki",
+      "type": "word",
+      "surface": "毎月",
+      "kana": "まいつき",
+      "romaji": ["maitsuki"],
+      "meaningsZh": ["每月"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-maitsuki-1",
+          "ja": "毎月家賃を振り込む。",
+          "kana": "まいつきやちんをふりこむ。",
+          "zh": "每月转账付房租。",
+          "targetSurface": "毎月",
+          "targetKana": "まいつき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-marui",
+      "type": "word",
+      "surface": "丸い",
+      "kana": "まるい",
+      "romaji": ["marui"],
+      "meaningsZh": ["圆的"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-marui-1",
+          "ja": "この本は丸いと思う。",
+          "kana": "このほんはまるいとおもう。",
+          "zh": "我觉得这本书圆的。",
+          "targetSurface": "丸い",
+          "targetKana": "まるい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mata",
+      "type": "word",
+      "surface": "また",
+      "kana": "また",
+      "romaji": ["mata"],
+      "meaningsZh": ["再", "又"],
+      "pos": "adverb",
+      "tags": ["adverb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mata-1",
+          "ja": "またそう思います。",
+          "kana": "またそうおもいます。",
+          "zh": "我也再这么想。",
+          "targetSurface": "また",
+          "targetKana": "また"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-matsu",
+      "type": "word",
+      "surface": "待つ",
+      "kana": "まつ",
+      "romaji": ["matsu", "matu"],
+      "meaningsZh": ["等"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-matsu-1",
+          "ja": "毎日待つようにしている。",
+          "kana": "まいにちまつようにしている。",
+          "zh": "每天坚持等。",
+          "targetSurface": "待つ",
+          "targetKana": "まつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mijikai",
+      "type": "word",
+      "surface": "短い",
+      "kana": "みじかい",
+      "romaji": ["mijikai"],
+      "meaningsZh": ["短"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mijikai-1",
+          "ja": "夏休みは短い。",
+          "kana": "なつやすみはみじかい。",
+          "zh": "暑假短。",
+          "targetSurface": "短い",
+          "targetKana": "みじかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mitsukeru",
+      "type": "word",
+      "surface": "見つける",
+      "kana": "みつける",
+      "romaji": ["mitsukeru", "mitukeru"],
+      "meaningsZh": ["发现"],
+      "pos": "noun",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mitsukeru-1",
+          "ja": "見つけるについて説明する。",
+          "kana": "みつけるについてせつめいする。",
+          "zh": "对发现进行说明。",
+          "targetSurface": "見つける",
+          "targetKana": "みつける"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mittsu",
+      "type": "word",
+      "surface": "三つ",
+      "kana": "みっつ",
+      "romaji": ["mittsu"],
+      "meaningsZh": ["三个"],
+      "pos": "numeral",
+      "tags": ["counter", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-mittsu-1",
+          "ja": "お皿を三つ並べる。",
+          "kana": "おさらをみっつならべる。",
+          "zh": "摆三个盘子。",
+          "targetSurface": "三つ",
+          "targetKana": "みっつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-mokuyoubi",
+      "type": "word",
+      "surface": "木曜日",
+      "kana": "もくようび",
+      "romaji": ["mokuyoubi"],
+      "meaningsZh": ["星期四"],
+      "pos": "noun",
+      "tags": ["time", "weekday"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mokuyoubi-1",
+          "ja": "木曜日に集合してください。",
+          "kana": "もくようびにしゅうごうしてください。",
+          "zh": "请在星期四集合。",
+          "targetSurface": "木曜日",
+          "targetKana": "もくようび"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-morau",
+      "type": "word",
+      "surface": "貰う",
+      "kana": "もらう",
+      "romaji": ["morau"],
+      "meaningsZh": ["收到"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-morau-1",
+          "ja": "毎日貰うようにしている。",
+          "kana": "まいにちもらうようにしている。",
+          "zh": "每天坚持收到。",
+          "targetSurface": "貰う",
+          "targetKana": "もらう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mou",
+      "type": "word",
+      "surface": "もう",
+      "kana": "もう",
+      "romaji": ["mou"],
+      "meaningsZh": ["已经"],
+      "pos": "adverb",
+      "tags": ["adverb", "long-vowel"],
+      "skillTags": ["kana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-mou-1",
+          "ja": "もう七時です。",
+          "kana": "もうしちじです。",
+          "zh": "已经七点了。",
+          "targetSurface": "もう",
+          "targetKana": "もう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-muttsu",
+      "type": "word",
+      "surface": "六つ",
+      "kana": "むっつ",
+      "romaji": ["muttsu"],
+      "meaningsZh": ["六个"],
+      "pos": "numeral",
+      "tags": ["counter", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-muttsu-1",
+          "ja": "ボタンが六つ並んでいる。",
+          "kana": "ボタンがむっつならんでいる。",
+          "zh": "六个按钮排成一列。",
+          "targetSurface": "六つ",
+          "targetKana": "むっつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-muzukashii",
+      "type": "word",
+      "surface": "難しい",
+      "kana": "むずかしい",
+      "romaji": ["muzukashii", "muzukasii"],
+      "meaningsZh": ["难"],
+      "pos": "adjective",
+      "tags": ["adjective", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-muzukashii-1",
+          "ja": "漢字を覚えるのは難しい。",
+          "kana": "かんじをおぼえるのはむずかしい。",
+          "zh": "记汉字很难。",
+          "targetSurface": "難しい",
+          "targetKana": "むずかしい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-nagai",
+      "type": "word",
+      "surface": "長い",
+      "kana": "ながい",
+      "romaji": ["nagai"],
+      "meaningsZh": ["长"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nagai-1",
+          "ja": "髪が長くなった。",
+          "kana": "かみがながくなった。",
+          "zh": "头发长长了。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nana",
+      "type": "word",
+      "surface": "七",
+      "kana": "なな",
+      "romaji": ["nana"],
+      "meaningsZh": ["七", "7"],
+      "pos": "numeral",
+      "tags": ["number"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nana-1",
+          "ja": "七時の電車に乗る。",
+          "kana": "しちじのでんしゃにのる。",
+          "zh": "坐七点的电车。",
+          "targetSurface": "七"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nanatsu",
+      "type": "word",
+      "surface": "七つ",
+      "kana": "ななつ",
+      "romaji": ["nanatsu"],
+      "meaningsZh": ["七个"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nanatsu-1",
+          "ja": "七つの島からなる国。",
+          "kana": "ななつのしまからなるくに。",
+          "zh": "由七座岛组成的国家。",
+          "targetSurface": "七つ",
+          "targetKana": "ななつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nani",
+      "type": "word",
+      "surface": "何",
+      "kana": "なに",
+      "romaji": ["nani"],
+      "meaningsZh": ["什么"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nani-1",
+          "ja": "お名前は何ですか?",
+          "kana": "おなまえはなんですか?",
+          "zh": "您贵姓？",
+          "targetSurface": "何"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nanji",
+      "type": "word",
+      "surface": "何時",
+      "kana": "なんじ",
+      "romaji": ["nanji"],
+      "meaningsZh": ["几点"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nanji-1",
+          "ja": "何時は予定があります。",
+          "kana": "なんじはよていがあります。",
+          "zh": "几点有安排。",
+          "targetSurface": "何時",
+          "targetKana": "なんじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nanpun",
+      "type": "word",
+      "surface": "何分",
+      "kana": "なんぷん",
+      "romaji": ["nanpun"],
+      "meaningsZh": ["几分钟", "几点几分"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nanpun-1",
+          "ja": "何分に集合してください。",
+          "kana": "なんぷんにしゅうごうしてください。",
+          "zh": "请在几分钟集合。",
+          "targetSurface": "何分",
+          "targetKana": "なんぷん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-naze",
+      "type": "word",
+      "surface": "なぜ",
+      "kana": "なぜ",
+      "romaji": ["naze"],
+      "meaningsZh": ["为什么"],
+      "pos": "adverb",
+      "tags": ["adverb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-naze-1",
+          "ja": "なぜそう思います。",
+          "kana": "なぜそうおもいます。",
+          "zh": "我也为什么这么想。",
+          "targetSurface": "なぜ",
+          "targetKana": "なぜ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nemui",
+      "type": "word",
+      "surface": "眠い",
+      "kana": "ねむい",
+      "romaji": ["nemui"],
+      "meaningsZh": ["困"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nemui-1",
+          "ja": "この本は眠いと思う。",
+          "kana": "このほんはねむいとおもう。",
+          "zh": "我觉得这本书困。",
+          "targetSurface": "眠い",
+          "targetKana": "ねむい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ni",
+      "type": "word",
+      "surface": "二",
+      "kana": "に",
+      "romaji": ["ni"],
+      "meaningsZh": ["二", "2"],
+      "pos": "numeral",
+      "tags": ["number"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ni-1",
+          "ja": "二と三を足すと五になる。",
+          "kana": "にとさんをたすとごになる。",
+          "zh": "二加三等于五。",
+          "targetSurface": "二",
+          "targetKana": "に"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nichiyoubi",
+      "type": "word",
+      "surface": "日曜日",
+      "kana": "にちようび",
+      "romaji": ["nichiyoubi"],
+      "meaningsZh": ["星期日"],
+      "pos": "noun",
+      "tags": ["time", "weekday"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nichiyoubi-1",
+          "ja": "日曜日は予定があります。",
+          "kana": "にちようびはよていがあります。",
+          "zh": "星期日有安排。",
+          "targetSurface": "日曜日",
+          "targetKana": "にちようび"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nigatsu",
+      "type": "word",
+      "surface": "二月",
+      "kana": "にがつ",
+      "romaji": ["nigatsu"],
+      "meaningsZh": ["二月"],
+      "pos": "noun",
+      "tags": ["time", "month"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nigatsu-1",
+          "ja": "二月は予定があります。",
+          "kana": "にがつはよていがあります。",
+          "zh": "二月有安排。",
+          "targetSurface": "二月",
+          "targetKana": "にがつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nigiyaka",
+      "type": "word",
+      "surface": "賑やか",
+      "kana": "にぎやか",
+      "romaji": ["nigiyaka"],
+      "meaningsZh": ["热闹"],
+      "pos": "adjective",
+      "tags": ["feeling"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nigiyaka-1",
+          "ja": "祭りの会場はとても賑やかだ。",
+          "kana": "まつりのかいじょうはとてもにぎやかだ。",
+          "zh": "祭典会场非常热闹。",
+          "targetSurface": "賑やか",
+          "targetKana": "にぎやか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nikai",
+      "type": "word",
+      "surface": "二階",
+      "kana": "にかい",
+      "romaji": ["nikai"],
+      "meaningsZh": ["二楼"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nikai-1",
+          "ja": "全部で二階あります。",
+          "kana": "ぜんぶでにかいあります。",
+          "zh": "一共有二楼。",
+          "targetSurface": "二階",
+          "targetKana": "にかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nomu",
+      "type": "word",
+      "surface": "飲む",
+      "kana": "のむ",
+      "romaji": ["nomu"],
+      "meaningsZh": ["喝"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nomu-1",
+          "ja": "飲むのは難しい。",
+          "kana": "のむのはむずかしい。",
+          "zh": "喝很难。",
+          "targetSurface": "飲む",
+          "targetKana": "のむ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-noru",
+      "type": "word",
+      "surface": "乗る",
+      "kana": "のる",
+      "romaji": ["noru"],
+      "meaningsZh": ["乘", "坐"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-noru-1",
+          "ja": "駅で電車に乗る。",
+          "kana": "えきででんしゃにのる。",
+          "zh": "在车站乘坐电车。",
+          "targetSurface": "乗る",
+          "targetKana": "のる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-nugu",
+      "type": "word",
+      "surface": "脱ぐ",
+      "kana": "ぬぐ",
+      "romaji": ["nugu"],
+      "meaningsZh": ["脱"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nugu-1",
+          "ja": "脱ぐのは難しい。",
+          "kana": "ぬぐのはむずかしい。",
+          "zh": "脱很难。",
+          "targetSurface": "脱ぐ",
+          "targetKana": "ぬぐ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-oboeru",
+      "type": "word",
+      "surface": "覚える",
+      "kana": "おぼえる",
+      "romaji": ["oboeru"],
+      "meaningsZh": ["记住"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-oboeru-1",
+          "ja": "毎日覚えるようにしている。",
+          "kana": "まいにちおぼえるようにしている。",
+          "zh": "每天坚持记住。",
+          "targetSurface": "覚える",
+          "targetKana": "おぼえる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ohayou",
+      "type": "word",
+      "surface": "おはよう",
+      "kana": "おはよう",
+      "romaji": ["ohayou"],
+      "meaningsZh": ["早上好"],
+      "pos": "expression",
+      "tags": ["greeting", "long-vowel"],
+      "skillTags": ["kana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ohayou-1",
+          "ja": "お母さん、おはよう。",
+          "kana": "おかあさん、おはよう。",
+          "zh": "妈妈，早。",
+          "targetSurface": "おはよう",
+          "targetKana": "おはよう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-okaasan",
+      "type": "word",
+      "surface": "お母さん",
+      "kana": "おかあさん",
+      "romaji": ["okaasan"],
+      "meaningsZh": ["母亲", "妈妈"],
+      "pos": "noun",
+      "tags": ["family", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-okaasan-1",
+          "ja": "お母さんについて説明する。",
+          "kana": "おかあさんについてせつめいする。",
+          "zh": "对母亲进行说明。",
+          "targetSurface": "お母さん",
+          "targetKana": "おかあさん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-okiru",
+      "type": "word",
+      "surface": "起きる",
+      "kana": "おきる",
+      "romaji": ["okiru"],
+      "meaningsZh": ["起床"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-okiru-1",
+          "ja": "起きるのは難しい。",
+          "kana": "おきるのはむずかしい。",
+          "zh": "起床很难。",
+          "targetSurface": "起きる",
+          "targetKana": "おきる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-okuru",
+      "type": "word",
+      "surface": "送る",
+      "kana": "おくる",
+      "romaji": ["okuru"],
+      "meaningsZh": ["送", "发送"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-okuru-1",
+          "ja": "送るのは難しい。",
+          "kana": "おくるのはむずかしい。",
+          "zh": "送很难。",
+          "targetSurface": "送る",
+          "targetKana": "おくる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-okusan",
+      "type": "word",
+      "surface": "奥さん",
+      "kana": "おくさん",
+      "romaji": ["okusan"],
+      "meaningsZh": ["太太", "夫人"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-okusan-1",
+          "ja": "「奥さん」という言葉の意味を確認する。",
+          "kana": "「奥さん」ということばのいみをかくにんする。",
+          "zh": "确认「奥さん」（太太）这个词的含义。",
+          "targetSurface": "奥さん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-omoi",
+      "type": "word",
+      "surface": "重い",
+      "kana": "おもい",
+      "romaji": ["omoi"],
+      "meaningsZh": ["重"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-omoi-1",
+          "ja": "この鞄は重い。",
+          "kana": "このかばんはおもい。",
+          "zh": "这个包很重。",
+          "targetSurface": "重い",
+          "targetKana": "おもい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-omoshiroi",
+      "type": "word",
+      "surface": "面白い",
+      "kana": "おもしろい",
+      "romaji": ["omoshiroi"],
+      "meaningsZh": ["有趣"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-omoshiroi-1",
+          "ja": "この本は面白いです。",
+          "kana": "このほんはおもしろいです。",
+          "zh": "这本书很有趣。",
+          "targetSurface": "面白い",
+          "targetKana": "おもしろい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-omou",
+      "type": "word",
+      "surface": "思う",
+      "kana": "おもう",
+      "romaji": ["omou"],
+      "meaningsZh": ["想", "认为"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-omou-1",
+          "ja": "思うのは難しい。",
+          "kana": "おもうのはむずかしい。",
+          "zh": "想很难。",
+          "targetSurface": "思う",
+          "targetKana": "おもう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-oneesan",
+      "type": "word",
+      "surface": "お姉さん",
+      "kana": "おねえさん",
+      "romaji": ["oneesan"],
+      "meaningsZh": ["姐姐"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-oneesan-1",
+          "ja": "「お姉さん」という言葉の意味を確認する。",
+          "kana": "「お姉さん」ということばのいみをかくにんする。",
+          "zh": "确认「お姉さん」（姐姐）这个词的含义。",
+          "targetSurface": "お姉さん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-onegai",
+      "type": "word",
+      "surface": "お願い",
+      "kana": "おねがい",
+      "romaji": ["onegai"],
+      "meaningsZh": ["请", "拜托"],
+      "pos": "adjective",
+      "tags": ["greeting"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-onegai-1",
+          "ja": "今日はお願いです。",
+          "kana": "きょうはおねがいです。",
+          "zh": "今天请。",
+          "targetSurface": "お願い",
+          "targetKana": "おねがい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-oniisan",
+      "type": "word",
+      "surface": "お兄さん",
+      "kana": "おにいさん",
+      "romaji": ["oniisan"],
+      "meaningsZh": ["哥哥"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-oniisan-1",
+          "ja": "お兄さんについて説明する。",
+          "kana": "おにいさんについてせつめいする。",
+          "zh": "对哥哥进行说明。",
+          "targetSurface": "お兄さん",
+          "targetKana": "おにいさん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-onna",
+      "type": "word",
+      "surface": "女",
+      "kana": "おんな",
+      "romaji": ["onna"],
+      "meaningsZh": ["女人", "女性"],
+      "pos": "noun",
+      "tags": ["people"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-onna-1",
+          "ja": "「女」という漢字を覚える。",
+          "kana": "「女」というかんじをおぼえる。",
+          "zh": "记住「女」这个汉字（女人）。",
+          "targetSurface": "女"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-onnanoko",
+      "type": "word",
+      "surface": "女の子",
+      "kana": "おんなのこ",
+      "romaji": ["onnanoko"],
+      "meaningsZh": ["女孩"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-onnanoko-1",
+          "ja": "女の子について説明する。",
+          "kana": "おんなのこについてせつめいする。",
+          "zh": "对女孩进行说明。",
+          "targetSurface": "女の子",
+          "targetKana": "おんなのこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ooi",
+      "type": "word",
+      "surface": "多い",
+      "kana": "おおい",
+      "romaji": ["ooi"],
+      "meaningsZh": ["多"],
+      "pos": "adjective",
+      "tags": ["adjective", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ooi-1",
+          "ja": "この本は多いと思う。",
+          "kana": "このほんはおおいとおもう。",
+          "zh": "我觉得这本书多。",
+          "targetSurface": "多い",
+          "targetKana": "おおい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-ookii",
+      "type": "word",
+      "surface": "大きい",
+      "kana": "おおきい",
+      "romaji": ["ookii"],
+      "meaningsZh": ["大"],
+      "pos": "adjective",
+      "tags": ["adjective", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ookii-1",
+          "ja": "これは大きい荷物だ。",
+          "kana": "これはおおきいにもつだ。",
+          "zh": "这是大件行李。",
+          "targetSurface": "大きい",
+          "targetKana": "おおきい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-oriru",
+      "type": "word",
+      "surface": "降りる",
+      "kana": "おりる",
+      "romaji": ["oriru"],
+      "meaningsZh": ["下(车)"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-oriru-1",
+          "ja": "次の駅で降ります。",
+          "kana": "つぎのえきでおります。",
+          "zh": "在下一站下车。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-osoi",
+      "type": "word",
+      "surface": "遅い",
+      "kana": "おそい",
+      "romaji": ["osoi"],
+      "meaningsZh": ["晚", "慢"],
+      "pos": "adjective",
+      "tags": ["speed"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-osoi-1",
+          "ja": "会議の終わりが遅くなった。",
+          "kana": "かいぎのおわりがおそくなった。",
+          "zh": "会议结束晚了。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-otoko",
+      "type": "word",
+      "surface": "男",
+      "kana": "おとこ",
+      "romaji": ["otoko"],
+      "meaningsZh": ["男人", "男性"],
+      "pos": "noun",
+      "tags": ["people"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-otoko-1",
+          "ja": "「男」という漢字を覚える。",
+          "kana": "「男」というかんじをおぼえる。",
+          "zh": "记住「男」这个汉字（男人）。",
+          "targetSurface": "男"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-otokonoko",
+      "type": "word",
+      "surface": "男の子",
+      "kana": "おとこのこ",
+      "romaji": ["otokonoko"],
+      "meaningsZh": ["男孩"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-otokonoko-1",
+          "ja": "男の子について説明する。",
+          "kana": "おとこのこについてせつめいする。",
+          "zh": "对男孩进行说明。",
+          "targetSurface": "男の子",
+          "targetKana": "おとこのこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ototoi",
+      "type": "word",
+      "surface": "一昨日",
+      "kana": "おととい",
+      "romaji": ["ototoi"],
+      "meaningsZh": ["前天"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ototoi-1",
+          "ja": "一昨日は予定があります。",
+          "kana": "おとといはよていがあります。",
+          "zh": "前天有安排。",
+          "targetSurface": "一昨日",
+          "targetKana": "おととい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-otousan",
+      "type": "word",
+      "surface": "お父さん",
+      "kana": "おとうさん",
+      "romaji": ["otousan"],
+      "meaningsZh": ["父亲", "爸爸"],
+      "pos": "noun",
+      "tags": ["family", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-otousan-1",
+          "ja": "お父さんについて説明する。",
+          "kana": "おとうさんについてせつめいする。",
+          "zh": "对父亲进行说明。",
+          "targetSurface": "お父さん",
+          "targetKana": "おとうさん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-otouto",
+      "type": "word",
+      "surface": "弟",
+      "kana": "おとうと",
+      "romaji": ["otouto"],
+      "meaningsZh": ["弟弟"],
+      "pos": "noun",
+      "tags": ["family", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-otouto-1",
+          "ja": "弟は中学生だ。",
+          "kana": "おとうとはちゅうがくせいだ。",
+          "zh": "弟弟是中学生。",
+          "targetSurface": "弟",
+          "targetKana": "おとうと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-otoutosan",
+      "type": "word",
+      "surface": "弟さん",
+      "kana": "おとうとさん",
+      "romaji": ["otoutosan"],
+      "meaningsZh": ["弟弟(敬称)"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-otoutosan-1",
+          "ja": "弟さんについて説明する。",
+          "kana": "おとうとさんについてせつめいする。",
+          "zh": "对弟弟进行说明。",
+          "targetSurface": "弟さん",
+          "targetKana": "おとうとさん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-oyogu",
+      "type": "word",
+      "surface": "泳ぐ",
+      "kana": "およぐ",
+      "romaji": ["oyogu"],
+      "meaningsZh": ["游泳"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-oyogu-1",
+          "ja": "毎日泳ぐようにしている。",
+          "kana": "まいにちおよぐようにしている。",
+          "zh": "每天坚持游泳。",
+          "targetSurface": "泳ぐ",
+          "targetKana": "およぐ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-raigetsu",
+      "type": "word",
+      "surface": "来月",
+      "kana": "らいげつ",
+      "romaji": ["raigetsu"],
+      "meaningsZh": ["下个月"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-raigetsu-1",
+          "ja": "来月、引っ越す。",
+          "kana": "らいげつ、ひっこす。",
+          "zh": "下月搬家。",
+          "targetSurface": "来月",
+          "targetKana": "らいげつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-rainen",
+      "type": "word",
+      "surface": "来年",
+      "kana": "らいねん",
+      "romaji": ["rainen"],
+      "meaningsZh": ["明年"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-rainen-1",
+          "ja": "来年、引っ越す予定だ。",
+          "kana": "らいねん、ひっこすよていだ。",
+          "zh": "明年打算搬家。",
+          "targetSurface": "来年",
+          "targetKana": "らいねん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-raishuu",
+      "type": "word",
+      "surface": "来週",
+      "kana": "らいしゅう",
+      "romaji": ["raishuu"],
+      "meaningsZh": ["下周"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-raishuu-1",
+          "ja": "来週、出張に行く。",
+          "kana": "らいしゅう、しゅっちょうにいく。",
+          "zh": "下周出差。",
+          "targetSurface": "来週",
+          "targetKana": "らいしゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-roku",
+      "type": "word",
+      "surface": "六",
+      "kana": "ろく",
+      "romaji": ["roku"],
+      "meaningsZh": ["六", "6"],
+      "pos": "numeral",
+      "tags": ["number"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-roku-1",
+          "ja": "六時に起きる。",
+          "kana": "ろくじにおきる。",
+          "zh": "六点起床。",
+          "targetSurface": "六",
+          "targetKana": "ろく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-rokugatsu",
+      "type": "word",
+      "surface": "六月",
+      "kana": "ろくがつ",
+      "romaji": ["rokugatsu"],
+      "meaningsZh": ["六月"],
+      "pos": "noun",
+      "tags": ["time", "month"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-rokugatsu-1",
+          "ja": "六月は予定があります。",
+          "kana": "ろくがつはよていがあります。",
+          "zh": "六月有安排。",
+          "targetSurface": "六月",
+          "targetKana": "ろくがつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sagasu",
+      "type": "word",
+      "surface": "探す",
+      "kana": "さがす",
+      "romaji": ["sagasu"],
+      "meaningsZh": ["寻找"],
+      "pos": "noun",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sagasu-1",
+          "ja": "「探す」という言葉の意味を確認する。",
+          "kana": "「探す」ということばのいみをかくにんする。",
+          "zh": "确认「探す」（寻找）这个词的含义。",
+          "targetSurface": "探す"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-samui",
+      "type": "word",
+      "surface": "寒い",
+      "kana": "さむい",
+      "romaji": ["samui"],
+      "meaningsZh": ["冷"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-samui-1",
+          "ja": "冬はとても寒い。",
+          "kana": "ふゆはとてもさむい。",
+          "zh": "冬天很冷。",
+          "targetSurface": "寒い",
+          "targetKana": "さむい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-san",
+      "type": "word",
+      "surface": "三",
+      "kana": "さん",
+      "romaji": ["san"],
+      "meaningsZh": ["三", "3"],
+      "pos": "numeral",
+      "tags": ["number"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-san-1",
+          "ja": "三人で映画を見に行った。",
+          "kana": "さんにんでえいがをみにいった。",
+          "zh": "三个人去看了电影。",
+          "targetSurface": "三",
+          "targetKana": "さん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sangai",
+      "type": "word",
+      "surface": "三階",
+      "kana": "さんがい",
+      "romaji": ["sangai"],
+      "meaningsZh": ["三楼"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sangai-1",
+          "ja": "全部で三階あります。",
+          "kana": "ぜんぶでさんがいあります。",
+          "zh": "一共有三楼。",
+          "targetSurface": "三階",
+          "targetKana": "さんがい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sangatsu",
+      "type": "word",
+      "surface": "三月",
+      "kana": "さんがつ",
+      "romaji": ["sangatsu"],
+      "meaningsZh": ["三月"],
+      "pos": "noun",
+      "tags": ["time", "month"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sangatsu-1",
+          "ja": "三月に集合してください。",
+          "kana": "さんがつにしゅうごうしてください。",
+          "zh": "请在三月集合。",
+          "targetSurface": "三月",
+          "targetKana": "さんがつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sannin",
+      "type": "word",
+      "surface": "三人",
+      "kana": "さんにん",
+      "romaji": ["sannin"],
+      "meaningsZh": ["三个人"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sannin-1",
+          "ja": "全部で三人あります。",
+          "kana": "ぜんぶでさんにんあります。",
+          "zh": "一共有三个人。",
+          "targetSurface": "三人",
+          "targetKana": "さんにん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sayounara",
+      "type": "word",
+      "surface": "さようなら",
+      "kana": "さようなら",
+      "romaji": ["sayounara"],
+      "meaningsZh": ["再见"],
+      "pos": "expression",
+      "tags": ["greeting", "long-vowel"],
+      "skillTags": ["kana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-sayounara-1",
+          "ja": "先生、さようなら。",
+          "kana": "せんせい、さようなら。",
+          "zh": "老师，再见。",
+          "targetSurface": "さようなら",
+          "targetKana": "さようなら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-semai",
+      "type": "word",
+      "surface": "狭い",
+      "kana": "せまい",
+      "romaji": ["semai"],
+      "meaningsZh": ["狭窄"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-semai-1",
+          "ja": "この部屋は少し狭い。",
+          "kana": "このへやはすこしせまい。",
+          "zh": "这房间有点窄。",
+          "targetSurface": "狭い",
+          "targetKana": "せまい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sengetsu",
+      "type": "word",
+      "surface": "先月",
+      "kana": "せんげつ",
+      "romaji": ["sengetsu"],
+      "meaningsZh": ["上个月"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sengetsu-1",
+          "ja": "先月、新しいパソコンを買った。",
+          "kana": "せんげつ、あたらしいパソコンをかった。",
+          "zh": "上月买了新电脑。",
+          "targetSurface": "先月",
+          "targetKana": "せんげつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-senshuu",
+      "type": "word",
+      "surface": "先週",
+      "kana": "せんしゅう",
+      "romaji": ["senshuu"],
+      "meaningsZh": ["上周"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-senshuu-1",
+          "ja": "先週、京都へ行った。",
+          "kana": "せんしゅう、きょうとへいった。",
+          "zh": "上周去了京都。",
+          "targetSurface": "先週",
+          "targetKana": "せんしゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shichigatsu",
+      "type": "word",
+      "surface": "七月",
+      "kana": "しちがつ",
+      "romaji": ["shichigatsu"],
+      "meaningsZh": ["七月"],
+      "pos": "noun",
+      "tags": ["time", "month"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shichigatsu-1",
+          "ja": "七月は予定があります。",
+          "kana": "しちがつはよていがあります。",
+          "zh": "七月有安排。",
+          "targetSurface": "七月",
+          "targetKana": "しちがつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shigatsu",
+      "type": "word",
+      "surface": "四月",
+      "kana": "しがつ",
+      "romaji": ["shigatsu"],
+      "meaningsZh": ["四月"],
+      "pos": "noun",
+      "tags": ["time", "month"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shigatsu-1",
+          "ja": "四月は予定があります。",
+          "kana": "しがつはよていがあります。",
+          "zh": "四月有安排。",
+          "targetSurface": "四月",
+          "targetKana": "しがつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shimeru",
+      "type": "word",
+      "surface": "閉める",
+      "kana": "しめる",
+      "romaji": ["shimeru"],
+      "meaningsZh": ["关上"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shimeru-1",
+          "ja": "閉めるのは難しい。",
+          "kana": "しめるのはむずかしい。",
+          "zh": "关上很难。",
+          "targetSurface": "閉める",
+          "targetKana": "しめる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shinsetsu",
+      "type": "word",
+      "surface": "親切",
+      "kana": "しんせつ",
+      "romaji": ["shinsetsu"],
+      "meaningsZh": ["亲切"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shinsetsu-1",
+          "ja": "親切な店員さんに助けてもらった。",
+          "kana": "しんせつなてんいんさんにたすけてもらった。",
+          "zh": "亲切的店员帮了我。",
+          "targetSurface": "親切",
+          "targetKana": "しんせつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shiru",
+      "type": "word",
+      "surface": "知る",
+      "kana": "しる",
+      "romaji": ["shiru", "siru"],
+      "meaningsZh": ["知道"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shiru-1",
+          "ja": "毎日知るようにしている。",
+          "kana": "まいにちしるようにしている。",
+          "zh": "每天坚持知道。",
+          "targetSurface": "知る",
+          "targetKana": "しる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shizuka",
+      "type": "word",
+      "surface": "静か",
+      "kana": "しずか",
+      "romaji": ["shizuka", "sizuka"],
+      "meaningsZh": ["安静"],
+      "pos": "adjective",
+      "tags": ["feeling"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shizuka-1",
+          "ja": "図書館は静かに勉強できる。",
+          "kana": "としょかんはしずかにべんきょうできる。",
+          "zh": "图书馆能安静地学习。",
+          "targetSurface": "静か",
+          "targetKana": "しずか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-shuu",
+      "type": "word",
+      "surface": "週",
+      "kana": "しゅう",
+      "romaji": ["shuu", "syuu"],
+      "meaningsZh": ["周", "星期"],
+      "pos": "noun",
+      "tags": ["time", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shuu-1",
+          "ja": "「週」という漢字を覚える。",
+          "kana": "「週」というかんじをおぼえる。",
+          "zh": "记住「週」这个汉字（周）。",
+          "targetSurface": "週"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-sochira",
+      "type": "word",
+      "surface": "そちら",
+      "kana": "そちら",
+      "romaji": ["sochira"],
+      "meaningsZh": ["那边", "那位"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sochira-1",
+          "ja": "そちらの天気はどうですか?",
+          "kana": "そちらのてんきはどうですか?",
+          "zh": "你那边天气怎么样？",
+          "targetSurface": "そちら",
+          "targetKana": "そちら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-soko",
+      "type": "word",
+      "surface": "そこ",
+      "kana": "そこ",
+      "romaji": ["soko"],
+      "meaningsZh": ["那里"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-soko-1",
+          "ja": "そこに荷物を置いてください。",
+          "kana": "そこににもつをおいてください。",
+          "zh": "请把行李放在那里。",
+          "targetSurface": "そこ",
+          "targetKana": "そこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sore",
+      "type": "word",
+      "surface": "それ",
+      "kana": "それ",
+      "romaji": ["sore"],
+      "meaningsZh": ["那个"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sore-1",
+          "ja": "それを取ってください。",
+          "kana": "それをとってください。",
+          "zh": "请把那个递给我。",
+          "targetSurface": "それ",
+          "targetKana": "それ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sugu",
+      "type": "word",
+      "surface": "すぐ",
+      "kana": "すぐ",
+      "romaji": ["sugu"],
+      "meaningsZh": ["立刻"],
+      "pos": "adverb",
+      "tags": ["adverb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sugu-1",
+          "ja": "すぐ行きます。",
+          "kana": "すぐいきます。",
+          "zh": "我马上去。",
+          "targetSurface": "すぐ",
+          "targetKana": "すぐ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-suiyoubi",
+      "type": "word",
+      "surface": "水曜日",
+      "kana": "すいようび",
+      "romaji": ["suiyoubi"],
+      "meaningsZh": ["星期三"],
+      "pos": "noun",
+      "tags": ["time", "weekday"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-suiyoubi-1",
+          "ja": "水曜日は予定があります。",
+          "kana": "すいようびはよていがあります。",
+          "zh": "星期三有安排。",
+          "targetSurface": "水曜日",
+          "targetKana": "すいようび"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-suki",
+      "type": "word",
+      "surface": "好き",
+      "kana": "すき",
+      "romaji": ["suki"],
+      "meaningsZh": ["喜欢"],
+      "pos": "adjective",
+      "tags": ["feeling"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-suki-1",
+          "ja": "私は犬が好きです。",
+          "kana": "わたしはいぬがすきです。",
+          "zh": "我喜欢狗。",
+          "targetSurface": "好き",
+          "targetKana": "すき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sukoshi",
+      "type": "word",
+      "surface": "少し",
+      "kana": "すこし",
+      "romaji": ["sukoshi", "sukosi"],
+      "meaningsZh": ["一点", "稍微"],
+      "pos": "adverb",
+      "tags": ["adverb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sukoshi-1",
+          "ja": "少し休みましょう。",
+          "kana": "すこしやすみましょう。",
+          "zh": "稍微休息一下吧。",
+          "targetSurface": "少し",
+          "targetKana": "すこし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sukunai",
+      "type": "word",
+      "surface": "少ない",
+      "kana": "すくない",
+      "romaji": ["sukunai"],
+      "meaningsZh": ["少"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sukunai-1",
+          "ja": "今日は少ないです。",
+          "kana": "きょうはすくないです。",
+          "zh": "今天少。",
+          "targetSurface": "少ない",
+          "targetKana": "すくない"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-sumimasen",
+      "type": "word",
+      "surface": "すみません",
+      "kana": "すみません",
+      "romaji": ["sumimasen"],
+      "meaningsZh": ["对不起", "请问"],
+      "pos": "expression",
+      "tags": ["greeting"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sumimasen-1",
+          "ja": "すみません、お水ください。",
+          "kana": "すみません、おみずください。",
+          "zh": "不好意思，请给我水。",
+          "targetSurface": "すみません",
+          "targetKana": "すみません"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-suru",
+      "type": "word",
+      "surface": "する",
+      "kana": "する",
+      "romaji": ["suru"],
+      "meaningsZh": ["做"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-suru-1",
+          "ja": "するのは難しい。",
+          "kana": "するのはむずかしい。",
+          "zh": "做很难。",
+          "targetSurface": "する",
+          "targetKana": "する"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-suwaru",
+      "type": "word",
+      "surface": "座る",
+      "kana": "すわる",
+      "romaji": ["suwaru"],
+      "meaningsZh": ["坐下"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-suwaru-1",
+          "ja": "座るのは難しい。",
+          "kana": "すわるのはむずかしい。",
+          "zh": "坐下很难。",
+          "targetSurface": "座る",
+          "targetKana": "すわる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-suzushii",
+      "type": "word",
+      "surface": "涼しい",
+      "kana": "すずしい",
+      "romaji": ["suzushii", "suzusii"],
+      "meaningsZh": ["凉爽"],
+      "pos": "adjective",
+      "tags": ["adjective", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-suzushii-1",
+          "ja": "秋は涼しくて気持ちいい。",
+          "kana": "あきはすずしくてきもちいい。",
+          "zh": "秋天凉爽舒服。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-taberu",
+      "type": "word",
+      "surface": "食べる",
+      "kana": "たべる",
+      "romaji": ["taberu"],
+      "meaningsZh": ["吃"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-taberu-1",
+          "ja": "食べるのは難しい。",
+          "kana": "たべるのはむずかしい。",
+          "zh": "吃很难。",
+          "targetSurface": "食べる",
+          "targetKana": "たべる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-taihen",
+      "type": "word",
+      "surface": "大変",
+      "kana": "たいへん",
+      "romaji": ["taihen"],
+      "meaningsZh": ["不容易", "糟糕"],
+      "pos": "adjective",
+      "tags": ["feeling"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-taihen-1",
+          "ja": "引っ越しは大変だった。",
+          "kana": "ひっこしはたいへんだった。",
+          "zh": "搬家很辛苦。",
+          "targetSurface": "大変",
+          "targetKana": "たいへん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tanoshii",
+      "type": "word",
+      "surface": "楽しい",
+      "kana": "たのしい",
+      "romaji": ["tanoshii", "tanosii"],
+      "meaningsZh": ["快乐"],
+      "pos": "adjective",
+      "tags": ["adjective", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-tanoshii-1",
+          "ja": "旅行はとても楽しかった。",
+          "kana": "りょこうはとてもたのしかった。",
+          "zh": "旅行非常愉快。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-tatsu",
+      "type": "word",
+      "surface": "立つ",
+      "kana": "たつ",
+      "romaji": ["tatsu"],
+      "meaningsZh": ["站立"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tatsu-1",
+          "ja": "毎日立つようにしている。",
+          "kana": "まいにちたつようにしている。",
+          "zh": "每天坚持站立。",
+          "targetSurface": "立つ",
+          "targetKana": "たつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tokidoki",
+      "type": "word",
+      "surface": "時々",
+      "kana": "ときどき",
+      "romaji": ["tokidoki"],
+      "meaningsZh": ["有时"],
+      "pos": "adverb",
+      "tags": ["adverb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tokidoki-1",
+          "ja": "時々、母に電話する。",
+          "kana": "ときどき、ははにでんわする。",
+          "zh": "偶尔给妈妈打电话。",
+          "targetSurface": "時々",
+          "targetKana": "ときどき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-too",
+      "type": "word",
+      "surface": "十",
+      "kana": "とお",
+      "romaji": ["too"],
+      "meaningsZh": ["十个"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-too-1",
+          "ja": "十分待ってください。",
+          "kana": "じゅっぷんまってください。",
+          "zh": "请等十分钟。",
+          "targetSurface": "十"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-toshi",
+      "type": "word",
+      "surface": "年",
+      "kana": "とし",
+      "romaji": ["toshi", "tosi"],
+      "meaningsZh": ["年", "年份"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-toshi-1",
+          "ja": "「年」は「とし」と読む。",
+          "kana": "「年」は「とし」とよむ。",
+          "zh": "「年」读作「とし」，意思是年。",
+          "targetSurface": "年",
+          "targetKana": "とし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-totemo",
+      "type": "word",
+      "surface": "とても",
+      "kana": "とても",
+      "romaji": ["totemo"],
+      "meaningsZh": ["非常"],
+      "pos": "adverb",
+      "tags": ["adverb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-totemo-1",
+          "ja": "この映画はとても面白い。",
+          "kana": "このえいがはとてもおもしろい。",
+          "zh": "这部电影非常有趣。",
+          "targetSurface": "とても",
+          "targetKana": "とても"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tsukau",
+      "type": "word",
+      "surface": "使う",
+      "kana": "つかう",
+      "romaji": ["tsukau", "tukau"],
+      "meaningsZh": ["使用"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsukau-1",
+          "ja": "使うのは難しい。",
+          "kana": "つかうのはむずかしい。",
+          "zh": "使用很难。",
+          "targetSurface": "使う",
+          "targetKana": "つかう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tsuki",
+      "type": "word",
+      "surface": "月",
+      "kana": "つき",
+      "romaji": ["tsuki", "tuki"],
+      "meaningsZh": ["月", "月份"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsuki-1",
+          "ja": "「月」という漢字を覚える。",
+          "kana": "「月」というかんじをおぼえる。",
+          "zh": "记住「月」这个汉字（月）。",
+          "targetSurface": "月"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tsuku",
+      "type": "word",
+      "surface": "着く",
+      "kana": "つく",
+      "romaji": ["tsuku", "tuku"],
+      "meaningsZh": ["到达"],
+      "pos": "noun",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsuku-1",
+          "ja": "「着く」という言葉の意味を確認する。",
+          "kana": "「着く」ということばのいみをかくにんする。",
+          "zh": "确认「着く」（到达）这个词的含义。",
+          "targetSurface": "着く"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tsukuru",
+      "type": "word",
+      "surface": "作る",
+      "kana": "つくる",
+      "romaji": ["tsukuru", "tukuru"],
+      "meaningsZh": ["做", "制作"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsukuru-1",
+          "ja": "作るのは難しい。",
+          "kana": "つくるのはむずかしい。",
+          "zh": "做很难。",
+          "targetSurface": "作る",
+          "targetKana": "つくる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tsumaranai",
+      "type": "word",
+      "surface": "つまらない",
+      "kana": "つまらない",
+      "romaji": ["tsumaranai"],
+      "meaningsZh": ["无聊"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsumaranai-1",
+          "ja": "この映画はつまらない。",
+          "kana": "このえいがはつまらない。",
+          "zh": "这部电影没意思。",
+          "targetSurface": "つまらない",
+          "targetKana": "つまらない"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tsuyoi",
+      "type": "word",
+      "surface": "強い",
+      "kana": "つよい",
+      "romaji": ["tsuyoi"],
+      "meaningsZh": ["强"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsuyoi-1",
+          "ja": "今日は風が強い。",
+          "kana": "きょうはかぜがつよい。",
+          "zh": "今天风大。",
+          "targetSurface": "強い",
+          "targetKana": "つよい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-uru",
+      "type": "word",
+      "surface": "売る",
+      "kana": "うる",
+      "romaji": ["uru"],
+      "meaningsZh": ["卖"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-uru-1",
+          "ja": "毎日売るようにしている。",
+          "kana": "まいにちうるようにしている。",
+          "zh": "每天坚持卖。",
+          "targetSurface": "売る",
+          "targetKana": "うる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-usui",
+      "type": "word",
+      "surface": "薄い",
+      "kana": "うすい",
+      "romaji": ["usui"],
+      "meaningsZh": ["薄", "淡"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-usui-1",
+          "ja": "今日は薄いです。",
+          "kana": "きょうはうすいです。",
+          "zh": "今天薄。",
+          "targetSurface": "薄い",
+          "targetKana": "うすい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-utau",
+      "type": "word",
+      "surface": "歌う",
+      "kana": "うたう",
+      "romaji": ["utau"],
+      "meaningsZh": ["唱歌"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-utau-1",
+          "ja": "毎日歌うようにしている。",
+          "kana": "まいにちうたうようにしている。",
+          "zh": "每天坚持唱歌。",
+          "targetSurface": "歌う",
+          "targetKana": "うたう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-warui",
+      "type": "word",
+      "surface": "悪い",
+      "kana": "わるい",
+      "romaji": ["warui"],
+      "meaningsZh": ["坏", "不好"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-warui-1",
+          "ja": "最近、体調が悪い。",
+          "kana": "さいきん、たいちょうがわるい。",
+          "zh": "最近身体不好。",
+          "targetSurface": "悪い",
+          "targetKana": "わるい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-wasureru",
+      "type": "word",
+      "surface": "忘れる",
+      "kana": "わすれる",
+      "romaji": ["wasureru"],
+      "meaningsZh": ["忘记"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-wasureru-1",
+          "ja": "忘れるのは難しい。",
+          "kana": "わすれるのはむずかしい。",
+          "zh": "忘记很难。",
+          "targetSurface": "忘れる",
+          "targetKana": "わすれる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-wataru",
+      "type": "word",
+      "surface": "渡る",
+      "kana": "わたる",
+      "romaji": ["wataru"],
+      "meaningsZh": ["过", "渡"],
+      "pos": "verb",
+      "tags": ["action"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-wataru-1",
+          "ja": "渡るのは難しい。",
+          "kana": "わたるのはむずかしい。",
+          "zh": "过很难。",
+          "targetSurface": "渡る",
+          "targetKana": "わたる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-watashi",
+      "type": "word",
+      "surface": "私",
+      "kana": "わたし",
+      "romaji": ["watashi", "watasi"],
+      "meaningsZh": ["我"],
+      "pos": "pronoun",
+      "tags": ["pronoun"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-watashi-1",
+          "ja": "私は学生です。",
+          "kana": "わたしはがくせいです。",
+          "zh": "我是学生。",
+          "targetSurface": "私",
+          "targetKana": "わたし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yattsu",
+      "type": "word",
+      "surface": "八つ",
+      "kana": "やっつ",
+      "romaji": ["yattsu"],
+      "meaningsZh": ["八个"],
+      "pos": "numeral",
+      "tags": ["counter", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-yattsu-1",
+          "ja": "八つ切りにしたケーキ。",
+          "kana": "やっつぎりにしたケーキ。",
+          "zh": "切成八块的蛋糕。",
+          "targetSurface": "八つ",
+          "targetKana": "やっつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-yoku",
+      "type": "word",
+      "surface": "よく",
+      "kana": "よく",
+      "romaji": ["yoku"],
+      "meaningsZh": ["经常", "好好"],
+      "pos": "adverb",
+      "tags": ["adverb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yoku-1",
+          "ja": "週末はよく映画を見る。",
+          "kana": "しゅうまつはよくえいがをみる。",
+          "zh": "周末经常看电影。",
+          "targetSurface": "よく",
+          "targetKana": "よく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yomu",
+      "type": "word",
+      "surface": "読む",
+      "kana": "よむ",
+      "romaji": ["yomu"],
+      "meaningsZh": ["读"],
+      "pos": "verb",
+      "tags": ["verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yomu-1",
+          "ja": "読むのは難しい。",
+          "kana": "よむのはむずかしい。",
+          "zh": "读很难。",
+          "targetSurface": "読む",
+          "targetKana": "よむ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yon",
+      "type": "word",
+      "surface": "四",
+      "kana": "よん",
+      "romaji": ["yon"],
+      "meaningsZh": ["四", "4"],
+      "pos": "numeral",
+      "tags": ["number"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yon-1",
+          "ja": "四階に上がってください。",
+          "kana": "よんかいにあがってください。",
+          "zh": "请上四楼。",
+          "targetSurface": "四",
+          "targetKana": "よん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yonin",
+      "type": "word",
+      "surface": "四人",
+      "kana": "よにん",
+      "romaji": ["yonin"],
+      "meaningsZh": ["四个人"],
+      "pos": "numeral",
+      "tags": ["counter"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yonin-1",
+          "ja": "全部で四人あります。",
+          "kana": "ぜんぶでよにんあります。",
+          "zh": "一共有四个人。",
+          "targetSurface": "四人",
+          "targetKana": "よにん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yoru",
+      "type": "word",
+      "surface": "夜",
+      "kana": "よる",
+      "romaji": ["yoru"],
+      "meaningsZh": ["晚上", "夜"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yoru-1",
+          "ja": "夜は静かだ。",
+          "kana": "よるはしずかだ。",
+          "zh": "夜里很安静。",
+          "targetSurface": "夜",
+          "targetKana": "よる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yottsu",
+      "type": "word",
+      "surface": "四つ",
+      "kana": "よっつ",
+      "romaji": ["yottsu"],
+      "meaningsZh": ["四个"],
+      "pos": "numeral",
+      "tags": ["counter", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-yottsu-1",
+          "ja": "クッキーを四つ食べた。",
+          "kana": "クッキーをよっつたべた。",
+          "zh": "吃了四块饼干。",
+          "targetSurface": "四つ",
+          "targetKana": "よっつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-yowai",
+      "type": "word",
+      "surface": "弱い",
+      "kana": "よわい",
+      "romaji": ["yowai"],
+      "meaningsZh": ["弱"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yowai-1",
+          "ja": "最近、体が弱い。",
+          "kana": "さいきん、からだがよわい。",
+          "zh": "最近身体虚弱。",
+          "targetSurface": "弱い",
+          "targetKana": "よわい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-yukkuri",
+      "type": "word",
+      "surface": "ゆっくり",
+      "kana": "ゆっくり",
+      "romaji": ["yukkuri"],
+      "meaningsZh": ["慢慢地"],
+      "pos": "noun",
+      "tags": ["speed", "sokuon"],
+      "skillTags": ["kana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-yukkuri-1",
+          "ja": "ゆっくり話してください。",
+          "kana": "ゆっくりはなしてください。",
+          "zh": "请慢慢说。",
+          "targetSurface": "ゆっくり",
+          "targetKana": "ゆっくり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-yuumei",
+      "type": "word",
+      "surface": "有名",
+      "kana": "ゆうめい",
+      "romaji": ["yuumei"],
+      "meaningsZh": ["有名"],
+      "pos": "adjective",
+      "tags": ["adjective"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yuumei-1",
+          "ja": "この店は有名なラーメン屋だ。",
+          "kana": "このみせはゆうめいなラーメンやだ。",
+          "zh": "这家店是有名的拉面店。",
+          "targetSurface": "有名",
+          "targetKana": "ゆうめい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-zenbu",
+      "type": "word",
+      "surface": "全部",
+      "kana": "ぜんぶ",
+      "romaji": ["zenbu"],
+      "meaningsZh": ["全部"],
+      "pos": "adverb",
+      "tags": ["adverb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-zenbu-1",
+          "ja": "全部そう思います。",
+          "kana": "ぜんぶそうおもいます。",
+          "zh": "我也全部这么想。",
+          "targetSurface": "全部",
+          "targetKana": "ぜんぶ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-add-arigatougozaimasu",
+      "type": "word",
+      "surface": "ありがとうございます",
+      "kana": "ありがとうございます",
+      "romaji": ["arigatougozaimasu"],
+      "meaningsZh": ["谢谢"],
+      "pos": "expression",
+      "tags": ["greeting", "polite"],
+      "skillTags": ["meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-add-arigatougozaimasu-1",
+          "ja": "ご親切に、ありがとうございます。",
+          "kana": "ごしんせつに、ありがとうございます。",
+          "zh": "承蒙关照，非常感谢。",
+          "targetSurface": "ありがとうございます",
+          "targetKana": "ありがとうございます"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-ohayougozaimasu",
+      "type": "word",
+      "surface": "おはようございます",
+      "kana": "おはようございます",
+      "romaji": ["ohayougozaimasu"],
+      "meaningsZh": ["早上好"],
+      "pos": "expression",
+      "tags": ["greeting", "polite"],
+      "skillTags": ["meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-add-ohayougozaimasu-1",
+          "ja": "田中さん、おはようございます。",
+          "kana": "たなかさん、おはようございます。",
+          "zh": "田中先生，早上好。",
+          "targetSurface": "おはようございます",
+          "targetKana": "おはようございます"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-oyasuminasai",
+      "type": "word",
+      "surface": "おやすみなさい",
+      "kana": "おやすみなさい",
+      "romaji": ["oyasuminasai"],
+      "meaningsZh": ["晚安"],
+      "pos": "expression",
+      "tags": ["greeting", "polite"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-oyasuminasai-1",
+          "ja": "お母さん、おやすみなさい。",
+          "kana": "おかあさん、おやすみなさい。",
+          "zh": "妈妈，晚安。",
+          "targetSurface": "おやすみなさい",
+          "targetKana": "おやすみなさい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-hajimemashite",
+      "type": "word",
+      "surface": "はじめまして",
+      "kana": "はじめまして",
+      "romaji": ["hajimemashite"],
+      "meaningsZh": ["初次见面"],
+      "pos": "expression",
+      "tags": ["greeting"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-hajimemashite-1",
+          "ja": "はじめまして、王と申します。",
+          "kana": "はじめまして、おうともうします。",
+          "zh": "初次见面，我姓王。",
+          "targetSurface": "はじめまして",
+          "targetKana": "はじめまして"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-douzo",
+      "type": "word",
+      "surface": "どうぞ",
+      "kana": "どうぞ",
+      "romaji": ["douzo"],
+      "meaningsZh": ["请"],
+      "pos": "expression",
+      "tags": ["greeting"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-douzo-1",
+          "ja": "どうぞ、こちらへ。",
+          "kana": "どうぞ、こちらへ。",
+          "zh": "请，这边走。",
+          "targetSurface": "どうぞ",
+          "targetKana": "どうぞ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-douitashimashite",
+      "type": "word",
+      "surface": "どういたしまして",
+      "kana": "どういたしまして",
+      "romaji": ["douitashimashite"],
+      "meaningsZh": ["不客气"],
+      "pos": "expression",
+      "tags": ["greeting"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-douitashimashite-1",
+          "ja": "いいえ、どういたしまして。",
+          "kana": "いいえ、どういたしまして。",
+          "zh": "不，不客气。",
+          "targetSurface": "どういたしまして",
+          "targetKana": "どういたしまして"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-doumo",
+      "type": "word",
+      "surface": "どうも",
+      "kana": "どうも",
+      "romaji": ["doumo"],
+      "meaningsZh": ["谢谢", "实在"],
+      "pos": "expression",
+      "tags": ["greeting"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-doumo-1",
+          "ja": "どうも、助かりました。",
+          "kana": "どうも、たすかりました。",
+          "zh": "多谢，帮大忙了。",
+          "targetSurface": "どうも",
+          "targetKana": "どうも"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-kono",
+      "type": "word",
+      "surface": "この",
+      "kana": "この",
+      "romaji": ["kono"],
+      "meaningsZh": ["这个", "这"],
+      "pos": "pronoun",
+      "tags": ["demonstrative", "kosoado"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-kono-1",
+          "ja": "このは誰のですか?",
+          "kana": "このはだれのですか?",
+          "zh": "这个是谁的？",
+          "targetSurface": "この",
+          "targetKana": "この"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-sono",
+      "type": "word",
+      "surface": "その",
+      "kana": "その",
+      "romaji": ["sono"],
+      "meaningsZh": ["那个", "那"],
+      "pos": "pronoun",
+      "tags": ["demonstrative", "kosoado"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-sono-1",
+          "ja": "そのは誰のですか?",
+          "kana": "そのはだれのですか?",
+          "zh": "那个是谁的？",
+          "targetSurface": "その",
+          "targetKana": "その"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-ano",
+      "type": "word",
+      "surface": "あの",
+      "kana": "あの",
+      "romaji": ["ano"],
+      "meaningsZh": ["那个(远)", "那(远)"],
+      "pos": "pronoun",
+      "tags": ["demonstrative", "kosoado"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-ano-1",
+          "ja": "あのは誰のですか?",
+          "kana": "あのはだれのですか?",
+          "zh": "那个是谁的？",
+          "targetSurface": "あの",
+          "targetKana": "あの"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-dono",
+      "type": "word",
+      "surface": "どの",
+      "kana": "どの",
+      "romaji": ["dono"],
+      "meaningsZh": ["哪个"],
+      "pos": "pronoun",
+      "tags": ["demonstrative", "kosoado", "question"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-dono-1",
+          "ja": "どのは誰のですか?",
+          "kana": "どのはだれのですか?",
+          "zh": "哪个是谁的？",
+          "targetSurface": "どの",
+          "targetKana": "どの"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-nihon",
+      "type": "word",
+      "surface": "日本",
+      "kana": "にほん",
+      "romaji": ["nihon"],
+      "meaningsZh": ["日本"],
+      "pos": "noun",
+      "tags": ["country", "place"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-nihon-1",
+          "ja": "日本について説明する。",
+          "kana": "にほんについてせつめいする。",
+          "zh": "对日本进行说明。",
+          "targetSurface": "日本",
+          "targetKana": "にほん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-chuugoku",
+      "type": "word",
+      "surface": "中国",
+      "kana": "ちゅうごく",
+      "romaji": ["chuugoku"],
+      "meaningsZh": ["中国"],
+      "pos": "noun",
+      "tags": ["country", "place"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-chuugoku-1",
+          "ja": "辞書で中国を引いた。",
+          "kana": "じしょでちゅうごくをひいた。",
+          "zh": "在字典里查了中国。",
+          "targetSurface": "中国",
+          "targetKana": "ちゅうごく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-toukyou",
+      "type": "word",
+      "surface": "東京",
+      "kana": "とうきょう",
+      "romaji": ["toukyou"],
+      "meaningsZh": ["东京"],
+      "pos": "noun",
+      "tags": ["place", "japan-city", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-toukyou-1",
+          "ja": "「東京」という言葉の意味を確認する。",
+          "kana": "「東京」ということばのいみをかくにんする。",
+          "zh": "确认「東京」（东京）这个词的含义。",
+          "targetSurface": "東京"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-oosaka",
+      "type": "word",
+      "surface": "大阪",
+      "kana": "おおさか",
+      "romaji": ["oosaka"],
+      "meaningsZh": ["大阪"],
+      "pos": "noun",
+      "tags": ["place", "japan-city", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-oosaka-1",
+          "ja": "辞書で大阪を引いた。",
+          "kana": "じしょでおおさかをひいた。",
+          "zh": "在字典里查了大阪。",
+          "targetSurface": "大阪",
+          "targetKana": "おおさか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-kyouto",
+      "type": "word",
+      "surface": "京都",
+      "kana": "きょうと",
+      "romaji": ["kyouto"],
+      "meaningsZh": ["京都"],
+      "pos": "noun",
+      "tags": ["place", "japan-city"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-kyouto-1",
+          "ja": "京都について説明する。",
+          "kana": "きょうとについてせつめいする。",
+          "zh": "对京都进行说明。",
+          "targetSurface": "京都",
+          "targetKana": "きょうと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-nihongo",
+      "type": "word",
+      "surface": "日本語",
+      "kana": "にほんご",
+      "romaji": ["nihongo"],
+      "meaningsZh": ["日语"],
+      "pos": "noun",
+      "tags": ["language"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-nihongo-1",
+          "ja": "辞書で日本語を引いた。",
+          "kana": "じしょでにほんごをひいた。",
+          "zh": "在字典里查了日语。",
+          "targetSurface": "日本語",
+          "targetKana": "にほんご"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-chuugokugo",
+      "type": "word",
+      "surface": "中国語",
+      "kana": "ちゅうごくご",
+      "romaji": ["chuugokugo"],
+      "meaningsZh": ["中文", "汉语"],
+      "pos": "noun",
+      "tags": ["language"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-chuugokugo-1",
+          "ja": "中国語について説明する。",
+          "kana": "ちゅうごくごについてせつめいする。",
+          "zh": "对中文进行说明。",
+          "targetSurface": "中国語",
+          "targetKana": "ちゅうごくご"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-eigo",
+      "type": "word",
+      "surface": "英語",
+      "kana": "えいご",
+      "romaji": ["eigo"],
+      "meaningsZh": ["英语"],
+      "pos": "noun",
+      "tags": ["language"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-eigo-1",
+          "ja": "「英語」という言葉の意味を確認する。",
+          "kana": "「英語」ということばのいみをかくにんする。",
+          "zh": "确认「英語」（英语）这个词的含义。",
+          "targetSurface": "英語"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-haru",
+      "type": "word",
+      "surface": "春",
+      "kana": "はる",
+      "romaji": ["haru"],
+      "meaningsZh": ["春", "春天"],
+      "pos": "noun",
+      "tags": ["season", "weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-haru-1",
+          "ja": "「春」という漢字を覚える。",
+          "kana": "「春」というかんじをおぼえる。",
+          "zh": "记住「春」这个汉字（春）。",
+          "targetSurface": "春"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-natsu",
+      "type": "word",
+      "surface": "夏",
+      "kana": "なつ",
+      "romaji": ["natsu"],
+      "meaningsZh": ["夏", "夏天"],
+      "pos": "noun",
+      "tags": ["season", "weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-natsu-1",
+          "ja": "「夏」は「なつ」と読む。",
+          "kana": "「夏」は「なつ」とよむ。",
+          "zh": "「夏」读作「なつ」，意思是夏。",
+          "targetSurface": "夏",
+          "targetKana": "なつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-aki",
+      "type": "word",
+      "surface": "秋",
+      "kana": "あき",
+      "romaji": ["aki"],
+      "meaningsZh": ["秋", "秋天"],
+      "pos": "noun",
+      "tags": ["season", "weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-aki-1",
+          "ja": "「秋」という漢字を覚える。",
+          "kana": "「秋」というかんじをおぼえる。",
+          "zh": "记住「秋」这个汉字（秋）。",
+          "targetSurface": "秋"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-fuyu",
+      "type": "word",
+      "surface": "冬",
+      "kana": "ふゆ",
+      "romaji": ["fuyu"],
+      "meaningsZh": ["冬", "冬天"],
+      "pos": "noun",
+      "tags": ["season", "weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-fuyu-1",
+          "ja": "「冬」という漢字を覚える。",
+          "kana": "「冬」というかんじをおぼえる。",
+          "zh": "记住「冬」这个汉字（冬）。",
+          "targetSurface": "冬"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-chichi",
+      "type": "word",
+      "surface": "父",
+      "kana": "ちち",
+      "romaji": ["chichi"],
+      "meaningsZh": ["父亲(谦)", "爸爸"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-chichi-1",
+          "ja": "「父」という漢字を覚える。",
+          "kana": "「父」というかんじをおぼえる。",
+          "zh": "记住「父」这个汉字（父亲）。",
+          "targetSurface": "父"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-haha",
+      "type": "word",
+      "surface": "母",
+      "kana": "はは",
+      "romaji": ["haha"],
+      "meaningsZh": ["母亲(谦)", "妈妈"],
+      "pos": "noun",
+      "tags": ["family"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-haha-1",
+          "ja": "「母」という漢字を覚える。",
+          "kana": "「母」というかんじをおぼえる。",
+          "zh": "记住「母」这个汉字（母亲）。",
+          "targetSurface": "母"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-kita",
+      "type": "word",
+      "surface": "北",
+      "kana": "きた",
+      "romaji": ["kita"],
+      "meaningsZh": ["北"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-kita-1",
+          "ja": "「北」という漢字を覚える。",
+          "kana": "「北」というかんじをおぼえる。",
+          "zh": "记住「北」这个汉字（北）。",
+          "targetSurface": "北"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-minami",
+      "type": "word",
+      "surface": "南",
+      "kana": "みなみ",
+      "romaji": ["minami"],
+      "meaningsZh": ["南"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-minami-1",
+          "ja": "「南」という漢字を覚える。",
+          "kana": "「南」というかんじをおぼえる。",
+          "zh": "记住「南」这个汉字（南）。",
+          "targetSurface": "南"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-higashi",
+      "type": "word",
+      "surface": "東",
+      "kana": "ひがし",
+      "romaji": ["higashi"],
+      "meaningsZh": ["东"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-higashi-1",
+          "ja": "「東」という漢字を覚える。",
+          "kana": "「東」というかんじをおぼえる。",
+          "zh": "记住「東」这个汉字（东）。",
+          "targetSurface": "東"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-nishi",
+      "type": "word",
+      "surface": "西",
+      "kana": "にし",
+      "romaji": ["nishi"],
+      "meaningsZh": ["西"],
+      "pos": "noun",
+      "tags": ["direction"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-nishi-1",
+          "ja": "「西」という漢字を覚える。",
+          "kana": "「西」というかんじをおぼえる。",
+          "zh": "记住「西」这个汉字（西）。",
+          "targetSurface": "西"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-tsuitachi",
+      "type": "word",
+      "surface": "一日",
+      "kana": "ついたち",
+      "romaji": ["tsuitachi"],
+      "meaningsZh": ["1号", "一号(月份的1日)"],
+      "pos": "noun",
+      "tags": ["date", "day", "irregular-reading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-tsuitachi-1",
+          "ja": "一日は予定があります。",
+          "kana": "ついたちはよていがあります。",
+          "zh": "1号有安排。",
+          "targetSurface": "一日",
+          "targetKana": "ついたち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-futsuka",
+      "type": "word",
+      "surface": "二日",
+      "kana": "ふつか",
+      "romaji": ["futsuka"],
+      "meaningsZh": ["2号", "两天"],
+      "pos": "noun",
+      "tags": ["date", "day", "irregular-reading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-futsuka-1",
+          "ja": "二日に集合してください。",
+          "kana": "ふつかにしゅうごうしてください。",
+          "zh": "请在2号集合。",
+          "targetSurface": "二日",
+          "targetKana": "ふつか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-mikka",
+      "type": "word",
+      "surface": "三日",
+      "kana": "みっか",
+      "romaji": ["mikka"],
+      "meaningsZh": ["3号", "三天"],
+      "pos": "noun",
+      "tags": ["date", "day", "irregular-reading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-mikka-1",
+          "ja": "三日は予定があります。",
+          "kana": "みっかはよていがあります。",
+          "zh": "3号有安排。",
+          "targetSurface": "三日",
+          "targetKana": "みっか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-yokka",
+      "type": "word",
+      "surface": "四日",
+      "kana": "よっか",
+      "romaji": ["yokka"],
+      "meaningsZh": ["4号", "四天"],
+      "pos": "noun",
+      "tags": ["date", "day", "irregular-reading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-yokka-1",
+          "ja": "四日に集合してください。",
+          "kana": "よっかにしゅうごうしてください。",
+          "zh": "请在4号集合。",
+          "targetSurface": "四日",
+          "targetKana": "よっか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-itsuka",
+      "type": "word",
+      "surface": "五日",
+      "kana": "いつか",
+      "romaji": ["itsuka"],
+      "meaningsZh": ["5号", "五天"],
+      "pos": "noun",
+      "tags": ["date", "day", "irregular-reading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-itsuka-1",
+          "ja": "五日に集合してください。",
+          "kana": "いつかにしゅうごうしてください。",
+          "zh": "请在5号集合。",
+          "targetSurface": "五日",
+          "targetKana": "いつか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-muika",
+      "type": "word",
+      "surface": "六日",
+      "kana": "むいか",
+      "romaji": ["muika"],
+      "meaningsZh": ["6号", "六天"],
+      "pos": "noun",
+      "tags": ["date", "day", "irregular-reading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-muika-1",
+          "ja": "六日に集合してください。",
+          "kana": "むいかにしゅうごうしてください。",
+          "zh": "请在6号集合。",
+          "targetSurface": "六日",
+          "targetKana": "むいか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-nanoka",
+      "type": "word",
+      "surface": "七日",
+      "kana": "なのか",
+      "romaji": ["nanoka"],
+      "meaningsZh": ["7号", "七天"],
+      "pos": "noun",
+      "tags": ["date", "day", "irregular-reading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-nanoka-1",
+          "ja": "七日に集合してください。",
+          "kana": "なのかにしゅうごうしてください。",
+          "zh": "请在7号集合。",
+          "targetSurface": "七日",
+          "targetKana": "なのか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-youka",
+      "type": "word",
+      "surface": "八日",
+      "kana": "ようか",
+      "romaji": ["youka"],
+      "meaningsZh": ["8号", "八天"],
+      "pos": "noun",
+      "tags": ["date", "day", "irregular-reading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-youka-1",
+          "ja": "八日は予定があります。",
+          "kana": "ようかはよていがあります。",
+          "zh": "8号有安排。",
+          "targetSurface": "八日",
+          "targetKana": "ようか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-kokonoka",
+      "type": "word",
+      "surface": "九日",
+      "kana": "ここのか",
+      "romaji": ["kokonoka"],
+      "meaningsZh": ["9号", "九天"],
+      "pos": "noun",
+      "tags": ["date", "day", "irregular-reading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-kokonoka-1",
+          "ja": "九日に集合してください。",
+          "kana": "ここのかにしゅうごうしてください。",
+          "zh": "请在9号集合。",
+          "targetSurface": "九日",
+          "targetKana": "ここのか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-tooka",
+      "type": "word",
+      "surface": "十日",
+      "kana": "とおか",
+      "romaji": ["tooka"],
+      "meaningsZh": ["10号", "十天"],
+      "pos": "noun",
+      "tags": ["date", "day", "irregular-reading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-tooka-1",
+          "ja": "十日に集合してください。",
+          "kana": "とおかにしゅうごうしてください。",
+          "zh": "请在10号集合。",
+          "targetSurface": "十日",
+          "targetKana": "とおか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-hatsuka",
+      "type": "word",
+      "surface": "二十日",
+      "kana": "はつか",
+      "romaji": ["hatsuka"],
+      "meaningsZh": ["20号", "二十天"],
+      "pos": "noun",
+      "tags": ["date", "day", "irregular-reading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-hatsuka-1",
+          "ja": "二十日に集合してください。",
+          "kana": "はつかにしゅうごうしてください。",
+          "zh": "请在20号集合。",
+          "targetSurface": "二十日",
+          "targetKana": "はつか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-mochiron",
+      "type": "word",
+      "surface": "もちろん",
+      "kana": "もちろん",
+      "romaji": ["mochiron"],
+      "meaningsZh": ["当然"],
+      "pos": "adverb",
+      "tags": ["adverb", "common"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-mochiron-1",
+          "ja": "もちろんそう思います。",
+          "kana": "もちろんそうおもいます。",
+          "zh": "我也当然这么想。",
+          "targetSurface": "もちろん",
+          "targetKana": "もちろん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-tabun",
+      "type": "word",
+      "surface": "たぶん",
+      "kana": "たぶん",
+      "romaji": ["tabun"],
+      "meaningsZh": ["大概", "可能"],
+      "pos": "adverb",
+      "tags": ["adverb", "common"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-tabun-1",
+          "ja": "たぶんそう思います。",
+          "kana": "たぶんそうおもいます。",
+          "zh": "我也大概这么想。",
+          "targetSurface": "たぶん",
+          "targetKana": "たぶん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-hontou",
+      "type": "word",
+      "surface": "本当",
+      "kana": "ほんとう",
+      "romaji": ["hontou"],
+      "meaningsZh": ["真的", "真实"],
+      "pos": "noun",
+      "tags": ["common"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-hontou-1",
+          "ja": "「本当」という言葉の意味を確認する。",
+          "kana": "「本当」ということばのいみをかくにんする。",
+          "zh": "确认「本当」（真的）这个词的含义。",
+          "targetSurface": "本当"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-hontouni",
+      "type": "word",
+      "surface": "本当に",
+      "kana": "ほんとうに",
+      "romaji": ["hontouni"],
+      "meaningsZh": ["真的", "实在"],
+      "pos": "adverb",
+      "tags": ["adverb", "common"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-hontouni-1",
+          "ja": "本当にそう思います。",
+          "kana": "ほんとうにそうおもいます。",
+          "zh": "我也真的这么想。",
+          "targetSurface": "本当に",
+          "targetKana": "ほんとうに"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-zettai",
+      "type": "word",
+      "surface": "絶対",
+      "kana": "ぜったい",
+      "romaji": ["zettai"],
+      "meaningsZh": ["绝对"],
+      "pos": "adverb",
+      "tags": ["adverb", "common"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-zettai-1",
+          "ja": "絶対そう思います。",
+          "kana": "ぜったいそうおもいます。",
+          "zh": "我也绝对这么想。",
+          "targetSurface": "絶対",
+          "targetKana": "ぜったい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-daitai",
+      "type": "word",
+      "surface": "大体",
+      "kana": "だいたい",
+      "romaji": ["daitai"],
+      "meaningsZh": ["大概", "大致"],
+      "pos": "adverb",
+      "tags": ["adverb", "common"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-daitai-1",
+          "ja": "大体そう思います。",
+          "kana": "だいたいそうおもいます。",
+          "zh": "我也大概这么想。",
+          "targetSurface": "大体",
+          "targetKana": "だいたい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-tamani",
+      "type": "word",
+      "surface": "たまに",
+      "kana": "たまに",
+      "romaji": ["tamani"],
+      "meaningsZh": ["偶尔", "时而"],
+      "pos": "adverb",
+      "tags": ["adverb", "frequency"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-tamani-1",
+          "ja": "たまにそう思います。",
+          "kana": "たまにそうおもいます。",
+          "zh": "我也偶尔这么想。",
+          "targetSurface": "たまに",
+          "targetKana": "たまに"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-yoi",
+      "type": "word",
+      "surface": "良い",
+      "kana": "よい",
+      "romaji": ["yoi"],
+      "meaningsZh": ["好"],
+      "pos": "adjective",
+      "tags": ["i-adjective", "common"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-yoi-1",
+          "ja": "今日は天気が良い。",
+          "kana": "きょうはてんきがよい。",
+          "zh": "今天天气好。",
+          "targetSurface": "良い",
+          "targetKana": "よい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-wakai",
+      "type": "word",
+      "surface": "若い",
+      "kana": "わかい",
+      "romaji": ["wakai"],
+      "meaningsZh": ["年轻"],
+      "pos": "adjective",
+      "tags": ["i-adjective", "common"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-wakai-1",
+          "ja": "今日は若いです。",
+          "kana": "きょうはわかいです。",
+          "zh": "今天年轻。",
+          "targetSurface": "若い",
+          "targetKana": "わかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-kimochi",
+      "type": "word",
+      "surface": "気持ち",
+      "kana": "きもち",
+      "romaji": ["kimochi"],
+      "meaningsZh": ["心情", "感觉"],
+      "pos": "noun",
+      "tags": ["common", "feeling"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-kimochi-1",
+          "ja": "「気持ち」という言葉の意味を確認する。",
+          "kana": "「気持ち」ということばのいみをかくにんする。",
+          "zh": "确认「気持ち」（心情）这个词的含义。",
+          "targetSurface": "気持ち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-issho",
+      "type": "word",
+      "surface": "一緒",
+      "kana": "いっしょ",
+      "romaji": ["issho"],
+      "meaningsZh": ["一起"],
+      "pos": "noun",
+      "tags": ["common", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-issho-1",
+          "ja": "辞書で一緒を引いた。",
+          "kana": "じしょでいっしょをひいた。",
+          "zh": "在字典里查了一起。",
+          "targetSurface": "一緒",
+          "targetKana": "いっしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-isshoni",
+      "type": "word",
+      "surface": "一緒に",
+      "kana": "いっしょに",
+      "romaji": ["isshoni"],
+      "meaningsZh": ["一起", "共同"],
+      "pos": "adverb",
+      "tags": ["common", "sokuon"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-isshoni-1",
+          "ja": "一緒にそう思います。",
+          "kana": "いっしょにそうおもいます。",
+          "zh": "我也一起这么想。",
+          "targetSurface": "一緒に",
+          "targetKana": "いっしょに"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-sora",
+      "type": "word",
+      "surface": "空",
+      "kana": "そら",
+      "romaji": ["sora"],
+      "meaningsZh": ["天空"],
+      "pos": "noun",
+      "tags": ["nature"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-sora-1",
+          "ja": "「空」は「そら」と読む。",
+          "kana": "「空」は「そら」とよむ。",
+          "zh": "「空」读作「そら」，意思是天空。",
+          "targetSurface": "空",
+          "targetKana": "そら"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-kawa",
+      "type": "word",
+      "surface": "川",
+      "kana": "かわ",
+      "romaji": ["kawa"],
+      "meaningsZh": ["河", "河流"],
+      "pos": "noun",
+      "tags": ["nature"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-kawa-1",
+          "ja": "「川」という漢字を覚える。",
+          "kana": "「川」というかんじをおぼえる。",
+          "zh": "记住「川」这个汉字（河）。",
+          "targetSurface": "川"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-mori",
+      "type": "word",
+      "surface": "森",
+      "kana": "もり",
+      "romaji": ["mori"],
+      "meaningsZh": ["森林"],
+      "pos": "noun",
+      "tags": ["nature"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-mori-1",
+          "ja": "「森」という漢字を覚える。",
+          "kana": "「森」というかんじをおぼえる。",
+          "zh": "记住「森」这个汉字（森林）。",
+          "targetSurface": "森"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-machi",
+      "type": "word",
+      "surface": "町",
+      "kana": "まち",
+      "romaji": ["machi"],
+      "meaningsZh": ["镇", "城镇"],
+      "pos": "noun",
+      "tags": ["place"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-machi-1",
+          "ja": "「町」という漢字を覚える。",
+          "kana": "「町」というかんじをおぼえる。",
+          "zh": "记住「町」这个汉字（镇）。",
+          "targetSurface": "町"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-machi-street",
+      "type": "word",
+      "surface": "街",
+      "kana": "まち",
+      "romaji": ["machi"],
+      "meaningsZh": ["街道", "市街"],
+      "pos": "noun",
+      "tags": ["place"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-machi-street-1",
+          "ja": "「街」は「まち」と読む。",
+          "kana": "「街」は「まち」とよむ。",
+          "zh": "「街」读作「まち」，意思是街道。",
+          "targetSurface": "街",
+          "targetKana": "まち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-mukashi",
+      "type": "word",
+      "surface": "昔",
+      "kana": "むかし",
+      "romaji": ["mukashi"],
+      "meaningsZh": ["从前", "古时"],
+      "pos": "noun",
+      "tags": ["time"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-mukashi-1",
+          "ja": "「昔」という漢字を覚える。",
+          "kana": "「昔」というかんじをおぼえる。",
+          "zh": "记住「昔」这个汉字（从前）。",
+          "targetSurface": "昔"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": []
+    }
+  ]
+}

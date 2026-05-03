@@ -10,6 +10,8 @@ import { APP_VERSION_LABEL } from '../version';
 export type RetroActiveKey =
   | 'home'
   | 'today'
+  | 'study'
+  | 'study-pack'
   | 'mistakes'
   | 'library'
   | 'settings'
@@ -57,6 +59,7 @@ const NAV_GROUPS: NavGroup[] = [
   {
     title: '学习',
     items: [
+      { key: 'study', label: '学习模式', href: '#/study', icon: 'library', badge: 'NEW' },
       { key: 'mistakes', label: '错题本', href: '#/mistakes', icon: 'mistakes' },
       { key: 'library', label: '题库', href: '#/library', icon: 'library' },
     ],

@@ -6,13 +6,13 @@ import { describe, expect, it } from 'vitest';
 import { validateSentencePack, type SentencePackInput } from '../src';
 
 /**
- * Smoke-test the actual `content/official/sentences-foundations.json` ships through the
- * validator clean. v0.8.0 RiverJump loads this pack at runtime, so a typo in any chunk's
- * kana / romaji round-trip will surface here and block the gate before it can crash a session.
+ * Smoke-test `content/official/official-phase1-sentences.json` ships through the validator
+ * clean. v0.9.0 RiverJump loads this 120-sentence pack at runtime, so a typo in any chunk's
+ * kana / romaji round-trip will surface here and block the gate before crashing a session.
  */
-const PACK_PATH = resolve(__dirname, '../../../content/official/sentences-foundations.json');
+const PACK_PATH = resolve(__dirname, '../../../content/official/official-phase1-sentences.json');
 
-describe('sentences-foundations.json (real pack)', () => {
+describe('official-phase1-sentences.json (real pack)', () => {
   const raw = JSON.parse(readFileSync(PACK_PATH, 'utf8')) as unknown;
   const result = validateSentencePack(raw);
 
@@ -24,11 +24,11 @@ describe('sentences-foundations.json (real pack)', () => {
     expect(result.ok).toBe(true);
   });
 
-  it('contains at least 30 sentences for v0.8.0 minimum', () => {
+  it('contains at least 100 sentences (v0.9.0 minimum)', () => {
     expect(result.ok).toBe(true);
     if (result.ok) {
       const pack: SentencePackInput = result.value;
-      expect(pack.sentences.length).toBeGreaterThanOrEqual(30);
+      expect(pack.sentences.length).toBeGreaterThanOrEqual(100);
     }
   });
 

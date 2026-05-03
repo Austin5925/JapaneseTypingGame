@@ -15,39 +15,52 @@ export const LearningItemTypeSchema = z.enum([
 
 export const JlptSchema = z.enum(['N5', 'N4', 'N3', 'N2', 'N1', 'none']);
 
-export const SkillDimensionSchema = z.enum([
-  'kana_recognition',
-  'kana_typing',
-  'katakana_recognition',
-  'kanji_reading',
-  'meaning_recall',
-  'ime_conversion',
-  'listening_discrimination',
-  'particle_usage',
-  'sentence_order',
-  'active_output',
-]);
+// v0.9.0: phase1 corpus uses hyphen-style tags (`kanji-reading`, `long-vowel-error`); we
+// preprocess into the canonical underscore form so existing core/runtime code keeps using a
+// single enum vocabulary. Any tag not matching the enum after normalisation still fails.
+const normalizeTag = (raw: unknown): unknown =>
+  typeof raw === 'string' ? raw.replace(/-/g, '_') : raw;
 
-export const ErrorTagSchema = z.enum([
-  'kana_shape_confusion',
-  'katakana_shape_confusion',
-  'dakuten_error',
-  'handakuten_error',
-  'sokuon_error',
-  'long_vowel_error',
-  'youon_error',
-  'n_error',
-  'particle_error',
-  'kanji_reading_error',
-  'same_sound_confusion',
-  'near_sound_confusion',
-  'meaning_confusion',
-  'ime_conversion_error',
-  'word_order_error',
-  'timeout',
-  'misclick',
-  'unknown',
-]);
+export const SkillDimensionSchema = z.preprocess(
+  normalizeTag,
+  z.enum([
+    'kana_recognition',
+    'kana_typing',
+    'katakana_recognition',
+    'kanji_reading',
+    'meaning_recall',
+    'ime_conversion',
+    'listening_discrimination',
+    'particle_usage',
+    'sentence_order',
+    'active_output',
+  ]),
+);
+
+export const ErrorTagSchema = z.preprocess(
+  normalizeTag,
+  z.enum([
+    'kana_shape_confusion',
+    'katakana_shape_confusion',
+    'dakuten_error',
+    'handakuten_error',
+    'sokuon_error',
+    'long_vowel_error',
+    'youon_error',
+    'n_error',
+    'particle_error',
+    'particle_misuse',
+    'kanji_reading_error',
+    'same_sound_confusion',
+    'near_sound_confusion',
+    'meaning_confusion',
+    'ime_conversion_error',
+    'word_order_error',
+    'timeout',
+    'misclick',
+    'unknown',
+  ]),
+);
 
 export const AudioRefKindSchema = z.enum(['word', 'sentence', 'cue', 'sfx']);
 
@@ -110,6 +123,8 @@ export const ChunkPosSchema = z.enum([
   'conjunction',
   'interjection',
   'phrase',
+  'numeral',
+  'expression',
   'other',
 ]);
 

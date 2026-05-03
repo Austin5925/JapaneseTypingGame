@@ -1,0 +1,2008 @@
+{
+  "id": "official-phase1-health-emergency",
+  "name": "第一阶段：身体、健康、天气与应急",
+  "version": "1.1.0",
+  "items": [
+    {
+      "id": "word-ansei",
+      "type": "word",
+      "surface": "安静",
+      "kana": "あんせい",
+      "romaji": ["ansei"],
+      "meaningsZh": ["静养"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ansei-1",
+          "ja": "熱が下がるまで安静にする。",
+          "kana": "ねつがさがるまであんせいにする。",
+          "zh": "发烧退之前要静养。",
+          "targetSurface": "安静",
+          "targetKana": "あんせい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-benpi",
+      "type": "word",
+      "surface": "便秘",
+      "kana": "べんぴ",
+      "romaji": ["benpi"],
+      "meaningsZh": ["便秘"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-benpi-1",
+          "ja": "最近、便秘気味だ。",
+          "kana": "さいきん、べんぴぎみだ。",
+          "zh": "最近有点便秘。",
+          "targetSurface": "便秘",
+          "targetKana": "べんぴ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-dansui",
+      "type": "word",
+      "surface": "断水",
+      "kana": "だんすい",
+      "romaji": ["dansui"],
+      "meaningsZh": ["停水"],
+      "pos": "noun",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-dansui-1",
+          "ja": "工事のため、午後から断水します。",
+          "kana": "こうじのため、ごごからだんすいします。",
+          "zh": "因施工，下午开始停水。",
+          "targetSurface": "断水",
+          "targetKana": "だんすい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-geri",
+      "type": "word",
+      "surface": "下痢",
+      "kana": "げり",
+      "romaji": ["geri"],
+      "meaningsZh": ["腹泻"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-geri-1",
+          "ja": "昨夜から下痢が続いている。",
+          "kana": "さくやからげりがつづいている。",
+          "zh": "昨晚开始一直腹泻。",
+          "targetSurface": "下痢",
+          "targetKana": "げり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hakike",
+      "type": "word",
+      "surface": "吐き気",
+      "kana": "はきけ",
+      "romaji": ["hakike"],
+      "meaningsZh": ["恶心"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hakike-1",
+          "ja": "バスに乗ると吐き気がする。",
+          "kana": "バスにのるとはきけがする。",
+          "zh": "坐公交就想吐。",
+          "targetSurface": "吐き気",
+          "targetKana": "はきけ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hijouguchi",
+      "type": "word",
+      "surface": "非常口",
+      "kana": "ひじょうぐち",
+      "romaji": ["hijouguchi"],
+      "meaningsZh": ["紧急出口"],
+      "pos": "noun",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hijouguchi-1",
+          "ja": "非常口の場所を確認する。",
+          "kana": "ひじょうぐちのばしょをかくにんする。",
+          "zh": "确认紧急出口的位置。",
+          "targetSurface": "非常口",
+          "targetKana": "ひじょうぐち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hinan",
+      "type": "word",
+      "surface": "避難",
+      "kana": "ひなん",
+      "romaji": ["hinan"],
+      "meaningsZh": ["避难"],
+      "pos": "noun",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hinan-1",
+          "ja": "係員の指示に従って避難する。",
+          "kana": "かかりいんのしじにしたがってひなんする。",
+          "zh": "按照工作人员的指示避难。",
+          "targetSurface": "避難",
+          "targetKana": "ひなん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hinanjo",
+      "type": "word",
+      "surface": "避難所",
+      "kana": "ひなんじょ",
+      "romaji": ["hinanjo"],
+      "meaningsZh": ["避难所"],
+      "pos": "noun",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hinanjo-1",
+          "ja": "近くの小学校が避難所になる。",
+          "kana": "ちかくのしょうがっこうがひなんじょになる。",
+          "zh": "附近的小学是避难所。",
+          "targetSurface": "避難所",
+          "targetKana": "ひなんじょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hokenshou",
+      "type": "word",
+      "surface": "保険証",
+      "kana": "ほけんしょう",
+      "romaji": ["hokenshou"],
+      "meaningsZh": ["保险证"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hokenshou-1",
+          "ja": "病院の受付で保険証を出す。",
+          "kana": "びょういんのうけつけでほけんしょうをだす。",
+          "zh": "在医院前台出示医保卡。",
+          "targetSurface": "保険証",
+          "targetKana": "ほけんしょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kangoshi",
+      "type": "word",
+      "surface": "看護師",
+      "kana": "かんごし",
+      "romaji": ["kangoshi", "kangosi"],
+      "meaningsZh": ["护士"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kangoshi-1",
+          "ja": "看護師さんが優しく対応してくれた。",
+          "kana": "かんごしさんがやさしくたいおうしてくれた。",
+          "zh": "护士温柔地接待了我。",
+          "targetSurface": "看護師",
+          "targetKana": "かんごし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kansou",
+      "type": "word",
+      "surface": "乾燥",
+      "kana": "かんそう",
+      "romaji": ["kansou"],
+      "meaningsZh": ["干燥"],
+      "pos": "noun",
+      "tags": ["weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kansou-1",
+          "ja": "冬は肌が乾燥しやすい。",
+          "kana": "ふゆははだがかんそうしやすい。",
+          "zh": "冬天皮肤容易干燥。",
+          "targetSurface": "乾燥",
+          "targetKana": "かんそう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kyuukyuugairai",
+      "type": "word",
+      "surface": "救急外来",
+      "kana": "きゅうきゅうがいらい",
+      "romaji": ["kyuukyuugairai"],
+      "meaningsZh": ["急诊门诊"],
+      "pos": "noun",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kyuukyuugairai-1",
+          "ja": "夜中の急病は救急外来へ。",
+          "kana": "よなかのきゅうびょうはきゅうきゅうがいらいへ。",
+          "zh": "深夜急症去急诊。",
+          "targetSurface": "救急外来",
+          "targetKana": "きゅうきゅうがいらい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-memai",
+      "type": "word",
+      "surface": "めまい",
+      "kana": "めまい",
+      "romaji": ["memai"],
+      "meaningsZh": ["头晕"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-memai-1",
+          "ja": "急に立ち上がるとめまいがする。",
+          "kana": "きゅうにたちあがるとめまいがする。",
+          "zh": "突然站起来会头晕。",
+          "targetSurface": "めまい",
+          "targetKana": "めまい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-monshinhyou",
+      "type": "word",
+      "surface": "問診票",
+      "kana": "もんしんひょう",
+      "romaji": ["monshinhyou"],
+      "meaningsZh": ["问诊表"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-monshinhyou-1",
+          "ja": "初診なので問診票を書きます。",
+          "kana": "しょしんなのでもんしんひょうをかきます。",
+          "zh": "因为是初诊，要填问诊单。",
+          "targetSurface": "問診票",
+          "targetKana": "もんしんひょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-nenza",
+      "type": "word",
+      "surface": "捻挫",
+      "kana": "ねんざ",
+      "romaji": ["nenza"],
+      "meaningsZh": ["扭伤"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nenza-1",
+          "ja": "階段で足を捻挫した。",
+          "kana": "かいだんであしをねんざした。",
+          "zh": "在楼梯上扭伤了脚。",
+          "targetSurface": "捻挫",
+          "targetKana": "ねんざ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shikke",
+      "type": "word",
+      "surface": "湿気",
+      "kana": "しっけ",
+      "romaji": ["shikke"],
+      "meaningsZh": ["湿气"],
+      "pos": "noun",
+      "tags": ["weather", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shikke-1",
+          "ja": "梅雨は湿気が多い。",
+          "kana": "つゆはしっけがおおい。",
+          "zh": "梅雨季节潮湿。",
+          "targetSurface": "湿気",
+          "targetKana": "しっけ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-shinsatsu",
+      "type": "word",
+      "surface": "診察",
+      "kana": "しんさつ",
+      "romaji": ["shinsatsu"],
+      "meaningsZh": ["诊察"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shinsatsu-1",
+          "ja": "午前中に診察を受ける。",
+          "kana": "ごぜんちゅうにしんさつをうける。",
+          "zh": "上午接受诊察。",
+          "targetSurface": "診察",
+          "targetKana": "しんさつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shippu",
+      "type": "word",
+      "surface": "湿布",
+      "kana": "しっぷ",
+      "romaji": ["shippu"],
+      "meaningsZh": ["膏药", "湿布"],
+      "pos": "noun",
+      "tags": ["health", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shippu-1",
+          "ja": "肩が痛いので湿布を貼る。",
+          "kana": "かたがいたいのでしっぷをはる。",
+          "zh": "肩膀疼，所以贴膏药。",
+          "targetSurface": "湿布",
+          "targetKana": "しっぷ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-shohousen",
+      "type": "word",
+      "surface": "処方箋",
+      "kana": "しょほうせん",
+      "romaji": ["shohousen"],
+      "meaningsZh": ["处方笺"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shohousen-1",
+          "ja": "処方箋を持って薬局へ行く。",
+          "kana": "しょほうせんをもってやっきょくへいく。",
+          "zh": "拿着处方去药店。",
+          "targetSurface": "処方箋",
+          "targetKana": "しょほうせん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shoudoku",
+      "type": "word",
+      "surface": "消毒",
+      "kana": "しょうどく",
+      "romaji": ["shoudoku"],
+      "meaningsZh": ["消毒"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shoudoku-1",
+          "ja": "傷口を消毒する。",
+          "kana": "きずぐちをしょうどくする。",
+          "zh": "给伤口消毒。",
+          "targetSurface": "消毒",
+          "targetKana": "しょうどく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-teiden",
+      "type": "word",
+      "surface": "停電",
+      "kana": "ていでん",
+      "romaji": ["teiden"],
+      "meaningsZh": ["停电"],
+      "pos": "noun",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-teiden-1",
+          "ja": "台風で一晩中停電した。",
+          "kana": "たいふうでひとばんじゅうていでんした。",
+          "zh": "因为台风停电了一整晚。",
+          "targetSurface": "停電",
+          "targetKana": "ていでん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tsunami",
+      "type": "word",
+      "surface": "津波",
+      "kana": "つなみ",
+      "romaji": ["tsunami"],
+      "meaningsZh": ["海啸"],
+      "pos": "noun",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsunami-1",
+          "ja": "地震の後、津波警報が出された。",
+          "kana": "じしんのあと、つなみけいほうがだされた。",
+          "zh": "地震后发布了海啸警报。",
+          "targetSurface": "津波",
+          "targetKana": "つなみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-anzen",
+      "type": "word",
+      "surface": "安全",
+      "kana": "あんぜん",
+      "romaji": ["anzen"],
+      "meaningsZh": ["安全"],
+      "pos": "adjective",
+      "tags": ["feeling", "emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-anzen-1",
+          "ja": "子供を安全な場所に避難させる。",
+          "kana": "こどもをあんぜんなばしょにひなんさせる。",
+          "zh": "让孩子避难到安全的地方。",
+          "targetSurface": "安全",
+          "targetKana": "あんぜん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-atsusa",
+      "type": "word",
+      "surface": "暑さ",
+      "kana": "あつさ",
+      "romaji": ["atsusa"],
+      "meaningsZh": ["暑热"],
+      "pos": "noun",
+      "tags": ["weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-atsusa-1",
+          "ja": "今年の夏は暑さが厳しい。",
+          "kana": "ことしのなつはあつさがきびしい。",
+          "zh": "今年夏天暑热严酷。",
+          "targetSurface": "暑さ",
+          "targetKana": "あつさ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-chi",
+      "type": "word",
+      "surface": "血",
+      "kana": "ち",
+      "romaji": ["chi"],
+      "meaningsZh": ["血"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-chi-1",
+          "ja": "指を切って血が出た。",
+          "kana": "ゆびをきってちがでた。",
+          "zh": "手指切到出血了。",
+          "targetSurface": "血",
+          "targetKana": "ち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-fukutsuu",
+      "type": "word",
+      "surface": "腹痛",
+      "kana": "ふくつう",
+      "romaji": ["fukutsuu"],
+      "meaningsZh": ["腹痛"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-fukutsuu-1",
+          "ja": "急に腹痛が始まった。",
+          "kana": "きゅうにふくつうがはじまった。",
+          "zh": "突然开始肚子疼。",
+          "targetSurface": "腹痛",
+          "targetKana": "ふくつう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hanamizu",
+      "type": "word",
+      "surface": "鼻水",
+      "kana": "はなみず",
+      "romaji": ["hanamizu"],
+      "meaningsZh": ["鼻涕"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hanamizu-1",
+          "ja": "風邪で鼻水が止まらない。",
+          "kana": "かぜではなみずがとまらない。",
+          "zh": "感冒了，鼻涕止不住。",
+          "targetSurface": "鼻水",
+          "targetKana": "はなみず"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-jishin",
+      "type": "word",
+      "surface": "地震",
+      "kana": "じしん",
+      "romaji": ["jishin"],
+      "meaningsZh": ["地震"],
+      "pos": "noun",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-jishin-1",
+          "ja": "夜中に大きな地震があった。",
+          "kana": "よなかにおおきなじしんがあった。",
+          "zh": "半夜发生了大地震。",
+          "targetSurface": "地震",
+          "targetKana": "じしん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kaji",
+      "type": "word",
+      "surface": "火事",
+      "kana": "かじ",
+      "romaji": ["kaji"],
+      "meaningsZh": ["火灾"],
+      "pos": "noun",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaji-1",
+          "ja": "近くで火事があったらしい。",
+          "kana": "ちかくでかじがあったらしい。",
+          "zh": "附近好像着火了。",
+          "targetSurface": "火事",
+          "targetKana": "かじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kaminari",
+      "type": "word",
+      "surface": "雷",
+      "kana": "かみなり",
+      "romaji": ["kaminari"],
+      "meaningsZh": ["雷"],
+      "pos": "noun",
+      "tags": ["weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaminari-1",
+          "ja": "夕方から雷が鳴り始めた。",
+          "kana": "ゆうがたからかみなりがなりはじめた。",
+          "zh": "傍晚开始打雷。",
+          "targetSurface": "雷",
+          "targetKana": "かみなり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kasawomotteiku",
+      "type": "word",
+      "surface": "傘を持っていく",
+      "kana": "かさをもっていく",
+      "romaji": ["kasawomotteiku"],
+      "meaningsZh": ["带伞去"],
+      "pos": "expression",
+      "tags": ["weather", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kasawomotteiku-1",
+          "ja": "雨が降りそうだから、傘を持っていく。",
+          "kana": "あめがふりそうだから、かさをもっていく。",
+          "zh": "看起来要下雨，所以带把伞。",
+          "targetSurface": "傘を持っていく",
+          "targetKana": "かさをもっていく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-kata",
+      "type": "word",
+      "surface": "肩",
+      "kana": "かた",
+      "romaji": ["kata"],
+      "meaningsZh": ["肩膀"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kata-1",
+          "ja": "「肩」は「かた」と読む。",
+          "kana": "「肩」は「かた」とよむ。",
+          "zh": "「肩」读作「かた」，意思是肩膀。",
+          "targetSurface": "肩",
+          "targetKana": "かた"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kegawosuru",
+      "type": "word",
+      "surface": "けがをする",
+      "kana": "けがをする",
+      "romaji": ["kegawosuru"],
+      "meaningsZh": ["受伤"],
+      "pos": "verb",
+      "tags": ["health", "verb"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kegawosuru-1",
+          "ja": "毎日けがをするようにしている。",
+          "kana": "まいにちけがをするようにしている。",
+          "zh": "每天坚持受伤。",
+          "targetSurface": "けがをする",
+          "targetKana": "けがをする"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-keisatsu",
+      "type": "word",
+      "surface": "警察",
+      "kana": "けいさつ",
+      "romaji": ["keisatsu", "keisatu"],
+      "meaningsZh": ["警察"],
+      "pos": "noun",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-keisatsu-1",
+          "ja": "警察について説明する。",
+          "kana": "けいさつについてせつめいする。",
+          "zh": "对警察进行说明。",
+          "targetSurface": "警察",
+          "targetKana": "けいさつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-keisatsuwoyondekudasai",
+      "type": "word",
+      "surface": "警察を呼んでください",
+      "kana": "けいさつをよんでください",
+      "romaji": ["keisatsuwoyondekudasai"],
+      "meaningsZh": ["请叫警察"],
+      "pos": "expression",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-keisatsuwoyondekudasai-1",
+          "ja": "事故です、警察を呼んでください。",
+          "kana": "じこです、けいさつをよんでください。",
+          "zh": "出事故了，请报警。",
+          "targetSurface": "警察を呼んでください",
+          "targetKana": "けいさつをよんでください"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kiken",
+      "type": "word",
+      "surface": "危険",
+      "kana": "きけん",
+      "romaji": ["kiken"],
+      "meaningsZh": ["危险"],
+      "pos": "adjective",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kiken-1",
+          "ja": "この道は夜になると危険だ。",
+          "kana": "このみちはよるになるときけんだ。",
+          "zh": "这条路晚上很危险。",
+          "targetSurface": "危険",
+          "targetKana": "きけん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kion",
+      "type": "word",
+      "surface": "気温",
+      "kana": "きおん",
+      "romaji": ["kion"],
+      "meaningsZh": ["气温"],
+      "pos": "noun",
+      "tags": ["weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kion-1",
+          "ja": "気温について説明する。",
+          "kana": "きおんについてせつめいする。",
+          "zh": "对气温进行说明。",
+          "targetSurface": "気温",
+          "targetKana": "きおん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-koshi",
+      "type": "word",
+      "surface": "腰",
+      "kana": "こし",
+      "romaji": ["koshi"],
+      "meaningsZh": ["腰"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-koshi-1",
+          "ja": "「腰」は「こし」と読む。",
+          "kana": "「腰」は「こし」とよむ。",
+          "zh": "「腰」读作「こし」，意思是腰。",
+          "targetSurface": "腰",
+          "targetKana": "こし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kushami",
+      "type": "word",
+      "surface": "くしゃみ",
+      "kana": "くしゃみ",
+      "romaji": ["kushami"],
+      "meaningsZh": ["喷嚏"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kushami-1",
+          "ja": "辞書でくしゃみを引いた。",
+          "kana": "じしょでくしゃみをひいた。",
+          "zh": "在字典里查了喷嚏。",
+          "targetSurface": "くしゃみ",
+          "targetKana": "くしゃみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kyuukyuushawoyondekudasai",
+      "type": "word",
+      "surface": "救急車を呼んでください",
+      "kana": "きゅうきゅうしゃをよんでください",
+      "romaji": ["kyuukyuushawoyondekudasai"],
+      "meaningsZh": ["请叫救护车"],
+      "pos": "expression",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kyuukyuushawoyondekudasai-1",
+          "ja": "人が倒れています、救急車を呼んでください。",
+          "kana": "ひとがたおれています、きゅうきゅうしゃをよんでください。",
+          "zh": "有人倒下了，请叫救护车！",
+          "targetSurface": "救急車を呼んでください",
+          "targetKana": "きゅうきゅうしゃをよんでください"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-masuku",
+      "type": "word",
+      "surface": "マスク",
+      "kana": "マスク",
+      "romaji": ["masuku"],
+      "meaningsZh": ["口罩"],
+      "pos": "noun",
+      "tags": ["health", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-masuku-1",
+          "ja": "マスクについて説明する。",
+          "kana": "ますくについてせつめいする。",
+          "zh": "对口罩进行说明。",
+          "targetSurface": "マスク",
+          "targetKana": "ますく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-megusuri",
+      "type": "word",
+      "surface": "目薬",
+      "kana": "めぐすり",
+      "romaji": ["megusuri"],
+      "meaningsZh": ["眼药水"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-megusuri-1",
+          "ja": "「目薬」という言葉の意味を確認する。",
+          "kana": "「目薬」ということばのいみをかくにんする。",
+          "zh": "确认「目薬」（眼药水）这个词的含义。",
+          "targetSurface": "目薬"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-mune",
+      "type": "word",
+      "surface": "胸",
+      "kana": "むね",
+      "romaji": ["mune"],
+      "meaningsZh": ["胸口"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mune-1",
+          "ja": "「胸」という漢字を覚える。",
+          "kana": "「胸」というかんじをおぼえる。",
+          "zh": "记住「胸」这个汉字（胸口）。",
+          "targetSurface": "胸"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nodo",
+      "type": "word",
+      "surface": "喉",
+      "kana": "のど",
+      "romaji": ["nodo"],
+      "meaningsZh": ["喉咙"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nodo-1",
+          "ja": "「喉」は「のど」と読む。",
+          "kana": "「喉」は「のど」とよむ。",
+          "zh": "「喉」读作「のど」，意思是喉咙。",
+          "targetSurface": "喉",
+          "targetKana": "のど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nomigusuri",
+      "type": "word",
+      "surface": "飲み薬",
+      "kana": "のみぐすり",
+      "romaji": ["nomigusuri"],
+      "meaningsZh": ["口服药"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nomigusuri-1",
+          "ja": "辞書で飲み薬を引いた。",
+          "kana": "じしょでのみぐすりをひいた。",
+          "zh": "在字典里查了口服药。",
+          "targetSurface": "飲み薬",
+          "targetKana": "のみぐすり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nurigusuri",
+      "type": "word",
+      "surface": "塗り薬",
+      "kana": "ぬりぐすり",
+      "romaji": ["nurigusuri"],
+      "meaningsZh": ["外用药"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nurigusuri-1",
+          "ja": "「塗り薬」という言葉の意味を確認する。",
+          "kana": "「塗り薬」ということばのいみをかくにんする。",
+          "zh": "确认「塗り薬」（外用药）这个词的含义。",
+          "targetSurface": "塗り薬"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-ooame",
+      "type": "word",
+      "surface": "大雨",
+      "kana": "おおあめ",
+      "romaji": ["ooame"],
+      "meaningsZh": ["大雨"],
+      "pos": "noun",
+      "tags": ["weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ooame-1",
+          "ja": "辞書で大雨を引いた。",
+          "kana": "じしょでおおあめをひいた。",
+          "zh": "在字典里查了大雨。",
+          "targetSurface": "大雨",
+          "targetKana": "おおあめ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-ooyuki",
+      "type": "word",
+      "surface": "大雪",
+      "kana": "おおゆき",
+      "romaji": ["ooyuki"],
+      "meaningsZh": ["大雪"],
+      "pos": "noun",
+      "tags": ["weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ooyuki-1",
+          "ja": "「大雪」という言葉の意味を確認する。",
+          "kana": "「大雪」ということばのいみをかくにんする。",
+          "zh": "确认「大雪」（大雪）这个词的含义。",
+          "targetSurface": "大雪"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-samusa",
+      "type": "word",
+      "surface": "寒さ",
+      "kana": "さむさ",
+      "romaji": ["samusa"],
+      "meaningsZh": ["寒冷"],
+      "pos": "noun",
+      "tags": ["weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-samusa-1",
+          "ja": "寒さについて説明する。",
+          "kana": "さむさについてせつめいする。",
+          "zh": "对寒冷进行说明。",
+          "targetSurface": "寒さ",
+          "targetKana": "さむさ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-seki-2",
+      "type": "word",
+      "surface": "咳",
+      "kana": "せき",
+      "romaji": ["seki"],
+      "meaningsZh": ["咳嗽"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-seki-2-1",
+          "ja": "「咳」は「せき」と読む。",
+          "kana": "「咳」は「せき」とよむ。",
+          "zh": "「咳」读作「せき」，意思是咳嗽。",
+          "targetSurface": "咳",
+          "targetKana": "せき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-senaka",
+      "type": "word",
+      "surface": "背中",
+      "kana": "せなか",
+      "romaji": ["senaka"],
+      "meaningsZh": ["后背"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-senaka-1",
+          "ja": "辞書で背中を引いた。",
+          "kana": "じしょでせなかをひいた。",
+          "zh": "在字典里查了后背。",
+          "targetSurface": "背中",
+          "targetKana": "せなか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-taichou",
+      "type": "word",
+      "surface": "体調",
+      "kana": "たいちょう",
+      "romaji": ["taichou"],
+      "meaningsZh": ["身体状况"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-taichou-1",
+          "ja": "「体調」という言葉の意味を確認する。",
+          "kana": "「体調」ということばのいみをかくにんする。",
+          "zh": "确认「体調」（身体状况）这个词的含义。",
+          "targetSurface": "体調"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-taifuu",
+      "type": "word",
+      "surface": "台風",
+      "kana": "たいふう",
+      "romaji": ["taifuu"],
+      "meaningsZh": ["台风"],
+      "pos": "noun",
+      "tags": ["weather", "emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-taifuu-1",
+          "ja": "「台風」という言葉の意味を確認する。",
+          "kana": "「台風」ということばのいみをかくにんする。",
+          "zh": "确认「台風」（台风）这个词的含义。",
+          "targetSurface": "台風"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-taion",
+      "type": "word",
+      "surface": "体温",
+      "kana": "たいおん",
+      "romaji": ["taion"],
+      "meaningsZh": ["体温"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-taion-1",
+          "ja": "体温について説明する。",
+          "kana": "たいおんについてせつめいする。",
+          "zh": "对体温进行说明。",
+          "targetSurface": "体温",
+          "targetKana": "たいおん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tasukeru",
+      "type": "word",
+      "surface": "助ける",
+      "kana": "たすける",
+      "romaji": ["tasukeru"],
+      "meaningsZh": ["帮助"],
+      "pos": "noun",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tasukeru-1",
+          "ja": "「助ける」という言葉の意味を確認する。",
+          "kana": "「助ける」ということばのいみをかくにんする。",
+          "zh": "确认「助ける」（帮助）这个词的含义。",
+          "targetSurface": "助ける"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tasukete",
+      "type": "word",
+      "surface": "助けて",
+      "kana": "たすけて",
+      "romaji": ["tasukete"],
+      "meaningsZh": ["救命", "帮帮我"],
+      "pos": "expression",
+      "tags": ["emergency"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tasukete-1",
+          "ja": "助けて、誰か来てください!",
+          "kana": "たすけて、だれかきてください!",
+          "zh": "救命，谁来帮帮我！",
+          "targetSurface": "助けて",
+          "targetKana": "たすけて"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tenkiyohou",
+      "type": "word",
+      "surface": "天気予報",
+      "kana": "てんきよほう",
+      "romaji": ["tenkiyohou"],
+      "meaningsZh": ["天气预报"],
+      "pos": "noun",
+      "tags": ["weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tenkiyohou-1",
+          "ja": "天気予報について説明する。",
+          "kana": "てんきよほうについてせつめいする。",
+          "zh": "对天气预报进行说明。",
+          "targetSurface": "天気予報",
+          "targetKana": "てんきよほう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tsume",
+      "type": "word",
+      "surface": "爪",
+      "kana": "つめ",
+      "romaji": ["tsume"],
+      "meaningsZh": ["指甲"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsume-1",
+          "ja": "「爪」は「つめ」と読む。",
+          "kana": "「爪」は「つめ」とよむ。",
+          "zh": "「爪」读作「つめ」，意思是指甲。",
+          "targetSurface": "爪",
+          "targetKana": "つめ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-ude",
+      "type": "word",
+      "surface": "腕",
+      "kana": "うで",
+      "romaji": ["ude"],
+      "meaningsZh": ["手臂"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ude-1",
+          "ja": "「腕」という漢字を覚える。",
+          "kana": "「腕」というかんじをおぼえる。",
+          "zh": "记住「腕」这个汉字（手臂）。",
+          "targetSurface": "腕"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yakedo",
+      "type": "word",
+      "surface": "やけど",
+      "kana": "やけど",
+      "romaji": ["yakedo"],
+      "meaningsZh": ["烫伤"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yakedo-1",
+          "ja": "やけどについて説明する。",
+          "kana": "やけどについてせつめいする。",
+          "zh": "对烫伤进行说明。",
+          "targetSurface": "やけど",
+          "targetKana": "やけど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yubi",
+      "type": "word",
+      "surface": "指",
+      "kana": "ゆび",
+      "romaji": ["yubi"],
+      "meaningsZh": ["手指"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yubi-1",
+          "ja": "「指」は「ゆび」と読む。",
+          "kana": "「指」は「ゆび」とよむ。",
+          "zh": "「指」读作「ゆび」，意思是手指。",
+          "targetSurface": "指",
+          "targetKana": "ゆび"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-zutsuu",
+      "type": "word",
+      "surface": "頭痛",
+      "kana": "ずつう",
+      "romaji": ["zutsuu"],
+      "meaningsZh": ["头痛"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-zutsuu-1",
+          "ja": "辞書で頭痛を引いた。",
+          "kana": "じしょでずつうをひいた。",
+          "zh": "在字典里查了头痛。",
+          "targetSurface": "頭痛",
+          "targetKana": "ずつう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-ashi",
+      "type": "word",
+      "surface": "足",
+      "kana": "あし",
+      "romaji": ["ashi", "asi"],
+      "meaningsZh": ["脚", "腿"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ashi-1",
+          "ja": "長く歩いて足が疲れた。",
+          "kana": "ながくあるいてあしがつかれた。",
+          "zh": "走久了脚累。",
+          "targetSurface": "足",
+          "targetKana": "あし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-atama",
+      "type": "word",
+      "surface": "頭",
+      "kana": "あたま",
+      "romaji": ["atama"],
+      "meaningsZh": ["头"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-atama-1",
+          "ja": "頭が痛いので薬を飲む。",
+          "kana": "あたまがいたいのでくすりをのむ。",
+          "zh": "头疼，所以吃药。",
+          "targetSurface": "頭",
+          "targetKana": "あたま"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-byouin",
+      "type": "word",
+      "surface": "病院",
+      "kana": "びょういん",
+      "romaji": ["byouin"],
+      "meaningsZh": ["医院"],
+      "pos": "noun",
+      "tags": ["health", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-byouin-1",
+          "ja": "近くの病院に行った。",
+          "kana": "ちかくのびょういんにいった。",
+          "zh": "去了附近的医院。",
+          "targetSurface": "病院",
+          "targetKana": "びょういん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-byouki",
+      "type": "word",
+      "surface": "病気",
+      "kana": "びょうき",
+      "romaji": ["byouki"],
+      "meaningsZh": ["生病"],
+      "pos": "noun",
+      "tags": ["body", "youon", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-byouki-1",
+          "ja": "「病気」という言葉の意味を確認する。",
+          "kana": "「病気」ということばのいみをかくにんする。",
+          "zh": "确认「病気」（生病）这个词的含义。",
+          "targetSurface": "病気"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-genki",
+      "type": "word",
+      "surface": "元気",
+      "kana": "げんき",
+      "romaji": ["genki"],
+      "meaningsZh": ["精神", "健康"],
+      "pos": "adjective",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-genki-1",
+          "ja": "最近お元気ですか?",
+          "kana": "さいきんおげんきですか?",
+          "zh": "最近过得好吗？",
+          "targetSurface": "元気",
+          "targetKana": "げんき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-ha",
+      "type": "word",
+      "surface": "歯",
+      "kana": "は",
+      "romaji": ["ha"],
+      "meaningsZh": ["牙齿"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ha-1",
+          "ja": "毎晩、歯を磨いてから寝る。",
+          "kana": "まいばん、はをみがいてからねる。",
+          "zh": "每晚刷牙后睡觉。",
+          "targetSurface": "歯",
+          "targetKana": "は"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-hare",
+      "type": "word",
+      "surface": "晴れ",
+      "kana": "はれ",
+      "romaji": ["hare"],
+      "meaningsZh": ["晴天"],
+      "pos": "noun",
+      "tags": ["weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hare-1",
+          "ja": "「晴れ」という言葉の意味を確認する。",
+          "kana": "「晴れ」ということばのいみをかくにんする。",
+          "zh": "确认「晴れ」（晴天）这个词的含义。",
+          "targetSurface": "晴れ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-isha",
+      "type": "word",
+      "surface": "医者",
+      "kana": "いしゃ",
+      "romaji": ["isha", "isya"],
+      "meaningsZh": ["医生"],
+      "pos": "noun",
+      "tags": ["health", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-isha-1",
+          "ja": "「医者」という言葉の意味を確認する。",
+          "kana": "「医者」ということばのいみをかくにんする。",
+          "zh": "确认「医者」（医生）这个词的含义。",
+          "targetSurface": "医者"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-itai",
+      "type": "word",
+      "surface": "痛い",
+      "kana": "いたい",
+      "romaji": ["itai"],
+      "meaningsZh": ["疼"],
+      "pos": "adjective",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-itai-1",
+          "ja": "この本は痛いと思う。",
+          "kana": "このほんはいたいとおもう。",
+          "zh": "我觉得这本书疼。",
+          "targetSurface": "痛い",
+          "targetKana": "いたい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kao",
+      "type": "word",
+      "surface": "顔",
+      "kana": "かお",
+      "romaji": ["kao"],
+      "meaningsZh": ["脸"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kao-1",
+          "ja": "「顔」という漢字を覚える。",
+          "kana": "「顔」というかんじをおぼえる。",
+          "zh": "记住「顔」这个汉字（脸）。",
+          "targetSurface": "顔"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kaze",
+      "type": "word",
+      "surface": "風邪",
+      "kana": "かぜ",
+      "romaji": ["kaze"],
+      "meaningsZh": ["感冒"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaze-1",
+          "ja": "辞書で風邪を引いた。",
+          "kana": "じしょでかぜをひいた。",
+          "zh": "在字典里查了感冒。",
+          "targetSurface": "風邪",
+          "targetKana": "かぜ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kaze-2",
+      "type": "word",
+      "surface": "風",
+      "kana": "かぜ",
+      "romaji": ["kaze"],
+      "meaningsZh": ["风"],
+      "pos": "noun",
+      "tags": ["weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaze-2-1",
+          "ja": "「風」は「かぜ」と読む。",
+          "kana": "「風」は「かぜ」とよむ。",
+          "zh": "「風」读作「かぜ」，意思是风。",
+          "targetSurface": "風",
+          "targetKana": "かぜ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kuchi",
+      "type": "word",
+      "surface": "口",
+      "kana": "くち",
+      "romaji": ["kuchi", "kuti"],
+      "meaningsZh": ["嘴"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kuchi-1",
+          "ja": "口を閉じて噛む。",
+          "kana": "くちをとじてかむ。",
+          "zh": "闭着嘴咀嚼。",
+          "targetSurface": "口",
+          "targetKana": "くち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kumori",
+      "type": "word",
+      "surface": "曇り",
+      "kana": "くもり",
+      "romaji": ["kumori"],
+      "meaningsZh": ["阴天"],
+      "pos": "noun",
+      "tags": ["weather"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kumori-1",
+          "ja": "「曇り」という言葉の意味を確認する。",
+          "kana": "「曇り」ということばのいみをかくにんする。",
+          "zh": "确认「曇り」（阴天）这个词的含义。",
+          "targetSurface": "曇り"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kusuri",
+      "type": "word",
+      "surface": "薬",
+      "kana": "くすり",
+      "romaji": ["kusuri"],
+      "meaningsZh": ["药"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kusuri-1",
+          "ja": "「薬」という漢字を覚える。",
+          "kana": "「薬」というかんじをおぼえる。",
+          "zh": "记住「薬」这个汉字（药）。",
+          "targetSurface": "薬"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-mimi",
+      "type": "word",
+      "surface": "耳",
+      "kana": "みみ",
+      "romaji": ["mimi"],
+      "meaningsZh": ["耳朵"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mimi-1",
+          "ja": "耳が痒い。",
+          "kana": "みみがかゆい。",
+          "zh": "耳朵痒。",
+          "targetSurface": "耳",
+          "targetKana": "みみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-neru",
+      "type": "word",
+      "surface": "寝る",
+      "kana": "ねる",
+      "romaji": ["neru"],
+      "meaningsZh": ["睡"],
+      "pos": "verb",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-neru-1",
+          "ja": "昨日は十二時に寝た。",
+          "kana": "きのうはじゅうにじにねた。",
+          "zh": "昨天十二点睡的。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-netsu",
+      "type": "word",
+      "surface": "熱",
+      "kana": "ねつ",
+      "romaji": ["netsu", "netu"],
+      "meaningsZh": ["发烧", "热"],
+      "pos": "noun",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-netsu-1",
+          "ja": "「熱」という漢字を覚える。",
+          "kana": "「熱」というかんじをおぼえる。",
+          "zh": "记住「熱」这个汉字（发烧）。",
+          "targetSurface": "熱"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-netsugaaru",
+      "type": "word",
+      "surface": "熱がある",
+      "kana": "ねつがある",
+      "romaji": ["netsugaaru"],
+      "meaningsZh": ["发烧"],
+      "pos": "expression",
+      "tags": ["health"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-netsugaaru-1",
+          "ja": "今朝から熱があります。",
+          "kana": "けさからねつがあります。",
+          "zh": "从今天早上开始发烧。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-onaka",
+      "type": "word",
+      "surface": "お腹",
+      "kana": "おなか",
+      "romaji": ["onaka"],
+      "meaningsZh": ["肚子"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-onaka-1",
+          "ja": "「お腹」という言葉の意味を確認する。",
+          "kana": "「お腹」ということばのいみをかくにんする。",
+          "zh": "确认「お腹」（肚子）这个词的含义。",
+          "targetSurface": "お腹"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-te",
+      "type": "word",
+      "surface": "手",
+      "kana": "て",
+      "romaji": ["te"],
+      "meaningsZh": ["手"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-te-1",
+          "ja": "食事の前に手を洗う。",
+          "kana": "しょくじのまえにてをあらう。",
+          "zh": "吃饭前洗手。",
+          "targetSurface": "手",
+          "targetKana": "て"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tsukareru",
+      "type": "word",
+      "surface": "疲れる",
+      "kana": "つかれる",
+      "romaji": ["tsukareru", "tukareru"],
+      "meaningsZh": ["累"],
+      "pos": "noun",
+      "tags": ["body"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tsukareru-1",
+          "ja": "疲れるについて説明する。",
+          "kana": "つかれるについてせつめいする。",
+          "zh": "对累进行说明。",
+          "targetSurface": "疲れる",
+          "targetKana": "つかれる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    }
+  ]
+}

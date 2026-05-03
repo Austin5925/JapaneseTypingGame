@@ -23,6 +23,8 @@ import { ResultPage } from './pages/ResultPage';
 import { RiverJumpPage } from './pages/RiverJumpPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { SpaceBattlePage } from './pages/SpaceBattlePage';
+import { StudyPacksPage } from './pages/StudyPacksPage';
+import { StudyPage } from './pages/StudyPage';
 import { TodayTrainingPage } from './pages/TodayTrainingPage';
 
 // Hash-based routing — Sprint 5 keeps it dependency-free; v0.7+ may swap in a real router
@@ -30,6 +32,8 @@ import { TodayTrainingPage } from './pages/TodayTrainingPage';
 type Route =
   | { kind: 'home' }
   | { kind: 'today' }
+  | { kind: 'study' }
+  | { kind: 'study-pack'; packId: string; mode: StudyMode }
   | { kind: 'mistakes' }
   | { kind: 'library' }
   | { kind: 'settings' }
@@ -46,9 +50,21 @@ type Route =
   | { kind: 'game-boss' }
   | { kind: 'result'; sessionId: string };
 
+export type StudyMode = 'all' | 'new' | 'reviewed';
+
 function getRoute(): Route {
   const hash = globalThis.location.hash;
   if (hash === '#/today') return { kind: 'today' };
+  if (hash === '#/study' || hash.startsWith('#/study?')) {
+    const query = hash.split('?')[1];
+    const params = new URLSearchParams(query ?? '');
+    const packId = params.get('pack');
+    if (packId) {
+      const mode = parseStudyMode(params.get('mode'));
+      return { kind: 'study-pack', packId, mode };
+    }
+    return { kind: 'study' };
+  }
   if (hash === '#/mistakes') return { kind: 'mistakes' };
   if (hash === '#/library') return { kind: 'library' };
   if (hash === '#/settings/packs') return { kind: 'settings-packs' };
@@ -118,6 +134,11 @@ function parseMoleDifficulty(value: string | null): MoleDifficulty | undefined {
   return undefined;
 }
 
+function parseStudyMode(value: string | null): StudyMode {
+  if (value === 'new' || value === 'reviewed') return value;
+  return 'all';
+}
+
 export function App(): JSX.Element {
   const [route, setRoute] = useState<Route>(getRoute);
 
@@ -149,6 +170,10 @@ function renderRouteContent(route: Route): JSX.Element {
       return <HomePage />;
     case 'today':
       return <TodayTrainingPage />;
+    case 'study':
+      return <StudyPacksPage />;
+    case 'study-pack':
+      return <StudyPage packId={route.packId} mode={route.mode} />;
     case 'mistakes':
       return <MistakesPage />;
     case 'library':
@@ -217,6 +242,10 @@ function titleForRoute(route: Route): string {
       return 'C:\\KANA\\HOME';
     case 'today':
       return 'C:\\KANA\\TODAY';
+    case 'study':
+      return 'C:\\KANA\\STUDY';
+    case 'study-pack':
+      return `C:\\KANA\\STUDY\\${route.packId.toUpperCase()}`;
     case 'mistakes':
       return 'C:\\KANA\\MISTAKES.DAT';
     case 'library':

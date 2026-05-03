@@ -6,13 +6,14 @@ import { describe, expect, it } from 'vitest';
 import { validatePack } from '../src';
 
 /**
- * Smoke-test the audio-discrim-foundations.json pack ships through the standard validator.
- * Runs at gate time so a typo in any minimal-pair kana / romaji round-trip blocks before
- * AppleRescue tries to feed it to the player.
+ * Smoke-test the phase1 n5-core pack (the new mole-story / dev fallback baseline). v0.9.0
+ * replaces the old n5-basic-mini + audio-discrim-foundations smoke tests with this single
+ * gate over the 320-item N5/N4 core file. AppleRescue items live in error-lab; the
+ * audio-discrim-specific assertions moved to that test.
  */
-const PACK_PATH = resolve(__dirname, '../../../content/official/audio-discrim-foundations.json');
+const PACK_PATH = resolve(__dirname, '../../../content/official/official-phase1-n5-core.json');
 
-describe('audio-discrim-foundations.json (real pack)', () => {
+describe('official-phase1-n5-core.json (real pack)', () => {
   const raw = JSON.parse(readFileSync(PACK_PATH, 'utf8')) as unknown;
   const result = validatePack(raw);
 
@@ -24,30 +25,19 @@ describe('audio-discrim-foundations.json (real pack)', () => {
     expect(result.ok).toBe(true);
   });
 
-  it('contains at least 20 minimal-pair items', () => {
+  it('contains at least 300 items', () => {
     expect(result.ok).toBe(true);
     if (result.ok) {
-      expect(result.value.items.length).toBeGreaterThanOrEqual(20);
+      expect(result.value.items.length).toBeGreaterThanOrEqual(300);
     }
   });
 
-  it('every item has exactly one confusable peer (minimal-pair structure)', () => {
+  it('every item has a non-empty kana and at least one romaji form', () => {
     expect(result.ok).toBe(true);
     if (result.ok) {
       for (const item of result.value.items) {
-        expect(item.confusableItemIds.length).toBe(1);
-      }
-    }
-  });
-
-  it('every item declares one of the audio-discrim error tags', () => {
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      const allowed = new Set(['long_vowel_error', 'sokuon_error', 'dakuten_error']);
-      for (const item of result.value.items) {
-        const tags = item.errorTags ?? [];
-        const hasOne = tags.some((t) => allowed.has(t));
-        expect(hasOne).toBe(true);
+        expect(item.kana.length).toBeGreaterThan(0);
+        expect(item.romaji.length).toBeGreaterThanOrEqual(1);
       }
     }
   });

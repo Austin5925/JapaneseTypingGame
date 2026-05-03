@@ -39,18 +39,18 @@ export function isAllKana(input: string): boolean {
   return KANA_CHAR_RE.test(input);
 }
 
-// Round-trip via romaji: convert the user-declared romaji into kana, then back to romaji, and
-// compare against the canonical romaji of the kana. This is wanakana's most reliable form of
-// equality because:
-//   - `toHiragana('ビール')` is `'びいる'` (loses the long-vowel mark) — rules out hiragana cmp.
-//   - `toKatakana('biiru')` is `'ビイル'` (expands the long vowel) — rules out katakana cmp.
-//   - But `toRomaji('ビール')` is `'biiru'` and `toRomaji(toKatakana('biiru'))` is also `'biiru'`,
-//     so romaji-space comparison normalises long vowels symmetrically.
-// 拒绝 `biru` vs `ビール` (long-vowel error) and `kite` vs `きって` (sokuon error) — both are
-// Sprint-1 test cases that this trip handles correctly.
+// Round-trip via romaji: convert both the declared romaji *and* the canonical kana through
+// `toKatakana` first, then `toRomaji`, and compare. Normalising via katakana on both sides is
+// what lets compound entries like `えんちょうこーど` (mixed hiragana + ー) match `enchoukoodo`:
+//   - `toRomaji('えんちょうこーど')` alone yields `'enchouko-do'` (the ー survives as `-` in the
+//     hiragana context), which fails the comparison.
+//   - `toRomaji(toKatakana('えんちょうこーど'))` is `'enchoukoodo'`, the IME-friendly long-vowel
+//     spelling we expect from authoring.
+// `biiru/ビール` still passes (both normalise to `'biiru'`); `biru/ビール` still fails (`'biru'`
+// vs `'biiru'`), so long-vowel/sokuon discipline is intact.
 export function romajiRoundTripsToKana(romaji: string, kana: string): boolean {
   const fromUser = wanakana.toRomaji(wanakana.toKatakana(romaji));
-  const expected = wanakana.toRomaji(kana);
+  const expected = wanakana.toRomaji(wanakana.toKatakana(kana));
   return fromUser === expected;
 }
 

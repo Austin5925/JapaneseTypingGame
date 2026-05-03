@@ -1,0 +1,3132 @@
+{
+  "id": "official-phase1-error-lab",
+  "name": "第一阶段：听辨、同音、近形与易混专项",
+  "version": "1.1.0",
+  "items": [
+    {
+      "id": "ad-gaki",
+      "type": "word",
+      "surface": "餓鬼",
+      "kana": "がき",
+      "romaji": ["gaki"],
+      "meaningsZh": ["顽童", "熊孩子", "小鬼"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "dakuten", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-gaki-1",
+          "ja": "餓鬼の頃はよく走り回っていた。",
+          "kana": "がきのころはよくはしりまわっていた。",
+          "zh": "小屁孩时期经常到处乱跑。",
+          "targetSurface": "餓鬼",
+          "targetKana": "がき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-kaki"],
+      "errorTags": ["dakuten-error"],
+      "jlpt": "N2"
+    },
+    {
+      "id": "word-aijin",
+      "type": "word",
+      "surface": "愛人",
+      "kana": "あいじん",
+      "romaji": ["aijin"],
+      "meaningsZh": ["情人", "婚外恋对象"],
+      "pos": "noun",
+      "tags": ["error-lab", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-aijin-1",
+          "ja": "彼には愛人がいるという噂だ。",
+          "kana": "かれにはあいじんがいるといううわさだ。",
+          "zh": "传闻他有情人。",
+          "targetSurface": "愛人",
+          "targetKana": "あいじん"
+        },
+        {
+          "id": "ex-aijin-2",
+          "ja": "中国語の「愛人」は配偶者だが、日本語では不倫相手を指す。",
+          "kana": "ちゅうごくごの「あいじん」ははいぐうしゃだが、にほんごではふりんあいてをさす。",
+          "zh": "中文里「愛人」是配偶，日语里指婚外恋对象。",
+          "targetSurface": "愛人",
+          "targetKana": "あいじん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [
+        "word-tegami",
+        "word-ooya",
+        "word-joubu",
+        "word-majime",
+        "word-meiwaku",
+        "word-yudan",
+        "word-temoto"
+      ],
+      "jlpt": "N2",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-heiya",
+      "type": "word",
+      "surface": "平野",
+      "kana": "へいや",
+      "romaji": ["heiya"],
+      "meaningsZh": ["平原"],
+      "pos": "noun",
+      "tags": ["error-lab", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-heiya-1",
+          "ja": "関東平野は日本最大の平野だ。",
+          "kana": "かんとうへいやはにほんさいだいのへいやだ。",
+          "zh": "关东平原是日本最大的平原。",
+          "targetSurface": "平野",
+          "targetKana": "へいや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-heya"],
+      "jlpt": "N2",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-shuujin",
+      "type": "word",
+      "surface": "囚人",
+      "kana": "しゅうじん",
+      "romaji": ["shuujin"],
+      "meaningsZh": ["囚犯"],
+      "pos": "noun",
+      "tags": ["error-lab", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shuujin-1",
+          "ja": "囚人服を着た男が出てきた。",
+          "kana": "しゅうじんふくをきたおとこがでてきた。",
+          "zh": "穿着囚服的男子走了出来。",
+          "targetSurface": "囚人",
+          "targetKana": "しゅうじん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-shujin"],
+      "jlpt": "N2",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "ad-kakko",
+      "type": "word",
+      "surface": "括弧",
+      "kana": "かっこ",
+      "romaji": ["kakko"],
+      "meaningsZh": ["括号", "样子"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "sokuon", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-kakko-1",
+          "ja": "ここに括弧を入れてください。",
+          "kana": "ここにかっこをいれてください。",
+          "zh": "请在这里加括号。",
+          "targetSurface": "括弧",
+          "targetKana": "かっこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-kako"],
+      "errorTags": ["sokuon-error"],
+      "jlpt": "N3"
+    },
+    {
+      "id": "ad-nekko",
+      "type": "word",
+      "surface": "根っこ",
+      "kana": "ねっこ",
+      "romaji": ["nekko"],
+      "meaningsZh": ["根", "根部"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "sokuon", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-nekko-1",
+          "ja": "木の根っこにつまずいた。",
+          "kana": "きのねっこにつまずいた。",
+          "zh": "被树根绊了一下。",
+          "targetSurface": "根っこ",
+          "targetKana": "ねっこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-neko"],
+      "errorTags": ["sokuon-error"],
+      "jlpt": "N3"
+    },
+    {
+      "id": "ad-taigaku",
+      "type": "word",
+      "surface": "退学",
+      "kana": "たいがく",
+      "romaji": ["taigaku"],
+      "meaningsZh": ["退学"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "dakuten", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-taigaku-1",
+          "ja": "彼は事情があって退学した。",
+          "kana": "かれはじじょうがあってたいがくした。",
+          "zh": "他因故退学。",
+          "targetSurface": "退学",
+          "targetKana": "たいがく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-daigaku"],
+      "errorTags": ["dakuten-error"],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-katana",
+      "type": "word",
+      "surface": "刀",
+      "kana": "かたな",
+      "romaji": ["katana"],
+      "meaningsZh": ["刀"],
+      "pos": "noun",
+      "tags": ["error-lab", "near-shape"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-katana-1",
+          "ja": "武士が刀を持っている。",
+          "kana": "ぶしがかたなをもっている。",
+          "zh": "武士拿着刀。",
+          "targetSurface": "刀",
+          "targetKana": "かたな"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-chikara"],
+      "jlpt": "N3",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-kiku-2",
+      "type": "word",
+      "surface": "利く",
+      "kana": "きく",
+      "romaji": ["kiku"],
+      "meaningsZh": ["好使", "灵活"],
+      "pos": "verb",
+      "tags": ["error-lab", "same-sound"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kiku-2-1",
+          "ja": "この子は気が利く。",
+          "kana": "このこはきがきく。",
+          "zh": "这孩子很机灵/会察言观色。",
+          "targetSurface": "利く",
+          "targetKana": "きく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-kiku", "conf-effective", "word-kiku-3"],
+      "jlpt": "N3",
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "word-kiku-3",
+      "type": "word",
+      "surface": "聴く",
+      "kana": "きく",
+      "romaji": ["kiku"],
+      "meaningsZh": ["专心听"],
+      "pos": "verb",
+      "tags": ["error-lab", "same-sound"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kiku-3-1",
+          "ja": "音楽を集中して聴く。",
+          "kana": "おんがくをしゅうちゅうしてきく。",
+          "zh": "专心听音乐。",
+          "targetSurface": "聴く",
+          "targetKana": "きく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-kiku", "conf-effective", "word-kiku-2"],
+      "jlpt": "N3",
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "word-meiwaku",
+      "type": "word",
+      "surface": "迷惑",
+      "kana": "めいわく",
+      "romaji": ["meiwaku"],
+      "meaningsZh": ["麻烦", "困扰"],
+      "pos": "noun",
+      "tags": ["error-lab", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-meiwaku-1",
+          "ja": "ご迷惑をおかけして、申し訳ありません。",
+          "kana": "ごめいわくをおかけして、もうしわけありません。",
+          "zh": "给您添麻烦了，非常抱歉。",
+          "targetSurface": "迷惑",
+          "targetKana": "めいわく"
+        },
+        {
+          "id": "ex-meiwaku-2",
+          "ja": "夜遅くの電話は迷惑だ。",
+          "kana": "よるおそくのでんわはめいわくだ。",
+          "zh": "深夜来电令人困扰。",
+          "targetSurface": "迷惑",
+          "targetKana": "めいわく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [
+        "word-tegami",
+        "word-aijin",
+        "word-ooya",
+        "word-joubu",
+        "word-majime",
+        "word-yudan",
+        "word-temoto"
+      ],
+      "jlpt": "N3",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-miru-2",
+      "type": "word",
+      "surface": "診る",
+      "kana": "みる",
+      "romaji": ["miru"],
+      "meaningsZh": ["诊察"],
+      "pos": "verb",
+      "tags": ["error-lab", "same-sound"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-miru-2-1",
+          "ja": "お医者さんに診てもらう。",
+          "kana": "おいしゃさんにみてもらう。",
+          "zh": "请医生诊察。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-miru", "conf-watch"],
+      "jlpt": "N3",
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "word-sakka",
+      "type": "word",
+      "surface": "作家",
+      "kana": "さっか",
+      "romaji": ["sakka"],
+      "meaningsZh": ["作家"],
+      "pos": "noun",
+      "tags": ["error-lab", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-sakka-1",
+          "ja": "好きな作家のサイン会に行った。",
+          "kana": "すきなさっかのサインかいにいった。",
+          "zh": "去了喜欢作家的签名会。",
+          "targetSurface": "作家",
+          "targetKana": "さっか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-saka"],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-sue",
+      "type": "word",
+      "surface": "末",
+      "kana": "すえ",
+      "romaji": ["sue"],
+      "meaningsZh": ["末尾", "将来"],
+      "pos": "noun",
+      "tags": ["error-lab", "near-shape"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-sue-1",
+          "ja": "月末は忙しい。",
+          "kana": "げつまつはいそがしい。",
+          "zh": "月末很忙。",
+          "targetSurface": "末"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-ki", "word-hon"],
+      "jlpt": "N3",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-temoto",
+      "type": "word",
+      "surface": "手元",
+      "kana": "てもと",
+      "romaji": ["temoto"],
+      "meaningsZh": ["手边"],
+      "pos": "noun",
+      "tags": ["error-lab", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-temoto-1",
+          "ja": "手元に資料がないので、後で確認します。",
+          "kana": "てもとにしりょうがないので、あとでかくにんします。",
+          "zh": "手边没有资料，稍后确认。",
+          "targetSurface": "手元",
+          "targetKana": "てもと"
+        },
+        {
+          "id": "ex-temoto-2",
+          "ja": "お金が手元に少ない。",
+          "kana": "おかねがてもとにすくない。",
+          "zh": "手边的钱不多。",
+          "targetSurface": "手元",
+          "targetKana": "てもと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [
+        "word-tegami",
+        "word-aijin",
+        "word-ooya",
+        "word-joubu",
+        "word-majime",
+        "word-meiwaku",
+        "word-yudan"
+      ],
+      "jlpt": "N3",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-yudan",
+      "type": "word",
+      "surface": "油断",
+      "kana": "ゆだん",
+      "romaji": ["yudan"],
+      "meaningsZh": ["疏忽", "大意"],
+      "pos": "noun",
+      "tags": ["error-lab", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-yudan-1",
+          "ja": "最後まで油断するな。",
+          "kana": "さいごまでゆだんするな。",
+          "zh": "到最后都不能大意。",
+          "targetSurface": "油断",
+          "targetKana": "ゆだん"
+        },
+        {
+          "id": "ex-yudan-2",
+          "ja": "油断したらすぐ転ぶ。",
+          "kana": "ゆだんしたらすぐころぶ。",
+          "zh": "一不留神就摔倒。",
+          "targetSurface": "油断",
+          "targetKana": "ゆだん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [
+        "word-tegami",
+        "word-aijin",
+        "word-ooya",
+        "word-joubu",
+        "word-majime",
+        "word-meiwaku",
+        "word-temoto"
+      ],
+      "jlpt": "N3",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "ad-futa",
+      "type": "word",
+      "surface": "蓋",
+      "kana": "ふた",
+      "romaji": ["futa"],
+      "meaningsZh": ["盖子"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "dakuten", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-futa-1",
+          "ja": "瓶の蓋が固くて開かない。",
+          "kana": "びんのふたがかたくてあかない。",
+          "zh": "瓶盖很紧打不开。",
+          "targetSurface": "蓋",
+          "targetKana": "ふた"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-buta"],
+      "errorTags": ["dakuten-error"],
+      "jlpt": "N4"
+    },
+    {
+      "id": "ad-kaki",
+      "type": "word",
+      "surface": "柿",
+      "kana": "かき",
+      "romaji": ["kaki"],
+      "meaningsZh": ["柿子"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "dakuten", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-kaki-1",
+          "ja": "秋になると柿が美味しい。",
+          "kana": "あきになるとかきがおいしい。",
+          "zh": "到了秋天柿子很好吃。",
+          "targetSurface": "柿",
+          "targetKana": "かき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-gaki"],
+      "errorTags": ["dakuten-error"],
+      "jlpt": "N4"
+    },
+    {
+      "id": "ad-kako",
+      "type": "word",
+      "surface": "過去",
+      "kana": "かこ",
+      "romaji": ["kako"],
+      "meaningsZh": ["过去"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "sokuon", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-kako-1",
+          "ja": "過去のことは忘れよう。",
+          "kana": "かこのことはわすれよう。",
+          "zh": "过去的事就忘了吧。",
+          "targetSurface": "過去",
+          "targetKana": "かこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-kakko"],
+      "errorTags": ["sokuon-error"],
+      "jlpt": "N4"
+    },
+    {
+      "id": "ad-koukou",
+      "type": "word",
+      "surface": "高校",
+      "kana": "こうこう",
+      "romaji": ["koukou"],
+      "meaningsZh": ["高中"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "long-vowel", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-koukou-1",
+          "ja": "息子は高校三年生です。",
+          "kana": "むすこはこうこうさんねんせいです。",
+          "zh": "儿子是高中三年级。",
+          "targetSurface": "高校",
+          "targetKana": "こうこう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-koko"],
+      "errorTags": ["long-vowel-error"],
+      "jlpt": "N4"
+    },
+    {
+      "id": "ad-yuuki",
+      "type": "word",
+      "surface": "勇気",
+      "kana": "ゆうき",
+      "romaji": ["yuuki"],
+      "meaningsZh": ["勇气"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "long-vowel", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-yuuki-1",
+          "ja": "発表する勇気を出した。",
+          "kana": "はっぴょうするゆうきをだした。",
+          "zh": "鼓起勇气去发表。",
+          "targetSurface": "勇気",
+          "targetKana": "ゆうき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-yuki"],
+      "errorTags": ["long-vowel-error"],
+      "jlpt": "N4"
+    },
+    {
+      "id": "conf-candy",
+      "type": "word",
+      "surface": "飴",
+      "kana": "あめ",
+      "romaji": ["ame"],
+      "meaningsZh": ["糖"],
+      "pos": "noun",
+      "tags": ["confusable", "same-sound", "ame", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-candy-1",
+          "ja": "子供に飴を一つあげた。",
+          "kana": "こどもにあめをひとつあげた。",
+          "zh": "给了孩子一颗糖。",
+          "targetSurface": "飴",
+          "targetKana": "あめ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["conf-rain"],
+      "errorTags": ["same-sound-confusion"],
+      "jlpt": "N4"
+    },
+    {
+      "id": "conf-edge",
+      "type": "word",
+      "surface": "端",
+      "kana": "はし",
+      "romaji": ["hashi"],
+      "meaningsZh": ["端", "边缘"],
+      "pos": "noun",
+      "tags": ["confusable", "same-sound", "hashi", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-edge-1",
+          "ja": "机の端にコップを置いた。",
+          "kana": "つくえのはしにコップをおいた。",
+          "zh": "把杯子放在桌子边缘。",
+          "targetSurface": "端",
+          "targetKana": "はし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-hashi-bridge", "conf-chopsticks"],
+      "errorTags": ["same-sound-confusion"],
+      "jlpt": "N4"
+    },
+    {
+      "id": "conf-effective",
+      "type": "word",
+      "surface": "効く",
+      "kana": "きく",
+      "romaji": ["kiku"],
+      "meaningsZh": ["起作用", "生效"],
+      "pos": "verb",
+      "tags": ["confusable", "near-meaning", "kiku", "error-lab", "same-sound"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-effective-1",
+          "ja": "この薬は風邪によく効く。",
+          "kana": "このくすりはかぜによくきく。",
+          "zh": "这药对感冒很有效。",
+          "targetSurface": "効く",
+          "targetKana": "きく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-kiku", "word-kiku-2", "word-kiku-3"],
+      "errorTags": ["meaning-confusion", "same-sound-confusion"],
+      "jlpt": "N4"
+    },
+    {
+      "id": "conf-god",
+      "type": "word",
+      "surface": "神",
+      "kana": "かみ",
+      "romaji": ["kami"],
+      "meaningsZh": ["神"],
+      "pos": "noun",
+      "tags": ["confusable", "same-sound", "kami", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-god-1",
+          "ja": "神に祈りを捧げる。",
+          "kana": "かみにいのりをささげる。",
+          "zh": "向神祈祷。",
+          "targetSurface": "神",
+          "targetKana": "かみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-kami", "conf-hair"],
+      "errorTags": ["same-sound-confusion"],
+      "jlpt": "N4"
+    },
+    {
+      "id": "conf-watch",
+      "type": "word",
+      "surface": "観る",
+      "kana": "みる",
+      "romaji": ["miru"],
+      "meaningsZh": ["观赏(电影、比赛)", "观赏电影", "比赛"],
+      "pos": "verb",
+      "tags": ["confusable", "near-meaning", "miru", "error-lab", "same-sound"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-watch-1",
+          "ja": "週末に映画を観に行く。",
+          "kana": "しゅうまつにえいがをみにいく。",
+          "zh": "周末去看电影。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-miru", "word-miru-2"],
+      "errorTags": ["meaning-confusion", "same-sound-confusion"],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-atsui-3",
+      "type": "word",
+      "surface": "厚い",
+      "kana": "あつい",
+      "romaji": ["atsui"],
+      "meaningsZh": ["厚"],
+      "pos": "adjective",
+      "tags": ["error-lab", "same-sound"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-atsui-3-1",
+          "ja": "この本は厚いから重い。",
+          "kana": "このほんはあついからおもい。",
+          "zh": "这本书厚，所以很重。",
+          "targetSurface": "厚い",
+          "targetKana": "あつい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-atsui", "word-atsui-2"],
+      "jlpt": "N4",
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "word-ban",
+      "type": "word",
+      "surface": "番",
+      "kana": "ばん",
+      "romaji": ["ban"],
+      "meaningsZh": ["轮次", "号码"],
+      "pos": "noun",
+      "tags": ["error-lab", "dakuten-handakuten"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ban-1",
+          "ja": "次は私の番です。",
+          "kana": "つぎはわたしのばんです。",
+          "zh": "下一个轮到我。",
+          "targetSurface": "番",
+          "targetKana": "ばん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-pan", "word-han"],
+      "jlpt": "N4",
+      "errorTags": ["dakuten-error"]
+    },
+    {
+      "id": "word-chikara",
+      "type": "word",
+      "surface": "力",
+      "kana": "ちから",
+      "romaji": ["chikara"],
+      "meaningsZh": ["力量"],
+      "pos": "noun",
+      "tags": ["error-lab", "near-shape"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-chikara-1",
+          "ja": "もう少し力を入れて。",
+          "kana": "もうすこしちからをいれて。",
+          "zh": "再用点力。",
+          "targetSurface": "力",
+          "targetKana": "ちから"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-katana"],
+      "jlpt": "N4",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-hada",
+      "type": "word",
+      "surface": "肌",
+      "kana": "はだ",
+      "romaji": ["hada"],
+      "meaningsZh": ["皮肤"],
+      "pos": "noun",
+      "tags": ["body", "error-lab", "dakuten"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hada-1",
+          "ja": "乾燥して肌が荒れた。",
+          "kana": "かんそうしてはだがあれた。",
+          "zh": "干燥导致皮肤粗糙了。",
+          "targetSurface": "肌",
+          "targetKana": "はだ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-hata"],
+      "jlpt": "N4",
+      "errorTags": ["dakuten-error"]
+    },
+    {
+      "id": "word-hakaru",
+      "type": "word",
+      "surface": "計る",
+      "kana": "はかる",
+      "romaji": ["hakaru"],
+      "meaningsZh": ["计量时间", "数量"],
+      "pos": "verb",
+      "tags": ["error-lab", "same-sound"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hakaru-1",
+          "ja": "ストップウォッチで時間を計る。",
+          "kana": "ストップウォッチでじかんをはかる。",
+          "zh": "用秒表计时。",
+          "targetSurface": "計る",
+          "targetKana": "はかる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-hakaru-2", "word-hakaru-3"],
+      "jlpt": "N4",
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "word-hakaru-2",
+      "type": "word",
+      "surface": "測る",
+      "kana": "はかる",
+      "romaji": ["hakaru"],
+      "meaningsZh": ["测量长度", "面积"],
+      "pos": "verb",
+      "tags": ["error-lab", "same-sound"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hakaru-2-1",
+          "ja": "メジャーで部屋の長さを測る。",
+          "kana": "メジャーでへやのながさをはかる。",
+          "zh": "用卷尺量房间的长度。",
+          "targetSurface": "測る",
+          "targetKana": "はかる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-hakaru", "word-hakaru-3"],
+      "jlpt": "N4",
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "word-hakaru-3",
+      "type": "word",
+      "surface": "量る",
+      "kana": "はかる",
+      "romaji": ["hakaru"],
+      "meaningsZh": ["称重量", "容量"],
+      "pos": "verb",
+      "tags": ["error-lab", "same-sound"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hakaru-3-1",
+          "ja": "はかりで小麦粉の重さを量る。",
+          "kana": "はかりでこむぎこのおもさをはかる。",
+          "zh": "用秤称面粉的重量。",
+          "targetSurface": "量る",
+          "targetKana": "はかる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-hakaru", "word-hakaru-2"],
+      "jlpt": "N4",
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "word-hata",
+      "type": "word",
+      "surface": "旗",
+      "kana": "はた",
+      "romaji": ["hata"],
+      "meaningsZh": ["旗"],
+      "pos": "noun",
+      "tags": ["error-lab", "dakuten"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hata-1",
+          "ja": "校庭に国旗が掲げられている。",
+          "kana": "こうていにこっきがかかげられている。",
+          "zh": "校园里挂着国旗。",
+          "targetSurface": "旗"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-hada"],
+      "jlpt": "N4",
+      "errorTags": ["dakuten-error"]
+    },
+    {
+      "id": "word-hosu",
+      "type": "word",
+      "surface": "干す",
+      "kana": "ほす",
+      "romaji": ["hosu"],
+      "meaningsZh": ["晾晒", "晒", "晾干"],
+      "pos": "verb",
+      "tags": ["cleaning", "verb", "error-lab", "near-shape"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hosu-1",
+          "ja": "洗濯物をベランダに干す。",
+          "kana": "せんたくものをベランダにほす。",
+          "zh": "把洗好的衣服晒到阳台。",
+          "targetSurface": "干す",
+          "targetKana": "ほす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-sen"],
+      "jlpt": "N4",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-joubu",
+      "type": "word",
+      "surface": "丈夫",
+      "kana": "じょうぶ",
+      "romaji": ["joubu"],
+      "meaningsZh": ["结实", "健康(不是丈夫)"],
+      "pos": "adjective",
+      "tags": ["error-lab", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-joubu-1",
+          "ja": "この机は丈夫で長持ちする。",
+          "kana": "このつくえはじょうぶでながもちする。",
+          "zh": "这张桌子结实耐用。",
+          "targetSurface": "丈夫",
+          "targetKana": "じょうぶ"
+        },
+        {
+          "id": "ex-joubu-2",
+          "ja": "「丈夫」は中国語と違い、日本語では「結実、健康」の意。",
+          "kana": "「じょうぶ」はちゅうごくごとちがい、にほんごでは「けつじつ、けんこう」のい。",
+          "zh": "「丈夫」与中文不同，日语意为「结实、健康」。",
+          "targetSurface": "丈夫",
+          "targetKana": "じょうぶ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [
+        "word-tegami",
+        "word-aijin",
+        "word-ooya",
+        "word-majime",
+        "word-meiwaku",
+        "word-yudan",
+        "word-temoto"
+      ],
+      "jlpt": "N4",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-kega",
+      "type": "word",
+      "surface": "怪我",
+      "kana": "けが",
+      "romaji": ["kega"],
+      "meaningsZh": ["受伤(不是「怪我」)"],
+      "pos": "noun",
+      "tags": ["health", "confusable", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kega-1",
+          "ja": "転んで膝を怪我した。",
+          "kana": "ころんでひざをけがした。",
+          "zh": "摔倒了，膝盖受了伤。",
+          "targetSurface": "怪我",
+          "targetKana": "けが"
+        },
+        {
+          "id": "ex-kega-2",
+          "ja": "怪我をしないように気をつけて。",
+          "kana": "けがをしないようにきをつけて。",
+          "zh": "请注意不要受伤。",
+          "targetSurface": "怪我",
+          "targetKana": "けが"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-majime",
+      "type": "word",
+      "surface": "真面目",
+      "kana": "まじめ",
+      "romaji": ["majime"],
+      "meaningsZh": ["认真"],
+      "pos": "adjective",
+      "tags": ["error-lab", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-majime-1",
+          "ja": "彼は真面目で遅刻したことがない。",
+          "kana": "かれはまじめでちこくしたことがない。",
+          "zh": "他很认真，从没迟到过。",
+          "targetSurface": "真面目",
+          "targetKana": "まじめ"
+        },
+        {
+          "id": "ex-majime-2",
+          "ja": "「真面目」は中国語の「真面目」とは別で、日本語では「認真」の意。",
+          "kana": "「まじめ」はちゅうごくごの「しんめんもく」とはべつで、にほんごでは「にんしん」のい。",
+          "zh": "日语「真面目」≠中文，日语意为「认真」。",
+          "targetSurface": "真面目",
+          "targetKana": "まじめ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [
+        "word-tegami",
+        "word-aijin",
+        "word-ooya",
+        "word-joubu",
+        "word-meiwaku",
+        "word-yudan",
+        "word-temoto"
+      ],
+      "jlpt": "N4",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-ooya",
+      "type": "word",
+      "surface": "大家",
+      "kana": "おおや",
+      "romaji": ["ooya"],
+      "meaningsZh": ["房东(不是大家)"],
+      "pos": "noun",
+      "tags": ["error-lab", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ooya-1",
+          "ja": "大家さんに家賃を払いに行く。",
+          "kana": "おおやさんにやちんをはらいにいく。",
+          "zh": "去给房东交房租。",
+          "targetSurface": "大家",
+          "targetKana": "おおや"
+        },
+        {
+          "id": "ex-ooya-2",
+          "ja": "中国語の「大家」は皆さんだが、日本語では家主のこと。",
+          "kana": "ちゅうごくごの「だいか」はみなさんだが、にほんごではやぬしのこと。",
+          "zh": "中文「大家」是 everyone，日语「大家」是房东。",
+          "targetSurface": "大家"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [
+        "word-tegami",
+        "word-aijin",
+        "word-joubu",
+        "word-majime",
+        "word-meiwaku",
+        "word-yudan",
+        "word-temoto"
+      ],
+      "jlpt": "N4",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-saka",
+      "type": "word",
+      "surface": "坂",
+      "kana": "さか",
+      "romaji": ["saka"],
+      "meaningsZh": ["坡道"],
+      "pos": "noun",
+      "tags": ["error-lab", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-saka-1",
+          "ja": "学校までは長い坂が続く。",
+          "kana": "がっこうまではながいさかがつづく。",
+          "zh": "到学校有一段长长的坡。",
+          "targetSurface": "坂",
+          "targetKana": "さか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-sakka"],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-sekken",
+      "type": "word",
+      "surface": "石鹸",
+      "kana": "せっけん",
+      "romaji": ["sekken"],
+      "meaningsZh": ["肥皂"],
+      "pos": "noun",
+      "tags": ["error-lab", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-sekken-1",
+          "ja": "手を石鹸でしっかり洗う。",
+          "kana": "てをせっけんでしっかりあらう。",
+          "zh": "用肥皂好好洗手。",
+          "targetSurface": "石鹸",
+          "targetKana": "せっけん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-seki"],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-yuka",
+      "type": "word",
+      "surface": "床",
+      "kana": "ゆか",
+      "romaji": ["yuka"],
+      "meaningsZh": ["地板(不是「床」)"],
+      "pos": "noun",
+      "tags": ["home", "confusable", "zh-misleading"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "ime-conversion",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-yuka-1",
+          "ja": "床に座って、テレビを見る。",
+          "kana": "ゆかにすわって、テレビをみる。",
+          "zh": "坐在地板上看电视。",
+          "targetSurface": "床",
+          "targetKana": "ゆか"
+        },
+        {
+          "id": "ex-yuka-2",
+          "ja": "掃除機で床を掃除する。",
+          "kana": "そうじきでゆかをそうじする。",
+          "zh": "用吸尘器打扫地板。",
+          "targetSurface": "床",
+          "targetKana": "ゆか"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "ad-buta",
+      "type": "word",
+      "surface": "豚",
+      "kana": "ぶた",
+      "romaji": ["buta"],
+      "meaningsZh": ["猪"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "dakuten", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-buta-1",
+          "ja": "動物園で豚を見た。",
+          "kana": "どうぶつえんでぶたをみた。",
+          "zh": "在动物园看到了猪。",
+          "targetSurface": "豚",
+          "targetKana": "ぶた"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-futa"],
+      "errorTags": ["dakuten-error"],
+      "jlpt": "N5"
+    },
+    {
+      "id": "ad-daigaku",
+      "type": "word",
+      "surface": "大学",
+      "kana": "だいがく",
+      "romaji": ["daigaku"],
+      "meaningsZh": ["大学"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "dakuten", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-daigaku-1",
+          "ja": "東京の大学で日本語を学んでいる。",
+          "kana": "とうきょうのだいがくでにほんごをまなんでいる。",
+          "zh": "在东京的大学学日语。",
+          "targetSurface": "大学",
+          "targetKana": "だいがく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-taigaku"],
+      "errorTags": ["dakuten-error"],
+      "jlpt": "N5"
+    },
+    {
+      "id": "ad-ita",
+      "type": "word",
+      "surface": "居た",
+      "kana": "いた",
+      "romaji": ["ita"],
+      "meaningsZh": ["(过去)在", "曾经在"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "sokuon", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-ita-1",
+          "ja": "昨日はずっと家に居た。",
+          "kana": "きのうはずっといえにいた。",
+          "zh": "昨天一直在家。",
+          "targetSurface": "居た",
+          "targetKana": "いた"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-itta"],
+      "errorTags": ["sokuon-error"],
+      "jlpt": "N5"
+    },
+    {
+      "id": "ad-itta",
+      "type": "word",
+      "surface": "行った",
+      "kana": "いった",
+      "romaji": ["itta"],
+      "meaningsZh": ["(过去)去了", "去了"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "sokuon", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-itta-1",
+          "ja": "先週、京都に行った。",
+          "kana": "せんしゅう、きょうとにいった。",
+          "zh": "上周去了京都。",
+          "targetSurface": "行った",
+          "targetKana": "いった"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-ita"],
+      "errorTags": ["sokuon-error"],
+      "jlpt": "N5"
+    },
+    {
+      "id": "ad-kite",
+      "type": "word",
+      "surface": "来て",
+      "kana": "きて",
+      "romaji": ["kite"],
+      "meaningsZh": ["来(て形)"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "sokuon", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-kite-1",
+          "ja": "ちょっとこっちへ来て。",
+          "kana": "ちょっとこっちへきて。",
+          "zh": "稍微过来一下。",
+          "targetSurface": "来て",
+          "targetKana": "きて"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-kitte"],
+      "errorTags": ["sokuon-error"],
+      "jlpt": "N5"
+    },
+    {
+      "id": "ad-neko",
+      "type": "word",
+      "surface": "猫",
+      "kana": "ねこ",
+      "romaji": ["neko"],
+      "meaningsZh": ["猫"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "sokuon", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-neko-1",
+          "ja": "家には猫が二匹いる。",
+          "kana": "いえにはねこがにひきいる。",
+          "zh": "家里有两只猫。",
+          "targetSurface": "猫",
+          "targetKana": "ねこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-nekko"],
+      "errorTags": ["sokuon-error"],
+      "jlpt": "N5"
+    },
+    {
+      "id": "ad-obaasan",
+      "type": "word",
+      "surface": "おばあさん",
+      "kana": "おばあさん",
+      "romaji": ["obaasan"],
+      "meaningsZh": ["奶奶", "老婆婆"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "long-vowel", "error-lab"],
+      "skillTags": ["kana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-obaasan-1",
+          "ja": "おばあさんに席を譲った。",
+          "kana": "おばあさんにせきをゆずった。",
+          "zh": "把座位让给了老婆婆。",
+          "targetSurface": "おばあさん",
+          "targetKana": "おばあさん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-obasan"],
+      "errorTags": ["long-vowel-error"],
+      "jlpt": "N5"
+    },
+    {
+      "id": "ad-obasan",
+      "type": "word",
+      "surface": "おばさん",
+      "kana": "おばさん",
+      "romaji": ["obasan"],
+      "meaningsZh": ["阿姨", "中年女性"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "long-vowel", "error-lab"],
+      "skillTags": ["kana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-obasan-1",
+          "ja": "近所のおばさんに挨拶した。",
+          "kana": "きんじょのおばさんにあいさつした。",
+          "zh": "向邻居阿姨打了招呼。",
+          "targetSurface": "おばさん",
+          "targetKana": "おばさん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-obaasan"],
+      "errorTags": ["long-vowel-error"],
+      "jlpt": "N5"
+    },
+    {
+      "id": "ad-tenki",
+      "type": "word",
+      "surface": "天気",
+      "kana": "てんき",
+      "romaji": ["tenki"],
+      "meaningsZh": ["天气"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "dakuten", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-tenki-1",
+          "ja": "明日の天気は晴れだ。",
+          "kana": "あしたのてんきははれだ。",
+          "zh": "明天天气晴朗。",
+          "targetSurface": "天気",
+          "targetKana": "てんき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-denki"],
+      "errorTags": ["dakuten-error"],
+      "jlpt": "N5"
+    },
+    {
+      "id": "ad-yuki",
+      "type": "word",
+      "surface": "雪",
+      "kana": "ゆき",
+      "romaji": ["yuki"],
+      "meaningsZh": ["雪"],
+      "pos": "noun",
+      "tags": ["audio-discrim", "long-vowel", "weather", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ad-yuki-1",
+          "ja": "北海道は雪が多い。",
+          "kana": "ほっかいどうはゆきがおおい。",
+          "zh": "北海道雪很多。",
+          "targetSurface": "雪",
+          "targetKana": "ゆき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-yuuki"],
+      "errorTags": ["long-vowel-error"],
+      "jlpt": "N5"
+    },
+    {
+      "id": "conf-chopsticks",
+      "type": "word",
+      "surface": "箸",
+      "kana": "はし",
+      "romaji": ["hashi"],
+      "meaningsZh": ["筷子"],
+      "pos": "noun",
+      "tags": ["confusable", "same-sound", "hashi", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-chopsticks-1",
+          "ja": "箸でご飯を食べる。",
+          "kana": "はしでごはんをたべる。",
+          "zh": "用筷子吃饭。",
+          "targetSurface": "箸",
+          "targetKana": "はし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-hashi-bridge", "conf-edge"],
+      "errorTags": ["same-sound-confusion"],
+      "jlpt": "N5"
+    },
+    {
+      "id": "conf-hair",
+      "type": "word",
+      "surface": "髪",
+      "kana": "かみ",
+      "romaji": ["kami"],
+      "meaningsZh": ["头发"],
+      "pos": "noun",
+      "tags": ["confusable", "same-sound", "kami", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-hair-1",
+          "ja": "髪を切ってもらった。",
+          "kana": "かみをきってもらった。",
+          "zh": "理了发。",
+          "targetSurface": "髪",
+          "targetKana": "かみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-kami", "conf-god"],
+      "errorTags": ["same-sound-confusion"],
+      "jlpt": "N5"
+    },
+    {
+      "id": "conf-rain",
+      "type": "word",
+      "surface": "雨",
+      "kana": "あめ",
+      "romaji": ["ame"],
+      "meaningsZh": ["雨"],
+      "pos": "noun",
+      "tags": ["confusable", "same-sound", "ame", "weather", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-rain-1",
+          "ja": "朝から雨が降っている。",
+          "kana": "あさからあめがふっている。",
+          "zh": "从早上开始就在下雨。",
+          "targetSurface": "雨",
+          "targetKana": "あめ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["conf-candy"],
+      "errorTags": ["same-sound-confusion"],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-atsui",
+      "type": "word",
+      "surface": "暑い",
+      "kana": "あつい",
+      "romaji": ["atsui", "atui"],
+      "meaningsZh": ["热(天气)", "天气热"],
+      "pos": "adjective",
+      "tags": ["adjective", "error-lab", "same-sound"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-atsui-1",
+          "ja": "今日は暑いですね、エアコンをつけよう。",
+          "kana": "きょうはあついですね、エアコンをつけよう。",
+          "zh": "今天好热啊，开空调吧。",
+          "targetSurface": "暑い",
+          "targetKana": "あつい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-atsui-2", "word-atsui-3"],
+      "jlpt": "N5",
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "word-atsui-2",
+      "type": "word",
+      "surface": "熱い",
+      "kana": "あつい",
+      "romaji": ["atsui"],
+      "meaningsZh": ["热(物体、饮食)", "物体", "饮食热"],
+      "pos": "adjective",
+      "tags": ["adjective", "error-lab", "same-sound"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-atsui-2-1",
+          "ja": "お茶が熱いから気をつけて。",
+          "kana": "おちゃがあついからきをつけて。",
+          "zh": "茶很烫，请小心。",
+          "targetSurface": "熱い",
+          "targetKana": "あつい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-atsui", "word-atsui-3"],
+      "jlpt": "N5",
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "word-benkyou",
+      "type": "word",
+      "surface": "勉強",
+      "kana": "べんきょう",
+      "romaji": ["benkyou"],
+      "meaningsZh": ["学习(不是「勉强」)"],
+      "pos": "noun",
+      "tags": ["chore", "long-vowel", "youon", "confusable", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-benkyou-1",
+          "ja": "毎日二時間日本語を勉強している。",
+          "kana": "まいにちにじかんにほんごをべんきょうしている。",
+          "zh": "每天学两小时日语。",
+          "targetSurface": "勉強",
+          "targetKana": "べんきょう"
+        },
+        {
+          "id": "ex-benkyou-2",
+          "ja": "「勉強」は中国語の「勉强」ではなく、日本語では「学習」の意味。",
+          "kana": "「べんきょう」はちゅうごくごの「べんきょう」ではなく、にほんごでは「がくしゅう」のいみ。",
+          "zh": "日语「勉強」是「学习」，不是中文「勉强」。",
+          "targetSurface": "勉強",
+          "targetKana": "べんきょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error", "meaning-confusion"]
+    },
+    {
+      "id": "word-biiru",
+      "type": "word",
+      "surface": "ビール",
+      "kana": "ビール",
+      "romaji": ["biiru"],
+      "meaningsZh": ["啤酒"],
+      "pos": "noun",
+      "tags": [
+        "daily",
+        "katakana",
+        "long-vowel",
+        "drink",
+        "audio-discrim",
+        "long-vowel",
+        "error-lab"
+      ],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-biiru-1",
+          "ja": "生ビールを一杯ください。",
+          "kana": "なまビールをいっぱいください。",
+          "zh": "请来一杯生啤。",
+          "targetSurface": "ビール",
+          "targetKana": "ビール"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-biru"],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-biru",
+      "type": "word",
+      "surface": "ビル",
+      "kana": "ビル",
+      "romaji": ["biru"],
+      "meaningsZh": ["大楼", "楼", "建筑"],
+      "pos": "noun",
+      "tags": ["daily", "katakana", "audio-discrim", "long-vowel", "error-lab"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-biru-1",
+          "ja": "駅前に高いビルが建った。",
+          "kana": "えきまえにたかいビルがたった。",
+          "zh": "车站前盖起了一栋高楼。",
+          "targetSurface": "ビル"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-biiru"],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-denki",
+      "type": "word",
+      "surface": "電気",
+      "kana": "でんき",
+      "romaji": ["denki"],
+      "meaningsZh": ["电", "电灯", "电气"],
+      "pos": "noun",
+      "tags": ["appliance", "audio-discrim", "dakuten", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-denki-1",
+          "ja": "寝る前に電気を消す。",
+          "kana": "ねるまえにでんきをけす。",
+          "zh": "睡前关灯。",
+          "targetSurface": "電気",
+          "targetKana": "でんき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-tenki"],
+      "jlpt": "N5",
+      "errorTags": ["dakuten-error"]
+    },
+    {
+      "id": "word-gozen",
+      "type": "word",
+      "surface": "午前",
+      "kana": "ごぜん",
+      "romaji": ["gozen"],
+      "meaningsZh": ["上午"],
+      "pos": "noun",
+      "tags": ["time", "error-lab", "near-shape"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-gozen-1",
+          "ja": "午前中に会議がある。",
+          "kana": "ごぜんちゅうにかいぎがある。",
+          "zh": "上午有会议。",
+          "targetSurface": "午前",
+          "targetKana": "ごぜん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-ushi"],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-hachi",
+      "type": "word",
+      "surface": "八",
+      "kana": "はち",
+      "romaji": ["hachi"],
+      "meaningsZh": ["八", "8"],
+      "pos": "numeral",
+      "tags": ["number", "confusable", "near-shape", "iru-hito-hachi"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hachi-1",
+          "ja": "八月は暑い。",
+          "kana": "はちがつはあつい。",
+          "zh": "八月很热。",
+          "targetSurface": "八",
+          "targetKana": "はち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-han",
+      "type": "word",
+      "surface": "半",
+      "kana": "はん",
+      "romaji": ["han"],
+      "meaningsZh": ["半", "一半"],
+      "pos": "noun",
+      "tags": ["time", "error-lab", "dakuten-handakuten"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-han-1",
+          "ja": "七時半に集合します。",
+          "kana": "しちじはんにしゅうごうします。",
+          "zh": "七点半集合。",
+          "targetSurface": "半",
+          "targetKana": "はん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-pan", "word-ban"],
+      "jlpt": "N5",
+      "errorTags": ["dakuten-error"]
+    },
+    {
+      "id": "word-hana",
+      "type": "word",
+      "surface": "鼻",
+      "kana": "はな",
+      "romaji": ["hana"],
+      "meaningsZh": ["鼻子"],
+      "pos": "noun",
+      "tags": ["body", "confusable", "same-sound", "hana"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hana-1",
+          "ja": "花粉症で鼻がむずむずする。",
+          "kana": "かふんしょうではながむずむずする。",
+          "zh": "花粉症弄得鼻子痒。",
+          "targetSurface": "鼻",
+          "targetKana": "はな"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "word-hashi-bridge",
+      "type": "word",
+      "surface": "橋",
+      "kana": "はし",
+      "romaji": ["hashi", "hasi"],
+      "meaningsZh": ["桥"],
+      "pos": "noun",
+      "tags": ["road", "confusable", "same-sound", "hashi", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hashi-bridge-1",
+          "ja": "川にかかった橋を渡った。",
+          "kana": "かわにかかったはしをわたった。",
+          "zh": "走过架在河上的桥。",
+          "targetSurface": "橋",
+          "targetKana": "はし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["conf-chopsticks", "conf-edge"],
+      "jlpt": "N5",
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "word-hayai",
+      "type": "word",
+      "surface": "早い",
+      "kana": "はやい",
+      "romaji": ["hayai"],
+      "meaningsZh": ["快(时间)", "早(时间)"],
+      "pos": "adjective",
+      "tags": ["speed", "confusable", "near-meaning", "hayai"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hayai-1",
+          "ja": "今朝は出るのが早かった。",
+          "kana": "けさはでるのがはやかった。",
+          "zh": "今天早上出门很早。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-hayai-fast",
+      "type": "word",
+      "surface": "速い",
+      "kana": "はやい",
+      "romaji": ["hayai"],
+      "meaningsZh": ["快(速度)"],
+      "pos": "adjective",
+      "tags": ["speed", "confusable", "near-meaning", "hayai"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hayai-fast-1",
+          "ja": "新幹線は速い。",
+          "kana": "しんかんせんははやい。",
+          "zh": "新干线很快。",
+          "targetSurface": "速い",
+          "targetKana": "はやい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-heya",
+      "type": "word",
+      "surface": "部屋",
+      "kana": "へや",
+      "romaji": ["heya"],
+      "meaningsZh": ["房间"],
+      "pos": "noun",
+      "tags": ["home", "error-lab", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "ime-conversion",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-heya-1",
+          "ja": "部屋の窓を開けて空気を入れ替える。",
+          "kana": "へやのまどをあけてくうきをいれかえる。",
+          "zh": "打开房间的窗户换空气。",
+          "targetSurface": "部屋",
+          "targetKana": "へや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-heiya"],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-hi",
+      "type": "word",
+      "surface": "日",
+      "kana": "ひ",
+      "romaji": ["hi"],
+      "meaningsZh": ["太阳", "日子"],
+      "pos": "noun",
+      "tags": ["error-lab", "near-shape"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hi-1",
+          "ja": "日が沈むのが早くなった。",
+          "kana": "ひがしずむのがはやくなった。",
+          "zh": "日落变早了。",
+          "targetSurface": "日",
+          "targetKana": "ひ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-me"],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-hon",
+      "type": "word",
+      "surface": "本",
+      "kana": "ほん",
+      "romaji": ["hon"],
+      "meaningsZh": ["书", "本"],
+      "pos": "noun",
+      "tags": ["daily-item", "error-lab", "near-shape"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hon-1",
+          "ja": "毎晩、本を読んでから寝る。",
+          "kana": "まいばん、ほんをよんでからねる。",
+          "zh": "每晚看书后睡觉。",
+          "targetSurface": "本",
+          "targetKana": "ほん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-ki", "word-sue"],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-kami",
+      "type": "word",
+      "surface": "紙",
+      "kana": "かみ",
+      "romaji": ["kami"],
+      "meaningsZh": ["纸"],
+      "pos": "noun",
+      "tags": ["daily-item", "confusable", "same-sound", "kami", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kami-1",
+          "ja": "紙とペンを持ってきて。",
+          "kana": "かみとペンをもってきて。",
+          "zh": "拿纸和笔过来。",
+          "targetSurface": "紙",
+          "targetKana": "かみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["conf-god", "conf-hair"],
+      "jlpt": "N5",
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "word-ki",
+      "type": "word",
+      "surface": "木",
+      "kana": "き",
+      "romaji": ["ki"],
+      "meaningsZh": ["树", "木头"],
+      "pos": "noun",
+      "tags": ["error-lab", "near-shape"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ki-1",
+          "ja": "公園に大きな木がある。",
+          "kana": "こうえんにおおきなきがある。",
+          "zh": "公园里有棵大树。",
+          "targetSurface": "木",
+          "targetKana": "き"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-hon", "word-sue"],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-kiku",
+      "type": "word",
+      "surface": "聞く",
+      "kana": "きく",
+      "romaji": ["kiku"],
+      "meaningsZh": ["听", "问"],
+      "pos": "verb",
+      "tags": ["verb", "confusable", "near-meaning", "kiku", "error-lab", "same-sound"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kiku-1",
+          "ja": "先生の話をよく聞く。",
+          "kana": "せんせいのはなしをよくきく。",
+          "zh": "认真听老师讲话。",
+          "targetSurface": "聞く",
+          "targetKana": "きく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["conf-effective", "word-kiku-2", "word-kiku-3"],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion", "same-sound-confusion"]
+    },
+    {
+      "id": "word-kitte",
+      "type": "word",
+      "surface": "切手",
+      "kana": "きって",
+      "romaji": ["kitte"],
+      "meaningsZh": ["邮票(不是「切手」)"],
+      "pos": "noun",
+      "tags": [
+        "daily",
+        "kanji-word",
+        "sokuon",
+        "daily-item",
+        "confusable",
+        "zh-misleading",
+        "audio-discrim",
+        "error-lab"
+      ],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kitte-1",
+          "ja": "八十円切手を二枚ください。",
+          "kana": "はちじゅうえんきってをにまいください。",
+          "zh": "请给我两张80日元的邮票。",
+          "targetSurface": "切手",
+          "targetKana": "きって"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-kite"],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error", "meaning-confusion"]
+    },
+    {
+      "id": "word-koko",
+      "type": "word",
+      "surface": "ここ",
+      "kana": "ここ",
+      "romaji": ["koko"],
+      "meaningsZh": ["这里"],
+      "pos": "pronoun",
+      "tags": ["pronoun", "audio-discrim", "long-vowel", "error-lab"],
+      "skillTags": ["kana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-koko-1",
+          "ja": "ここで降ります。",
+          "kana": "ここでおります。",
+          "zh": "我在这里下车。",
+          "targetSurface": "ここ",
+          "targetKana": "ここ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["ad-koukou"],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-me",
+      "type": "word",
+      "surface": "目",
+      "kana": "め",
+      "romaji": ["me"],
+      "meaningsZh": ["眼睛", "目"],
+      "pos": "noun",
+      "tags": ["body", "error-lab", "near-shape"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-me-1",
+          "ja": "朝起きて目をこする。",
+          "kana": "あさおきてめをこする。",
+          "zh": "早上起床揉眼睛。",
+          "targetSurface": "目",
+          "targetKana": "め"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-hi"],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-miru",
+      "type": "word",
+      "surface": "見る",
+      "kana": "みる",
+      "romaji": ["miru"],
+      "meaningsZh": ["看(一般)"],
+      "pos": "verb",
+      "tags": ["verb", "confusable", "near-meaning", "miru", "error-lab", "same-sound"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-miru-1",
+          "ja": "テレビでニュースを見る。",
+          "kana": "テレビでニュースをみる。",
+          "zh": "看电视新闻。",
+          "targetSurface": "見る",
+          "targetKana": "みる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["conf-watch", "word-miru-2"],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion", "same-sound-confusion"]
+    },
+    {
+      "id": "word-pan",
+      "type": "word",
+      "surface": "パン",
+      "kana": "パン",
+      "romaji": ["pan"],
+      "meaningsZh": ["面包"],
+      "pos": "noun",
+      "tags": ["food", "katakana", "error-lab", "dakuten-handakuten"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-pan-1",
+          "ja": "朝はパンとコーヒーを取る。",
+          "kana": "あさはパンとコーヒーをとる。",
+          "zh": "早上吃面包喝咖啡。",
+          "targetSurface": "パン"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-ban", "word-han"],
+      "jlpt": "N5",
+      "errorTags": ["dakuten-error"]
+    },
+    {
+      "id": "word-seki",
+      "type": "word",
+      "surface": "席",
+      "kana": "せき",
+      "romaji": ["seki"],
+      "meaningsZh": ["座位"],
+      "pos": "noun",
+      "tags": ["restaurant", "error-lab", "sokuon"],
+      "skillTags": [
+        "kanji-reading",
+        "meaning-recall",
+        "ime-conversion",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-seki-1",
+          "ja": "窓側の席が空いていた。",
+          "kana": "まどがわのせきがあいていた。",
+          "zh": "靠窗的座位空着。",
+          "targetSurface": "席",
+          "targetKana": "せき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-sekken"],
+      "jlpt": "N5",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-sen",
+      "type": "word",
+      "surface": "千",
+      "kana": "せん",
+      "romaji": ["sen"],
+      "meaningsZh": ["千", "1000", "一千"],
+      "pos": "numeral",
+      "tags": ["number", "error-lab", "near-shape"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-sen-1",
+          "ja": "千円札で払う。",
+          "kana": "せんえんさつではらう。",
+          "zh": "用千元钞付。",
+          "targetSurface": "千",
+          "targetKana": "せん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-hosu"],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-shinbun",
+      "type": "word",
+      "surface": "新聞",
+      "kana": "しんぶん",
+      "romaji": ["shinbun", "sinbun"],
+      "meaningsZh": ["报纸(不是「新闻」、news)"],
+      "pos": "noun",
+      "tags": ["daily-item", "confusable", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shinbun-1",
+          "ja": "毎朝、新聞を読みながらコーヒーを飲む。",
+          "kana": "まいあさ、しんぶんをよみながらコーヒーをのむ。",
+          "zh": "每天早上一边看报纸一边喝咖啡。",
+          "targetSurface": "新聞",
+          "targetKana": "しんぶん"
+        },
+        {
+          "id": "ex-shinbun-2",
+          "ja": "「新聞」は中国語の「ニュース」ではなく、紙の新聞を指す。",
+          "kana": "「しんぶん」はちゅうごくごの「ニュース」ではなく、かみのしんぶんをさす。",
+          "zh": "「新聞」是报纸，不是中文「新闻」。",
+          "targetSurface": "新聞",
+          "targetKana": "しんぶん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-shujin",
+      "type": "word",
+      "surface": "主人",
+      "kana": "しゅじん",
+      "romaji": ["shujin"],
+      "meaningsZh": ["丈夫", "主人"],
+      "pos": "noun",
+      "tags": ["error-lab", "long-vowel"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-shujin-1",
+          "ja": "主人は今出かけています。",
+          "kana": "しゅじんはいまでかけています。",
+          "zh": "我先生现在出去了。",
+          "targetSurface": "主人",
+          "targetKana": "しゅじん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-shuujin"],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-tegami",
+      "type": "word",
+      "surface": "手紙",
+      "kana": "てがみ",
+      "romaji": ["tegami"],
+      "meaningsZh": ["信(信件、不是卫生纸)", "信(不是卫生纸)"],
+      "pos": "noun",
+      "tags": ["daily-item", "confusable", "zh-misleading", "error-lab"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-tegami-1",
+          "ja": "母から手紙が届いた。",
+          "kana": "ははからてがみがとどいた。",
+          "zh": "收到了妈妈的来信。",
+          "targetSurface": "手紙",
+          "targetKana": "てがみ"
+        },
+        {
+          "id": "ex-tegami-2",
+          "ja": "「手紙」は中国語の「信」の意味で、トイレットペーパーではない。",
+          "kana": "「てがみ」はちゅうごくごの「しん」のいみで、トイレットペーパーではない。",
+          "zh": "「手紙」是中文「信」的意思，不是厕纸。",
+          "targetSurface": "手紙",
+          "targetKana": "てがみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [
+        "word-aijin",
+        "word-ooya",
+        "word-joubu",
+        "word-majime",
+        "word-meiwaku",
+        "word-yudan",
+        "word-temoto"
+      ],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-ushi",
+      "type": "word",
+      "surface": "牛",
+      "kana": "うし",
+      "romaji": ["ushi"],
+      "meaningsZh": ["牛"],
+      "pos": "noun",
+      "tags": ["error-lab", "near-shape"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-ushi-1",
+          "ja": "牧場で牛を見た。",
+          "kana": "ぼくじょうでうしをみた。",
+          "zh": "在牧场看到了牛。",
+          "targetSurface": "牛",
+          "targetKana": "うし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": ["word-gozen"],
+      "jlpt": "N5",
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-absence",
+      "type": "word",
+      "surface": "留守",
+      "kana": "るす",
+      "romaji": ["rusu"],
+      "meaningsZh": ["不在家(不是「留守」、留下)"],
+      "pos": "noun",
+      "tags": ["confusable", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-absence-1",
+          "ja": "出かけている間、家を留守にする。",
+          "kana": "でかけているあいだ、いえをるすにする。",
+          "zh": "外出期间家里没人。",
+          "targetSurface": "留守",
+          "targetKana": "るす"
+        },
+        {
+          "id": "ex-conf-absence-2",
+          "ja": "留守番電話にメッセージを残した。",
+          "kana": "るすばんでんわにメッセージをのこした。",
+          "zh": "在自动留言电话里留了言。",
+          "targetSurface": "留守",
+          "targetKana": "るす"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-big",
+      "type": "word",
+      "surface": "大",
+      "kana": "おお",
+      "romaji": ["oo"],
+      "meaningsZh": ["大"],
+      "pos": "noun",
+      "tags": ["confusable", "near-shape", "dai-inu-futo"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-big-1",
+          "ja": "「大」という漢字を覚える。",
+          "kana": "「大」というかんじをおぼえる。",
+          "zh": "记住「大」这个汉字（大）。",
+          "targetSurface": "大"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-bother",
+      "type": "word",
+      "surface": "邪魔",
+      "kana": "じゃま",
+      "romaji": ["jama"],
+      "meaningsZh": ["妨碍", "打扰(不是「邪魔」)"],
+      "pos": "noun",
+      "tags": ["confusable", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-bother-1",
+          "ja": "お仕事中、お邪魔します。",
+          "kana": "おしごとちゅう、おじゃまします。",
+          "zh": "工作中打扰了。",
+          "targetSurface": "邪魔",
+          "targetKana": "じゃま"
+        },
+        {
+          "id": "ex-conf-bother-2",
+          "ja": "邪魔にならないように隅に座った。",
+          "kana": "じゃまにならないようにすみにすわった。",
+          "zh": "为了不碍事，坐到了角落。",
+          "targetSurface": "邪魔",
+          "targetKana": "じゃま"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-cloud",
+      "type": "word",
+      "surface": "雲",
+      "kana": "くも",
+      "romaji": ["kumo"],
+      "meaningsZh": ["云"],
+      "pos": "noun",
+      "tags": ["confusable", "same-sound", "kumo"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-cloud-1",
+          "ja": "「雲」という漢字を覚える。",
+          "kana": "「雲」というかんじをおぼえる。",
+          "zh": "记住「雲」这个汉字（云）。",
+          "targetSurface": "雲"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "conf-daughter",
+      "type": "word",
+      "surface": "娘",
+      "kana": "むすめ",
+      "romaji": ["musume"],
+      "meaningsZh": ["女儿(不是「娘」、母亲)"],
+      "pos": "noun",
+      "tags": ["confusable", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-daughter-1",
+          "ja": "娘は今年小学校に入学した。",
+          "kana": "むすめはことししょうがっこうににゅうがくした。",
+          "zh": "女儿今年上了小学。",
+          "targetSurface": "娘",
+          "targetKana": "むすめ"
+        },
+        {
+          "id": "ex-conf-daughter-2",
+          "ja": "中国語の「娘」は母を指すが、日本語では「女の子・娘」のこと。",
+          "kana": "ちゅうごくごの「むすめ」ははをさすが、にほんごでは「おんなのこ・むすめ」のこと。",
+          "zh": "中文「娘」是母亲，日语「娘」是女儿。",
+          "targetSurface": "娘",
+          "targetKana": "むすめ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-dog",
+      "type": "word",
+      "surface": "犬",
+      "kana": "いぬ",
+      "romaji": ["inu"],
+      "meaningsZh": ["狗"],
+      "pos": "noun",
+      "tags": ["confusable", "near-shape", "dai-inu-futo"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-dog-1",
+          "ja": "公園で犬と散歩する。",
+          "kana": "こうえんでいぬとさんぽする。",
+          "zh": "在公园遛狗。",
+          "targetSurface": "犬",
+          "targetKana": "いぬ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-enter",
+      "type": "word",
+      "surface": "入",
+      "kana": "にゅう",
+      "romaji": ["nyuu"],
+      "meaningsZh": ["入", "进入"],
+      "pos": "noun",
+      "tags": ["confusable", "near-shape", "iru-hito-hachi"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-enter-1",
+          "ja": "入場料は無料です。",
+          "kana": "にゅうじょうりょうはむりょうです。",
+          "zh": "入场免费。",
+          "targetSurface": "入",
+          "targetKana": "にゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-fat",
+      "type": "word",
+      "surface": "太",
+      "kana": "ふと",
+      "romaji": ["futo"],
+      "meaningsZh": ["粗", "太"],
+      "pos": "noun",
+      "tags": ["confusable", "near-shape", "dai-inu-futo"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-fat-1",
+          "ja": "「太」は「ふと」と読む。",
+          "kana": "「太」は「ふと」とよむ。",
+          "zh": "「太」读作「ふと」，意思是粗。",
+          "targetSurface": "太",
+          "targetKana": "ふと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-fit",
+      "type": "word",
+      "surface": "合う",
+      "kana": "あう",
+      "romaji": ["au"],
+      "meaningsZh": ["合适", "符合"],
+      "pos": "verb",
+      "tags": ["confusable", "near-meaning", "au"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-fit-1",
+          "ja": "このシャツは私に合うサイズだ。",
+          "kana": "このシャツはわたしにあうサイズだ。",
+          "zh": "这件衬衫的尺码合身。",
+          "targetSurface": "合う",
+          "targetKana": "あう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-flower",
+      "type": "word",
+      "surface": "花",
+      "kana": "はな",
+      "romaji": ["hana"],
+      "meaningsZh": ["花"],
+      "pos": "noun",
+      "tags": ["confusable", "same-sound", "hana"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-flower-1",
+          "ja": "春になると花が咲く。",
+          "kana": "はるになるとはながさく。",
+          "zh": "到了春天花就开了。",
+          "targetSurface": "花",
+          "targetKana": "はな"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "conf-jewel",
+      "type": "word",
+      "surface": "玉",
+      "kana": "たま",
+      "romaji": ["tama"],
+      "meaningsZh": ["球", "玉"],
+      "pos": "noun",
+      "tags": ["confusable", "near-shape", "ou-tama"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-jewel-1",
+          "ja": "「玉」という漢字を覚える。",
+          "kana": "「玉」というかんじをおぼえる。",
+          "zh": "记住「玉」这个汉字（球）。",
+          "targetSurface": "玉"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-king",
+      "type": "word",
+      "surface": "王",
+      "kana": "おう",
+      "romaji": ["ou"],
+      "meaningsZh": ["王"],
+      "pos": "noun",
+      "tags": ["confusable", "near-shape", "ou-tama"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-king-1",
+          "ja": "チェスの王を守る。",
+          "kana": "チェスのおうをまもる。",
+          "zh": "保护国际象棋的王。",
+          "targetSurface": "王",
+          "targetKana": "おう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-meet",
+      "type": "word",
+      "surface": "会う",
+      "kana": "あう",
+      "romaji": ["au"],
+      "meaningsZh": ["见面"],
+      "pos": "verb",
+      "tags": ["confusable", "near-meaning", "au"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-meet-1",
+          "ja": "駅前で友達に会った。",
+          "kana": "えきまえでともだちにあった。",
+          "zh": "在车站前遇到了朋友。"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-okay",
+      "type": "word",
+      "surface": "大丈夫",
+      "kana": "だいじょうぶ",
+      "romaji": ["daijoubu"],
+      "meaningsZh": ["没事", "没关系(不是「成年男子」)"],
+      "pos": "adjective",
+      "tags": ["confusable", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-okay-1",
+          "ja": "怪我はありませんか?ーはい、大丈夫です。",
+          "kana": "けがはありませんか?ーはい、だいじょうぶです。",
+          "zh": "受伤了吗？－没事，没关系。",
+          "targetSurface": "大丈夫",
+          "targetKana": "だいじょうぶ"
+        },
+        {
+          "id": "ex-conf-okay-2",
+          "ja": "「大丈夫」は「成年男子」ではなく「問題ない」の意味。",
+          "kana": "「だいじょうぶ」は「せいねんだんし」ではなく「もんだいない」のいみ。",
+          "zh": "「大丈夫」不是「成年男子」，是「没事」。",
+          "targetSurface": "大丈夫",
+          "targetKana": "だいじょうぶ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-person",
+      "type": "word",
+      "surface": "人",
+      "kana": "ひと",
+      "romaji": ["hito"],
+      "meaningsZh": ["人"],
+      "pos": "noun",
+      "tags": ["confusable", "near-shape", "iru-hito-hachi"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-person-1",
+          "ja": "「人」という漢字を覚える。",
+          "kana": "「人」というかんじをおぼえる。",
+          "zh": "记住「人」这个汉字（人）。",
+          "targetSurface": "人"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-soil",
+      "type": "word",
+      "surface": "土",
+      "kana": "つち",
+      "romaji": ["tsuchi"],
+      "meaningsZh": ["土"],
+      "pos": "noun",
+      "tags": ["confusable", "near-shape", "tsuchi-shi"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-soil-1",
+          "ja": "「土」という漢字を覚える。",
+          "kana": "「土」というかんじをおぼえる。",
+          "zh": "记住「土」这个汉字（土）。",
+          "targetSurface": "土"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "conf-spider",
+      "type": "word",
+      "surface": "蜘蛛",
+      "kana": "くも",
+      "romaji": ["kumo"],
+      "meaningsZh": ["蜘蛛"],
+      "pos": "noun",
+      "tags": ["confusable", "same-sound", "kumo"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-spider-1",
+          "ja": "「蜘蛛」という言葉の意味を確認する。",
+          "kana": "「蜘蛛」ということばのいみをかくにんする。",
+          "zh": "确认「蜘蛛」（蜘蛛）这个词的含义。",
+          "targetSurface": "蜘蛛"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["same-sound-confusion"]
+    },
+    {
+      "id": "conf-warrior",
+      "type": "word",
+      "surface": "士",
+      "kana": "し",
+      "romaji": ["shi"],
+      "meaningsZh": ["士", "武士"],
+      "pos": "noun",
+      "tags": ["confusable", "near-shape", "tsuchi-shi"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-conf-warrior-1",
+          "ja": "「士」は「し」と読む。",
+          "kana": "「士」は「し」とよむ。",
+          "zh": "「士」读作「し」，意思是士。",
+          "targetSurface": "士",
+          "targetKana": "し"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "errorTags": ["meaning-confusion"]
+    },
+    {
+      "id": "word-add-kisha",
+      "type": "word",
+      "surface": "汽車",
+      "kana": "きしゃ",
+      "romaji": ["kisha"],
+      "meaningsZh": ["火车", "蒸汽机车(不是中文「汽车」)"],
+      "pos": "noun",
+      "tags": ["transport", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-kisha-1",
+          "ja": "昔、汽車で北海道まで旅行した。",
+          "kana": "むかし、きしゃでほっかいどうまでりょこうした。",
+          "zh": "以前坐火车去了北海道旅行。",
+          "targetSurface": "汽車",
+          "targetKana": "きしゃ"
+        },
+        {
+          "id": "ex-add-kisha-2",
+          "ja": "「汽車」は中国語の「自動車」ではなく、蒸気機関車・列車のこと。",
+          "kana": "「きしゃ」はちゅうごくごの「じどうしゃ」ではなく、じょうききかんしゃ・れっしゃのこと。",
+          "zh": "日语「汽車」是火车，不是中文的「汽车」。",
+          "targetSurface": "汽車",
+          "targetKana": "きしゃ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-rouba",
+      "type": "word",
+      "surface": "老婆",
+      "kana": "ろうば",
+      "romaji": ["rouba"],
+      "meaningsZh": ["老婆婆(不是中文「妻子」)"],
+      "pos": "noun",
+      "tags": ["zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-rouba-1",
+          "ja": "公園で老婆が孫と遊んでいた。",
+          "kana": "こうえんでろうばがまごとあそんでいた。",
+          "zh": "公园里老婆婆在和孙子玩。",
+          "targetSurface": "老婆",
+          "targetKana": "ろうば"
+        },
+        {
+          "id": "ex-add-rouba-2",
+          "ja": "中国語の「老婆」は妻だが、日本語では「老女」の意。",
+          "kana": "ちゅうごくごの「ろうば」はつまだが、にほんごでは「ろうじょ」のい。",
+          "zh": "中文「老婆」是妻子，日语「老婆」是老婆婆。",
+          "targetSurface": "老婆",
+          "targetKana": "ろうば"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-ninjin",
+      "type": "word",
+      "surface": "人参",
+      "kana": "にんじん",
+      "romaji": ["ninjin"],
+      "meaningsZh": ["胡萝卜(不是中文「ginseng」)"],
+      "pos": "noun",
+      "tags": ["food", "ingredient", "zh-misleading"],
+      "skillTags": ["meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-ninjin-1",
+          "ja": "人参を細かく切ってサラダに入れた。",
+          "kana": "にんじんをこまかくきってサラダにいれた。",
+          "zh": "胡萝卜切碎放进沙拉。",
+          "targetSurface": "人参",
+          "targetKana": "にんじん"
+        },
+        {
+          "id": "ex-add-ninjin-2",
+          "ja": "「人参」は中国語の薬用人参ではなく、野菜のキャロット。",
+          "kana": "「にんじん」はちゅうごくごのやくようにんじんではなく、やさいのキャロット。",
+          "zh": "日语「人参」是胡萝卜，不是中药人参。",
+          "targetSurface": "人参",
+          "targetKana": "にんじん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-kufuu",
+      "type": "word",
+      "surface": "工夫",
+      "kana": "くふう",
+      "romaji": ["kufuu"],
+      "meaningsZh": ["想办法", "下功夫(不是中文「时间/技能」)"],
+      "pos": "noun",
+      "tags": ["zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-kufuu-1",
+          "ja": "料理に工夫をこらす。",
+          "kana": "りょうりにくふうをこらす。",
+          "zh": "在料理上下功夫想办法。",
+          "targetSurface": "工夫",
+          "targetKana": "くふう"
+        },
+        {
+          "id": "ex-add-kufuu-2",
+          "ja": "「工夫」は中国語の「時間」ではなく、「考えて改善する」の意。",
+          "kana": "「くふう」はちゅうごくごの「じかん」ではなく、「かんがえてかいぜんする」のい。",
+          "zh": "「工夫」不是中文「时间/技能」，是「想办法」。",
+          "targetSurface": "工夫",
+          "targetKana": "くふう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-zehi",
+      "type": "word",
+      "surface": "是非",
+      "kana": "ぜひ",
+      "romaji": ["zehi"],
+      "meaningsZh": ["务必", "一定(不是中文「对错」)"],
+      "pos": "adverb",
+      "tags": ["adverb", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-zehi-1",
+          "ja": "是非、遊びに来てください。",
+          "kana": "ぜひ、あそびにきてください。",
+          "zh": "请一定来玩。",
+          "targetSurface": "是非",
+          "targetKana": "ぜひ"
+        },
+        {
+          "id": "ex-add-zehi-2",
+          "ja": "「是非」は中国語の「正誤」ではなく、「ぜひ」の意味で使う。",
+          "kana": "「ぜひ」はちゅうごくごの「せいご」ではなく、「ぜひ」のいみでつかう。",
+          "zh": "「是非」不是中文「对错」，意为「务必」。",
+          "targetSurface": "是非",
+          "targetKana": "ぜひ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-muri",
+      "type": "word",
+      "surface": "無理",
+      "kana": "むり",
+      "romaji": ["muri"],
+      "meaningsZh": ["不可能", "勉强(不是中文「无理取闹」)"],
+      "pos": "adjective",
+      "tags": ["na-adjective", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-muri-1",
+          "ja": "一日で全部終わらせるのは無理だ。",
+          "kana": "いちにちでぜんぶおわらせるのはむりだ。",
+          "zh": "一天全做完是不可能的。",
+          "targetSurface": "無理",
+          "targetKana": "むり"
+        },
+        {
+          "id": "ex-add-muri-2",
+          "ja": "無理しないで、休んでください。",
+          "kana": "むりしないで、やすんでください。",
+          "zh": "别勉强，请休息。",
+          "targetSurface": "無理",
+          "targetKana": "むり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-kekkou",
+      "type": "word",
+      "surface": "結構",
+      "kana": "けっこう",
+      "romaji": ["kekkou"],
+      "meaningsZh": ["不需要(婉拒)", "相当(不是中文「结构」)"],
+      "pos": "adjective",
+      "tags": ["na-adjective", "sokuon", "zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-kekkou-1",
+          "ja": "お茶のおかわりは結構です。",
+          "kana": "おちゃのおかわりはけっこうです。",
+          "zh": "茶不用再续了，谢谢（婉拒）。",
+          "targetSurface": "結構",
+          "targetKana": "けっこう"
+        },
+        {
+          "id": "ex-add-kekkou-2",
+          "ja": "この絵は結構いいね。",
+          "kana": "このえはけっこういいね。",
+          "zh": "这幅画挺不错的。",
+          "targetSurface": "結構",
+          "targetKana": "けっこう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-gaman",
+      "type": "word",
+      "surface": "我慢",
+      "kana": "がまん",
+      "romaji": ["gaman"],
+      "meaningsZh": ["忍耐", "忍受(不是中文「我慢」)"],
+      "pos": "noun",
+      "tags": ["zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-gaman-1",
+          "ja": "熱いけれど我慢して食べた。",
+          "kana": "あついけれどがまんしてたべた。",
+          "zh": "虽然烫，但忍着吃了。",
+          "targetSurface": "我慢",
+          "targetKana": "がまん"
+        },
+        {
+          "id": "ex-add-gaman-2",
+          "ja": "もう我慢の限界だ。",
+          "kana": "もうがまんのげんかいだ。",
+          "zh": "已经忍到极限了。",
+          "targetSurface": "我慢",
+          "targetKana": "がまん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-shinpai",
+      "type": "word",
+      "surface": "心配",
+      "kana": "しんぱい",
+      "romaji": ["shinpai"],
+      "meaningsZh": ["担心", "忧虑(不是中文「心配」)"],
+      "pos": "noun",
+      "tags": ["zh-misleading", "feeling"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-shinpai-1",
+          "ja": "台風が近づいているので、心配だ。",
+          "kana": "たいふうがちかづいているので、しんぱいだ。",
+          "zh": "台风快来了，很担心。",
+          "targetSurface": "心配",
+          "targetKana": "しんぱい"
+        },
+        {
+          "id": "ex-add-shinpai-2",
+          "ja": "ご心配なく、私は元気です。",
+          "kana": "ごしんぱいなく、わたしはげんきです。",
+          "zh": "请放心，我很好。",
+          "targetSurface": "心配",
+          "targetKana": "しんぱい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-shitsumon",
+      "type": "word",
+      "surface": "質問",
+      "kana": "しつもん",
+      "romaji": ["shitsumon"],
+      "meaningsZh": ["提问", "问题(不是中文「质问/责问」)"],
+      "pos": "noun",
+      "tags": ["zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-shitsumon-1",
+          "ja": "先生に質問してもいいですか?",
+          "kana": "せんせいにしつもんしてもいいですか?",
+          "zh": "可以向老师提问吗？",
+          "targetSurface": "質問",
+          "targetKana": "しつもん"
+        },
+        {
+          "id": "ex-add-shitsumon-2",
+          "ja": "「質問」は中国語の「責める」ではなく、「問う」の意。",
+          "kana": "「しつもん」はちゅうごくごの「せめる」ではなく、「とう」のい。",
+          "zh": "日语「質問」是提问，不是中文「质问」。",
+          "targetSurface": "質問",
+          "targetKana": "しつもん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": []
+    },
+    {
+      "id": "word-add-anzan",
+      "type": "word",
+      "surface": "暗算",
+      "kana": "あんざん",
+      "romaji": ["anzan"],
+      "meaningsZh": ["心算(不是中文「暗算/谋害」)"],
+      "pos": "noun",
+      "tags": ["zh-misleading"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-add-anzan-1",
+          "ja": "彼は暗算が得意だ。",
+          "kana": "かれはあんざんがとくいだ。",
+          "zh": "他擅长心算。",
+          "targetSurface": "暗算",
+          "targetKana": "あんざん"
+        },
+        {
+          "id": "ex-add-anzan-2",
+          "ja": "「暗算」は中国語の「陰謀」ではなく、頭の中での計算。",
+          "kana": "「あんざん」はちゅうごくごの「いんぼう」ではなく、あたまのなかでのけいさん。",
+          "zh": "日语「暗算」是心算，不是中文「暗算/谋害」。",
+          "targetSurface": "暗算",
+          "targetKana": "あんざん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": []
+    }
+  ]
+}

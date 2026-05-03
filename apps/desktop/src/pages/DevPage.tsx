@@ -84,7 +84,8 @@ export function DevPage(): JSX.Element {
       <section style={{ marginTop: '1.5rem' }}>
         <h2>Seed test pack</h2>
         <p style={{ color: 'var(--muted)' }}>
-          Loads <code>content/official/n5-basic-mini.json</code> (10 items, embedded at build time).
+          Loads the phase1 corpus (10 word packs + 1 sentence pack ≈ 1534 words / 120 sentences,
+          embedded at build time from <code>content/official/official-phase1-*.json</code>).
         </p>
         <button onClick={() => void onSeed()} disabled={seedState.status === 'loading'}>
           Seed

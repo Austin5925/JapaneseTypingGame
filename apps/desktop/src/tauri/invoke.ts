@@ -249,3 +249,70 @@ export function aggregateRecentErrorTags(
 ): Promise<ErrorTagAggregateRow[]> {
   return invoke<ErrorTagAggregateRow[]>('aggregate_recent_error_tags', { input });
 }
+
+// v0.9.0 Study mode --------------------------------------------------------
+//
+// Study mode is the non-game card-based learning surface. study_progress is orthogonal to the
+// game-side item_skill_progress: it only tracks "this user has been shown this card".
+// `(jlpt, count)` tuples come back as `[string, number]` because serde tuple-serialises into
+// a JSON array.
+
+export interface StudyPackSummary {
+  packId: string;
+  name: string;
+  description: string | null;
+  totalCount: number;
+  studiedCount: number;
+  jlptBreakdown: [string, number][];
+}
+
+export function listStudyPacks(userId: string): Promise<StudyPackSummary[]> {
+  return invoke<StudyPackSummary[]>('list_study_packs', { userId });
+}
+
+export interface StudyExample {
+  id: string;
+  ja: string;
+  kana: string | null;
+  zh: string;
+}
+
+export interface StudyItemRow {
+  id: string;
+  type: LearningItemType;
+  surface: string;
+  kana: string;
+  romaji: string[];
+  pos: string | null;
+  jlpt: string | null;
+  tags: string[];
+  meaningsZh: string[];
+  examples: StudyExample[];
+  viewCount: number;
+  marked: boolean;
+  lastViewedAt: string | null;
+}
+
+export type StudyFilter = 'all' | 'new' | 'reviewed';
+
+export interface ListStudyItemsInput {
+  packId: string;
+  userId: string;
+  filter?: StudyFilter;
+}
+
+export function listStudyItems(input: ListStudyItemsInput): Promise<StudyItemRow[]> {
+  return invoke<StudyItemRow[]>('list_study_items', { input });
+}
+
+export function recordStudyView(input: { userId: string; itemId: string }): Promise<void> {
+  return invoke<void>('record_study_view', { input });
+}
+
+export function toggleStudyMarked(input: {
+  userId: string;
+  itemId: string;
+  marked: boolean;
+}): Promise<void> {
+  return invoke<void>('toggle_study_marked', { input });
+}

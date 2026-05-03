@@ -119,8 +119,11 @@ export function HomePage(): JSX.Element {
             </span>{' '}
             项 · 待巩固 <span style={{ color: 'var(--kt2-accent-2)' }}>{fragileCount}</span> 项
           </div>
-          <div style={{ marginTop: 14, display: 'flex', gap: 8 }}>
-            <a href="#/today" className="r-btn primary tall" style={{ textDecoration: 'none' }}>
+          <div style={{ marginTop: 14, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            <a href="#/study" className="r-btn primary tall" style={{ textDecoration: 'none' }}>
+              <PixIcon name="library" /> 学习模式
+            </a>
+            <a href="#/today" className="r-btn tall" style={{ textDecoration: 'none' }}>
               <PixIcon name="play" /> 继续训练 [F5]
             </a>
             <a href="#/mistakes" className="r-btn tall" style={{ textDecoration: 'none' }}>

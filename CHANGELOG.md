@@ -8,6 +8,63 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-05-03 — 学习模式(Study mode):非游戏卡片浏览 + 进度跟踪
+
+The previous 0.8.x line treated the 5 games as the entire learning surface, which assumed the
+user already recognised every kanji and word. With the v0.9.0 phase1 corpus topping 1500+
+items, that assumption broke for anyone below comfortable N4. This release adds a **dedicated
+non-game study surface** so users can read the items first, then practise them in the games.
+
+### Added
+
+- **`#/study` 词包选择页** — lists every enabled content pack with: name, description, JLPT
+  distribution chips, "X / total" studied counter, gradient progress bar. Sorted by
+  "still-to-learn" descending, so the most-relevant pack is always on top.
+- **`#/study?pack=<id>[&mode=reviewed]` 卡片浏览页** — single-card view rendering surface,
+  kana, romaji, pos / jlpt / tag chips, 中文意思 panel, and an examples panel (ja + kana + zh
+  for each example). Header shows `current / total + pack id + mode`; footer has 上一个 /
+  下一个 / 标记已学(toggle) / 退出 buttons.
+- **键盘控制**: `← / →` 翻页, `Space / Enter` toggle 已掌握, `Esc / Q` 退出. Keyboard
+  handler ignores events when focus is in `<input>` / `<textarea>` / contentEditable.
+- **混合"已学"判定**: stays on a card ≥ 2 s → SQLite `view_count++` (auto "已学过");
+  user can additionally hit ✓ to set the durable `marked = 1` flag (撤销 也支持).
+- **复习模式** (`?mode=reviewed`): filters items where `view_count >= 1 OR marked = 1` and
+  orders by `last_viewed_at ASC` so the longest-unseen surfaces first.
+- **断点续学**: current card index is mirrored to localStorage per `(packId, mode)` so
+  reopening the same pack resumes where you left off. Durable progress (view counts, marked
+  flags) lives in SQLite.
+- **导航**: 学习模式 nav 出现在左侧栏「学习」分组首位 (`NEW` badge); 主页 hero 增加学习模式
+  primary CTA, 替代之前的 "继续训练" 主按钮位置 (训练 / 错题 button 仍保留).
+- **migration 006_study_progress.sql**: new `study_progress (user_id, item_id, view_count,
+  marked, first_viewed_at, last_viewed_at)` table with `ON DELETE CASCADE` from
+  `learning_items` so legacy-pack cleanup also clears study rows.
+- **4 new Tauri commands**:
+  - `list_study_packs(userId)` — LEFT JOIN aggregates total / studied counts + JLPT histogram
+    per pack.
+  - `list_study_items(packId, userId, filter)` — `'all'`/`'new'`/`'reviewed'`; default order
+    is JLPT ascending (N5 first), reviewed mode orders by `last_viewed_at`.
+  - `record_study_view(userId, itemId)` — `INSERT … ON CONFLICT DO UPDATE` increments
+    `view_count`, sets `last_viewed_at`, preserves `first_viewed_at`.
+  - `toggle_study_marked(userId, itemId, marked)` — same upsert pattern, flips `marked`.
+- **Rust unit tests** (4 new): view increments, mark toggle round-trip, filter splits new vs
+  reviewed buckets, pack summary reports correct studied count + JLPT order.
+
+### Changed
+
+- `RetroShell.RetroActiveKey` extended with `'study'` and `'study-pack'`.
+- HomePage CTA row now leads with 「学习模式」 followed by 「继续训练」 + 「从错题开始」.
+- `apps/desktop/src/features/version.ts` — APP_VERSION 0.8.10 → 0.9.0 (also catches up the
+  one missed bump from the 0.8.11 release).
+
+### Notes
+
+- Study mode is intentionally **decoupled from game scheduling** in this release. Whether a
+  card has been studied does not influence which items the games select for tasks. A future
+  release (v0.10+) may layer "games prefer studied items" on top.
+- `study_progress` rows only persist for items still in `learning_items`. If a content pack is
+  removed (e.g. via `cleanup_legacy_packs`), the cascading FK clears study progress for those
+  items too.
+
 ## [0.8.11] - 2026-05-03 — Meaning column + Mole in-game meaning + SpeedChase race redesign
 
 ### Added

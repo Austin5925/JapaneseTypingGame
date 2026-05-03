@@ -1,0 +1,3344 @@
+{
+  "id": "official-phase1-japan-culture-facilities",
+  "name": "第一阶段：日本生活文化设施与公共设施",
+  "version": "1.1.0",
+  "items": [
+    {
+      "id": "word-chouzuya",
+      "type": "word",
+      "surface": "手水舎",
+      "kana": "ちょうずや",
+      "romaji": ["chouzuya"],
+      "meaningsZh": ["神社净手处"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-chouzuya-1",
+          "ja": "参拝の前に手水舎で手を清める。",
+          "kana": "さんぱいのまえにちょうずやでてをきよめる。",
+          "zh": "参拜前在手水舍净手。",
+          "targetSurface": "手水舎",
+          "targetKana": "ちょうずや"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N2"
+    },
+    {
+      "id": "word-goshuin",
+      "type": "word",
+      "surface": "御朱印",
+      "kana": "ごしゅいん",
+      "romaji": ["goshuin"],
+      "meaningsZh": ["御朱印"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-goshuin-1",
+          "ja": "神社で御朱印をいただいた。",
+          "kana": "じんじゃでごしゅいんをいただいた。",
+          "zh": "在神社获得了朱印。",
+          "targetSurface": "御朱印",
+          "targetKana": "ごしゅいん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N2"
+    },
+    {
+      "id": "word-nakai",
+      "type": "word",
+      "surface": "仲居",
+      "kana": "なかい",
+      "romaji": ["nakai"],
+      "meaningsZh": ["旅馆女服务员"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nakai-1",
+          "ja": "旅館の仲居さんが部屋まで案内してくれた。",
+          "kana": "りょかんのなかいさんがへやまであんないしてくれた。",
+          "zh": "旅馆的女将带我们到房间。",
+          "targetSurface": "仲居",
+          "targetKana": "なかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N2"
+    },
+    {
+      "id": "word-tokonoma",
+      "type": "word",
+      "surface": "床の間",
+      "kana": "とこのま",
+      "romaji": ["tokonoma"],
+      "meaningsZh": ["日式壁龛"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tokonoma-1",
+          "ja": "和室の床の間に掛け軸を飾る。",
+          "kana": "わしつのとこのまにかけじくをかざる。",
+          "zh": "和室的壁龛装饰挂轴。",
+          "targetSurface": "床の間",
+          "targetKana": "とこのま"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N2"
+    },
+    {
+      "id": "word-bangoufuda",
+      "type": "word",
+      "surface": "番号札",
+      "kana": "ばんごうふだ",
+      "romaji": ["bangoufuda"],
+      "meaningsZh": ["号码牌"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-bangoufuda-1",
+          "ja": "窓口で番号札を取って待つ。",
+          "kana": "まどぐちでばんごうふだをとってまつ。",
+          "zh": "在窗口取号等待。",
+          "targetSurface": "番号札",
+          "targetKana": "ばんごうふだ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-bonodori",
+      "type": "word",
+      "surface": "盆踊り",
+      "kana": "ぼんおどり",
+      "romaji": ["bon'odori"],
+      "meaningsZh": ["盂兰盆舞"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-bonodori-1",
+          "ja": "休日に盆踊りへ行ってきた。",
+          "kana": "きゅうじつにぼんおどりへいってきた。",
+          "zh": "假日去了盂兰盆舞。",
+          "targetSurface": "盆踊り",
+          "targetKana": "ぼんおどり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-bousaisentaa",
+      "type": "word",
+      "surface": "防災センター",
+      "kana": "ぼうさいせんたー",
+      "romaji": ["bousaisentaa"],
+      "meaningsZh": ["防灾中心"],
+      "pos": "noun",
+      "tags": ["public", "japan-life", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-bousaisentaa-1",
+          "ja": "休日に防災センターへ行ってきた。",
+          "kana": "きゅうじつにぼうさいせんたーへいってきた。",
+          "zh": "假日去了防灾中心。",
+          "targetSurface": "防災センター",
+          "targetKana": "ぼうさいせんたー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-bunkasentaa",
+      "type": "word",
+      "surface": "文化センター",
+      "kana": "ぶんかせんたー",
+      "romaji": ["bunkasentaa"],
+      "meaningsZh": ["文化中心"],
+      "pos": "noun",
+      "tags": ["facility", "culture", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-bunkasentaa-1",
+          "ja": "文化センターは十時から開いている。",
+          "kana": "ぶんかせんたーはじゅうじからあいている。",
+          "zh": "文化中心从十点开门。",
+          "targetSurface": "文化センター",
+          "targetKana": "ぶんかせんたー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-chiikisentaa",
+      "type": "word",
+      "surface": "地域センター",
+      "kana": "ちいきせんたー",
+      "romaji": ["chiikisentaa"],
+      "meaningsZh": ["地区中心"],
+      "pos": "noun",
+      "tags": ["public", "japan-life", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-chiikisentaa-1",
+          "ja": "休日に地域センターへ行ってきた。",
+          "kana": "きゅうじつにちいきせんたーへいってきた。",
+          "zh": "假日去了地区中心。",
+          "targetSurface": "地域センター",
+          "targetKana": "ちいきせんたー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-chounaikai",
+      "type": "word",
+      "surface": "町内会",
+      "kana": "ちょうないかい",
+      "romaji": ["chounaikai"],
+      "meaningsZh": ["町内会", "社区自治会"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-chounaikai-1",
+          "ja": "休日に町内会へ行ってきた。",
+          "kana": "きゅうじつにちょうないかいへいってきた。",
+          "zh": "假日去了町内会。",
+          "targetSurface": "町内会",
+          "targetKana": "ちょうないかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-chuushi",
+      "type": "word",
+      "surface": "中止",
+      "kana": "ちゅうし",
+      "romaji": ["chuushi"],
+      "meaningsZh": ["中止", "取消"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-chuushi-1",
+          "ja": "雨のためイベントは中止になった。",
+          "kana": "あめのためイベントはちゅうしになった。",
+          "zh": "因雨活动取消。",
+          "targetSurface": "中止",
+          "targetKana": "ちゅうし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-daiyokujou",
+      "type": "word",
+      "surface": "大浴場",
+      "kana": "だいよくじょう",
+      "romaji": ["daiyokujou"],
+      "meaningsZh": ["大浴场"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-daiyokujou-1",
+          "ja": "近所に大浴場ができた。",
+          "kana": "きんじょにだいよくじょうができた。",
+          "zh": "附近开了一家大浴场。",
+          "targetSurface": "大浴場",
+          "targetKana": "だいよくじょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-ema",
+      "type": "word",
+      "surface": "絵馬",
+      "kana": "えま",
+      "romaji": ["ema"],
+      "meaningsZh": ["绘马"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ema-1",
+          "ja": "休日に絵馬へ行ってきた。",
+          "kana": "きゅうじつにえまへいってきた。",
+          "zh": "假日去了绘马。",
+          "targetSurface": "絵馬",
+          "targetKana": "えま"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-enki",
+      "type": "word",
+      "surface": "延期",
+      "kana": "えんき",
+      "romaji": ["enki"],
+      "meaningsZh": ["延期"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-enki-1",
+          "ja": "会議は来週に延期された。",
+          "kana": "かいぎはらいしゅうにえんきされた。",
+          "zh": "会议延期到下周。",
+          "targetSurface": "延期",
+          "targetKana": "えんき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-ennichi",
+      "type": "word",
+      "surface": "縁日",
+      "kana": "えんにち",
+      "romaji": ["ennichi"],
+      "meaningsZh": ["庙会日", "缘日"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ennichi-1",
+          "ja": "休日に縁日へ行ってきた。",
+          "kana": "きゅうじつにえんにちへいってきた。",
+          "zh": "假日去了庙会日。",
+          "targetSurface": "縁日",
+          "targetKana": "えんにち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-fusuma",
+      "type": "word",
+      "surface": "襖",
+      "kana": "ふすま",
+      "romaji": ["fusuma"],
+      "meaningsZh": ["日式拉门"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-fusuma-1",
+          "ja": "和室の襖を静かに開けた。",
+          "kana": "わしつのふすまをしずかにあけた。",
+          "zh": "轻轻地拉开和室的拉门。",
+          "targetSurface": "襖",
+          "targetKana": "ふすま"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-gakushuusentaa",
+      "type": "word",
+      "surface": "学習センター",
+      "kana": "がくしゅうせんたー",
+      "romaji": ["gakushuusentaa"],
+      "meaningsZh": ["学习中心"],
+      "pos": "noun",
+      "tags": ["public", "japan-life", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-gakushuusentaa-1",
+          "ja": "休日に学習センターへ行ってきた。",
+          "kana": "きゅうじつにがくしゅうせんたーへいってきた。",
+          "zh": "假日去了学习中心。",
+          "targetSurface": "学習センター",
+          "targetKana": "がくしゅうせんたー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-gekijou",
+      "type": "word",
+      "surface": "劇場",
+      "kana": "げきじょう",
+      "romaji": ["gekijou"],
+      "meaningsZh": ["剧场"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-gekijou-1",
+          "ja": "劇場は十時から開いている。",
+          "kana": "げきじょうはじゅうじからあいている。",
+          "zh": "剧场从十点开门。",
+          "targetSurface": "劇場",
+          "targetKana": "げきじょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-genpon",
+      "type": "word",
+      "surface": "原本",
+      "kana": "げんぽん",
+      "romaji": ["genpon"],
+      "meaningsZh": ["原件"],
+      "pos": "noun",
+      "tags": ["document"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-genpon-1",
+          "ja": "コピーではなく原本を提出してください。",
+          "kana": "コピーではなくげんぽんをていしゅつしてください。",
+          "zh": "请提交原件，不是复印件。",
+          "targetSurface": "原本",
+          "targetKana": "げんぽん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hatsumoude",
+      "type": "word",
+      "surface": "初詣",
+      "kana": "はつもうで",
+      "romaji": ["hatsumoude"],
+      "meaningsZh": ["新年初拜"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hatsumoude-1",
+          "ja": "近所に初詣ができた。",
+          "kana": "きんじょにはつもうでができた。",
+          "zh": "附近开了一家新年初拜。",
+          "targetSurface": "初詣",
+          "targetKana": "はつもうで"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-heikan",
+      "type": "word",
+      "surface": "閉館",
+      "kana": "へいかん",
+      "romaji": ["heikan"],
+      "meaningsZh": ["闭馆"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-heikan-1",
+          "ja": "美術館は六時で閉館する。",
+          "kana": "びじゅつかんはろくじでへいかんする。",
+          "zh": "美术馆六点闭馆。",
+          "targetSurface": "閉館",
+          "targetKana": "へいかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-henkou",
+      "type": "word",
+      "surface": "変更",
+      "kana": "へんこう",
+      "romaji": ["henkou"],
+      "meaningsZh": ["变更"],
+      "pos": "noun",
+      "tags": ["document"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-henkou-1",
+          "ja": "日程が変更になりました。",
+          "kana": "にっていがへんこうになりました。",
+          "zh": "日程有变更。",
+          "targetSurface": "変更",
+          "targetKana": "へんこう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-higaerionsen",
+      "type": "word",
+      "surface": "日帰り温泉",
+      "kana": "ひがえりおんせん",
+      "romaji": ["higaerionsen"],
+      "meaningsZh": ["一日往返温泉"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-higaerionsen-1",
+          "ja": "休日に日帰り温泉へ行ってきた。",
+          "kana": "きゅうじつにひがえりおんせんへいってきた。",
+          "zh": "假日去了一日往返温泉。",
+          "targetSurface": "日帰り温泉",
+          "targetKana": "ひがえりおんせん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hikkoshitodoke",
+      "type": "word",
+      "surface": "引越し届",
+      "kana": "ひっこしとどけ",
+      "romaji": ["hikkoshitodoke"],
+      "meaningsZh": ["搬家申报"],
+      "pos": "noun",
+      "tags": ["document", "sokuon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hikkoshitodoke-1",
+          "ja": "市役所に引越し届を出す。",
+          "kana": "しやくしょにひっこしとどけをだす。",
+          "zh": "去市役所提交搬家申请。",
+          "targetSurface": "引越し届",
+          "targetKana": "ひっこしとどけ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-hokenjo",
+      "type": "word",
+      "surface": "保健所",
+      "kana": "ほけんじょ",
+      "romaji": ["hokenjo"],
+      "meaningsZh": ["保健所"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hokenjo-1",
+          "ja": "保健所は十時から開いている。",
+          "kana": "ほけんじょはじゅうじからあいている。",
+          "zh": "保健所从十点开门。",
+          "targetSurface": "保健所",
+          "targetKana": "ほけんじょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-honden",
+      "type": "word",
+      "surface": "本殿",
+      "kana": "ほんでん",
+      "romaji": ["honden"],
+      "meaningsZh": ["本殿"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-honden-1",
+          "ja": "神社の本殿でお参りする。",
+          "kana": "じんじゃのほんでんでおまいりする。",
+          "zh": "在神社的正殿参拜。",
+          "targetSurface": "本殿",
+          "targetKana": "ほんでん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hondou",
+      "type": "word",
+      "surface": "本堂",
+      "kana": "ほんどう",
+      "romaji": ["hondou"],
+      "meaningsZh": ["本堂"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hondou-1",
+          "ja": "お寺の本堂で焼香する。",
+          "kana": "おてらのほんどうでしょうこうする。",
+          "zh": "在寺院的本堂上香。",
+          "targetSurface": "本堂",
+          "targetKana": "ほんどう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-hooru",
+      "type": "word",
+      "surface": "ホール",
+      "kana": "ホール",
+      "romaji": ["hooru"],
+      "meaningsZh": ["大厅", "音乐厅"],
+      "pos": "noun",
+      "tags": ["facility", "culture", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-hooru-1",
+          "ja": "休日にホールへ行ってきた。",
+          "kana": "きゅうじつにほーるへいってきた。",
+          "zh": "假日去了大厅。",
+          "targetSurface": "ホール",
+          "targetKana": "ほーる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-houji",
+      "type": "word",
+      "surface": "法事",
+      "kana": "ほうじ",
+      "romaji": ["houji"],
+      "meaningsZh": ["法事"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-houji-1",
+          "ja": "近所に法事ができた。",
+          "kana": "きんじょにほうじができた。",
+          "zh": "附近开了一家法事。",
+          "targetSurface": "法事",
+          "targetKana": "ほうじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-jichitai",
+      "type": "word",
+      "surface": "自治体",
+      "kana": "じちたい",
+      "romaji": ["jichitai"],
+      "meaningsZh": ["地方自治体"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-jichitai-1",
+          "ja": "ゴミ出しのルールは自治体ごとに違う。",
+          "kana": "ゴミだしのルールはじちたいごとにちがう。",
+          "zh": "垃圾投放规则各地方政府不同。",
+          "targetSurface": "自治体",
+          "targetKana": "じちたい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-jidoukan",
+      "type": "word",
+      "surface": "児童館",
+      "kana": "じどうかん",
+      "romaji": ["jidoukan"],
+      "meaningsZh": ["儿童馆"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-jidoukan-1",
+          "ja": "近所に児童館ができた。",
+          "kana": "きんじょにじどうかんができた。",
+          "zh": "附近开了一家儿童馆。",
+          "targetSurface": "児童館",
+          "targetKana": "じどうかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-jousetsuten",
+      "type": "word",
+      "surface": "常設展",
+      "kana": "じょうせつてん",
+      "romaji": ["jousetsuten"],
+      "meaningsZh": ["常设展"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-jousetsuten-1",
+          "ja": "常設展は十時から開いている。",
+          "kana": "じょうせつてんはじゅうじからあいている。",
+          "zh": "常设展从十点开门。",
+          "targetSurface": "常設展",
+          "targetKana": "じょうせつてん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-juuminhyou",
+      "type": "word",
+      "surface": "住民票",
+      "kana": "じゅうみんひょう",
+      "romaji": ["juuminhyou"],
+      "meaningsZh": ["住民票"],
+      "pos": "noun",
+      "tags": ["document", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-juuminhyou-1",
+          "ja": "住民票は十時から開いている。",
+          "kana": "じゅうみんひょうはじゅうじからあいている。",
+          "zh": "住民票从十点开门。",
+          "targetSurface": "住民票",
+          "targetKana": "じゅうみんひょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kabuki",
+      "type": "word",
+      "surface": "歌舞伎",
+      "kana": "かぶき",
+      "romaji": ["kabuki"],
+      "meaningsZh": ["歌舞伎"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kabuki-1",
+          "ja": "休日に歌舞伎へ行ってきた。",
+          "kana": "きゅうじつにかぶきへいってきた。",
+          "zh": "假日去了歌舞伎。",
+          "targetSurface": "歌舞伎",
+          "targetKana": "かぶき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kagakukan",
+      "type": "word",
+      "surface": "科学館",
+      "kana": "かがくかん",
+      "romaji": ["kagakukan"],
+      "meaningsZh": ["科学馆"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kagakukan-1",
+          "ja": "近所に科学館ができた。",
+          "kana": "きんじょにかがくかんができた。",
+          "zh": "附近开了一家科学馆。",
+          "targetSurface": "科学館",
+          "targetKana": "かがくかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kaien",
+      "type": "word",
+      "surface": "開演",
+      "kana": "かいえん",
+      "romaji": ["kaien"],
+      "meaningsZh": ["开演"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaien-1",
+          "ja": "開演は十時から開いている。",
+          "kana": "かいえんはじゅうじからあいている。",
+          "zh": "开演从十点开门。",
+          "targetSurface": "開演",
+          "targetKana": "かいえん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kaijou",
+      "type": "word",
+      "surface": "会場",
+      "kana": "かいじょう",
+      "romaji": ["kaijou"],
+      "meaningsZh": ["会场"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaijou-1",
+          "ja": "近所に会場ができた。",
+          "kana": "きんじょにかいじょうができた。",
+          "zh": "附近开了一家会场。",
+          "targetSurface": "会場",
+          "targetKana": "かいじょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kaijou-2",
+      "type": "word",
+      "surface": "開場",
+      "kana": "かいじょう",
+      "romaji": ["kaijou"],
+      "meaningsZh": ["开场", "开放入场"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaijou-2-1",
+          "ja": "開場は十時から開いている。",
+          "kana": "かいじょうはじゅうじからあいている。",
+          "zh": "开场从十点开门。",
+          "targetSurface": "開場",
+          "targetKana": "かいじょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kaikan",
+      "type": "word",
+      "surface": "開館",
+      "kana": "かいかん",
+      "romaji": ["kaikan"],
+      "meaningsZh": ["开馆"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaikan-1",
+          "ja": "休日に開館へ行ってきた。",
+          "kana": "きゅうじつにかいかんへいってきた。",
+          "zh": "假日去了开馆。",
+          "targetSurface": "開館",
+          "targetKana": "かいかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kairanban",
+      "type": "word",
+      "surface": "回覧板",
+      "kana": "かいらんばん",
+      "romaji": ["kairanban"],
+      "meaningsZh": ["传阅通知板"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kairanban-1",
+          "ja": "近所に回覧板ができた。",
+          "kana": "きんじょにかいらんばんができた。",
+          "zh": "附近开了一家传阅通知板。",
+          "targetSurface": "回覧板",
+          "targetKana": "かいらんばん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kaisai",
+      "type": "word",
+      "surface": "開催",
+      "kana": "かいさい",
+      "romaji": ["kaisai"],
+      "meaningsZh": ["举办"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kaisai-1",
+          "ja": "近所に開催ができた。",
+          "kana": "きんじょにかいさいができた。",
+          "zh": "附近开了一家举办。",
+          "targetSurface": "開催",
+          "targetKana": "かいさい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kankouannaijo",
+      "type": "word",
+      "surface": "観光案内所",
+      "kana": "かんこうあんないじょ",
+      "romaji": ["kankouannaijo"],
+      "meaningsZh": ["旅游咨询处"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kankouannaijo-1",
+          "ja": "近所に観光案内所ができた。",
+          "kana": "きんじょにかんこうあんないじょができた。",
+          "zh": "附近开了一家旅游咨询处。",
+          "targetSurface": "観光案内所",
+          "targetKana": "かんこうあんないじょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kanranseki",
+      "type": "word",
+      "surface": "観覧席",
+      "kana": "かんらんせき",
+      "romaji": ["kanranseki"],
+      "meaningsZh": ["观众席"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kanranseki-1",
+          "ja": "休日に観覧席へ行ってきた。",
+          "kana": "きゅうじつにかんらんせきへいってきた。",
+          "zh": "假日去了观众席。",
+          "targetSurface": "観覧席",
+          "targetKana": "かんらんせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-keidai",
+      "type": "word",
+      "surface": "境内",
+      "kana": "けいだい",
+      "romaji": ["keidai"],
+      "meaningsZh": ["神社寺院境内"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-keidai-1",
+          "ja": "境内は十時から開いている。",
+          "kana": "けいだいはじゅうじからあいている。",
+          "zh": "神社寺院境内从十点开门。",
+          "targetSurface": "境内",
+          "targetKana": "けいだい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kenkouhokenshou",
+      "type": "word",
+      "surface": "健康保険証",
+      "kana": "けんこうほけんしょう",
+      "romaji": ["kenkouhokenshou"],
+      "meaningsZh": ["健康保险证"],
+      "pos": "noun",
+      "tags": ["document", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kenkouhokenshou-1",
+          "ja": "休日に健康保険証へ行ってきた。",
+          "kana": "きゅうじつにけんこうほけんしょうへいってきた。",
+          "zh": "假日去了健康保险证。",
+          "targetSurface": "健康保険証",
+          "targetKana": "けんこうほけんしょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kinenkan",
+      "type": "word",
+      "surface": "記念館",
+      "kana": "きねんかん",
+      "romaji": ["kinenkan"],
+      "meaningsZh": ["纪念馆"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kinenkan-1",
+          "ja": "記念館は十時から開いている。",
+          "kana": "きねんかんはじゅうじからあいている。",
+          "zh": "纪念馆从十点开门。",
+          "targetSurface": "記念館",
+          "targetKana": "きねんかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kinyuu",
+      "type": "word",
+      "surface": "記入",
+      "kana": "きにゅう",
+      "romaji": ["kinyuu"],
+      "meaningsZh": ["填写"],
+      "pos": "noun",
+      "tags": ["document", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kinyuu-1",
+          "ja": "記入は十時から開いている。",
+          "kana": "きにゅうはじゅうじからあいている。",
+          "zh": "填写从十点开门。",
+          "targetSurface": "記入",
+          "targetKana": "きにゅう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kouminkan",
+      "type": "word",
+      "surface": "公民館",
+      "kana": "こうみんかん",
+      "romaji": ["kouminkan"],
+      "meaningsZh": ["公民馆"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kouminkan-1",
+          "ja": "公民館は十時から開いている。",
+          "kana": "こうみんかんはじゅうじからあいている。",
+          "zh": "公民馆从十点开门。",
+          "targetSurface": "公民館",
+          "targetKana": "こうみんかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kouryuusentaa",
+      "type": "word",
+      "surface": "交流センター",
+      "kana": "こうりゅうせんたー",
+      "romaji": ["kouryuusentaa"],
+      "meaningsZh": ["交流中心"],
+      "pos": "noun",
+      "tags": ["public", "japan-life", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-kouryuusentaa-1",
+          "ja": "休日に交流センターへ行ってきた。",
+          "kana": "きゅうじつにこうりゅうせんたーへいってきた。",
+          "zh": "假日去了交流中心。",
+          "targetSurface": "交流センター",
+          "targetKana": "こうりゅうせんたー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-koushin",
+      "type": "word",
+      "surface": "更新",
+      "kana": "こうしん",
+      "romaji": ["koushin"],
+      "meaningsZh": ["更新", "续期"],
+      "pos": "noun",
+      "tags": ["document", "digital"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-koushin-1",
+          "ja": "二年に一度、契約を更新する。",
+          "kana": "にねんにいちど、けいやくをこうしんする。",
+          "zh": "每两年续约一次。",
+          "targetSurface": "更新",
+          "targetKana": "こうしん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kuuseki",
+      "type": "word",
+      "surface": "空席",
+      "kana": "くうせき",
+      "romaji": ["kuuseki"],
+      "meaningsZh": ["空座"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kuuseki-1",
+          "ja": "近所に空席ができた。",
+          "kana": "きんじょにくうせきができた。",
+          "zh": "附近开了一家空座。",
+          "targetSurface": "空席",
+          "targetKana": "くうせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kuyakusho",
+      "type": "word",
+      "surface": "区役所",
+      "kana": "くやくしょ",
+      "romaji": ["kuyakusho"],
+      "meaningsZh": ["区役所"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kuyakusho-1",
+          "ja": "区役所は十時から開いている。",
+          "kana": "くやくしょはじゅうじからあいている。",
+          "zh": "区役所从十点开门。",
+          "targetSurface": "区役所",
+          "targetKana": "くやくしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kyanserumachi",
+      "type": "word",
+      "surface": "キャンセル待ち",
+      "kana": "きゃんせるまち",
+      "romaji": ["kyanserumachi"],
+      "meaningsZh": ["候补等待"],
+      "pos": "noun",
+      "tags": ["facility", "culture", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kyanserumachi-1",
+          "ja": "キャンセル待ちは十時から開いている。",
+          "kana": "きゃんせるまちはじゅうじからあいている。",
+          "zh": "候补等待从十点开门。",
+          "targetSurface": "キャンセル待ち",
+          "targetKana": "きゃんせるまち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-kyuukanbi",
+      "type": "word",
+      "surface": "休館日",
+      "kana": "きゅうかんび",
+      "romaji": ["kyuukanbi"],
+      "meaningsZh": ["休馆日"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kyuukanbi-1",
+          "ja": "近所に休館日ができた。",
+          "kana": "きんじょにきゅうかんびができた。",
+          "zh": "附近开了一家休馆日。",
+          "targetSurface": "休館日",
+          "targetKana": "きゅうかんび"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-machiaishitsu",
+      "type": "word",
+      "surface": "待合室",
+      "kana": "まちあいしつ",
+      "romaji": ["machiaishitsu"],
+      "meaningsZh": ["等候室"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-machiaishitsu-1",
+          "ja": "休日に待合室へ行ってきた。",
+          "kana": "きゅうじつにまちあいしつへいってきた。",
+          "zh": "假日去了等候室。",
+          "targetSurface": "待合室",
+          "targetKana": "まちあいしつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-maeuriken",
+      "type": "word",
+      "surface": "前売り券",
+      "kana": "まえうりけん",
+      "romaji": ["maeuriken"],
+      "meaningsZh": ["预售票"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-maeuriken-1",
+          "ja": "前売り券は十時から開いている。",
+          "kana": "まえうりけんはじゅうじからあいている。",
+          "zh": "预售票从十点开门。",
+          "targetSurface": "前売り券",
+          "targetKana": "まえうりけん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-mainanbaakaado",
+      "type": "word",
+      "surface": "マイナンバーカード",
+      "kana": "マイナンバーカード",
+      "romaji": ["mainanbaakaado"],
+      "meaningsZh": ["个人编号卡"],
+      "pos": "noun",
+      "tags": ["document", "japan-life", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-mainanbaakaado-1",
+          "ja": "休日にマイナンバーカードへ行ってきた。",
+          "kana": "きゅうじつにまいなんばーかーどへいってきた。",
+          "zh": "假日去了个人编号卡。",
+          "targetSurface": "マイナンバーカード",
+          "targetKana": "まいなんばーかーど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-manseki",
+      "type": "word",
+      "surface": "満席",
+      "kana": "まんせき",
+      "romaji": ["manseki"],
+      "meaningsZh": ["满座"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-manseki-1",
+          "ja": "休日に満席へ行ってきた。",
+          "kana": "きゅうじつにまんせきへいってきた。",
+          "zh": "假日去了满座。",
+          "targetSurface": "満席",
+          "targetKana": "まんせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-mibunshoumeisho",
+      "type": "word",
+      "surface": "身分証明書",
+      "kana": "みぶんしょうめいしょ",
+      "romaji": ["mibunshoumeisho"],
+      "meaningsZh": ["身份证明"],
+      "pos": "noun",
+      "tags": ["document", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mibunshoumeisho-1",
+          "ja": "近所に身分証明書ができた。",
+          "kana": "きんじょにみぶんしょうめいしょができた。",
+          "zh": "附近开了一家身份证明。",
+          "targetSurface": "身分証明書",
+          "targetKana": "みぶんしょうめいしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-mikoshi",
+      "type": "word",
+      "surface": "神輿",
+      "kana": "みこし",
+      "romaji": ["mikoshi"],
+      "meaningsZh": ["神轿"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-mikoshi-1",
+          "ja": "休日に神輿へ行ってきた。",
+          "kana": "きゅうじつにみこしへいってきた。",
+          "zh": "假日去了神轿。",
+          "targetSurface": "神輿",
+          "targetKana": "みこし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-minshuku",
+      "type": "word",
+      "surface": "民宿",
+      "kana": "みんしゅく",
+      "romaji": ["minshuku"],
+      "meaningsZh": ["民宿"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-minshuku-1",
+          "ja": "民宿は十時から開いている。",
+          "kana": "みんしゅくはじゅうじからあいている。",
+          "zh": "民宿从十点开门。",
+          "targetSurface": "民宿",
+          "targetKana": "みんしゅく"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-moushikomi",
+      "type": "word",
+      "surface": "申込",
+      "kana": "もうしこみ",
+      "romaji": ["moushikomi"],
+      "meaningsZh": ["报名", "申请"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-moushikomi-1",
+          "ja": "申込は十時から開いている。",
+          "kana": "もうしこみはじゅうじからあいている。",
+          "zh": "报名从十点开门。",
+          "targetSurface": "申込",
+          "targetKana": "もうしこみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-muryoukaihou",
+      "type": "word",
+      "surface": "無料開放",
+      "kana": "むりょうかいほう",
+      "romaji": ["muryoukaihou"],
+      "meaningsZh": ["免费开放"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-muryoukaihou-1",
+          "ja": "無料開放は十時から開いている。",
+          "kana": "むりょうかいほうはじゅうじからあいている。",
+          "zh": "免费开放从十点开门。",
+          "targetSurface": "無料開放",
+          "targetKana": "むりょうかいほう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-nenkinjimusho",
+      "type": "word",
+      "surface": "年金事務所",
+      "kana": "ねんきんじむしょ",
+      "romaji": ["nenkinjimusho"],
+      "meaningsZh": ["养老金事务所"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nenkinjimusho-1",
+          "ja": "近所に年金事務所ができた。",
+          "kana": "きんじょにねんきんじむしょができた。",
+          "zh": "附近开了一家养老金事务所。",
+          "targetSurface": "年金事務所",
+          "targetKana": "ねんきんじむしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-nyuujouryou",
+      "type": "word",
+      "surface": "入場料",
+      "kana": "にゅうじょうりょう",
+      "romaji": ["nyuujouryou"],
+      "meaningsZh": ["入场费"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nyuujouryou-1",
+          "ja": "近所に入場料ができた。",
+          "kana": "きんじょににゅうじょうりょうができた。",
+          "zh": "附近开了一家入场费。",
+          "targetSurface": "入場料",
+          "targetKana": "にゅうじょうりょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-nyuukan",
+      "type": "word",
+      "surface": "入管",
+      "kana": "にゅうかん",
+      "romaji": ["nyuukan"],
+      "meaningsZh": ["出入国管理局"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nyuukan-1",
+          "ja": "休日に入管へ行ってきた。",
+          "kana": "きゅうじつににゅうかんへいってきた。",
+          "zh": "假日去了出入国管理局。",
+          "targetSurface": "入管",
+          "targetKana": "にゅうかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-nyuukanryou",
+      "type": "word",
+      "surface": "入館料",
+      "kana": "にゅうかんりょう",
+      "romaji": ["nyuukanryou"],
+      "meaningsZh": ["入馆费"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nyuukanryou-1",
+          "ja": "休日に入館料へ行ってきた。",
+          "kana": "きゅうじつににゅうかんりょうへいってきた。",
+          "zh": "假日去了入馆费。",
+          "targetSurface": "入館料",
+          "targetKana": "にゅうかんりょう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-ongakuhooru",
+      "type": "word",
+      "surface": "音楽ホール",
+      "kana": "おんがくほーる",
+      "romaji": ["ongakuhooru"],
+      "meaningsZh": ["音乐厅"],
+      "pos": "noun",
+      "tags": ["facility", "culture", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-ongakuhooru-1",
+          "ja": "休日に音楽ホールへ行ってきた。",
+          "kana": "きゅうじつにおんがくほーるへいってきた。",
+          "zh": "假日去了音乐厅。",
+          "targetSurface": "音楽ホール",
+          "targetKana": "おんがくほーる"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-onseigaido",
+      "type": "word",
+      "surface": "音声ガイド",
+      "kana": "おんせいがいど",
+      "romaji": ["onseigaido"],
+      "meaningsZh": ["语音导览"],
+      "pos": "noun",
+      "tags": ["facility", "culture", "katakana"],
+      "skillTags": ["kanji-reading", "katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-onseigaido-1",
+          "ja": "音声ガイドは十時から開いている。",
+          "kana": "おんせいがいどはじゅうじからあいている。",
+          "zh": "语音导览从十点开门。",
+          "targetSurface": "音声ガイド",
+          "targetKana": "おんせいがいど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-osaisen",
+      "type": "word",
+      "surface": "お賽銭",
+      "kana": "おさいせん",
+      "romaji": ["osaisen"],
+      "meaningsZh": ["香火钱", "赛钱"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-osaisen-1",
+          "ja": "休日にお賽銭へ行ってきた。",
+          "kana": "きゅうじつにおさいせんへいってきた。",
+          "zh": "假日去了香火钱。",
+          "targetSurface": "お賽銭",
+          "targetKana": "おさいせん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-rotenburo",
+      "type": "word",
+      "surface": "露天風呂",
+      "kana": "ろてんぶろ",
+      "romaji": ["rotenburo"],
+      "meaningsZh": ["露天温泉"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-rotenburo-1",
+          "ja": "休日に露天風呂へ行ってきた。",
+          "kana": "きゅうじつにろてんぶろへいってきた。",
+          "zh": "假日去了露天温泉。",
+          "targetSurface": "露天風呂",
+          "targetKana": "ろてんぶろ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-sadou",
+      "type": "word",
+      "surface": "茶道",
+      "kana": "さどう",
+      "romaji": ["sadou"],
+      "meaningsZh": ["茶道"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sadou-1",
+          "ja": "休日に茶道へ行ってきた。",
+          "kana": "きゅうじつにさどうへいってきた。",
+          "zh": "假日去了茶道。",
+          "targetSurface": "茶道",
+          "targetKana": "さどう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-saisenbako",
+      "type": "word",
+      "surface": "賽銭箱",
+      "kana": "さいせんばこ",
+      "romaji": ["saisenbako"],
+      "meaningsZh": ["功德箱"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-saisenbako-1",
+          "ja": "賽銭箱は十時から開いている。",
+          "kana": "さいせんばこはじゅうじからあいている。",
+          "zh": "功德箱从十点开门。",
+          "targetSurface": "賽銭箱",
+          "targetKana": "さいせんばこ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-sandou",
+      "type": "word",
+      "surface": "参道",
+      "kana": "さんどう",
+      "romaji": ["sandou"],
+      "meaningsZh": ["参道"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sandou-1",
+          "ja": "休日に参道へ行ってきた。",
+          "kana": "きゅうじつにさんどうへいってきた。",
+          "zh": "假日去了参道。",
+          "targetSurface": "参道",
+          "targetKana": "さんどう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-sankahi",
+      "type": "word",
+      "surface": "参加費",
+      "kana": "さんかひ",
+      "romaji": ["sankahi"],
+      "meaningsZh": ["参加费"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sankahi-1",
+          "ja": "近所に参加費ができた。",
+          "kana": "きんじょにさんかひができた。",
+          "zh": "附近开了一家参加费。",
+          "targetSurface": "参加費",
+          "targetKana": "さんかひ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-satsueikinshi",
+      "type": "word",
+      "surface": "撮影禁止",
+      "kana": "さつえいきんし",
+      "romaji": ["satsueikinshi"],
+      "meaningsZh": ["禁止拍照"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-satsueikinshi-1",
+          "ja": "近所に撮影禁止ができた。",
+          "kana": "きんじょにさつえいきんしができた。",
+          "zh": "附近开了一家禁止拍照。",
+          "targetSurface": "撮影禁止",
+          "targetKana": "さつえいきんし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-seiriken",
+      "type": "word",
+      "surface": "整理券",
+      "kana": "せいりけん",
+      "romaji": ["seiriken"],
+      "meaningsZh": ["整理券", "排队号码券"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-seiriken-1",
+          "ja": "休日に整理券へ行ってきた。",
+          "kana": "きゅうじつにせいりけんへいってきた。",
+          "zh": "假日去了整理券。",
+          "targetSurface": "整理券",
+          "targetKana": "せいりけん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-sentou",
+      "type": "word",
+      "surface": "銭湯",
+      "kana": "せんとう",
+      "romaji": ["sentou"],
+      "meaningsZh": ["公共澡堂"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sentou-1",
+          "ja": "銭湯は十時から開いている。",
+          "kana": "せんとうはじゅうじからあいている。",
+          "zh": "公共澡堂从十点开门。",
+          "targetSurface": "銭湯",
+          "targetKana": "せんとう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shinsei",
+      "type": "word",
+      "surface": "申請",
+      "kana": "しんせい",
+      "romaji": ["shinsei"],
+      "meaningsZh": ["申请"],
+      "pos": "noun",
+      "tags": ["document", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shinsei-1",
+          "ja": "休日に申請へ行ってきた。",
+          "kana": "きゅうじつにしんせいへいってきた。",
+          "zh": "假日去了申请。",
+          "targetSurface": "申請",
+          "targetKana": "しんせい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shiryoukan",
+      "type": "word",
+      "surface": "資料館",
+      "kana": "しりょうかん",
+      "romaji": ["shiryoukan"],
+      "meaningsZh": ["资料馆"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shiryoukan-1",
+          "ja": "資料館は十時から開いている。",
+          "kana": "しりょうかんはじゅうじからあいている。",
+          "zh": "资料馆从十点开门。",
+          "targetSurface": "資料館",
+          "targetKana": "しりょうかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shiyakusho",
+      "type": "word",
+      "surface": "市役所",
+      "kana": "しやくしょ",
+      "romaji": ["shiyakusho"],
+      "meaningsZh": ["市政府", "市役所"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shiyakusho-1",
+          "ja": "休日に市役所へ行ってきた。",
+          "kana": "きゅうじつにしやくしょへいってきた。",
+          "zh": "假日去了市政府。",
+          "targetSurface": "市役所",
+          "targetKana": "しやくしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shodou",
+      "type": "word",
+      "surface": "書道",
+      "kana": "しょどう",
+      "romaji": ["shodou"],
+      "meaningsZh": ["书法"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shodou-1",
+          "ja": "書道は十時から開いている。",
+          "kana": "しょどうはじゅうじからあいている。",
+          "zh": "书法从十点开门。",
+          "targetSurface": "書道",
+          "targetKana": "しょどう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shokubutsuen",
+      "type": "word",
+      "surface": "植物園",
+      "kana": "しょくぶつえん",
+      "romaji": ["shokubutsuen"],
+      "meaningsZh": ["植物园"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shokubutsuen-1",
+          "ja": "植物園は十時から開いている。",
+          "kana": "しょくぶつえんはじゅうじからあいている。",
+          "zh": "植物园从十点开门。",
+          "targetSurface": "植物園",
+          "targetKana": "しょくぶつえん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shoubousho",
+      "type": "word",
+      "surface": "消防署",
+      "kana": "しょうぼうしょ",
+      "romaji": ["shoubousho"],
+      "meaningsZh": ["消防署"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shoubousho-1",
+          "ja": "消防署は十時から開いている。",
+          "kana": "しょうぼうしょはじゅうじからあいている。",
+          "zh": "消防署从十点开门。",
+          "targetSurface": "消防署",
+          "targetKana": "しょうぼうしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shouji",
+      "type": "word",
+      "surface": "障子",
+      "kana": "しょうじ",
+      "romaji": ["shouji"],
+      "meaningsZh": ["障子纸门"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shouji-1",
+          "ja": "休日に障子へ行ってきた。",
+          "kana": "きゅうじつにしょうじへいってきた。",
+          "zh": "假日去了障子纸门。",
+          "targetSurface": "障子",
+          "targetKana": "しょうじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shoumeisho",
+      "type": "word",
+      "surface": "証明書",
+      "kana": "しょうめいしょ",
+      "romaji": ["shoumeisho"],
+      "meaningsZh": ["证明书"],
+      "pos": "noun",
+      "tags": ["document", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shoumeisho-1",
+          "ja": "休日に証明書へ行ってきた。",
+          "kana": "きゅうじつにしょうめいしょへいってきた。",
+          "zh": "假日去了证明书。",
+          "targetSurface": "証明書",
+          "targetKana": "しょうめいしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-shuuen",
+      "type": "word",
+      "surface": "終演",
+      "kana": "しゅうえん",
+      "romaji": ["shuuen"],
+      "meaningsZh": ["演出结束"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shuuen-1",
+          "ja": "休日に終演へ行ってきた。",
+          "kana": "きゅうじつにしゅうえんへいってきた。",
+          "zh": "假日去了演出结束。",
+          "targetSurface": "終演",
+          "targetKana": "しゅうえん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-sodaigomiuketsuke",
+      "type": "word",
+      "surface": "粗大ごみ受付",
+      "kana": "そだいごみうけつけ",
+      "romaji": ["sodaigomiuketsuke"],
+      "meaningsZh": ["大件垃圾受理"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sodaigomiuketsuke-1",
+          "ja": "近所に粗大ごみ受付ができた。",
+          "kana": "きんじょにそだいごみうけつけができた。",
+          "zh": "附近开了一家大件垃圾受理。",
+          "targetSurface": "粗大ごみ受付",
+          "targetKana": "そだいごみうけつけ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-suizokukan",
+      "type": "word",
+      "surface": "水族館",
+      "kana": "すいぞくかん",
+      "romaji": ["suizokukan"],
+      "meaningsZh": ["水族馆"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-suizokukan-1",
+          "ja": "近所に水族館ができた。",
+          "kana": "きんじょにすいぞくかんができた。",
+          "zh": "附近开了一家水族馆。",
+          "targetSurface": "水族館",
+          "targetKana": "すいぞくかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-sumou",
+      "type": "word",
+      "surface": "相撲",
+      "kana": "すもう",
+      "romaji": ["sumou"],
+      "meaningsZh": ["相扑"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-sumou-1",
+          "ja": "相撲は十時から開いている。",
+          "kana": "すもうはじゅうじからあいている。",
+          "zh": "相扑从十点开门。",
+          "targetSurface": "相撲",
+          "targetKana": "すもう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tenji",
+      "type": "word",
+      "surface": "展示",
+      "kana": "てんじ",
+      "romaji": ["tenji"],
+      "meaningsZh": ["展览"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tenji-1",
+          "ja": "展示は十時から開いている。",
+          "kana": "てんじはじゅうじからあいている。",
+          "zh": "展览从十点开门。",
+          "targetSurface": "展示",
+          "targetKana": "てんじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tenjishitsu",
+      "type": "word",
+      "surface": "展示室",
+      "kana": "てんじしつ",
+      "romaji": ["tenjishitsu"],
+      "meaningsZh": ["展厅"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tenjishitsu-1",
+          "ja": "展示室は十時から開いている。",
+          "kana": "てんじしつはじゅうじからあいている。",
+          "zh": "展厅从十点开门。",
+          "targetSurface": "展示室",
+          "targetKana": "てんじしつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tennyuutodoke",
+      "type": "word",
+      "surface": "転入届",
+      "kana": "てんにゅうとどけ",
+      "romaji": ["tennyuutodoke"],
+      "meaningsZh": ["迁入申报"],
+      "pos": "noun",
+      "tags": ["document"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tennyuutodoke-1",
+          "ja": "転入届は十時から開いている。",
+          "kana": "てんにゅうとどけはじゅうじからあいている。",
+          "zh": "迁入申报从十点开门。",
+          "targetSurface": "転入届",
+          "targetKana": "てんにゅうとどけ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tenrankai",
+      "type": "word",
+      "surface": "展覧会",
+      "kana": "てんらんかい",
+      "romaji": ["tenrankai"],
+      "meaningsZh": ["展览会"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tenrankai-1",
+          "ja": "休日に展覧会へ行ってきた。",
+          "kana": "きゅうじつにてんらんかいへいってきた。",
+          "zh": "假日去了展览会。",
+          "targetSurface": "展覧会",
+          "targetKana": "てんらんかい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tenshutsutodoke",
+      "type": "word",
+      "surface": "転出届",
+      "kana": "てんしゅつとどけ",
+      "romaji": ["tenshutsutodoke"],
+      "meaningsZh": ["迁出申报"],
+      "pos": "noun",
+      "tags": ["document"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tenshutsutodoke-1",
+          "ja": "近所に転出届ができた。",
+          "kana": "きんじょにてんしゅつとどけができた。",
+          "zh": "附近开了一家迁出申报。",
+          "targetSurface": "転出届",
+          "targetKana": "てんしゅつとどけ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tetsuzuki",
+      "type": "word",
+      "surface": "手続き",
+      "kana": "てつづき",
+      "romaji": ["tetsuduki", "tetsuzuki"],
+      "meaningsZh": ["手续"],
+      "pos": "noun",
+      "tags": ["document", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tetsuzuki-1",
+          "ja": "近所に手続きができた。",
+          "kana": "きんじょにてつづきができた。",
+          "zh": "附近开了一家手续。",
+          "targetSurface": "手続き",
+          "targetKana": "てつづき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-todokede",
+      "type": "word",
+      "surface": "届出",
+      "kana": "とどけで",
+      "romaji": ["todokede"],
+      "meaningsZh": ["申报", "申告"],
+      "pos": "noun",
+      "tags": ["document", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-todokede-1",
+          "ja": "届出は十時から開いている。",
+          "kana": "とどけではじゅうじからあいている。",
+          "zh": "申报从十点开门。",
+          "targetSurface": "届出",
+          "targetKana": "とどけで"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-tokubetsuten",
+      "type": "word",
+      "surface": "特別展",
+      "kana": "とくべつてん",
+      "romaji": ["tokubetsuten"],
+      "meaningsZh": ["特别展"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tokubetsuten-1",
+          "ja": "休日に特別展へ行ってきた。",
+          "kana": "きゅうじつにとくべつてんへいってきた。",
+          "zh": "假日去了特别展。",
+          "targetSurface": "特別展",
+          "targetKana": "とくべつてん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-torii",
+      "type": "word",
+      "surface": "鳥居",
+      "kana": "とりい",
+      "romaji": ["torii"],
+      "meaningsZh": ["鸟居"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-torii-1",
+          "ja": "休日に鳥居へ行ってきた。",
+          "kana": "きゅうじつにとりいへいってきた。",
+          "zh": "假日去了鸟居。",
+          "targetSurface": "鳥居",
+          "targetKana": "とりい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-toujitsuken",
+      "type": "word",
+      "surface": "当日券",
+      "kana": "とうじつけん",
+      "romaji": ["toujitsuken"],
+      "meaningsZh": ["当日票"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-toujitsuken-1",
+          "ja": "近所に当日券ができた。",
+          "kana": "きんじょにとうじつけんができた。",
+          "zh": "附近开了一家当日票。",
+          "targetSurface": "当日券",
+          "targetKana": "とうじつけん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-uketsukebangou",
+      "type": "word",
+      "surface": "受付番号",
+      "kana": "うけつけばんごう",
+      "romaji": ["uketsukebangou"],
+      "meaningsZh": ["受理号码"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-uketsukebangou-1",
+          "ja": "休日に受付番号へ行ってきた。",
+          "kana": "きゅうじつにうけつけばんごうへいってきた。",
+          "zh": "假日去了受理号码。",
+          "targetSurface": "受付番号",
+          "targetKana": "うけつけばんごう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-utsushi",
+      "type": "word",
+      "surface": "写し",
+      "kana": "うつし",
+      "romaji": ["utsushi"],
+      "meaningsZh": ["复印件"],
+      "pos": "noun",
+      "tags": ["document"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-utsushi-1",
+          "ja": "写しは十時から開いている。",
+          "kana": "うつしはじゅうじからあいている。",
+          "zh": "复印件从十点开门。",
+          "targetSurface": "写し",
+          "targetKana": "うつし"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-yakusho",
+      "type": "word",
+      "surface": "役所",
+      "kana": "やくしょ",
+      "romaji": ["yakusho"],
+      "meaningsZh": ["政府办事处"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yakusho-1",
+          "ja": "近所に役所ができた。",
+          "kana": "きんじょにやくしょができた。",
+          "zh": "附近开了一家政府办事处。",
+          "targetSurface": "役所",
+          "targetKana": "やくしょ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-yatai",
+      "type": "word",
+      "surface": "屋台",
+      "kana": "やたい",
+      "romaji": ["yatai"],
+      "meaningsZh": ["路边摊", "祭典摊位"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yatai-1",
+          "ja": "近所に屋台ができた。",
+          "kana": "きんじょにやたいができた。",
+          "zh": "附近开了一家路边摊。",
+          "targetSurface": "屋台",
+          "targetKana": "やたい"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-yoyakuseki",
+      "type": "word",
+      "surface": "予約席",
+      "kana": "よやくせき",
+      "romaji": ["yoyakuseki"],
+      "meaningsZh": ["预约席"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yoyakuseki-1",
+          "ja": "予約席は十時から開いている。",
+          "kana": "よやくせきはじゅうじからあいている。",
+          "zh": "预约席从十点开门。",
+          "targetSurface": "予約席",
+          "targetKana": "よやくせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-yuukoukigen",
+      "type": "word",
+      "surface": "有効期限",
+      "kana": "ゆうこうきげん",
+      "romaji": ["yuukoukigen"],
+      "meaningsZh": ["有效期限"],
+      "pos": "noun",
+      "tags": ["document"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yuukoukigen-1",
+          "ja": "近所に有効期限ができた。",
+          "kana": "きんじょにゆうこうきげんができた。",
+          "zh": "附近开了一家有效期限。",
+          "targetSurface": "有効期限",
+          "targetKana": "ゆうこうきげん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3"
+    },
+    {
+      "id": "word-zairyuukaado",
+      "type": "word",
+      "surface": "在留カード",
+      "kana": "ざいりゅうかーど",
+      "romaji": ["zairyuukaado"],
+      "meaningsZh": ["在留卡"],
+      "pos": "noun",
+      "tags": ["document", "japan-life", "katakana", "long-vowel"],
+      "skillTags": [
+        "kanji-reading",
+        "katakana-recognition",
+        "meaning-recall",
+        "listening-discrimination"
+      ],
+      "examples": [
+        {
+          "id": "ex-zairyuukaado-1",
+          "ja": "休日に在留カードへ行ってきた。",
+          "kana": "きゅうじつにざいりゅうかーどへいってきた。",
+          "zh": "假日去了在留卡。",
+          "targetSurface": "在留カード",
+          "targetKana": "ざいりゅうかーど"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N3",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-annaiban",
+      "type": "word",
+      "surface": "案内板",
+      "kana": "あんないばん",
+      "romaji": ["annaiban"],
+      "meaningsZh": ["指示牌"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-annaiban-1",
+          "ja": "近所に案内板ができた。",
+          "kana": "きんじょにあんないばんができた。",
+          "zh": "附近开了一家指示牌。",
+          "targetSurface": "案内板",
+          "targetKana": "あんないばん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-chiketto",
+      "type": "word",
+      "surface": "チケット",
+      "kana": "チケット",
+      "romaji": ["chiketto"],
+      "meaningsZh": ["票"],
+      "pos": "noun",
+      "tags": ["facility", "culture", "katakana", "sokuon"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-chiketto-1",
+          "ja": "近所にチケットができた。",
+          "kana": "きんじょにちけっとができた。",
+          "zh": "附近开了一家票。",
+          "targetSurface": "チケット",
+          "targetKana": "ちけっと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-doubutsuen",
+      "type": "word",
+      "surface": "動物園",
+      "kana": "どうぶつえん",
+      "romaji": ["doubutsuen"],
+      "meaningsZh": ["动物园"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-doubutsuen-1",
+          "ja": "近所に動物園ができた。",
+          "kana": "きんじょにどうぶつえんができた。",
+          "zh": "附近开了一家动物园。",
+          "targetSurface": "動物園",
+          "targetKana": "どうぶつえん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hanabi",
+      "type": "word",
+      "surface": "花火",
+      "kana": "はなび",
+      "romaji": ["hanabi"],
+      "meaningsZh": ["烟花"],
+      "pos": "noun",
+      "tags": ["life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hanabi-1",
+          "ja": "花火は十時から開いている。",
+          "kana": "はなびはじゅうじからあいている。",
+          "zh": "烟花从十点开门。",
+          "targetSurface": "花火",
+          "targetKana": "はなび"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-hanami",
+      "type": "word",
+      "surface": "花見",
+      "kana": "はなみ",
+      "romaji": ["hanami"],
+      "meaningsZh": ["赏花", "赏樱"],
+      "pos": "noun",
+      "tags": ["life", "culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-hanami-1",
+          "ja": "近所に花見ができた。",
+          "kana": "きんじょにはなみができた。",
+          "zh": "附近开了一家赏花。",
+          "targetSurface": "花見",
+          "targetKana": "はなみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-keijiban",
+      "type": "word",
+      "surface": "掲示板",
+      "kana": "けいじばん",
+      "romaji": ["keijiban"],
+      "meaningsZh": ["公告板"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-keijiban-1",
+          "ja": "近所に掲示板ができた。",
+          "kana": "きんじょにけいじばんができた。",
+          "zh": "附近开了一家公告板。",
+          "targetSurface": "掲示板",
+          "targetKana": "けいじばん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kouban",
+      "type": "word",
+      "surface": "交番",
+      "kana": "こうばん",
+      "romaji": ["kouban"],
+      "meaningsZh": ["派出所", "警亭"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kouban-1",
+          "ja": "休日に交番へ行ってきた。",
+          "kana": "きゅうじつにこうばんへいってきた。",
+          "zh": "假日去了派出所。",
+          "targetSurface": "交番",
+          "targetKana": "こうばん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-kouyou",
+      "type": "word",
+      "surface": "紅葉",
+      "kana": "こうよう",
+      "romaji": ["kouyou"],
+      "meaningsZh": ["红叶"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-kouyou-1",
+          "ja": "休日に紅葉へ行ってきた。",
+          "kana": "きゅうじつにこうようへいってきた。",
+          "zh": "假日去了红叶。",
+          "targetSurface": "紅葉",
+          "targetKana": "こうよう"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-madoguchi",
+      "type": "word",
+      "surface": "窓口",
+      "kana": "まどぐち",
+      "romaji": ["madoguchi"],
+      "meaningsZh": ["窗口"],
+      "pos": "noun",
+      "tags": ["public", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-madoguchi-1",
+          "ja": "休日に窓口へ行ってきた。",
+          "kana": "きゅうじつにまどぐちへいってきた。",
+          "zh": "假日去了窗口。",
+          "targetSurface": "窓口",
+          "targetKana": "まどぐち"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-matsuri",
+      "type": "word",
+      "surface": "祭り",
+      "kana": "まつり",
+      "romaji": ["matsuri"],
+      "meaningsZh": ["祭典"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-matsuri-1",
+          "ja": "祭りは十時から開いている。",
+          "kana": "まつりはじゅうじからあいている。",
+          "zh": "祭典从十点开门。",
+          "targetSurface": "祭り",
+          "targetKana": "まつり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-nyuujouken",
+      "type": "word",
+      "surface": "入場券",
+      "kana": "にゅうじょうけん",
+      "romaji": ["nyuujouken"],
+      "meaningsZh": ["入场券"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-nyuujouken-1",
+          "ja": "休日に入場券へ行ってきた。",
+          "kana": "きゅうじつににゅうじょうけんへいってきた。",
+          "zh": "假日去了入场券。",
+          "targetSurface": "入場券",
+          "targetKana": "にゅうじょうけん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-omairi",
+      "type": "word",
+      "surface": "お参り",
+      "kana": "おまいり",
+      "romaji": ["omairi"],
+      "meaningsZh": ["参拜"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-omairi-1",
+          "ja": "お参りは十時から開いている。",
+          "kana": "おまいりはじゅうじからあいている。",
+          "zh": "参拜从十点开门。",
+          "targetSurface": "お参り",
+          "targetKana": "おまいり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-omamori",
+      "type": "word",
+      "surface": "お守り",
+      "kana": "おまもり",
+      "romaji": ["omamori"],
+      "meaningsZh": ["护身符"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-omamori-1",
+          "ja": "近所にお守りができた。",
+          "kana": "きんじょにおまもりができた。",
+          "zh": "附近开了一家护身符。",
+          "targetSurface": "お守り",
+          "targetKana": "おまもり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-omatsuri",
+      "type": "word",
+      "surface": "お祭り",
+      "kana": "おまつり",
+      "romaji": ["omatsuri", "omaturi"],
+      "meaningsZh": ["庙会", "祭典"],
+      "pos": "noun",
+      "tags": ["life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-omatsuri-1",
+          "ja": "お祭りは十時から開いている。",
+          "kana": "おまつりはじゅうじからあいている。",
+          "zh": "庙会从十点开门。",
+          "targetSurface": "お祭り",
+          "targetKana": "おまつり"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-omikuji",
+      "type": "word",
+      "surface": "おみくじ",
+      "kana": "おみくじ",
+      "romaji": ["omikuji"],
+      "meaningsZh": ["神签"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-omikuji-1",
+          "ja": "近所におみくじができた。",
+          "kana": "きんじょにおみくじができた。",
+          "zh": "附近开了一家神签。",
+          "targetSurface": "おみくじ",
+          "targetKana": "おみくじ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-panfuretto",
+      "type": "word",
+      "surface": "パンフレット",
+      "kana": "パンフレット",
+      "romaji": ["panfuretto"],
+      "meaningsZh": ["小册子"],
+      "pos": "noun",
+      "tags": ["facility", "culture", "katakana", "sokuon"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-panfuretto-1",
+          "ja": "休日にパンフレットへ行ってきた。",
+          "kana": "きゅうじつにぱんふれっとへいってきた。",
+          "zh": "假日去了小册子。",
+          "targetSurface": "パンフレット",
+          "targetKana": "ぱんふれっと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4",
+      "errorTags": ["sokuon-error"]
+    },
+    {
+      "id": "word-ryokan",
+      "type": "word",
+      "surface": "旅館",
+      "kana": "りょかん",
+      "romaji": ["ryokan"],
+      "meaningsZh": ["日式旅馆"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-ryokan-1",
+          "ja": "旅館は十時から開いている。",
+          "kana": "りょかんはじゅうじからあいている。",
+          "zh": "日式旅馆从十点开门。",
+          "targetSurface": "旅館",
+          "targetKana": "りょかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-shizukanishitekudasai",
+      "type": "word",
+      "surface": "静かにしてください",
+      "kana": "しずかにしてください",
+      "romaji": ["shizukanishitekudasai"],
+      "meaningsZh": ["请保持安静"],
+      "pos": "expression",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-shizukanishitekudasai-1",
+          "ja": "こういう時は「静かにしてください」と言う。",
+          "kana": "こういうときは「しずかにしてください」という。",
+          "zh": "这种时候要说「静かにしてください」（请保持安静）。",
+          "targetSurface": "静かにしてください",
+          "targetKana": "しずかにしてください"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-soudansuru",
+      "type": "word",
+      "surface": "相談する",
+      "kana": "そうだんする",
+      "romaji": ["soudansuru"],
+      "meaningsZh": ["咨询"],
+      "pos": "verb",
+      "tags": ["public", "japan-life", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-soudansuru-1",
+          "ja": "相談するのは難しい。",
+          "kana": "そうだんするのはむずかしい。",
+          "zh": "咨询很难。",
+          "targetSurface": "相談する",
+          "targetKana": "そうだんする"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-taiikukan",
+      "type": "word",
+      "surface": "体育館",
+      "kana": "たいいくかん",
+      "romaji": ["taiikukan"],
+      "meaningsZh": ["体育馆"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-taiikukan-1",
+          "ja": "休日に体育館へ行ってきた。",
+          "kana": "きゅうじつにたいいくかんへいってきた。",
+          "zh": "假日去了体育馆。",
+          "targetSurface": "体育館",
+          "targetKana": "たいいくかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-tatami",
+      "type": "word",
+      "surface": "畳",
+      "kana": "たたみ",
+      "romaji": ["tatami"],
+      "meaningsZh": ["榻榻米"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-tatami-1",
+          "ja": "「畳」は「たたみ」と読む。",
+          "kana": "「畳」は「たたみ」とよむ。",
+          "zh": "「畳」读作「たたみ」，意思是榻榻米。",
+          "targetSurface": "畳",
+          "targetKana": "たたみ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-teishutsu",
+      "type": "word",
+      "surface": "提出",
+      "kana": "ていしゅつ",
+      "romaji": ["teishutsu"],
+      "meaningsZh": ["提交"],
+      "pos": "noun",
+      "tags": ["document", "japan-life", "work"],
+      "skillTags": ["kanji-reading", "meaning-recall", "ime-conversion"],
+      "examples": [
+        {
+          "id": "ex-teishutsu-1",
+          "ja": "レポートは金曜日までに提出する。",
+          "kana": "レポートはきんようびまでにていしゅつする。",
+          "zh": "报告周五前提交。",
+          "targetSurface": "提出",
+          "targetKana": "ていしゅつ"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yoyakusuru",
+      "type": "word",
+      "surface": "予約する",
+      "kana": "よやくする",
+      "romaji": ["yoyakusuru"],
+      "meaningsZh": ["预约"],
+      "pos": "verb",
+      "tags": ["public", "japan-life", "verb"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yoyakusuru-1",
+          "ja": "予約するのは難しい。",
+          "kana": "よやくするのはむずかしい。",
+          "zh": "预约很难。",
+          "targetSurface": "予約する",
+          "targetKana": "よやくする"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-yukata",
+      "type": "word",
+      "surface": "浴衣",
+      "kana": "ゆかた",
+      "romaji": ["yukata"],
+      "meaningsZh": ["浴衣"],
+      "pos": "noun",
+      "tags": ["culture", "japan-life"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-yukata-1",
+          "ja": "休日に浴衣へ行ってきた。",
+          "kana": "きゅうじつにゆかたへいってきた。",
+          "zh": "假日去了浴衣。",
+          "targetSurface": "浴衣",
+          "targetKana": "ゆかた"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-zaseki",
+      "type": "word",
+      "surface": "座席",
+      "kana": "ざせき",
+      "romaji": ["zaseki"],
+      "meaningsZh": ["座位"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-zaseki-1",
+          "ja": "休日に座席へ行ってきた。",
+          "kana": "きゅうじつにざせきへいってきた。",
+          "zh": "假日去了座位。",
+          "targetSurface": "座席",
+          "targetKana": "ざせき"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N4"
+    },
+    {
+      "id": "word-eigakan",
+      "type": "word",
+      "surface": "映画館",
+      "kana": "えいがかん",
+      "romaji": ["eigakan"],
+      "meaningsZh": ["电影院"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-eigakan-1",
+          "ja": "近所に映画館ができた。",
+          "kana": "きんじょにえいがかんができた。",
+          "zh": "附近开了一家电影院。",
+          "targetSurface": "映画館",
+          "targetKana": "えいがかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-kopii",
+      "type": "word",
+      "surface": "コピー",
+      "kana": "コピー",
+      "romaji": ["kopii"],
+      "meaningsZh": ["复印"],
+      "pos": "noun",
+      "tags": ["public", "katakana", "long-vowel"],
+      "skillTags": ["katakana-recognition", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-kopii-1",
+          "ja": "休日にコピーへ行ってきた。",
+          "kana": "きゅうじつにこぴーへいってきた。",
+          "zh": "假日去了复印。",
+          "targetSurface": "コピー",
+          "targetKana": "こぴー"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-purezento",
+      "type": "word",
+      "surface": "プレゼント",
+      "kana": "プレゼント",
+      "romaji": ["purezento"],
+      "meaningsZh": ["礼物"],
+      "pos": "noun",
+      "tags": ["life", "katakana"],
+      "skillTags": ["katakana-recognition", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-purezento-1",
+          "ja": "近所にプレゼントができた。",
+          "kana": "きんじょにぷれぜんとができた。",
+          "zh": "附近开了一家礼物。",
+          "targetSurface": "プレゼント",
+          "targetKana": "ぷれぜんと"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    },
+    {
+      "id": "word-tanjoubi",
+      "type": "word",
+      "surface": "誕生日",
+      "kana": "たんじょうび",
+      "romaji": ["tanjoubi", "tanzyoubi"],
+      "meaningsZh": ["生日"],
+      "pos": "noun",
+      "tags": ["life", "long-vowel", "youon"],
+      "skillTags": ["kanji-reading", "meaning-recall", "listening-discrimination"],
+      "examples": [
+        {
+          "id": "ex-tanjoubi-1",
+          "ja": "近所に誕生日ができた。",
+          "kana": "きんじょにたんじょうびができた。",
+          "zh": "附近开了一家生日。",
+          "targetSurface": "誕生日",
+          "targetKana": "たんじょうび"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5",
+      "errorTags": ["long-vowel-error"]
+    },
+    {
+      "id": "word-toshokan",
+      "type": "word",
+      "surface": "図書館",
+      "kana": "としょかん",
+      "romaji": ["toshokan"],
+      "meaningsZh": ["图书馆"],
+      "pos": "noun",
+      "tags": ["facility", "culture"],
+      "skillTags": ["kanji-reading", "meaning-recall"],
+      "examples": [
+        {
+          "id": "ex-toshokan-1",
+          "ja": "図書館で勉強する。",
+          "kana": "としょかんでべんきょうする。",
+          "zh": "在图书馆学习。",
+          "targetSurface": "図書館",
+          "targetKana": "としょかん"
+        }
+      ],
+      "audioRefs": [],
+      "confusableItemIds": [],
+      "jlpt": "N5"
+    }
+  ]
+}
