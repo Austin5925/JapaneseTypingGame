@@ -58,6 +58,13 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
   写 localStorage(`kana-mole-difficulty`)+ 高亮 active,不再跳转。GamePage 进入鼹鼠
   时如果 url override 没指定 `?difficulty=`,fallback 到 localStorage 偏好,再
   fallback 到 `'normal'`。新增 `apps/desktop/src/features/preferences.ts` 集中管理。
+- macOS WebView 默认把 Backspace 映射成 `history.back()`,在 Phaser 游戏中段按退格
+  会跳出当前 scene 退回上一个路由。App.tsx 加全局 keydown 拦截:Backspace 在
+  非 input/textarea/contentEditable target 上 `preventDefault()`,但不阻止其它
+  listener,所以 Phaser scene 仍然能用 Backspace 删 inputBuffer。
+- `bundle.macOS.signingIdentity = "-"` 启用 ad-hoc 签名,build 出的 .app / .dmg
+  传到其他 Mac 不再被误标 "The file is damaged"(仍非正式 Developer ID 签名,
+  接收方首次需要右键 → 打开)。同时设 `minimumSystemVersion: "11.0"` 明确最低 macOS。
 - 替换默认 Tauri 纯色 icon: 新设计 retro CRT 风格图标 — 圆角深色外壳 + 内嵌绿色
   CRT 屏幕(scanline + glow)+ 中央大「か」字符 + 底部 KANA 标签。SVG 源码进
   `apps/desktop/src-tauri/icons/icon.svg`,通过 `pnpm tauri icon` 一键生成所有平台:

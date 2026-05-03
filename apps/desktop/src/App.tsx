@@ -155,6 +155,27 @@ export function App(): JSX.Element {
     return () => globalThis.removeEventListener('hashchange', onHashChange);
   }, []);
 
+  // v0.9.2: macOS WebKit (Tauri WebView) still maps Backspace to `history.back()` when no
+  // input field has focus, which kicks the user out of the current Phaser scene mid-session.
+  // Suppress that default *only* outside of editable targets, so InputBox / textarea / IME
+  // composition keep their natural delete behaviour. preventDefault here doesn't stop other
+  // listeners (Phaser scenes still receive the keydown to pop their own input buffer).
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent): void => {
+      if (e.key !== 'Backspace') return;
+      const target = e.target as HTMLElement | null;
+      if (!target) {
+        e.preventDefault();
+        return;
+      }
+      const tag = target.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || target.isContentEditable) return;
+      e.preventDefault();
+    };
+    globalThis.addEventListener('keydown', onKeyDown);
+    return () => globalThis.removeEventListener('keydown', onKeyDown);
+  }, []);
+
   return (
     <SceneErrorToastProvider>
       <RetroShell active={route.kind} title={titleForRoute(route)}>
