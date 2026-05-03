@@ -24,6 +24,7 @@ import { toProgressDto } from '../features/session/GameSessionService';
 import { ErrorTagChip } from '../features/style/ErrorTagChip';
 import { PixIcon } from '../features/style/PixIcon';
 import {
+  FULL_ITEM_SCAN_LIMIT,
   createSession,
   finishSession,
   listItems,
@@ -143,7 +144,7 @@ export function DiagnosticPage(): JSX.Element {
   useEffect(() => {
     void (async (): Promise<void> => {
       try {
-        const rows = await listItems({ limit: 1000 });
+        const rows = await listItems({ limit: FULL_ITEM_SCAN_LIMIT });
         if (rows.length === 0) {
           setError('词库为空 — 先到首页种入内容包再回到诊断。');
           return;

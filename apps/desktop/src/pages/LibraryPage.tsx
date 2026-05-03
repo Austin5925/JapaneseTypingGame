@@ -1,7 +1,13 @@
 import { useEffect, useMemo, useState, type CSSProperties, type JSX, type ReactNode } from 'react';
 
 import { PixIcon } from '../features/style/PixIcon';
-import { listItems, listProgress, type DevItemRow, type ProgressDto } from '../tauri/invoke';
+import {
+  FULL_ITEM_SCAN_LIMIT,
+  listItems,
+  listProgress,
+  type DevItemRow,
+  type ProgressDto,
+} from '../tauri/invoke';
 
 interface LibraryRow {
   item: DevItemRow;
@@ -35,7 +41,7 @@ export function LibraryPage(): JSX.Element {
     void (async (): Promise<void> => {
       try {
         const [its, prog] = await Promise.all([
-          listItems({ limit: 500 }),
+          listItems({ limit: FULL_ITEM_SCAN_LIMIT }),
           listProgress({ userId: 'default-user', limit: 2000 }),
         ]);
         setItems(its);

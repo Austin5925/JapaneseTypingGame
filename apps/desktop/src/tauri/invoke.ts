@@ -1,6 +1,8 @@
 import type { ErrorTag, GameType, LearningItemType, SkillDimension } from '@kana-typing/core';
 import { invoke } from '@tauri-apps/api/core';
 
+export const FULL_ITEM_SCAN_LIMIT = 5000;
+
 // Sprint 0 DTOs --------------------------------------------------------------
 //
 // `DevItemRow` mirrors the Rust struct of the same name in commands.rs. v0.8.3 grew the

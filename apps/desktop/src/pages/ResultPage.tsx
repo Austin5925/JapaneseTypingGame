@@ -18,6 +18,7 @@ import { ErrorTagChip } from '../features/style/ErrorTagChip';
 import { ERROR_TAG_LABEL_ZH } from '../features/style/errorTagPalette';
 import { PixIcon } from '../features/style/PixIcon';
 import {
+  FULL_ITEM_SCAN_LIMIT,
   listAttemptsBySession,
   listItems,
   listProgress,
@@ -80,7 +81,7 @@ export function ResultPage(props: ResultPageProps): JSX.Element {
         const [rows, progressDtos, itemRows] = await Promise.all([
           listAttemptsBySession({ sessionId: props.sessionId }),
           listProgress({ userId: 'default-user', limit: 5000 }),
-          listItems({ limit: 1000 }),
+          listItems({ limit: FULL_ITEM_SCAN_LIMIT }),
         ]);
         setAttempts(rows);
         setProgress(progressDtos);

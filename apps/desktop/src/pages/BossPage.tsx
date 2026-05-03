@@ -26,6 +26,7 @@ import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { GameSessionService } from '../features/session/GameSessionService';
 import { APP_VERSION_LABEL } from '../features/version';
 import {
+  FULL_ITEM_SCAN_LIMIT,
   listContentPacks,
   listItems,
   listProgress,
@@ -140,7 +141,7 @@ export function BossPage(): JSX.Element {
     void (async (): Promise<void> => {
       try {
         const [rows, progressDtos, packs] = await Promise.all([
-          listItems({ limit: 1000 }),
+          listItems({ limit: FULL_ITEM_SCAN_LIMIT }),
           listProgress({ userId: 'default-user', limit: 5000 }),
           listContentPacks(),
         ]);

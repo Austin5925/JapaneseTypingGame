@@ -22,7 +22,7 @@ import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { ImeInputBox } from '../features/input/ImeInputBox';
 import type { ImeInputState } from '../features/input/useImeInputController';
 import { GameSessionService } from '../features/session/GameSessionService';
-import { listItems, listProgress, type DevItemRow } from '../tauri/invoke';
+import { FULL_ITEM_SCAN_LIMIT, listItems, listProgress, type DevItemRow } from '../tauri/invoke';
 
 const STRICT_POLICY: EvaluationStrictness = {
   longVowel: 'strict',
@@ -118,7 +118,7 @@ export function GamePage(props: GamePageProps): JSX.Element {
   const moleDifficulty: MoleDifficulty =
     props.mode === 'mole' ? (props.overrides?.moleDifficulty ?? 'normal') : 'normal';
   const moleTiming = MOLE_DIFFICULTY_CONFIG[moleDifficulty];
-  const durationMs = baseConfig.durationMs;
+  const durationMs = props.overrides?.durationMs ?? baseConfig.durationMs;
   const config: ModeConfig = {
     ...baseConfig,
     durationMs,
@@ -159,7 +159,7 @@ export function GamePage(props: GamePageProps): JSX.Element {
     void (async (): Promise<void> => {
       try {
         const [rows, progressDtos] = await Promise.all([
-          listItems({ limit: 1000 }),
+          listItems({ limit: FULL_ITEM_SCAN_LIMIT }),
           listProgress({ userId: 'default-user', limit: 5000 }),
         ]);
         if (rows.length === 0) {

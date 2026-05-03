@@ -16,7 +16,7 @@ import { GameCanvasHost } from '../features/game/GameCanvasHost';
 import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { GameSessionService } from '../features/session/GameSessionService';
 import { APP_VERSION_LABEL } from '../features/version';
-import { listItems, listProgress } from '../tauri/invoke';
+import { FULL_ITEM_SCAN_LIMIT, listItems, listProgress } from '../tauri/invoke';
 
 const STRICT_POLICY: EvaluationStrictness = {
   longVowel: 'strict',
@@ -74,7 +74,7 @@ interface SessionStats {
  * sentence-order outcomes and the cross-game scheduler can route them.
  */
 export function RiverJumpPage(props: RiverJumpPageProps = {}): JSX.Element {
-  const sessionDurationMs = DEFAULT_SESSION_DURATION_MS;
+  const sessionDurationMs = props.overrides?.durationMs ?? DEFAULT_SESSION_DURATION_MS;
   const taskCount = Math.max(
     1,
     Math.round((sessionDurationMs / DEFAULT_SESSION_DURATION_MS) * DEFAULT_TASK_COUNT),
@@ -101,7 +101,7 @@ export function RiverJumpPage(props: RiverJumpPageProps = {}): JSX.Element {
     void (async (): Promise<void> => {
       try {
         const [rows, progressDtos] = await Promise.all([
-          listItems({ limit: 1000 }),
+          listItems({ limit: FULL_ITEM_SCAN_LIMIT }),
           listProgress({ userId: 'default-user', limit: 5000 }),
         ]);
         const sentences: SentenceItem[] = rows
