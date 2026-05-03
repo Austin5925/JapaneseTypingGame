@@ -27,12 +27,11 @@ const STRICT_POLICY: EvaluationStrictness = {
   particleReading: 'surface',
 };
 
-const DEFAULT_SESSION_DURATION_MS = 180_000;
+const DEFAULT_SESSION_DURATION_MS = 60_000;
 const TASK_TIME_LIMIT_MS = 8000;
 const DEFAULT_TASK_COUNT = 12;
-// Each minimal-pair item declares 1 confusable peer. distractorCount=1 keeps the listening
-// task a binary minimal-pair choice — strongest training signal for long/sokuon/dakuten.
-const DISTRACTOR_COUNT = 1;
+// Three simultaneous apples: correct + two distractors, with one centered lane.
+const DISTRACTOR_COUNT = 2;
 
 export interface AppleRescuePageProps {
   overrides?: { durationMs?: number } | undefined;
@@ -52,8 +51,8 @@ interface SessionStats {
  * The audio cue (kana via SpeechSynthesis) still lives inside AppleRescueScene; nothing on
  * the React side changes for v0.8.3 except the boot path.
  */
-export function AppleRescuePage(props: AppleRescuePageProps = {}): JSX.Element {
-  const sessionDurationMs = props.overrides?.durationMs ?? DEFAULT_SESSION_DURATION_MS;
+export function AppleRescuePage(_props: AppleRescuePageProps = {}): JSX.Element {
+  const sessionDurationMs = DEFAULT_SESSION_DURATION_MS;
   const taskCount = Math.max(
     1,
     Math.round((sessionDurationMs / DEFAULT_SESSION_DURATION_MS) * DEFAULT_TASK_COUNT),
@@ -111,6 +110,7 @@ export function AppleRescuePage(props: AppleRescuePageProps = {}): JSX.Element {
           timeLimitMs: TASK_TIME_LIMIT_MS,
           promptKind: 'audio',
           preferTags: ['audio-discrim'],
+          repeat: false,
         });
         if (queue.remaining() === 0) {
           setBootError('Audio-discrim pack present but no eligible items.');
@@ -173,9 +173,6 @@ export function AppleRescuePage(props: AppleRescuePageProps = {}): JSX.Element {
           attempts: s.attempts + 1,
           correct: s.correct + (result.isCorrect ? 1 : 0),
         }));
-        if (result.shouldRepeatImmediately) {
-          queueRef.current?.pushFront(task);
-        }
         return result;
       },
       finishSession: async (): Promise<void> => {
@@ -280,7 +277,7 @@ export function AppleRescuePage(props: AppleRescuePageProps = {}): JSX.Element {
             letterSpacing: '0.04em',
           }}
         >
-          ←/→ 移动篮子 · R 重听 · S 慢速 · attempt 写入 SQLite [v0.8.3]
+          ←/→ 移动篮子 · ↓/Space 加速下落 · R 重听 · S 慢速 · attempt 写入 SQLite [v0.8.9]
         </div>
         {sceneError.sceneErrorToast}
       </div>

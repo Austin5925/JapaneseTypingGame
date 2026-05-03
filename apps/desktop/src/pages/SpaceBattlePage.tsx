@@ -27,7 +27,7 @@ const STRICT_POLICY: EvaluationStrictness = {
   particleReading: 'surface',
 };
 
-const DEFAULT_SESSION_DURATION_MS = 180_000;
+const DEFAULT_SESSION_DURATION_MS = 60_000;
 const TASK_TIME_LIMIT_MS = 8000;
 const DEFAULT_TASK_COUNT = 16;
 const DISTRACTOR_COUNT = 3;
@@ -50,8 +50,8 @@ interface SessionStats {
  * loader that v0.8.1 used; the same path now lights up `attempt_events` + `item_skill_progress`
  * so the scheduler / mistakes book / cross-game effects all see SpaceBattle outcomes.
  */
-export function SpaceBattlePage(props: SpaceBattlePageProps = {}): JSX.Element {
-  const sessionDurationMs = props.overrides?.durationMs ?? DEFAULT_SESSION_DURATION_MS;
+export function SpaceBattlePage(_props: SpaceBattlePageProps = {}): JSX.Element {
+  const sessionDurationMs = DEFAULT_SESSION_DURATION_MS;
   const taskCount = Math.max(
     1,
     Math.round((sessionDurationMs / DEFAULT_SESSION_DURATION_MS) * DEFAULT_TASK_COUNT),
@@ -276,7 +276,7 @@ export function SpaceBattlePage(props: SpaceBattlePageProps = {}): JSX.Element {
             letterSpacing: '0.04em',
           }}
         >
-          数字键 1-4 锁定目标 · 击中正确者 = 通过 · attempt 写入 SQLite [v0.8.3]
+          数字键 1-4 锁定目标 · 子弹命中后判定 · attempt 写入 SQLite [v0.8.9]
         </div>
         {sceneError.sceneErrorToast}
       </div>

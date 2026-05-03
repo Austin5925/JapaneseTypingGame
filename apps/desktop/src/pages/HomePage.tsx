@@ -143,7 +143,7 @@ export function HomePage(): JSX.Element {
               icon="bolt"
               name="生死时速"
               sub="CHASE.EXE"
-              desc="3 分钟汉字读音冲刺。"
+              desc="60 秒汉字读音冲刺。"
             />
             <ModeBlock
               href="#/library"

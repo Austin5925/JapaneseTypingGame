@@ -28,7 +28,7 @@ const STRICT_POLICY: EvaluationStrictness = {
   particleReading: 'pronunciation',
 };
 
-const DEFAULT_SESSION_DURATION_MS = 180_000;
+const DEFAULT_SESSION_DURATION_MS = 60_000;
 const TASK_TIME_LIMIT_MS = 25_000;
 const DEFAULT_TASK_COUNT = 12;
 const DEFAULT_SKILL_DIMENSION: SkillDimension = 'sentence_order';
@@ -70,7 +70,7 @@ interface SessionStats {
  * sentence-order outcomes and the cross-game scheduler can route them.
  */
 export function RiverJumpPage(props: RiverJumpPageProps = {}): JSX.Element {
-  const sessionDurationMs = props.overrides?.durationMs ?? DEFAULT_SESSION_DURATION_MS;
+  const sessionDurationMs = DEFAULT_SESSION_DURATION_MS;
   const taskCount = Math.max(
     1,
     Math.round((sessionDurationMs / DEFAULT_SESSION_DURATION_MS) * DEFAULT_TASK_COUNT),

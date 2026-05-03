@@ -40,6 +40,31 @@
   --kt2-danger: #ff7a7a;
 }
 
+[data-theme='light'] {
+  --bevel-light: rgba(255, 255, 255, 0.82);
+  --bevel-shadow: rgba(30, 48, 44, 0.28);
+  --bevel-lighter: rgba(255, 255, 255, 0.92);
+  --bevel-darker: rgba(77, 99, 94, 0.58);
+
+  --kt2-bg: #e9f0ee;
+  --kt2-panel: #f7fbfa;
+  --kt2-panel-2: #dce9e6;
+  --kt2-sunken: #cbdad7;
+  --kt2-titlebar: linear-gradient(180deg, #6cae9f 0%, #2f6f64 100%);
+  --kt2-titlebar-inactive: linear-gradient(180deg, #91a8a2 0%, #617a74 100%);
+  --kt2-grid: rgba(41, 112, 94, 0.12);
+  --kt2-stripe-a: #eef6f4;
+  --kt2-stripe-b: #e3eeeb;
+
+  --kt2-fg: #1d2a27;
+  --kt2-fg-dim: #64746f;
+  --kt2-fg-bright: #071410;
+  --kt2-accent: #177b55;
+  --kt2-accent-2: #a85f00;
+  --kt2-link: #0e6da8;
+  --kt2-danger: #b83232;
+}
+
 /* ===== RAISED / SUNKEN bevels (Win9x) ===================== */
 .r-raise {
   border-style: solid;

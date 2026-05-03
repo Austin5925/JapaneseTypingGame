@@ -8,7 +8,12 @@ import { ContentPacksPage } from './pages/ContentPacksPage';
 import { DevPage } from './pages/DevPage';
 import { DiagnosticPage } from './pages/DiagnosticPage';
 import { EvaluatorDevPage } from './pages/EvaluatorDevPage';
-import { GamePage, type GameInputMode, type GameRouteOverrides } from './pages/GamePage';
+import {
+  GamePage,
+  type GameInputMode,
+  type GameRouteOverrides,
+  type MoleDifficulty,
+} from './pages/GamePage';
 import { HomePage } from './pages/HomePage';
 import { InputDevPage } from './pages/InputDevPage';
 import { LibraryPage } from './pages/LibraryPage';
@@ -89,6 +94,10 @@ function withOverrides(hash: string): { overrides?: GameRouteOverrides } {
   if (inputMode) {
     overrides.inputMode = inputMode;
   }
+  const moleDifficulty = parseMoleDifficulty(params.get('difficulty'));
+  if (moleDifficulty) {
+    overrides.moleDifficulty = moleDifficulty;
+  }
   return Object.keys(overrides).length > 0 ? { overrides } : {};
 }
 
@@ -103,8 +112,20 @@ function parseInputMode(value: string | null): GameInputMode | undefined {
   return undefined;
 }
 
+function parseMoleDifficulty(value: string | null): MoleDifficulty | undefined {
+  if (value === 'easy' || value === 'normal' || value === 'hard') return value;
+  return undefined;
+}
+
 export function App(): JSX.Element {
   const [route, setRoute] = useState<Route>(getRoute);
+
+  useEffect(() => {
+    const savedTheme = globalThis.localStorage?.getItem('kana-type-theme');
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      globalThis.document?.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  }, []);
 
   useEffect(() => {
     const onHashChange = (): void => setRoute(getRoute());

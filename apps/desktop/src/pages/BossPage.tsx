@@ -37,7 +37,7 @@ const STRICT_POLICY: EvaluationStrictness = {
   particleReading: 'pronunciation',
 };
 
-const SESSION_DURATION_MS = 240_000; // 4 minutes — Boss is meant to be longer than a single game session.
+const SESSION_DURATION_MS = 90_000; // Boss is the one longer standard mode; other games are 60s.
 
 const SCENE_KEY_FOR_GAME: Partial<Record<GameType, GameSceneKey>> = {
   mole_story: 'MoleScene',
@@ -361,7 +361,7 @@ export function BossPage(): JSX.Element {
             letterSpacing: '0.04em',
           }}
         >
-          段落自动轮换 · 连击跨段保持 · attempt 写入 SQLite [v0.8.8]
+          段落自动轮换 · 连击跨段保持 · 90s Boss · attempt 写入 SQLite [v0.8.9]
         </div>
         {sceneError.sceneErrorToast}
       </div>
@@ -406,7 +406,7 @@ function attachSegmentQueue(
       gameType: seg.gameType,
       skillDimension: seg.skillDimension,
       strictness: STRICT_POLICY,
-      distractorCount: seg.gameType === 'apple_rescue' ? 1 : 3,
+      distractorCount: seg.gameType === 'apple_rescue' ? 2 : 3,
       timeLimitMs: seg.timeLimitMs,
       promptKind: seg.gameType === 'apple_rescue' ? 'audio' : 'meaning_zh',
     });

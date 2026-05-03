@@ -42,6 +42,7 @@ interface SessionStats {
 }
 
 export type GamePageMode = 'mole' | 'speed-chase';
+export type MoleDifficulty = 'easy' | 'normal' | 'hard';
 
 interface ModeConfig {
   durationMs: number;
@@ -66,15 +67,26 @@ const MODE_CONFIG: Record<GamePageMode, ModeConfig> = {
     timeLimitMs: 6000,
   },
   'speed-chase': {
-    durationMs: 180_000,
+    durationMs: 60_000,
     gameType: 'speed_chase',
     sceneKey: SPEED_CHASE_SCENE_KEY,
     answerMode: 'romaji_to_kana',
     skillDimension: 'kanji_reading',
-    title: '生死时速 — 3 分钟读音冲刺',
-    taskCount: 90,
+    title: '生死时速 — 60s 读音冲刺',
+    taskCount: 60,
   },
 };
+
+const MOLE_DIFFICULTY_CONFIG: Record<
+  MoleDifficulty,
+  { label: string; timeLimitMs: number; note: string }
+> = {
+  easy: { label: '简单', timeLimitMs: 8000, note: '8.0s' },
+  normal: { label: '普通', timeLimitMs: 6000, note: '6.0s' },
+  hard: { label: '困难', timeLimitMs: 4500, note: '4.5s' },
+};
+
+const MOLE_DIFFICULTIES: MoleDifficulty[] = ['easy', 'normal', 'hard'];
 
 /** Where the user actually types. `romaji` keeps the existing Phaser keyboard pump (ASCII →
  * wanakana → kana). `ime_surface` mounts an `<ImeInputBox>` outside the canvas so a real OS
@@ -85,6 +97,7 @@ export interface GameRouteOverrides {
   durationMs?: number;
   skillDimension?: SkillDimension;
   inputMode?: GameInputMode;
+  moleDifficulty?: MoleDifficulty;
 }
 
 export interface GamePageProps {
@@ -94,19 +107,26 @@ export interface GamePageProps {
 
 /**
  * Sprint 3+4 game page. `mode='mole'` is the 60s whack-a-mole route (`#/game/mole`);
- * `mode='speed-chase'` is the 3-minute kanji-reading sprint (`#/game/speed-chase`). Both
+ * `mode='speed-chase'` is the 60s kanji-reading sprint (`#/game/speed-chase`). Both
  * wire GameSessionService + selectKanaTasks + GameCanvasHost via the same shape — only the
  * scene key, duration, and skill dimension differ.
  */
 export function GamePage(props: GamePageProps): JSX.Element {
   const baseConfig = MODE_CONFIG[props.mode];
-  const durationMs = props.overrides?.durationMs ?? baseConfig.durationMs;
+  const moleDifficulty: MoleDifficulty =
+    props.mode === 'mole' ? (props.overrides?.moleDifficulty ?? 'normal') : 'normal';
+  const moleTiming = MOLE_DIFFICULTY_CONFIG[moleDifficulty];
+  const durationMs = baseConfig.durationMs;
   const config: ModeConfig = {
     ...baseConfig,
     durationMs,
     skillDimension: props.overrides?.skillDimension ?? baseConfig.skillDimension,
     taskCount: Math.max(1, Math.round((durationMs / baseConfig.durationMs) * baseConfig.taskCount)),
   };
+  if (props.mode === 'mole') {
+    config.title = `鼹鼠的故事 — ${moleTiming.label} · 60s 假名训练`;
+    config.timeLimitMs = moleTiming.timeLimitMs;
+  }
   const SESSION_DURATION_MS = config.durationMs;
   // Only speed-chase honours `inputMode=ime_surface` for now (mole stays romaji until P0-x in a
   // future sprint). For other modes we silently fall back to romaji.
@@ -184,7 +204,7 @@ export function GamePage(props: GamePageProps): JSX.Element {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Tick the session timer (mole = 60s, speed-chase = 180s; SESSION_DURATION_MS is closed
+  // Tick the session timer (standard games = 60s; SESSION_DURATION_MS is closed
   // over per-render but the value is stable for a given mode, so the missing-dep lint warning
   // is intentional).
   useEffect(() => {
@@ -311,6 +331,10 @@ export function GamePage(props: GamePageProps): JSX.Element {
       >
         <div className="title">▌ {config.title}</div>
 
+        {props.mode === 'mole' ? (
+          <MoleDifficultyTabs active={moleDifficulty} overrides={props.overrides} />
+        ) : null}
+
         <GameHud
           remainingMs={stats.remainingMs}
           attemptsCount={stats.attempts}
@@ -365,6 +389,46 @@ export function GamePage(props: GamePageProps): JSX.Element {
       </div>
     </div>
   );
+}
+
+function MoleDifficultyTabs({
+  active,
+  overrides,
+}: {
+  active: MoleDifficulty;
+  overrides: GameRouteOverrides | undefined;
+}): JSX.Element {
+  return (
+    <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+      <span className="r-label" style={{ fontSize: 8 }}>
+        难度
+      </span>
+      {MOLE_DIFFICULTIES.map((level) => {
+        const cfg = MOLE_DIFFICULTY_CONFIG[level];
+        const isActive = level === active;
+        return (
+          <a
+            key={level}
+            href={moleDifficultyHref(level, overrides)}
+            className={isActive ? 'r-btn primary' : 'r-btn'}
+            style={{ textDecoration: 'none', padding: '3px 8px' }}
+          >
+            {cfg.label} · {cfg.note}
+          </a>
+        );
+      })}
+    </div>
+  );
+}
+
+function moleDifficultyHref(
+  level: MoleDifficulty,
+  overrides: GameRouteOverrides | undefined,
+): string {
+  const params = new URLSearchParams();
+  params.set('difficulty', level);
+  if (overrides?.skillDimension) params.set('skillDimension', overrides.skillDimension);
+  return `#/game/mole?${params.toString()}`;
 }
 
 /**
