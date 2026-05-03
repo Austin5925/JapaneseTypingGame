@@ -50,6 +50,8 @@ export function SettingsPage(): JSX.Element {
         <div style={{ display: 'flex', flexDirection: 'column', fontSize: 14 }}>
           {sections.map((s, i) => {
             const isActive = active === s.id;
+            // Layout-only inline style; visual state (active vs hover) lives on the
+            // `.nav` / `.nav.active` CSS so retro.css's light-theme overrides apply.
             const itemStyle: CSSProperties = {
               padding: '5px 8px',
               display: 'flex',
@@ -57,17 +59,14 @@ export function SettingsPage(): JSX.Element {
               alignItems: 'center',
               width: '100%',
               textAlign: 'left',
-              background: isActive
-                ? 'linear-gradient(180deg, #1f4a42 0%, #14342f 100%)'
-                : 'transparent',
-              color: isActive ? '#e9fff0' : 'var(--kt2-fg)',
-              border: isActive ? '1px solid #2e6e62' : '1px solid transparent',
               cursor: 'pointer',
+              border: '1px solid transparent',
             };
+            const className = `nav${isActive ? ' active' : ''}`;
             if (s.href) {
               return (
                 <a key={s.id} href={s.href} style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <div className="nav" style={itemStyle}>
+                  <div className={className} style={itemStyle}>
                     {String(i + 1).padStart(2, '0')}. {s.label}
                     <span style={{ marginLeft: 'auto' }}>→</span>
                   </div>
@@ -78,7 +77,7 @@ export function SettingsPage(): JSX.Element {
               <button
                 key={s.id}
                 type="button"
-                className="nav"
+                className={className}
                 onClick={() => setActive(s.id)}
                 style={itemStyle}
               >
@@ -158,11 +157,23 @@ function DataSettings({ info, error }: { info: DbInfo | null; error: string | nu
 function TrainingSettings(): JSX.Element {
   return (
     <div style={{ display: 'grid', gap: 12 }}>
-      <InfoRow label="标准局">
-        <span>鼹鼠 / 生死时速 / 激流勇进 / 太空大战 / 拯救苹果均为 60 秒。</span>
+      <InfoRow label="鼹鼠的故事">
+        <span>会话 60 秒 · 单题 6 秒 · 看汉字打 romaji。</span>
+      </InfoRow>
+      <InfoRow label="生死时速">
+        <span>会话最长 80 秒(被追上 / 抵达终点都会提前结束)· 真实 IME 输入。</span>
+      </InfoRow>
+      <InfoRow label="激流勇进">
+        <span>会话 90 秒 · 单题 18 秒 · 拖拽 chunk 拼出语序。</span>
+      </InfoRow>
+      <InfoRow label="太空大战">
+        <span>会话 60 秒 · 单题 6 秒 · 14 题 · 4 选 1 同音 / 近形辨析。</span>
+      </InfoRow>
+      <InfoRow label="拯救苹果">
+        <span>会话 60 秒 · 单题 6 秒 · 听 TTS 选 kana,长音 / 促音 / 浊音辨别。</span>
       </InfoRow>
       <InfoRow label="Boss 关">
-        <span>Boss 关为 90 秒，并按最近弱项自动切换段落。</span>
+        <span>会话 180 秒 · 3 段 × 4 题混合关,combo 跨段共享。</span>
       </InfoRow>
       <InfoRow label="鼹鼠难度">
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
@@ -238,10 +249,39 @@ function AboutSettings(): JSX.Element {
         </span>
       </InfoRow>
       <InfoRow label="定位">
-        <span>日语输入反射训练器，桌面端优先，离线 SQLite 学习闭环。</span>
+        <span style={{ lineHeight: 1.6 }}>
+          假名打字通是一款<strong>日语输入反射训练器</strong>,目标用户是已经学过五十音、 正在攻
+          N5–N2 的中文母语日语学习者。它不教你认识假名,而是把"我认识这个词"推进到 "我能快速打出来 /
+          听出来 / 用出来"——通过 5 个反应类小游戏 + 学习模式卡片 + 错题回流形成闭环。
+        </span>
+      </InfoRow>
+      <InfoRow label="架构">
+        <span style={{ lineHeight: 1.6 }}>
+          Tauri v2 桌面壳 + Vite + React 19 前端 + Phaser 3 游戏 scene + 本地 SQLite (better-sqlite3
+          / rusqlite)持久化。完全离线,无后端账号,数据存在本机
+          <code className="kt-mono" style={{ marginLeft: 4, color: 'var(--kt2-fg-bright)' }}>
+            local-data/kana_typing.sqlite
+          </code>
+          。
+        </span>
       </InfoRow>
       <InfoRow label="发布">
-        <span>public repo release metadata 与 Tauri bundle 同步到 v{APP_VERSION}。</span>
+        <span style={{ lineHeight: 1.6 }}>
+          0.x 试错阶段,版本号紧密跟随每一批可玩功能;1.0 会在桌面 MVP 判定可分发时发出。 源码托管在{' '}
+          <code className="kt-mono">Austin5925/JapaneseTypingGame</code>, public 仓库,CI 跑全栈 gate
+          (typecheck / lint / format / test / build / cargo fmt / clippy / test)。当前 Tauri bundle
+          与仓库 tag 同步在
+          <span className="kt-mono" style={{ marginLeft: 4, color: 'var(--kt2-accent)' }}>
+            v{APP_VERSION}
+          </span>
+          。
+        </span>
+      </InfoRow>
+      <InfoRow label="致谢">
+        <span style={{ lineHeight: 1.6 }}>
+          内容包基于公开 JLPT 词汇大纲 + 母语者审订;判题用 wanakana 做 romaji ↔ kana
+          round-trip;打字反馈使用 Web Audio API 合成的 8-bit 风格 SFX。
+        </span>
       </InfoRow>
     </div>
   );

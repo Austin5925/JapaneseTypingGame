@@ -28,6 +28,32 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
   默认 60s 的偏差。
 - Study 卡片页切换 pack 或 mode 时会清空旧 items/progress/error 并把 index 复位到 0;
   若 localStorage 里的 resume index 超出新列表长度,也会落回 0,避免停在永久 loading。
+- HomePage `ModeBlock` 卡片里的中文 `name`(「鼹鼠的故事」「Boss 关」等)和英文 `sub`
+  (`MOLE.EXE` / `BOSS.EXE` 等)在 v0.9.1 缩小尺寸后没有任何视觉间隔,挤在一起难以区分。
+  给 `name` 加 `lineHeight: 1.1`、给 `sub` 加 `marginTop: 3` + `lineHeight: 1.1`,
+  使两行有约 3 px 呼吸空间,不放大整体卡片高度。
+- 明亮模式(`[data-theme='light']`)下顶部 menubar / toolbar / 底部 statusbar 一直
+  显示成纯黑色横条 — 这些 class 在 retro.css 里硬编码了 `#0e1414` / `#0c1313` /
+  `#0d1313`,base 暗色被 light vars 覆盖前都会漏出来。补 light theme 覆盖:
+  menubar 浅灰绿(`#d8e3df`)、toolbar/statusbar 浅薄荷(`#cee0db`)、titlebar 下边框
+  改成 `#1f3e38`,顶部三条不再是黑墙。
+- 明亮模式下 `r-btn` / `r-btn.primary` / `r-btn.danger` / `r-btn:hover` / `r-btn:active`
+  之前继承的还是暗灰按钮(`#1c2c29` 等),光面背景对比刺眼。改为浅色凸起样式
+  (`#cfdcd8` 普通态、深绿 primary、浅红 danger),配合 bevel 变量自动生效。
+- 明亮模式下侧栏 `.r-sidebar .nav.active` / `.nav:hover` / `.r-progress` 全部补 light
+  覆盖;SettingsPage「分类」列表项不再用 inline `linear-gradient(#1f4a42…)`,改走
+  `.nav.active` class,使两个主题分别用各自的 active 样式渲染。
+- SettingsPage 训练参数 6 行游戏时长全部按真实代码值对齐: 鼹鼠 60s/单题 6s · 生死时速
+  最长 80s · 激流勇进 90s/单题 18s · 太空大战 60s × 14 题 · 拯救苹果 60s · Boss 180s
+  (旧文案声称"5 个游戏均为 60s、Boss 90s",已偏差)。
+- HomePage 9 个 ModeBlock 卡片描述同步更新,每张卡片显示真实会话时长(60s / 80s /
+  90s / 60s + 14 题 / 60s / 180s)而不是只放风味描述。
+
+### Changed
+
+- SettingsPage「关于 / 版本」面板从 3 行单句扩成 5 段:产品定位(反射训练器、目标用户、
+  闭环叙事)、技术架构(Tauri + React + Phaser + 离线 SQLite)、发布节奏(0.x 试错 /
+  1.0 MVP / public repo + CI gate)、致谢(JLPT 词表 + wanakana + 8-bit SFX)。
 
 ### Tests
 

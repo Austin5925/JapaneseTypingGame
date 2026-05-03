@@ -65,6 +65,104 @@
   --kt2-danger: #b83232;
 }
 
+/* ===== Light theme component overrides =====================
+ * The base styles below were authored against the dark CRT palette and hard-code many
+ * near-black surfaces (#0e1414 menubar, #0c1313 toolbar, #1c2c29 button…). v0.9.2 adds the
+ * light-theme overrides so menubar/toolbar/statusbar don't appear as solid black bars on
+ * the paper background and so r-btn / nav / hover states pick up readable contrast. */
+[data-theme='light'] .r-menubar {
+  background: #d8e3df;
+  border-bottom: 1px solid #9aaca6;
+  color: var(--kt2-fg);
+}
+[data-theme='light'] .r-menubar .item:hover {
+  background: #c1d1cc;
+  color: var(--kt2-fg-bright);
+}
+[data-theme='light'] .r-menubar .item.active {
+  background: var(--kt2-accent);
+  color: #ffffff;
+}
+[data-theme='light'] .r-toolbar {
+  background: #cee0db;
+  border-bottom: 1px solid #9aaca6;
+}
+[data-theme='light'] .r-toolbar .tb-btn {
+  background: #d8e6e2;
+}
+[data-theme='light'] .r-toolbar .tb-btn:hover {
+  background: #bcd2cc;
+}
+[data-theme='light'] .r-toolbar .tb-sep {
+  border-left: 1px solid #9aaca6;
+  border-right: 1px solid #f1f7f5;
+}
+[data-theme='light'] .r-statusbar {
+  background: #cee0db;
+  border-top: 1px solid #9aaca6;
+  color: var(--kt2-fg-dim);
+}
+[data-theme='light'] .r-statusbar .seg {
+  border-right: 1px solid #b0bcb8;
+  border-left: 1px solid #ffffff;
+}
+[data-theme='light'] .r-titlebar {
+  border-bottom: 1px solid #1f3e38;
+}
+[data-theme='light'] .r-titlebar .icons span {
+  background: #cfe1da;
+  border-color: #f1f7f5 #6c8079 #6c8079 #f1f7f5;
+  color: #1d3a32;
+}
+[data-theme='light'] .r-sidebar {
+  border-right: 1px solid #9aaca6;
+}
+[data-theme='light'] .r-sidebar .grp-title {
+  border-bottom: 1px dashed #b8c7c2;
+  color: var(--kt2-accent);
+}
+[data-theme='light'] .r-sidebar .nav {
+  color: var(--kt2-fg);
+}
+[data-theme='light'] .r-sidebar .nav:hover {
+  background: #d2dfdb;
+  color: var(--kt2-fg-bright);
+}
+[data-theme='light'] .r-sidebar .nav.active {
+  background: linear-gradient(180deg, #4ea783 0%, #2c7c5e 100%);
+  color: #ffffff;
+  border-color: #6cc1a0 #11442e #11442e #6cc1a0;
+}
+[data-theme='light'] .r-btn {
+  background: #cfdcd8;
+  color: var(--kt2-fg-bright);
+  border-color: #f7fbfa #6b7d78 #6b7d78 #f7fbfa;
+}
+[data-theme='light'] .r-btn:hover {
+  background: #b9cdc7;
+}
+[data-theme='light'] .r-btn:active {
+  border-color: #6b7d78 #f7fbfa #f7fbfa #6b7d78;
+  background: #a6bcb6;
+}
+[data-theme='light'] .r-btn.primary {
+  background: linear-gradient(180deg, #2a8a5f 0%, #1a6243 100%);
+  border-color: #4cb286 #074c2e #074c2e #4cb286;
+  color: #ffffff;
+}
+[data-theme='light'] .r-btn.primary:hover {
+  background: linear-gradient(180deg, #339a6c 0%, #1f7250 100%);
+}
+[data-theme='light'] .r-btn.danger {
+  background: #f3cccc;
+  color: #5a1313;
+  border-color: #ffe2e2 #8a3232 #8a3232 #ffe2e2;
+}
+[data-theme='light'] .r-progress {
+  background: #c9d6d2;
+  border-color: #6b7d78 #f7fbfa #f7fbfa #6b7d78;
+}
+
 /* ===== RAISED / SUNKEN bevels (Win9x) ===================== */
 .r-raise {
   border-style: solid;

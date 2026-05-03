@@ -154,42 +154,42 @@ export function HomePage(): JSX.Element {
               icon="mole"
               name="鼹鼠的故事"
               sub="MOLE.EXE"
-              desc="假名落下,敲入读音。"
+              desc="60 秒 · 看汉字打 romaji。"
             />
             <ModeBlock
               href="#/game/speed-chase"
               icon="bolt"
               name="生死时速"
               sub="CHASE.EXE"
-              desc="80 秒赛道,IME 冲刺。"
+              desc="最长 80 秒 · IME 冲终点。"
             />
             <ModeBlock
               href="#/game/river-jump"
               icon="river"
               name="激流勇进"
               sub="RIVER.EXE"
-              desc="拖拽 chunk 拼出语序。"
+              desc="90 秒 · 拖 chunk 拼语序。"
             />
             <ModeBlock
               href="#/game/space-battle"
               icon="rocket"
               name="太空大战"
               sub="SPACE.EXE"
-              desc="同音 / 近形辨析选词。"
+              desc="60 秒 / 14 题 · 同音近形选词。"
             />
             <ModeBlock
               href="#/game/apple-rescue"
               icon="apple"
               name="拯救苹果"
               sub="APPLE.EXE"
-              desc="听音辨别长音 / 促音 / 浊音。"
+              desc="60 秒 · 长音促音浊音听辨。"
             />
             <ModeBlock
               href="#/game/boss"
               icon="crown"
               name="Boss 关"
               sub="BOSS.EXE"
-              desc="多模式 gauntlet,combo 共享。"
+              desc="180 秒 · 3 段混合 + combo。"
             />
             <ModeBlock
               href="#/library"
@@ -340,6 +340,7 @@ function ModeBlock({
             style={{
               fontFamily: 'var(--pix-display)',
               fontSize: 10,
+              lineHeight: 1.1,
               color: accent ? 'var(--kt2-accent)' : 'var(--kt2-fg-bright)',
               letterSpacing: '0.04em',
               whiteSpace: 'nowrap',
@@ -349,7 +350,7 @@ function ModeBlock({
           >
             {name}
           </div>
-          <div className="r-label" style={{ fontSize: 7 }}>
+          <div className="r-label" style={{ fontSize: 7, marginTop: 3, lineHeight: 1.1 }}>
             {sub}
           </div>
         </div>
