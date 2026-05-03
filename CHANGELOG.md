@@ -8,6 +8,34 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.9.2] - 2026-05-03 — v0.9 audit fixes: corpus tags, immutable attempts, full scan
+
+### Fixed
+
+- Rust 内置 phase1 seed 现在与 TS content-schema 使用同一套核心 tag 归一规则:
+  `kanji-reading` / `meaning-recall` 等 hyphen 写法入库前统一转为 core 的
+  `kanji_reading` / `meaning_recall`,且 `particle-misuse` 归并为既有
+  `particle_error`。这修复了正式桌面启动路径下选择器、弱点聚合和 error chip
+  读不到 0.9 语料核心 tag 的问题。
+- v0.9 seed 不再删除 v0.8 legacy pack 的 `attempt_events`。旧 pack 只会被置为
+  disabled,旧 item 继续作为不可变 attempt 日志的外键锚点; 新 phase1 pack 仍会用稳定
+  item id 原地 upsert 可复用词条。
+- Runtime 页面读取词库的窗口从 1000 项扩到 5000 项,避免 0.9 的 1654 项 phase1 语料被
+  静默截断。覆盖 Mole / SpeedChase / AppleRescue / SpaceBattle / RiverJump / Boss /
+  Diagnostic / Library / Result 的共用 `listItems` 路径。
+- Today Training 传给游戏 hash 的 `durationMs` 现在会被 Mole / SpeedChase /
+  AppleRescue / SpaceBattle / RiverJump 实际使用,不再出现计划页显示 90s、进入游戏仍跑
+  默认 60s 的偏差。
+- Study 卡片页切换 pack 或 mode 时会清空旧 items/progress/error 并把 index 复位到 0;
+  若 localStorage 里的 resume index 超出新列表长度,也会落回 0,避免停在永久 loading。
+
+### Tests
+
+- 新增 Rust tests 覆盖 legacy pack 退役时保留 attempt log、phase1 seed 入库后的
+  core vocab tag 必须为 canonical snake_case。
+- 新增 content-schema 测试: 所有 11 个 `official-phase1-*.json` pack 都进入 gate,
+  并断言验证后的 core vocab tag 不含 hyphen / `particle_misuse`。
+
 ## [0.9.1] - 2026-05-03 — 首页全游戏入口 + ModeBlock 缩小
 
 ### Added
@@ -80,9 +108,9 @@ non-game study surface** so users can read the items first, then practise them i
 - Study mode is intentionally **decoupled from game scheduling** in this release. Whether a
   card has been studied does not influence which items the games select for tasks. A future
   release (v0.10+) may layer "games prefer studied items" on top.
-- `study_progress` rows only persist for items still in `learning_items`. If a content pack is
-  removed (e.g. via `cleanup_legacy_packs`), the cascading FK clears study progress for those
-  items too.
+- `study_progress` rows only persist for items still in `learning_items`. v0.9.2 changed legacy
+  pack retirement to disable old packs instead of deleting item rows, so old attempts keep valid
+  item anchors.
 
 ## [0.8.11] - 2026-05-03 — Meaning column + Mole in-game meaning + SpeedChase race redesign
 
