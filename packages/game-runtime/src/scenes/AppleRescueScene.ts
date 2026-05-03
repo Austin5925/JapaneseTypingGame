@@ -12,6 +12,11 @@ import {
   type JapaneseTts,
 } from '../audio/japaneseTts';
 
+import {
+  APPLE_RESCUE_BASKET_HALF_WIDTH,
+  APPLE_RESCUE_BASKET_WIDTH,
+  appleRescueLaneX,
+} from './appleRescueLayout';
 import type { BaseSceneInit } from './BaseTrainingScene';
 import { BaseTrainingScene } from './BaseTrainingScene';
 
@@ -39,7 +44,6 @@ const BASKET_SPEED_PX_PER_FRAME = 7;
 const APPLE_FALL_DURATION_MS = 8000;
 const DROP_BOOST_TIME_SCALE = 2.8;
 const DROP_BOOST_PULSE_MS = 800;
-const CATCH_BASKET_HALF_WIDTH = 60;
 const CATCH_TOLERANCE_Y = 24;
 
 /**
@@ -170,10 +174,16 @@ export class AppleRescueScene extends BaseTrainingScene<TrainingTask> {
     // Basket movement.
     if (this.cursors && this.basket) {
       if (this.cursors.left.isDown) {
-        this.basketX = Math.max(60, this.basketX - BASKET_SPEED_PX_PER_FRAME);
+        this.basketX = Math.max(
+          APPLE_RESCUE_BASKET_HALF_WIDTH,
+          this.basketX - BASKET_SPEED_PX_PER_FRAME,
+        );
       }
       if (this.cursors.right.isDown) {
-        this.basketX = Math.min(this.widthPx - 60, this.basketX + BASKET_SPEED_PX_PER_FRAME);
+        this.basketX = Math.min(
+          this.widthPx - APPLE_RESCUE_BASKET_HALF_WIDTH,
+          this.basketX + BASKET_SPEED_PX_PER_FRAME,
+        );
       }
       this.basket.x = this.basketX;
     }
@@ -187,7 +197,7 @@ export class AppleRescueScene extends BaseTrainingScene<TrainingTask> {
         const ay = apple.container.y;
         const ax = apple.container.x;
         if (ay >= this.heightPx * 0.78 - CATCH_TOLERANCE_Y && ay <= this.heightPx * 0.78) {
-          if (Math.abs(ax - this.basketX) <= CATCH_BASKET_HALF_WIDTH) {
+          if (Math.abs(ax - this.basketX) <= APPLE_RESCUE_BASKET_HALF_WIDTH) {
             void this.catchApple(apple);
             break;
           }
@@ -258,7 +268,7 @@ export class AppleRescueScene extends BaseTrainingScene<TrainingTask> {
   }
 
   private spawnApple(option: TrainingOption, index: number, total: number): AppleUi {
-    const x = laneX(index, total, this.widthPx);
+    const x = appleRescueLaneX(index, total, this.widthPx);
     const y = this.heightPx * 0.18 + (index % 2) * 22;
 
     const container = this.add.container(x, y);
@@ -297,13 +307,14 @@ export class AppleRescueScene extends BaseTrainingScene<TrainingTask> {
     }
     const c = this.add.container(this.basketX, this.heightPx * 0.88);
     const g = this.add.graphics();
+    const halfWidth = APPLE_RESCUE_BASKET_HALF_WIDTH;
     g.fillStyle(0xc6885b, 1);
-    g.fillRoundedRect(-60, -16, 120, 30, 6);
+    g.fillRoundedRect(-halfWidth, -16, APPLE_RESCUE_BASKET_WIDTH, 30, 6);
     g.lineStyle(2, 0x6a3f17, 1);
-    g.strokeRoundedRect(-60, -16, 120, 30, 6);
+    g.strokeRoundedRect(-halfWidth, -16, APPLE_RESCUE_BASKET_WIDTH, 30, 6);
     // Weave lines for the basket
     g.lineStyle(1, 0x6a3f17, 0.6);
-    for (let i = -50; i <= 50; i += 12) {
+    for (let i = -45; i <= 45; i += 10) {
       g.lineBetween(i, -14, i, 12);
     }
     c.add(g);
@@ -470,17 +481,4 @@ function generateId(prefix: string): string {
     globalThis.crypto?.randomUUID?.() ??
     `${Date.now().toString()}-${Math.random().toString(16).slice(2)}`;
   return `${prefix}_${uuid}`;
-}
-
-function laneX(index: number, total: number, widthPx: number): number {
-  if (total <= 1) return widthPx / 2;
-  if (total === 2) {
-    return [widthPx * 0.38, widthPx * 0.62][index] ?? widthPx / 2;
-  }
-  if (total === 3) {
-    return [widthPx * 0.32, widthPx * 0.5, widthPx * 0.68][index] ?? widthPx / 2;
-  }
-  const margin = widthPx * 0.18;
-  const usable = widthPx - margin * 2;
-  return margin + (usable / (total - 1)) * index;
 }
