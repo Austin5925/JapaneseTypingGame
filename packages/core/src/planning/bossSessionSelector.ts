@@ -55,15 +55,15 @@ export interface SelectBossSessionInput {
   progress: SkillProgress[];
   learningItems: LearningItem[];
   sentenceItems: SentenceItem[];
-  /** Max number of segments in the Boss session. Default 4. */
+  /** Max number of segments in the Boss session. Default 3. */
   segmentCount?: number;
-  /** Items per segment. Default 5. */
+  /** Items per segment. Default 4. */
   itemsPerSegment?: number;
   /** Per-task time limit for word-mode segments (ms). Default 6000. */
   wordTimeLimitMs?: number;
-  /** Per-task time limit for sentence-mode segments (ms). Default 25000. */
+  /** Per-task time limit for sentence-mode segments (ms). Default 18000. */
   sentenceTimeLimitMs?: number;
-  /** Per-task time limit for choice-mode segments (ms). Default 8000. */
+  /** Per-task time limit for choice-mode segments (ms). Default 6000. */
   choiceTimeLimitMs?: number;
   /**
    * Optional warm-up fallback. When direct weak/error buckets cannot fill `segmentCount`,
@@ -82,8 +82,8 @@ export interface SelectBossSessionOutput {
   weakCandidateCount: number;
 }
 
-const DEFAULT_SEGMENT_COUNT = 4;
-const DEFAULT_ITEMS_PER_SEGMENT = 5;
+const DEFAULT_SEGMENT_COUNT = 3;
+const DEFAULT_ITEMS_PER_SEGMENT = 4;
 
 interface Bucket {
   gameType: GameType;
@@ -98,8 +98,8 @@ export function selectBossSession(input: SelectBossSessionInput): SelectBossSess
   const segmentCount = input.segmentCount ?? DEFAULT_SEGMENT_COUNT;
   const itemsPerSegment = input.itemsPerSegment ?? DEFAULT_ITEMS_PER_SEGMENT;
   const wordTimeLimitMs = input.wordTimeLimitMs ?? 6000;
-  const sentenceTimeLimitMs = input.sentenceTimeLimitMs ?? 25_000;
-  const choiceTimeLimitMs = input.choiceTimeLimitMs ?? 8000;
+  const sentenceTimeLimitMs = input.sentenceTimeLimitMs ?? 18_000;
+  const choiceTimeLimitMs = input.choiceTimeLimitMs ?? 6000;
   const fallbackToWeakestN = Math.max(0, input.fallbackToWeakestN ?? 0);
   const random = input.random ?? Math.random;
 

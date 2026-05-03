@@ -226,6 +226,47 @@ describe('selectBossSession — sentence routing', () => {
     }
   });
 
+  it('uses the v0.8.10 Boss timing budget by default', () => {
+    const out = selectBossSession({
+      progress: [
+        progress({
+          itemId: 'sent-a',
+          skillDimension: 'sentence_order',
+          lastErrorTags: ['word_order_error'],
+          wrongCount: 4,
+        }),
+        progress({
+          itemId: 'sent-b',
+          skillDimension: 'particle_usage',
+          lastErrorTags: ['particle_error'],
+          wrongCount: 3,
+        }),
+        progress({
+          itemId: 'choice-a',
+          skillDimension: 'meaning_recall',
+          lastErrorTags: ['same_sound_confusion'],
+          wrongCount: 2,
+        }),
+      ],
+      learningItems: [
+        item({ id: 'choice-a' }),
+        item({ id: 'support-b' }),
+        item({ id: 'support-c' }),
+        item({ id: 'support-d' }),
+      ],
+      sentenceItems: [sentence('sent-a'), sentence('sent-b')],
+    });
+
+    expect(out.segments).toHaveLength(3);
+    expect(out.segments.find((s) => s.skillDimension === 'sentence_order')!.timeLimitMs).toBe(
+      18_000,
+    );
+    expect(out.segments.find((s) => s.skillDimension === 'particle_usage')!.timeLimitMs).toBe(
+      18_000,
+    );
+    expect(out.segments.find((s) => s.gameType === 'space_battle')!.timeLimitMs).toBe(6000);
+  });
+
   it('keeps particle_usage on particle-error river segments', () => {
     const out = selectBossSession({
       progress: [

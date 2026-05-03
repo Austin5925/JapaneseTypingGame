@@ -14,6 +14,7 @@ import { SeedFoundationsButton } from '../features/db/SeedFoundationsButton';
 import { GameCanvasHost } from '../features/game/GameCanvasHost';
 import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { GameSessionService } from '../features/session/GameSessionService';
+import { APP_VERSION_LABEL } from '../features/version';
 import { listItems, listProgress } from '../tauri/invoke';
 
 const STRICT_POLICY: EvaluationStrictness = {
@@ -276,7 +277,7 @@ export function SpaceBattlePage(_props: SpaceBattlePageProps = {}): JSX.Element 
             letterSpacing: '0.04em',
           }}
         >
-          数字键 1-4 锁定目标 · 子弹命中后判定 · attempt 写入 SQLite [v0.8.9]
+          数字键 1-4 锁定目标 · 子弹命中后判定 · attempt 写入 SQLite [{APP_VERSION_LABEL}]
         </div>
       </div>
     </div>

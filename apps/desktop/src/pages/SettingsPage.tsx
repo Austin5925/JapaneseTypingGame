@@ -1,12 +1,12 @@
 import { useEffect, useState, type CSSProperties, type JSX, type ReactNode } from 'react';
 
 import { PixIcon } from '../features/style/PixIcon';
+import { APP_VERSION } from '../features/version';
 import { getDbInfo, type DbInfo } from '../tauri/invoke';
 
 type SettingsSectionId = 'data' | 'packs' | 'train' | 'theme' | 'about';
 type ThemeChoice = 'dark' | 'light';
 
-const APP_VERSION = '0.8.9';
 const THEME_STORAGE_KEY = 'kana-type-theme';
 
 const sections: Array<{ id: SettingsSectionId; label: string; href?: string }> = [
@@ -20,7 +20,7 @@ const sections: Array<{ id: SettingsSectionId; label: string; href?: string }> =
 /**
  * Settings page (`#/settings`), retro-skinned in C8.
  *
- * v0.8.9 turns the previously disabled sections into usable panels. Content pack
+ * v0.8.9 turned the previously disabled sections into usable panels. Content pack
  * management still owns its dedicated route because it has its own table workflow.
  */
 export function SettingsPage(): JSX.Element {

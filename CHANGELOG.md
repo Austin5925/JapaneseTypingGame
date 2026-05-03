@@ -8,6 +8,16 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+### Fixed
+
+- Boss selector defaults now match the v0.8.10 rebalance math: 3 segments × 4 focused
+  items, 6s word/choice tasks, and 18s RiverJump tasks. The 180s Boss cap now has real
+  headroom even when two sentence segments are selected.
+- Today Training now budgets RiverJump blocks as 90s, matching the shipped RiverJump page
+  instead of undercounting the daily route by 30s.
+- Visible release labels in README, Settings, and game footers now use the shared
+  `APP_VERSION` constant instead of stale `v0.8.9` strings.
+
 ## [0.8.10] - 2026-05-03 — Session/task rebalance + toast hoist + sentence import
 
 ### Changed

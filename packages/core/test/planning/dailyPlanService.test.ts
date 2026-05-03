@@ -73,7 +73,11 @@ describe('selectGameBlocks', () => {
       targetDurationMs: 480_000,
     });
     expect(blocks).toContainEqual(
-      expect.objectContaining({ gameType: 'river_jump', skillDimension: 'sentence_order' }),
+      expect.objectContaining({
+        gameType: 'river_jump',
+        skillDimension: 'sentence_order',
+        durationMs: 90_000,
+      }),
     );
   });
 
@@ -83,7 +87,11 @@ describe('selectGameBlocks', () => {
       targetDurationMs: 480_000,
     });
     expect(blocks).toContainEqual(
-      expect.objectContaining({ gameType: 'river_jump', skillDimension: 'particle_usage' }),
+      expect.objectContaining({
+        gameType: 'river_jump',
+        skillDimension: 'particle_usage',
+        durationMs: 90_000,
+      }),
     );
   });
 

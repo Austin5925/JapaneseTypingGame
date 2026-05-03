@@ -1,6 +1,7 @@
 import { useEffect, useState, type JSX, type ReactNode } from 'react';
 
 import { PixIcon, type PixIconName } from '../style/PixIcon';
+import { APP_VERSION_LABEL } from '../version';
 
 /**
  * Stable union of "where are we" identifiers the shell uses to highlight the
@@ -96,7 +97,7 @@ export function RetroShell(props: RetroShellProps): JSX.Element {
   return (
     <div className="r-app">
       <div className="r-titlebar">
-        <span>KANA-TYPE.EXE — 假名打字通 v0.8.10 [离线模式]</span>
+        <span>KANA-TYPE.EXE — 假名打字通 {APP_VERSION_LABEL} [离线模式]</span>
         <div className="icons">
           <span>_</span>
           <span>□</span>
@@ -186,7 +187,7 @@ export function RetroShell(props: RetroShellProps): JSX.Element {
 
       <footer className="r-statusbar">
         <span className="seg">就绪</span>
-        <span className="seg">v0.8.10 · master</span>
+        <span className="seg">{APP_VERSION_LABEL} · master</span>
         <span className="grow" />
         <span className="seg">
           <a href="#/dev" style={{ color: 'inherit' }}>

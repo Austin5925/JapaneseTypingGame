@@ -15,6 +15,7 @@ import { SeedFoundationsButton } from '../features/db/SeedFoundationsButton';
 import { GameCanvasHost } from '../features/game/GameCanvasHost';
 import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { GameSessionService } from '../features/session/GameSessionService';
+import { APP_VERSION_LABEL } from '../features/version';
 import { listItems, listProgress } from '../tauri/invoke';
 
 const STRICT_POLICY: EvaluationStrictness = {
@@ -299,7 +300,7 @@ export function RiverJumpPage(props: RiverJumpPageProps = {}): JSX.Element {
             letterSpacing: '0.04em',
           }}
         >
-          ↵ ENTER 提交 · ⌫ BACKSPACE 编辑 · 顺序错 = 跳水 · attempt 写入 SQLite [v0.8.3]
+          {`↵ ENTER 提交 · ⌫ BACKSPACE 编辑 · 顺序错 = 跳水 · attempt 写入 SQLite [${APP_VERSION_LABEL}]`}
         </div>
       </div>
     </div>

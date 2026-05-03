@@ -15,7 +15,7 @@ export interface SelectGameBlocksInput {
  *   - katakana weakness > 0.6  → 60s mole (katakana专项)
  *   - kanji-reading > 0.5      → 60s speed-chase
  *   - long-vowel/sokuon/dakuten in topErrorTags → 60s apple_rescue (listening)
- *   - particle/sentence-order weakness > 0.5 → 60s river_jump
+ *   - particle/sentence-order weakness > 0.5 → 90s river_jump
  *   - meaning/same-sound confusion or meaningRecall weakness → 60s space_battle
  *
  * The function clamps the total to `targetDurationMs` by dropping the lowest-priority block
@@ -81,7 +81,7 @@ export function selectGameBlocks(input: SelectGameBlocksInput): GameBlock[] {
     blocks.push({
       gameType: 'river_jump',
       skillDimension: particleFocused ? 'particle_usage' : 'sentence_order',
-      durationMs: 60_000,
+      durationMs: 90_000,
       priority: 4,
       reason: particleFocused ? '助词读音 / 用法需要回流' : '句子 chunk 顺序需要巩固',
     });

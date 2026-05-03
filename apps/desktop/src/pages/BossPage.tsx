@@ -24,6 +24,7 @@ import { SeedFoundationsButton } from '../features/db/SeedFoundationsButton';
 import { GameCanvasHost, type GameSceneKey } from '../features/game/GameCanvasHost';
 import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { GameSessionService } from '../features/session/GameSessionService';
+import { APP_VERSION_LABEL } from '../features/version';
 import {
   listContentPacks,
   listItems,
@@ -50,9 +51,8 @@ const STRICT_POLICY: EvaluationStrictness = {
 };
 
 // v0.8.10 Boss balance: 3 segments × 4 items + transition overhead. Word/choice segments
-// (~6s/task = ~24s/segment); RiverJump segment 4 × 18s = 72s. Worst case 3 segments include
-// one RiverJump → ~72s + 2 × 24s = 120s, plus 3s transition × 2 = ~126s. 180s gives a real
-// finish margin instead of the v0.8.9 90s cap that cut every Boss session short.
+// are 6s/task; RiverJump is 18s/task. Even the harsh current mix (two RiverJump segments plus
+// one word/choice segment) stays under the 180s cap with transition overhead.
 const SESSION_DURATION_MS = 180_000;
 const BOSS_SEGMENT_COUNT = 3;
 const BOSS_ITEMS_PER_SEGMENT = 4;
@@ -374,7 +374,7 @@ export function BossPage(): JSX.Element {
             letterSpacing: '0.04em',
           }}
         >
-          段落自动轮换 · 连击跨段保持 · 90s Boss · attempt 写入 SQLite [v0.8.9]
+          段落自动轮换 · 连击跨段保持 · 180s Boss · attempt 写入 SQLite [{APP_VERSION_LABEL}]
         </div>
       </div>
     </div>

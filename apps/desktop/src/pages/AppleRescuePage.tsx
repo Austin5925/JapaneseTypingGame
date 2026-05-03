@@ -14,6 +14,7 @@ import { SeedFoundationsButton } from '../features/db/SeedFoundationsButton';
 import { GameCanvasHost } from '../features/game/GameCanvasHost';
 import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { GameSessionService } from '../features/session/GameSessionService';
+import { APP_VERSION_LABEL } from '../features/version';
 import { listItems, listProgress } from '../tauri/invoke';
 
 const STRICT_POLICY: EvaluationStrictness = {
@@ -276,7 +277,7 @@ export function AppleRescuePage(_props: AppleRescuePageProps = {}): JSX.Element 
             letterSpacing: '0.04em',
           }}
         >
-          ←/→ 移动篮子 · ↓/Space 加速下落 · R 重听 · S 慢速 · attempt 写入 SQLite [v0.8.9]
+          {`←/→ 移动篮子 · ↓/Space 加速下落 · R 重听 · S 慢速 · attempt 写入 SQLite [${APP_VERSION_LABEL}]`}
         </div>
       </div>
     </div>
