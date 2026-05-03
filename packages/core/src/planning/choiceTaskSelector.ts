@@ -36,6 +36,8 @@ export interface SelectChoiceTasksInput {
   preferTags?: string[];
   /** Per-task time limit in ms. SpaceBattle's MVP uses 8000ms. */
   timeLimitMs?: number;
+  /** When false, each correct item can appear at most once in the generated queue. */
+  repeat?: boolean;
   /** Default error tag the wrong distractors carry when their item lacks an explicit one. */
   defaultErrorTag?: ErrorTag;
   /** RNG injection for tests. Defaults to Math.random. */
@@ -98,9 +100,16 @@ export function selectChoiceTasks(input: SelectChoiceTasksInput): SelectedChoice
     ranked.push(...candidates);
   }
 
+  const taskSource = input.repeat === false ? uniqueByItemId(ranked) : ranked;
+  if (taskSource.length === 0) {
+    return makeQueue([]);
+  }
+
+  const targetCount =
+    input.repeat === false ? Math.min(input.count, taskSource.length) : input.count;
   const tasks: TrainingTask[] = [];
-  for (let i = 0; tasks.length < input.count; i++) {
-    const item = ranked[i % ranked.length]!;
+  for (let i = 0; tasks.length < targetCount; i++) {
+    const item = taskSource[i % taskSource.length]!;
     tasks.push(
       buildChoiceTask({
         correct: item,
@@ -114,6 +123,17 @@ export function selectChoiceTasks(input: SelectChoiceTasksInput): SelectedChoice
     );
   }
   return makeQueue(tasks);
+}
+
+function uniqueByItemId(items: LearningItem[]): LearningItem[] {
+  const seen = new Set<string>();
+  const out: LearningItem[] = [];
+  for (const item of items) {
+    if (seen.has(item.id)) continue;
+    seen.add(item.id);
+    out.push(item);
+  }
+  return out;
 }
 
 function isEligibleForChoiceMode(item: LearningItem): boolean {

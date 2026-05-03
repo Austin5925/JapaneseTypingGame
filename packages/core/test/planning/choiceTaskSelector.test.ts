@@ -78,6 +78,30 @@ describe('selectChoiceTasks — basic shape', () => {
     expect(q.remaining()).toBe(6);
   });
 
+  it('can cap the queue to one task per item when repeat=false', () => {
+    const q = selectChoiceTasks({
+      items: trio,
+      count: 8,
+      sessionId: 'sess',
+      gameType: 'apple_rescue',
+      skillDimension: 'listening_discrimination',
+      strictness: STRICT,
+      distractorCount: 2,
+      preferTags: ['confusable'],
+      repeat: false,
+      random: RNG,
+    });
+    expect(q.remaining()).toBe(3);
+
+    const seen = new Set<string>();
+    while (q.remaining() > 0) {
+      const task = q.next()!;
+      expect(seen.has(task.itemId)).toBe(false);
+      seen.add(task.itemId);
+    }
+    expect(seen).toEqual(new Set(['word-bridge', 'word-chopsticks', 'word-edge']));
+  });
+
   it('produces tasks whose answerMode is option_select and options.length === distractor+1', () => {
     const q = selectChoiceTasks({
       items: trio,

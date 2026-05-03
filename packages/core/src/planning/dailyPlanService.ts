@@ -12,11 +12,11 @@ export interface SelectGameBlocksInput {
  * Pick the game blocks for today's session.
  *
  * Strategy (devdocs §10.2 with concrete thresholds):
- *   - katakana weakness > 0.6  → 90s mole (katakana专项)
- *   - kanji-reading > 0.5      → 180s speed-chase
- *   - long-vowel/sokuon/dakuten in topErrorTags → 120s apple_rescue (listening)
- *   - particle/sentence-order weakness > 0.5 → 120s river_jump
- *   - meaning/same-sound confusion or meaningRecall weakness → 120s space_battle
+ *   - katakana weakness > 0.6  → 60s mole (katakana专项)
+ *   - kanji-reading > 0.5      → 60s speed-chase
+ *   - long-vowel/sokuon/dakuten in topErrorTags → 60s apple_rescue (listening)
+ *   - particle/sentence-order weakness > 0.5 → 60s river_jump
+ *   - meaning/same-sound confusion or meaningRecall weakness → 60s space_battle
  *
  * The function clamps the total to `targetDurationMs` by dropping the lowest-priority block
  * if necessary. Sprint 5 is intentionally simple; Sprint 5+ will swap this for a richer
@@ -30,7 +30,7 @@ export function selectGameBlocks(input: SelectGameBlocksInput): GameBlock[] {
     blocks.push({
       gameType: 'mole_story',
       skillDimension: 'katakana_recognition',
-      durationMs: 90_000,
+      durationMs: 60_000,
       priority: 1,
       reason: '片假名识别速度慢',
     });
@@ -48,7 +48,7 @@ export function selectGameBlocks(input: SelectGameBlocksInput): GameBlock[] {
     blocks.push({
       gameType: 'speed_chase',
       skillDimension: 'kanji_reading',
-      durationMs: 180_000,
+      durationMs: 60_000,
       priority: 2,
       reason: '汉字读音弱',
     });
@@ -65,7 +65,7 @@ export function selectGameBlocks(input: SelectGameBlocksInput): GameBlock[] {
     blocks.push({
       gameType: 'apple_rescue',
       skillDimension: 'listening_discrimination',
-      durationMs: 120_000,
+      durationMs: 60_000,
       priority: 3,
       reason: '近期长音 / 促音 / 浊音听辨错误偏多',
     });
@@ -81,7 +81,7 @@ export function selectGameBlocks(input: SelectGameBlocksInput): GameBlock[] {
     blocks.push({
       gameType: 'river_jump',
       skillDimension: particleFocused ? 'particle_usage' : 'sentence_order',
-      durationMs: 120_000,
+      durationMs: 60_000,
       priority: 4,
       reason: particleFocused ? '助词读音 / 用法需要回流' : '句子 chunk 顺序需要巩固',
     });
@@ -94,7 +94,7 @@ export function selectGameBlocks(input: SelectGameBlocksInput): GameBlock[] {
     blocks.push({
       gameType: 'space_battle',
       skillDimension: 'meaning_recall',
-      durationMs: 120_000,
+      durationMs: 60_000,
       priority: 5,
       reason: '同音 / 近形 / 意义混淆需要辨析',
     });
@@ -112,9 +112,9 @@ export function selectGameBlocks(input: SelectGameBlocksInput): GameBlock[] {
     blocks.push({
       gameType: 'speed_chase',
       skillDimension: 'kanji_reading',
-      durationMs: 120_000,
+      durationMs: 60_000,
       priority: 2,
-      reason: '热身后再来 2 分钟读音冲刺',
+      reason: '热身后再来 60 秒读音冲刺',
     });
   }
 
