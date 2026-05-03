@@ -54,10 +54,16 @@ export function StudyPage({ packId, mode }: StudyPageProps): JSX.Element {
 
   // Load items + restore resume index ----------------------------------------
   useEffect(() => {
+    let cancelled = false;
+    setItems(null);
+    setError(null);
+    setIndex(0);
+    setProgressByItem({});
     void (async (): Promise<void> => {
       try {
         const filter: StudyFilter = mode;
         const rows = await listStudyItems({ packId, userId: USER_ID, filter });
+        if (cancelled) return;
         setItems(rows);
         const initialMap: Record<string, { viewCount: number; marked: boolean }> = {};
         for (const r of rows) {
@@ -65,13 +71,15 @@ export function StudyPage({ packId, mode }: StudyPageProps): JSX.Element {
         }
         setProgressByItem(initialMap);
         const resumeIdx = readResumeIndex(packId, mode);
-        if (resumeIdx > 0 && resumeIdx < rows.length) {
-          setIndex(resumeIdx);
-        }
+        setIndex(resumeIdx > 0 && resumeIdx < rows.length ? resumeIdx : 0);
       } catch (e) {
+        if (cancelled) return;
         setError((e as Error).message);
       }
     })();
+    return (): void => {
+      cancelled = true;
+    };
   }, [packId, mode]);
 
   const current = items?.[index] ?? null;
