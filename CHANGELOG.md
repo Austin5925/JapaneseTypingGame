@@ -8,6 +8,33 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.8.9] - 2026-05-03 — Game feel pass + fixed session lengths
+
+### Added
+
+- Mole now exposes Easy / Normal / Hard modes via the game route, with 8.0s / 6.0s / 4.5s
+  per-task limits while preserving routed `skillDimension`.
+- SpaceBattle now renders proper player/enemy ship silhouettes, muzzle flash, bullet travel,
+  hit bursts, and a short correct-target hint after wrong shots.
+- AppleRescue now uses three falling apples, includes a center lane, and supports ↓ / Space
+  drop acceleration once the basket is in position.
+- Settings now opens the training, theme, and about panels instead of leaving those sections
+  disabled; theme choice persists to `localStorage` and applies through `data-theme`.
+
+### Fixed
+
+- SpeedChase scene restarts now reset avatar/input/accuracy state and unbind stale keyboard
+  listeners, preventing the chase dots from getting stuck after close contact.
+- AppleRescue no longer pushes wrong tasks back to the front of the same session, and the
+  choice selector can build no-repeat queues so a 60s Apple run does not repeat the same item.
+
+### Changed
+
+- Standard games are fixed to 60s sessions; Boss is fixed to 90s.
+- SpeedChase's dynamic timer/pursuer curve is retuned for the 60s standard session.
+- Today Training block durations now follow the 60s standard game rule.
+- Synchronized package, Tauri, Cargo, shell version metadata to `0.8.9`.
+
 ## [0.8.8] - 2026-05-03 — First-run hardening + Boss polish
 
 ### Added
