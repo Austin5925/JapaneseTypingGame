@@ -9,6 +9,7 @@ import { BaseTrainingScene } from './BaseTrainingScene';
 import { getSpeedChaseDifficulty } from './speedChaseDifficulty';
 
 export const SPEED_CHASE_SCENE_KEY = 'SpeedChaseScene';
+const MIN_PURSUER_DISTANCE_PX = 60;
 
 /**
  * Where SpeedChaseScene reads user input from.
@@ -154,7 +155,7 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
       const diff = getSpeedChaseDifficulty(this.now() - this.sessionStartedAt, accuracy);
       const cappedDelta = Math.min(delta, 50);
       this.pursuerX = Math.min(
-        this.playerX - 24,
+        this.playerX - MIN_PURSUER_DISTANCE_PX,
         this.pursuerX + (diff.pursuerSpeedPx * cappedDelta) / 16,
       );
       this.pursuerSprite.setX(this.pursuerX);
@@ -234,22 +235,22 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
       const tagSummary = result.errorTags.length > 0 ? ` (${result.errorTags.join(', ')})` : '';
       this.feedbackText.setText(`✗ expected ${result.expectedDisplay}${tagSummary}`);
       this.feedbackText.setColor('#f87171');
-      // Penalty visual: pursuer jumps closer. v0.8.6 makes the jump cinematic — a tween
-      // instead of a setX snap, plus a brief camera shake, so the user feels the threat.
+      // Penalty visual: pursuer jumps closer, but never catches the player. Position snaps
+      // directly so the per-frame update loop remains the single owner of x movement.
       const accuracy = this.accuracyAttempts > 0 ? this.accuracyCorrect / this.accuracyAttempts : 1;
       const diff = getSpeedChaseDifficulty(this.now() - this.sessionStartedAt, accuracy);
-      const fromX = this.pursuerX;
-      this.pursuerX = Math.min(this.playerX - 8, this.pursuerX + diff.wrongAnswerSetbackPx);
+      this.pursuerX = Math.min(
+        this.playerX - MIN_PURSUER_DISTANCE_PX,
+        this.pursuerX + diff.wrongAnswerSetbackPx,
+      );
       if (this.pursuerSprite) {
+        this.pursuerSprite.setX(this.pursuerX);
+        this.pursuerSprite.setScale(1.2);
         this.tweens.add({
-          targets: { x: fromX },
-          x: this.pursuerX,
+          targets: this.pursuerSprite,
+          scale: 1,
           duration: 200,
           ease: 'Cubic.easeOut',
-          onUpdate: (tween) => {
-            const x = tween.getValue();
-            if (typeof x === 'number') this.pursuerSprite?.setX(x);
-          },
         });
       }
       this.cameras.main?.shake(160, 0.006);

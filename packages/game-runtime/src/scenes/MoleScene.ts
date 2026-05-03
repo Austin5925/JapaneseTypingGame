@@ -6,6 +6,10 @@ import type { BaseSceneInit } from './BaseTrainingScene';
 import { BaseTrainingScene } from './BaseTrainingScene';
 
 export const MOLE_SCENE_KEY = 'MoleScene';
+const MIN_PILLAR_WIDTH = 110;
+const PILLAR_HEIGHT = 140;
+const PILLAR_SCREEN_MARGIN = 80;
+const PILLAR_HORIZONTAL_PADDING = 32;
 
 export interface MoleSceneInit extends BaseSceneInit {
   /** Game width/height; defaults to current canvas size. */
@@ -104,16 +108,24 @@ export class MoleScene extends BaseTrainingScene<TrainingTask> {
     // the ground line, with the kana text as the head.
     const cx = this.widthPx / 2;
     const cy = this.heightPx * 0.55;
-    const pillarW = 110;
-    const pillarH = 140;
+    const kanaLength = Math.max(1, [...kana].length);
+    const pillarW = clamp(
+      MIN_PILLAR_WIDTH,
+      kanaLength * 56 + PILLAR_HORIZONTAL_PADDING,
+      this.widthPx - PILLAR_SCREEN_MARGIN,
+    );
+    const kanaFontSize = Math.max(
+      28,
+      Math.min(64, Math.floor((pillarW - PILLAR_HORIZONTAL_PADDING) / kanaLength)),
+    );
 
     this.moleContainer = this.add.container(cx, cy);
     const body = this.add.graphics();
     body.fillStyle(0x6cb9ff, 1);
-    body.fillRoundedRect(-pillarW / 2, -pillarH / 2, pillarW, pillarH, 16);
+    body.fillRoundedRect(-pillarW / 2, -PILLAR_HEIGHT / 2, pillarW, PILLAR_HEIGHT, 16);
     this.moleContainer.add(body);
     this.kanaText = this.add.text(0, 0, kana, {
-      fontSize: '64px',
+      fontSize: `${String(kanaFontSize)}px`,
       color: '#0e0f12',
       fontFamily: 'sans-serif',
     });
@@ -289,4 +301,8 @@ function generateId(prefix: string): string {
     globalThis.crypto?.randomUUID?.() ??
     `${Date.now().toString()}-${Math.random().toString(16).slice(2)}`;
   return `${prefix}_${uuid}`;
+}
+
+function clamp(min: number, value: number, max: number): number {
+  return Math.max(min, Math.min(value, max));
 }
