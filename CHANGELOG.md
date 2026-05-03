@@ -8,6 +8,25 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 
 ## [Unreleased]
 
+## [0.9.1] - 2026-05-03 — 首页全游戏入口 + ModeBlock 缩小
+
+### Added
+
+- HomePage「模式选择」grid 扩到 9 个入口,3 × 3 布局,涵盖所有现有去处:
+  - **学习模式**(accent 高亮 — 强调 v0.9.0 的"先学后练"叙事)
+  - **开始训练**(`#/today`,直接进调度任务)
+  - 鼹鼠的故事 / 生死时速 / 激流勇进 / 太空大战 / 拯救苹果(5 个游戏)
+  - Boss 关
+  - 题库浏览
+- `ModeBlock` 新增 `accent` 属性 — 不放大尺寸,仅给主推卡片加 1px accent 边框 + 文字
+  着色,保持网格视觉对齐。
+
+### Changed
+
+- `ModeBlock` 整体尺寸缩小以适应 3 列布局: padding 10 → 8, icon 24 → 20 → 18,
+  name 字号 11 → 10, desc 字号 13 → 11, desc minHeight 36 → 28。
+- 模式名超出宽度时 ellipsis 截断,避免长名(「鼹鼠的故事」「拯救苹果」)挤压 icon。
+
 ## [0.9.0] - 2026-05-03 — 学习模式(Study mode):非游戏卡片浏览 + 进度跟踪
 
 The previous 0.8.x line treated the 5 games as the entire learning surface, which assumed the

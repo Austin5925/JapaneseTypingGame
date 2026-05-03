@@ -133,34 +133,70 @@ export function HomePage(): JSX.Element {
         </Group>
 
         <Group title="▌ 模式选择" style={{ flex: 1 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+            <ModeBlock
+              href="#/study"
+              icon="library"
+              name="学习模式"
+              sub="STUDY"
+              desc="先认识词条,再开始训练。"
+              accent
+            />
+            <ModeBlock
+              href="#/today"
+              icon="play"
+              name="开始训练"
+              sub="TODAY.EXE"
+              desc="按调度顺序进入今日训练。"
+            />
             <ModeBlock
               href="#/game/mole"
               icon="mole"
               name="鼹鼠的故事"
               sub="MOLE.EXE"
-              desc="假名落下,听写或视写敲入。"
+              desc="假名落下,敲入读音。"
             />
             <ModeBlock
               href="#/game/speed-chase"
               icon="bolt"
               name="生死时速"
               sub="CHASE.EXE"
-              desc="60 秒汉字读音冲刺。"
+              desc="80 秒赛道,IME 冲刺。"
+            />
+            <ModeBlock
+              href="#/game/river-jump"
+              icon="river"
+              name="激流勇进"
+              sub="RIVER.EXE"
+              desc="拖拽 chunk 拼出语序。"
+            />
+            <ModeBlock
+              href="#/game/space-battle"
+              icon="rocket"
+              name="太空大战"
+              sub="SPACE.EXE"
+              desc="同音 / 近形辨析选词。"
+            />
+            <ModeBlock
+              href="#/game/apple-rescue"
+              icon="apple"
+              name="拯救苹果"
+              sub="APPLE.EXE"
+              desc="听音辨别长音 / 促音 / 浊音。"
+            />
+            <ModeBlock
+              href="#/game/boss"
+              icon="crown"
+              name="Boss 关"
+              sub="BOSS.EXE"
+              desc="多模式 gauntlet,combo 共享。"
             />
             <ModeBlock
               href="#/library"
-              icon="library"
+              icon="mistakes"
               name="题库浏览"
               sub="LIBRARY"
-              desc="查看已收录词条 + 掌握度。"
-            />
-            <ModeBlock
-              icon="target"
-              name="水平测评"
-              sub="DIAG.EXE"
-              desc="新手诊断 · v0.7 P0-2 即将推出。"
-              disabled
+              desc="按掌握度筛词条。"
             />
           </div>
         </Group>
@@ -275,6 +311,7 @@ function ModeBlock({
   desc,
   href,
   disabled,
+  accent,
 }: {
   icon: PixIconName;
   name: string;
@@ -282,26 +319,32 @@ function ModeBlock({
   desc: string;
   href?: string;
   disabled?: boolean;
+  /** v0.9.1: highlight a primary CTA card (currently 学习模式) without enlarging it. */
+  accent?: boolean;
 }): JSX.Element {
   const inner = (
     <div
       className="r-raise"
       style={{
-        background: 'var(--kt2-panel-2)',
-        padding: 10,
+        background: accent ? 'var(--kt2-panel-3, var(--kt2-panel-2))' : 'var(--kt2-panel-2)',
+        padding: 8,
         cursor: disabled ? 'not-allowed' : 'pointer',
         opacity: disabled ? 0.55 : 1,
+        boxShadow: accent ? 'inset 0 0 0 1px var(--kt2-accent)' : undefined,
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-        <PixIcon name={icon} size={24} />
-        <div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+        <PixIcon name={icon} size={18} />
+        <div style={{ minWidth: 0 }}>
           <div
             style={{
               fontFamily: 'var(--pix-display)',
-              fontSize: 11,
-              color: 'var(--kt2-fg-bright)',
-              letterSpacing: '0.06em',
+              fontSize: 10,
+              color: accent ? 'var(--kt2-accent)' : 'var(--kt2-fg-bright)',
+              letterSpacing: '0.04em',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
             }}
           >
             {name}
@@ -313,10 +356,10 @@ function ModeBlock({
       </div>
       <div
         style={{
-          fontSize: 13,
+          fontSize: 11,
           color: 'var(--kt2-fg-dim)',
-          lineHeight: 1.4,
-          minHeight: 36,
+          lineHeight: 1.35,
+          minHeight: 28,
         }}
       >
         {desc}
