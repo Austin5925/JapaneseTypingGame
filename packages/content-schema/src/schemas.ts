@@ -18,8 +18,11 @@ export const JlptSchema = z.enum(['N5', 'N4', 'N3', 'N2', 'N1', 'none']);
 // v0.9.0: phase1 corpus uses hyphen-style tags (`kanji-reading`, `long-vowel-error`); we
 // preprocess into the canonical underscore form so existing core/runtime code keeps using a
 // single enum vocabulary. Any tag not matching the enum after normalisation still fails.
-const normalizeTag = (raw: unknown): unknown =>
-  typeof raw === 'string' ? raw.replace(/-/g, '_') : raw;
+const normalizeTag = (raw: unknown): unknown => {
+  if (typeof raw !== 'string') return raw;
+  const normalized = raw.replace(/-/g, '_');
+  return normalized === 'particle_misuse' ? 'particle_error' : normalized;
+};
 
 export const SkillDimensionSchema = z.preprocess(
   normalizeTag,
@@ -49,7 +52,6 @@ export const ErrorTagSchema = z.preprocess(
     'youon_error',
     'n_error',
     'particle_error',
-    'particle_misuse',
     'kanji_reading_error',
     'same_sound_confusion',
     'near_sound_confusion',

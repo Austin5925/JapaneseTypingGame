@@ -46,6 +46,24 @@ describe('LearningItemSchema', () => {
     });
     expect(result.success).toBe(false);
   });
+
+  it('normalizes hyphenated core tags and particle aliases', () => {
+    const result = LearningItemSchema.safeParse({
+      id: 'word-particle',
+      type: 'word',
+      surface: '私は',
+      kana: 'わたしは',
+      romaji: ['watashiha'],
+      meaningsZh: ['我是'],
+      skillTags: ['kanji-reading', 'meaning-recall'],
+      errorTags: ['particle-misuse', 'long-vowel-error'],
+    });
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.skillTags).toEqual(['kanji_reading', 'meaning_recall']);
+      expect(result.data.errorTags).toEqual(['particle_error', 'long_vowel_error']);
+    }
+  });
 });
 
 describe('ContentPackSchema', () => {

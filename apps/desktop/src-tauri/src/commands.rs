@@ -71,7 +71,7 @@ pub fn list_items(db: State<'_, AppDb>, limit: Option<i64>) -> AppResult<Vec<Dev
         .conn
         .lock()
         .map_err(|e| AppError::Internal(e.to_string()))?;
-    let limit = limit.unwrap_or(50).clamp(1, 1000);
+    let limit = limit.unwrap_or(50).clamp(1, 5000);
     let mut stmt = conn.prepare(
         "SELECT i.id, i.type, i.surface, i.kana, i.romaji_json, i.jlpt, i.tags_json, \
                 i.skill_tags_json, i.error_tags_json, i.accepted_kana_json, \
@@ -210,9 +210,9 @@ const FOUNDATION_PACK_IDS: [&str; 11] = [
     "official-phase1-sentences",
 ];
 
-/// v0.8 foundations packs that the v0.9 phase1 corpus replaces. ensure_seed_for_db purges any
-/// rows belonging to these packs (idempotent: no-op when none exist) so existing dev DBs don't
-/// keep ~600 stale items + their examples / progress / attempts hanging around in `#/dev`.
+/// v0.8 foundations packs that the v0.9 phase1 corpus replaces. ensure_seed_for_db retires these
+/// packs by disabling them, but does not delete their learning_items. Attempt events are immutable,
+/// and old attempts may still reference legacy-only item ids.
 const LEGACY_PACK_IDS: [&str; 5] = [
     "official-n5-basic-mini",
     "official-daily-life-foundations-500",
@@ -372,7 +372,7 @@ pub fn ensure_seed(db: State<'_, AppDb>) -> AppResult<SeedTestPackResult> {
 }
 
 pub fn ensure_seed_for_db(db: &AppDb) -> AppResult<SeedTestPackResult> {
-    cleanup_legacy_packs(db)?;
+    retire_legacy_packs(db)?;
     let existing_pack_count = {
         let conn = db
             .conn
@@ -403,15 +403,11 @@ pub fn ensure_seed_for_db(db: &AppDb) -> AppResult<SeedTestPackResult> {
     seed_foundation_packs(db)
 }
 
-/// Drop every row that belonged to the v0.8 legacy packs. Idempotent: when no legacy pack rows
-/// exist this is a 0-op. We can't rely on FK CASCADE alone because:
-///   - `attempt_events.item_id` and `item_confusables.item_id` lack ON DELETE CASCADE, and FKs
-///     are enabled (`PRAGMA foreign_keys = ON`), so a naive `DELETE FROM learning_items` would
-///     fail before the in-place upsert had a chance to overwrite the rows.
-///   - `item_examples`, `item_skill_progress`, and `item_pack_membership` *do* cascade, so we
-///     only need to delete the parent rows for those.
-fn cleanup_legacy_packs(db: &AppDb) -> AppResult<u32> {
-    let mut conn = db
+/// Hide legacy packs from runtime selectors while preserving the immutable attempt log. New v0.9
+/// packs can still upsert any reused stable item ids in place; legacy-only item ids remain as
+/// referential anchors for old attempt_events.
+fn retire_legacy_packs(db: &AppDb) -> AppResult<u32> {
+    let conn = db
         .conn
         .lock()
         .map_err(|e| AppError::Internal(e.to_string()))?;
@@ -420,48 +416,17 @@ fn cleanup_legacy_packs(db: &AppDb) -> AppResult<u32> {
         .collect::<Vec<_>>()
         .join(", ");
 
-    let pack_count: i64 = conn.query_row(
-        &format!("SELECT COUNT(*) FROM content_packs WHERE id IN ({placeholders})"),
+    let retired = conn.execute(
+        &format!(
+            "UPDATE content_packs SET enabled = 0 WHERE id IN ({placeholders}) AND enabled != 0"
+        ),
         rusqlite::params_from_iter(LEGACY_PACK_IDS.iter()),
-        |row| row.get(0),
     )?;
-    if pack_count == 0 {
-        return Ok(0);
+
+    if retired > 0 {
+        eprintln!("kana-typing: retired {} legacy foundation packs", retired);
     }
-
-    let tx = conn.transaction()?;
-    let item_subquery =
-        format!("SELECT id FROM learning_items WHERE source_pack_id IN ({placeholders})");
-    // Order matters: clear non-cascading children first (attempt_events, item_confusables),
-    // then the parent learning_items (CASCADE handles examples + progress + membership), and
-    // finally the content_packs themselves.
-    tx.execute(
-        &format!("DELETE FROM attempt_events WHERE item_id IN ({item_subquery})"),
-        rusqlite::params_from_iter(LEGACY_PACK_IDS.iter()),
-    )?;
-    tx.execute(
-        &format!("DELETE FROM item_confusables WHERE item_id IN ({item_subquery})"),
-        rusqlite::params_from_iter(LEGACY_PACK_IDS.iter()),
-    )?;
-    tx.execute(
-        &format!("DELETE FROM item_confusables WHERE confusable_item_id IN ({item_subquery})"),
-        rusqlite::params_from_iter(LEGACY_PACK_IDS.iter()),
-    )?;
-    let removed_items = tx.execute(
-        &format!("DELETE FROM learning_items WHERE source_pack_id IN ({placeholders})"),
-        rusqlite::params_from_iter(LEGACY_PACK_IDS.iter()),
-    )?;
-    let removed_packs = tx.execute(
-        &format!("DELETE FROM content_packs WHERE id IN ({placeholders})"),
-        rusqlite::params_from_iter(LEGACY_PACK_IDS.iter()),
-    )?;
-    tx.commit()?;
-
-    eprintln!(
-        "kana-typing: dropped {} legacy pack rows ({} items)",
-        removed_packs, removed_items
-    );
-    Ok(removed_items as u32)
+    Ok(retired as u32)
 }
 
 fn seed_foundation_packs(db: &AppDb) -> AppResult<SeedTestPackResult> {
@@ -575,6 +540,13 @@ fn upsert_pack(tx: &rusqlite::Transaction<'_>, pack: &PackInput, now: &str) -> A
 
     let mut items_upserted: u32 = 0;
     for item in &pack.items {
+        let skill_tags_json =
+            serde_json::to_string(&normalize_learning_vocab_tags(&item.skill_tags))?;
+        let error_tags_json = item
+            .error_tags
+            .as_ref()
+            .map(|tags| serde_json::to_string(&normalize_learning_vocab_tags(tags)))
+            .transpose()?;
         tx.execute(
             "INSERT INTO learning_items (
                 id, type, surface, kana, romaji_json, meanings_zh_json, meanings_en_json,
@@ -613,8 +585,8 @@ fn upsert_pack(tx: &rusqlite::Transaction<'_>, pack: &PackInput, now: &str) -> A
                 item.pos,
                 item.jlpt,
                 serde_json::to_string(&item.tags)?,
-                serde_json::to_string(&item.skill_tags)?,
-                item.error_tags.as_ref().map(serde_json::to_string).transpose()?,
+                skill_tags_json,
+                error_tags_json,
                 item.accepted_surfaces.as_ref().map(serde_json::to_string).transpose()?,
                 item.accepted_kana.as_ref().map(serde_json::to_string).transpose()?,
                 pack.id,
@@ -704,17 +676,35 @@ fn upsert_pack(tx: &rusqlite::Transaction<'_>, pack: &PackInput, now: &str) -> A
     Ok(items_upserted)
 }
 
+fn normalize_learning_vocab_tags(tags: &[String]) -> Vec<String> {
+    tags.iter()
+        .map(|tag| normalize_learning_vocab_tag(tag))
+        .collect()
+}
+
+fn normalize_learning_vocab_tag(tag: &str) -> String {
+    let normalized = tag.replace('-', "_");
+    match normalized.as_str() {
+        "particle_misuse" => "particle_error".to_string(),
+        _ => normalized,
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    fn fresh_seeded_db(scope: &str) -> AppDb {
+    fn fresh_db(scope: &str) -> AppDb {
         let unique = std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
             .expect("clock should be after epoch")
             .as_nanos();
         let dir = std::env::temp_dir().join(format!("kana-typing-{scope}-{unique}"));
-        let db = crate::db::init(&dir).expect("test db should initialize");
+        crate::db::init(&dir).expect("test db should initialize")
+    }
+
+    fn fresh_seeded_db(scope: &str) -> AppDb {
+        let db = fresh_db(scope);
         ensure_seed_for_db(&db).expect("seed should succeed");
         db
     }
@@ -736,6 +726,97 @@ mod tests {
         let second = ensure_seed_for_db(&db).expect("second ensure_seed should no-op");
         assert_eq!(second.packs_upserted, 0);
         assert_eq!(second.items_upserted, 0);
+    }
+
+    #[test]
+    fn ensure_seed_retires_legacy_pack_without_deleting_attempt_events() {
+        let db = fresh_db("legacy-retire");
+        let now = Utc::now().to_rfc3339();
+        {
+            let conn = db.conn.lock().expect("lock");
+            conn.execute(
+                "INSERT INTO content_packs (id, name, version, locale, quality, imported_at, enabled) \
+                 VALUES (?1, 'legacy', '0.8.0', 'zh-CN', 'official', ?2, 1)",
+                params!["official-n5-basic-mini", now],
+            )
+            .expect("legacy pack");
+            conn.execute(
+                "INSERT INTO learning_items (
+                    id, type, surface, kana, romaji_json, meanings_zh_json, tags_json,
+                    skill_tags_json, source_pack_id, quality, created_at, updated_at
+                 ) VALUES (
+                    'legacy-only-item', 'word', '旧', 'きゅう', '[\"kyuu\"]', '[\"旧\"]', '[]',
+                    '[\"kana_typing\"]', 'official-n5-basic-mini', 'official', ?1, ?1
+                 )",
+                params![now],
+            )
+            .expect("legacy item");
+            conn.execute(
+                "INSERT INTO game_sessions (id, user_id, game_type, started_at, status) \
+                 VALUES ('legacy-session', 'u1', 'mole_story', ?1, 'finished')",
+                params![now],
+            )
+            .expect("session");
+            conn.execute(
+                "INSERT INTO attempt_events (
+                    id, session_id, user_id, task_id, item_id, game_type, skill_dimension,
+                    answer_mode, is_correct, score, reaction_time_ms, used_hint, error_tags_json,
+                    created_at
+                 ) VALUES (
+                    'legacy-attempt', 'legacy-session', 'u1', 'task-1', 'legacy-only-item',
+                    'mole_story', 'kana_typing', 'romaji_to_kana', 0, 0.2, 1500, 0,
+                    '[\"long_vowel_error\"]', ?1
+                 )",
+                params![now],
+            )
+            .expect("attempt");
+        }
+
+        ensure_seed_for_db(&db).expect("seed should preserve legacy references");
+
+        let conn = db.conn.lock().expect("lock");
+        let attempt_count: i64 = conn
+            .query_row(
+                "SELECT COUNT(*) FROM attempt_events WHERE id = 'legacy-attempt'",
+                [],
+                |row| row.get(0),
+            )
+            .expect("attempt count");
+        let legacy_enabled: i64 = conn
+            .query_row(
+                "SELECT enabled FROM content_packs WHERE id = 'official-n5-basic-mini'",
+                [],
+                |row| row.get(0),
+            )
+            .expect("legacy pack enabled");
+        assert_eq!(attempt_count, 1);
+        assert_eq!(legacy_enabled, 0);
+    }
+
+    #[test]
+    fn seeded_core_tags_are_canonical_snake_case() {
+        let db = fresh_seeded_db("canonical-tags");
+        let conn = db.conn.lock().expect("lock");
+        let bad_count: i64 = conn
+            .query_row(
+                "SELECT COUNT(*) FROM learning_items \
+                 WHERE skill_tags_json LIKE '%-%' \
+                    OR IFNULL(error_tags_json, '') LIKE '%-%' \
+                    OR skill_tags_json LIKE '%particle_misuse%' \
+                    OR IFNULL(error_tags_json, '') LIKE '%particle_misuse%'",
+                [],
+                |row| row.get(0),
+            )
+            .expect("bad tag count");
+        let particle_error_count: i64 = conn
+            .query_row(
+                "SELECT COUNT(*) FROM learning_items WHERE IFNULL(error_tags_json, '') LIKE '%particle_error%'",
+                [],
+                |row| row.get(0),
+            )
+            .expect("particle error count");
+        assert_eq!(bad_count, 0);
+        assert!(particle_error_count > 0);
     }
 
     #[test]
