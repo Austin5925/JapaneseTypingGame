@@ -37,6 +37,8 @@ interface AppleUi {
 
 const BASKET_SPEED_PX_PER_FRAME = 7;
 const APPLE_FALL_DURATION_MS = 8000;
+const DROP_BOOST_TIME_SCALE = 2.8;
+const DROP_BOOST_PULSE_MS = 800;
 const CATCH_BASKET_HALF_WIDTH = 60;
 const CATCH_TOLERANCE_Y = 24;
 
@@ -50,6 +52,7 @@ const CATCH_TOLERANCE_Y = 24;
  *
  * Controls:
  *   ←/→  move basket
+ *   ↓/Space speed up falling apples once the basket is in position
  *   R    replay audio at normal speed
  *   S    replay audio at slow speed (rate 0.7)
  *
@@ -80,6 +83,7 @@ export class AppleRescueScene extends BaseTrainingScene<TrainingTask> {
   private locked = false;
   private tts: JapaneseTts = createNoopJapaneseTts();
   private currentKana = '';
+  private dropBoostUntil = 0;
 
   constructor() {
     super(APPLE_RESCUE_SCENE_KEY);
@@ -92,6 +96,7 @@ export class AppleRescueScene extends BaseTrainingScene<TrainingTask> {
     this.tts = params.tts ?? createBrowserJapaneseTts();
     this.locked = false;
     this.basketX = this.widthPx / 2;
+    this.dropBoostUntil = 0;
   }
 
   protected createBackground(): void {
@@ -139,7 +144,7 @@ export class AppleRescueScene extends BaseTrainingScene<TrainingTask> {
       color: '#94a0b3',
       fontFamily: 'monospace',
     });
-    this.hintText.setText('R 重听 · S 慢速 · ←/→ 接苹果');
+    this.hintText.setText('R 重听 · S 慢速 · ←/→ 接苹果 · ↓/Space 加速');
 
     this.feedbackText = this.add.text(this.widthPx / 2, this.heightPx - 12, '', {
       fontSize: '15px',
@@ -172,6 +177,7 @@ export class AppleRescueScene extends BaseTrainingScene<TrainingTask> {
       }
       this.basket.x = this.basketX;
     }
+    this.updateFallBoost();
     // Catch detection: any apple whose container Y is in the basket's Y band AND whose X is
     // within tolerance of the basket centre is caught. We exit on the first catch — the
     // submit + advance loop in `catchApple` re-locks for the rest of the frame.
@@ -252,10 +258,7 @@ export class AppleRescueScene extends BaseTrainingScene<TrainingTask> {
   }
 
   private spawnApple(option: TrainingOption, index: number, total: number): AppleUi {
-    const margin = 100;
-    const usable = this.widthPx - margin * 2;
-    const step = total > 1 ? usable / (total - 1) : 0;
-    const x = margin + step * index;
+    const x = laneX(index, total, this.widthPx);
     const y = this.heightPx * 0.18 + (index % 2) * 22;
 
     const container = this.add.container(x, y);
@@ -345,7 +348,18 @@ export class AppleRescueScene extends BaseTrainingScene<TrainingTask> {
       this.replayAudio('normal');
     } else if (key === 's') {
       this.replayAudio('slow');
+    } else if (key === 'arrowdown' || key === ' ') {
+      event.preventDefault();
+      this.dropBoostUntil = this.now() + DROP_BOOST_PULSE_MS;
+      this.updateFallBoost();
     }
+  }
+
+  private updateFallBoost(): void {
+    if (!this.fallTween) return;
+    const isHoldingDown = this.cursors?.down.isDown ?? false;
+    const isBoosting = isHoldingDown || this.now() < this.dropBoostUntil;
+    this.fallTween.setTimeScale(isBoosting ? DROP_BOOST_TIME_SCALE : 1);
   }
 
   private replayAudio(speed: 'normal' | 'slow'): void {
@@ -456,4 +470,17 @@ function generateId(prefix: string): string {
     globalThis.crypto?.randomUUID?.() ??
     `${Date.now().toString()}-${Math.random().toString(16).slice(2)}`;
   return `${prefix}_${uuid}`;
+}
+
+function laneX(index: number, total: number, widthPx: number): number {
+  if (total <= 1) return widthPx / 2;
+  if (total === 2) {
+    return [widthPx * 0.38, widthPx * 0.62][index] ?? widthPx / 2;
+  }
+  if (total === 3) {
+    return [widthPx * 0.32, widthPx * 0.5, widthPx * 0.68][index] ?? widthPx / 2;
+  }
+  const margin = widthPx * 0.18;
+  const usable = widthPx - margin * 2;
+  return margin + (usable / (total - 1)) * index;
 }

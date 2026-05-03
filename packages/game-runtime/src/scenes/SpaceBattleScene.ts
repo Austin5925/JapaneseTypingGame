@@ -27,6 +27,8 @@ interface ShipUi {
   hit: boolean;
 }
 
+const ENEMY_COLORS = [0x7dd3fc, 0x86efac, 0xfde68a, 0xf0abfc];
+
 /**
  * SpaceBattle training scene (v0.8.1 — option-select辨析 training).
  *
@@ -170,13 +172,7 @@ export class SpaceBattleScene extends BaseTrainingScene<TrainingTask> {
 
     const container = this.add.container(x, y);
     const body = this.add.graphics();
-    // Enemy frigate: trapezoid hull + glow outline.
-    body.fillStyle(0x4ade80, 0.18);
-    body.fillRoundedRect(-72, -36, 144, 72, 10);
-    body.lineStyle(2, 0x4ade80, 0.9);
-    body.strokeRoundedRect(-72, -36, 144, 72, 10);
-    body.fillStyle(0x4ade80, 0.45);
-    body.fillTriangle(-30, -36, 0, -52, 30, -36);
+    drawEnemyShip(body, ENEMY_COLORS[index % ENEMY_COLORS.length]!);
     container.add(body);
 
     const label = this.add.text(0, -2, option.label, {
@@ -195,6 +191,15 @@ export class SpaceBattleScene extends BaseTrainingScene<TrainingTask> {
     });
     hotkeyTag.setOrigin(0.5, 0.5);
     container.add(hotkeyTag);
+
+    this.tweens.add({
+      targets: container,
+      scale: { from: 1, to: 1.035 },
+      duration: 900 + index * 120,
+      ease: 'Sine.easeInOut',
+      yoyo: true,
+      repeat: -1,
+    });
 
     return {
       optionId: option.id,
@@ -215,10 +220,7 @@ export class SpaceBattleScene extends BaseTrainingScene<TrainingTask> {
     }
     const c = this.add.container(this.widthPx / 2, this.heightPx * 0.92);
     const g = this.add.graphics();
-    g.fillStyle(0x6cb9ff, 1);
-    g.fillTriangle(-22, 14, 0, -18, 22, 14);
-    g.fillStyle(0x14213d, 1);
-    g.fillRect(-10, -2, 20, 8);
+    drawPlayerShip(g);
     c.add(g);
     this.playerShip = c;
   }
@@ -271,6 +273,7 @@ export class SpaceBattleScene extends BaseTrainingScene<TrainingTask> {
     if (!ship || ship.hit) return;
     ship.hit = true;
     this.locked = true;
+    this.tweens.killTweensOf(ship.container);
 
     if (this.taskTimer) {
       this.taskTimer.remove(false);
@@ -280,6 +283,8 @@ export class SpaceBattleScene extends BaseTrainingScene<TrainingTask> {
       this.descendTween.stop();
       this.descendTween = null;
     }
+
+    await this.animateShot(ship);
 
     // Visual: green explosion on the chosen ship if correct, red shake if not.
     if (ship.isCorrect) {
@@ -292,6 +297,7 @@ export class SpaceBattleScene extends BaseTrainingScene<TrainingTask> {
       });
     } else {
       this.cameras.main.shake(220, 0.005);
+      this.pulseCorrectShip();
       this.tweens.add({
         targets: ship.container,
         scale: { from: 1, to: 0.6 },
@@ -325,6 +331,86 @@ export class SpaceBattleScene extends BaseTrainingScene<TrainingTask> {
     } finally {
       this.locked = false;
     }
+  }
+
+  private async animateShot(ship: ShipUi): Promise<void> {
+    if (!this.playerShip) return;
+    const fromX = this.playerShip.x;
+    const fromY = this.playerShip.y - 26;
+    const toX = ship.container.x;
+    const toY = ship.container.y + 28;
+
+    const flash = this.add.graphics();
+    flash.fillStyle(0x9be7ff, 1);
+    flash.fillCircle(0, -26, 11);
+    this.playerShip.add(flash);
+    this.tweens.add({
+      targets: flash,
+      scale: 1.9,
+      alpha: 0,
+      duration: 140,
+      ease: 'Cubic.easeOut',
+      onComplete: () => flash.destroy(),
+    });
+
+    const bullet = this.add.container(fromX, fromY);
+    const bolt = this.add.graphics();
+    bolt.fillStyle(0x9be7ff, 0.32);
+    bolt.fillRoundedRect(-5, 8, 10, 26, 4);
+    bolt.fillStyle(0xe0f2fe, 1);
+    bolt.fillRoundedRect(-3, -14, 6, 26, 3);
+    bolt.fillStyle(0xffffff, 1);
+    bolt.fillCircle(0, -16, 4);
+    bullet.add(bolt);
+
+    await new Promise<void>((resolve) => {
+      this.tweens.add({
+        targets: bullet,
+        x: toX,
+        y: toY,
+        scale: { from: 1, to: 1.12 },
+        duration: 230,
+        ease: 'Quad.easeOut',
+        onComplete: () => {
+          bullet.destroy();
+          this.spawnHitBurst(toX, toY, ship.isCorrect);
+          resolve();
+        },
+      });
+    });
+  }
+
+  private spawnHitBurst(x: number, y: number, correct: boolean): void {
+    const burst = this.add.graphics();
+    burst.lineStyle(3, correct ? 0x4ade80 : 0xf87171, 1);
+    burst.strokeCircle(x, y, 10);
+    burst.lineStyle(1, 0xe9efe9, 0.9);
+    burst.strokeCircle(x, y, 4);
+    this.tweens.add({
+      targets: burst,
+      scale: 3.4,
+      alpha: 0,
+      duration: 280,
+      ease: 'Cubic.easeOut',
+      onComplete: () => burst.destroy(),
+    });
+  }
+
+  private pulseCorrectShip(): void {
+    const correct = this.ships.find((s) => s.isCorrect && !s.hit);
+    if (!correct) return;
+    const ring = this.add.graphics();
+    ring.lineStyle(3, 0x4ade80, 0.95);
+    ring.strokeCircle(0, 0, 62);
+    correct.container.add(ring);
+    this.tweens.add({
+      targets: ring,
+      alpha: 0,
+      scale: 1.25,
+      duration: 720,
+      ease: 'Sine.easeOut',
+      onComplete: () => ring.destroy(),
+    });
   }
 
   private async onTimeout(): Promise<void> {
@@ -366,4 +452,37 @@ function generateId(prefix: string): string {
     globalThis.crypto?.randomUUID?.() ??
     `${Date.now().toString()}-${Math.random().toString(16).slice(2)}`;
   return `${prefix}_${uuid}`;
+}
+
+function drawEnemyShip(g: Phaser.GameObjects.Graphics, accent: number): void {
+  g.fillStyle(0x0b1320, 0.95);
+  g.fillTriangle(-66, 24, -38, -26, -6, 18);
+  g.fillTriangle(66, 24, 38, -26, 6, 18);
+  g.fillStyle(accent, 0.22);
+  g.fillRoundedRect(-58, -30, 116, 60, 8);
+  g.lineStyle(2, accent, 0.95);
+  g.strokeRoundedRect(-58, -30, 116, 60, 8);
+  g.fillStyle(0x111827, 1);
+  g.fillRoundedRect(-42, -18, 84, 38, 6);
+  g.fillStyle(accent, 0.72);
+  g.fillTriangle(-26, -30, 0, -54, 26, -30);
+  g.fillStyle(0xe0f2fe, 0.82);
+  g.fillEllipse(0, -10, 30, 14);
+  g.fillStyle(accent, 0.9);
+  g.fillRect(-48, 24, 18, 8);
+  g.fillRect(30, 24, 18, 8);
+}
+
+function drawPlayerShip(g: Phaser.GameObjects.Graphics): void {
+  g.fillStyle(0x0f172a, 1);
+  g.fillTriangle(-42, 20, 0, -36, 42, 20);
+  g.fillStyle(0x38bdf8, 1);
+  g.fillTriangle(-26, 16, 0, -28, 26, 16);
+  g.fillStyle(0x1d4ed8, 1);
+  g.fillRoundedRect(-13, -8, 26, 30, 5);
+  g.fillStyle(0xe0f2fe, 0.9);
+  g.fillEllipse(0, -14, 18, 12);
+  g.fillStyle(0xf97316, 0.9);
+  g.fillTriangle(-18, 20, -8, 40, -2, 20);
+  g.fillTriangle(18, 20, 8, 40, 2, 20);
 }

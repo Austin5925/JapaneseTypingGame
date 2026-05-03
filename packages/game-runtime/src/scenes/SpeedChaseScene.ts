@@ -10,6 +10,10 @@ import { getSpeedChaseDifficulty } from './speedChaseDifficulty';
 
 export const SPEED_CHASE_SCENE_KEY = 'SpeedChaseScene';
 const MIN_PURSUER_DISTANCE_PX = 60;
+const PLAYER_START_X = 220;
+const PURSUER_START_X = 100;
+const PLAYER_ADVANCE_PX = 72;
+const TRACK_RECENTER_X = 560;
 
 /**
  * Where SpeedChaseScene reads user input from.
@@ -51,8 +55,8 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
   private timerText: Phaser.GameObjects.Text | null = null;
   private playerSprite: Phaser.GameObjects.Container | null = null;
   private pursuerSprite: Phaser.GameObjects.Container | null = null;
-  private playerX = 200;
-  private pursuerX = 80;
+  private playerX = PLAYER_START_X;
+  private pursuerX = PURSUER_START_X;
   private inputBuffer = '';
   private taskStartedAt = 0;
   private sessionStartedAt = 0;
@@ -63,6 +67,7 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
   private locked = false;
   private inputSource: SpeedChaseInputSource = 'phaser_keys';
   private offExternalInput: (() => void) | null = null;
+  private keydownHandler: ((event: KeyboardEvent) => void) | null = null;
 
   constructor() {
     super(SPEED_CHASE_SCENE_KEY);
@@ -72,11 +77,21 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
     super.init(params);
     if (params.width) this.widthPx = params.width;
     if (params.height) this.heightPx = params.height;
-    if (params.inputSource) this.inputSource = params.inputSource;
+    this.inputSource = params.inputSource ?? 'phaser_keys';
     this.sessionStartedAt = this.now();
     // Reset between Phaser scene restarts (the instance is reused, class fields don't re-init).
+    this.offExternalInput?.();
     this.offExternalInput = null;
+    this.unbindKeyboard();
     this.locked = false;
+    this.playerX = PLAYER_START_X;
+    this.pursuerX = PURSUER_START_X;
+    this.inputBuffer = '';
+    this.taskStartedAt = 0;
+    this.timeLimitMs = 7000;
+    this.taskTimer = null;
+    this.accuracyAttempts = 0;
+    this.accuracyCorrect = 0;
   }
 
   protected createBackground(): void {
@@ -112,13 +127,13 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
     this.inputBufferText.setOrigin(0.5, 1);
 
     // Player + pursuer indicators on the track.
-    this.playerSprite = this.add.container(this.playerX, this.heightPx * 0.62 + 30);
+    this.playerSprite = this.add.container(this.playerX, this.trackCenterY());
     const playerBody = this.add.graphics();
     playerBody.fillStyle(0x4ade80, 1);
     playerBody.fillCircle(0, 0, 16);
     this.playerSprite.add(playerBody);
 
-    this.pursuerSprite = this.add.container(this.pursuerX, this.heightPx * 0.62 + 30);
+    this.pursuerSprite = this.add.container(this.pursuerX, this.trackCenterY());
     const pursuerBody = this.add.graphics();
     pursuerBody.fillStyle(0xf87171, 1);
     pursuerBody.fillCircle(0, 0, 16);
@@ -126,8 +141,10 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
 
     if (this.inputSource === 'phaser_keys') {
       if (this.input.keyboard) {
-        this.input.keyboard.on('keydown', (event: KeyboardEvent) => {
-          this.onKeyDown(event);
+        this.keydownHandler = (event: KeyboardEvent) => this.onKeyDown(event);
+        this.input.keyboard.on('keydown', this.keydownHandler);
+        this.events.once('shutdown', () => {
+          this.unbindKeyboard();
         });
       }
     } else {
@@ -154,13 +171,18 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
       const accuracy = this.accuracyAttempts > 0 ? this.accuracyCorrect / this.accuracyAttempts : 1;
       const diff = getSpeedChaseDifficulty(this.now() - this.sessionStartedAt, accuracy);
       const cappedDelta = Math.min(delta, 50);
+      const maxPursuerX = this.playerX - MIN_PURSUER_DISTANCE_PX;
       this.pursuerX = Math.min(
-        this.playerX - MIN_PURSUER_DISTANCE_PX,
+        maxPursuerX,
         this.pursuerX + (diff.pursuerSpeedPx * cappedDelta) / 16,
       );
-      this.pursuerSprite.setX(this.pursuerX);
+      const isAtPressure = Math.abs(this.pursuerX - maxPursuerX) <= 0.5;
+      this.pursuerSprite.setPosition(
+        this.pursuerX,
+        this.trackCenterY() + (isAtPressure ? Math.sin(time / 90) * 3 : 0),
+      );
+      this.playerSprite?.setY(this.trackCenterY() + Math.sin(time / 140) * 1.5);
     }
-    void time;
   }
 
   protected spawnTask(task: TrainingTask): void {
@@ -220,6 +242,41 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
     this.inputBufferText?.setText(this.inputBuffer.length > 0 ? this.inputBuffer : '_');
   }
 
+  private trackCenterY(): number {
+    return this.heightPx * 0.62 + 30;
+  }
+
+  private unbindKeyboard(): void {
+    if (this.keydownHandler && this.input.keyboard) {
+      this.input.keyboard.off('keydown', this.keydownHandler);
+    }
+    this.keydownHandler = null;
+  }
+
+  private advancePlayer(): void {
+    this.playerX += PLAYER_ADVANCE_PX;
+    this.normalizeTrackPositions();
+    if (this.playerSprite) {
+      this.playerSprite.setX(this.playerX);
+      this.playerSprite.setScale(1.16);
+      this.tweens.add({
+        targets: this.playerSprite,
+        scale: 1,
+        duration: 180,
+        ease: 'Cubic.easeOut',
+      });
+    }
+  }
+
+  private normalizeTrackPositions(): void {
+    if (this.playerX <= TRACK_RECENTER_X) return;
+    const shift = this.playerX - PLAYER_START_X;
+    this.playerX -= shift;
+    this.pursuerX -= shift;
+    this.playerSprite?.setX(this.playerX);
+    this.pursuerSprite?.setX(this.pursuerX);
+  }
+
   protected showFeedback(result: EvaluationResult): void {
     this.accuracyAttempts++;
     if (result.isCorrect) this.accuracyCorrect++;
@@ -229,8 +286,7 @@ export class SpeedChaseScene extends BaseTrainingScene<TrainingTask> {
       this.feedbackText.setText(`✓ ${result.expectedDisplay}`);
       this.feedbackText.setColor('#4ade80');
       // Reward visual: nudge player forward so pursuer falls back.
-      this.playerX += 18;
-      this.playerSprite?.setX(this.playerX);
+      this.advancePlayer();
     } else {
       const tagSummary = result.errorTags.length > 0 ? ` (${result.errorTags.join(', ')})` : '';
       this.feedbackText.setText(`✗ expected ${result.expectedDisplay}${tagSummary}`);
