@@ -1,8 +1,14 @@
 import { useEffect, useState, type CSSProperties, type JSX, type ReactNode } from 'react';
 
+import {
+  readMoleDifficultyPreference,
+  writeMoleDifficultyPreference,
+} from '../features/preferences';
 import { PixIcon } from '../features/style/PixIcon';
 import { APP_VERSION } from '../features/version';
 import { getDbInfo, type DbInfo } from '../tauri/invoke';
+
+import type { MoleDifficulty } from './GamePage';
 
 type SettingsSectionId = 'data' | 'packs' | 'train' | 'theme' | 'about';
 type ThemeChoice = 'dark' | 'light';
@@ -176,30 +182,43 @@ function TrainingSettings(): JSX.Element {
         <span>会话 180 秒 · 3 段 × 4 题混合关,combo 跨段共享。</span>
       </InfoRow>
       <InfoRow label="鼹鼠难度">
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          <a
-            className="r-btn"
-            href="#/game/mole?difficulty=easy"
-            style={{ textDecoration: 'none' }}
-          >
-            简单 · 8.0s
-          </a>
-          <a
-            className="r-btn"
-            href="#/game/mole?difficulty=normal"
-            style={{ textDecoration: 'none' }}
-          >
-            普通 · 6.0s
-          </a>
-          <a
-            className="r-btn"
-            href="#/game/mole?difficulty=hard"
-            style={{ textDecoration: 'none' }}
-          >
-            困难 · 4.5s
-          </a>
-        </div>
+        <MoleDifficultyChooser />
       </InfoRow>
+    </div>
+  );
+}
+
+const MOLE_DIFFICULTY_OPTIONS: Array<{ value: MoleDifficulty; label: string }> = [
+  { value: 'easy', label: '简单 · 8.0s' },
+  { value: 'normal', label: '普通 · 6.0s' },
+  { value: 'hard', label: '困难 · 4.5s' },
+];
+
+function MoleDifficultyChooser(): JSX.Element {
+  // v0.9.2: 这里只保存偏好,不再跳转到游戏。点击后立即写 localStorage,下次进入鼹鼠
+  // (从首页 / nav / 直接 #/game/mole)无 url override 时会读这里的值。
+  const [chosen, setChosen] = useState<MoleDifficulty>(
+    () => readMoleDifficultyPreference() ?? 'normal',
+  );
+  return (
+    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
+      {MOLE_DIFFICULTY_OPTIONS.map((opt) => (
+        <button
+          key={opt.value}
+          type="button"
+          className={`r-btn${chosen === opt.value ? ' primary' : ''}`}
+          onClick={() => {
+            writeMoleDifficultyPreference(opt.value);
+            setChosen(opt.value);
+          }}
+          aria-pressed={chosen === opt.value}
+        >
+          {opt.label}
+        </button>
+      ))}
+      <span className="r-label" style={{ fontSize: 8, marginLeft: 4 }}>
+        点击保存,下次进入鼹鼠自动套用
+      </span>
     </div>
   );
 }

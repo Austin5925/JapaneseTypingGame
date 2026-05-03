@@ -54,6 +54,10 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
 - SettingsPage「关于 / 版本」面板从 3 行单句扩成 5 段:产品定位(反射训练器、目标用户、
   闭环叙事)、技术架构(Tauri + React + Phaser + 离线 SQLite)、发布节奏(0.x 试错 /
   1.0 MVP / public repo + CI gate)、致谢(JLPT 词表 + wanakana + 8-bit SFX)。
+- SettingsPage 鼹鼠难度行从「3 个跳游戏的链接」改为「3 个保存偏好的按钮」: 点击只
+  写 localStorage(`kana-mole-difficulty`)+ 高亮 active,不再跳转。GamePage 进入鼹鼠
+  时如果 url override 没指定 `?difficulty=`,fallback 到 localStorage 偏好,再
+  fallback 到 `'normal'`。新增 `apps/desktop/src/features/preferences.ts` 集中管理。
 
 ### Tests
 

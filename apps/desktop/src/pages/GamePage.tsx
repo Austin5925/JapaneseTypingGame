@@ -21,6 +21,7 @@ import {
 import { GameHud, type GameHudCombo } from '../features/game/GameHud';
 import { ImeInputBox } from '../features/input/ImeInputBox';
 import type { ImeInputState } from '../features/input/useImeInputController';
+import { readMoleDifficultyPreference } from '../features/preferences';
 import { GameSessionService } from '../features/session/GameSessionService';
 import { FULL_ITEM_SCAN_LIMIT, listItems, listProgress, type DevItemRow } from '../tauri/invoke';
 
@@ -115,8 +116,13 @@ export interface GamePageProps {
  */
 export function GamePage(props: GamePageProps): JSX.Element {
   const baseConfig = MODE_CONFIG[props.mode];
+  // Preference layer (Settings → 训练参数) sits between url override and the hard-coded
+  // 'normal' default, so a user who picked 简单 / 困难 in Settings keeps that choice across
+  // sessions without having to put `?difficulty=...` on every link.
   const moleDifficulty: MoleDifficulty =
-    props.mode === 'mole' ? (props.overrides?.moleDifficulty ?? 'normal') : 'normal';
+    props.mode === 'mole'
+      ? (props.overrides?.moleDifficulty ?? readMoleDifficultyPreference() ?? 'normal')
+      : 'normal';
   const moleTiming = MOLE_DIFFICULTY_CONFIG[moleDifficulty];
   const durationMs = props.overrides?.durationMs ?? baseConfig.durationMs;
   const config: ModeConfig = {
