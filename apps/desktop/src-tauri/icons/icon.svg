@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer retro-shell background (matches CLI dark theme #0a0e0c) -->
+  <defs>
+    <linearGradient id="bezel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1d2a27"/>
+      <stop offset="100%" stop-color="#0a0e0c"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0e1414"/>
+      <stop offset="100%" stop-color="#06120e"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- App tile background (rounded square, mac-style) -->
+  <rect x="0" y="0" width="1024" height="1024" rx="180" ry="180" fill="url(#bezel)"/>
+
+  <!-- Subtle inner highlight (top bevel) -->
+  <rect x="0" y="0" width="1024" height="200" rx="180" ry="180" fill="#ffffff" fill-opacity="0.04"/>
+
+  <!-- CRT screen panel -->
+  <rect x="120" y="180" width="784" height="660" rx="40" ry="40"
+        fill="url(#screen)" stroke="#7ee787" stroke-width="8" stroke-opacity="0.55"/>
+
+  <!-- Scanline overlay (very faint horizontal stripes) -->
+  <g opacity="0.18">
+    <rect x="120" y="200" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="240" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="280" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="320" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="360" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="400" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="440" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="480" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="520" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="560" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="600" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="640" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="680" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="720" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="760" width="784" height="2" fill="#7ee787"/>
+    <rect x="120" y="800" width="784" height="2" fill="#7ee787"/>
+  </g>
+
+  <!-- 「か」 — main glyph, glowing accent green -->
+  <text x="512" y="710" text-anchor="middle"
+        font-family="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif"
+        font-size="540" font-weight="700" fill="#7ee787" filter="url(#glow)">か</text>
+
+  <!-- Blinking cursor block right of the kana -->
+  <rect x="760" y="540" width="48" height="120" fill="#7ee787" filter="url(#glow)"/>
+
+  <!-- Bottom label "KANA" pixel-display style -->
+  <text x="512" y="930" text-anchor="middle"
+        font-family="'Courier New', monospace" font-size="86" font-weight="700"
+        fill="#7ee787" letter-spacing="14">KANA</text>
+</svg>

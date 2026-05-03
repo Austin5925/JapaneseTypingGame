@@ -58,6 +58,11 @@ covers pre-MVP iterations; the 1.0 release lands when the desktop MVP is judged 
   写 localStorage(`kana-mole-difficulty`)+ 高亮 active,不再跳转。GamePage 进入鼹鼠
   时如果 url override 没指定 `?difficulty=`,fallback 到 localStorage 偏好,再
   fallback 到 `'normal'`。新增 `apps/desktop/src/features/preferences.ts` 集中管理。
+- 替换默认 Tauri 纯色 icon: 新设计 retro CRT 风格图标 — 圆角深色外壳 + 内嵌绿色
+  CRT 屏幕(scanline + glow)+ 中央大「か」字符 + 底部 KANA 标签。SVG 源码进
+  `apps/desktop/src-tauri/icons/icon.svg`,通过 `pnpm tauri icon` 一键生成所有平台:
+  macOS `.icns` / Windows `.ico` / 桌面 PNG (32 / 64 / 128 / 256) / Windows Store
+  Square logos。iOS / Android 派生物 gitignored(我们不打这两个平台)。
 
 ### Tests
 

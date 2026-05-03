@@ -87,6 +87,12 @@ out/
 *.deb
 *.rpm
 
+# Tauri icon generator also produces iOS / Android variants; we don't ship those
+# platforms in v0.x, so keep their assets out of the public repo. macOS .icns,
+# Windows .ico, and the web favicon-style PNGs at icons/*.png stay tracked.
+apps/desktop/src-tauri/icons/ios/
+apps/desktop/src-tauri/icons/android/
+
 # -----------------------------------------------------------------------------
 # SQLite local DB / 用户学习数据 (绝不入库)
 # -----------------------------------------------------------------------------
